@@ -21009,7 +21009,7 @@
                             "name": "groupRowsBy",
                             "optional": true,
                             "readonly": false,
-                            "type": "keyof T | Function | keyof T[]",
+                            "type": "keyof T | Function | (keyof T)[]",
                             "default": "",
                             "description": "One or more field names to use in row grouping."
                         },
@@ -60613,6 +60613,29 @@
             "methodDescription": "Defines methods that can be accessed by the component's reference.",
             "typeDescription": "Defines the custom types used by the module.",
             "values": {
+                "SelectButtonContext": {
+                    "description": "Defines current options in SelectButton component.",
+                    "relatedProp": "",
+                    "props": [
+                        {
+                            "name": "active",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current active state as a boolean."
+                        },
+                        {
+                            "name": "disabled",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Current disabled state as a boolean."
+                        }
+                    ],
+                    "methods": []
+                },
                 "SelectButtonPassThroughMethodOptions": {
                     "description": "Custom passthrough(pt) option method.",
                     "relatedProp": "",
@@ -60642,6 +60665,14 @@
                             "description": "Defines current inline state."
                         },
                         {
+                            "name": "context",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "SelectButtonContext",
+                            "default": "",
+                            "description": "Defines current options."
+                        },
+                        {
                             "name": "attrs",
                             "optional": false,
                             "readonly": false,
@@ -60664,14 +60695,6 @@
                             "type": "undefined | object",
                             "default": "",
                             "description": "Defines passthrough(pt) options in global config."
-                        },
-                        {
-                            "name": "context",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "SelectButtonContext",
-                            "default": "",
-                            "description": "Defines current options."
                         }
                     ],
                     "methods": []
@@ -61007,35 +61030,16 @@
                             "description": "Callback to invoke on blur."
                         }
                     ]
-                },
-                "SelectButtonContext": {
-                    "description": "Defines current options in SelectButton component.",
-                    "relatedProp": "",
-                    "props": [
-                        {
-                            "name": "active",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current highlighted state as a boolean."
-                        },
-                        {
-                            "name": "disabled",
-                            "optional": false,
-                            "readonly": false,
-                            "type": "boolean",
-                            "default": "false",
-                            "description": "Current disabled state as a boolean."
-                        }
-                    ],
-                    "methods": []
                 }
             }
         },
         "tokens": {
             "description": "Define design tokens used by the component.",
             "values": {
+                "SelectButtonContext": {
+                    "description": "Defines current options in SelectButton component.",
+                    "props": []
+                },
                 "SelectButtonPassThroughMethodOptions": {
                     "description": "Custom passthrough(pt) option method.",
                     "props": []
@@ -61054,10 +61058,6 @@
                 },
                 "SelectButtonState": {
                     "description": "Defines current inline state in SelectButton component.",
-                    "props": []
-                },
-                "SelectButtonContext": {
-                    "description": "Defines current options in SelectButton component.",
                     "props": []
                 },
                 "SelectButtonProps": {
