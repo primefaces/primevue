@@ -15,14 +15,11 @@ export default {
     extends: BaseBlockUI,
     inheritAttrs: false,
     emits: ['block', 'unblock'],
-
-    /**
-     * 20 Jun 2025
-     * @deprecated the single mask variable will cause race condition if the block / unblock value changed too fast
-     */
     mask: null,
-
-    maskList: null,
+    requestQueue: null,
+    isBlockingInProgress: false,
+    isUnBlockingInProgress: false,
+    
     data() {
         return {
             isBlocked: false
@@ -30,104 +27,147 @@ export default {
     },
     watch: {
         blocked(newValue) {
-            if (newValue === true) this.block();
-            else this.unblock();
+//            if (newValue === true) this.block();
+//            else this.unblock();
+			this.requestQueue.push(newValue);
+			this.handleBlockUnblockUi();
         }
     },
     mounted() {
+    	this.requestQueue = [];
+    	this.isBlockingInProgress = false;
+    	this.isUnBlockingInProgress = false;
         if (this.blocked) {
-            this.block();
+            //this.block();
+			this.requestQueue.push(this.blocked);
+			this.handleBlockUnblockUi();
         }
     },
     methods: {
+    	handleBlockUnblockUi() {
+            //if blocking or unblocking is in progress, we just wait for it finish first
+ 			if (this.isBlockingInProgress || this.isUnBlockingInProgress) {
+				return;
+			}
+			
+            //if there are multiple requests waiting 
+            //we only care about the last one, process the last one, ignore the previous 
+			if(this.requestQueue && this.requestQueue.length > 0) {
+				const requestLen = this.requestQueue.length;
+				const lastRequest = this.requestQueue[requestLen-1];
+				this.requestQueue = this.requestQueue.slice(requestLen);
+								
+				if (lastRequest) {
+					this.block();
+				} else {
+					this.unblock();
+				}
+			}
+        },
+
         block() {
-            let styleClass = 'p-blockui-mask p-overlay-mask p-overlay-mask-enter';
-            let m = null;
-
-            if (this.fullScreen) {
-                styleClass += ' p-blockui-mask-document';
-
-                m = createElement('div', {
-                    style: {
-                        position: 'fixed',
-                        top: '0',
-                        left: '0',
-                        width: '100%',
-                        height: '100%'
-                    },
-                    class: !this.isUnstyled && styleClass,
-                    'p-bind': this.ptm('mask')
-                });
-
-                document.body.appendChild(m);
-                blockBodyScroll();
-                document.activeElement.blur();
-            } else {
-                m = createElement('div', {
-                    style: {
-                        position: 'absolute',
-                        top: '0',
-                        left: '0',
-                        width: '100%',
-                        height: '100%'
-                    },
-                    class: !this.isUnstyled && styleClass,
-                    'p-bind': this.ptm('mask')
-                });
-                this.$refs.container.appendChild(m);
-            }
-
-            if (this.autoZIndex) {
-                ZIndex.set('modal', m, this.baseZIndex + this.$primevue.config.zIndex.modal);
-            }
-
-            if(this.maskList === undefined || this.maskList === null) {
-                this.maskList = [];
-            }
-
-            this.maskList.push(m);
-            this.isBlocked = true;
-            this.$emit('block');
+        	this.isBlockingInProgress = true;
+        	try {
+	            let styleClass = 'p-blockui-mask p-overlay-mask p-overlay-mask-enter';
+	            let newMask = false;
+	
+	            if (this.fullScreen) {
+	            	if(!this.mask || !document.body.contains(this.mask)) {
+	            		
+		                styleClass += ' p-blockui-mask-document';
+		
+		                this.mask = createElement('div', {
+		                    style: {
+		                        position: 'fixed',
+		                        top: '0',
+		                        left: '0',
+		                        width: '100%',
+		                        height: '100%'
+		                    },
+		                    class: !this.isUnstyled && styleClass,
+		                    'p-bind': this.ptm('mask')
+		                });
+						newMask = true;
+		                document.body.appendChild(this.mask);
+		                blockBodyScroll();
+		                document.activeElement.blur();
+		           } else {
+						//already has this mask, so avoid add multiple masks
+		           }
+	            } else {
+	            	if(!this.mask || !this.$refs.container.contains(this.mask)) {
+		                this.mask = createElement('div', {
+		                    style: {
+		                        position: 'absolute',
+		                        top: '0',
+		                        left: '0',
+		                        width: '100%',
+		                        height: '100%'
+		                    },
+		                    class: !this.isUnstyled && styleClass,
+		                    'p-bind': this.ptm('mask')
+		                });
+		                
+		                newMask = true;
+		                this.$refs.container.appendChild(this.mask);
+					}
+	            }
+	
+	            if (this.autoZIndex && newMask) {
+	                ZIndex.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
+	            }
+				
+	            this.isBlocked = true;
+	            this.$emit('block');
+			} finally {
+				this.isBlockingInProgress = false;
+				this.handleBlockUnblockUi();
+			}
         },
         unblock() {
-            if(this.maskList && this.maskList.length > 0) {
-                let m = this.maskList[0];
-
-                !this.isUnstyled && addClass(m, 'p-overlay-mask-leave');
+        	this.isUnBlockingInProgress = true;
+            if (this.mask) {
+                !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
 
                 const handleAnimationEnd = () => {
                     clearTimeout(fallbackTimer);
-                    m.removeEventListener('animationend', handleAnimationEnd);
-                    m.removeEventListener('webkitAnimationEnd', handleAnimationEnd);
+                    this.mask.removeEventListener('animationend', handleAnimationEnd);
+                    this.mask.removeEventListener('webkitAnimationEnd', handleAnimationEnd);
                 };
 
                 const fallbackTimer = setTimeout(() => {
                     this.removeMask();
                 }, 10);
 
-                if (hasCSSAnimation(m) > 0) {
-                    m.addEventListener('animationend', handleAnimationEnd);
-                    m.addEventListener('webkitAnimationEnd', handleAnimationEnd);
+                if (hasCSSAnimation(this.mask) > 0) {
+                    this.mask.addEventListener('animationend', handleAnimationEnd);
+                    this.mask.addEventListener('webkitAnimationEnd', handleAnimationEnd);
                 }
             } else {
                 this.removeMask();
             }
         },
         removeMask() {
-            if(this.maskList && this.maskList.length > 0) {
-                const m = this.maskList.shift();
-                ZIndex.clear(m);
-
-                if (this.fullScreen) {
-                    document.body.removeChild(m);
-                    unblockBodyScroll();
-                } else {
-                    this.$refs.container?.removeChild(m);
-                }
-
-                this.isBlocked = false;
-                this.$emit('unblock');
-            }
+        	try {
+	            ZIndex.clear(this.mask);
+	
+	            if (this.fullScreen) {
+	                if(document.body.contains(this.mask)) {
+		                document.body.removeChild(this.mask);
+					}
+		            unblockBodyScroll();
+	            } else {
+	            	if(this.$refs.container?.contains(this.mask)) {
+	                	this.$refs.container?.removeChild(this.mask);
+	                }
+	            }
+	
+	            this.isBlocked = false;
+	            this.$emit('unblock');
+			} finally {
+				this.isUnBlockingInProgress = false;
+				this.handleBlockUnblockUi();
+			}
         }
     }
 };
