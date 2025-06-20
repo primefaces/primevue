@@ -2093,6 +2093,7 @@ export default {
             return Math.floor(Math.round((time - checkDate.getTime()) / 86400000) / 7) + 1;
         },
         onDateCellKeydown(event, date, groupIndex) {
+            event.preventDefault();
             const cellContent = event.currentTarget;
             const cell = cellContent.parentElement;
 
