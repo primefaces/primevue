@@ -120,6 +120,8 @@ export default {
 
                 this.scrollYRatio = ownHeight / totalHeight;
 
+                const scrollBarHeight = Math.max(this.scrollYRatio * 100, 10);
+
                 this.frame = this.requestAnimationFrame(() => {
                     if (this.$refs.xBar) {
                         if (this.scrollXRatio >= 1) {
@@ -142,7 +144,7 @@ export default {
                             !this.isUnstyled && removeClass(this.$refs.yBar, 'p-scrollpanel-hidden');
 
                             this.$refs.yBar.style.cssText =
-                                'height:' + Math.max(this.scrollYRatio * 100, 10) + '%; top: calc(' + (this.$refs.content.scrollTop / totalHeight) * 100 + '% - ' + this.$refs.xBar.clientHeight + 'px); inset-inline-end:' + right + 'px;';
+                                'height:' + scrollBarHeight + '%; top: calc(' + (this.$refs.content.scrollTop / (totalHeight - ownHeight)) * (100 - scrollBarHeight) + '% - ' + this.$refs.xBar.clientHeight + 'px); inset-inline-end:' + right + 'px;';
                         }
                     }
                 });
