@@ -353,15 +353,14 @@ export default {
                     this.container.style.position = 'fixed';
 
                     if (this.keepInViewport) {
-                        if (leftPos >= this.minX && leftPos + width < viewport.width) {
-                            this.lastPageX = event.pageX;
-                            this.container.style.left = leftPos - marginLeft + 'px';
-                        }
-
-                        if (topPos >= this.minY && topPos + height < viewport.height) {
-                            this.lastPageY = event.pageY;
-                            this.container.style.top = topPos - marginTop + 'px';
-                        }
+                        this.lastPageX = event.pageX;
+                        this.lastPageY = event.pageY;
+                        
+                        let constrainedLeftPos = Math.max(this.minX, Math.min(leftPos, viewport.width - width));
+                        let constrainedTopPos = Math.max(this.minY, Math.min(topPos, viewport.height - height));
+                        
+                        this.container.style.left = constrainedLeftPos - marginLeft + 'px';
+                        this.container.style.top = constrainedTopPos - marginTop + 'px';
                     } else {
                         this.lastPageX = event.pageX;
                         this.container.style.left = leftPos - marginLeft + 'px';
