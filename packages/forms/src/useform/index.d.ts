@@ -9,8 +9,41 @@ export interface useFormFieldState {
     errors: any[];
 }
 
+export interface useFormFieldOptions {
+    initialValue?: any;
+    props?: Record<string, any> | ((state: useFormFieldState) => Record<string, any>);
+    validateOnBlur?: boolean;
+    validateOnValueUpdate?: boolean;
+    resolver?: (options: { values: any; value: any; name: string }) => Promise<Record<string, any>> | Record<string, any> | undefined;
+    onBlur?: (event: Event) => void;
+    onInput?: (event: Event | any) => void;
+    onChange?: (event: Event | any) => void;
+    onInvalid?: (errors: any[]) => void;
+    [key: string]: any;
+}
+
+export interface useFormFieldProps {
+    name: string;
+    onBlur: (event: Event) => void;
+    onInput: (event: Event | any) => void;
+    onChange: (event: Event | any) => void;
+    onInvalid: (errors: any[]) => void;
+    [key: string]: any;
+}
+
+export interface useFormFieldInstance {
+    props: useFormFieldProps;
+    states: useFormFieldState;
+    options?: useFormFieldOptions;
+    _watcher: {
+        stop: () => void;
+        pause: () => void;
+        resume: () => void;
+    };
+}
+
 export interface useFormReturn {
-    defineField: (field: string, options?: any) => any;
+    defineField: (field: string, options?: useFormFieldOptions) => [useFormFieldState, useFormFieldProps];
     setFieldValue: (field: string, value: any) => void;
     getFieldState: (field: string) => useFormFieldState | undefined;
     handleSubmit: (event: any) => any;
@@ -20,6 +53,7 @@ export interface useFormReturn {
     reset: () => void;
     valid: boolean;
     states: Record<string, useFormFieldState>;
+    fields: Record<string, useFormFieldInstance>;
 }
 
 export interface useFormResolverOptions {
