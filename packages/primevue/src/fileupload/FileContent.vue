@@ -1,6 +1,6 @@
 <template>
     <div v-for="(file, index) of files" :key="file.name + file.type + file.size" :class="cx('file')" v-bind="ptm('file')">
-        <img role="presentation" :class="cx('fileThumbnail')" :alt="file.name" :src="file.objectURL" :width="previewWidth" v-bind="ptm('fileThumbnail')" />
+        <img role="presentation" :class="cx('fileThumbnail')" :alt="file.name" :src="file.objectURL" :width="previewWidth" onerror="this.remove()" v-bind="ptm('fileThumbnail')" />
         <div :class="cx('fileInfo')" v-bind="ptm('fileInfo')">
             <div :class="cx('fileName')" v-bind="ptm('fileName')">{{ file.name }}</div>
             <span :class="cx('fileSize')" v-bind="ptm('fileSize')">{{ formatSize(file.size) }}</span>
