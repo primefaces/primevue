@@ -195,7 +195,7 @@ export interface MenuProps {
     /**
      * An array of menuitems.
      */
-    model?: MenuItem[] | undefined;
+    model?: MenuItem | MenuItem[] | undefined;
     /**
      * Defines if menu would displayed as a popup.
      * @defaultValue false
