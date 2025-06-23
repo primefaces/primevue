@@ -222,6 +222,11 @@ export interface RatingSlots {
          * Style class of the icon.
          */
         class: string;
+        /**
+         * Toggle function.
+         * @param {Event} event - Browser event
+         */
+        toggleCallback: (event: Event) => void;
     }): VNode[];
     /**
      * Custom off icon template.
@@ -236,6 +241,11 @@ export interface RatingSlots {
          * Style class of the icon.
          */
         class: string;
+        /**
+         * Toggle function.
+         * @param {Event} event - Browser event
+         */
+        toggleCallback: (event: Event) => void;
     }): VNode[];
 }
 

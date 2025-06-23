@@ -17,10 +17,10 @@
                         v-bind="ptm('hiddenOptionInput')"
                     />
                 </span>
-                <slot v-if="value <= d_value" name="onicon" :value="value" :class="cx('onIcon')">
+                <slot v-if="value <= d_value" name="onicon" :value="value" :toggleCallback="(event) => onChange(event, value)" :class="cx('onIcon')">
                     <component :is="onIcon ? 'span' : 'StarFillIcon'" :class="[cx('onIcon'), onIcon]" v-bind="ptm('onIcon')" />
                 </slot>
-                <slot v-else name="officon" :value="value" :class="cx('offIcon')">
+                <slot v-else name="officon" :value="value" :class="cx('offIcon')" :toggleCallback="(event) => onChange(event, value)">
                     <component :is="offIcon ? 'span' : 'StarIcon'" :class="[cx('offIcon'), offIcon]" v-bind="ptm('offIcon')" />
                 </slot>
             </div>
