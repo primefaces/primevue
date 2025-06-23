@@ -326,7 +326,6 @@ export interface MenubarSlots {
          */
         class: string;
         /**
-         *
          * Toggle event
          */
         toggleCallback: () => void;
@@ -345,7 +344,6 @@ export interface MenubarSlots {
          */
         class: string;
         /**
-         *
          * Toggle event
          */
         toggleCallback: () => void;

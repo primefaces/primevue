@@ -343,7 +343,6 @@ export interface MegaMenuSlots {
          */
         class: string;
         /**
-         *
          * Toggle event
          */
         toggleCallback: () => void;

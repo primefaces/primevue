@@ -43,7 +43,7 @@ export interface useFormFieldInstance {
 }
 
 export interface useFormReturn {
-    defineField: (field: string, options?: useFormFieldOptions) => [useFormFieldState, useFormFieldProps];
+    defineField: (field: string, options?: useFormFieldOptions) => { state: useFormFieldState; props: useFormFieldProps };
     setFieldValue: (field: string, value: any) => void;
     getFieldState: (field: string) => useFormFieldState | undefined;
     handleSubmit: (event: any) => any;
