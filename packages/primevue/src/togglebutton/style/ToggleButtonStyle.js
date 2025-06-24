@@ -7,6 +7,7 @@ const classes = {
         {
             'p-togglebutton-checked': instance.active,
             'p-invalid': instance.$invalid,
+            'p-togglebutton-fluid': props.fluid,
             'p-togglebutton-sm p-inputfield-sm': props.size === 'small',
             'p-togglebutton-lg p-inputfield-lg': props.size === 'large'
         }

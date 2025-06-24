@@ -146,6 +146,11 @@ export interface ToggleButtonProps {
      */
     disabled?: boolean | undefined;
     /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue null
+     */
+    fluid?: boolean | undefined;
+    /**
      * When present, it specifies that an input field is read-only.
      * @default false
      */
