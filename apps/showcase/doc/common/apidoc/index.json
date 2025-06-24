@@ -41937,6 +41937,14 @@
                             "description": "When specified, disables the component."
                         },
                         {
+                            "name": "fluid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "null",
+                            "description": "Spans 100% width of the container when enabled."
+                        },
+                        {
                             "name": "dataKey",
                             "optional": true,
                             "readonly": false,
@@ -61038,6 +61046,14 @@
                             "description": "When present, it specifies that the element should be disabled."
                         },
                         {
+                            "name": "fluid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "null",
+                            "description": "Spans 100% width of the container when enabled."
+                        },
+                        {
                             "name": "dataKey",
                             "optional": true,
                             "readonly": false,
@@ -73699,6 +73715,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "When present, it specifies that the element should be disabled."
+                        },
+                        {
+                            "name": "fluid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "null",
+                            "description": "Spans 100% width of the container when enabled."
                         },
                         {
                             "name": "readonly",
