@@ -496,9 +496,10 @@ export default {
 
             let selected = this.isSelected(option);
             let value = null;
+            const _value = this.getOptionValue(option) !== '' ? this.getOptionValue(option) : this.getOptionLabel(option);
 
-            if (selected) value = this.d_value.filter((val) => !equals(val, this.getOptionValue(option), this.equalityKey));
-            else value = [...(this.d_value || []), this.getOptionValue(option)];
+            if (selected) value = this.d_value.filter((val) => !equals(val, _value, this.equalityKey));
+            else value = [...(this.d_value || []), _value];
 
             this.updateModel(event, value);
             index !== -1 && (this.focusedOptionIndex = index);
@@ -829,7 +830,7 @@ export default {
         },
         getLabelByValue(value) {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
-            const matchedOption = options.find((option) => !this.isOptionGroup(option) && equals(this.getOptionValue(option), value, this.equalityKey));
+            const matchedOption = options.find((option) => !this.isOptionGroup(option) && equals(this.getOptionValue(option) !== '' ? this.getOptionValue(option) : this.getOptionLabel(option), value, this.equalityKey));
 
             return matchedOption ? this.getOptionLabel(matchedOption) : null;
         },
@@ -877,7 +878,7 @@ export default {
             return equals(value1, value2, this.equalityKey);
         },
         isSelected(option) {
-            const optionValue = this.getOptionValue(option);
+            const optionValue = this.getOptionValue(option) !== '' ? this.getOptionValue(option) : this.getOptionLabel(option);
 
             return (this.d_value || []).some((value) => this.isEquals(value, optionValue));
         },
