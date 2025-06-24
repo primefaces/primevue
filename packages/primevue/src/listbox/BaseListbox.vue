@@ -93,6 +93,10 @@ export default {
             type: Number,
             default: 0
         },
+        fluid: {
+            type: Boolean,
+            default: null
+        },
         ariaLabel: {
             type: String,
             default: null

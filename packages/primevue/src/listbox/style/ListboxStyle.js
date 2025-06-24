@@ -7,6 +7,7 @@ const classes = {
         {
             'p-listbox-striped': props.striped,
             'p-disabled': props.disabled,
+            'p-listbox-fluid': props.fluid,
             'p-invalid': instance.$invalid
         }
     ],

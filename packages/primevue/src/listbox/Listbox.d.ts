@@ -315,6 +315,11 @@ export interface ListboxProps {
      */
     disabled?: boolean | undefined;
     /**
+     * Spans 100% width of the container when enabled.
+     * @defaultValue null
+     */
+    fluid?: boolean | undefined;
+    /**
      * A property to uniquely identify an option.
      */
     dataKey?: string | undefined;
