@@ -23,6 +23,10 @@ export default {
         size: {
             type: String,
             default: null
+        },
+        fluid: {
+            type: Boolean,
+            default: null
         }
     },
     style: SelectButtonStyle,
