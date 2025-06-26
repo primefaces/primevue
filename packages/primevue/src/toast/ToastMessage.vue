@@ -1,5 +1,5 @@
 <template>
-    <div :class="[cx('message'), message.styleClass]" role="alert" aria-live="assertive" aria-atomic="true" :data-p="dataP" v-bind="ptm('message')" @click="onMessageClick" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
+    <div :class="[cx('message'), message.styleClass]" role="alert" aria-live="assertive" aria-atomic="true" :data-p="dataP" v-bind="ptm('message')" @click="onMessageClick" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
         <component v-if="templates.container" :is="templates.container" :message="message" :closeCallback="onCloseClick" />
         <div v-else :class="[cx('messageContent'), message.contentStyleClass]" v-bind="ptm('messageContent')">
             <template v-if="!templates.message">
@@ -115,7 +115,7 @@ export default {
         onMessageClick(event) {
             this.onClick?.({ originalEvent: event, message: this.message });
         },
-        onMouseEnter(event) {
+        handleMouseEnter(event) {
             if (this.onMouseEnter) {
                 this.onMouseEnter({ originalEvent: event, message: this.message });
 
@@ -130,7 +130,7 @@ export default {
                 }
             }
         },
-        onMouseLeave(event) {
+        handleMouseLeave(event) {
             if (this.onMouseLeave) {
                 this.onMouseLeave({ originalEvent: event, message: this.message });
 
