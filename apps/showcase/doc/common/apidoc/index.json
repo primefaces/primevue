@@ -73228,6 +73228,21 @@
                         }
                     ]
                 },
+                "ToastEvent": {
+                    "description": "Custom toast event.",
+                    "relatedProp": "undefined. - ",
+                    "props": [
+                        {
+                            "name": "message",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "ToastMessageOptions",
+                            "default": "",
+                            "description": "Toast message."
+                        }
+                    ],
+                    "methods": []
+                },
                 "ToastEmitsOptions": {
                     "description": "Defines valid emits in Toast component.",
                     "relatedProp": "",
@@ -73237,10 +73252,10 @@
                             "name": "close",
                             "parameters": [
                                 {
-                                    "name": "message",
+                                    "name": "event",
                                     "optional": false,
-                                    "type": "ToastMessageOptions",
-                                    "description": "Toast message."
+                                    "type": "ToastEvent",
+                                    "description": "Toast close event."
                                 }
                             ],
                             "returnType": "void",
@@ -73250,10 +73265,10 @@
                             "name": "life-end",
                             "parameters": [
                                 {
-                                    "name": "message",
+                                    "name": "event",
                                     "optional": false,
-                                    "type": "ToastMessageOptions",
-                                    "description": "Toast message."
+                                    "type": "ToastEvent",
+                                    "description": "Toast life end event."
                                 }
                             ],
                             "returnType": "void",
@@ -73296,6 +73311,10 @@
                 },
                 "ToastSlots": {
                     "description": "Defines valid slot in Toast component.",
+                    "props": []
+                },
+                "ToastEvent": {
+                    "description": "Custom toast event.",
                     "props": []
                 },
                 "ToastEmitsOptions": {
