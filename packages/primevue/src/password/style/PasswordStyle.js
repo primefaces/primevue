@@ -11,7 +11,8 @@ const classes = {
         {
             'p-inputwrapper-filled': instance.$filled,
             'p-inputwrapper-focus': instance.focused,
-            'p-password-fluid': instance.$fluid
+            'p-password-fluid': instance.$fluid,
+            'p-invalid': instance.$invalid
         }
     ],
     pcInputText: 'p-password-input',
