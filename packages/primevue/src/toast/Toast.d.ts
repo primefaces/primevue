@@ -326,19 +326,31 @@ export interface ToastSlots {
 }
 
 /**
+ * Custom toast event.
+ * @see {@link ToastEmitsOptions['close']}
+ * @see {@link ToastEmitsOptions['life-end']}
+ */
+export interface ToastEvent {
+    /**
+     * Toast message.
+     */
+    message: ToastMessageOptions;
+}
+
+/**
  * Defines valid emits in Toast component.
  */
 export interface ToastEmitsOptions {
     /**
      * Callback to invoke when the toast is closed.
-     * @param {ToastMessageOptions} message - Toast message.
+     * @param {ToastEvent} event - Toast close event.
      */
-    close(message: ToastMessageOptions): void;
+    close(event: ToastEvent): void;
     /**
      * Callback to invoke when the toast's timeout is over.
-     * @param {ToastMessageOptions} message - Toast message.
+     * @param {ToastEvent} event - Toast life end event.
      */
-    'life-end'(message: ToastMessageOptions): void;
+    'life-end'(event: ToastEvent): void;
 }
 
 export declare type ToastEmits = EmitFn<ToastEmitsOptions>;
