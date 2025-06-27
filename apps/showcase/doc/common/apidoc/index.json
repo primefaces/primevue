@@ -20830,7 +20830,7 @@
                             "name": "value",
                             "optional": true,
                             "readonly": false,
-                            "type": "null | T[]",
+                            "type": "null | readonly T[]",
                             "default": "",
                             "description": "An array of objects to display."
                         },
