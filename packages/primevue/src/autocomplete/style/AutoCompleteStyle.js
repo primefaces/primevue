@@ -10,7 +10,6 @@ const classes = {
     root: ({ instance, props }) => [
         'p-autocomplete p-component p-inputwrapper',
         {
-            'p-disabled': props.disabled,
             'p-invalid': instance.$invalid,
             'p-focus': instance.focused,
             'p-inputwrapper-filled': instance.$filled || isNotEmpty(instance.inputValue),
@@ -20,10 +19,11 @@ const classes = {
         }
     ],
     pcInputText: 'p-autocomplete-input',
-    inputMultiple: ({ instance }) => [
+    inputMultiple: ({ instance, props }) => [
         'p-autocomplete-input-multiple',
         {
-            'p-variant-filled': instance.$variant === 'filled'
+            'p-variant-filled': instance.$variant === 'filled',
+            'p-disabled': props.disabled
         }
     ],
     chipItem: ({ instance, i }) => [
