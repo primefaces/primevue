@@ -14,7 +14,7 @@
 
         <div>
             <label for="fluid" class="font-bold mb-2 block">Fluid Prop</label>
-            <InputText id="non-fluid" fluid />
+            <InputText id="fluid" fluid />
         </div>
 
         <Fluid>
@@ -44,7 +44,7 @@ export default {
 
 <div>
     <label for="fluid" class="font-bold mb-2 block">Fluid Prop</label>
-    <InputText id="non-fluid" fluid />
+    <InputText id="fluid" fluid />
 </div>
 
 <Fluid>
@@ -67,7 +67,7 @@ export default {
 
         <div>
             <label for="fluid" class="font-bold mb-2 block">Fluid Prop</label>
-            <InputText id="non-fluid" fluid />
+            <InputText id="fluid" fluid />
         </div>
 
         <Fluid>
@@ -89,7 +89,7 @@ export default {
 `,
                 composition: `
 <template>
-     <div class="card flex flex-col gap-6">
+    <div class="card flex flex-col gap-6">
         <div>
             <label for="non-fluid" class="font-bold mb-2 block">Non-Fluid</label>
             <InputText id="non-fluid" />
@@ -97,7 +97,7 @@ export default {
 
         <div>
             <label for="fluid" class="font-bold mb-2 block">Fluid Prop</label>
-            <InputText id="non-fluid" fluid />
+            <InputText id="fluid" fluid />
         </div>
 
         <Fluid>
