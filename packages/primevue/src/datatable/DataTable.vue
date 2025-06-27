@@ -1028,7 +1028,7 @@ export default {
                     focusedItem && focusedItem !== firstSelectedRow && (focusedItem.tabIndex = '-1');
                 } else {
                     rows[0].tabIndex = '0';
-                    focusedItem !== rows[0] && (rows[rowIndex].tabIndex = '-1');
+                    focusedItem !== rows[0] && rows[rowIndex] && (rows[rowIndex].tabIndex = '-1');
                 }
             }
         },
