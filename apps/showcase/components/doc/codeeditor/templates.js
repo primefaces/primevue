@@ -975,6 +975,7 @@ const staticStyles = {
 
 html {
     font-size: 14px;
+    line-height: normal;
 }
 
 body {
