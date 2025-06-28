@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>When <i>indeterminate</i> is present, the checkbox masks the actual value visually.</p>
+        <p>The <i>indeterminate</i> state indicates that a checkbox is neither "on" or "off".</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Checkbox v-model="checked" indeterminate binary />
