@@ -275,6 +275,11 @@ export interface FileUploadPassThroughOptions {
      */
     empty?: FileUploadPassThroughOptionType;
     /**
+     * Used to pass attributes to the content in basic mode.
+     * @see {@link ButtonPassThroughOptions}
+     */
+    basicContent?: ButtonPassThroughOptions<FileUploadPassThroughMethodOptions>;
+    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */

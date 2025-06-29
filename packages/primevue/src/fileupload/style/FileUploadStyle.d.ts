@@ -69,7 +69,11 @@ export enum FileUploadClasses {
     /**
      * Class name of the file remove button element
      */
-    pcFileRemoveButton = 'p-fileupload-file-remove-button'
+    pcFileRemoveButton = 'p-fileupload-file-remove-button',
+    /**
+     * Class name of the content element in basic mode
+     */
+    basicContent = 'p-fileupload-basic-content'
 }
 
 export interface FileUploadStyle extends BaseStyle {}

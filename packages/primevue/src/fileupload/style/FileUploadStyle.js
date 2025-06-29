@@ -16,7 +16,8 @@ const classes = {
     fileSize: 'p-fileupload-file-size',
     pcFileBadge: 'p-fileupload-file-badge',
     fileActions: 'p-fileupload-file-actions',
-    pcFileRemoveButton: 'p-fileupload-file-remove-button'
+    pcFileRemoveButton: 'p-fileupload-file-remove-button',
+    basicContent: 'p-fileupload-basic-content'
 };
 
 export default BaseStyle.extend({
