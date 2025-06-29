@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>A sample desktop demo using various components.</p>
+        <p>A mock desktop UI implemented with various components in addition to Dock.</p>
     </DocSectionText>
     <div class="card dock-demo">
         <Toast position="top-center" group="tc" />
@@ -76,9 +76,7 @@ export default {
                 {
                     label: 'App Store',
                     icon: 'https://primefaces.org/cdn/primevue/images/dock/appstore.svg',
-                    command: () => {
-                        this.$toast.add({ severity: 'error', summary: 'An unexpected error occurred while signing in.', detail: 'UNTRUSTED_CERT_TITLE', group: 'tc', life: 3000 });
-                    }
+                    url: 'https://www.apple.com/app-store/'
                 },
                 {
                     label: 'Safari',
@@ -96,13 +94,14 @@ export default {
                 },
                 {
                     label: 'GitHub',
-                    icon: 'https://primefaces.org/cdn/primevue/images/dock/github.svg'
+                    icon: 'https://primefaces.org/cdn/primevue/images/dock/github.svg',
+                    url: 'https://github.com/primefaces/primeng'
                 },
                 {
                     label: 'Trash',
                     icon: 'https://primefaces.org/cdn/primevue/images/dock/trash.png',
                     command: () => {
-                        this.$toast.add({ severity: 'info', summary: 'Empty Trash', life: 3000 });
+                        this.$toast.add({ severity: 'info', summary: 'Trash is empty', life: 3000 });
                     }
                 }
             ],
@@ -327,9 +326,7 @@ export default {
                 {
                     label: 'App Store',
                     icon: 'https://primefaces.org/cdn/primevue/images/dock/appstore.svg',
-                    command: () => {
-                        this.$toast.add({ severity: 'error', summary: 'An unexpected error occurred while signing in.', detail: 'UNTRUSTED_CERT_TITLE', group: 'tc', life: 3000 });
-                    }
+                    url: 'https://www.apple.com/app-store/'
                 },
                 {
                     label: 'Safari',
@@ -347,13 +344,14 @@ export default {
                 },
                 {
                     label: 'GitHub',
-                    icon: 'https://primefaces.org/cdn/primevue/images/dock/github.svg'
+                    icon: 'https://primefaces.org/cdn/primevue/images/dock/github.svg',
+                    url: 'https://github.com/primefaces/primeng'
                 },
                 {
                     label: 'Trash',
                     icon: 'https://primefaces.org/cdn/primevue/images/dock/trash.png',
                     command: () => {
-                        this.$toast.add({ severity: 'info', summary: 'Empty Trash', life: 3000 });
+                        this.$toast.add({ severity: 'info', summary: 'Trash is empty', life: 3000 });
                     }
                 }
             ],
@@ -628,48 +626,47 @@ const toast = useToast();
 const items = ref([
     {
         label: 'Finder',
-        icon: "https://primefaces.org/cdn/primevue//images/dock/finder.svg",
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/finder.svg',
         command: () => {
-            displayFinder.value = true;
+            this.displayFinder = true;
         }
     },
     {
         label: 'Terminal',
-        icon: "https://primefaces.org/cdn/primevue//images/dock/terminal.svg",
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/terminal.svg',
         command: () => {
-            displayTerminal.value = true;
+            this.displayTerminal = true;
         }
     },
     {
         label: 'App Store',
-        icon: "https://primefaces.org/cdn/primevue//images/dock/appstore.svg",
-        command: () => {
-            toast.add({ severity: 'error', summary: 'An unexpected error occurred while signing in.', detail: 'UNTRUSTED_CERT_TITLE', group: 'tc', life: 3000 });
-        }
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/appstore.svg',
+        url: 'https://www.apple.com/app-store/'
     },
     {
         label: 'Safari',
-        icon: "https://primefaces.org/cdn/primevue//images/dock/safari.svg",
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/safari.svg',
         command: () => {
-            toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
+            this.$toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
         }
     },
     {
         label: 'Photos',
-        icon: "https://primefaces.org/cdn/primevue//images/dock/photos.svg",
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/photos.svg',
         command: () => {
-            displayPhotos.value = true;
+            this.displayPhotos = true;
         }
     },
     {
         label: 'GitHub',
-        icon: "https://primefaces.org/cdn/primevue//images/dock/github.svg",
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/github.svg',
+        url: 'https://github.com/primefaces/primeng'
     },
     {
         label: 'Trash',
-        icon: "https://primefaces.org/cdn/primevue//images/dock/trash.png",
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/trash.png',
         command: () => {
-            toast.add({ severity: 'info', summary: 'Empty Trash', life: 3000 });
+            this.$toast.add({ severity: 'info', summary: 'Trash is empty', life: 3000 });
         }
     }
 ]);
