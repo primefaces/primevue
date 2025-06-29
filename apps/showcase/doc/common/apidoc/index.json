@@ -30357,6 +30357,14 @@
                             "description": "Used to pass attributes to the empty's DOM element."
                         },
                         {
+                            "name": "basicContent",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Used to pass attributes to the content in basic mode."
+                        },
+                        {
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
@@ -31131,6 +31139,13 @@
                             "readonly": false,
                             "value": "\"p-fileupload-file-remove-button\"",
                             "description": "Class name of the file remove button element"
+                        },
+                        {
+                            "name": "basicContent",
+                            "optional": false,
+                            "readonly": false,
+                            "value": "\"p-fileupload-basic-content\"",
+                            "description": "Class name of the content element in basic mode"
                         }
                     ]
                 }
