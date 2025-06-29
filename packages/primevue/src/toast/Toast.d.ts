@@ -140,6 +140,10 @@ export interface ToastMessageOptions {
      */
     group?: string | undefined;
     /**
+     * Custom data which can be used when using slots.
+     */
+    slotContext?: Record<string, any> | undefined;
+    /**
      * Style class of the message.
      */
     styleClass?: any;
