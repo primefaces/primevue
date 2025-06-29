@@ -2,7 +2,7 @@
     <DocSectionText v-bind="$attrs">
         <p>FileUpload basic <i>mode</i> provides a simpler UI as an alternative to default advanced mode.</p>
     </DocSectionText>
-    <div class="card flex flex-col gap-6 items-center justify-center">
+    <div class="card flex flex-wrap gap-6 items-center justify-between">
         <FileUpload ref="fileupload" mode="basic" name="demo[]" url="/api/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
         <Button label="Upload" @click="upload" severity="secondary" />
     </div>
@@ -20,8 +20,8 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex flex-col gap-6 items-center justify-center">
-        <Toast />
+    <Toast />
+    <div class="card flex flex-wrap gap-6 items-center justify-between">
         <FileUpload ref="fileupload" mode="basic" name="demo[]" url="/api/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
         <Button label="Upload" @click="upload" severity="secondary" />
     </div>
@@ -42,8 +42,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-col gap-6 items-center justify-center">
-        <Toast />
+    <Toast />
+    <div class="card flex flex-wrap gap-6 items-center justify-between">
         <FileUpload ref="fileupload" mode="basic" name="demo[]" url="/api/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
         <Button label="Upload" @click="upload" severity="secondary" />
     </div>
