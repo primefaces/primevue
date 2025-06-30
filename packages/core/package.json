@@ -61,6 +61,7 @@
     },
     "dependencies": {
         "@primeuix/styled": "catalog:",
+        "@primeuix/styles": "catalog:",
         "@primeuix/utils": "catalog:"
     },
     "peerDependencies": {
