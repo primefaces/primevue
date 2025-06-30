@@ -20,17 +20,6 @@
                 <component :is="filterIconTemplate || (hasFilter() ? 'FilterFillIcon' : 'FilterIcon')" :class="slotProps.class" v-bind="getColumnPT('filterMenuIcon')" />
             </template>
         </Button>
-        <Button
-            v-if="showClearButton && display === 'row' && hasRowFilter()"
-            :class="cx('pcColumnFilterClearButton')"
-            :unstyled="unstyled"
-            @click="clearFilter()"
-            v-bind="{ ...getColumnPT('pcColumnFilterClearButton', ptmHeaderFilterClearParams), ...filterButtonProps.inline.clear }"
-        >
-            <template #icon="slotProps">
-                <component :is="filterClearIconTemplate || 'FilterSlashIcon'" :class="slotProps.class" v-bind="getColumnPT('filterClearIcon')" />
-            </template>
-        </Button>
         <Portal>
             <transition name="p-connected-overlay" @enter="onOverlayEnter" @after-enter="onOverlayAfterEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="getColumnPT('transition')">
                 <div
@@ -135,7 +124,7 @@
                                 type="button"
                                 :class="cx('pcFilterClearButton')"
                                 :label="clearButtonLabel"
-                                @click="clearFilter"
+                                @click="clearFilter()"
                                 :unstyled="unstyled"
                                 v-bind="filterButtonProps.popover.clear"
                                 :pt="getColumnPT('pcFilterClearButton')"
@@ -213,7 +202,7 @@ export default {
         },
         showClearButton: {
             type: Boolean,
-            default: false
+            default: true
         },
         showApplyButton: {
             type: Boolean,
