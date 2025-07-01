@@ -535,7 +535,16 @@
         {
             "name": "Figma UI Kit",
             "icon": "pi pi-pencil",
-            "to": "/uikit"
+            "children": [
+                {
+                    "name": "Overview",
+                    "to": "/uikit"
+                },
+                {
+                    "name": "Guide",
+                    "to": "/uikit/guide"
+                }
+            ]
         },
         {
             "name": "Theme Designer",
