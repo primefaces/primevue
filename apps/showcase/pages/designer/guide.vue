@@ -1,15 +1,15 @@
 <template>
     <div>
         <Head>
-            <Title>Theme Designer - PrimeVue</Title>
-            <Meta name="description" content="Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to code, cloud storage, and migration assistant." />
+            <Title>PrimeOne Guide - PrimeVue</Title>
+            <Meta name="description" content="PrimeOne is a strong UI component library gets even better with a great Figma UI Kit. That's what PrimeOne is PrimeTek's official Figma UI Kit, built to work seamlessly with the Prime UI Suites." />
         </Head>
 
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
-                    <h1>Designer</h1>
-                    <p>Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to code, cloud storage, and migration assistant.</p>
+                    <h1>PrimeOne Guide</h1>
+                    <p>PrimeOne is a strong UI component library gets even better with a great Figma UI Kit. That's what PrimeOne is PrimeTek's official Figma UI Kit, built to work seamlessly with the Prime UI Suites.</p>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -19,17 +19,23 @@
 </template>
 
 <script>
-import BaseDoc from '@/doc/designer/createtheme/BaseDoc.vue';
-import FigmaDoc from '@/doc/designer/createtheme/FigmaDoc.vue';
-import DashboardDoc from '@/doc/designer/DashboardDoc.vue';
-import CustomTokensDoc from '@/doc/designer/editor/CustomTokensDoc.vue';
-import IntelligentCompletionDoc from '@/doc/designer/editor/IntelligentCompletionDoc.vue';
-import TokenSetsDoc from '@/doc/designer/editor/TokenSetsDoc.vue';
-import TypographyDoc from '@/doc/designer/editor/TypographyDoc.vue';
-import LicenseDoc from '@/doc/designer/LicenseDoc.vue';
-import LimitationsDoc from '@/doc/designer/LimitationsDoc.vue';
-import MigrationAssistantDoc from '@/doc/designer/MigrationAssistantDoc.vue';
+import AddingPrimeIconsDoc from '@/doc/designer/AddingPrimeIconsDoc.vue';
 import OverviewDoc from '@/doc/designer/OverviewDoc.vue';
+import ResourcesDoc from '@/doc/designer/ResourcesDoc.vue';
+import SupportDoc from '@/doc/designer/SupportDoc.vue';
+import TokenSetsDoc from '@/doc/designer/TokenSetsDoc.vue';
+import UpdatePrimeOneDoc from '@/doc/designer/UpdatePrimeOneDoc.vue';
+import ComponentsDoc from '@/doc/designer/faq/ComponentsDoc.vue';
+import LicenceDoc from '@/doc/designer/faq/LicenceDoc.vue';
+import RoadmapDoc from '@/doc/designer/faq/RoadmapDoc.vue';
+import TokensDoc from '@/doc/designer/faq/TokensDoc.vue';
+import UpdatesDoc from '@/doc/designer/faq/UpdatesDoc.vue';
+import UsageDoc from '@/doc/designer/faq/UsageDoc.vue';
+import EnablingDoc from '@/doc/designer/installation/EnablingDoc.vue';
+import ImportingDoc from '@/doc/designer/installation/ImportingDoc.vue';
+import PublishingDoc from '@/doc/designer/installation/PublishingDoc.vue';
+import DesignChangesDoc from '@/doc/designer/workflow/DesignChangesDoc.vue';
+import TokensStudioSetupDoc from '@/doc/designer/workflow/TokensStudioSetupDoc.vue';
 
 export default {
     data() {
@@ -41,67 +47,104 @@ export default {
                     component: OverviewDoc
                 },
                 {
-                    id: 'license',
-                    label: 'License',
-                    component: LicenseDoc
+                    id: 'resources',
+                    label: 'Resources',
+                    component: ResourcesDoc
                 },
                 {
-                    id: 'dashboard',
-                    label: 'Dashboard',
-                    component: DashboardDoc
-                },
-                {
-                    id: 'create',
-                    label: 'Create Theme',
-                    description: 'A theme can be initiated from one of the built-in themes or from Figma UI Kit.',
+                    id: 'installation',
+                    label: 'Installation',
                     children: [
                         {
-                            id: 'base',
-                            label: 'Base',
-                            component: BaseDoc
+                            id: 'importing',
+                            label: 'Importing',
+                            component: ImportingDoc
                         },
                         {
-                            id: 'figma',
-                            label: 'Figma',
-                            component: FigmaDoc
+                            id: 'publishing',
+                            label: 'Publishing',
+                            component: PublishingDoc
+                        },
+                        {
+                            id: 'enabling',
+                            label: 'Enabling',
+                            component: EnablingDoc
                         }
                     ]
                 },
                 {
-                    id: 'editor',
-                    label: 'Editor',
+                    id: 'suggested-workflow',
+                    label: 'Suggested Workflow',
+                    description:
+                        "PrimeOne uses Tokens Studio as its primary tool for design token management. To leverage the benefits of Figma Variables, these variables have also been exported from Tokens Studio and included in the file. This setup, while powerful, can make design changes somewhat complex and less fluid due to the way the tools interact. Although the provided guide outlines the recommended steps, we acknowledge that the workflow may feel unintuitive or slow at times. We’re actively exploring improvements, and in the meantime, suggest following the guide as a baseline while adapting it to your team's needs where necessary.",
                     children: [
                         {
-                            id: 'tokensets',
-                            label: 'Token Sets',
-                            component: TokenSetsDoc
+                            id: 'tokens-studio-setup',
+                            label: 'Tokens Studio Setup',
+                            component: TokensStudioSetupDoc
                         },
                         {
-                            id: 'customtokens',
-                            label: 'Custom Tokens',
-                            component: CustomTokensDoc
-                        },
-                        {
-                            id: 'autocomplete',
-                            label: 'Intelligent Completion',
-                            component: IntelligentCompletionDoc
-                        },
-                        {
-                            id: 'typography',
-                            label: 'Typography',
-                            component: TypographyDoc
+                            id: 'designchanges',
+                            label: 'Design Changes',
+                            component: DesignChangesDoc
                         }
                     ]
                 },
                 {
-                    id: 'migration',
-                    label: 'Migration Assistant',
-                    component: MigrationAssistantDoc
+                    id: 'tokensets',
+                    label: 'Token Sets',
+                    component: TokenSetsDoc
                 },
                 {
-                    id: 'limitations',
-                    label: 'Limitations',
-                    component: LimitationsDoc
+                    id: 'update-primeone',
+                    label: 'Update PrimeOne',
+                    component: UpdatePrimeOneDoc
+                },
+                {
+                    id: 'adding-primeicons',
+                    label: 'Adding PrimeIcons',
+                    component: AddingPrimeIconsDoc
+                },
+                {
+                    id: 'faq',
+                    label: 'FAQ',
+                    children: [
+                        {
+                            id: 'usage',
+                            label: 'Usage',
+                            component: UsageDoc
+                        },
+                        {
+                            id: 'components',
+                            label: 'Components',
+                            component: ComponentsDoc
+                        },
+                        {
+                            id: 'tokens',
+                            label: 'Tokens',
+                            component: TokensDoc
+                        },
+                        {
+                            id: 'updates',
+                            label: 'Updates',
+                            component: UpdatesDoc
+                        },
+                        {
+                            id: 'roadmap',
+                            label: 'Roadmap',
+                            component: RoadmapDoc
+                        },
+                        {
+                            id: 'licence',
+                            label: 'Licence',
+                            component: LicenceDoc
+                        }
+                    ]
+                },
+                {
+                    id: 'support',
+                    label: 'Support',
+                    component: SupportDoc
                 }
             ]
         };

@@ -157,6 +157,14 @@
 
     li {
         font-size: 1.125rem;
+
+        i {
+            @include mark();
+        }
+
+        a {
+            @include doc-link();
+        }
     }
 }
 
