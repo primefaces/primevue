@@ -41,7 +41,8 @@ export default defineNuxtModule<ModuleOptions>({
             name: undefined,
             include: undefined,
             exclude: undefined
-        }
+        },
+        injectPluginManually: false,
     },
     hooks: {},
     setup(moduleOptions, nuxt) {
@@ -159,13 +160,16 @@ export default defineNuxtPlugin(({ vueApp }) => {
         });
 
         nuxt.hook('nitro:config', async (config) => {
-            config.externals = config.externals || {};
-            config.externals.inline = config.externals.inline || [];
-            config.externals.inline.push(resolver.resolve('./runtime/plugin.server'));
             config.virtual = config.virtual || {};
             config.virtual['#primevue-style'] = styleContent;
-            config.plugins = config.plugins || [];
-            config.plugins.push(resolver.resolve('./runtime/plugin.server'));
+
+            if (!moduleOptions.injectPluginManually) {
+                config.externals = config.externals || {};
+                config.externals.inline = config.externals.inline || [];
+                config.externals.inline.push(resolver.resolve('./runtime/plugin.server'));
+                config.plugins = config.plugins || [];
+                config.plugins.push(resolver.resolve('./runtime/plugin.server'));
+            }
         });
     }
 });
