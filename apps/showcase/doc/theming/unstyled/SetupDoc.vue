@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Unstlyed mode is enabled for the whole suite by enabling <i>unstyled</i> option during PrimeVue installation.</p>
+        <p>Unstyled mode is enabled for the whole suite by enabling <i>unstyled</i> option during PrimeVue installation.</p>
         <DocSectionCode :code="code1" hideToggleCode importCode hideStackBlitz />
         <p>Alternatively even in the default styled mode, a particular component can still be used as unstyled by adding the <i>unstyled</i> prop of the component.</p>
         <div class="card flex justify-center">
