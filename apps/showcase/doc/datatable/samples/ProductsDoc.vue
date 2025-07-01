@@ -140,8 +140,8 @@
             >
         </div>
         <template #footer>
-            <Button label="No" icon="pi pi-times" text @click="deleteProductDialog = false" />
-            <Button label="Yes" icon="pi pi-check" @click="deleteProduct" />
+            <Button label="No" icon="pi pi-times" text @click="deleteProductDialog = false" severity="secondary" variant="text" />
+            <Button label="Yes" icon="pi pi-check" @click="deleteProduct" severity="danger" />
         </template>
     </Dialog>
 
@@ -151,8 +151,8 @@
             <span v-if="product">Are you sure you want to delete the selected products?</span>
         </div>
         <template #footer>
-            <Button label="No" icon="pi pi-times" text @click="deleteProductsDialog = false" />
-            <Button label="Yes" icon="pi pi-check" text @click="deleteSelectedProducts" />
+            <Button label="No" icon="pi pi-times" text @click="deleteProductsDialog = false" severity="secondary" variant="text" />
+            <Button label="Yes" icon="pi pi-check" text @click="deleteSelectedProducts" severity="danger" />
         </template>
     </Dialog>
 
@@ -388,8 +388,8 @@ export default {
                 >
             </div>
             <template #footer>
-                <Button label="No" icon="pi pi-times" text @click="deleteProductDialog = false" />
-                <Button label="Yes" icon="pi pi-check" @click="deleteProduct" />
+                <Button label="No" icon="pi pi-times" text @click="deleteProductDialog = false" severity="secondary" variant="text" />
+                <Button label="Yes" icon="pi pi-check" @click="deleteProduct" severity="danger" />
             </template>
         </Dialog>
 
@@ -399,8 +399,8 @@ export default {
                 <span v-if="product">Are you sure you want to delete the selected products?</span>
             </div>
             <template #footer>
-                <Button label="No" icon="pi pi-times" text @click="deleteProductsDialog = false" />
-                <Button label="Yes" icon="pi pi-check" text @click="deleteSelectedProducts" />
+                <Button label="No" icon="pi pi-times" text @click="deleteProductsDialog = false" severity="secondary" variant="text" />
+                <Button label="Yes" icon="pi pi-check" text @click="deleteSelectedProducts" severity="danger" />
             </template>
         </Dialog>
 	</div>
@@ -680,8 +680,8 @@ export default {
                 >
             </div>
             <template #footer>
-                <Button label="No" icon="pi pi-times" text @click="deleteProductDialog = false" />
-                <Button label="Yes" icon="pi pi-check" @click="deleteProduct" />
+                <Button label="No" icon="pi pi-times" text @click="deleteProductDialog = false" severity="secondary" variant="text" />
+                <Button label="Yes" icon="pi pi-check" @click="deleteProduct" severity="danger" />
             </template>
         </Dialog>
 
@@ -691,8 +691,8 @@ export default {
                 <span v-if="product">Are you sure you want to delete the selected products?</span>
             </div>
             <template #footer>
-                <Button label="No" icon="pi pi-times" text @click="deleteProductsDialog = false" />
-                <Button label="Yes" icon="pi pi-check" text @click="deleteSelectedProducts" />
+                <Button label="No" icon="pi pi-times" text @click="deleteProductsDialog = false" severity="secondary" variant="text" />
+                <Button label="Yes" icon="pi pi-check" text @click="deleteSelectedProducts" severity="danger" />
             </template>
         </Dialog>
 	</div>
