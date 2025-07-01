@@ -95,7 +95,7 @@ export default {
                 {
                     label: 'GitHub',
                     icon: 'https://primefaces.org/cdn/primevue/images/dock/github.svg',
-                    url: 'https://github.com/primefaces/primeng'
+                    url: 'https://github.com/primefaces/primevue'
                 },
                 {
                     label: 'Trash',
@@ -345,7 +345,7 @@ export default {
                 {
                     label: 'GitHub',
                     icon: 'https://primefaces.org/cdn/primevue/images/dock/github.svg',
-                    url: 'https://github.com/primefaces/primeng'
+                    url: 'https://github.com/primefaces/primevue'
                 },
                 {
                     label: 'Trash',
@@ -647,7 +647,7 @@ const items = ref([
         label: 'Safari',
         icon: 'https://primefaces.org/cdn/primevue/images/dock/safari.svg',
         command: () => {
-            this.$toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
+            toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
         }
     },
     {
@@ -660,13 +660,13 @@ const items = ref([
     {
         label: 'GitHub',
         icon: 'https://primefaces.org/cdn/primevue/images/dock/github.svg',
-        url: 'https://github.com/primefaces/primeng'
+        url: 'https://github.com/primefaces/primevue'
     },
     {
         label: 'Trash',
         icon: 'https://primefaces.org/cdn/primevue/images/dock/trash.png',
         command: () => {
-            this.$toast.add({ severity: 'info', summary: 'Trash is empty', life: 3000 });
+            toast.add({ severity: 'info', summary: 'Trash is empty', life: 3000 });
         }
     }
 ]);
