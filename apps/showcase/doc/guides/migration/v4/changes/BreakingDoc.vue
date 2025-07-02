@@ -25,7 +25,10 @@
         <h4>Removed Files</h4>
         <ul class="flex flex-col gap-2 leading-normal">
             <li>Themes under the <i class="mark">primevue/resources</i> path, migration to new styled mode is necessary.</li>
-            <li>The legacy Tailwind preset at <i class="mark">primevue/passthrough/tailwind</i>, migrate to the <a href="https://tailwind.primevue.org" target="_blank" rel="noopener noreferrer" class="doc-link">Tailwind Presets</a> project.</li>
+            <li>
+                The legacy Tailwind preset at <i class="mark">primevue/passthrough/tailwind</i>, migrate to the <a href="https://volt.primevue.org" target="_blank" rel="noopener noreferrer" class="doc-link">Volt</a> project if you'd like to style
+                PrimeVue with Tailwind CSS.
+            </li>
         </ul>
 
         <h4>Message and InlineMessage</h4>
