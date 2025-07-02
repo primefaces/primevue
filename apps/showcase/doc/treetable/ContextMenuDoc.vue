@@ -1,7 +1,7 @@
 <template>
     <DocSectionText v-bind="$attrs">
         <p>
-            TreeTable has exclusive integration with ContextMenu using the <i>contextMenu</i> event to open a menu on right click alont with <i>contextMenuSelection</i> property and <i>row-contextmenu</i> event to control the selection via the menu.
+            TreeTable has exclusive integration with ContextMenu using the <i>contextMenu</i> event to open a menu on right click along with <i>contextMenuSelection</i> property and <i>row-contextmenu</i> event to control the selection via the menu.
         </p>
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
