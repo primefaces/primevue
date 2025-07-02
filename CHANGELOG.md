@@ -1,5 +1,51 @@
 # Changelog
 
+## [4.3.6](https://github.com/primefaces/primevue/tree/4.3.6) (2025-07-02)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.3.5...4.3.6)
+
+**Implemented New Features and Enhancements:**
+
+- Why are the Size in the documentation different from the actual code? [\#7855](https://github.com/primefaces/primevue/issues/7855)
+- Rating: pass toggleCallback for slots [\#7854](https://github.com/primefaces/primevue/issues/7854)
+- Fluid support for ToggleButton, SelectButton and Listbox [\#7835](https://github.com/primefaces/primevue/issues/7835)
+- Accept readonly value in DataTable [\#7803](https://github.com/primefaces/primevue/issues/7803)
+- Fix DataTable expander button triggering unwanted row-click events [\#7799](https://github.com/primefaces/primevue/issues/7799)
+- "Select" problem: select a options with empty string value be determinded as nothing selected [\#7740](https://github.com/primefaces/primevue/issues/7740)
+- Problem with DataTable cell edit and DatePicker [\#7710](https://github.com/primefaces/primevue/issues/7710)
+- Calendar: Inline Calendar is jumping when selected mode is range and number of months is more then 1 [\#7691](https://github.com/primefaces/primevue/issues/7691)
+
+**Fixed bugs:**
+
+- Dialog: closeOnEscape is not working when closable is false [\#7867](https://github.com/primefaces/primevue/issues/7867)
+- DataTable (Virtual Scroll): Cannot set properties of undefined (setting 'tabIndex') [\#7859](https://github.com/primefaces/primevue/issues/7859)
+- Volt MultiSelect: add clearCallback [\#7845](https://github.com/primefaces/primevue/issues/7845)
+- Volt DataTable: fix backdrop-blur [\#7844](https://github.com/primefaces/primevue/issues/7844)
+- InputNumber with vertical showButtons receives negative margin [\#7840](https://github.com/primefaces/primevue/issues/7840)
+- InputNumber : Disable Ctrl+V Input in Component when readonly is set to true [\#7823](https://github.com/primefaces/primevue/issues/7823)
+- groupRowsBy - prop type error [\#7819](https://github.com/primefaces/primevue/issues/7819)
+- ScrollPanel: vertical scroll bar goes outside the content div when scrollYRatio too small (<0.1) [\#7818](https://github.com/primefaces/primevue/issues/7818)
+- Button - missing type declarations with asChild prop [\#7795](https://github.com/primefaces/primevue/issues/7795)
+- Datepicker - "invalid" prop is not working correctly [\#7794](https://github.com/primefaces/primevue/issues/7794)
+- Datatable component documentation (v4) scrolling was uncontrollable when scroll reached to 'Scroll' topic [\#7779](https://github.com/primefaces/primevue/issues/7779)
+- Accordion computed id always undefined. [\#7776](https://github.com/primefaces/primevue/issues/7776)
+- PickList: Reordering multiple elements breaks [\#7750](https://github.com/primefaces/primevue/issues/7750)
+- DatePicker: <input> does not have "p-invalid" class on invalid [\#7743](https://github.com/primefaces/primevue/issues/7743)
+- Toast onClick never fires [\#7732](https://github.com/primefaces/primevue/issues/7732)
+- AutoComplete: Enter should not submit form if :typeahead="false" [\#7729](https://github.com/primefaces/primevue/issues/7729)
+- InputNumber - when allowEmpty="false" component is unusable [\#7725](https://github.com/primefaces/primevue/issues/7725)
+- InputNumber - suffix problems after selecting all text [\#7724](https://github.com/primefaces/primevue/issues/7613)
+- Title: context missing from SelectButtonPassThroughMethodOptions type in TypeScript [\#7718](https://github.com/primefaces/primevue/issues/7718)
+- AutoComplete: autoOptionFocus and space [\#7711](https://github.com/primefaces/primevue/issues/7711)
+- TreeTable - Accessibility issue with role of table [\#7708](https://github.com/primefaces/primevue/issues/7708)
+- Editor: Cannot see the placeholder text in dark theme [\#7705](https://github.com/primefaces/primevue/issues/7705)
+- MenuBar - Accessibility issue on menu items [\#7704](https://github.com/primefaces/primevue/issues/7704)
+- multiple Autocomplete Chip not showing label for numeric value "0" [\#7699](https://github.com/primefaces/primevue/issues/7699)
+- FormField is missing types for $field.onInput, $field.onBlur, and $field.onChange [\#7697](https://github.com/primefaces/primevue/issues/7697)
+- DatePicker & MultiSelect: esc keypress propagates and triggers close in dialogs [\#7661](https://github.com/primefaces/primevue/issues/7661)
+- Volt - Use slot naming shorthand to avoid eslint warnings [\#7550](https://github.com/primefaces/primevue/issues/7550)
+- Toast: Invalid emits typing [\#5737](https://github.com/primefaces/primevue/issues/5737)
+
 ## [4.3.5](https://github.com/primefaces/primevue/tree/4.3.5) (2025-06-02)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.3.4...4.3.5)
