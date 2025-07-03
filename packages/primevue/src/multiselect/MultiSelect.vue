@@ -848,7 +848,9 @@ export default {
             if (this.selectAll !== null) {
                 this.$emit('selectall-change', { originalEvent: event, checked: !this.allSelected });
             } else {
-                const value = this.allSelected ? [] : this.visibleOptions.filter((option) => this.isValidOption(option)).map((option) => this.getOptionValue(option));
+                const value = this.allSelected
+                    ? this.visibleOptions.filter((option) => this.isDisabledSelectedOption(option)).map((option) => this.getOptionValue(option))
+                    : this.visibleOptions.filter((option) => this.isValidOption(option) || this.isDisabledSelectedOption(option)).map((option) => this.getOptionValue(option));
 
                 this.updateModel(event, value);
             }
@@ -873,6 +875,9 @@ export default {
         },
         isValidSelectedOption(option) {
             return this.isValidOption(option) && this.isSelected(option);
+        },
+        isDisabledSelectedOption(option) {
+            return this.isOptionDisabled(option) && this.isSelected(option);
         },
         isEquals(value1, value2) {
             return equals(value1, value2, this.equalityKey);
