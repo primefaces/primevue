@@ -213,4 +213,62 @@ describe('MultiSelect.vue', () => {
             expect(wrapper.find('.p-multiselect-option-group').text()).toBe('Germany');
         });
     });
+
+    describe('disabled options', () => {
+        it('should not select disabled options when toggle all is clicked', async () => {
+            await wrapper.setProps({
+                modelValue: ['NY', 'RM'],
+                options: [
+                    { name: 'New York', code: 'NY', disabled: true },
+                    { name: 'Rome', code: 'RM' },
+                    { name: 'London', code: 'LDN', disabled: true },
+                    { name: 'Istanbul', code: 'IST' },
+                    { name: 'Paris', code: 'PRS', disabled: true }
+                ],
+                optionValue: 'code',
+                optionDisabled: 'disabled',
+                showToggleAll: true
+            });
+
+            await wrapper.vm.onToggleAll({});
+
+            expect(wrapper.emitted()['update:modelValue'][0]).toEqual([['NY', 'RM', 'IST']]);
+
+            await wrapper.vm.$refs.container.click();
+
+            expect(wrapper.findAll('li.p-multiselect-option')[0].attributes()['data-p-selected']).toBe('true');
+            expect(wrapper.findAll('li.p-multiselect-option')[1].attributes()['data-p-selected']).toBe('true');
+            expect(wrapper.findAll('li.p-multiselect-option')[2].attributes()['data-p-selected']).toBe('false');
+            expect(wrapper.findAll('li.p-multiselect-option')[3].attributes()['data-p-selected']).toBe('true');
+            expect(wrapper.findAll('li.p-multiselect-option')[4].attributes()['data-p-selected']).toBe('false');
+        });
+
+        it('should not unselect disabled options when toggle all is clicked', async () => {
+            await wrapper.setProps({
+                modelValue: ['NY', 'RM', 'IST'],
+                options: [
+                    { name: 'New York', code: 'NY', disabled: true },
+                    { name: 'Rome', code: 'RM' },
+                    { name: 'London', code: 'LDN', disabled: true },
+                    { name: 'Istanbul', code: 'IST' },
+                    { name: 'Paris', code: 'PRS', disabled: true }
+                ],
+                optionValue: 'code',
+                optionDisabled: 'disabled',
+                showToggleAll: true
+            });
+
+            await wrapper.vm.onToggleAll({});
+
+            expect(wrapper.emitted()['update:modelValue'][0]).toEqual([['NY']]);
+
+            await wrapper.vm.$refs.container.click();
+
+            expect(wrapper.findAll('li.p-multiselect-option')[0].attributes()['data-p-selected']).toBe('true');
+            expect(wrapper.findAll('li.p-multiselect-option')[1].attributes()['data-p-selected']).toBe('false');
+            expect(wrapper.findAll('li.p-multiselect-option')[2].attributes()['data-p-selected']).toBe('false');
+            expect(wrapper.findAll('li.p-multiselect-option')[3].attributes()['data-p-selected']).toBe('false');
+            expect(wrapper.findAll('li.p-multiselect-option')[4].attributes()['data-p-selected']).toBe('false');
+        });
+    });
 });
