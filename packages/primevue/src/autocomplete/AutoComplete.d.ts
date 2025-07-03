@@ -429,6 +429,11 @@ export interface AutoCompleteProps {
      */
     completeOnFocus?: boolean | undefined;
     /**
+     * Whether to run the completeOnFocus query with an empty value when input receives focus.
+     * @defaultValue false
+     */
+    emptyCompleteOnFocus?: boolean | undefined;
+    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;
