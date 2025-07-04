@@ -710,6 +710,11 @@ export default {
             event.preventDefault();
         },
         onEnterKey(event) {
+            // Skip processing if IME composition is active
+            if (event.isComposing) {
+                return;
+            }
+
             if (!this.typeahead) {
                 if (this.multiple) {
                     if (event.target.value.trim()) {

@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
+import { vi } from 'vitest';
 import { nextTick } from 'vue';
 import AutoComplete from './AutoComplete.vue';
 
@@ -98,6 +99,64 @@ describe('AutoComplete.vue', () => {
             wrapper.findAll('.p-autocomplete-token-icon').forEach((tokenIcon) => {
                 expect(tokenIcon.classes()).toContain('pi-discord');
             });
+        });
+    });
+
+    describe('IME composition handling', () => {
+        it('should not process Enter key during IME composition', async () => {
+            await wrapper.setProps({
+                multiple: true,
+                modelValue: []
+            });
+
+            const spy = vi.spyOn(wrapper.vm, 'updateModel');
+
+            // Mock input element and event
+            const mockEvent = {
+                key: 'Enter',
+                isComposing: true,
+                target: { value: 'test' },
+                preventDefault: vi.fn()
+            };
+
+            // Call onEnterKey directly
+            wrapper.vm.onEnterKey(mockEvent);
+
+            // Should not call updateModel during IME composition
+            expect(spy).not.toHaveBeenCalled();
+        });
+
+        it('should process Enter key after IME composition is complete', async () => {
+            await wrapper.setProps({
+                multiple: true,
+                modelValue: [],
+                typeahead: false
+            });
+
+            const spy = vi.spyOn(wrapper.vm, 'updateModel');
+
+            // Mock input element and event
+            const mockEvent = {
+                key: 'Enter',
+                isComposing: false,
+                target: { value: 'test' },
+                preventDefault: vi.fn()
+            };
+
+            // Mock focusInput ref with value property
+            const mockFocusInput = { value: 'test' };
+
+            Object.defineProperty(wrapper.vm.$refs, 'focusInput', {
+                value: mockFocusInput,
+                writable: true
+            });
+
+            // Call onEnterKey directly
+            wrapper.vm.onEnterKey(mockEvent);
+
+            // Should call updateModel when not in IME composition
+            expect(spy).toHaveBeenCalledWith(mockEvent, ['test']);
+            expect(mockEvent.preventDefault).toHaveBeenCalled();
         });
     });
 });
