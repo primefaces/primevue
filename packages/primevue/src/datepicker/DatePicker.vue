@@ -1811,6 +1811,23 @@ export default {
 
             return isValid;
         },
+        updateWithInputValue() {
+            try {
+                let value = this.parseValue(this.inputValue);
+                if (this.isValidSelection(value)) {
+                    this.typeUpdate = true;
+                    this.updateModel(value);
+                    this.updateCurrentMetaData();
+                }
+
+                if (this.isValidSelection(value)) {
+                    this.overlayVisible = false;
+                }
+                this.inputValue = null;
+            } catch (err) {
+                /* NoOp */
+            }
+        },
         parseValue(text) {
             if (!text || text.trim().length === 0) {
                 return null;
@@ -2704,7 +2721,12 @@ export default {
             this.formField.onBlur?.();
 
             this.focused = false;
-            event.target.value = this.formatValue(this.d_value);
+
+            if (this.manualInput && this.inputValue && this.inputValue.trim() !== '') {
+                this.updateWithInputValue();
+            } else {
+                event.target.value = this.formatValue(this.d_value);
+            }
         },
         onKeyDown(event) {
             if (event.code === 'ArrowDown' && this.overlay) {
@@ -2726,21 +2748,8 @@ export default {
                     this.overlayVisible = false;
                 }
             } else if (event.code === 'Enter') {
-                if (this.manualInput && this.inputValue.trim() !== '') {
-                    try {
-                        let value = this.parseValue(this.inputValue);
-                        if (this.isValidSelection(value)) {
-                            this.typeUpdate = true;
-                            this.updateModel(value);
-                            this.updateCurrentMetaData();
-                        }
-
-                        if (this.isValidSelection(value)) {
-                            this.overlayVisible = false;
-                        }
-                    } catch (err) {
-                        /* NoOp */
-                    }
+                if (this.manualInput && this.inputValue && this.inputValue.trim() !== '') {
+                    this.updateWithInputValue();
                 }
 
                 this.$emit('keydown', event);
