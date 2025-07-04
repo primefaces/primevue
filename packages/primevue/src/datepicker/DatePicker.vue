@@ -2670,17 +2670,20 @@ export default {
                 this.selectionStart = this.input.selectionStart;
                 this.selectionEnd = this.input.selectionEnd;
 
-                let value = this.parseValue(event.target.value);
+                if (this.manualInput) {
+                    this.inputValue = event.target.value;
+                } else {
+                    let value = this.parseValue(event.target.value);
 
-                if (this.isValidSelection(value)) {
-                    this.typeUpdate = true;
-                    this.updateModel(value);
-                    this.updateCurrentMetaData();
+                    if (this.isValidSelection(value)) {
+                        this.typeUpdate = true;
+                        this.updateModel(value);
+                        this.updateCurrentMetaData();
+                    }
                 }
             } catch (err) {
                 /* NoOp */
             }
-
             this.$emit('input', event);
         },
         onInputClick() {
@@ -2723,9 +2726,14 @@ export default {
                     this.overlayVisible = false;
                 }
             } else if (event.code === 'Enter') {
-                if (this.manualInput && event.target.value !== null && event.target.value?.trim() !== '') {
+                if (this.manualInput && this.inputValue.trim() !== '') {
                     try {
-                        let value = this.parseValue(event.target.value);
+                        let value = this.parseValue(this.inputValue);
+                        if (this.isValidSelection(value)) {
+                            this.typeUpdate = true;
+                            this.updateModel(value);
+                            this.updateCurrentMetaData();
+                        }
 
                         if (this.isValidSelection(value)) {
                             this.overlayVisible = false;
