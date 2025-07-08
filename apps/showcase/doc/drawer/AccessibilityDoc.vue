@@ -34,7 +34,7 @@
                         <td>
                             <i>escape</i>
                         </td>
-                        <td>Closes the dialog.</td>
+                        <td>Closes the drawer.</td>
                     </tr>
                 </tbody>
             </table>
