@@ -14,8 +14,8 @@
             <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id" @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
                 <template #header>
                     <div class="flex flex-wrap justify-end gap-2">
-                        <Button text icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                        <Button text icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                        <Button variant="text" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+                        <Button variant="text" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                     </div>
                 </template>
                 <Column expander style="width: 5rem" />
@@ -86,8 +86,8 @@ export default {
         @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
     <template #header>
         <div class="flex flex-wrap justify-end gap-2">
-            <Button text icon="pi pi-plus" label="Expand All" @click="expandAll" />
-            <Button text icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+            <Button variant="text" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+            <Button variant="text" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
         </div>
     </template>
     <Column expander style="width: 5rem" />
@@ -147,8 +147,8 @@ export default {
                 @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
             <template #header>
                 <div class="flex flex-wrap justify-end gap-2">
-                    <Button text icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                    <Button text icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                    <Button variant="text" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+                    <Button variant="text" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
             </template>
             <Column expander style="width: 5rem" />
@@ -277,8 +277,8 @@ export default {
                 @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
             <template #header>
                 <div class="flex flex-wrap justify-end gap-2">
-                    <Button text icon="pi pi-plus" label="Expand All" @click="expandAll" />
-                    <Button text icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                    <Button variant="text" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+                    <Button variant="text" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
                 </div>
             </template>
             <Column expander style="width: 5rem" />

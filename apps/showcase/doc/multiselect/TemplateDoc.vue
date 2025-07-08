@@ -21,8 +21,8 @@
             </template>
             <template #footer>
                 <div class="p-3 flex justify-between">
-                    <Button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
-                    <Button label="Remove All" severity="danger" text size="small" icon="pi pi-times" />
+                    <Button label="Add New" severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+                    <Button label="Remove All" severity="danger" variant="text" size="small" icon="pi pi-times" />
                 </div>
             </template>
         </MultiSelect>
@@ -67,8 +67,8 @@ export default {
     </template>
     <template #footer>
         <div class="p-3 flex justify-between">
-            <Button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
-            <Button label="Remove All" severity="danger" text size="small" icon="pi pi-times" />
+            <Button label="Add New" severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+            <Button label="Remove All" severity="danger" variant="text" size="small" icon="pi pi-times" />
         </div>
     </template>
 </MultiSelect>
@@ -94,8 +94,8 @@ export default {
             </template>
             <template #footer>
                 <div class="p-3 flex justify-between">
-                    <Button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
-                    <Button label="Remove All" severity="danger" text size="small" icon="pi pi-times" />
+                    <Button label="Add New" severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+                    <Button label="Remove All" severity="danger" variant="text" size="small" icon="pi pi-times" />
                 </div>
             </template>
         </MultiSelect>
@@ -145,8 +145,8 @@ export default {
             </template>
             <template #footer>
                 <div class="p-3 flex justify-between">
-                    <Button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
-                    <Button label="Remove All" severity="danger" text size="small" icon="pi pi-times" />
+                    <Button label="Add New" severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+                    <Button label="Remove All" severity="danger" variant="text" size="small" icon="pi pi-times" />
                 </div>
             </template>
         </MultiSelect>

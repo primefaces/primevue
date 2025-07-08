@@ -27,7 +27,7 @@
             </template>
             <template #footer>
                 <div class="p-3">
-                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+                    <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
                 </div>
             </template>
         </Select>
@@ -78,7 +78,7 @@ export default {
     </template>
     <template #footer>
         <div class="p-3">
-            <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+            <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
         </div>
     </template>
 </Select>
@@ -110,7 +110,7 @@ export default {
             </template>
             <template #footer>
                 <div class="p-3">
-                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+                    <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
                 </div>
             </template>
         </Select>
@@ -166,7 +166,7 @@ export default {
             </template>
             <template #footer>
                 <div class="p-3">
-                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+                    <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
                 </div>
             </template>
         </Select>

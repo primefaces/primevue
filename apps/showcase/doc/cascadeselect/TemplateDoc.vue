@@ -20,7 +20,7 @@
             </template>
             <template #footer>
                 <div class="px-3 py-1">
-                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+                    <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
                 </div>
             </template>
         </CascadeSelect>
@@ -127,7 +127,7 @@ export default {
     </template>
     <template #footer>
         <div class="px-3 py-1">
-            <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+            <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
         </div>
     </template>
 </CascadeSelect>
@@ -153,7 +153,7 @@ export default {
             </template>
             <template #footer>
                 <div class="px-3 py-1">
-                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+                    <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
                 </div>
             </template>
         </CascadeSelect>
@@ -265,7 +265,7 @@ export default {
             </template>
             <template #footer>
                 <div class="px-3 py-1">
-                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+                    <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
                 </div>
             </template>
         </CascadeSelect>
