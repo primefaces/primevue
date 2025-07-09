@@ -123,7 +123,7 @@ const showProducts = () => {
 <\/script>
 `,
                 data: `
-/* ProductService */        
+/* ProductService */
 {
     id: '1000',
     code: 'f230fh0g3',
@@ -145,7 +145,7 @@ const showProducts = () => {
 <template>
 	<div>
         <div class="flex justify-end mt-1 mb-4">
-            <Button icon="pi pi-external-link" label="Nested Dialog" outlined severity="success" @click="showInfo" />
+            <Button icon="pi pi-external-link" label="Nested Dialog" variant="outlined" severity="success" @click="showInfo" />
         </div>
         <DataTable :value="products">
 			<Column field="code" header="Code"></Column>
@@ -258,7 +258,7 @@ export default {
 <template>
 	<div>
         <div class="flex justify-end mt-1 mb-4">
-            <Button icon="pi pi-external-link" label="Nested Dialog" outlined severity="success" @click="showInfo" />
+            <Button icon="pi pi-external-link" label="Nested Dialog" variant="outlined" severity="success" @click="showInfo" />
         </div>
         <DataTable :value="products">
 			<Column field="code" header="Code"></Column>

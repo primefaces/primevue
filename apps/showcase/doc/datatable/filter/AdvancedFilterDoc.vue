@@ -7,7 +7,7 @@
             <DataTable v-model:filters="filters" :value="customers" paginator showGridlines :rows="10" dataKey="id" filterDisplay="menu" :loading="loading" :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
                 <template #header>
                     <div class="flex justify-between">
-                        <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
+                        <Button type="button" icon="pi pi-filter-slash" label="Clear" variant="outlined" @click="clearFilter()" />
                         <IconField>
                             <InputIcon>
                                 <i class="pi pi-search" />
@@ -148,7 +148,7 @@ export default {
         filterDisplay="menu" :loading="loading" :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
     <template #header>
         <div class="flex justify-between">
-            <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
+            <Button type="button" icon="pi pi-filter-slash" label="Clear" variant="outlined" @click="clearFilter()" />
             <IconField>
                 <InputIcon>
                     <i class="pi pi-search" />
@@ -263,7 +263,7 @@ export default {
                 filterDisplay="menu" :loading="loading" :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
             <template #header>
                 <div class="flex justify-between">
-                    <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
+                    <Button type="button" icon="pi pi-filter-slash" label="Clear" variant="outlined" @click="clearFilter()" />
                     <IconField>
                         <InputIcon>
                             <i class="pi pi-search" />
@@ -470,7 +470,7 @@ export default {
                 filterDisplay="menu" :loading="loading" :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
             <template #header>
                 <div class="flex justify-between">
-                    <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
+                    <Button type="button" icon="pi pi-filter-slash" label="Clear" variant="outlined" @click="clearFilter()" />
                     <IconField>
                         <InputIcon>
                             <i class="pi pi-search" />

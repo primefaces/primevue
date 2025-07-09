@@ -8,7 +8,7 @@
                 <span>{{ message.message }}</span>
                 <div class="flex items-center gap-2 mt-4">
                     <Button label="Save" @click="acceptCallback" size="small"></Button>
-                    <Button label="Cancel" outlined @click="rejectCallback" severity="secondary" size="small" text></Button>
+                    <Button label="Cancel" variant="outlined" @click="rejectCallback" severity="secondary" size="small" text></Button>
                 </div>
             </div>
         </template>
@@ -31,7 +31,7 @@ export default {
             <span>{{ message.message }}</span>
             <div class="flex items-center gap-2 mt-4">
                 <Button label="Save" @click="acceptCallback" size="small"></Button>
-                <Button label="Cancel" outlined @click="rejectCallback" severity="secondary" size="small" text></Button>
+                <Button label="Cancel" variant="outlined" @click="rejectCallback" severity="secondary" size="small" text></Button>
             </div>
         </div>
     </template>
@@ -47,7 +47,7 @@ export default {
                 <span>{{ message.message }}</span>
                 <div class="flex items-center gap-2 mt-4">
                     <Button label="Save" @click="acceptCallback" size="small"></Button>
-                    <Button label="Cancel" outlined @click="rejectCallback" severity="secondary" size="small" text></Button>
+                    <Button label="Cancel" variant="outlined" @click="rejectCallback" severity="secondary" size="small" text></Button>
                 </div>
             </div>
         </template>
@@ -86,7 +86,7 @@ export default {
                 <span>{{ message.message }}</span>
                 <div class="flex items-center gap-2 mt-4">
                     <Button label="Save" @click="acceptCallback" size="small"></Button>
-                    <Button label="Cancel" outlined @click="rejectCallback" severity="secondary" size="small" text></Button>
+                    <Button label="Cancel" variant="outlined" @click="rejectCallback" severity="secondary" size="small" text></Button>
                 </div>
             </div>
         </template>

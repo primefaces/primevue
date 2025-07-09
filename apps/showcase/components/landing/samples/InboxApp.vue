@@ -35,7 +35,7 @@
                             <span class="w-full text-center text-sm font-normal text-primary-contrast leading-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">4 days left</span>
                         </ProgressBar>
                     </div>
-                    <Button label="Upgrade to PRO 🚀" outlined class="w-full" />
+                    <Button label="Upgrade to PRO 🚀" variant="outlined" class="w-full" />
                 </div>
             </div>
         </div>
@@ -74,23 +74,23 @@
                     <div class="flex xl:items-center justify-between gap-2 flex-col xl:flex-row">
                         <div class="flex items-center gap-2">
                             <Checkbox v-model="checked" :binary="true" class="mr-1" @update:modelValue="onSelectionChange" />
-                            <Button icon="pi pi-envelope" outlined severity="secondary" />
-                            <Button icon="pi pi-exclamation-circle" outlined severity="secondary" />
-                            <Button icon="pi pi-tag" outlined severity="secondary" />
-                            <Button icon="pi pi-inbox" label="Archive" outlined severity="secondary" />
-                            <Button icon="pi pi-trash" label="Trash" outlined severity="secondary" />
+                            <Button icon="pi pi-envelope" variant="outlined" severity="secondary" />
+                            <Button icon="pi pi-exclamation-circle" variant="outlined" severity="secondary" />
+                            <Button icon="pi pi-tag" variant="outlined" severity="secondary" />
+                            <Button icon="pi pi-inbox" label="Archive" variant="outlined" severity="secondary" />
+                            <Button icon="pi pi-trash" label="Trash" variant="outlined" severity="secondary" />
                         </div>
                         <div class="flex items-center gap-2">
                             <IconField iconPosition="left" class="w-6/12 xl:max-w-36">
                                 <InputIcon class="pi pi-search"> </InputIcon>
                                 <InputText v-model="search" placeholder="Search" class="w-full" />
                             </IconField>
-                            <Button icon="pi pi-filter" outlined severity="secondary" />
+                            <Button icon="pi pi-filter" variant="outlined" severity="secondary" />
                             <Divider layout="vertical" class="m-0" />
-                            <Button icon="pi pi-refresh" outlined severity="secondary" />
-                            <Button label="1 of 15" class="!whitespace-nowrap" outlined severity="secondary" />
-                            <Button icon="pi pi-chevron-left" outlined severity="secondary" />
-                            <Button icon="pi pi-chevron-right" outlined severity="secondary" />
+                            <Button icon="pi pi-refresh" variant="outlined" severity="secondary" />
+                            <Button label="1 of 15" class="!whitespace-nowrap" variant="outlined" severity="secondary" />
+                            <Button icon="pi pi-chevron-left" variant="outlined" severity="secondary" />
+                            <Button icon="pi pi-chevron-right" variant="outlined" severity="secondary" />
                         </div>
                     </div>
                 </template>

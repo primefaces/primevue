@@ -23,7 +23,7 @@
             </div>
             <template #footer>
                 <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
-                <Button label="Save" outlined severity="secondary" @click="visible = false" autofocus />
+                <Button label="Save" variant="outlined" severity="secondary" @click="visible = false" autofocus />
             </template>
         </Dialog>
     </div>
@@ -57,7 +57,7 @@ export default {
     </div>
     <template #footer>
         <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
-        <Button label="Save" outlined severity="secondary" @click="visible = false" autofocus />
+        <Button label="Save" variant="outlined" severity="secondary" @click="visible = false" autofocus />
     </template>
 </Dialog>
 `,
@@ -83,7 +83,7 @@ export default {
             </div>
             <template #footer>
                 <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
-                <Button label="Save" outlined severity="secondary" @click="visible = false" autofocus />
+                <Button label="Save" variant="outlined" severity="secondary" @click="visible = false" autofocus />
             </template>
         </Dialog>
     </div>
@@ -121,7 +121,7 @@ export default {
             </div>
             <template #footer>
                 <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
-                <Button label="Save" outlined severity="secondary" @click="visible = false" autofocus />
+                <Button label="Save" variant="outlined" severity="secondary" @click="visible = false" autofocus />
             </template>
         </Dialog>
     </div>

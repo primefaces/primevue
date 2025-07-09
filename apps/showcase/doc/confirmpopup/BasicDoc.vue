@@ -4,8 +4,8 @@
     </DocSectionText>
     <ConfirmPopup></ConfirmPopup>
     <div class="card flex flex-wrap gap-2 justify-center">
-        <Button @click="confirm1($event)" label="Save" outlined></Button>
-        <Button @click="confirm2($event)" label="Delete" severity="danger" outlined></Button>
+        <Button @click="confirm1($event)" label="Save" variant="outlined"></Button>
+        <Button @click="confirm2($event)" label="Delete" severity="danger" variant="outlined"></Button>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -17,16 +17,16 @@ export default {
             code: {
                 basic: `
 <ConfirmPopup></ConfirmPopup>
-<Button @click="confirm1($event)" label="Save" outlined></Button>
-<Button @click="confirm2($event)" label="Delete" severity="danger" outlined></Button>
+<Button @click="confirm1($event)" label="Save" variant="outlined"></Button>
+<Button @click="confirm2($event)" label="Delete" severity="danger" variant="outlined"></Button>
 `,
                 options: `
 <template>
     <Toast />
     <ConfirmPopup></ConfirmPopup>
     <div class="card flex flex-wrap gap-2 justify-center">
-        <Button @click="confirm1($event)" label="Save" outlined></Button>
-        <Button @click="confirm2($event)" label="Delete" severity="danger" outlined></Button>
+        <Button @click="confirm1($event)" label="Save" variant="outlined"></Button>
+        <Button @click="confirm2($event)" label="Delete" severity="danger" variant="outlined"></Button>
     </div>
 </template>
 
@@ -85,8 +85,8 @@ export default {
     <Toast />
     <ConfirmPopup></ConfirmPopup>
     <div class="card flex flex-wrap gap-2 justify-center">
-        <Button @click="confirm1($event)" label="Save" outlined></Button>
-        <Button @click="confirm2($event)" label="Delete" severity="danger" outlined></Button>
+        <Button @click="confirm1($event)" label="Save" variant="outlined"></Button>
+        <Button @click="confirm2($event)" label="Delete" severity="danger" variant="outlined"></Button>
     </div>
 </template>
 

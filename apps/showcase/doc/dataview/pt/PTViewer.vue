@@ -18,7 +18,15 @@
                                         <div class="text-lg font-medium mt-2">{{ item.name }}</div>
                                     </div>
                                     <div class="bg-surface-100 p-1" style="border-radius: 30px">
-                                        <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                        <div
+                                            class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2"
+                                            style="
+                                                border-radius: 30px;
+                                                box-shadow:
+                                                    0px 1px 2px 0px rgba(0, 0, 0, 0.04),
+                                                    0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+                                            "
+                                        >
                                             <span class="text-surface-900 font-medium text-sm">{{ item.rating }}</span>
                                             <i class="pi pi-star-fill text-yellow-500"></i>
                                         </div>
@@ -27,7 +35,7 @@
                                 <div class="flex flex-col md:items-end gap-8">
                                     <span class="text-xl font-semibold">${{ item.price }}</span>
                                     <div class="flex flex-row-reverse md:flex-row gap-2">
-                                        <Button icon="pi pi-heart" outlined></Button>
+                                        <Button icon="pi pi-heart" variant="outlined"></Button>
                                         <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial whitespace-nowrap"></Button>
                                     </div>
                                 </div>

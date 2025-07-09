@@ -5,7 +5,7 @@
                 <div class="text-2xl leading-8 text-color font-medium">Customers</div>
                 <div class="mt-1 leading-6 text-muted-color">The analysis list here shows all users</div>
             </div>
-            <Button icon="pi pi-circle-fill text-green-500" label="950 Active User" outlined severity="secondary" />
+            <Button icon="pi pi-circle-fill text-green-500" label="950 Active User" variant="outlined" severity="secondary" />
         </div>
         <div class="mt-10 mb-4 flex items-center justify-between">
             <IconField iconPosition="left">
@@ -13,12 +13,12 @@
                 <InputText v-model="search" placeholder="Search" />
             </IconField>
             <div class="flex items-center gap-3">
-                <Button icon="pi pi-filter" outlined severity="secondary" />
+                <Button icon="pi pi-filter" variant="outlined" severity="secondary" />
                 <Divider layout="vertical" class="m-0" />
-                <Button icon="pi pi-refresh" outlined severity="secondary" />
-                <Button label="1 of 15" outlined severity="secondary" />
-                <Button icon="pi pi-chevron-left" outlined severity="secondary" />
-                <Button icon="pi pi-chevron-right" outlined severity="secondary" />
+                <Button icon="pi pi-refresh" variant="outlined" severity="secondary" />
+                <Button label="1 of 15" variant="outlined" severity="secondary" />
+                <Button icon="pi pi-chevron-left" variant="outlined" severity="secondary" />
+                <Button icon="pi pi-chevron-right" variant="outlined" severity="secondary" />
             </div>
         </div>
         <div class="flex-1 last:[&>td]:border-0 rounded-lg border border-surface w-full overflow-auto">
@@ -92,7 +92,7 @@
                 <Column field="more" header="More">
                     <template #body>
                         <div class="flex justify-end w-full">
-                            <Button @click="displayPopover" icon="pi pi-search" rounded outlined severity="secondary" />
+                            <Button @click="displayPopover" icon="pi pi-search" rounded variant="outlined" severity="secondary" />
                         </div>
                     </template>
                 </Column>
@@ -100,8 +100,8 @@
 
             <Popover ref="op">
                 <div class="flex gap-2">
-                    <Button label="Details" size="small" outlined @click="hidePopover"></Button>
-                    <Button label="Delete" severity="danger" size="small" outlined @click="hidePopover"></Button>
+                    <Button label="Details" size="small" variant="outlined" @click="hidePopover"></Button>
+                    <Button label="Delete" severity="danger" size="small" variant="outlined" @click="hidePopover"></Button>
                 </div>
             </Popover>
         </div>

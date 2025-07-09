@@ -38,7 +38,15 @@
                             <div class="text-lg font-medium mt-1">{{ selectedProduct.name }}</div>
                         </div>
                         <div class="bg-surface-100 p-1" style="border-radius: 30px">
-                            <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                            <div
+                                class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2"
+                                style="
+                                    border-radius: 30px;
+                                    box-shadow:
+                                        0px 1px 2px 0px rgba(0, 0, 0, 0.04),
+                                        0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+                                "
+                            >
                                 <span class="text-surface-900 font-medium text-sm">{{ selectedProduct.rating }}</span>
                                 <i class="pi pi-star-fill text-yellow-500"></i>
                             </div>
@@ -46,7 +54,7 @@
                     </div>
                     <div class="flex gap-2">
                         <Button icon="pi pi-shopping-cart" :label="`Buy Now | \$${selectedProduct.price}`" :disabled="selectedProduct.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap" @click="hidePopover"></Button>
-                        <Button icon="pi pi-heart" outlined @click="hidePopover"></Button>
+                        <Button icon="pi pi-heart" variant="outlined" @click="hidePopover"></Button>
                     </div>
                 </div>
             </div>
@@ -106,7 +114,7 @@ export default {
             </div>
             <div class="flex gap-2">
                 <Button icon="pi pi-shopping-cart" :label="\`Buy Now | \\$\${selectedProduct.price}\`" :disabled="selectedProduct.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap" @click="hidePopover"></Button>
-                <Button icon="pi pi-heart" outlined @click="hidePopover"></Button>
+                <Button icon="pi pi-heart" variant="outlined" @click="hidePopover"></Button>
             </div>
         </div>
     </div>
@@ -157,7 +165,7 @@ export default {
                     </div>
                     <div class="flex gap-2">
                         <Button icon="pi pi-shopping-cart" :label="\`Buy Now | \\$\${selectedProduct.price}\`" :disabled="selectedProduct.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap" @click="hidePopover"></Button>
-                        <Button icon="pi pi-heart" outlined @click="hidePopover"></Button>
+                        <Button icon="pi pi-heart" variant="outlined" @click="hidePopover"></Button>
                     </div>
                 </div>
             </div>
@@ -259,7 +267,7 @@ export default {
                     </div>
                     <div class="flex gap-2">
                         <Button icon="pi pi-shopping-cart" :label="\`Buy Now | \\$\${selectedProduct.price}\`" :disabled="selectedProduct.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap" @click="hidePopover"></Button>
-                        <Button icon="pi pi-heart" outlined @click="hidePopover"></Button>
+                        <Button icon="pi pi-heart" variant="outlined" @click="hidePopover"></Button>
                     </div>
                 </div>
             </div>

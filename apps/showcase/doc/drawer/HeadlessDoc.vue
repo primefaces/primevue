@@ -21,7 +21,7 @@
                             <span class="font-semibold text-2xl text-primary">Your Logo</span>
                         </span>
                         <span>
-                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined></Button>
+                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded variant="outlined"></Button>
                         </span>
                     </div>
                     <div class="overflow-y-auto">
@@ -211,7 +211,7 @@ export default {
                     <span class="font-semibold text-2xl text-primary">Your Logo</span>
                 </span>
                 <span>
-                    <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined></Button>
+                    <Button type="button" @click="closeCallback" icon="pi pi-times" rounded variant="outlined"></Button>
                 </span>
             </div>
             <div class="overflow-y-auto">
@@ -400,7 +400,7 @@ export default {
                             <span class="font-semibold text-2xl text-primary">Your Logo</span>
                         </span>
                         <span>
-                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined></Button>
+                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded variant="outlined"></Button>
                         </span>
                     </div>
                     <div class="overflow-y-auto">
@@ -601,7 +601,7 @@ export default {
                             <span class="font-semibold text-2xl text-primary">Your Logo</span>
                         </span>
                         <span>
-                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded outlined></Button>
+                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded variant="outlined"></Button>
                         </span>
                     </div>
                     <div class="overflow-y-auto">

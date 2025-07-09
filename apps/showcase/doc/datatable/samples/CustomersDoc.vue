@@ -16,7 +16,7 @@
             >
                 <template #header>
                     <div class="flex justify-between">
-                        <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
+                        <Button type="button" icon="pi pi-filter-slash" label="Clear" variant="outlined" @click="clearFilter()" />
                         <IconField>
                             <InputIcon>
                                 <i class="pi pi-search" />
@@ -144,7 +144,7 @@ export default {
     :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
     <template #header>
         <div class="flex justify-between">
-            <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
+            <Button type="button" icon="pi pi-filter-slash" label="Clear" variant="outlined" @click="clearFilter()" />
             <IconField>
                 <InputIcon>
                     <i class="pi pi-search" />
@@ -246,7 +246,7 @@ export default {
             :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
             <template #header>
                 <div class="flex justify-between">
-                    <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
+                    <Button type="button" icon="pi pi-filter-slash" label="Clear" variant="outlined" @click="clearFilter()" />
                     <IconField>
                         <InputIcon>
                             <i class="pi pi-search" />
@@ -439,7 +439,7 @@ export default {
             :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']">
             <template #header>
                 <div class="flex justify-between">
-                    <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" />
+                    <Button type="button" icon="pi pi-filter-slash" label="Clear" variant="outlined" @click="clearFilter()" />
                     <IconField>
                         <InputIcon>
                             <i class="pi pi-search" />

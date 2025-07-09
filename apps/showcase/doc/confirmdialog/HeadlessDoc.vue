@@ -12,7 +12,7 @@
                 <p class="mb-0">{{ message.message }}</p>
                 <div class="flex items-center gap-2 mt-6">
                     <Button label="Save" @click="acceptCallback" class="w-32"></Button>
-                    <Button label="Cancel" outlined @click="rejectCallback" class="w-32"></Button>
+                    <Button label="Cancel" variant="outlined" @click="rejectCallback" class="w-32"></Button>
                 </div>
             </div>
         </template>
@@ -39,7 +39,7 @@ export default {
             <p class="mb-0">{{ message.message }}</p>
             <div class="flex items-center gap-2 mt-6">
                 <Button label="Save" @click="acceptCallback" class="w-32"></Button>
-                <Button label="Cancel" outlined @click="rejectCallback" class="w-32"></Button>
+                <Button label="Cancel" variant="outlined" @click="rejectCallback" class="w-32"></Button>
             </div>
         </div>
     </template>
@@ -58,7 +58,7 @@ export default {
                 <p class="mb-0">{{ message.message }}</p>
                 <div class="flex items-center gap-2 mt-6">
                     <Button label="Save" @click="acceptCallback" class="w-32"></Button>
-                    <Button label="Cancel" outlined @click="rejectCallback" class="w-32"></Button>
+                    <Button label="Cancel" variant="outlined" @click="rejectCallback" class="w-32"></Button>
                 </div>
             </div>
         </template>
@@ -101,7 +101,7 @@ export default {
                 <p class="mb-0">{{ message.message }}</p>
                 <div class="flex items-center gap-2 mt-6">
                     <Button label="Save" @click="acceptCallback"></Button>
-                    <Button label="Cancel" outlined @click="rejectCallback"></Button>
+                    <Button label="Cancel" variant="outlined" @click="rejectCallback"></Button>
                 </div>
             </div>
         </template>

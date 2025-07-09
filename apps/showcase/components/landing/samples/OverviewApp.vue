@@ -10,7 +10,7 @@
                     <InputIcon class="pi pi-search"> </InputIcon>
                     <InputText placeholder="Search" />
                 </IconField>
-                <Button severity="secondary" outlined>
+                <Button severity="secondary" variant="outlined">
                     <OverlayBadge
                         severity="danger"
                         :pt="{
@@ -142,7 +142,7 @@
                             </template>
                         </MeterGroup>
                     </div>
-                    <Button label="Show All" outlined />
+                    <Button label="Show All" variant="outlined" />
                 </div>
             </div>
         </div>

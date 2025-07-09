@@ -114,7 +114,7 @@
                                 <div class="text-2xl text-color font-medium">Data Analyst</div>
                                 <div class="mt-2 text-color">Data Insights Ltd.</div>
                             </div>
-                            <Button @click="jobApplication = !jobApplication" :icon="jobApplication ? 'pi pi-bookmark-fill' : 'pi pi-bookmark'" severity="secondary" outlined rounded />
+                            <Button @click="jobApplication = !jobApplication" :icon="jobApplication ? 'pi pi-bookmark-fill' : 'pi pi-bookmark'" severity="secondary" variant="outlined" rounded />
                         </div>
                         <div class="flex flex-wrap gap-1 items-center justify-between">
                             <div class="flex items-center gap-2 whitespace-nowrap text-muted-color">
@@ -186,9 +186,9 @@
                             <template #header="{ chooseCallback, uploadCallback, clearCallback, files, uploadedFiles }">
                                 <div v-if="files.length > 0 || uploadedFiles.length > 0" class="flex w-full flex-wrap justify-between items-center flex-1 gap-4 border-b border-surface pb-4">
                                     <div class="flex gap-2">
-                                        <Button @click="chooseCallback()" icon="pi pi-images" rounded outlined severity="secondary"></Button>
-                                        <Button @click="uploadEvent(uploadCallback)" icon="pi pi-cloud-upload" rounded outlined severity="success" :disabled="!files || files.length === 0"></Button>
-                                        <Button @click="clearCallback()" icon="pi pi-times" rounded outlined severity="danger" :disabled="!files || files.length === 0"></Button>
+                                        <Button @click="chooseCallback()" icon="pi pi-images" rounded variant="outlined" severity="secondary"></Button>
+                                        <Button @click="uploadEvent(uploadCallback)" icon="pi pi-cloud-upload" rounded variant="outlined" severity="success" :disabled="!files || files.length === 0"></Button>
+                                        <Button @click="clearCallback()" icon="pi pi-times" rounded variant="outlined" severity="danger" :disabled="!files || files.length === 0"></Button>
                                     </div>
                                 </div>
                                 <div v-if="files.length <= 0 && uploadedFiles.length <= 0" class="flex flex-col items-center justify-center p-6 cursor-pointer" @click="chooseCallback()">
@@ -246,7 +246,7 @@
                         </label>
                     </div>
                     <div class="flex items-center gap-2">
-                        <Button label="Cancel" outlined class="flex-1" />
+                        <Button label="Cancel" variant="outlined" class="flex-1" />
                         <Button label="Upload" class="flex-1" />
                     </div>
                 </div>
@@ -483,7 +483,7 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-3 flex-wrap [&>*]:flex-1 mt-6">
-                        <Button label="Undo" outlined />
+                        <Button label="Undo" variant="outlined" />
                         <Button label="Random" />
                     </div>
                 </div>

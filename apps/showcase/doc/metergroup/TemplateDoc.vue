@@ -35,7 +35,7 @@
             </template>
             <template #end>
                 <div class="flex justify-between mt-4">
-                    <Button label="Manage Storage" outlined size="small" />
+                    <Button label="Manage Storage" variant="outlined" size="small" />
                     <Button label="Update Plan" size="small" />
                 </div>
             </template>
@@ -88,7 +88,7 @@ export default {
     </template>
     <template #end>
         <div class="flex justify-between mt-4">
-            <Button label="Manage Storage" outlined size="small" />
+            <Button label="Manage Storage" variant="outlined" size="small" />
             <Button label="Update Plan" size="small" />
         </div>
     </template>
@@ -129,7 +129,7 @@ export default {
             </template>
             <template #end>
                 <div class="flex justify-between mt-4">
-                    <Button label="Manage Storage" outlined size="small" />
+                    <Button label="Manage Storage" variant="outlined" size="small" />
                     <Button label="Update Plan" size="small" />
                 </div>
             </template>
@@ -187,7 +187,7 @@ export default {
             </template>
             <template #end>
                 <div class="flex justify-between mt-4">
-                    <Button label="Manage Storage" outlined size="small" />
+                    <Button label="Manage Storage" variant="outlined" size="small" />
                     <Button label="Update Plan" size="small" />
                 </div>
             </template>

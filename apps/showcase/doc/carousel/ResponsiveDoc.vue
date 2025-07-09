@@ -20,7 +20,7 @@
                     <div class="flex justify-between items-center">
                         <div class="mt-0 font-semibold text-xl">${{ slotProps.data.price }}</div>
                         <span>
-                            <Button icon="pi pi-heart" severity="secondary" outlined />
+                            <Button icon="pi pi-heart" severity="secondary" variant="outlined" />
                             <Button icon="pi pi-shopping-cart" class="ml-2" />
                         </span>
                     </div>
@@ -75,7 +75,7 @@ export default {
             <div class="flex justify-between items-center">
                 <div class="mt-0 font-semibold text-xl">\${{ slotProps.data.price }}</div>
                 <span>
-                    <Button icon="pi pi-heart" severity="secondary" outlined />
+                    <Button icon="pi pi-heart" severity="secondary" variant="outlined" />
                     <Button icon="pi pi-shopping-cart" class="ml-2"/>
                 </span>
             </div>
@@ -99,7 +99,7 @@ export default {
                     <div class="flex justify-between items-center">
                         <div class="mt-0 font-semibold text-xl">\${{ slotProps.data.price }}</div>
                         <span>
-                            <Button icon="pi pi-heart" severity="secondary" outlined />
+                            <Button icon="pi pi-heart" severity="secondary" variant="outlined" />
                             <Button icon="pi pi-shopping-cart" class="ml-2"/>
                         </span>
                     </div>
@@ -179,7 +179,7 @@ export default {
                     <div class="flex justify-between items-center">
                         <div class="mt-0 font-semibold text-xl">\${{ slotProps.data.price }}</div>
                         <span>
-                            <Button icon="pi pi-heart" severity="secondary" outlined />
+                            <Button icon="pi pi-heart" severity="secondary" variant="outlined" />
                             <Button icon="pi pi-shopping-cart" class="ml-2"/>
                         </span>
                     </div>

@@ -203,7 +203,7 @@
                     label="Show more"
                     icon="pi pi-arrow-right"
                     iconPos="right"
-                    outlined
+                    variant="outlined"
                     class="w-full text-left"
                     :pt="{
                         root: {

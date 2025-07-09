@@ -34,7 +34,7 @@
                 <div v-else class="flex flex-col items-start gap-4 p-2">
                     <img alt="megamenu-demo" :src="item.image" class="w-full" />
                     <span>{{ item.subtext }}</span>
-                    <Button :label="item.label" outlined />
+                    <Button :label="item.label" variant="outlined" />
                 </div>
             </template>
             <template #end>
@@ -122,7 +122,7 @@ export default {
         <div v-else class="flex flex-col items-start gap-4 p-2">
             <img alt="megamenu-demo" :src="item.image" class="w-full" />
             <span>{{ item.subtext }}</span>
-            <Button :label="item.label" outlined />
+            <Button :label="item.label" variant="outlined" />
         </div>
     </template>
     <template #end>
@@ -162,7 +162,7 @@ export default {
                 <div v-else class="flex flex-col items-start gap-4 p-2">
                     <img alt="megamenu-demo" :src="item.image" class="w-full" />
                     <span>{{ item.subtext }}</span>
-                    <Button :label="item.label" outlined />
+                    <Button :label="item.label" variant="outlined" />
                 </div>
             </template>
             <template #end>
@@ -261,7 +261,7 @@ export default {
                 <div v-else class="flex flex-col items-start gap-4 p-2">
                     <img alt="megamenu-demo" :src="item.image" class="w-full" />
                     <span>{{ item.subtext }}</span>
-                    <Button :label="item.label" outlined />
+                    <Button :label="item.label" variant="outlined" />
                 </div>
             </template>
             <template #end>

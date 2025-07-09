@@ -4,8 +4,8 @@
     </DocSectionText>
     <ConfirmDialog></ConfirmDialog>
     <div class="card flex flex-wrap gap-2 justify-center">
-        <Button @click="confirm1()" label="Save" outlined></Button>
-        <Button @click="confirm2()" label="Delete" severity="danger" outlined></Button>
+        <Button @click="confirm1()" label="Save" variant="outlined"></Button>
+        <Button @click="confirm2()" label="Delete" severity="danger" variant="outlined"></Button>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -17,16 +17,16 @@ export default {
             code: {
                 basic: `
 <ConfirmDialog></ConfirmDialog>
-<Button @click="confirm1()" label="Save" outlined></Button>
-<Button @click="confirm2()" label="Delete" severity="danger" outlined></Button>
+<Button @click="confirm1()" label="Save" variant="outlined"></Button>
+<Button @click="confirm2()" label="Delete" severity="danger" variant="outlined"></Button>
 `,
                 options: `
 <template>
     <Toast />
     <ConfirmDialog></ConfirmDialog>
     <div class="card flex flex-wrap gap-2 justify-center">
-        <Button @click="confirm1()" label="Save" outlined></Button>
-        <Button @click="confirm2()" label="Delete" severity="danger" outlined></Button>
+        <Button @click="confirm1()" label="Save" variant="outlined"></Button>
+        <Button @click="confirm2()" label="Delete" severity="danger" variant="outlined"></Button>
     </div>
 </template>
 
@@ -85,8 +85,8 @@ export default {
     <Toast />
     <ConfirmDialog></ConfirmDialog>
     <div class="card flex flex-wrap gap-2 justify-center">
-        <Button @click="confirm1()" label="Save" outlined></Button>
-        <Button @click="confirm2()" label="Delete" severity="danger" outlined></Button>
+        <Button @click="confirm1()" label="Save" variant="outlined"></Button>
+        <Button @click="confirm2()" label="Delete" severity="danger" variant="outlined"></Button>
     </div>
 </template>
 

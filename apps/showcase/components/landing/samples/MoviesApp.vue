@@ -7,7 +7,7 @@
                     <InputIcon class="pi pi-search"> </InputIcon>
                     <InputText v-model="search" placeholder="Search" />
                 </IconField>
-                <Button severity="secondary" outlined>
+                <Button severity="secondary" variant="outlined">
                     <OverlayBadge
                         severity="danger"
                         size="small"
@@ -29,12 +29,12 @@
             <div class="flex items-center justify-between gap-2 mb-6">
                 <div class="text-color text-xl font-medium leading-7">Keep watching</div>
                 <div class="xl:flex hidden items-center gap-2">
-                    <Button :disabled="page === 0" @click="page -= 1" icon="pi pi-chevron-left" severity="secondary" outlined />
-                    <Button :disabled="page === carouselData.length - page" @click="page += 1" icon="pi pi-chevron-right" severity="secondary" outlined />
+                    <Button :disabled="page === 0" @click="page -= 1" icon="pi pi-chevron-left" severity="secondary" variant="outlined" />
+                    <Button :disabled="page === carouselData.length - page" @click="page += 1" icon="pi pi-chevron-right" severity="secondary" variant="outlined" />
                 </div>
                 <div class="xl:hidden flex items-center gap-2">
-                    <Button :disabled="page === 0" @click="page -= 1" icon="pi pi-chevron-left" severity="secondary" outlined />
-                    <Button :disabled="page === carouselData.length - 3" @click="page += 1" icon="pi pi-chevron-right" severity="secondary" outlined />
+                    <Button :disabled="page === 0" @click="page -= 1" icon="pi pi-chevron-left" severity="secondary" variant="outlined" />
+                    <Button :disabled="page === carouselData.length - 3" @click="page += 1" icon="pi pi-chevron-right" severity="secondary" variant="outlined" />
                 </div>
             </div>
             <Carousel :value="carouselData" :page="page" :numVisible="5" :numScroll="1" :responsiveOptions="responsiveOptions" :showIndicators="false" :showNavigators="false">
@@ -79,7 +79,7 @@
                     <Button label="Recently Added" text severity="secondary" />
                     <Button label="For you" text severity="secondary" />
                 </div>
-                <Button label="Show All" severity="secondary" outlined />
+                <Button label="Show All" severity="secondary" variant="outlined" />
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-x-4 gap-y-6">
                 <div v-for="(movie, index) of popularMovies" :key="index" class="cursor-pointer">

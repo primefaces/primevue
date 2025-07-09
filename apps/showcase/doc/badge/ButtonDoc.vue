@@ -4,7 +4,7 @@
     </DocSectionText>
     <div class="card flex justify-center flex-wrap gap-4">
         <Button type="button" label="Notifications" icon="pi pi-bell" badge="2" />
-        <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" outlined />
+        <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" variant="outlined" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -16,13 +16,13 @@ export default {
             code: {
                 basic: `
 <Button type="button" label="Notifications" icon="pi pi-bell" badge="2" />
-<Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" outlined />
+<Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" variant="outlined" />
 `,
                 options: `
 <template>
     <div class="card flex justify-center flex-wrap gap-4">
         <Button type="button" label="Notifications" icon="pi pi-bell" badge="2" />
-        <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" outlined />
+        <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" variant="outlined" />
     </div>
 </template>
 
@@ -33,7 +33,7 @@ export default {
 <template>
     <div class="card flex justify-center flex-wrap gap-4">
         <Button type="button" label="Notifications" icon="pi pi-bell" badge="2" />
-        <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" outlined />
+        <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" variant="outlined" />
     </div>
 </template>
 
