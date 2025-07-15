@@ -76775,6 +76775,14 @@
                             "description": "An array of treenodes."
                         },
                         {
+                            "name": "optionLabel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "label",
+                            "description": "Property name to use as the label of an option."
+                        },
+                        {
                             "name": "expandedKeys",
                             "optional": true,
                             "readonly": false,

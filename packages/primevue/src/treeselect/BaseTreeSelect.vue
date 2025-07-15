@@ -23,6 +23,10 @@ export default {
             type: String,
             default: 'single'
         },
+        optionLabel: {
+          type: String,
+          default: "label"
+        },
         selectedItemsLabel: {
             type: String,
             default: null

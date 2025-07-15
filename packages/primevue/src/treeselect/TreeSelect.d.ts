@@ -190,6 +190,10 @@ export interface TreeSelectProps {
      */
     options?: TreeNode[] | undefined;
     /**
+     *
+     */
+    optionLabel?: string | 'label';
+    /**
      * A map of keys to represent the expansion state in controlled mode.
      */
     expandedKeys?: TreeExpandedKeys;
