@@ -1,5 +1,5 @@
 <template>
-    <span :class="containerClass" v-bind="ptmi('root')">
+    <span :class="containerClass" v-bind="ptmi('root')" aria-hidden="true">
         <slot />
     </span>
 </template>
