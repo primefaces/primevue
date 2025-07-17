@@ -34,7 +34,7 @@
                         </template>
                         <template v-else>
                             <div v-for="node of selectedNodes" :key="node.key" :class="cx('chipItem')" v-bind="ptm('chipItem')">
-                                <Chip :class="cx('pcChip')" :label="node.label" :unstyled="unstyled" :pt="ptm('pcChip')" />
+                                <Chip :class="cx('pcChip')" :label="node[optionLabel]" :unstyled="unstyled" :pt="ptm('pcChip')" />
                             </div>
                             <template v-if="emptyValue">{{ placeholder || 'empty' }}</template>
                         </template>
@@ -92,6 +92,7 @@
                             :level="0"
                             :unstyled="unstyled"
                             :pt="ptm('pcTree')"
+                            :optionLabel="optionLabel"
                         >
                             <template v-if="$slots.option" #default="optionSlotProps">
                                 <slot name="option" :node="optionSlotProps.node" :expanded="optionSlotProps.expanded" :selected="optionSlotProps.selected" />
@@ -537,7 +538,7 @@ export default {
                 if (isNotEmpty(this.maxSelectedLabels) && value.length > this.maxSelectedLabels) {
                     label = this.getSelectedItemsLabel();
                 } else {
-                    label = value.map((node) => node.label).join(', ');
+                    label = value.map((node) => node[this.optionLabel]).join(', ');
                 }
             } else {
                 label = this.placeholder;

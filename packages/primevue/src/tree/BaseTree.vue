@@ -74,6 +74,10 @@ export default {
             type: String,
             default: null
         },
+        optionLabel: {
+            type: String,
+            default: "label"
+        },
         ariaLabel: {
             type: String,
             default: null
