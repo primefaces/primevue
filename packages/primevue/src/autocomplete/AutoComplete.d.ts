@@ -424,6 +424,11 @@ export interface AutoCompleteProps {
      */
     forceSelection?: boolean | undefined;
     /**
+     * When false, doesn't close the options list on selection.
+     * @defaultValue false
+     */
+    hideOnSelection?: boolean | undefined;
+    /**
      * Whether to run a query when input receives focus.
      * @defaultValue false
      */

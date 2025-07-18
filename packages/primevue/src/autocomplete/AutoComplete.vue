@@ -327,6 +327,8 @@ export default {
             isFocus && focus(this.multiple ? this.$refs.focusInput : this.$refs.focusInput.$el);
         },
         hide(isFocus) {
+            if (!this.hideOnSelection) return;
+
             const _hide = () => {
                 this.$emit('before-hide');
                 this.dirty = isFocus;
