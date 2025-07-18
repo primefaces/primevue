@@ -12,7 +12,7 @@ export default defineNuxtModule<ModuleOptions>({
         name: '@primevue/nuxt-module',
         configKey: 'primevue',
         compatibility: {
-            nuxt: '^3.0.0'
+            nuxt: '>=3.0.0'
         }
     },
     defaults: {
