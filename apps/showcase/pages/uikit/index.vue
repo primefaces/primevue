@@ -224,7 +224,7 @@
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>1 Year Free Updates</span>
+                                        <span class="inline-flex items-center gap-2">1 Year Free Updates <Badge v-tooltip="'$99 for + 1 Year'" value="?" severity="secondary" /></span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -266,7 +266,7 @@
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>1 Year Free Updates</span>
+                                        <span class="inline-flex items-center gap-2">1 Year Free Updates <Badge v-tooltip="'$249 for + 1 Year'" value="?" severity="secondary" /></span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -308,7 +308,7 @@
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>1 Year Free Updates</span>
+                                        <span class="inline-flex items-center gap-2">1 Year Free Updates <Badge v-tooltip="'Contact Us'" value="?" severity="secondary" /></span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
