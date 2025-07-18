@@ -311,11 +311,14 @@ export default {
 
             this.spin(event, dir);
         },
+        addWithPrecision(base, increment, precision = 10) {
+            return Math.round((base + increment) * precision) / precision;
+        },
         spin(event, dir) {
             if (this.$refs.input) {
                 let step = this.step * dir;
                 let currentValue = this.parseValue(this.$refs.input.$el.value) || 0;
-                let newValue = this.validateValue(currentValue + step);
+                let newValue = this.validateValue(this.addWithPrecision(currentValue, step));
 
                 this.updateInput(newValue, null, 'spin');
                 this.updateModel(event, newValue);
