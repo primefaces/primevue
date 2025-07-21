@@ -343,7 +343,7 @@ export default {
                 hsb = this.HEXtoHSB(this.defaultColor);
             }
 
-            if (this.localHue == null || !this.overlayVisible) {
+            if (this.localHue == null || (!this.overlayVisible && !this.inline)) {
                 this.localHue = hsb.h;
             } else {
                 hsb.h = this.localHue;
