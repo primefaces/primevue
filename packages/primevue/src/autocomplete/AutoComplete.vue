@@ -348,7 +348,8 @@ export default {
             }
 
             if (!this.dirty && this.completeOnFocus) {
-                this.search(event, event.target.value, 'focus');
+                const searchValue = this.emptyCompleteOnFocus ? '' : event.target.value;
+                this.search(event, searchValue, 'focus');
             }
 
             this.dirty = true;
