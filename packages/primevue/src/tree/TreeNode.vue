@@ -66,6 +66,7 @@
                 @checkbox-change="propagateUp"
                 :unstyled="unstyled"
                 :pt="pt"
+                :optionLabel="optionLabel"
             />
         </ul>
     </li>
@@ -112,6 +113,10 @@ export default {
             type: null,
             default: null
         },
+        optionLabel: {
+            type: String,
+            default: "label"
+        },
         level: {
             type: Number,
             default: null
@@ -129,7 +134,7 @@ export default {
             this.toggleClicked = true;
         },
         label(node) {
-            return typeof node.label === 'function' ? node.label() : node.label;
+            return typeof node.label === 'function' ? node.label() : node[this.optionLabel];
         },
         onChildNodeToggle(node) {
             this.$emit('node-toggle', node);
