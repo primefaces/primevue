@@ -476,7 +476,7 @@ export default {
             this.clicked = true;
         },
         onClearClick(event) {
-            this.updateModel(event, null);
+            this.updateModel(event, []);
             this.resetFilterOnClear && (this.filterValue = null);
         },
         onFirstHiddenFocus(event) {
