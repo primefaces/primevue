@@ -392,6 +392,11 @@ export interface DialogSlots {
          * @param {Event} event - Browser event
          */
         maximizeCallback: (event: Event) => void;
+        /**
+         * Initialize drag function for custom container elements.
+         * @param {Event} event - Browser event
+         */
+        initDragCallback: (event: Event) => void;
     }): VNode[];
 }
 
