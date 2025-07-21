@@ -20,14 +20,26 @@
             </li>
         </ul>
 
-        <div class="mt-8 px-4 py-6 rounded-lg border border-surface-200 dark:border-surface-800 bg-surface-0 dark:bg-surface-900 w-full">
+        <div class="mt-8 px-4 py-6 rounded-lg border border-surface-200 dark:border-surface-800 bg-surface-0 dark:bg-surface-900 w-full" v-if="false">
             <div class="text-xl font-semibold flex flex-col gap-2 text-center">
                 <span class="leading-none">Build Faster </span>
                 <span class="leading-none text-primary">Design Better</span>
             </div>
-            <div class="text-center text-sm mt-4 text-surface-500">490+ ready to use UI blocks crafted with PrimeVue and Tailwind CSS.</div>
+            <div class="text-center text-sm mt-4 text-secondary">490+ ready to use UI blocks crafted with PrimeVue and Tailwind CSS.</div>
             <span class="flex justify-center">
                 <Button as="a" label="Learn More" href="https://primeblocks.org/" target="_blank" rel="noopener" class="mt-4 inline-flex" rounded />
+            </span>
+        </div>
+
+        <div class="mt-8 p-4 rounded-lg border border-surface-200 dark:border-surface-800 bg-surface-0 dark:bg-surface-900 w-full">
+            <img src="https://primefaces.org/cdn/discount/primestore-summersale-2025-sm.jpg" class="w-full rounded-lg" alt="Summer Sale 2025" />
+            <div class="text-xl font-semibold flex flex-col gap-2 text-center mt-4">
+                <span class="leading-none">SUMMER SALE</span>
+                <span class="leading-none text-primary">2025</span>
+            </div>
+            <div class="text-center text-sm mt-4 text-muted-color">Use coupon code <b>PRSM25</b> at checkout to get 50% OFF everything in PrimeStore and PrimeBlocks.</div>
+            <span class="flex justify-center">
+                <Button as="a" label="Learn More" size="small" href="https://www.primefaces.org/blog/summer-sale-2025" target="_blank" rel="noopener" class="mt-4 inline-flex" rounded />
             </span>
         </div>
     </div>
