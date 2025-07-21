@@ -52,11 +52,12 @@
         </div>
         <ul v-if="hasChildren && expanded" :class="cx('nodeChildren')" role="group" v-bind="ptm('nodeChildren')">
             <TreeNode
-                v-for="childNode of node.children"
+                v-for="(childNode, index) of node.children"
                 :key="childNode.key"
                 :node="childNode"
                 :templates="templates"
                 :level="level + 1"
+                :index="index"
                 :loadingMode="loadingMode"
                 :expandedKeys="expandedKeys"
                 @node-toggle="onChildNodeToggle"
