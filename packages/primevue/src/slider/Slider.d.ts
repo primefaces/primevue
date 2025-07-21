@@ -90,7 +90,7 @@ export interface SliderSlideEndEvent {
     /**
      * New value.
      */
-    value: number;
+    value: number | number[];
 }
 
 /**
@@ -202,9 +202,9 @@ export interface SliderEmitsOptions {
     'value-change'(value: number | number[]): void;
     /**
      * Callback to invoke on value change.
-     * @param {number} value - New value
+     * @param {number | number[]} value - New value
      */
-    change(value: number): void;
+    change(value: number | number[]): void;
     /**
      * Callback to invoke when slide ends.
      * @param {SliderSlideEndEvent} event - Custom slide end event.
