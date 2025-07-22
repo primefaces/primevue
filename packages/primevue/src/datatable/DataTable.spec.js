@@ -1439,4 +1439,68 @@ describe('DataTable.vue', () => {
     // contextmenu
 
     // row styling
+    it('should render custom headercheckboxicon slot in Column', () => {
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: smallData,
+                selection: null
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple">
+                        <template #headercheckboxicon>
+                            <span class="custom-header-checkbox-icon">CustomIcon</span>
+                        </template>
+                    </Column>
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                `
+            }
+        });
+
+        const headerCheckboxIcon = wrapper.find('.custom-header-checkbox-icon');
+
+        expect(headerCheckboxIcon.exists()).toBe(true);
+        expect(headerCheckboxIcon.text()).toBe('CustomIcon');
+    });
+
+    it('should render custom rowcheckboxicon slot in Column', () => {
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: smallData,
+                selection: null
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple">
+                        <template #rowcheckboxicon>
+                            <span class="custom-row-checkbox-icon">CustomIcon</span>
+                        </template>
+                    </Column>
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                `
+            }
+        });
+
+        // custom-row-checkbox-icon should be rendered in each row, so 3 times
+        const rowCheckboxIcons = wrapper.findAll('.custom-row-checkbox-icon');
+
+        expect(rowCheckboxIcons.length).toBe(3);
+        expect(rowCheckboxIcons[0].text()).toBe('CustomIcon');
+        expect(rowCheckboxIcons[1].text()).toBe('CustomIcon');
+        expect(rowCheckboxIcons[2].text()).toBe('CustomIcon');
+    });
 });
