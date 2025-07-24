@@ -284,6 +284,14 @@ export interface TreeSelectProps {
      */
     emptyMessage?: string | undefined;
     /**
+     * Whether checkbox selections propagate to descendant nodes.
+     */
+    propagateSelectionDown?: boolean | true;
+    /**
+     * Whether checkbox selections propagate to ancestor nodes.
+     */
+    propagateSelectionUp?: boolean | true;
+    /**
      * Label to display when there are no selections.
      */
     placeholder?: string | undefined;

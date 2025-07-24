@@ -63,9 +63,11 @@
                 @node-click="onChildNodeClick"
                 :selectionMode="selectionMode"
                 :selectionKeys="selectionKeys"
-                @checkbox-change="propagateUp"
+                @checkbox-change="onChildCheckboxChange"
                 :unstyled="unstyled"
                 :pt="pt"
+                :propagate-down-selection="propagateDownSelection"
+                :propagate-up-selection="propagateUpSelection"
             />
         </ul>
     </li>
@@ -116,7 +118,15 @@ export default {
             type: Number,
             default: null
         },
-        index: null
+        index: null,
+        propagateDownSelection: {
+            type: Boolean,
+            default: true
+        },
+        propagateUpSelection: {
+            type: Boolean,
+            default: true
+        }
     },
     nodeTouched: false,
     toggleClicked: false,
@@ -342,7 +352,15 @@ export default {
             let _selectionKeys = this.selectionKeys ? { ...this.selectionKeys } : {};
             const _check = !this.checked;
 
-            this.propagateDown(this.node, _check, _selectionKeys);
+            if (_check && this.node.selectable != false) {
+                _selectionKeys[this.node.key] = { checked: true, partialChecked: false };
+            } else {
+                delete _selectionKeys[this.node.key];
+            }
+
+            if (this.propagateDownSelection) {
+                this.propagateDown(this.node, _check, _selectionKeys);
+            }
 
             this.$emit('checkbox-change', {
                 node: this.node,
@@ -351,11 +369,14 @@ export default {
             });
         },
         propagateDown(node, check, selectionKeys) {
-            if (check && node.selectable != false) selectionKeys[node.key] = { checked: true, partialChecked: false };
-            else delete selectionKeys[node.key];
-
             if (node.children && node.children.length) {
                 for (let child of node.children) {
+                    if (check && child.selectable != false) {
+                        selectionKeys[child.key] = { checked: true, partialChecked: false };
+                    } else {
+                        delete selectionKeys[child.key];
+                    }
+
                     this.propagateDown(child, check, selectionKeys);
                 }
             }
@@ -390,6 +411,10 @@ export default {
         },
         onChildCheckboxChange(event) {
             this.$emit('checkbox-change', event);
+
+            if (this.propagateUpSelection) {
+                this.propagateUp(event);
+            }
         },
         findNextSiblingOfAncestor(nodeElement) {
             let parentNodeElement = this.getParentNodeElement(nodeElement);

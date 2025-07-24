@@ -304,6 +304,14 @@ export interface TreeProps {
      */
     filterLocale?: string | undefined;
     /**
+     * Whether checkbox selections propagate to descendant nodes.
+     */
+    propagateSelectionDown?: boolean | true;
+    /**
+     * Whether checkbox selections propagate to ancestor nodes.
+     */
+    propagateSelectionUp?: boolean | true;
+    /**
      *  Highlights automatically the first item.
      *  @defaultValue false
      */

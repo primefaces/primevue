@@ -92,6 +92,8 @@
                             :level="0"
                             :unstyled="unstyled"
                             :pt="ptm('pcTree')"
+                            :propagate-down-selection="propagateDownSelection"
+                            :propagate-up-selection="propagateUpSelection"
                         >
                             <template v-if="$slots.option" #default="optionSlotProps">
                                 <slot name="option" :node="optionSlotProps.node" :expanded="optionSlotProps.expanded" :selected="optionSlotProps.selected" />

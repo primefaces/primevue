@@ -36,6 +36,8 @@
                     :loadingMode="loadingMode"
                     :unstyled="unstyled"
                     :pt="pt"
+                    :propagate-down-selection="propagateDownSelection"
+                    :propagate-up-selection="propagateUpSelection"
                 ></TreeNode>
             </ul>
             <slot name="footer" :value="value" :expandedKeys="expandedKeys" :selectionKeys="selectionKeys" />

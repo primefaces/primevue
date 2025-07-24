@@ -77,6 +77,14 @@ export default {
         ariaLabel: {
             type: String,
             default: null
+        },
+        propagateDownSelection: {
+            type: Boolean,
+            default: true
+        },
+        propagateUpSelection: {
+            type: Boolean,
+            default: true
         }
     },
     style: TreeStyle,

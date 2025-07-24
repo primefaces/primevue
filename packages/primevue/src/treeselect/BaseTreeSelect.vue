@@ -122,6 +122,14 @@ export default {
         expandedKeys: {
             type: null,
             default: null
+        },
+        propagateDownSelection: {
+            type: Boolean,
+            default: true
+        },
+        propagateUpSelection: {
+            type: Boolean,
+            default: true
         }
     },
     style: TreeSelectStyle,

@@ -73,6 +73,18 @@ const TreeProps = [
         description: "Locale to use in filtering. The default locale is the host environment's current locale."
     },
     {
+      name: 'propagateSelectionDown',
+      type: 'boolean',
+      default: 'true',
+      description: 'Whether checkbox selections propagate to descendant nodes.'
+    },
+    {
+        name: 'propagateSelectionUp',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether checkbox selections propagate to ancestor nodes.'
+    },
+    {
         name: 'highlightOnSelect',
         type: 'boolean',
         default: 'false',
