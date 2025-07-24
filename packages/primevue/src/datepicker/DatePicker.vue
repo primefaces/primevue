@@ -1231,7 +1231,7 @@ export default {
                 this.hourFormat === '12' && this.currentHour !== 12 && this.pm ? date.setHours(this.currentHour + 12) : date.setHours(this.currentHour);
 
                 date.setMinutes(this.currentMinute);
-                date.setSeconds(this.currentSecond);
+                date.setSeconds(this.showSeconds ? this.currentSecond : 0);
             }
 
             if (this.minDate && this.minDate > date) {
