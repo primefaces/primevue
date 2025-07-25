@@ -905,7 +905,9 @@ export default {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
 
             if (this.filterValue) {
-                const filteredOptions = FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
+                const filteredOptions = this.customFilter !== null
+                    ? this.customFilter(options, this.filterValue)
+                    : FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
 
                 if (this.optionGroupLabel) {
                     const optionGroups = this.options || [];

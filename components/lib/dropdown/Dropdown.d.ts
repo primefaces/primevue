@@ -318,6 +318,13 @@ export interface DropdownProps {
      * Fields used when filtering the options, defaults to optionLabel.
      */
     filterFields?: string[] | undefined;
+
+    /**
+     * Custom filter function for filtering an array of options based on a filter value.
+     * @defaultValue null
+     */
+    customFilter?: ((options: any[], filterValue: string|null) => any[]) | undefined;
+
     /**
      * When present, custom value instead of predefined options can be entered using the editable input field.
      * @defaultValue false

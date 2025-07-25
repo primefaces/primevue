@@ -78,6 +78,12 @@ const DropdownProps = [
         description: 'Fields used when filtering the options, defaults to optionLabel.'
     },
     {
+        name: 'customFilter',
+        type: 'Function',
+        default: 'null',
+        description: 'Custom filter function for filtering an array of options based on a filter value.'
+    },
+    {
         name: 'editable',
         type: 'boolean',
         default: 'false',

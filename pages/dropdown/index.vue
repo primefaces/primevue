@@ -19,6 +19,7 @@ import DisabledDoc from '@/doc/dropdown/DisabledDoc.vue';
 import EditableDoc from '@/doc/dropdown/EditableDoc.vue';
 import FilledDoc from '@/doc/dropdown/FilledDoc.vue';
 import FilterDoc from '@/doc/dropdown/FilterDoc.vue';
+import CustomFilterDoc from '@/doc/dropdown/CustomFilterDoc.vue';
 import FloatLabelDoc from '@/doc/dropdown/FloatLabelDoc.vue';
 import GroupDoc from '@/doc/dropdown/GroupDoc.vue';
 import ImportDoc from '@/doc/dropdown/ImportDoc.vue';
@@ -68,6 +69,11 @@ export default {
                     id: 'filter',
                     label: 'Filter',
                     component: FilterDoc
+                },
+                {
+                    id: 'customFilter',
+                    label: 'Custom Filter',
+                    component: CustomFilterDoc
                 },
                 {
                     id: 'clearicon',
