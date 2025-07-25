@@ -28,6 +28,10 @@ export default {
             type: Array,
             default: null
         },
+        customFilter: {
+            type: Function,
+            default: null
+        },
         editable: Boolean,
         placeholder: {
             type: String,

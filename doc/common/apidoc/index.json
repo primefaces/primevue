@@ -24820,6 +24820,14 @@
                             "description": "Fields used when filtering the options, defaults to optionLabel."
                         },
                         {
+                            "name": "customFilter",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": "",
+                            "description": "Custom filter function for filtering an array of options based on a filter value."
+                        },
+                        {
                             "name": "editable",
                             "optional": true,
                             "readonly": false,
