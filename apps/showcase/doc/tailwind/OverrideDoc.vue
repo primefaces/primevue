@@ -33,12 +33,12 @@ export default {
         return {
             code1: {
                 basic: `
-<InputText placeholder="Overriden" class="p-8!" />
+<InputText placeholder="Overridden" class="p-8!" />
 `
             },
             code2: {
                 basic: `
-<InputText placeholder="Overriden" class="!p-8" />
+<InputText placeholder="Overridden" class="!p-8" />
 `
             },
             code3: {
