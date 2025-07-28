@@ -82,7 +82,7 @@ export interface DatePickerResponsiveOptions {
 
 /**
  * Custom DatePicker month change event.
- * @see {@link DatePickerEmitsOptions['month-change']]}
+ * @see {@link DatePickerEmitsOptions['month-change']}
  */
 export interface DatePickerMonthChangeEvent {
     /**
@@ -97,7 +97,7 @@ export interface DatePickerMonthChangeEvent {
 
 /**
  * Custom DatePicker year change event.
- * @see {@link DatePickerEmitsOptions['year-change']]}
+ * @see {@link DatePickerEmitsOptions['year-change']}
  */
 export interface DatePickerYearChangeEvent {
     /**
