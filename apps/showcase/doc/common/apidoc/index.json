@@ -9057,14 +9057,14 @@
                 },
                 "CalendarMonthChangeEvent": {
                     "description": "Custom Calendar month change event.",
-                    "relatedProp": "CalendarEmitsOptions['month-change']]",
+                    "relatedProp": "CalendarEmitsOptions['month-change']",
                     "props": [],
                     "methods": [],
                     "extendedTypes": "default"
                 },
                 "CalendarYearChangeEvent": {
                     "description": "Custom Calendar year change event.",
-                    "relatedProp": "CalendarEmitsOptions['year-change']]",
+                    "relatedProp": "CalendarEmitsOptions['year-change']",
                     "props": [],
                     "methods": [],
                     "extendedTypes": "default"
@@ -19646,7 +19646,7 @@
                 },
                 "DataTableRowDoubleClickEvent": {
                     "description": "Custom row double click event.",
-                    "relatedProp": "DataTableEmitsOptions['row-dblclick']]",
+                    "relatedProp": "DataTableEmitsOptions['row-dblclick']",
                     "props": [
                         {
                             "name": "originalEvent",
@@ -23505,7 +23505,7 @@
                 },
                 "DatePickerMonthChangeEvent": {
                     "description": "Custom DatePicker month change event.",
-                    "relatedProp": "DatePickerEmitsOptions['month-change']]",
+                    "relatedProp": "DatePickerEmitsOptions['month-change']",
                     "props": [
                         {
                             "name": "month",
@@ -23528,7 +23528,7 @@
                 },
                 "DatePickerYearChangeEvent": {
                     "description": "Custom DatePicker year change event.",
-                    "relatedProp": "DatePickerEmitsOptions['year-change']]",
+                    "relatedProp": "DatePickerEmitsOptions['year-change']",
                     "props": [
                         {
                             "name": "month",
