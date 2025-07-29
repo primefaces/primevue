@@ -565,7 +565,7 @@ export default {
             );
         },
         expandButtonAriaLabel() {
-            return this.$primevue.config.locale.aria ? (this.isRowExpanded ? this.$primevue.config.locale.aria.expandRow : this.$primevue.config.locale.aria.collapseRow) : undefined;
+            return this.$primevue.config.locale.aria ? (this.isRowExpanded ? this.$primevue.config.locale.aria.collapseRow : this.$primevue.config.locale.aria.expandRow) : undefined;
         },
         initButtonAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.editRow : undefined;
