@@ -12,19 +12,28 @@ export default {
     extends: BaseTextarea,
     inheritAttrs: false,
     observer: null,
+    fieldSizingSupported: null,
     mounted() {
+        this.checkFieldSizingSupport();
         if (this.autoResize) {
-            this.observer = new ResizeObserver(() => {
-                // Firefox has issues without the requestAnimationFrame - ResizeObserver loop completed with undelivered notifications.
-                requestAnimationFrame(() => {
-                    this.resize();
+            // If field-sizing is supported, we can apply it directly
+            if (this.fieldSizingSupported && this.$el) {
+                this.$el.style.setProperty('field-sizing', 'content');
+            }
+            // Otherwise use the ResizeObserver approach
+            else {
+                this.observer = new ResizeObserver(() => {
+                    // Firefox has issues without the requestAnimationFrame - ResizeObserver loop completed with undelivered notifications.
+                    requestAnimationFrame(() => {
+                        this.resize();
+                    });
                 });
-            });
-            this.observer.observe(this.$el);
+                this.observer.observe(this.$el);
+            }
         }
     },
     updated() {
-        if (this.autoResize) {
+        if (this.autoResize && !this.fieldSizingSupported) {
             this.resize();
         }
     },
@@ -34,6 +43,15 @@ export default {
         }
     },
     methods: {
+        checkFieldSizingSupport() {
+            if (typeof window === 'undefined') {
+                this.fieldSizingSupported = false;
+                return;
+            }
+            const testEl = document.createElement('textarea');
+            testEl.style.setProperty('field-sizing', 'content');
+            this.fieldSizingSupported = testEl.style.getPropertyValue('field-sizing') === 'content';
+        },
         resize() {
             if (!this.$el.offsetParent) return;
 
@@ -48,7 +66,7 @@ export default {
             }
         },
         onInput(event) {
-            if (this.autoResize) {
+            if (this.autoResize && !this.fieldSizingSupported) {
                 this.resize();
             }
 
