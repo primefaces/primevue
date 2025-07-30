@@ -3,7 +3,7 @@
         <p>When <i>autoResize</i> is enabled, textarea grows instead of displaying a scrollbar.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Textarea v-model="value" autoResize />
+        <Textarea v-model="value" autoResize style="width: 285px" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             value: '',
             code: {
                 basic: `
-<Textarea v-model="value" autoResize />
+<Textarea v-model="value" autoResize style="width:285px" />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Textarea v-model="value" autoResize />
+        <Textarea v-model="value" autoResize style="width:285px"/>
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Textarea v-model="value" autoResize />
+        <Textarea v-model="value" autoResize style="width:285px" />
     </div>
 </template>
 
