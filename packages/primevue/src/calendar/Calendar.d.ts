@@ -28,13 +28,13 @@ export interface CalendarResponsiveOptions extends DatePicker.DatePickerResponsi
 
 /**
  * Custom Calendar month change event.
- * @see {@link CalendarEmitsOptions['month-change']]}
+ * @see {@link CalendarEmitsOptions['month-change']}
  */
 export interface CalendarMonthChangeEvent extends DatePicker.DatePickerMonthChangeEvent {}
 
 /**
  * Custom Calendar year change event.
- * @see {@link CalendarEmitsOptions['year-change']]}
+ * @see {@link CalendarEmitsOptions['year-change']}
  */
 export interface CalendarYearChangeEvent extends DatePicker.DatePickerYearChangeEvent {}
 

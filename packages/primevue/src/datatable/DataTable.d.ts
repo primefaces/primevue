@@ -317,7 +317,7 @@ export interface DataTableRowClickEvent<T = any> {
 
 /**
  * Custom row double click event.
- * @see {@link DataTableEmitsOptions['row-dblclick']]}
+ * @see {@link DataTableEmitsOptions['row-dblclick']}
  * @extends DataTableRowClickEvent
  */
 export interface DataTableRowDoubleClickEvent extends DataTableRowClickEvent {}
