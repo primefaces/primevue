@@ -169,7 +169,7 @@ export default {
             return this.$pcTabs.d_value;
         },
         showNavigators() {
-            return this.$pcTabs.scrollable && this.$pcTabs.showNavigators;
+            return this.$pcTabs.showNavigators;
         },
         prevButtonAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.previous : undefined;
