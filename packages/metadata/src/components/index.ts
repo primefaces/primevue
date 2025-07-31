@@ -97,8 +97,8 @@ export const media: MetaType[] = toMeta(['Carousel', 'Galleria', 'Image', 'Image
 export const misc: MetaType[] = toMeta(['Avatar', 'AvatarGroup', 'Badge', 'BlockUI', 'Chip', 'Inplace', 'MeterGroup', 'OverlayBadge', 'ScrollTop', 'Skeleton', 'ProgressBar', 'ProgressSpinner', 'Tag', 'Terminal']);
 
 export const extensions: MetaType[] = toMeta([
-    /*{ name: 'Form', from: '@primevue/forms/form' },
-    { name: 'FormField', from: '@primevue/forms/formfield' }*/
+    { name: 'Form', from: '@primevue/forms/form' },
+    { name: 'FormField', from: '@primevue/forms/formfield' }
 ]);
 
 // All PrimeVue Components
