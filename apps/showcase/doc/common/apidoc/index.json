@@ -61911,7 +61911,7 @@
                             "name": "value",
                             "optional": false,
                             "readonly": false,
-                            "type": "number",
+                            "type": "number | number[]",
                             "default": "",
                             "description": "New value."
                         }
@@ -62112,7 +62112,7 @@
                                 {
                                     "name": "value",
                                     "optional": false,
-                                    "type": "number",
+                                    "type": "number | number[]",
                                     "description": "New value"
                                 }
                             ],
