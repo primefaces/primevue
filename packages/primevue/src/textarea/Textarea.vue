@@ -37,14 +37,18 @@ export default {
         resize() {
             if (!this.$el.offsetParent) return;
 
-            this.$el.style.height = 'auto';
-            this.$el.style.height = this.$el.scrollHeight + 'px';
+            const currentHeight = this.$el.style.height;
+            const currentHeightValue = parseInt(currentHeight) || 0;
+            const initialScrollHeight = this.$el.scrollHeight;
 
-            if (parseFloat(this.$el.style.height) >= parseFloat(this.$el.style.maxHeight)) {
-                this.$el.style.overflowY = 'scroll';
-                this.$el.style.height = this.$el.style.maxHeight;
-            } else {
-                this.$el.style.overflow = 'hidden';
+            const needsExpanding = !currentHeightValue || initialScrollHeight > currentHeightValue;
+            const needsShrinking = currentHeightValue && initialScrollHeight < currentHeightValue;
+
+            if (needsShrinking) {
+                this.$el.style.height = 'auto';
+                this.$el.style.height = `${this.$el.scrollHeight}px`;
+            } else if (needsExpanding) {
+                this.$el.style.height = `${initialScrollHeight}px`;
             }
         },
         onInput(event) {
