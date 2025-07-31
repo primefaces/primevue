@@ -12,28 +12,19 @@ export default {
     extends: BaseTextarea,
     inheritAttrs: false,
     observer: null,
-    fieldSizingSupported: null,
     mounted() {
-        this.checkFieldSizingSupport();
         if (this.autoResize) {
-            // If field-sizing is supported, we can apply it directly
-            if (this.fieldSizingSupported && this.$el) {
-                this.$el.style.setProperty('field-sizing', 'content');
-            }
-            // Otherwise use the ResizeObserver approach
-            else {
-                this.observer = new ResizeObserver(() => {
-                    // Firefox has issues without the requestAnimationFrame - ResizeObserver loop completed with undelivered notifications.
-                    requestAnimationFrame(() => {
-                        this.resize();
-                    });
+            this.observer = new ResizeObserver(() => {
+                // Firefox has issues without the requestAnimationFrame - ResizeObserver loop completed with undelivered notifications.
+                requestAnimationFrame(() => {
+                    this.resize();
                 });
-                this.observer.observe(this.$el);
-            }
+            });
+            this.observer.observe(this.$el);
         }
     },
     updated() {
-        if (this.autoResize && !this.fieldSizingSupported) {
+        if (this.autoResize) {
             this.resize();
         }
     },
@@ -43,19 +34,9 @@ export default {
         }
     },
     methods: {
-        checkFieldSizingSupport() {
-            if (typeof window === 'undefined') {
-                this.fieldSizingSupported = false;
-                return;
-            }
-            const testEl = document.createElement('textarea');
-            testEl.style.setProperty('field-sizing', 'content');
-            this.fieldSizingSupported = testEl.style.getPropertyValue('field-sizing') === 'content';
-        },
         resize() {
             if (!this.$el.offsetParent) return;
 
-            // Current height before resize
             const currentHeight = this.$el.style.height;
             const currentHeightValue = parseInt(currentHeight) || 0;
             const initialScrollHeight = this.$el.scrollHeight;
@@ -64,14 +45,14 @@ export default {
             const needsShrinking = currentHeightValue && initialScrollHeight < currentHeightValue;
 
             if (needsShrinking) {
-                this.$el.style.height = 'auto'; // reset
+                this.$el.style.height = 'auto';
                 this.$el.style.height = `${this.$el.scrollHeight}px`;
             } else if (needsExpanding) {
                 this.$el.style.height = `${initialScrollHeight}px`;
             }
         },
         onInput(event) {
-            if (this.autoResize && !this.fieldSizingSupported) {
+            if (this.autoResize) {
                 this.resize();
             }
 
