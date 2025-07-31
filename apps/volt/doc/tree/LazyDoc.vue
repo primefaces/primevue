@@ -48,8 +48,6 @@ const onNodeExpand = (node) => {
             let _nodes = { ...nodes.value };
             _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
             nodes.value = _nodes;
-
-            console.log(nodes.value);
         }, 500);
     }
 };
