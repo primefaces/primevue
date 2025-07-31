@@ -6,6 +6,31 @@
 
 **Implemented New Features and Enhancements:**
 
+- Keep the menu open after clicking a MenuItem [\#7958](https://github.com/primefaces/primevue/issues/7958)
+- Support Nuxt 4 [\#7928](https://github.com/primefaces/primevue/issues/7928)
+
+**Fixed bugs:**
+
+- Tabs not displaying correctly on mobile screen [\#7965](https://github.com/primefaces/primevue/issues/7965)
+- Fix expand button aria label [\#7960](https://github.com/primefaces/primevue/issues/7960)
+- Typo at apidoc, ']] instead of '] [\#7954](https://github.com/primefaces/primevue/issues/7954)
+- DatePicker setting seconds when showTime is true and showSeconds is false [\#7946](https://github.com/primefaces/primevue/issues/7946)
+- Colorpicker selection gets wrong color in inline mode [\#7933](https://github.com/primefaces/primevue/issues/7933)
+- InputNumber: wrong internal value for decimal numbers [\#7926](https://github.com/primefaces/primevue/issues/7855)
+- TypeScript bug: Wrong type for parameter in Slider event interfaces. [\#7924](https://github.com/primefaces/primevue/issues/7924)
+- MultiSelect: onClear sets to null and not an empty array [\#7908](https://github.com/primefaces/primevue/issues/7908)
+- Tree accessibility issues [\#7899](https://github.com/primefaces/primevue/issues/7899)
+- Made InputIcon aria-hidden [\#7898](https://github.com/primefaces/primevue/issues/7898)
+- $dt('blue.500').value is undefined [\#7787](https://github.com/primefaces/primevue/issues/7787)
+- DataTable: Filtering (menu) not working with ColumnGroup [\#6313](https://github.com/primefaces/primevue/issues/6313)
+- TextArea: autoRresize moves the scroll position up [\#4189](https://github.com/primefaces/primevue/issues/4189)
+
+## [4.3.6](https://github.com/primefaces/primevue/tree/4.3.6) (2025-07-02)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.3.5...4.3.6)
+
+**Implemented New Features and Enhancements:**
+
 - Why are the Size in the documentation different from the actual code? [\#7855](https://github.com/primefaces/primevue/issues/7855)
 - Rating: pass toggleCallback for slots [\#7854](https://github.com/primefaces/primevue/issues/7854)
 - Fluid support for ToggleButton, SelectButton and Listbox [\#7835](https://github.com/primefaces/primevue/issues/7835)
