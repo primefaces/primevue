@@ -1,8 +1,8 @@
 # Changelog
 
-## [4.3.6](https://github.com/primefaces/primevue/tree/4.3.6) (2025-07-02)
+## [4.3.7](https://github.com/primefaces/primevue/tree/4.3.7) (2025-07-31)
 
-[Full Changelog](https://github.com/primefaces/primevue/compare/4.3.5...4.3.6)
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.3.6...4.3.7)
 
 **Implemented New Features and Enhancements:**
 
