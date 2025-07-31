@@ -71,6 +71,8 @@
                         :filters="filters"
                         :filterDisplay="filterDisplay"
                         :filtersStore="filtersStore"
+                        :filterInputProps="filterInputProps"
+                        :filterButtonProps="filterButtonProps"
                         @filter-change="$emit('filter-change', $event)"
                         @filter-apply="$emit('filter-apply')"
                         @operator-change="$emit('operator-change', $event)"
