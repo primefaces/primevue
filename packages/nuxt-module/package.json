@@ -74,6 +74,7 @@
         "primevue": "workspace:*",
         "@primevue/auto-import-resolver": "workspace:*",
         "@primevue/metadata": "workspace:*",
+        "@primevue/forms": "workspace:*",
         "unplugin-vue-components": "28.4.1",
         "pathe": "^1.1.2"
     },
