@@ -7,7 +7,7 @@ const inlineStyles = {
 };
 
 const classes = {
-    root: ({ instance, props }) => [
+    root: ({ instance }) => [
         'p-autocomplete p-component p-inputwrapper',
         {
             'p-invalid': instance.$invalid,
