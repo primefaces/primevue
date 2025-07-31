@@ -14,7 +14,7 @@
 
         <p>If filtering is enabled, <i>filterInputProps</i> can be defined to give <i>aria-*</i> props to the input element.</p>
 
-        <p>Close button uses <i>close</i> key of the <i>aria</i> property from the <NuxtLink to="/configuration/#locale">locale</NuxtLink> API as the <i>aria-label</i> by default, this can be overriden with the <i>closeButtonProps</i>.</p>
+        <p>Close button uses <i>close</i> key of the <i>aria</i> property from the <NuxtLink to="/configuration/#locale">locale</NuxtLink> API as the <i>aria-label</i> by default, this can be overridden with the <i>closeButtonProps</i>.</p>
 
         <DocSectionCode :code="code" hideToggleCode hideStackBlitz v-bind="$attrs" />
 
