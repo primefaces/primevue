@@ -68,9 +68,10 @@ export default {
             }
         },
         $formDefaultValue: {
-            immediate: true,
+            immediate: false,
             handler(newValue) {
                 this.d_value !== newValue && (this.d_value = newValue);
+                this.$pcForm && this.$formName && this.d_value !== this.$pcForm.getFieldState(this.$formName) && this.formField?.onChange?.({ value: newValue });
             }
         },
         $formValue: {
@@ -116,7 +117,7 @@ export default {
             return this.$formControl?.novalidate;
         },
         $formDefaultValue() {
-            return this.findNonEmpty(this.d_value, this.$pcFormField?.initialValue, this.$pcForm?.initialValues?.[this.$formName]);
+            return this.findNonEmpty(this.$pcFormField?.initialValue, this.$pcForm?.initialValues?.[this.$formName]);
         },
         $formValue() {
             return this.findNonEmpty(this.$pcFormField?.$field?.value, this.$pcForm?.getFieldState(this.$formName)?.value);
@@ -128,6 +129,9 @@ export default {
         filled() {
             return this.$filled;
         }
+    },
+    mounted() {
+        this.d_value = this.$pcForm ? (this.$formValue ?? this.$formDefaultValue) : (this.modelValue ?? this.defaultValue);
     }
 };
 </script>
