@@ -278,10 +278,4 @@ export declare type TabViewEmits = EmitFn<TabViewEmitsOptions>;
  */
 declare const TabView: DefineComponent<TabViewProps, TabViewSlots, TabViewEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        TabView: DefineComponent<TabViewProps, TabViewSlots, TabViewEmits>;
-    }
-}
-
 export default TabView;

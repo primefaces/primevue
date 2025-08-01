@@ -46,10 +46,4 @@ export declare type DynamicDialogEmits = EmitFn<DynamicDialogEmitsOptions>;
  */
 declare const DynamicDialog: DefineComponent<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        DynamicDialog: DefineComponent<DynamicDialogProps, DynamicDialogSlots, DynamicDialogEmits>;
-    }
-}
-
 export default DynamicDialog;

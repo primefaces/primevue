@@ -304,10 +304,4 @@ export declare type DrawerEmits = EmitFn<DrawerEmitsOptions>;
  */
 declare const Drawer: DefineComponent<DrawerProps, DrawerSlots, DrawerEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Drawer: DefineComponent<DrawerProps, DrawerSlots, DrawerEmits>;
-    }
-}
-
 export default Drawer;

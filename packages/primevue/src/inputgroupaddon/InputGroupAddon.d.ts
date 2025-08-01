@@ -120,10 +120,4 @@ export declare type InputGroupAddonEmits = EmitFn<InputGroupAddonEmitsOptions>;
  */
 declare const InputGroupAddon: DefineComponent<InputGroupAddonProps, InputGroupAddonSlots, InputGroupAddonEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        InputGroupAddon: DefineComponent<InputGroupAddonProps, InputGroupAddonSlots, InputGroupAddonEmits>;
-    }
-}
-
 export default InputGroupAddon;
