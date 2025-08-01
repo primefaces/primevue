@@ -180,10 +180,4 @@ export declare type TabsEmits = EmitFn<TabsEmitsOptions>;
  */
 declare const Tabs: DefineComponent<TabsProps, TabsSlots, TabsEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Tabs: DefineComponent<TabsProps, TabsSlots, TabsEmits>;
-    }
-}
-
 export default Tabs;

@@ -286,10 +286,4 @@ export declare type ConfirmDialogEmits = EmitFn<ConfirmDialogEmitsOptions>;
  */
 declare const ConfirmDialog: DefineComponent<ConfirmDialogProps, ConfirmDialogSlots, ConfirmDialogEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        ConfirmDialog: DefineComponent<ConfirmDialogProps, ConfirmDialogSlots, ConfirmDialogEmits>;
-    }
-}
-
 export default ConfirmDialog;

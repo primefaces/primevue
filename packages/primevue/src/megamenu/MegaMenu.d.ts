@@ -409,10 +409,4 @@ export declare type MegaMenuEmits = EmitFn<MegaMenuEmitsOptions>;
  */
 declare const MegaMenu: DefineComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        MegaMenu: DefineComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits>;
-    }
-}
-
 export default MegaMenu;

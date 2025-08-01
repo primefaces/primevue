@@ -413,10 +413,4 @@ export declare type CarouselEmits = EmitFn<CarouselEmitsOptions>;
  */
 declare const Carousel: DefineComponent<CarouselProps, CarouselSlots, CarouselEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Carousel: DefineComponent<CarouselProps, CarouselSlots, CarouselEmits>;
-    }
-}
-
 export default Carousel;

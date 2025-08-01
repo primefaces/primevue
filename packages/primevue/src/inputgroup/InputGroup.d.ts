@@ -124,10 +124,4 @@ export declare type InputGroupEmits = EmitFn<InputGroupEmitsOptions>;
  */
 declare const InputGroup: DefineComponent<InputGroupProps, InputGroupSlots, InputGroupEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        InputGroup: DefineComponent<InputGroupProps, InputGroupSlots, InputGroupEmits>;
-    }
-}
-
 export default InputGroup;

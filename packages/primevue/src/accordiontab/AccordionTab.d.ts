@@ -227,10 +227,4 @@ export declare type AccordionTabEmits = EmitFn<AccordionTabEmitsOptions>;
  */
 declare const AccordionTab: DefineComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        AccordionTab: DefineComponent<AccordionTabProps, AccordionTabSlots, AccordionTabEmits>;
-    }
-}
-
 export default AccordionTab;

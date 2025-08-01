@@ -391,10 +391,4 @@ export declare type OrderListEmits = EmitFn<OrderListEmitsOptions>;
  */
 declare const OrderList: DefineComponent<OrderListProps, OrderListSlots, OrderListEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        OrderList: DefineComponent<OrderListProps, OrderListSlots, OrderListEmits>;
-    }
-}
-
 export default OrderList;

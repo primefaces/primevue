@@ -134,10 +134,4 @@ export declare type DividerEmits = EmitFn<DividerEmitsOptions>;
  */
 declare const Divider: DefineComponent<DividerProps, DividerSlots, DividerEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Divider: DefineComponent<DividerProps, DividerSlots, DividerEmits>;
-    }
-}
-
 export default Divider;

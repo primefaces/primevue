@@ -135,10 +135,4 @@ export declare type ProgressSpinnerEmits = EmitFn<ProgressSpinnerEmitsOptions>;
  */
 declare const ProgressSpinner: DefineComponent<ProgressSpinnerProps, ProgressSpinnerSlots, ProgressSpinnerEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        ProgressSpinner: DefineComponent<ProgressSpinnerProps, ProgressSpinnerSlots, ProgressSpinnerEmits>;
-    }
-}
-
 export default ProgressSpinner;

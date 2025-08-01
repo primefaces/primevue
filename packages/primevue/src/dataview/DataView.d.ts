@@ -408,10 +408,4 @@ export declare type DataViewEmits = EmitFn<DataViewEmitsOptions>;
  */
 declare const DataView: DefineComponent<DataViewProps, DataViewSlots, DataViewEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        DataView: DefineComponent<DataViewProps, DataViewSlots, DataViewEmits>;
-    }
-}
-
 export default DataView;

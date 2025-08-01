@@ -148,10 +148,4 @@ export declare type TagEmits = EmitFn<TagEmitsOptions>;
  */
 declare const Tag: DefineComponent<TagProps, TagSlots, TagEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Tag: DefineComponent<TagProps, TagSlots, TagEmits>;
-    }
-}
-
 export default Tag;

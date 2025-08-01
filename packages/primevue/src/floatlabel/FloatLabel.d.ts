@@ -126,10 +126,4 @@ export declare type FloatLabelEmits = EmitFn<FloatLabelEmitsOptions>;
  */
 declare const FloatLabel: DefineComponent<FloatLabelProps, FloatLabelSlots, FloatLabelEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        FloatLabel: DefineComponent<FloatLabelProps, FloatLabelSlots, FloatLabelEmits>;
-    }
-}
-
 export default FloatLabel;

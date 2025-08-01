@@ -197,10 +197,4 @@ export declare type ChipEmits = EmitFn<ChipEmitsOptions>;
  */
 declare const Chip: DefineComponent<ChipProps, ChipSlots, ChipEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Chip: DefineComponent<ChipProps, ChipSlots, ChipEmits>;
-    }
-}
-
 export default Chip;

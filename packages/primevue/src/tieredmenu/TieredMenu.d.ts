@@ -415,10 +415,4 @@ export interface TieredMenuMethods {
  */
 declare const TieredMenu: DefineComponent<TieredMenuProps, TieredMenuSlots, TieredMenuEmits, TieredMenuMethods>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        TieredMenu: DefineComponent<TieredMenuProps, TieredMenuSlots, TieredMenuEmits, TieredMenuMethods>;
-    }
-}
-
 export default TieredMenu;

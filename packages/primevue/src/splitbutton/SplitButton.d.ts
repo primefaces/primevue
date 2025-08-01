@@ -338,10 +338,4 @@ export declare type SplitButtonEmits = EmitFn<SplitButtonEmitsOptions>;
  */
 declare const SplitButton: DefineComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        SplitButton: DefineComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits>;
-    }
-}
-
 export default SplitButton;

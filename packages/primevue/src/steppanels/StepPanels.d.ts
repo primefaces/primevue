@@ -108,10 +108,4 @@ export declare type StepPanelsEmits = EmitFn<StepPanelsEmitsOptions>;
  */
 declare const StepPanels: DefineComponent<StepPanelsProps, StepPanelsSlots, StepPanelsEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        StepPanels: DefineComponent<StepPanelsProps, StepPanelsSlots, StepPanelsEmits>;
-    }
-}
-
 export default StepPanels;

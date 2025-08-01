@@ -248,10 +248,4 @@ export declare type FieldsetEmits = EmitFn<FieldsetEmitsOptions>;
  */
 declare const Fieldset: DefineComponent<FieldsetProps, FieldsetSlots, FieldsetEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Fieldset: DefineComponent<FieldsetProps, FieldsetSlots, FieldsetEmits>;
-    }
-}
-
 export default Fieldset;

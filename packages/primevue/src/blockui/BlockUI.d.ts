@@ -167,10 +167,4 @@ export declare type BlockUIEmits = EmitFn<BlockUIEmitsOptions>;
  */
 declare const BlockUI: DefineComponent<BlockUIProps, BlockUISlots, BlockUIEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        BlockUI: DefineComponent<BlockUIProps, BlockUISlots, BlockUIEmits>;
-    }
-}
-
 export default BlockUI;

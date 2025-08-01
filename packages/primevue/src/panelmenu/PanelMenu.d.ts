@@ -405,10 +405,4 @@ export declare type PanelMenuEmits = EmitFn<PanelMenuEmitsOptions>;
  */
 declare const PanelMenu: DefineComponent<PanelMenuProps, PanelMenuSlots, PanelMenuEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        PanelMenu: DefineComponent<PanelMenuProps, PanelMenuSlots, PanelMenuEmits>;
-    }
-}
-
 export default PanelMenu;

@@ -454,10 +454,4 @@ export declare type DialogEmits = EmitFn<DialogEmitsOptions>;
  */
 declare const Dialog: DefineComponent<DialogProps, DialogSlots, DialogEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Dialog: DefineComponent<DialogProps, DialogSlots, DialogEmits>;
-    }
-}
-
 export default Dialog;

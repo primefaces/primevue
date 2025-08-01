@@ -30,10 +30,4 @@ export declare type PortalEmits = EmitFn<PortalEmitsOptions>;
 
 declare const Portal: DefineComponent<PortalProps, PortalSlots, PortalEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Portal: DefineComponent<PortalProps, PortalSlots, PortalEmits>;
-    }
-}
-
 export default Portal;

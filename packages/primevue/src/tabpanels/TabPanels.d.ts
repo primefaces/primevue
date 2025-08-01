@@ -119,10 +119,4 @@ export declare type TabPanelsEmits = EmitFn<TabPanelsEmitsOptions>;
  */
 declare const TabPanels: DefineComponent<TabPanelsProps, TabPanelsSlots, TabPanelsEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        TabPanels: DefineComponent<TabPanelsProps, TabPanelsSlots, TabPanelsEmits>;
-    }
-}
-
 export default TabPanels;
