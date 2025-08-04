@@ -140,6 +140,10 @@ export default {
         required: {
             type: Boolean,
             default: false
+        },
+        preventArrowKeys: {
+            type: Boolean,
+            default: false
         }
     },
     style: InputNumberStyle,
