@@ -410,11 +410,13 @@ export default {
 
             switch (code) {
                 case 'ArrowUp':
+                    if (this.preventArrowKeys) break;
                     this.spin(event, 1);
                     event.preventDefault();
                     break;
 
                 case 'ArrowDown':
+                    if (this.preventArrowKeys) break;
                     this.spin(event, -1);
                     event.preventDefault();
                     break;
