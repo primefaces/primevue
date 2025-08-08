@@ -584,6 +584,9 @@ export default {
             
             event.preventDefault();
             let data = (event.clipboardData || window['clipboardData']).getData('Text');
+            if (this.inputId === 'integeronly' && /[^\d-]/.test(data)) {
+                return;
+            }
 
             if (data) {
                 let filteredData = this.parseValue(data);
