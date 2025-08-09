@@ -244,6 +244,16 @@ export const useForm = (options = {}) => {
         return fields[field]?.states;
     };
 
+    const setErrors = (errors) => {
+        Object.keys(errors).forEach((field) => {
+            if (_states[field]) {
+                _states[field].invalid = true;
+                _states[field].errors = errors[field];
+                _states[field].error = errors[field][0] ?? null;
+            }
+        });
+    };
+
     const setValues = (values) => {
         Object.keys(values).forEach((field) => setFieldValue(field, values[field]));
     };
@@ -262,6 +272,7 @@ export const useForm = (options = {}) => {
         handleReset,
         validate,
         setValues,
+        setErrors,
         reset,
         valid,
         states,
