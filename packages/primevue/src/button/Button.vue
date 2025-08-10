@@ -5,6 +5,11 @@
                 <span v-if="loadingIcon" :class="[cx('loadingIcon'), cx('icon'), loadingIcon]" v-bind="ptm('loadingIcon')" />
                 <SpinnerIcon v-else :class="[cx('loadingIcon'), cx('icon')]" spin v-bind="ptm('loadingIcon')" />
             </slot>
+            <template v-else-if="$slots.icon">
+                <span :class="[cx('icon')]" :data-p="dataIconP" v-bind="ptm('icon')">
+                    <slot name="icon"></slot>
+                </span>
+            </template>
             <slot v-else name="icon" :class="[cx('icon')]" v-bind="ptm('icon')">
                 <span v-if="icon" :class="[cx('icon'), icon, iconClass]" :data-p="dataIconP" v-bind="ptm('icon')"></span>
             </slot>
