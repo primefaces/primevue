@@ -263,10 +263,4 @@ export declare type ToggleButtonEmits = EmitFn<ToggleButtonEmitsOptions>;
  */
 declare const ToggleButton: DefineComponent<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        ToggleButton: DefineComponent<ToggleButtonProps, ToggleButtonSlots, ToggleButtonEmits>;
-    }
-}
-
 export default ToggleButton;

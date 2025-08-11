@@ -246,10 +246,4 @@ export declare type ToggleSwitchEmits = EmitFn<ToggleSwitchEmitsOptions>;
  */
 declare const ToggleSwitch: DefineComponent<ToggleSwitchProps, ToggleSwitchSlots, ToggleSwitchEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        ToggleSwitch: DefineComponent<ToggleSwitchProps, ToggleSwitchSlots, ToggleSwitchEmits>;
-    }
-}
-
 export default ToggleSwitch;

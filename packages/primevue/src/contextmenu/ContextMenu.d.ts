@@ -409,10 +409,4 @@ export interface ContextMenuMethods {
  */
 declare const ContextMenu: DefineComponent<ContextMenuProps, ContextMenuSlots, ContextMenuEmits, ContextMenuMethods>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        ContextMenu: DefineComponent<ContextMenuProps, ContextMenuSlots, ContextMenuEmits, ContextMenuMethods>;
-    }
-}
-
 export default ContextMenu;
