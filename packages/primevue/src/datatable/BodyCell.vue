@@ -308,7 +308,13 @@ export default {
         bindDocumentEditListener() {
             if (!this.documentEditListener) {
                 this.documentEditListener = (event) => {
-                    this.selfClick = this.$el && this.$el.contains(event.target);
+                    const isClickInsideOverlay = event.target.closest('.p-datepicker-panel') || event.target.closest('.p-autocomplete-overlay') || event.target.closest('.p-select-overlay');
+
+                    if (isClickInsideOverlay) {
+                        this.selfClick = true;
+                    } else {
+                        this.selfClick = this.$el && this.$el.contains(event.target);
+                    }
 
                     if (this.editCompleteTimeout) {
                         clearTimeout(this.editCompleteTimeout);
