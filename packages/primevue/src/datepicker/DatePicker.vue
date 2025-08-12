@@ -2061,7 +2061,7 @@ export default {
                 day = doy;
 
                 do {
-                    dim = this.getDaysCountInMonth(year, month - 1);
+                    dim = this.getDaysCountInMonth(month - 1, year);
 
                     if (day <= dim) {
                         break;
