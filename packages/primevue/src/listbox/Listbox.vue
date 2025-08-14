@@ -29,7 +29,6 @@
                     :aria-activedescendant="focusedOptionId"
                     :tabindex="!disabled && !focused ? tabindex : -1"
                     @input="onFilterChange"
-                    @blur="onFilterBlur"
                     @keydown="onFilterKeyDown"
                     :pt="ptm('pcFilter')"
                 />
@@ -410,9 +409,6 @@ export default {
         },
         onFilterChange(event) {
             this.$emit('filter', { originalEvent: event, value: event.target.value, filterValue: this.visibleOptions });
-            this.focusedOptionIndex = this.startRangeIndex = -1;
-        },
-        onFilterBlur() {
             this.focusedOptionIndex = this.startRangeIndex = -1;
         },
         onFilterKeyDown(event) {
