@@ -9,12 +9,12 @@
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <Textarea id="over_label" v-model="value2" rows="5" cols="30" style="resize: none" class="h-full" />
+            <Textarea id="in_label" v-model="value2" rows="5" cols="30" style="resize: none" class="h-full" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
         <FloatLabel variant="on">
-            <Textarea id="over_label" v-model="value3" rows="5" cols="30" style="resize: none" class="h-full" />
+            <Textarea id="on_label" v-model="value3" rows="5" cols="30" style="resize: none" class="h-full" />
             <label for="on_label">On Label</label>
         </FloatLabel>
     </div>
@@ -36,12 +36,12 @@ export default {
 </FloatLabel>
 
 <FloatLabel variant="in">
-    <Textarea id="over_label" v-model="value2" rows="5" cols="30" style="resize: none" />
+    <Textarea id="in_label" v-model="value2" rows="5" cols="30" style="resize: none" />
     <label for="in_label">In Label</label>
 </FloatLabel>
 
 <FloatLabel variant="on">
-    <Textarea id="over_label" v-model="value3" rows="5" cols="30" style="resize: none" />
+    <Textarea id="on_label" v-model="value3" rows="5" cols="30" style="resize: none" />
     <label for="on_label">On Label</label>
 </FloatLabel>
 `,
@@ -54,12 +54,12 @@ export default {
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <Textarea id="over_label" v-model="value2" rows="5" cols="30" style="resize: none" />
+            <Textarea id="in_label" v-model="value2" rows="5" cols="30" style="resize: none" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
         <FloatLabel variant="on">
-            <Textarea id="over_label" v-model="value3" rows="5" cols="30" style="resize: none" />
+            <Textarea id="on_label" v-model="value3" rows="5" cols="30" style="resize: none" />
             <label for="on_label">On Label</label>
         </FloatLabel>
     </div>
@@ -86,12 +86,12 @@ export default {
         </FloatLabel>
 
         <FloatLabel variant="in">
-            <Textarea id="over_label" v-model="value2" rows="5" cols="30" style="resize: none" />
+            <Textarea id="in_label" v-model="value2" rows="5" cols="30" style="resize: none" />
             <label for="in_label">In Label</label>
         </FloatLabel>
 
         <FloatLabel variant="on">
-            <Textarea id="over_label" v-model="value3" rows="5" cols="30" style="resize: none" />
+            <Textarea id="on_label" v-model="value3" rows="5" cols="30" style="resize: none" />
             <label for="on_label">On Label</label>
         </FloatLabel>
     </div>
