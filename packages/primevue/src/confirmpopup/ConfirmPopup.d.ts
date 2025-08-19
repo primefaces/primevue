@@ -232,10 +232,4 @@ export declare type ConfirmPopupEmits = EmitFn<ConfirmPopupEmitsOptions>;
  */
 declare const ConfirmPopup: DefineComponent<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        ConfirmPopup: DefineComponent<ConfirmPopupProps, ConfirmPopupSlots, ConfirmPopupEmits>;
-    }
-}
-
 export default ConfirmPopup;
