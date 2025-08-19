@@ -52,7 +52,7 @@
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Maintenance and Quality</h2>
-                                <p class="mt-0 mb-4 leading-normal">Revamp the overall qualify by frequent releases based on community feedback.</p>
+                                <p class="mt-0 mb-4 leading-normal">Revamp the overall quality by frequent releases based on community feedback.</p>
                             </div>
                         </div>
                         <div class="flex-1 flex gap-4 flex-col">
@@ -60,18 +60,25 @@
                                 <h2 class="text-lg font-bold mt-0 mb-2">New Volt Components</h2>
                                 <p class="mt-0 mb-4 leading-normal">Implement new components for Volt UI Suite.</p>
                                 <div class="bg-surface-200 rounded">
-                                    <div class="bg-blue-500 rounded" style="width: 0%; height: 4px"></div>
+                                    <div class="bg-blue-500 rounded" style="width: 50%; height: 4px"></div>
                                 </div>
                             </div>
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Maintenance and Quality</h2>
-                                <p class="mt-0 mb-4 leading-normal">Revamp the overall qualify by frequent releases based on community feedback.</p>
+                                <p class="mt-0 mb-4 leading-normal">Revamp the overall quality by frequent releases based on community feedback.</p>
                             </div>
                         </div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
                                 <h2 class="text-lg font-bold mt-0 mb-2">PrimeVue+</h2>
                                 <p class="mt-0 mb-4 leading-normal">Initiate Advanced UI suite with complex components including Event Calendar, Data Grid, Text Editor, Charts, Gantt Chart, TimeLine, PDF Viewer...</p>
+                                <div class="bg-surface-200 rounded">
+                                    <div class="bg-blue-500 rounded" style="width: 0%; height: 4px"></div>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
+                                <h2 class="text-lg font-bold mt-0 mb-2">PrimeVue v5</h2>
+                                <p class="mt-0 mb-4 leading-normal">Kickstart the next-gen PrimeVue featuring new opens source components and core enhancements. v5 will be fully backward compatible and final is planned for Q1 2026.</p>
                                 <div class="bg-surface-200 rounded">
                                     <div class="bg-blue-500 rounded" style="width: 0%; height: 4px"></div>
                                 </div>
@@ -116,7 +123,7 @@
                                 <h2 class="text-lg font-bold mt-0 mb-2">New Demo Content</h2>
                                 <p class="mt-0 mb-4 leading-normal">Update the included shared demo pages such as Mail, Chat, File Manager, CMS and more.</p>
                                 <div class="bg-surface-200 rounded">
-                                    <div class="bg-violet-500 rounded" style="width: 0%; height: 4px"></div>
+                                    <div class="bg-violet-500 rounded" style="width: 75%; height: 4px"></div>
                                 </div>
                             </div>
                         </div>
@@ -147,14 +154,14 @@
                                 <h2 class="text-lg font-bold mt-0 mb-2">Remastered E-Commerce Blocks</h2>
                                 <p class="mt-0 mb-4 leading-normal">Improve e-commerce blocks and include new blocks.</p>
                                 <div class="bg-surface-200 rounded">
-                                    <div class="bg-orange-500 rounded" style="width: 90%; height: 4px"></div>
+                                    <div class="bg-orange-500 rounded" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-orange-500 border-l-4">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Tailwind v4 Upgrade</h2>
                                 <p class="mt-0 mb-4 leading-normal">Update the Tailwind version of Blocks to v4.</p>
                                 <div class="bg-surface-200 rounded">
-                                    <div class="bg-orange-500 rounded" style="width: 0%; height: 4px"></div>
+                                    <div class="bg-orange-500 rounded" style="width: 100%; height: 4px"></div>
                                 </div>
                             </div>
                         </div>
