@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice } from '@primeuix/utils/dom';
+import { absolutePosition, addStyle, findSingle, focus, getOuterWidth, isTouchDevice, relativePosition } from '@primeuix/utils/dom';
 import { findLastIndex, isEmpty, isNotEmpty, isPrintableCharacter, resolve } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
@@ -445,7 +445,12 @@ export default {
             }
         },
         alignOverlay() {
-            absolutePosition(this.container, this.target);
+            if (this.appendTo === 'self') {
+                relativePosition(this.container, this.target);
+            } else {
+                absolutePosition(this.container, this.target);
+            }
+
             const targetWidth = getOuterWidth(this.target);
 
             if (targetWidth > getOuterWidth(this.container)) {
