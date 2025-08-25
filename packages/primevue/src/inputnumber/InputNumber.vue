@@ -392,6 +392,11 @@ export default {
                 return;
             }
 
+            // block composition input
+            if (event.isComposing) {
+                return;
+            }
+
             if (event.altKey || event.ctrlKey || event.metaKey) {
                 this.isSpecialChar = true;
                 this.lastValue = this.$refs.input.$el.value;
@@ -581,7 +586,7 @@ export default {
             if (this.readonly) {
                 return;
             }
-            
+
             event.preventDefault();
             let data = (event.clipboardData || window['clipboardData']).getData('Text');
 
