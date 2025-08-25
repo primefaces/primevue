@@ -11,7 +11,7 @@
             :data-p-hidden-accessible="true"
             :data-p-hidden-focusable="true"
         ></span>
-        <div v-if="$slots.header" :class="cx('header')">
+        <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header" :value="d_value" :options="visibleOptions"></slot>
         </div>
         <div v-if="filter" :class="cx('header')" v-bind="ptm('header')">
