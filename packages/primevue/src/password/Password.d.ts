@@ -169,6 +169,8 @@ export interface PasswordMeterStateOptions {
 /**
  * Defines valid properties in Password component.
  */
+// FIXME: Since `inputProps` is used to pass attributes to the input element,
+//        `PasswordProps` should probably not extend `InputHTMLAttributes`
 export interface PasswordProps extends Omit<InputHTMLAttributes, 'size'> {
     /**
      * Value of the component.

@@ -7,6 +7,20 @@
         </p>
 
         <DocSectionCode :code="code" hideToggleCode hideStackBlitz v-bind="$attrs" />
+
+        <!--
+            id and inputId suggestions based on:
+            https://web.dev/articles/sign-in-form-best-practices?hl=en#element-attributes
+        -->
+        <h3>Autocomplete</h3>
+        <p>
+            To instruct password managers to autofill the password, set the <i>autocomplete</i> attribute and the
+            <i>inputId</i> prop to <i>new-password</i> or <i>current-password</i>.
+        </p>
+
+        <DocSectionCode :code="autocompleteCode" hideToggleCode hideStackBlitz v-bind="$attrs" />
+
+
         <h3>Keyboard Support</h3>
         <div class="doc-tablewrapper">
             <table class="doc-table">
@@ -44,6 +58,16 @@ export default {
 <Password aria-labelledby="pwd2" />
 
 <Password aria-label="Password"/>
+`
+            },
+
+            autocompleteCode: {
+                basic: `
+<label for="new-password">New password</label>
+<Password inputId="new-password" autocomplete="new-password" />
+
+<label for="current-password">Current password</label>
+<Password inputId="current-password" autocomplete="current-password" />
 `
             }
         };
