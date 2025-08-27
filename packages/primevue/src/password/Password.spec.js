@@ -52,4 +52,10 @@ describe('Password.vue', () => {
         expect(wrapper.find('.p-password-toggle-mask-icon.p-password-unmask-icon').exists()).toBe(false);
         expect(wrapper.find('.p-password-toggle-mask-icon.p-password-mask-icon').exists()).toBe(true);
     });
+
+    it('should respect the autocomplete attribute', async () => {
+        await wrapper.setProps({ autocomplete: 'current-password' });
+
+        expect(wrapper.find('input.p-password-input').attributes('autocomplete')).toBe('current-password');
+    });
 });
