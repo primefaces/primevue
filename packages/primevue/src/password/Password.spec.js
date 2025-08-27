@@ -58,4 +58,11 @@ describe('Password.vue', () => {
 
         expect(wrapper.find('input.p-password-input').attributes('autocomplete')).toBe('current-password');
     });
+
+    it('should respect the aria-label and aria-labelledby attributes', async () => {
+        await wrapper.setProps({ ariaLabel: 'test1', ariaLabelledby: 'test2' });
+
+        expect(wrapper.find('input.p-password-input').attributes('aria-label')).toBe('test1');
+        expect(wrapper.find('input.p-password-input').attributes('aria-labelledby')).toBe('test2');
+    });
 });
