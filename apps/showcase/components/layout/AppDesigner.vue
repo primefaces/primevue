@@ -220,8 +220,8 @@ export default {
             this.$appState.designer.theme = {
                 key: data.t_key,
                 name: data.t_name,
-                preset: JSON.parse(data.t_preset),
-                config: JSON.parse(data.t_config)
+                preset: typeof data.t_preset === 'string' ? JSON.parse(data.t_preset) : data.t_preset,
+                config: typeof data.t_config === 'string' ? JSON.parse(data.t_pret_configset) : data.t_config
             };
 
             usePreset(this.$appState.designer.theme.preset);

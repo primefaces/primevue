@@ -20,7 +20,7 @@
             </li>
         </ul>
 
-        <div class="mt-8 px-4 py-6 rounded-lg border border-surface-200 dark:border-surface-800 bg-surface-0 dark:bg-surface-900 w-full" v-if="false">
+        <div class="mt-8 px-4 py-6 rounded-lg border border-surface-200 dark:border-surface-800 bg-surface-0 dark:bg-surface-900 w-full">
             <div class="text-xl font-semibold flex flex-col gap-2 text-center">
                 <span class="leading-none">Build Faster </span>
                 <span class="leading-none text-primary">Design Better</span>
@@ -31,7 +31,7 @@
             </span>
         </div>
 
-        <div class="mt-8 p-4 rounded-lg border border-surface-200 dark:border-surface-800 bg-surface-0 dark:bg-surface-900 w-full">
+        <div class="mt-8 p-4 rounded-lg border border-surface-200 dark:border-surface-800 bg-surface-0 dark:bg-surface-900 w-full" v-if="false">
             <img src="https://primefaces.org/cdn/discount/primestore-summersale-2025-sm.jpg" class="w-full rounded-lg" alt="Summer Sale 2025" />
             <div class="text-xl font-semibold flex flex-col gap-2 text-center mt-4">
                 <span class="leading-none">SUMMER SALE</span>
