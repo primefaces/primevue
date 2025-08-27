@@ -70,6 +70,10 @@ export default {
             type: Boolean,
             default: false
         },
+        autocomplete: {
+            type: String,
+            default: undefined,
+        },
         inputId: {
             type: String,
             default: null

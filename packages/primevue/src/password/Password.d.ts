@@ -270,6 +270,11 @@ export interface PasswordProps {
      */
     autofocus?: boolean | undefined;
     /**
+     * Specifies the role of this input for password managers.
+     * Passed to the focusable input element inside the component.
+     */
+    autocomplete?: HintedString<'new-password' | 'current-password'> | undefined;
+    /**
      * Identifier of the underlying input element.
      */
     inputId?: string | undefined;
