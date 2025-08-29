@@ -5,8 +5,9 @@
     <div class="card flex justify-center gap-4">
         <Button label="Link" variant="link" />
         <Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
+        <Button as="router-link" label="Router" to="/" />
         <Button asChild v-slot="slotProps">
-            <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
+            <RouterLink to="/" :class="slotProps.class">Advanced</RouterLink>
         </Button>
     </div>
     <DocSectionCode :code="code" />
@@ -20,8 +21,9 @@ export default {
                 basic: `
 <Button label="Link" variant="link" />
 <Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
+<Button as="router-link" label="Router" to="/" />
 <Button asChild v-slot="slotProps">
-    <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
+    <RouterLink to="/" :class="slotProps.class">Advanced</RouterLink>
 </Button>
 `,
                 options: `
@@ -29,8 +31,9 @@ export default {
     <div class="card flex justify-center gap-4">
         <Button label="Link" variant="link" />
         <Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
+        <Button as="router-link" label="Router" to="/" />
         <Button asChild v-slot="slotProps">
-            <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
+            <RouterLink to="/" :class="slotProps.class">Advanced</RouterLink>
         </Button>
     </div>
 </template>
@@ -43,8 +46,9 @@ export default {
     <div class="card flex justify-center gap-4">
         <Button label="Link" variant="link" />
         <Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
+        <Button as="router-link" label="Router" to="/" />
         <Button asChild v-slot="slotProps">
-            <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
+            <RouterLink to="/" :class="slotProps.class">Advanced</RouterLink>
         </Button>
     </div>
 </template>
