@@ -153,10 +153,4 @@ export declare type InlineMessageEmits = EmitFn<InlineMessageEmitsOptions>;
  */
 declare const InlineMessage: DefineComponent<InlineMessageProps, InlineMessageSlots, InlineMessageEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        InlineMessage: DefineComponent<InlineMessageProps, InlineMessageSlots, InlineMessageEmits>;
-    }
-}
-
 export default InlineMessage;

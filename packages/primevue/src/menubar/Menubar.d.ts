@@ -412,10 +412,4 @@ export declare type MenubarEmits = EmitFn<MenubarEmitsOptions>;
  */
 declare const Menubar: DefineComponent<MenubarProps, MenubarSlots, MenubarEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Menubar: DefineComponent<MenubarProps, MenubarSlots, MenubarEmits>;
-    }
-}
-
 export default Menubar;

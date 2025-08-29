@@ -614,10 +614,4 @@ export declare type PickListEmits = EmitFn<PickListEmitsOptions>;
  */
 declare const PickList: DefineComponent<PickListProps, PickListSlots, PickListEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        PickList: DefineComponent<PickListProps, PickListSlots, PickListEmits>;
-    }
-}
-
 export default PickList;

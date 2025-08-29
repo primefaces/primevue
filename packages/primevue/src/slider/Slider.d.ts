@@ -228,10 +228,4 @@ export declare type SliderEmits = EmitFn<SliderEmitsOptions>;
  */
 declare const Slider: DefineComponent<SliderProps, SliderSlots, SliderEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Slider: DefineComponent<SliderProps, SliderSlots, SliderEmits>;
-    }
-}
-
 export default Slider;
