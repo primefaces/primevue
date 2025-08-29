@@ -167,6 +167,10 @@ export default {
             type: String,
             default: null
         },
+        required: {
+            type: Boolean,
+            default: null
+        },
         inputId: {
             type: String,
             default: null

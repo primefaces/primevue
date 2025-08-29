@@ -731,6 +731,10 @@ export interface DatePickerProps {
      * Placeholder text for the input.
      */
     placeholder?: string | undefined;
+    /*
+     * When present, it specifies that the component is a required field.
+     */
+    required?: boolean | undefined;
     /**
      * A valid query selector or an HTMLElement to specify where the overlay gets attached.
      * @defaultValue body

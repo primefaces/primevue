@@ -14,6 +14,7 @@
             :invalid="invalid"
             :variant="variant"
             :fluid="fluid"
+            :required="required"
             :unstyled="unstyled"
             autocomplete="off"
             aria-autocomplete="none"
