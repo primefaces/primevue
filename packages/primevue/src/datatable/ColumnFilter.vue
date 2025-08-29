@@ -679,7 +679,7 @@ export default {
             return this.$primevue.config.locale ? this.$primevue.config.locale.apply : undefined;
         },
         columnFilterButtonAriaLabel() {
-            return this.$primevue.config.locale ? (this.overlayVisible ? this.$primevue.config.locale.showFilterMenu : this.$primevue.config.locale.hideFilterMenu) : undefined;
+            return this.$primevue.config.locale?.aria ? (this.overlayVisible ? this.$primevue.config.locale.aria.hideFilterMenu : this.$primevue.config.locale.aria.showFilterMenu) : undefined;
         },
         filterOperatorAriaLabel() {
             return this.$primevue.config.locale ? this.$primevue.config.locale.filterOperator : undefined;
