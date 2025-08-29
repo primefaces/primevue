@@ -311,7 +311,16 @@ export default {
 
             this.spin(event, dir);
         },
-        addWithPrecision(base, increment, precision = 10) {
+        addWithPrecision(base, increment) {
+            const baseStr = base.toString();
+            const stepStr = increment.toString();
+
+            const baseDecimalPlaces = baseStr.includes('.') ? baseStr.split('.')[1].length : 0;
+            const stepDecimalPlaces = stepStr.includes('.') ? stepStr.split('.')[1].length : 0;
+
+            const maxDecimalPlaces = Math.max(baseDecimalPlaces, stepDecimalPlaces);
+            const precision = Math.pow(10, maxDecimalPlaces);
+
             return Math.round((base + increment) * precision) / precision;
         },
         spin(event, dir) {
@@ -581,7 +590,7 @@ export default {
             if (this.readonly) {
                 return;
             }
-            
+
             event.preventDefault();
             let data = (event.clipboardData || window['clipboardData']).getData('Text');
 
