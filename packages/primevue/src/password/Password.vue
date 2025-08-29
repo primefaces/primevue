@@ -14,6 +14,7 @@
             :aria-haspopup="true"
             :placeholder="placeholder"
             :required="required"
+            :autocomplete="autocomplete"
             :fluid="fluid"
             :disabled="disabled"
             :variant="variant"

@@ -102,6 +102,12 @@ const PasswordProps = [
         description: 'When present, it specifies that an input field must be filled out before submitting the form.'
     },
     {
+        name: 'autocomplete',
+        type: "'new-password' | 'current-password' | string",
+        default: 'null',
+        description: 'Specifies the role of this input for password managers. Passed to the focusable input element inside the component.'
+    },
+    {
         name: 'inputId',
         type: 'string',
         default: 'null',

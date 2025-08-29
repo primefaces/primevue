@@ -169,7 +169,7 @@ export interface PasswordMeterStateOptions {
 /**
  * Defines valid properties in Password component.
  */
-export interface PasswordProps extends Omit<InputHTMLAttributes, 'size'> {
+export interface PasswordProps {
     /**
      * Value of the component.
      */
@@ -269,6 +269,11 @@ export interface PasswordProps extends Omit<InputHTMLAttributes, 'size'> {
      * @defaultValue null
      */
     autofocus?: boolean | undefined;
+    /**
+     * Specifies the role of this input for password managers.
+     * Passed to the focusable input element inside the component.
+     */
+    autocomplete?: HintedString<'new-password' | 'current-password'> | undefined;
     /**
      * Identifier of the underlying input element.
      */
