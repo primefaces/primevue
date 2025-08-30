@@ -401,6 +401,11 @@ export default {
                 return;
             }
 
+            // block composition input
+            if (event.isComposing) {
+                return;
+            }
+
             if (event.altKey || event.ctrlKey || event.metaKey) {
                 this.isSpecialChar = true;
                 this.lastValue = this.$refs.input.$el.value;
