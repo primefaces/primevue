@@ -97,6 +97,11 @@
                             </th>
                         </template>
                     </tr>
+                    <tr v-if="loading && loadingMode === 'progressbar'" style="position: absolute; bottom: -1px; width: 100%">
+                        <td :colspan="columns.length" style="display: block">
+                            <ProgressBar mode="indeterminate" :dt="{ background: 'transparent', height: '1px' }" />
+                        </td>
+                    </tr>
                 </thead>
                 <tbody :class="cx('tbody')" role="rowgroup" v-bind="ptm('tbody')">
                     <template v-if="!empty">
@@ -214,6 +219,7 @@ import { FilterService } from '@primevue/core/api';
 import { getVNodeProp, HelperSet } from '@primevue/core/utils';
 import SpinnerIcon from '@primevue/icons/spinner';
 import Paginator from 'primevue/paginator';
+import ProgressBar from 'primevue/progressbar';
 import BaseTreeTable from './BaseTreeTable.vue';
 import FooterCell from './FooterCell.vue';
 import HeaderCell from './HeaderCell.vue';
@@ -927,7 +933,8 @@ export default {
         TTPaginator: Paginator,
         TTHeaderCell: HeaderCell,
         TTFooterCell: FooterCell,
-        SpinnerIcon: SpinnerIcon
+        SpinnerIcon: SpinnerIcon,
+        ProgressBar: ProgressBar
     }
 };
 </script>
