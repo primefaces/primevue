@@ -970,6 +970,11 @@ export interface DataTableProps<T = any> {
      */
     loadingIcon?: string | undefined;
     /**
+     * Loading mode display.
+     * @defaultValue mask
+     */
+    loadingMode?: HintedString<'mask' | 'progressbar'> | undefined;
+    /**
      * Property name or a getter function of a row data used for sorting by default
      */
     sortField?: keyof T | ((item: NoInfer<T>) => string) | undefined;

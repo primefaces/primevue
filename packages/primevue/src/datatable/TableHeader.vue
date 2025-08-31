@@ -112,6 +112,11 @@
                 />
             </template>
         </tr>
+        <tr v-if="loading && loadingMode === 'progressbar'" style="position: absolute; bottom: -1px; width: 100%">
+            <td :colspan="columns.length" style="display: block">
+                <ProgressBar mode="indeterminate" :dt="{ background: 'transparent', height: '1px' }" />
+            </td>
+        </tr>
     </thead>
 </template>
 
@@ -121,6 +126,7 @@ import { HelperSet, getVNodeProp } from '@primevue/core/utils';
 import { mergeProps } from 'vue';
 import FilterHeaderCell from './FilterHeaderCell.vue';
 import HeaderCell from './HeaderCell.vue';
+import ProgressBar from 'primevue/progressbar';
 
 export default {
     name: 'TableHeader',
@@ -220,6 +226,14 @@ export default {
         filterButtonProps: {
             type: null,
             default: null
+        },
+        loading: {
+            type: Boolean,
+            default: false
+        },
+        loadingMode: {
+            type: String,
+            default: 'mask'
         }
     },
     provide() {
@@ -321,7 +335,8 @@ export default {
     },
     components: {
         DTHeaderCell: HeaderCell,
-        DTFilterHeaderCell: FilterHeaderCell
+        DTFilterHeaderCell: FilterHeaderCell,
+        ProgressBar
     }
 };
 </script>

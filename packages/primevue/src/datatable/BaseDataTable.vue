@@ -66,6 +66,10 @@ export default {
             type: String,
             default: undefined
         },
+        loadingMode: {
+            type: String,
+            default: 'mask'
+        },
         sortField: {
             type: [String, Function],
             default: null
