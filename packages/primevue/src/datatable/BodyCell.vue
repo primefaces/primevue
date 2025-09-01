@@ -56,7 +56,7 @@
             />
         </template>
         <template v-else-if="columnProp('rowReorder')">
-            <component v-if="column.children && column.children.rowreordericon" :is="column.children.rowreordericon" :class="cx('reorderableRowHandle')" />
+            <component v-if="column.children && column.children.rowreordericon" :is="column.children.rowreordericon" :class="cx('reorderableRowHandle')" v-bind="getColumnPT('reorderableRowHandle')" />
             <i v-else-if="columnProp('rowReorderIcon')" :class="[cx('reorderableRowHandle'), columnProp('rowReorderIcon')]" v-bind="getColumnPT('reorderableRowHandle')" />
             <BarsIcon v-else :class="cx('reorderableRowHandle')" v-bind="getColumnPT('reorderableRowHandle')" />
         </template>
