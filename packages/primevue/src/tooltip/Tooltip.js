@@ -46,6 +46,10 @@ const Tooltip = BaseTooltip.extend('tooltip', {
     updated(el, options) {
         let target = this.getTarget(el);
 
+        if (!target) {
+            this.hide(el, 0);
+        }
+
         target.$_ptooltipModifiers = this.getModifiers(options);
         this.unbindEvents(target);
 
@@ -220,10 +224,11 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             window.removeEventListener('resize', el.$_pWindowResizeEvent);
         },
         tooltipActions(el, options) {
-            if (el.$_ptooltipDisabled || !isExist(el)) {
+            if (el.$_ptooltipDisabled || !isExist(el) || !el.$_ptooltipPendingShow) {
                 return;
             }
 
+            el.$_ptooltipPendingShow = false;
             let tooltipElement = this.create(el, options);
 
             this.align(el);
@@ -247,8 +252,10 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         show(el, options, showDelay) {
             if (showDelay !== undefined) {
                 this.timer = setTimeout(() => this.tooltipActions(el, options), showDelay);
+                el.$_ptooltipPendingShow = true;
             } else {
                 this.tooltipActions(el, options);
+                el.$_ptooltipPendingShow = false;
             }
         },
         tooltipRemoval(el) {
@@ -258,6 +265,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         },
         hide(el, hideDelay) {
             clearTimeout(this.timer);
+            el.$_ptooltipPendingShow = false;
 
             if (hideDelay !== undefined) {
                 setTimeout(() => this.tooltipRemoval(el), hideDelay);
