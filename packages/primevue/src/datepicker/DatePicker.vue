@@ -613,7 +613,8 @@ export default {
             currentView: this.view,
             query: null,
             queryMatches: false,
-            queryOrientation: null
+            queryOrientation: null,
+            focusedDateIndex: 0
         };
     },
     watch: {
@@ -1262,14 +1263,17 @@ export default {
 
                     if (!endDate && date.getTime() >= startDate.getTime()) {
                         endDate = date;
+                        this.focusedDateIndex = 1;
                     } else {
                         startDate = date;
                         endDate = null;
+                        this.focusedDateIndex = 0;
                     }
 
                     modelVal = [startDate, endDate];
                 } else {
                     modelVal = [date, null];
+                    this.focusedDateIndex = 0;
                 }
             }
 
@@ -1715,7 +1719,7 @@ export default {
             let value = this.isComparable() ? this.d_value : this.viewDate;
 
             if (this.isRangeSelection()) {
-                value = this.d_value[1] || this.d_value[0];
+                value = this.d_value[this.focusedDateIndex] || this.d_value[0];
             }
 
             if (this.isMultipleSelection()) {
@@ -1735,8 +1739,13 @@ export default {
             value.setSeconds(this.currentSecond);
 
             if (this.isRangeSelection()) {
-                if (this.d_value[1]) value = [this.d_value[0], value];
-                else value = [value, null];
+                if (this.focusedDateIndex === 1 && this.d_value[1]) {
+                    value = [this.d_value[0], value];
+                } else if (this.focusedDateIndex === 0) {
+                    value = [value, this.d_value[1]];
+                } else {
+                    value = [value, null];
+                }
             }
 
             if (this.isMultipleSelection()) {
@@ -1790,7 +1799,13 @@ export default {
             this.currentYear = viewDate.getFullYear();
 
             if (this.showTime || this.timeOnly) {
-                this.updateCurrentTimeMeta(viewDate);
+                let timeDate = viewDate;
+
+                if (this.isRangeSelection() && this.d_value && this.d_value[this.focusedDateIndex]) {
+                    timeDate = this.d_value[this.focusedDateIndex];
+                }
+
+                this.updateCurrentTimeMeta(timeDate);
             }
         },
         isValidSelection(value) {
