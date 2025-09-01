@@ -19,7 +19,7 @@ export interface StyleClassOptions {
     /**
      * Selector to define the target element. Available selectors are '@next', '@prev', '@parent' and '@grandparent'.
      */
-    selector?: HintedString<'@next' | '@prev' | '@parent' | '@grandparent'> | undefined;
+    selector?: HintedString<'@next' | '@prev' | '@parent' | '@grandparent'> | string | undefined;
     /**
      * Style class to add when item begins to get displayed.
      */
@@ -57,6 +57,16 @@ export interface StyleClassOptions {
      * Adds or removes a class when no enter-leave animation is required.
      */
     toggleClass?: string | undefined;
+    /**
+     * Whether to trigger leave animation when the target element resized.
+     * @defaultValue false
+     */
+    hideOnResize?: boolean | undefined;
+    /**
+     * Target element to listen resize. Valid values are "window", "document" or target element.
+     * @defaultValue window
+     */
+    resizeSelector?: string | undefined;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
