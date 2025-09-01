@@ -10,6 +10,7 @@
 
 <script>
 import AnimationDoc from '@/doc/styleclass/AnimationDoc.vue';
+import HideOnResizeDoc from '@/doc/styleclass/HideOnResizeDoc.vue';
 import ImportDoc from '@/doc/styleclass/ImportDoc.vue';
 import ToggleClass from '@/doc/styleclass/ToggleClassDoc.vue';
 
@@ -31,6 +32,11 @@ export default {
                     id: 'animation',
                     label: 'Animation',
                     component: AnimationDoc
+                },
+                {
+                    id: 'hideOnResize',
+                    label: 'Hide On Resize',
+                    component: HideOnResizeDoc
                 }
             ]
         };
