@@ -24656,6 +24656,13 @@
                             "description": "Placeholder text for the input."
                         },
                         {
+                            "name": "required",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": ""
+                        },
+                        {
                             "name": "appendTo",
                             "optional": true,
                             "readonly": false,
