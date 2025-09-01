@@ -552,7 +552,7 @@ export default {
                     break;
 
                 case 'Tab':
-                    this.onTabKey(event, true);
+                    this.onTabKey(event);
                     break;
 
                 default:
