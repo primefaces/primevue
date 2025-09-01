@@ -1,5 +1,23 @@
 # Changelog
 
+## [4.3.8](https://github.com/primefaces/primevue/tree/4.3.8) (2025-09-01)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.3.7...4.3.8)
+
+**Implemented New Features and Enhancements:**
+
+- StyleClass | hideOnResize support [\#8067](https://github.com/primefaces/primevue/issues/8067)
+- DatePicker can not be required \#8056](https://github.com/primefaces/primevue/issues/8056)
+
+**Fixed bugs:**
+
+- InputNumber step 0.01 not working [\#8054](https://github.com/primefaces/primevue/issues/8054)
+- Select list is focusable with filter [\#8048](https://github.com/primefaces/primevue/issues/8048)
+- InputNumber Component does not block composition input (IME - Korean, Japanese) [\#8039](https://github.com/primefaces/primevue/issues/8039)
+- Datatable #rowreordericon slot breaks reorder functionality [\#8032](https://github.com/primefaces/primevue/issues/8032)
+- DatePicker: date range has until date time value stuck on from date time value [\#8027](https://github.com/primefaces/primevue/issues/8027)
+- Nuxt module throws exception when @primevue/forms is missing [\#7967](https://github.com/primefaces/primevue/issues/7967)
+
 ## [4.3.7](https://github.com/primefaces/primevue/tree/4.3.7) (2025-07-31)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.3.6...4.3.7)
