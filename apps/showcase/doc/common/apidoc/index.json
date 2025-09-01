@@ -66479,7 +66479,7 @@
                             "name": "selector",
                             "optional": true,
                             "readonly": false,
-                            "type": "HintedString<\"@next\" | \"@prev\" | \"@parent\" | \"@grandparent\">",
+                            "type": "string | string & Object",
                             "default": "",
                             "description": "Selector to define the target element. Available selectors are '@next', '@prev', '@parent' and '@grandparent'."
                         },
@@ -66554,6 +66554,22 @@
                             "type": "string",
                             "default": "",
                             "description": "Adds or removes a class when no enter-leave animation is required."
+                        },
+                        {
+                            "name": "hideOnResize",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether to trigger leave animation when the target element resized."
+                        },
+                        {
+                            "name": "resizeSelector",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "window",
+                            "description": "Target element to listen resize. Valid values are \"window\", \"document\" or target element."
                         },
                         {
                             "name": "dt",
