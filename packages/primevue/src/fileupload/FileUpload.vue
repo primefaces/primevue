@@ -305,13 +305,13 @@ export default {
             return /^image\//.test(file.type);
         },
         onDragEnter(event) {
-            if (!this.disabled) {
+            if (!this.disabled && (!this.hasFiles || this.multiple)) {
                 event.stopPropagation();
                 event.preventDefault();
             }
         },
         onDragOver(event) {
-            if (!this.disabled) {
+            if (!this.disabled && (!this.hasFiles || this.multiple)) {
                 !this.isUnstyled && addClass(this.$refs.content, 'p-fileupload-highlight');
                 this.$refs.content.setAttribute('data-p-highlight', true);
                 event.stopPropagation();
