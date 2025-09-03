@@ -2155,7 +2155,10 @@ export default {
         dataP() {
             return cn({
                 scrollable: this.scrollable,
-                'flex-scrollable': this.scrollable && this.scrollHeight === 'flex'
+                'flex-scrollable': this.scrollable && this.scrollHeight === 'flex',
+                [this.size]: this.size,
+                loading: this.loading,
+                empty: this.empty
             });
         }
     },
