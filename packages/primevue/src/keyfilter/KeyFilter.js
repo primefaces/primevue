@@ -64,16 +64,28 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
         bindEvents(el) {
             el.$_keyfilterKeydownEvent = (event) => this.onKeydown(event, el);
             el.$_keyfilterPasteEvent = (event) => this.onPaste(event, el);
+            el.$_keyfilterInputEvent = (event) => this.onInput(event, el);
 
             el.addEventListener('keypress', el.$_keyfilterKeydownEvent);
             el.addEventListener('paste', el.$_keyfilterPasteEvent);
+            el.addEventListener('input', el.$_keyfilterInputEvent);
         },
         unbindEvents(el) {
             el.removeEventListener('keypress', el.$_keyfilterKeydownEvent);
             el.removeEventListener('paste', el.$_keyfilterPasteEvent);
+            el.removeEventListener('input', el.$_keyfilterInputEvent);
 
             el.$_keyfilterKeydownEvent = null;
             el.$_keyfilterPasteEvent = null;
+            el.$_keyfilterInputEvent = null;
+        },
+        onInput(event, target) {
+            const regex = this.getRegex(target);
+
+            if (regex && !regex.test(target.value)) {
+                // remove invalid character e.g. ~ "
+                target.value = target.value.slice(0, -1);
+            }
         },
         onKeydown(event, target) {
             if (event.ctrlKey || event.altKey || event.metaKey || event.key === 'Tab') {
