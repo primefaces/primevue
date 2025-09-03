@@ -40,7 +40,7 @@ const theme = ref<CheckboxPassThroughOptions>({
         peer-focus-visible:outline-1 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary peer-focus-visible:outline 
         p-invalid:border-red-400 dark:p-invalid:border-red-300
         p-filled:bg-surface-50 dark:p-filled:bg-surface-800
-        p-disabled:bg-surface-200 dark:p-disabled:bg-surface-400 p-disabled:border-surface-300 dark:p-disabled:border-surface-700 p-disabled:text-surface-700 dark:p-disabled:text-surface-400
+        p-disabled:bg-surface-200 dark:p-disabled:bg-surface-400 p-disabled:border-surface-300 dark:p-disabled:border-surface-500 p-disabled:text-surface-400 dark:p-disabled:text-surface-600
         shadow-[0_1px_2px_0_rgba(18,18,23,0.05)] transition-colors duration-200
         p-small:w-4 p-small:h-4
         p-large:w-6 p-large:h-6`,
