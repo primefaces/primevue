@@ -53,7 +53,7 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
         },
         getModifiers(options) {
             if (options.modifiers && Object.keys(options.modifiers).length) {
-                return Object.keys(options.modifiers)[Object.keys.length - 1];
+                return Object.keys(options.modifiers)[Object.keys(options.modifiers).length - 1];
             }
 
             return '';
