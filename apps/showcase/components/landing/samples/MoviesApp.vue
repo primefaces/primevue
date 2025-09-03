@@ -3,7 +3,7 @@
         <div class="flex flex-wrap gap-4 items-center justify-between">
             <SelectButton v-model="value" :options="options" aria-labelledby="basic" />
             <div class="flex gap-2.5 items-center">
-                <IconField iconPosition="left">
+                <IconField>
                     <InputIcon class="pi pi-search"> </InputIcon>
                     <InputText v-model="search" placeholder="Search" />
                 </IconField>

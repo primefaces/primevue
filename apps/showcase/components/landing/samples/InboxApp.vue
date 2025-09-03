@@ -81,7 +81,7 @@
                             <Button icon="pi pi-trash" label="Trash" variant="outlined" severity="secondary" />
                         </div>
                         <div class="flex items-center gap-2">
-                            <IconField iconPosition="left" class="w-6/12 xl:max-w-36">
+                            <IconField class="w-6/12 xl:max-w-36">
                                 <InputIcon class="pi pi-search"> </InputIcon>
                                 <InputText v-model="search" placeholder="Search" class="w-full" />
                             </IconField>

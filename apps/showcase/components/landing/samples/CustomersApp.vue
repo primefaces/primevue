@@ -8,7 +8,7 @@
             <Button icon="pi pi-circle-fill text-green-500" label="950 Active User" variant="outlined" severity="secondary" />
         </div>
         <div class="mt-10 mb-4 flex items-center justify-between">
-            <IconField iconPosition="left">
+            <IconField>
                 <InputIcon class="pi pi-search"> </InputIcon>
                 <InputText v-model="search" placeholder="Search" />
             </IconField>

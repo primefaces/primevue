@@ -6,7 +6,7 @@
                 <div class="text-color text-3xl font-semibold leading-normal">Welcome to PrimeVue</div>
             </div>
             <div class="flex gap-2 whitespace-nowrap flex-nowrap">
-                <IconField iconPosition="left">
+                <IconField>
                     <InputIcon class="pi pi-search"> </InputIcon>
                     <InputText placeholder="Search" />
                 </IconField>

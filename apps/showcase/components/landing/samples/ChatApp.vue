@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="px-5">
-                <IconField iconPosition="left">
+                <IconField>
                     <InputIcon class="pi pi-search"> </InputIcon>
                     <InputText v-model="search" placeholder="Search" class="w-full" />
                 </IconField>
