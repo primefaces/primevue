@@ -16,10 +16,6 @@ export default {
             type: String,
             default: 'No'
         },
-        iconPos: {
-            type: String,
-            default: 'left'
-        },
         readonly: {
             type: Boolean,
             default: false

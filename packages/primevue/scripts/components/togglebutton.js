@@ -30,12 +30,6 @@ const ToggleButtonProps = [
         description: 'Label for the off state.'
     },
     {
-        name: 'iconPos',
-        type: 'string',
-        default: 'left',
-        description: 'Position of the icon, valid values are "left" and "right".'
-    },
-    {
         name: 'tabindex',
         type: 'number',
         default: 'null',

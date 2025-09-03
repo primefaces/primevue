@@ -131,11 +131,6 @@ export interface ToggleButtonProps {
      */
     offLabel?: string | undefined;
     /**
-     * Position of the icon.
-     * @defaultValue left
-     */
-    iconPos?: HintedString<'left' | 'right'> | undefined;
-    /**
      * When present, it specifies that the component should have invalid state style.
      * @defaultValue false
      */
