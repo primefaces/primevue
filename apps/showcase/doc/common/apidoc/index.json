@@ -73750,14 +73750,6 @@
                             "description": "Label for the off state."
                         },
                         {
-                            "name": "iconPos",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "HintedString<\"left\" | \"right\">",
-                            "default": "left",
-                            "description": "Position of the icon."
-                        },
-                        {
                             "name": "invalid",
                             "optional": true,
                             "readonly": false,
