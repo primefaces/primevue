@@ -46,3 +46,29 @@ describe('Chip.vue', () => {
         expect(closeSpy).toHaveBeenCalled();
     });
 });
+
+describe('Chip.vue custom remove icon', () => {
+    let wrapper;
+
+    beforeEach(() => {
+        wrapper = mount(Chip, {
+            props: {
+                label: 'PrimeVue',
+                removeIcon: 'pi pi-primevue',
+                removable: true
+            }
+        });
+    });
+
+    it('custom remove icon should exist', () => {
+        expect(wrapper.find('.p-chip-remove-icon').exists()).toBe(true);
+        expect(wrapper.find('.pi.pi-primevue').exists()).toBe(true);
+    });
+
+    
+    it('custom remove icon should work', async () => {
+        await wrapper.find('.p-chip-remove-icon').trigger('click');
+
+        expect(wrapper.find('.p-chip.p-component').exists()).toBe(false);
+    });
+});

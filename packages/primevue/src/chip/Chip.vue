@@ -7,7 +7,9 @@
             <div v-if="label !== null" :class="cx('label')" v-bind="ptm('label')">{{ label }}</div>
         </slot>
         <slot v-if="removable" name="removeicon" :removeCallback="close" :keydownCallback="onKeydown">
-            <component :is="removeIcon ? 'span' : 'TimesCircleIcon'" :class="[cx('removeIcon'), removeIcon]" @click="close" @keydown="onKeydown" v-bind="ptm('removeIcon')"></component>
+            <component :is="removeIcon ? 'span' : 'TimesCircleIcon'" @click="close" @keydown="onKeydown" v-bind="ptm('removeIcon')">
+                <span v-if="removeIcon" :class="[cx('removeIcon'), removeIcon]" />
+            </component>
         </slot>
     </div>
 </template>
