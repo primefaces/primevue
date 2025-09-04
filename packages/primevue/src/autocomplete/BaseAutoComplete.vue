@@ -62,6 +62,10 @@ export default {
             type: Boolean,
             default: false
         },
+        emptyCompleteOnFocus: {
+            type: Boolean,
+            default: false
+        },
         inputId: {
             type: String,
             default: null
