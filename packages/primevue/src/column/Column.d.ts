@@ -1024,9 +1024,9 @@ export declare type ColumnEmits = EmitFn<ColumnEmitsOptions>;
 /**
  * **PrimeVue - Column**
  *
- * _Column is a helper component for Column and TreeTable._
+ * _Column is a helper component for DataTable and TreeTable._
  *
- * [Live Demo](https://www.primevue.org/Column/)
+ * [Live Demo](https://www.primevue.org/datatable/)
  * --- ---
  * ![PrimeVue](https://primefaces.org/cdn/primevue/images/logo-100.png)
  *
