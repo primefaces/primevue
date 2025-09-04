@@ -349,7 +349,6 @@ export default {
             let valueChanged = false;
             let value = null;
             let metaSelection = this.optionTouched ? false : this.metaKeySelection;
-            const _value = this.getOptionValue(option) !== '' ? this.getOptionValue(option) : this.getOptionLabel(option);
 
             if (metaSelection) {
                 let metaKey = event && (event.metaKey || event.ctrlKey);
@@ -360,11 +359,11 @@ export default {
                         valueChanged = true;
                     }
                 } else {
-                    value = _value;
+                    value = this.getOptionValue(option);
                     valueChanged = true;
                 }
             } else {
-                value = selected ? null : _value;
+                value = selected ? null : this.getOptionValue(option);
                 valueChanged = true;
             }
 
@@ -376,19 +375,18 @@ export default {
             let selected = this.isSelected(option);
             let value = null;
             let metaSelection = this.optionTouched ? false : this.metaKeySelection;
-            const _value = this.getOptionValue(option) !== '' ? this.getOptionValue(option) : this.getOptionLabel(option);
 
             if (metaSelection) {
                 let metaKey = event.metaKey || event.ctrlKey;
 
                 if (selected) {
-                    value = metaKey ? this.removeOption(option) : [_value];
+                    value = metaKey ? this.removeOption(option) : [this.getOptionValue(option)];
                 } else {
                     value = metaKey ? this.d_value || [] : [];
-                    value = [...value, _value];
+                    value = [...value, this.getOptionValue(option)];
                 }
             } else {
-                value = selected ? this.removeOption(option) : [...(this.d_value || []), _value];
+                value = selected ? this.removeOption(option) : [...(this.d_value || []), this.getOptionValue(option)];
             }
 
             this.updateModel(event, value);
@@ -557,7 +555,7 @@ export default {
             return equals(value1, value2, this.equalityKey);
         },
         isSelected(option) {
-            const optionValue = this.getOptionValue(option) !== '' ? this.getOptionValue(option) : this.getOptionLabel(option);
+            const optionValue = this.getOptionValue(option);
 
             if (this.multiple) return (this.d_value || []).some((value) => this.isEquals(value, optionValue));
             else return this.isEquals(this.d_value, optionValue);
