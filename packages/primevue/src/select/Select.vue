@@ -497,7 +497,7 @@ export default {
             focus(focusableEl);
         },
         onOptionSelect(event, option, isHide = true) {
-            const value = this.getOptionValue(option) !== '' ? this.getOptionValue(option) : this.getOptionLabel(option);
+            const value = this.getOptionValue(option);
             this.updateModel(event, value);
             isHide && this.hide(true);
         },
@@ -863,7 +863,7 @@ export default {
             return this.isValidOption(option) && this.isSelected(option);
         },
         isSelected(option) {
-            return equals(this.d_value, this.getOptionValue(option) !== '' ? this.getOptionValue(option) : this.getOptionLabel(option), this.equalityKey);
+            return equals(this.d_value, this.getOptionValue(option), this.equalityKey);
         },
         findFirstOptionIndex() {
             return this.visibleOptions.findIndex((option) => this.isValidOption(option));
@@ -882,7 +882,7 @@ export default {
             return matchedOptionIndex > -1 ? matchedOptionIndex : index;
         },
         findSelectedOptionIndex() {
-            return this.$filled ? this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option)) : -1;
+            return this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option));
         },
         findFirstFocusedOptionIndex() {
             const selectedIndex = this.findSelectedOptionIndex();
