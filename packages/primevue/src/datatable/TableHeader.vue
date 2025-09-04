@@ -112,7 +112,7 @@
                 />
             </template>
         </tr>
-        <tr v-if="loading && loadingMode === 'progressbar'" style="position: absolute; bottom: -1px; width: 100%">
+        <tr v-if="loading && loadingMode === 'progressbar'" style="position: absolute; bottom: -1px; width: 100%" aria-hidden="true">
             <td :colspan="columns.length" style="display: block">
                 <ProgressBar mode="indeterminate" :dt="{ background: 'transparent', height: '1px' }" />
             </td>
