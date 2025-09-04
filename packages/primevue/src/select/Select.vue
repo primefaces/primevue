@@ -1062,7 +1062,7 @@ export default {
             return this.visibleOptions.filter((option) => !this.isOptionGroup(option)).length;
         },
         isClearIconVisible() {
-            return this.showClear && this.d_value != null && isNotEmpty(this.options);
+            return this.showClear && this.d_value != null;
         },
         virtualScrollerDisabled() {
             return !this.virtualScrollerOptions;
