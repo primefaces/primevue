@@ -14246,7 +14246,7 @@
         "description": "Column component defines various options to specify corresponding features.\nIt is a helper component for DataTable and TreeTable.\n\n[Live Demo](https://www.primevue.org/datatable/)",
         "components": {
             "default": {
-                "description": "Column is a helper component for Column and TreeTable.",
+                "description": "Column is a helper component for DataTable and TreeTable.",
                 "methods": {
                     "description": "Defines methods that can be accessed by the component's reference.",
                     "values": []
