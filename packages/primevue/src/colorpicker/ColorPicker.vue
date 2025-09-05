@@ -108,8 +108,8 @@ export default {
 
             this.hsbValue = this.validateHSB({
                 h: this.localHue,
-                s: 100,
-                b: 100
+                s: this.hsbValue.s,
+                b: this.hsbValue.b
             });
 
             this.selfUpdate = true;
