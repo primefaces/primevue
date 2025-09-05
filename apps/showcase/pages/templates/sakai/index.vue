@@ -26,7 +26,7 @@ export default {
                                 logo: markRaw(SakaiLogo),
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/sakai/sakai-hero-dashboard2.png',
-                                description: 'Sakai is a free application template for Vue based on Vite and Nuxt.',
+                                description: 'Sakai is a free application template for Vue based on Vite.',
                                 liveHref: 'https://sakai.primevue.org/',
                                 docHref: 'https://sakai.primevue.org/documentation',
                                 free: true,
@@ -94,8 +94,8 @@ export default {
                         name: markRaw(TemplateConfiguration),
                         props: {
                             configurationData: {
-                                title: 'Vue based on Vite and Nuxt',
-                                description: 'Sakai is powered by Vite and Nuxt to get started in no time following the best practices.'
+                                title: 'Vue based on Vite',
+                                description: 'Sakai is powered by Vite to get started in no time following the best practices.'
                             }
                         }
                     },

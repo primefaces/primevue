@@ -158,8 +158,8 @@ export default {
                         name: markRaw(TemplateConfiguration),
                         props: {
                             configurationData: {
-                                title: 'Vue based on Vite and Nuxt',
-                                description: 'Apollo is powered by Vite and Nuxt to get started in no time following the best practices.'
+                                title: 'Vue based on Vite',
+                                description: 'Apollo is powered by Vite to get started in no time following the best practices.'
                             }
                         }
                     },

@@ -27,7 +27,7 @@ export default {
                                 logo: markRaw(GenesisLogo),
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/genesis/dashboard-2.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/genesis/dashboard-1.png',
-                                description: 'Genesis, crafted by Prime, is the ultimate multi-purpose website template built with Vue and Nuxt. It offers unmatched versatility and performance with a suite of example pages to elevate your projects.',
+                                description: 'Genesis, crafted by Prime, is the ultimate multi-purpose website template built with Vue. It offers unmatched versatility and performance with a suite of example pages to elevate your projects.',
                                 liveHref: 'https://genesis.primevue.org',
                                 pattern: {
                                     className: 'select-none absolute z-[6] w-[58rem] md:w-[50rem] h-auto top-12 md:top-32 -left-24 md:-left-12 opacity-75',
