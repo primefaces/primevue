@@ -75,7 +75,7 @@ export default {
                                 {
                                     id: 2,
                                     title: 'Component Themes',
-                                    description: 'Freya offers 16 built-in component themes with dark and light options. Also if you wanna create your own theme you can do it by just defining couple SASS variables.',
+                                    description: '17 built-in theme colors with the power of 2 presets: Aura and Lara.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/freya/features-animation-component-themes.png'
                                 },
                                 {

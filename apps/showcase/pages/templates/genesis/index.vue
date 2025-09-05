@@ -202,7 +202,7 @@ export default {
                                 {
                                     title: 'Mobile Experience',
                                     description: 'Touch optimized enhanced mobile experience with responsive design.',
-                                    src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-features2-mobile.png'
+                                    src: 'https://primefaces.org/cdn/primevue/images/templates/genesis/mobile-experience.png'
                                 }
                             ],
                             displayType: 'vertical'

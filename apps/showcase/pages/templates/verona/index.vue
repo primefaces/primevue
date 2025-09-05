@@ -25,7 +25,7 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(VeronaLogo),
-                                description: 'Prepare to be amazed by the remastered Verona for PrimeVue featuring a new gorgeous dark mode for the entire layout, 2 menu modes, reusable css widgets, utilities, modern icons and many more.',
+                                description: 'Prepare to be amazed by the remastered Verona for PrimeVue featuring a new gorgeous dark mode for the entire layout, 4 menu modes, reusable css widgets, utilities, modern icons and many more.',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/verona/verona-hero-dashboard2.png',
                                 liveHref: 'https://verona.primevue.org/',
@@ -75,7 +75,7 @@ export default {
                                 {
                                     id: 2,
                                     title: 'Component Themes',
-                                    description: 'Verona offers 10 built-in component themes with dark and light options. You are also free to create your own theme by defining couple SASS variables.',
+                                    description: '17 built-in theme colors with the power of 3 presets: Aura, Lara and Nora.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/verona/features-animation-component-themes.png'
                                 },
                                 {
@@ -110,7 +110,7 @@ export default {
                                 {
                                     id: 4,
                                     title: 'Menu Themes',
-                                    description: 'Verona offers 10 special layout themes featuring gorgeous gradients.',
+                                    description: 'Verona offers 17 special layout themes featuring gorgeous gradients.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/verona/features-animation-orientations.png'
                                 }
                             ]

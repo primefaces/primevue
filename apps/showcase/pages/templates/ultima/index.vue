@@ -25,8 +25,7 @@ export default {
                         props: {
                             templateHeroData: {
                                 logo: markRaw(UltimaLogo),
-                                description:
-                                    'A highly customizable premium application template featuring 4 menu modes, 13 themes, light and dark modes. Based on material design language, it is fully responsive, touch optimized, built with SASS, CSS3 and HTML5.',
+                                description: 'A highly customizable premium application template featuring 7 menu modes, various themes, light and dark modes based on Material Design.',
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/ultima/ultima-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/ultima/ultima-hero-dashboard2.png',
                                 liveHref: 'https://ultima.primevue.org',
@@ -76,7 +75,7 @@ export default {
                                 {
                                     id: 2,
                                     title: 'Component Themes',
-                                    description: 'Ultima offers 17 built-in component themes with dark and light options. Also if you wanna create your own theme you can do it by just defining couple SASS variables.',
+                                    description: '17 built-in theme colors for the Material Design preset.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/ultima/features-animation-component-themes.png'
                                 },
                                 {

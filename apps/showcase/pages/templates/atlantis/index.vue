@@ -75,7 +75,7 @@ export default {
                                 {
                                     id: 2,
                                     title: 'Component Themes',
-                                    description: 'Atlantis offers 16 built-in component themes with dark and light options. You are also free to create your own theme by defining couple SASS variables.',
+                                    description: '17 built-in theme colors with the power of 2 presets: Aura and Lara',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/atlantis/features-animation-component-themes.png'
                                 },
                                 {

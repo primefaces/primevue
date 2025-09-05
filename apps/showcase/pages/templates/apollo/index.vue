@@ -27,7 +27,7 @@ export default {
                                 logo: markRaw(ApolloLogo),
                                 dashboard1: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-dashboard1.png',
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-dashboard2.png',
-                                description: 'Application template for Vue based on Vite with light-dim-dark modes, four menu layouts, various menu themes, sample apps, ready to use template pages and 24 PrimeVue themes.',
+                                description: 'A spectacular application template for Vue based on Vite featuring light-dark modes with 8 surface colors, 7 menu layouts, various menu themes, sample apps, ready to use template pages and 3 presets.',
                                 liveHref: 'https://apollo.primevue.org',
                                 docHref: 'https://apollo.primevue.org/documentation',
                                 pattern: {
@@ -75,7 +75,7 @@ export default {
                                 {
                                     id: 2,
                                     title: 'Component Themes',
-                                    description: 'Apollo offers 24 built-in component themes and creating your own theme is a matter of defining couple of sass variables.',
+                                    description: '17 built-in theme colors with the power of 3 presets: Aura, Lara and Nora.',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/features-animation-component-themes.png'
                                 },
                                 {
