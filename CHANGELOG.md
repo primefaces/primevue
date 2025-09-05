@@ -1,5 +1,36 @@
 # Changelog
 
+## [4.3.9](https://github.com/primefaces/primevue/tree/4.3.9) (2025-09-05)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.3.8...4.3.9)
+
+**Implemented New Features and Enhancements:**
+
+- Select components | Hide clear icon while loading or disabled mode is on [\#8078](https://github.com/primefaces/primevue/issues/8078)
+- Checkbox | fix style of checkbox icon when disabled (volt) [\#8071](https://github.com/primefaces/primevue/issues/8071)
+- TreeTable | Missing data-p attributes [\#8064](https://github.com/primefaces/primevue/issues/8064)
+- DataTable | Missing data-p="loading" attribute [\#8062](https://github.com/primefaces/primevue/issues/8062)
+- TreeTable | paginatorcontainer slot missing required pagination props for customization [\#8001](https://github.com/primefaces/primevue/issues/8001)
+- Dialog | loses draggable functionality when using headless mode with #container slot [\#7892](https://github.com/primefaces/primevue/issues/7892)
+
+**Fixed bugs:**
+
+- Listbox | pt parameter header is not applied when using header slot [\#8079](https://github.com/primefaces/primevue/issues/8079)
+- ColorPicker | When changing hue, saturation and brightness will be lost [\#8069](https://github.com/primefaces/primevue/issues/8069)
+- Fileupload | can drop multiple files even when :multiple="false" [\#8068](https://github.com/primefaces/primevue/issues/8068)
+- ColumnFilter | Incorrect locale references and reversed logic in columnFilterButtonAriaLabel [\#8060](https://github.com/primefaces/primevue/issues/8060)
+- Tooltip | Remains in DOM When Target Element Is Removed Before Delay Completes [\#8026](https://github.com/primefaces/primevue/issues/8026)
+- Galleria | full screen thumbnails shifting in (RTL) is not appropriate [\#8025](https://github.com/primefaces/primevue/issues/8025)
+- Datepicker | issue with wrong values in the input field [\#8014](https://github.com/primefaces/primevue/issues/8014)
+- MultiSelect | Options with duplicate label but different values do not work properly when clearing [\#8011](https://github.com/primefaces/primevue/issues/8011)
+- Datatable | Expand aria-label wrong [\#7997](https://github.com/primefaces/primevue/issues/7997)
+- KeyFilter | let wrong characters be typed in [\#7989](https://github.com/primefaces/primevue/issues/7989)
+- InputNumber | of type integeronly accepts floating point number in Copy&Paste actions [\#7986](https://github.com/primefaces/primevue/issues/7986)
+- PTab | Button cannot be activated with keyboard enter key when inside a tab [\#7983](https://github.com/primefaces/primevue/issues/7983)
+- Select | Regression with empty string value [\#7909](https://github.com/primefaces/primevue/issues/7909)
+- Listbox | Incorrectly scrolls on select [\#7862](https://github.com/primefaces/primevue/issues/7862)
+- Select component | default value template doesn't show the selected value if it's not found in the option list [\#7833](https://github.com/primefaces/primevue/issues/7833)
+
 ## [4.3.8](https://github.com/primefaces/primevue/tree/4.3.8) (2025-09-01)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.3.7...4.3.8)
