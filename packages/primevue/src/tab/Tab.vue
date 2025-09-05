@@ -95,7 +95,6 @@ export default {
         },
         onEnterKey(event) {
             this.changeActiveValue();
-            event.preventDefault();
         },
         findNextTab(tabElement, selfCheck = false) {
             const element = selfCheck ? tabElement : tabElement.nextElementSibling;
