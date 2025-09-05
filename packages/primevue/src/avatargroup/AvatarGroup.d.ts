@@ -119,10 +119,4 @@ export declare type AvatarGroupEmits = EmitFn<AvatarGroupEmitsOptions>;
  */
 declare const AvatarGroup: DefineComponent<AvatarGroupProps, AvatarGroupSlots, AvatarGroupEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        AvatarGroup: DefineComponent<AvatarGroupProps, AvatarGroupSlots, AvatarGroupEmits>;
-    }
-}
-
 export default AvatarGroup;

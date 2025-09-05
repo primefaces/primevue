@@ -276,10 +276,4 @@ export declare type ColorPickerEmits = EmitFn<ColorPickerEmitsOptions>;
  */
 declare const ColorPicker: DefineComponent<ColorPickerProps, ColorPickerSlots, ColorPickerEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        ColorPicker: DefineComponent<ColorPickerProps, ColorPickerSlots, ColorPickerEmits>;
-    }
-}
-
 export default ColorPicker;

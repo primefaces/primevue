@@ -1208,10 +1208,4 @@ export declare type DatePickerEmits = EmitFn<DatePickerEmitsOptions>;
  */
 declare const DatePicker: DefineComponent<DatePickerProps, DatePickerSlots, DatePickerEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        DatePicker: DefineComponent<DatePickerProps, DatePickerSlots, DatePickerEmits>;
-    }
-}
-
 export default DatePicker;

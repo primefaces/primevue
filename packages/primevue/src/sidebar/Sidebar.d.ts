@@ -70,10 +70,4 @@ export declare type SidebarEmits = EmitFn<SidebarEmitsOptions> & Drawer.DrawerEm
  */
 declare const Sidebar: DefineComponent<SidebarProps, SidebarSlots, SidebarEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Sidebar: DefineComponent<SidebarProps, SidebarSlots, SidebarEmits>;
-    }
-}
-
 export default Sidebar;

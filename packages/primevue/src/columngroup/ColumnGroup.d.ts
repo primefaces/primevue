@@ -136,10 +136,4 @@ export declare type ColumnGroupEmits = EmitFn<ColumnGroupEmitsOptions>;
  */
 declare const ColumnGroup: DefineComponent<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        ColumnGroup: DefineComponent<ColumnGroupProps, ColumnGroupSlots, ColumnGroupEmits>;
-    }
-}
-
 export default ColumnGroup;

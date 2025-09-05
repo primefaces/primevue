@@ -159,10 +159,4 @@ export declare type CardEmits = EmitFn<CardEmitsOptions>;
  */
 declare const Card: DefineComponent<CardProps, CardSlots, CardEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Card: DefineComponent<CardProps, CardSlots, CardEmits>;
-    }
-}
-
 export default Card;
