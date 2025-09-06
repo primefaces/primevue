@@ -1,7 +1,7 @@
 <template>
     <div :class="cx('root')" data-scrollselectors=".p-datatable-wrapper" :data-p="dataP" v-bind="ptmi('root')">
         <slot></slot>
-        <div v-if="loading" :class="cx('mask')" v-bind="ptm('mask')">
+        <div v-if="loading && loadingMode === 'mask'" :class="cx('mask')" v-bind="ptm('mask')">
             <slot v-if="$slots.loading" name="loading"></slot>
             <template v-else>
                 <component v-if="$slots.loadingicon" :is="$slots.loadingicon" :class="cx('loadingIcon')" />
@@ -109,6 +109,8 @@
                             :filterButtonProps="headerFilterButtonProps"
                             :filterInputProps="filterInputProps"
                             :first="d_first"
+                            :loading="loading"
+                            :loading-mode="loadingMode"
                             @column-click="onColumnHeaderClick($event)"
                             @column-mousedown="onColumnHeaderMouseDown($event)"
                             @filter-change="onFilterChange"

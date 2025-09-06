@@ -12,7 +12,10 @@
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading" @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords" tableStyle="min-width: 50rem">
+            <div class="flex justify-center mb-6">
+                <SelectButton v-model="loadingMode" :options="LoadingModeOptions" optionLabel="label" dataKey="label" />
+            </div>
+            <TreeTable :value="nodes" :lazy="true" :loading-mode="loadingMode.value" loading-icon="pi pi-spin pi-spinner" :paginator="true" :rows="rows" :loading="loading" @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords" tableStyle="min-width: 50rem">
                 <Column field="name" header="Name" expander></Column>
                 <Column field="size" header="Size"></Column>
                 <Column field="type" header="Type"></Column>
@@ -29,6 +32,12 @@ export default {
             nodes: null,
             rows: 10,
             loading: false,
+            loadingMode: { label: 'Mask', value: 'mask' },
+            LoadingModeOptions: [
+                { label: 'Mask', value: 'mask' },
+                { label: 'Icon', value: 'icon' },
+                { label: 'ProgressBar', value: 'progressbar' }
+            ],
             totalRecords: 0,
             code: {
                 basic: `
@@ -42,6 +51,9 @@ export default {
                 options: `
 <template>
     <div class="card">
+        <div class="flex justify-center mb-6">
+            <SelectButton v-model="loadingMode" :options="LoadingModeOptions" optionLabel="label" dataKey="label" />
+        </div>
         <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
             @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords" tableStyle="min-width: 50rem">
             <Column field="name" header="Name" expander></Column>
@@ -58,6 +70,12 @@ export default {
             nodes: null,
             rows: 10,
             loading: false,
+            loadingMode: { label: 'Mask', value: 'mask' },
+            LoadingModeOptions: [
+                { label: 'Mask', value: 'mask' },
+                { label: 'Icon', value: 'icon' },
+                { label: 'ProgressBar', value: 'progressbar' }
+            ],
             totalRecords: 0
         };
     },
@@ -74,6 +92,7 @@ export default {
         onExpand(node) {
             if (!node.children) {
                 this.loading = true;
+                node.loading = true;
 
                 setTimeout(() => {
                     let lazyNode = { ...node };
@@ -104,6 +123,7 @@ export default {
                     });
 
                     this.loading = false;
+                    lazyNode.loading = false;
                     this.nodes = nodes;
                 }, 250);
             }
@@ -168,10 +188,17 @@ onMounted(() => {
 const nodes = ref();
 const rows = ref(10);
 const loading = ref(false);
+const loadingMode = ref({ label: 'Mask', value: 'mask' });
+const loadingModeOptions = ref([
+    { label: 'Mask', value: 'mask' },
+    { label: 'Icon', value: 'icon' },
+    { label: 'ProgressBar', value: 'progressbar' }
+]);
 const totalRecords = ref(0);
 const onExpand = (node) => {
     if (!node.children) {
         loading.value = true;
+        node.loading = true;
 
         setTimeout(() => {
             let lazyNode = {...node};
@@ -202,6 +229,7 @@ const onExpand = (node) => {
             });
 
             loading.value = false;
+            lazyNode.loading = false;
             nodes.value = newNodes;
         }, 250);
     }
@@ -253,6 +281,7 @@ const loadNodes = (first, rows) => {
         onExpand(node) {
             if (!node.children) {
                 this.loading = true;
+                node.loading = true;
 
                 setTimeout(() => {
                     let lazyNode = { ...node };
@@ -283,6 +312,7 @@ const loadNodes = (first, rows) => {
                     });
 
                     this.loading = false;
+                    lazyNode.loading = false;
                     this.nodes = nodes;
                 }, 250);
             }
