@@ -163,7 +163,7 @@
                                         <slot name="emptyfilter">{{ emptyFilterMessageText }}</slot>
                                     </li>
                                     <li v-else-if="!options || (options && options.length === 0)" :class="cx('emptyMessage')" role="option" v-bind="ptm('emptyMessage')" :data-p-hidden-accessible="true">
-                                        <slot name="empty">{{ emptyMessageText }}</slot>
+                                        <slot name="empty">{{ emptyFilterMessageText || emptyMessageText }}</slot>
                                     </li>
                                 </ul>
                             </template>
