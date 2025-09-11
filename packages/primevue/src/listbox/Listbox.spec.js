@@ -36,6 +36,37 @@ describe('Listbox.vue', () => {
         expect(wrapper.findAll('li.p-listbox-option')[0].classes()).toContain('p-listbox-option-selected');
     });
 
+    it('should handle number array options correctly', async () => {
+        // Test with pure number array
+        await wrapper.setProps({
+            modelValue: null,
+            options: [1, 2, 3, 4, 5],
+            optionLabel: null // Clear optionLabel to test primitive values
+        });
+
+        // Check that number options are rendered correctly
+        const options = wrapper.findAll('li.p-listbox-option');
+
+        expect(options.length).toBe(5);
+        expect(options[0].text()).toBe('1');
+        expect(options[1].text()).toBe('2');
+        expect(options[4].text()).toBe('5');
+
+        // Check aria-label for number options
+        expect(options[0].attributes()['aria-label']).toBe('1');
+        expect(options[2].attributes()['aria-label']).toBe('3');
+
+        // Test selection with number values
+        await wrapper.vm.onOptionSelect({}, 3);
+        expect(wrapper.emitted()['update:modelValue'][0]).toEqual([3]);
+
+        // Test that selected number option gets correct styling
+        await wrapper.setProps({ modelValue: 3 });
+        const selectedOption = wrapper.findAll('li.p-listbox-option')[2]; // Index 2 for value 3
+
+        expect(selectedOption.classes()).toContain('p-listbox-option-selected');
+    });
+
     describe('filter', () => {
         it('should have correct custom icon', async () => {
             await wrapper.setProps({
