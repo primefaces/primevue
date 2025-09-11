@@ -201,15 +201,19 @@ export default {
         onKeyDown(event, index) {
             this.handleIndex = index;
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                 case 'ArrowLeft':
+                case 'Left':
                     this.decrementValue(event, index);
                     event.preventDefault();
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                 case 'ArrowRight':
+                case 'Right':
                     this.incrementValue(event, index);
                     event.preventDefault();
                     break;

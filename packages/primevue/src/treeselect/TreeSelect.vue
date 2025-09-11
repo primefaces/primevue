@@ -275,18 +275,20 @@ export default {
             focus(focusableEl);
         },
         onKeyDown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     this.onArrowDownKey(event);
                     break;
 
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                 case 'Enter':
-                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
                 case 'Escape':
+                case 'Esc':
                     this.onEscapeKey(event);
                     break;
 
@@ -448,7 +450,7 @@ export default {
             this.selfClick = true;
         },
         onOverlayKeydown(event) {
-            if (event.code === 'Escape') this.hide();
+            if (event.key === 'Escape' || event.key === 'Esc') this.hide();
         },
         fillNodeMap(node, nodeMap) {
             nodeMap[node.key] = node;

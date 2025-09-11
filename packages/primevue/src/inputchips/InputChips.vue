@@ -104,7 +104,7 @@ export default {
         onKeyDown(event) {
             const inputValue = event.target.value;
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'Backspace':
                     if (inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
                         if (this.focusedIndex !== null) {
@@ -115,7 +115,6 @@ export default {
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
                     if (inputValue && inputValue.trim().length && !this.maxedOut) {
                         this.addItem(event, inputValue, true);
                     }
@@ -123,6 +122,7 @@ export default {
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                     if (inputValue.length === 0 && this.modelValue && this.modelValue.length > 0) {
                         this.$refs.container.focus();
                     }
@@ -130,6 +130,7 @@ export default {
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     event.stopPropagation();
                     break;
 
@@ -166,12 +167,14 @@ export default {
             this.focused = false;
         },
         onContainerKeyDown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowLeft':
+                case 'Left':
                     this.onArrowLeftKeyOn(event);
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     this.onArrowRightKeyOn(event);
                     break;
 

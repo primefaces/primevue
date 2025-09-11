@@ -151,12 +151,14 @@ export default {
             this.$emit('blur', event);
         },
         onListKeyDown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     this.onArrowDownKey(event);
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     this.onArrowUpKey(event);
                     break;
 
@@ -169,15 +171,16 @@ export default {
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.onSpaceKey(event);
                     break;
 
                 case 'Escape':
+                case 'Esc':
                     if (this.popup) {
                         focus(this.target);
                         this.hide();

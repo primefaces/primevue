@@ -130,15 +130,18 @@ export default {
                 return;
             }
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowLeft':
+                case 'Left':
                     this.moveToPrev(event);
                     event.preventDefault();
 
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                 case 'ArrowDown':
+                case 'Down':
                     event.preventDefault();
 
                     break;
@@ -152,18 +155,18 @@ export default {
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     this.moveToNext(event);
                     event.preventDefault();
 
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
                 case 'Tab':
                     break;
 
                 default:
-                    if ((this.integerOnly && !(event.code !== 'Space' && Number(event.key) >= 0 && Number(event.key) <= 9)) || (this.tokens.join('').length >= this.length && event.code !== 'Delete')) {
+                    if ((this.integerOnly && !(event.key !== 'Spacebar' && event.key !== ' ' && Number(event.key) >= 0 && Number(event.key) <= 9)) || (this.tokens.join('').length >= this.length && event.key !== 'Delete' && event.key !== 'Del')) {
                         event.preventDefault();
                     }
 

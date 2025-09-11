@@ -147,10 +147,10 @@ export default {
             }
         },
         onIndicatorKeyDown(event, index) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'Enter':
-                case 'NumpadEnter':
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.stopSlideShow();
 
                     this.$emit('update:activeIndex', index);
@@ -158,10 +158,12 @@ export default {
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     this.onRightKey();
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                     this.onLeftKey();
                     break;
 
@@ -180,7 +182,9 @@ export default {
                     break;
 
                 case 'ArrowDown':
+                case 'Down':
                 case 'ArrowUp':
+                case 'Up':
                 case 'PageUp':
                 case 'PageDown':
                     event.preventDefault();

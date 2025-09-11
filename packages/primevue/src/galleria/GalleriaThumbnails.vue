@@ -308,17 +308,19 @@ export default {
             }
         },
         onThumbnailKeydown(event, index) {
-            if (event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') {
+            if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
                 this.onItemClick(index);
                 event.preventDefault();
             }
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowRight':
+                case 'Right':
                     this.onRightKey();
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                     this.onLeftKey();
                     break;
 
@@ -333,7 +335,9 @@ export default {
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                 case 'ArrowDown':
+                case 'Down':
                     event.preventDefault();
                     break;
 

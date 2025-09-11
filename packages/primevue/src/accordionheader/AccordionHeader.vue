@@ -43,12 +43,14 @@ export default {
             !this.$pcAccordion.selectOnFocus && this.changeActiveValue();
         },
         onKeydown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     this.onArrowDownKey(event);
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     this.onArrowUpKey(event);
                     break;
 
@@ -61,8 +63,8 @@ export default {
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.onEnterKey(event);
                     break;
 

@@ -450,12 +450,14 @@ export default {
             }
         },
         onIndicatorKeydown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowRight':
+                case 'Right':
                     this.onRightKey();
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                     this.onLeftKey();
                     break;
 
@@ -470,7 +472,9 @@ export default {
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                 case 'ArrowDown':
+                case 'Down':
                 case 'PageUp':
                 case 'PageDown':
                     event.preventDefault();

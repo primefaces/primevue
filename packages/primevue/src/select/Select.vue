@@ -374,12 +374,13 @@ export default {
             }
 
             if (isAndroid()) {
-                switch (event.code) {
+                switch (event.key) {
                     case 'Backspace':
                         this.onBackspaceKey(event, this.editable);
                         break;
                     case 'Enter':
-                    case 'NumpadDecimal':
+                    case '.':
+                    case ',':
                         this.onEnterKey(event);
                         break;
                     default:
@@ -390,17 +391,21 @@ export default {
 
             const metaKey = event.metaKey || event.ctrlKey;
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     this.onArrowDownKey(event);
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     this.onArrowUpKey(event, this.editable);
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                 case 'ArrowRight':
+                case 'Right':
                     this.onArrowLeftKey(event, this.editable);
                     break;
 
@@ -420,16 +425,17 @@ export default {
                     this.onPageUpKey(event);
                     break;
 
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.onSpaceKey(event, this.editable);
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
                 case 'Escape':
+                case 'Esc':
                     this.onEscapeKey(event);
                     break;
 
@@ -441,8 +447,7 @@ export default {
                     this.onBackspaceKey(event, this.editable);
                     break;
 
-                case 'ShiftLeft':
-                case 'ShiftRight':
+                case 'Shift':
                     //NOOP
                     break;
 
@@ -520,17 +525,21 @@ export default {
             // If event.isComposing is true, it means the user is still composing text and the input is not finalized.
             if (event.isComposing) return;
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     this.onArrowDownKey(event);
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     this.onArrowUpKey(event, true);
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                 case 'ArrowRight':
+                case 'Right':
                     this.onArrowLeftKey(event, true);
                     break;
 
@@ -543,11 +552,11 @@ export default {
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
                 case 'Escape':
+                case 'Esc':
                     this.onEscapeKey(event);
                     break;
 
@@ -574,8 +583,9 @@ export default {
             });
         },
         onOverlayKeyDown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'Escape':
+                case 'Esc':
                     this.onEscapeKey(event);
                     break;
 

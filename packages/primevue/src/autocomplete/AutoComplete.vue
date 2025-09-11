@@ -375,20 +375,24 @@ export default {
                 return;
             }
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     this.onArrowDownKey(event);
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     this.onArrowUpKey(event);
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                     this.onArrowLeftKey(event);
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     this.onArrowRightKey(event);
                     break;
 
@@ -409,15 +413,16 @@ export default {
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.onSpaceKey(event);
                     break;
 
                 case 'Escape':
+                case 'Esc':
                     this.onEscapeKey(event);
                     break;
 
@@ -425,8 +430,7 @@ export default {
                     this.onTabKey(event);
                     break;
 
-                case 'ShiftLeft':
-                case 'ShiftRight':
+                case 'Shift':
                     this.onShiftKey(event);
                     break;
 
@@ -514,12 +518,14 @@ export default {
                 return;
             }
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowLeft':
+                case 'Left':
                     this.onArrowLeftKeyOnMultiple(event);
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     this.onArrowRightKeyOnMultiple(event);
                     break;
 
@@ -604,8 +610,9 @@ export default {
             });
         },
         onOverlayKeyDown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'Escape':
+                case 'Esc':
                     this.onEscapeKey(event);
                     break;
 

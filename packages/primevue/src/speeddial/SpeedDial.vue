@@ -164,20 +164,25 @@ export default {
             return (visible ? index : length - index - 1) * this.transitionDelay;
         },
         onTogglerKeydown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                 case 'ArrowLeft':
+                case 'Left':
                     this.onTogglerArrowDown(event);
 
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                 case 'ArrowRight':
+                case 'Right':
                     this.onTogglerArrowUp(event);
 
                     break;
 
                 case 'Escape':
+                case 'Esc':
                     this.onEscapeKey();
 
                     break;
@@ -187,30 +192,35 @@ export default {
             }
         },
         onKeyDown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     this.onArrowDown(event);
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     this.onArrowUp(event);
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                     this.onArrowLeft(event);
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     this.onArrowRight(event);
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.onEnterKey(event);
                     break;
 
                 case 'Escape':
+                case 'Esc':
                     this.onEscapeKey(event);
                     break;
 

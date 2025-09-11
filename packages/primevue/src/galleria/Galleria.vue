@@ -88,7 +88,7 @@ export default {
             this.mask = el;
         },
         onKeyDown(event) {
-            if (event.code === 'Escape') {
+            if (event.key === 'Escape' || event.key === 'Esc') {
                 this.maskHide();
             }
         },

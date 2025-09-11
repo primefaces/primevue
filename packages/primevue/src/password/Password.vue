@@ -190,7 +190,7 @@ export default {
                 this.meter = meter;
                 this.infoText = label;
 
-                if (event.code === 'Escape') {
+                if (event.key === 'Escape' || event.key === 'Esc') {
                     this.overlayVisible && (this.overlayVisible = false);
 
                     return;

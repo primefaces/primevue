@@ -210,7 +210,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             const el = event.currentTarget;
             const hideDelay = el.$_ptooltipHideDelay;
 
-            event.code === 'Escape' && this.hide(event.currentTarget, hideDelay);
+            (event.key === 'Escape' || event.key === 'Esc') && this.hide(event.currentTarget, hideDelay);
         },
         onWindowResize(el) {
             if (!isTouchDevice()) {

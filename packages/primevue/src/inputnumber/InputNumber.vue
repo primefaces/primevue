@@ -358,7 +358,7 @@ export default {
             }
         },
         onUpButtonKeyDown(event) {
-            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
+            if (event.key === ' ' || event.key === 'Spacebar' || event.key === 'Enter') {
                 this.repeat(event, null, 1);
             }
         },
@@ -385,7 +385,7 @@ export default {
             }
         },
         onDownButtonKeyDown(event) {
-            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
+            if (event.key === ' ' || event.key === 'Spacebar' || event.key === 'Enter') {
                 this.repeat(event, null, -1);
             }
         },
@@ -420,20 +420,22 @@ export default {
             let selectionRange = selectionEnd - selectionStart;
             let inputValue = event.target.value;
             let newValueStr = null;
-            const code = event.code || event.key;
 
-            switch (code) {
+            switch (event.key) {
                 case 'ArrowUp':
+                case 'Up':
                     this.spin(event, 1);
                     event.preventDefault();
                     break;
 
                 case 'ArrowDown':
+                case 'Down':
                     this.spin(event, -1);
                     event.preventDefault();
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                     if (selectionRange > 1) {
                         const cursorPosition = this.isNumeralChar(inputValue.charAt(selectionStart)) ? selectionStart + 1 : selectionStart + 2;
 
@@ -445,6 +447,7 @@ export default {
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     if (selectionRange > 1) {
                         const cursorPosition = selectionEnd - 1;
 
@@ -457,7 +460,6 @@ export default {
 
                 case 'Tab':
                 case 'Enter':
-                case 'NumpadEnter':
                     newValueStr = this.validateValue(this.parseValue(inputValue));
                     this.$refs.input.$el.value = this.formatValue(newValueStr);
                     this.$refs.input.$el.setAttribute('aria-valuenow', newValueStr);
@@ -512,6 +514,7 @@ export default {
                 }
 
                 case 'Delete':
+                case 'Del':
                     event.preventDefault();
 
                     if (selectionStart === selectionEnd) {
@@ -583,7 +586,7 @@ export default {
             let isDecimalSign = this.isDecimalSign(char);
             const isMinusSign = this.isMinusSign(char);
 
-            if (event.code !== 'Enter') {
+            if (event.key !== 'Enter') {
                 event.preventDefault();
             }
 

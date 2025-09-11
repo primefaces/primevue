@@ -191,12 +191,14 @@ export default {
             this.$emit('tab-click', { originalEvent: event, index });
         },
         onTabKeyDown(event, tab, index) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowLeft':
+                case 'Left':
                     this.onTabArrowLeftKey(event);
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     this.onTabArrowRightKey(event);
                     break;
 
@@ -217,8 +219,8 @@ export default {
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.onTabEnterKey(event, tab, index);
                     break;
 

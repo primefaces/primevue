@@ -889,12 +889,14 @@ export default {
             if (this.selectionMode) {
                 const row = event.target;
 
-                switch (event.code) {
+                switch (event.key) {
                     case 'ArrowDown':
+                    case 'Down':
                         this.onArrowDownKey(event, row, rowIndex, slotProps);
                         break;
 
                     case 'ArrowUp':
+                    case 'Up':
                         this.onArrowUpKey(event, row, rowIndex, slotProps);
                         break;
 
@@ -907,11 +909,11 @@ export default {
                         break;
 
                     case 'Enter':
-                    case 'NumpadEnter':
                         this.onEnterKey(event, rowData, rowIndex);
                         break;
 
-                    case 'Space':
+                    case ' ':
+                    case 'Spacebar':
                         this.onSpaceKey(event, rowData, rowIndex, slotProps);
                         break;
 
@@ -920,13 +922,13 @@ export default {
                         break;
 
                     default:
-                        if (event.code === 'KeyA' && metaKey && this.isMultipleSelectionMode()) {
+                        if ((event.key === 'a' || event.key === 'A') && metaKey && this.isMultipleSelectionMode()) {
                             const data = this.dataToRender(slotProps.rows);
 
                             this.$emit('update:selection', data);
                         }
 
-                        const isCopyShortcut = event.code === 'KeyC' && metaKey;
+                        const isCopyShortcut = (event.key === 'c' || event.key === 'C') && metaKey;
 
                         if (!isCopyShortcut) event.preventDefault();
 
@@ -1019,7 +1021,7 @@ export default {
             const body = this.$refs.bodyRef && this.$refs.bodyRef.$el;
             const rows = find(body, 'tr[data-p-selectable-row="true"]');
 
-            if (event.code === 'Tab' && rows && rows.length > 0) {
+            if (event.key === 'Tab' && rows && rows.length > 0) {
                 const firstSelectedRow = findSingle(body, 'tr[data-p-selected="true"]');
                 const focusedItem = findSingle(body, 'tr[data-p-selectable-row="true"][tabindex="0"]');
 

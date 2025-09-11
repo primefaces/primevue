@@ -151,26 +151,30 @@ export default {
             this.$emit('blur', event);
         },
         onListKeyDown(event) {
-            switch (event.code) {
-                case 'ArrowDown': {
+            switch (event.key) {
+                case 'ArrowDown':
+                case 'Down': {
                     if (this.position === 'left' || this.position === 'right') this.onArrowDownKey();
                     event.preventDefault();
                     break;
                 }
 
-                case 'ArrowUp': {
+                case 'ArrowUp':
+                case 'Up': {
                     if (this.position === 'left' || this.position === 'right') this.onArrowUpKey();
                     event.preventDefault();
                     break;
                 }
 
-                case 'ArrowRight': {
+                case 'ArrowRight':
+                case 'Right': {
                     if (this.position === 'top' || this.position === 'bottom') this.onArrowDownKey();
                     event.preventDefault();
                     break;
                 }
 
-                case 'ArrowLeft': {
+                case 'ArrowLeft':
+                case 'Left': {
                     if (this.position === 'top' || this.position === 'bottom') this.onArrowUpKey();
                     event.preventDefault();
                     break;
@@ -189,9 +193,8 @@ export default {
                 }
 
                 case 'Enter':
-                case 'NumpadEnter':
-
-                case 'Space': {
+                case ' ':
+                case 'Spacebar': {
                     this.onSpaceKey(event);
                     event.preventDefault();
                     break;

@@ -135,7 +135,7 @@ export default {
                     break;
 
                 default:
-                    //NoOp
+                    //NOOP
                     break;
             }
 
@@ -391,19 +391,21 @@ export default {
             this.overlayVisible = !this.overlayVisible;
         },
         onInputKeydown(event) {
-            switch (event.code) {
-                case 'Space':
+            switch (event.key) {
+                case ' ':
+                case 'Spacebar':
                     this.overlayVisible = !this.overlayVisible;
                     event.preventDefault();
                     break;
 
                 case 'Escape':
+                case 'Esc':
                 case 'Tab':
                     this.overlayVisible = false;
                     break;
 
                 default:
-                    //NoOp
+                    //NOOP
                     break;
             }
         },

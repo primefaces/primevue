@@ -175,7 +175,7 @@ export default {
             }
         },
         onKeydown(event) {
-            if (event.code === 'Escape') {
+            if (event.key === 'Escape' || event.key === 'Esc') {
                 this.hide();
             }
         },

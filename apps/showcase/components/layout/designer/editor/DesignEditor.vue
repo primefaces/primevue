@@ -95,7 +95,7 @@ export default {
     },
     methods: {
         onKeyDown(event) {
-            if (event.code === 'Enter' || event.code === 'NumpadEnter') {
+            if (event.key === 'Enter') {
                 this.designerService.applyTheme(this.$appState.designer.theme);
                 event.preventDefault();
             }

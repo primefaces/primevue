@@ -26,12 +26,14 @@ export default {
             this.changeActiveValue();
         },
         onKeydown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowRight':
+                case 'Right':
                     this.onArrowRightKey(event);
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                     this.onArrowLeftKey(event);
                     break;
 
@@ -52,8 +54,8 @@ export default {
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.onEnterKey(event);
                     break;
 

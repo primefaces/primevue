@@ -87,14 +87,16 @@ export default {
             });
         },
         onItemKeydown(event, item) {
-            switch (event.code) {
-                case 'ArrowRight': {
+            switch (event.key) {
+                case 'ArrowRight':
+                case 'Right': {
                     this.navigateToNextItem(event.target);
                     event.preventDefault();
                     break;
                 }
 
-                case 'ArrowLeft': {
+                case 'ArrowLeft':
+                case 'Left': {
                     this.navigateToPrevItem(event.target);
                     event.preventDefault();
                     break;
@@ -113,13 +115,12 @@ export default {
                 }
 
                 case 'Tab':
-                    //no op
+                    //NOOP
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
-
-                case 'Space': {
+                case ' ':
+                case 'Spacebar': {
                     this.onItemClick(event, item);
                     event.preventDefault();
                     break;

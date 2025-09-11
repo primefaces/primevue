@@ -397,12 +397,14 @@ export default {
 
             const metaKey = event.metaKey || event.ctrlKey;
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     this.onArrowDownKey(event);
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     this.onArrowUpKey(event);
                     break;
 
@@ -423,12 +425,13 @@ export default {
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.onEnterKey(event);
                     break;
 
                 case 'Escape':
+                case 'Esc':
                     this.onEscapeKey(event);
                     break;
 
@@ -436,13 +439,12 @@ export default {
                     this.onTabKey(event);
                     break;
 
-                case 'ShiftLeft':
-                case 'ShiftRight':
+                case 'Shift':
                     this.onShiftKey(event);
                     break;
 
                 default:
-                    if (event.code === 'KeyA' && metaKey) {
+                    if ((event.key === 'A' || event.key === 'a') && metaKey) {
                         const value = this.visibleOptions.filter((option) => this.isValidOption(option)).map((option) => this.getOptionValue(option));
 
                         this.updateModel(event, value);
@@ -534,17 +536,21 @@ export default {
             !this.virtualScrollerDisabled && this.virtualScroller.scrollToIndex(0);
         },
         onFilterKeyDown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     this.onArrowDownKey(event);
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     this.onArrowUpKey(event, true);
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                 case 'ArrowRight':
+                case 'Right':
                     this.onArrowLeftKey(event, true);
                     break;
 
@@ -557,11 +563,11 @@ export default {
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
                 case 'Escape':
+                case 'Esc':
                     this.onEscapeKey(event);
                     break;
 
@@ -588,8 +594,9 @@ export default {
             });
         },
         onOverlayKeyDown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'Escape':
+                case 'Esc':
                     this.onEscapeKey(event);
                     break;
 
