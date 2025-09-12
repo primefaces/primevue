@@ -64,9 +64,6 @@ export default {
         ProductService.getProductsMini().then((data) => (this.products = data));
     },
     methods: {
-        loadDemoData() {
-            ProductService.getProductsMini().then((data) => (this.products = data));
-        },
         selectable(rowData, rowIndex) {
             return rowData.id !== '1002';
         }
