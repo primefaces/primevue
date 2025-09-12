@@ -6,7 +6,7 @@
     <DeferredDemo @load="loadDemoData">
         <div class="card">
             <DataTable v-model:selection="selectedProducts" :value="products" dataKey="id" tableStyle="min-width: 50rem">
-                <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
+                <Column selectionMode="multiple" headerStyle="width: 3rem" :selectable="selectable"></Column>
                 <Column field="code" header="Code"></Column>
                 <Column field="name" header="Name"></Column>
                 <Column field="category" header="Category"></Column>
@@ -29,7 +29,7 @@ export default {
             code: {
                 basic: `
 <DataTable v-model:selection="selectedProducts" :value="products" dataKey="id" tableStyle="min-width: 50rem">
-    <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
+    <Column selectionMode="multiple" headerStyle="width: 3rem" :selectable="selectable"></Column>
     <Column field="code" header="Code"></Column>
     <Column field="name" header="Name"></Column>
     <Column field="category" header="Category"></Column>
@@ -40,7 +40,7 @@ export default {
 <template>
     <div class="card">
         <DataTable v-model:selection="selectedProducts" :value="products" dataKey="id" tableStyle="min-width: 50rem">
-            <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
+            <Column selectionMode="multiple" headerStyle="width: 3rem" :selectable="selectable"></Column>
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
@@ -62,6 +62,14 @@ export default {
     },
     mounted() {
         ProductService.getProductsMini().then((data) => (this.products = data));
+    },
+    methods: {
+        loadDemoData() {
+            ProductService.getProductsMini().then((data) => (this.products = data));
+        },
+        selectable(rowData, rowIndex) {
+            return rowData.id !== '1002';
+        }
     }
 };
 <\/script>
@@ -70,7 +78,7 @@ export default {
 <template>
     <div class="card">
         <DataTable v-model:selection="selectedProducts" :value="products" dataKey="id" tableStyle="min-width: 50rem">
-            <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
+            <Column selectionMode="multiple" headerStyle="width: 3rem" :selectable="selectable"></Column>
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
@@ -90,6 +98,10 @@ onMounted(() => {
 const products = ref();
 const selectedProducts = ref();
 const metaKey = ref(true);
+
+const selectable = (rowData, rowIndex) => {
+    return rowData.id !== '1002';
+}
 
 <\/script>
 `,
@@ -114,6 +126,9 @@ const metaKey = ref(true);
     methods: {
         loadDemoData() {
             ProductService.getProductsMini().then((data) => (this.products = data));
+        },
+        selectable(rowData, rowIndex) {
+            return rowData.id !== '1002';
         }
     }
 };

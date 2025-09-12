@@ -21051,6 +21051,14 @@
                             "description": "Specifies the selection mode."
                         },
                         {
+                            "name": "selectable",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": "",
+                            "description": "if selectionMode is not null, this function is called to determine if a row is selectable."
+                        },
+                        {
                             "name": "compareSelectionBy",
                             "optional": true,
                             "readonly": false,
