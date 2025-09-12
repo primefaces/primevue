@@ -213,4 +213,214 @@ describe('MultiSelect.vue', () => {
             expect(wrapper.find('.p-multiselect-option-group').text()).toBe('Germany');
         });
     });
+
+    describe('option group validation', () => {
+        it('should handle optionGroupLabel set with non-grouped data correctly', async () => {
+            const simpleOptions = [
+                { name: 'New York', code: 'NY' },
+                { name: 'Rome', code: 'RM' },
+                { name: 'London', code: 'LDN' }
+            ];
+
+            await wrapper.setProps({
+                options: simpleOptions,
+                optionGroupLabel: 'name',
+                optionGroupChildren: 'items'
+            });
+
+            const visibleOptions = wrapper.vm.visibleOptions;
+
+            expect(visibleOptions.length).toBe(3);
+
+            expect(wrapper.vm.isOptionGroup(simpleOptions[0])).toBe(false);
+            expect(wrapper.vm.isOptionGroup(simpleOptions[1])).toBe(false);
+            expect(wrapper.vm.isOptionGroup(simpleOptions[2])).toBe(false);
+
+            await wrapper.vm.$refs.container.click();
+
+            expect(wrapper.findAll('.p-multiselect-option').length).toBe(3);
+            expect(wrapper.find('.p-multiselect-option-group').exists()).toBe(false);
+        });
+
+        it('should handle empty group data correctly', async () => {
+            const optionsWithEmptyGroups = [{ name: 'Group 1', items: [] }, { name: 'Group 2', items: null }, { name: 'Group 3' }];
+
+            await wrapper.setProps({
+                options: optionsWithEmptyGroups,
+                optionGroupLabel: 'name',
+                optionGroupChildren: 'items',
+                optionLabel: 'name'
+            });
+
+            const visibleOptions = wrapper.vm.visibleOptions;
+            const groupHeaders = visibleOptions.filter((opt) => opt.group === true);
+
+            expect(groupHeaders.length).toBe(1);
+            expect(groupHeaders[0].optionGroup).toEqual(optionsWithEmptyGroups[0]);
+        });
+
+        it('should correctly identify actual group data', async () => {
+            const actualGroupedData = [
+                {
+                    name: 'USA',
+                    items: [
+                        { name: 'New York', value: 'NY' },
+                        { name: 'California', value: 'CA' }
+                    ]
+                },
+                {
+                    name: 'Europe',
+                    items: [
+                        { name: 'London', value: 'LON' },
+                        { name: 'Paris', value: 'PAR' }
+                    ]
+                }
+            ];
+
+            await wrapper.setProps({
+                options: actualGroupedData,
+                optionGroupLabel: 'name',
+                optionGroupChildren: 'items',
+                optionLabel: 'name'
+            });
+
+            const visibleOptions = wrapper.vm.visibleOptions;
+            const groupOptions = visibleOptions.filter((opt) => opt.group === true);
+
+            groupOptions.forEach((groupOpt) => {
+                expect(wrapper.vm.isOptionGroup(groupOpt)).toBe(true);
+            });
+
+            await wrapper.vm.$refs.container.click();
+
+            expect(wrapper.findAll('.p-multiselect-option-group').length).toBe(2);
+        });
+
+        it('should not treat options as groups when optionGroupLabel is not set', async () => {
+            const optionsWithGroupStructure = [
+                {
+                    name: 'Has Items Property',
+                    items: [
+                        { name: 'Child 1', value: 'c1' },
+                        { name: 'Child 2', value: 'c2' }
+                    ]
+                }
+            ];
+
+            await wrapper.setProps({
+                options: optionsWithGroupStructure,
+                optionLabel: 'name'
+            });
+
+            const visibleOptions = wrapper.vm.visibleOptions;
+
+            expect(visibleOptions).toEqual(optionsWithGroupStructure);
+
+            expect(wrapper.vm.isOptionGroup(optionsWithGroupStructure[0])).toBe(false);
+        });
+
+        it('should reproduce the original bug scenario', async () => {
+            const simpleOptions = [
+                { name: 'Option 1', value: 'option1' },
+                { name: 'Option 2', value: 'option2' },
+                { name: 'Option 3', value: 'option3' }
+            ];
+
+            await wrapper.setProps({
+                options: simpleOptions,
+                optionLabel: 'name',
+                optionValue: 'value',
+                optionGroupLabel: 'category',
+                optionGroupChildren: 'items'
+            });
+
+            await wrapper.vm.$refs.container.click();
+
+            const checkboxes = wrapper.findAll('.p-checkbox');
+
+            expect(checkboxes.length).toBe(4);
+
+            const clickableOptions = wrapper.findAll('.p-multiselect-option');
+
+            expect(clickableOptions.length).toBe(3);
+
+            expect(wrapper.find('.p-multiselect-option-group').exists()).toBe(false);
+        });
+
+        it('should handle mixed data (groups and regular options) correctly', async () => {
+            const mixedOptions = [
+                { name: 'Regular Option 1', value: 'reg1' },
+                {
+                    name: 'Group 1',
+                    items: [
+                        { name: 'Group 1 Option 1', value: 'g1o1' },
+                        { name: 'Group 1 Option 2', value: 'g1o2' }
+                    ]
+                },
+                { name: 'Regular Option 2', value: 'reg2' },
+                {
+                    name: 'Group 2',
+                    items: [{ name: 'Group 2 Option 1', value: 'g2o1' }]
+                },
+                { name: 'Regular Option 3', value: 'reg3' }
+            ];
+
+            await wrapper.setProps({
+                options: mixedOptions,
+                optionGroupLabel: 'name',
+                optionGroupChildren: 'items',
+                optionLabel: 'name',
+                optionValue: 'value'
+            });
+
+            const visibleOptions = wrapper.vm.visibleOptions;
+
+            expect(visibleOptions.length).toBe(8);
+
+            const groupHeaders = visibleOptions.filter((opt) => opt.group === true);
+            const regularOptions = visibleOptions.filter((opt) => !opt.group);
+
+            expect(groupHeaders.length).toBe(2);
+            expect(regularOptions.length).toBe(6);
+
+            await wrapper.vm.$refs.container.click();
+
+            expect(wrapper.findAll('.p-multiselect-option-group').length).toBe(2);
+            expect(wrapper.findAll('.p-multiselect-option').length).toBe(6);
+        });
+
+        it('should handle mixed data with empty groups correctly', async () => {
+            const mixedOptionsWithEmpty = [
+                { name: 'Regular Option', value: 'reg1' },
+                { name: 'Empty Group 1', items: [] },
+                {
+                    name: 'Valid Group',
+                    items: [{ name: 'Group Option', value: 'gopt1' }]
+                },
+                { name: 'Not A Group', items: null },
+                { name: 'Another Regular', value: 'reg2' }
+            ];
+
+            await wrapper.setProps({
+                options: mixedOptionsWithEmpty,
+                optionGroupLabel: 'name',
+                optionGroupChildren: 'items',
+                optionLabel: 'name',
+                optionValue: 'value'
+            });
+
+            const visibleOptions = wrapper.vm.visibleOptions;
+
+            expect(visibleOptions.length).toBe(6);
+
+            const groupHeaders = visibleOptions.filter((opt) => opt.group === true);
+
+            expect(groupHeaders.length).toBe(2);
+
+            await wrapper.vm.$refs.container.click();
+
+            expect(wrapper.findAll('.p-multiselect-option-group').length).toBe(2);
+            expect(wrapper.findAll('.p-multiselect-option').length).toBe(4);
+        });
+    });
 });
