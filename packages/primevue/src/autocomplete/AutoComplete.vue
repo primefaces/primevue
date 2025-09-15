@@ -715,9 +715,9 @@ export default {
                     if (event.target.value.trim()) {
                         this.updateModel(event, [...(this.d_value || []), event.target.value.trim()]);
                         this.$refs.focusInput.value = '';
-                    }
 
-                    event.preventDefault();
+                        event.preventDefault();
+                    }                    
                 }
             } else {
                 if (!this.overlayVisible) {
@@ -726,11 +726,11 @@ export default {
                 } else {
                     if (this.focusedOptionIndex !== -1) {
                         if (this.multiple && event.shiftKey) {
-                            this.onOptionSelectRange(event, this.focusedOptionIndex);
-                            event.preventDefault();
+                            this.onOptionSelectRange(event, this.focusedOptionIndex);                            
                         } else {
                             this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
-                        }
+                        }                        
+                        event.preventDefault();
                     }
 
                     this.hide();
