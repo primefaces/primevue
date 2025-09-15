@@ -1858,17 +1858,17 @@ export default {
         },
         parseDateTime(text) {
             let date;
-            let parts = text.split(' ');
+            let parts = text.match(/(?:(.+?) )?(\d{2}:\d{2})(?: (am|pm))?/);
 
             if (this.timeOnly) {
                 date = new Date();
-                this.populateTime(date, parts[0], parts[1]);
+                this.populateTime(date, parts[2], parts[3]);
             } else {
                 const dateFormat = this.datePattern;
 
                 if (this.showTime) {
-                    date = this.parseDate(parts[0], dateFormat);
-                    this.populateTime(date, parts[1], parts[2]);
+                    date = this.parseDate(parts[1], dateFormat);
+                    this.populateTime(date, parts[2], parts[3]);
                 } else {
                     date = this.parseDate(text, dateFormat);
                 }
