@@ -592,9 +592,10 @@ export default {
                 const value = this.visibleOptions
                     .slice(rangeStart, rangeEnd + 1)
                     .filter((option) => this.isValidOption(option))
+                    .filter((option) => !this.isSelected(option))                    
                     .map((option) => this.getOptionValue(option));
 
-                this.updateModel(event, value);
+                this.updateModel(event, [...(this.d_value || []), ...value]);
             }
         },
         onOverlayClick(event) {
