@@ -777,7 +777,8 @@ export default {
         bindOutsideClickListener() {
             if (!this.outsideClickListener) {
                 this.outsideClickListener = (event) => {
-                    if (this.overlayVisible && this.isOutsideClicked(event)) {
+                    const composedPath = event.composedPath();
+                    if (this.overlayVisible && this.overlay && !composedPath.includes(this.$el) && !composedPath.includes(this.overlay)) {
                         this.hide();
                     }
                 };
@@ -823,9 +824,6 @@ export default {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
             }
-        },
-        isOutsideClicked(event) {
-            return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
         },
         getLabelByValue(value) {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
