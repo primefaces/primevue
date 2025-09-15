@@ -1253,7 +1253,7 @@ export default {
             let modelVal = null;
 
             if (this.isSingleSelection()) {
-                modelVal = date;
+                modelVal = (this.d_value?.getTime() !== date.getTime()) ? date : null;
             } else if (this.isMultipleSelection()) {
                 modelVal = this.d_value ? [...this.d_value, date] : [date];
             } else if (this.isRangeSelection()) {
