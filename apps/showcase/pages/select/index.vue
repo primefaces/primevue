@@ -12,14 +12,15 @@ import EditableDoc from '@/doc/select/EditableDoc.vue';
 import FilledDoc from '@/doc/select/FilledDoc.vue';
 import FilterDoc from '@/doc/select/FilterDoc.vue';
 import FloatLabelDoc from '@/doc/select/FloatLabelDoc.vue';
+import FluidDoc from '@/doc/select/FluidDoc.vue';
 import FormsDoc from '@/doc/select/FormsDoc.vue';
 import GroupDoc from '@/doc/select/GroupDoc.vue';
 import IftaLabelDoc from '@/doc/select/IftaLabelDoc.vue';
-import SizesDoc from '@/doc/select/SizesDoc.vue';
 import ImportDoc from '@/doc/select/ImportDoc.vue';
 import InvalidDoc from '@/doc/select/InvalidDoc.vue';
 import LazyVirtualScrollDoc from '@/doc/select/LazyVirtualScrollDoc.vue';
 import LoadingStateDoc from '@/doc/select/LoadingStateDoc.vue';
+import SizesDoc from '@/doc/select/SizesDoc.vue';
 import TemplateDoc from '@/doc/select/TemplateDoc.vue';
 import VirtualScrollDoc from '@/doc/select/VirtualScrollDoc.vue';
 import PTComponent from '@/doc/select/pt/index.vue';
@@ -70,11 +71,6 @@ export default {
                     component: FilterDoc
                 },
                 {
-                    id: 'clearicon',
-                    label: 'Clear Icon',
-                    component: ClearIconDoc
-                },
-                {
                     id: 'loadingstate',
                     label: 'Loading State',
                     component: LoadingStateDoc
@@ -90,11 +86,6 @@ export default {
                     component: LazyVirtualScrollDoc
                 },
                 {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
-                },
-                {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
@@ -105,19 +96,34 @@ export default {
                     component: IftaLabelDoc
                 },
                 {
+                    id: 'clearicon',
+                    label: 'Clear Icon',
+                    component: ClearIconDoc
+                },
+                {
                     id: 'sizes',
                     label: 'Sizes',
                     component: SizesDoc
                 },
                 {
-                    id: 'invalid',
-                    label: 'Invalid',
-                    component: InvalidDoc
+                    id: 'fluid',
+                    label: 'Fluid',
+                    component: FluidDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
                 },
                 {
                     id: 'accessibility',

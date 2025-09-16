@@ -16,13 +16,14 @@ import BasicDoc from '@/doc/inputmask/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputmask/DisabledDoc.vue';
 import FilledDoc from '@/doc/inputmask/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/inputmask/FloatLabelDoc.vue';
+import FluidDoc from '@/doc/inputmask/FluidDoc.vue';
 import FormsDoc from '@/doc/inputmask/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/inputmask/IftaLabelDoc.vue';
-import SizesDoc from '@/doc/inputmask/SizesDoc.vue';
 import ImportDoc from '@/doc/inputmask/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputmask/InvalidDoc.vue';
 import MaskDoc from '@/doc/inputmask/MaskDoc.vue';
 import OptionalDoc from '@/doc/inputmask/OptionalDoc.vue';
+import SizesDoc from '@/doc/inputmask/SizesDoc.vue';
 import SlotCharDoc from '@/doc/inputmask/SlotCharDoc.vue';
 import PTComponent from '@/doc/inputmask/pt/index.vue';
 import ThemingDoc from '@/doc/inputmask/theming/index.vue';
@@ -62,11 +63,6 @@ export default {
                     component: SlotCharDoc
                 },
                 {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
-                },
-                {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
@@ -82,14 +78,24 @@ export default {
                     component: SizesDoc
                 },
                 {
-                    id: 'invalid',
-                    label: 'Invalid',
-                    component: InvalidDoc
+                    id: 'fluid',
+                    label: 'Fluid',
+                    component: FluidDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
                 },
                 {
                     id: 'accessibility',

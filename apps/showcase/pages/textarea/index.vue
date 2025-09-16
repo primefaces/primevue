@@ -17,6 +17,7 @@ import BasicDoc from '@/doc/textarea/BasicDoc.vue';
 import DisabledDoc from '@/doc/textarea/DisabledDoc.vue';
 import FilledDoc from '@/doc/textarea/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/textarea/FloatLabelDoc.vue';
+import FluidDoc from '@/doc/textarea/FluidDoc.vue';
 import FormsDoc from '@/doc/textarea/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/textarea/IftaLabelDoc.vue';
 import ImportDoc from '@/doc/textarea/ImportDoc.vue';
@@ -50,11 +51,6 @@ export default {
                     component: AutoResizeDoc
                 },
                 {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
-                },
-                {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
@@ -69,15 +65,21 @@ export default {
                     label: 'Sizes',
                     component: SizesDoc
                 },
+                { id: 'fluid', label: 'Fluid', component: FluidDoc },
                 {
-                    id: 'invalid',
-                    label: 'Invalid',
-                    component: InvalidDoc
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
                 },
                 {
                     id: 'accessibility',

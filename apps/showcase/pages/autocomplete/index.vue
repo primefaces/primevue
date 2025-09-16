@@ -17,6 +17,7 @@ import DisabledDoc from '@/doc/autocomplete/DisabledDoc.vue';
 import DropdownDoc from '@/doc/autocomplete/DropdownDoc.vue';
 import FilledDoc from '@/doc/autocomplete/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/autocomplete/FloatLabelDoc.vue';
+import FluidDoc from '@/doc/autocomplete/FluidDoc.vue';
 import ForceSelectionDoc from '@/doc/autocomplete/ForceSelectionDoc.vue';
 import FormsDoc from '@/doc/autocomplete/FormsDoc.vue';
 import GroupDoc from '@/doc/autocomplete/GroupDoc.vue';
@@ -46,6 +47,11 @@ export default {
                     component: BasicDoc
                 },
                 {
+                    id: 'dropdown',
+                    label: 'Dropdown',
+                    component: DropdownDoc
+                },
+                {
                     id: 'objects',
                     label: 'Objects',
                     component: ObjectsDoc
@@ -54,11 +60,6 @@ export default {
                     id: 'forms',
                     label: 'Forms',
                     component: FormsDoc
-                },
-                {
-                    id: 'dropdown',
-                    label: 'Dropdown',
-                    component: DropdownDoc
                 },
                 {
                     id: 'template',
@@ -81,9 +82,9 @@ export default {
                     component: VirtualScrollDoc
                 },
                 {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
+                    id: 'multiple',
+                    label: 'Multiple',
+                    component: MultipleDoc
                 },
                 {
                     id: 'floatlabel',
@@ -101,19 +102,24 @@ export default {
                     component: SizesDoc
                 },
                 {
-                    id: 'multiple',
-                    label: 'Multiple',
-                    component: MultipleDoc
+                    id: 'fluid',
+                    label: 'Fluid',
+                    component: FluidDoc
                 },
                 {
-                    id: 'invalid',
-                    label: 'Invalid',
-                    component: InvalidDoc
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
                 },
                 {
                     id: 'accessibility',

@@ -8,6 +8,7 @@ import BasicDoc from '@/doc/inputtext/BasicDoc.vue';
 import DisabledDoc from '@/doc/inputtext/DisabledDoc.vue';
 import FilledDoc from '@/doc/inputtext/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/inputtext/FloatLabelDoc.vue';
+import FluidDoc from '@/doc/inputtext/FluidDoc.vue';
 import FormsDoc from '@/doc/inputtext/FormsDoc.vue';
 import HelpTextDoc from '@/doc/inputtext/HelpTextDoc.vue';
 import IftaLabelDoc from '@/doc/inputtext/IftaLabelDoc.vue';
@@ -37,11 +38,6 @@ export default {
                     component: FormsDoc
                 },
                 {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
-                },
-                {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
@@ -57,19 +53,29 @@ export default {
                     component: SizesDoc
                 },
                 {
+                    id: 'fluid',
+                    label: 'Fluid',
+                    component: FluidDoc
+                },
+                {
                     id: 'helptext',
                     label: 'Help Text',
                     component: HelpTextDoc
                 },
                 {
-                    id: 'invalid',
-                    label: 'Invalid',
-                    component: InvalidDoc
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
                 },
                 {
                     id: 'accessibility',

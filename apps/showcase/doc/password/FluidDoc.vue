@@ -1,9 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Textarea is used with the <i>v-model</i> property for two-way value binding.</p>
+        <p>The <i>fluid</i> prop makes the component take up the full width of its container when set to true.</p>
     </DocSectionText>
-    <div class="card flex justify-center">
-        <Textarea v-model="value" rows="5" cols="30" />
+    <div class="card">
+        <Password v-model="value" :feedback="false" fluid />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -12,15 +12,15 @@
 export default {
     data() {
         return {
-            value: '',
+            value: null,
             code: {
                 basic: `
-<Textarea v-model="value" rows="5" cols="30" />
+<Password v-model="value" :feedback="false" fluid />
 `,
                 options: `
 <template>
-    <div class="card flex justify-center">
-        <Textarea v-model="value" rows="5" cols="30" />
+    <div class="card">
+        <Password v-model="value" :feedback="false" fluid />
     </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
 export default {
     data() {
         return {
-            value: ''
+            value: null
         }
     }
 };
@@ -36,15 +36,15 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex justify-center">
-        <Textarea v-model="value" rows="5" cols="30" />
+    <div class="card">
+        <Password v-model="value" :feedback="false" />
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 
-const value = ref('');
+const value = ref(null);
 <\/script>
 `
             }

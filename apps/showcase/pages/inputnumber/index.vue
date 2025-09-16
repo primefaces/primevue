@@ -17,14 +17,15 @@ import CurrencyDoc from '@/doc/inputnumber/CurrencyDoc.vue';
 import DisabledDoc from '@/doc/inputnumber/DisabledDoc.vue';
 import FilledDoc from '@/doc/inputnumber/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/inputnumber/FloatLabelDoc.vue';
+import FluidDoc from '@/doc/inputnumber/FluidDoc.vue';
 import FormsDoc from '@/doc/inputnumber/FormsDoc.vue';
 import IftaLabelDoc from '@/doc/inputnumber/IftaLabelDoc.vue';
-import SizesDoc from '@/doc/inputnumber/SizesDoc.vue';
 import ImportDoc from '@/doc/inputnumber/ImportDoc.vue';
 import InvalidDoc from '@/doc/inputnumber/InvalidDoc.vue';
 import LocaleDoc from '@/doc/inputnumber/LocaleDoc.vue';
 import NumeralsDoc from '@/doc/inputnumber/NumeralsDoc.vue';
 import PrefixSuffixDoc from '@/doc/inputnumber/PrefixSuffixDoc.vue';
+import SizesDoc from '@/doc/inputnumber/SizesDoc.vue';
 import VerticalDoc from '@/doc/inputnumber/VerticalDoc.vue';
 import PTComponent from '@/doc/inputnumber/pt/index.vue';
 import ThemingDoc from '@/doc/inputnumber/theming/index.vue';
@@ -74,11 +75,6 @@ export default {
                     component: VerticalDoc
                 },
                 {
-                    id: 'filled',
-                    label: 'Filled',
-                    component: FilledDoc
-                },
-                {
                     id: 'floatlabel',
                     label: 'Float Label',
                     component: FloatLabelDoc
@@ -94,14 +90,24 @@ export default {
                     component: SizesDoc
                 },
                 {
-                    id: 'invalid',
-                    label: 'Invalid',
-                    component: InvalidDoc
+                    id: 'fluid',
+                    label: 'Fluid',
+                    component: FluidDoc
+                },
+                {
+                    id: 'filled',
+                    label: 'Filled',
+                    component: FilledDoc
                 },
                 {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
                 },
                 {
                     id: 'accessibility',

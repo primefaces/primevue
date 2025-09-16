@@ -15,11 +15,12 @@ import AccessibilityDoc from '@/doc/togglebutton/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/togglebutton/BasicDoc.vue';
 import CustomizedDoc from '@/doc/togglebutton/CustomizedDoc.vue';
 import DisabledDoc from '@/doc/togglebutton/DisabledDoc.vue';
+import FluidDoc from '@/doc/togglebutton/FluidDoc.vue';
 import FormsDoc from '@/doc/togglebutton/FormsDoc.vue';
 import ImportDoc from '@/doc/togglebutton/ImportDoc.vue';
-import SizesDoc from '@/doc/togglebutton/SizesDoc.vue';
 import InvalidDoc from '@/doc/togglebutton/InvalidDoc.vue';
 import PTComponent from '@/doc/togglebutton/pt/index.vue';
+import SizesDoc from '@/doc/togglebutton/SizesDoc.vue';
 import ThemingDoc from '@/doc/togglebutton/theming/index.vue';
 
 export default {
@@ -52,14 +53,19 @@ export default {
                     component: SizesDoc
                 },
                 {
-                    id: 'invalid',
-                    label: 'Invalid',
-                    component: InvalidDoc
+                    id: 'fluid',
+                    label: 'Fluid',
+                    component: FluidDoc
                 },
                 {
                     id: 'disabled',
                     label: 'Disabled',
                     component: DisabledDoc
+                },
+                {
+                    id: 'invalid',
+                    label: 'Invalid',
+                    component: InvalidDoc
                 },
                 {
                     id: 'accessibility',
