@@ -76,7 +76,7 @@ export default {
             if (newValue) {
                 this.enableDocumentSettings();
             } else {
-                this.disableDocumentSettings();
+                this.unbindOutsideClickListener();
             }
         }
     },
