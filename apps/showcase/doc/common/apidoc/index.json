@@ -37336,6 +37336,14 @@
                             "description": "Used to pass attributes to the InputText component."
                         },
                         {
+                            "name": "clearIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "InputNumberPassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the label's DOM element."
+                        },
+                        {
                             "name": "buttonGroup",
                             "optional": true,
                             "readonly": false,
@@ -37704,6 +37712,14 @@
                             "description": "Highlights automatically the input value."
                         },
                         {
+                            "name": "showClear",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, a clear icon is displayed to clear the value."
+                        },
+                        {
                             "name": "size",
                             "optional": true,
                             "readonly": false,
@@ -37896,6 +37912,19 @@
                             "parameters": [],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom decrement icon template."
+                        },
+                        {
+                            "name": "clearicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">clearCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Clear icon click function.</span>\n}",
+                                    "description": "clear icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom clear icon template."
                         }
                     ]
                 },
