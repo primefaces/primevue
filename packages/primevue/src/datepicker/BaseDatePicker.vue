@@ -155,6 +155,10 @@ export default {
             type: Boolean,
             default: true
         },
+        showClear: {
+            type: Boolean,
+            default: false
+        },
         appendTo: {
             type: [String, Object],
             default: 'body'

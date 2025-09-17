@@ -2,7 +2,7 @@ import { style } from '@primeuix/styles/datepicker';
 import BaseStyle from '@primevue/core/base/style';
 
 const inlineStyles = {
-    root: ({ props }) => ({ position: props.appendTo === 'self' ? 'relative' : undefined })
+    root: ({ props }) => ({ position: props.appendTo === 'self' || props.showClear ? 'relative' : undefined })
 };
 
 const classes = {
@@ -17,6 +17,7 @@ const classes = {
         }
     ],
     pcInputText: 'p-datepicker-input',
+    clearIcon: 'p-datepicker-clear-icon',
     dropdown: 'p-datepicker-dropdown',
     inputIconContainer: 'p-datepicker-input-icon-container',
     inputIcon: 'p-datepicker-input-icon',

@@ -31,6 +31,10 @@ export enum DatePickerClasses {
      */
     inputIcon = 'p-datepicker-input-icon',
     /**
+     * Class name of the clear icon element
+     */
+    clearIcon = 'p-datepicker-clear-icon',
+    /**
      * Class name of the panel element
      */
     panel = 'p-datepicker-panel',

@@ -156,6 +156,10 @@ export interface DatePickerPassThroughOptions {
      */
     inputIcon?: DatePickerPassThroughOptionType;
     /**
+     * Used to pass attributes to the label's DOM element.
+     */
+    clearIcon?: DatePickerPassThroughOptionType;
+    /**
      * Used to pass attributes to the panel's DOM element.
      */
     panel?: DatePickerPassThroughOptionType;
@@ -704,6 +708,11 @@ export interface DatePickerProps {
      */
     manualInput?: boolean | undefined;
     /**
+     * When enabled, a clear icon is displayed to clear the value.
+     * @defaultValue false
+     */
+    showClear?: boolean | undefined;
+    /**
      * Defines the size of the component.
      */
     size?: HintedString<'small' | 'large'> | undefined;
@@ -1121,6 +1130,17 @@ export interface DatePickerSlots {
          * @param {Event} event - Browser event
          */
         toggleCallback: (event: Event) => void;
+    }): VNode[];
+    /**
+     * Custom clear icon template.
+     * @param {Object} scope - clear icon slot's params.
+     */
+    clearicon(scope: {
+        /**
+         * Clear icon click function.
+         * @param {Event} event - Browser event
+         */
+        clearCallback: (event: Event) => void;
     }): VNode[];
 }
 
