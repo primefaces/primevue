@@ -3667,6 +3667,14 @@
                             "description": "Used to pass attributes to the loader's DOM element."
                         },
                         {
+                            "name": "clearIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AutoCompletePassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the clear icon's DOM element."
+                        },
+                        {
                             "name": "dropdown",
                             "optional": true,
                             "readonly": false,
@@ -4003,6 +4011,14 @@
                             "type": "boolean",
                             "default": "false",
                             "description": "Specifies if multiple values can be selected."
+                        },
+                        {
+                            "name": "showClear",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, a clear icon is displayed to clear the value."
                         },
                         {
                             "name": "placeholder",
@@ -4538,6 +4554,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom dropdown template."
+                        },
+                        {
+                            "name": "clearicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">clearCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Clear icon click function.</span>\n}",
+                                    "description": "clear icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom clear icon template."
                         }
                     ]
                 },
@@ -4849,6 +4878,13 @@
                             "readonly": false,
                             "value": "\"p-autocomplete-input-multiple\"",
                             "description": "Class name of the input multiple element"
+                        },
+                        {
+                            "name": "clearIcon",
+                            "optional": false,
+                            "readonly": false,
+                            "value": "\"p-autocomplete-clear-icon\"",
+                            "description": "Class name of the clear icon element"
                         },
                         {
                             "name": "chipItem",
@@ -23625,6 +23661,14 @@
                             "description": "Used to pass attributes to the input icon's DOM element."
                         },
                         {
+                            "name": "clearIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "DatePickerPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the label's DOM element."
+                        },
+                        {
                             "name": "panel",
                             "optional": true,
                             "readonly": false,
@@ -24608,6 +24652,14 @@
                             "description": "Whether to allow entering the date manually via typing."
                         },
                         {
+                            "name": "showClear",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, a clear icon is displayed to clear the value."
+                        },
+                        {
                             "name": "size",
                             "optional": true,
                             "readonly": false,
@@ -25161,6 +25213,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom dropdown button template."
+                        },
+                        {
+                            "name": "clearicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">clearCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Clear icon click function.</span>\n}",
+                                    "description": "clear icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom clear icon template."
                         }
                     ]
                 },
@@ -25477,6 +25542,13 @@
                             "readonly": false,
                             "value": "\"p-datepicker-input-icon\"",
                             "description": "Class name of the input icon element"
+                        },
+                        {
+                            "name": "clearIcon",
+                            "optional": false,
+                            "readonly": false,
+                            "value": "\"p-datepicker-clear-icon\"",
+                            "description": "Class name of the clear icon element"
                         },
                         {
                             "name": "panel",
@@ -52225,6 +52297,14 @@
                             "description": "Used to pass attributes to the unmask icon's DOM element."
                         },
                         {
+                            "name": "clearIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PasswordPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the clear icon's DOM element."
+                        },
+                        {
                             "name": "overlay",
                             "optional": true,
                             "readonly": false,
@@ -53935,6 +54015,14 @@
                             "description": "Icon to show displaying the password as plain text."
                         },
                         {
+                            "name": "showClear",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, a clear icon is displayed to clear the value."
+                        },
+                        {
                             "name": "size",
                             "optional": true,
                             "readonly": false,
@@ -54230,6 +54318,19 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom unmask icon template."
+                        },
+                        {
+                            "name": "clearicon",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">clearCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Clear icon click function.</span>\n}",
+                                    "description": "clear icon slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom clear icon template."
                         }
                     ]
                 },
@@ -54391,6 +54492,13 @@
                             "readonly": false,
                             "value": "\"p-password-unmask-icon\"",
                             "description": "Class name of the unmask icon element"
+                        },
+                        {
+                            "name": "clearIcon",
+                            "optional": false,
+                            "readonly": false,
+                            "value": "\"p-password-clear-icon\"",
+                            "description": "Class name of the clear icon element"
                         },
                         {
                             "name": "overlay",
