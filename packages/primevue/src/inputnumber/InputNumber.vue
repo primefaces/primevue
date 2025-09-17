@@ -32,6 +32,9 @@
             :unstyled="unstyled"
             :data-p="dataP"
         />
+        <slot v-if="showClear" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
+            <TimesIcon ref="clearIcon" :class="[cx('clearIcon')]" @click="onClearClick" v-bind="ptm('clearIcon')" />
+        </slot>
         <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')" :data-p="dataP">
             <slot name="incrementbutton" :listeners="upButtonListeners">
                 <button :class="[cx('incrementButton'), incrementButtonClass]" v-on="upButtonListeners" :disabled="disabled" :tabindex="-1" aria-hidden="true" type="button" v-bind="ptm('incrementButton')" :data-p="dataP">
@@ -89,9 +92,10 @@
 <script>
 import { cn } from '@primeuix/utils';
 import { clearSelection, getSelection } from '@primeuix/utils/dom';
-import { isNotEmpty } from '@primeuix/utils/object';
+import { isEmpty, isNotEmpty } from '@primeuix/utils/object';
 import AngleDownIcon from '@primevue/icons/angledown';
 import AngleUpIcon from '@primevue/icons/angleup';
+import TimesIcon from '@primevue/icons/times';
 import InputText from 'primevue/inputtext';
 import BaseInputNumber from './BaseInputNumber.vue';
 
@@ -125,9 +129,16 @@ export default {
         };
     },
     watch: {
-        d_value(newValue) {
-            // @deprecated since v4.2.0
-            this.d_modelValue = newValue;
+        d_value: {
+            immediate: true,
+            handler(newValue) {
+                // @deprecated since v4.2.0
+                this.d_modelValue = newValue;
+
+                if (this.$refs.clearIcon?.$el?.style) {
+                    this.$refs.clearIcon.$el.style.display = isEmpty(newValue) ? 'none' : 'block';
+                }
+            }
         },
         locale(newValue, oldValue) {
             this.updateConstructParser(newValue, oldValue);
@@ -610,6 +621,10 @@ export default {
                 }
             }
         },
+        onClearClick(event) {
+            this.updateModel(event, null);
+            this.$refs.input.$el.focus();
+        },
         allowMinusSign() {
             return this.min === null || this.min < 0;
         },
@@ -943,6 +958,10 @@ export default {
             }
 
             this.$refs.input.$el.setAttribute('aria-valuenow', value);
+
+            if (this.$refs.clearIcon?.$el?.style) {
+                this.$refs.clearIcon.$el.style.display = isEmpty(newValue) ? 'none' : 'block';
+            }
         },
         concatValues(val1, val2) {
             if (val1 && val2) {
@@ -1051,7 +1070,8 @@ export default {
     components: {
         InputText,
         AngleUpIcon,
-        AngleDownIcon
+        AngleDownIcon,
+        TimesIcon
     }
 };
 </script>

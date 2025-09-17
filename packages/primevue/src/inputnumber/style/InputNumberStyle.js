@@ -15,6 +15,7 @@ const classes = {
         }
     ],
     pcInputText: 'p-inputnumber-input',
+    clearIcon: 'p-inputnumber-clear-icon',
     buttonGroup: 'p-inputnumber-button-group',
     incrementButton: ({ instance, props }) => [
         'p-inputnumber-button p-inputnumber-increment-button',

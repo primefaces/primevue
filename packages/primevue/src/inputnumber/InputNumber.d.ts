@@ -106,6 +106,10 @@ export interface InputNumberPassThroughOptions<T = any> {
      */
     pcInputText?: InputTextPassThroughOptions<InputNumberSharedPassThroughMethodOptions>;
     /**
+     * Used to pass attributes to the label's DOM element.
+     */
+    clearIcon?: InputNumberPassThroughOptionType<T>;
+    /**
      * Used to pass attributes to the button group's DOM element.
      */
     buttonGroup?: InputNumberPassThroughOptionType<T>;
@@ -324,6 +328,11 @@ export interface InputNumberProps {
      */
     highlightOnFocus?: boolean | undefined;
     /**
+     * When enabled, a clear icon is displayed to clear the value.
+     * @defaultValue false
+     */
+    showClear?: boolean | undefined;
+    /**
      * Defines the size of the component.
      */
     size?: HintedString<'small' | 'large'> | undefined;
@@ -441,6 +450,17 @@ export interface InputNumberSlots {
      * Custom decrement icon template.
      */
     decrementicon(): VNode[];
+    /**
+     * Custom clear icon template.
+     * @param {Object} scope - clear icon slot's params.
+     */
+    clearicon(scope: {
+        /**
+         * Clear icon click function.
+         * @param {Event} event - Browser event
+         */
+        clearCallback: (event: Event) => void;
+    }): VNode[];
 }
 
 /**
