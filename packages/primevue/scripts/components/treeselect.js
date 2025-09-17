@@ -90,6 +90,18 @@ const TreeSelectProps = [
         description: 'Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.'
     },
     {
+        name: 'propagateSelectionDown',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether checkbox selections propagate to descendant nodes.'
+    },
+    {
+        name: 'propagateSelectionUp',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether checkbox selections propagate to ancestor nodes.'
+    },
+    {
         name: 'display',
         type: 'string',
         default: 'comma',
