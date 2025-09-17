@@ -61,6 +61,7 @@ import SingleColumnDoc from '@/doc/datatable/sort/SingleColumnDoc.vue';
 import ThemingDoc from '@/doc/datatable/theming/index.vue';
 import LazyVirtualScrollDoc from '@/doc/datatable/virtualscroll/LazyVirtualScrollDoc.vue';
 import PreloadVirtualScrollDoc from '@/doc/datatable/virtualscroll/PreloadVirtualScrollDoc.vue';
+import LoadingDoc from '@/doc/datatable/LoadingDoc.vue';
 
 export default {
     data() {
@@ -90,6 +91,11 @@ export default {
                     id: 'size',
                     label: 'Size',
                     component: SizeDoc
+                },
+                {
+                    id: 'loading',
+                    label: 'Loading',
+                    component: LoadingDoc
                 },
                 {
                     id: 'gridlines',
