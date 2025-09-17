@@ -62,6 +62,10 @@ export default {
             type: Boolean,
             default: false
         },
+        showClear: {
+            type: Boolean,
+            default: false
+        },
         inputId: {
             type: String,
             default: null

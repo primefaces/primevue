@@ -23,6 +23,10 @@ export enum AutoCompleteClasses {
      */
     inputMultiple = 'p-autocomplete-input-multiple',
     /**
+     * Class name of the clear icon element
+     */
+    clearIcon = 'p-autocomplete-clear-icon',
+    /**
      * Class name of the chip item element
      */
     chipItem = 'p-autocomplete-chip-item',

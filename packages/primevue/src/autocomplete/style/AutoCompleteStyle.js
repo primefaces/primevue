@@ -15,7 +15,8 @@ const classes = {
             'p-inputwrapper-filled': instance.$filled || isNotEmpty(instance.inputValue),
             'p-inputwrapper-focus': instance.focused,
             'p-autocomplete-open': instance.overlayVisible,
-            'p-autocomplete-fluid': instance.$fluid
+            'p-autocomplete-fluid': instance.$fluid,
+            'p-autocomplete-clearable': instance.isClearIconVisible
         }
     ],
     pcInputText: 'p-autocomplete-input',
@@ -26,6 +27,7 @@ const classes = {
             'p-disabled': props.disabled
         }
     ],
+    clearIcon: 'p-autocomplete-clear-icon',
     chipItem: ({ instance, i }) => [
         'p-autocomplete-chip-item',
         {
