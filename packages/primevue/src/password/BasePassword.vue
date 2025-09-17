@@ -58,6 +58,10 @@ export default {
             type: String,
             default: undefined
         },
+        showClear: {
+            type: Boolean,
+            default: false
+        },
         disabled: {
             type: Boolean,
             default: false

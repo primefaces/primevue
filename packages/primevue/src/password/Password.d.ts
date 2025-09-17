@@ -84,6 +84,10 @@ export interface PasswordPassThroughOptions {
      */
     unmaskIcon?: PasswordPassThroughOptionType;
     /**
+     * Used to pass attributes to the clear icon's DOM element.
+     */
+    clearIcon?: PasswordPassThroughOptionType;
+    /**
      * Used to pass attributes to the overlay's DOM element.
      */
     overlay?: PasswordPassThroughOptionType;
@@ -231,6 +235,11 @@ export interface PasswordProps extends Omit<InputHTMLAttributes, 'size'> {
      * Icon to show displaying the password as plain text.
      */
     unmaskIcon?: string | undefined;
+    /**
+     * When enabled, a clear icon is displayed to clear the value.
+     * @defaultValue false
+     */
+    showClear?: boolean | undefined;
     /**
      * Defines the size of the component.
      */
@@ -407,6 +416,17 @@ export interface PasswordSlots {
          * Unmask icon click event
          */
         toggleCallback: () => void;
+    }): VNode[];
+    /**
+     * Custom clear icon template.
+     * @param {Object} scope - clear icon slot's params.
+     */
+    clearicon(scope: {
+        /**
+         * Clear icon click function.
+         * @param {Event} event - Browser event
+         */
+        clearCallback: (event: Event) => void;
     }): VNode[];
 }
 

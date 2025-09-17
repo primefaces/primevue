@@ -17,6 +17,7 @@ const classes = {
     pcInputText: 'p-password-input',
     maskIcon: 'p-password-toggle-mask-icon p-password-mask-icon',
     unmaskIcon: 'p-password-toggle-mask-icon p-password-unmask-icon',
+    clearIcon: 'p-password-clear-icon',
     overlay: 'p-password-overlay p-component',
     content: 'p-password-content',
     meter: 'p-password-meter',

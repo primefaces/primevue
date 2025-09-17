@@ -27,6 +27,10 @@ export enum PasswordClasses {
      */
     unmaskIcon = 'p-password-unmask-icon',
     /**
+     * Class name of the clear icon element
+     */
+    clearIcon = 'p-password-clear-icon',
+    /**
      * Class name of the overlay element
      */
     overlay = 'p-password-overlay',
