@@ -178,7 +178,7 @@ export interface AutoCompletePassThroughOptions {
      */
     loader?: AutoCompletePassThroughOptionType;
     /**
-     * Used to pass attributes to the label's DOM element.
+     * Used to pass attributes to the clear icon's DOM element.
      */
     clearIcon?: AutoCompletePassThroughOptionType;
     /**
