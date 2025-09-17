@@ -13,6 +13,7 @@
 <script>
 import AccessibilityDoc from '@/doc/inputnumber/AccessibilityDoc.vue';
 import ButtonsDoc from '@/doc/inputnumber/ButtonsDoc.vue';
+import ClearIconDoc from '@/doc/inputnumber/ClearIconDoc.vue';
 import CurrencyDoc from '@/doc/inputnumber/CurrencyDoc.vue';
 import DisabledDoc from '@/doc/inputnumber/DisabledDoc.vue';
 import FilledDoc from '@/doc/inputnumber/FilledDoc.vue';
@@ -83,6 +84,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'clearicon',
+                    label: 'Clear Icon',
+                    component: ClearIconDoc
                 },
                 {
                     id: 'sizes',

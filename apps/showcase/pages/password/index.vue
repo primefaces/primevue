@@ -5,6 +5,7 @@
 <script>
 import AccessibilityDoc from '@/doc/password/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/password/BasicDoc.vue';
+import ClearIconDoc from '@/doc/password/ClearIconDoc.vue';
 import DisabledDoc from '@/doc/password/DisabledDoc.vue';
 import FilledDoc from '@/doc/password/FilledDoc.vue';
 import FloatLabelDoc from '@/doc/password/FloatLabelDoc.vue';
@@ -15,11 +16,11 @@ import ImportDoc from '@/doc/password/ImportDoc.vue';
 import InvalidDoc from '@/doc/password/InvalidDoc.vue';
 import LocaleDoc from '@/doc/password/LocaleDoc.vue';
 import MeterDoc from '@/doc/password/MeterDoc.vue';
+import PTComponent from '@/doc/password/pt/index.vue';
 import SizesDoc from '@/doc/password/SizesDoc.vue';
 import TemplateDoc from '@/doc/password/TemplateDoc.vue';
-import ToggleMaskDoc from '@/doc/password/ToggleMaskDoc.vue';
-import PTComponent from '@/doc/password/pt/index.vue';
 import ThemingDoc from '@/doc/password/theming/index.vue';
+import ToggleMaskDoc from '@/doc/password/ToggleMaskDoc.vue';
 
 export default {
     data() {
@@ -69,6 +70,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'clearicon',
+                    label: 'Clear Icon',
+                    component: ClearIconDoc
                 },
                 {
                     id: 'sizes',

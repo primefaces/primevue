@@ -6,6 +6,7 @@
 import AccessibilityDoc from '@/doc/datepicker/AccessibilityDoc';
 import BasicDoc from '@/doc/datepicker/BasicDoc.vue';
 import ButtonBarDoc from '@/doc/datepicker/ButtonBarDoc.vue';
+import ClearIconDoc from '@/doc/datepicker/ClearIconDoc.vue';
 import DateTemplateDoc from '@/doc/datepicker/DateTemplateDoc.vue';
 import DisabledDoc from '@/doc/datepicker/DisabledDoc.vue';
 import FilledDoc from '@/doc/datepicker/FilledDoc.vue';
@@ -123,6 +124,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'clearicon',
+                    label: 'Clear Icon',
+                    component: ClearIconDoc
                 },
                 {
                     id: 'sizes',

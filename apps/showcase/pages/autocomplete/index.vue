@@ -13,6 +13,7 @@
 <script>
 import AccessibilityDoc from '@/doc/autocomplete/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/autocomplete/BasicDoc.vue';
+import ClearIconDoc from '@/doc/autocomplete/ClearIconDoc.vue';
 import DisabledDoc from '@/doc/autocomplete/DisabledDoc.vue';
 import DropdownDoc from '@/doc/autocomplete/DropdownDoc.vue';
 import FilledDoc from '@/doc/autocomplete/FilledDoc.vue';
@@ -95,6 +96,11 @@ export default {
                     id: 'iftalabel',
                     label: 'Ifta Label',
                     component: IftaLabelDoc
+                },
+                {
+                    id: 'clearicon',
+                    label: 'Clear Icon',
+                    component: ClearIconDoc
                 },
                 {
                     id: 'sizes',
