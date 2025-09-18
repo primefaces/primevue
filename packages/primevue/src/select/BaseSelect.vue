@@ -169,10 +169,6 @@ export default {
             type: String,
             default: null
         },
-        scrollOnHover: {
-            type: Boolean,
-            default: false
-        },
         scrollOnHoverDisabled: {
             type: Boolean,
             default: false
