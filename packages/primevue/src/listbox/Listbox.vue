@@ -176,7 +176,11 @@ export default {
             return this.virtualScrollerDisabled ? index : fn && fn(index)['index'];
         },
         getOptionLabel(option) {
-            return this.optionLabel ? resolveFieldData(option, this.optionLabel) : typeof option === 'string' ? option : null;
+            if (this.optionLabel) {
+                const resolved = resolveFieldData(option, this.optionLabel);
+                return resolved !== null ? resolved : this.isOptionPrimitive(option) ? String(option) : null;
+            }
+            return this.isOptionPrimitive(option) ? String(option) : null;
         },
         getOptionValue(option) {
             return this.optionValue ? resolveFieldData(option, this.optionValue) : option;
@@ -543,6 +547,9 @@ export default {
         },
         isValidOption(option) {
             return isNotEmpty(option) && !(this.isOptionDisabled(option) || this.isOptionGroup(option));
+        },
+        isOptionPrimitive(option) {
+            return typeof option === 'string' || typeof option === 'number' || typeof option === 'boolean';
         },
         isValidSelectedOption(option) {
             return this.isValidOption(option) && this.isSelected(option);
