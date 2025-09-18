@@ -5,7 +5,7 @@ export const regleResolver = (r$, resolverOptions) => {
     return async ({ values, name }) => {
         const { raw = false } = resolverOptions || {};
 
-        r$.$values = values;
+        r$.$value = values;
         const { valid, data: result } = await r$.$validate();
 
         if (valid) {

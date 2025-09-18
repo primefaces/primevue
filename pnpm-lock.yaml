@@ -117,6 +117,12 @@ importers:
       '@primevue/nuxt-module':
         specifier: workspace:*
         version: link:../../packages/nuxt-module
+      '@regle/core':
+        specifier: 1.8.5
+        version: 1.8.5(vue@3.5.21(typescript@5.7.3))
+      '@regle/rules':
+        specifier: 1.8.5
+        version: 1.8.5(vue@3.5.21(typescript@5.7.3))
       chart.js:
         specifier: catalog:app
         version: 3.3.2
@@ -2026,6 +2032,18 @@ packages:
     peerDependenciesMeta:
       pinia:
         optional: true
+
+  '@regle/core@1.8.5':
+    resolution: {integrity: sha512-srJD6JrbovmxQQE0fpO/ju6zc95aggVhEKVoNiryOlzGIOQgBqSeKVkz+k1GcwPMOSwHax7k9zQVevj4gU0Rnw==}
+    peerDependencies:
+      pinia: '>=2.2.5'
+      vue: '>=3.3.0'
+    peerDependenciesMeta:
+      pinia:
+        optional: true
+
+  '@regle/rules@1.8.5':
+    resolution: {integrity: sha512-WfDt/Z+35wDV228Ef2FOcPsx0xbg1w/rWm4jfhEndJVjhssQ1tCGwttQXeuHf4SWUxUdl1g2doffot2Nzsi3+w==}
 
   '@rolldown/pluginutils@1.0.0-beta.38':
     resolution: {integrity: sha512-N/ICGKleNhA5nc9XXQG/kkKHJ7S55u0x0XUJbbkmdCnFuoRkM1Il12q9q0eX19+M7KKUEPw/daUPIRnxhcxAIw==}
@@ -9169,6 +9187,17 @@ snapshots:
   '@regle/core@1.8.4(vue@3.5.21(typescript@5.7.3))':
     dependencies:
       vue: 3.5.21(typescript@5.7.3)
+
+  '@regle/core@1.8.5(vue@3.5.21(typescript@5.7.3))':
+    dependencies:
+      vue: 3.5.21(typescript@5.7.3)
+
+  '@regle/rules@1.8.5(vue@3.5.21(typescript@5.7.3))':
+    dependencies:
+      '@regle/core': 1.8.5(vue@3.5.21(typescript@5.7.3))
+    transitivePeerDependencies:
+      - pinia
+      - vue
 
   '@rolldown/pluginutils@1.0.0-beta.38': {}
 

@@ -3,8 +3,8 @@
         <p>
             Validations are implemented with the <i>resolver</i> property. A custom resolver is responsible for handling the validation and returning an <i>errors</i> object with key-value pairs where key is the form field name and value is an array
             of error object data. For productivity, we recommend using a schema validation library instead of building your own custom validation logic. The forms library provide built-in resolvers for popular options including
-            <a href="https://zod.dev/">Zod</a>, <a href="https://github.com/jquense/yup">Yup</a>, <a href="https://joi.dev/">Joi</a>, <a href="https://valibot.dev/">Valibot</a>, and <a href="https://docs.superstructjs.org/">Superstruct</a> that can
-            be imported from <i>@primevue/forms/resolvers</i> path.
+            <a href="https://zod.dev/">Zod</a>, <a href="https://github.com/jquense/yup">Yup</a>, <a href="https://joi.dev/">Joi</a>, <a href="https://valibot.dev/">Valibot</a>, <a href="https://docs.superstructjs.org/">Superstruct</a>, and
+            <a href="https://reglejs.dev/">Regle</a> that can be imported from <i>@primevue/forms/resolvers</i> path.
         </p>
     </DocSectionText>
     <div class="card flex flex-col items-center gap-5">
@@ -27,6 +27,10 @@
                     <label for="superStruct">SuperStruct</label>
                 </div>
                 <div class="flex items-center gap-2">
+                    <RadioButton inputId="regle" value="Regle" />
+                    <label for="regle">Regle</label>
+                </div>
+                <div class="flex items-center gap-2">
                     <RadioButton inputId="custom" value="Custom" />
                     <label for="custom">Custom</label>
                 </div>
@@ -45,10 +49,13 @@
 </template>
 
 <script>
+import { regleResolver } from '@primevue/forms/resolvers/regle';
 import { superStructResolver } from '@primevue/forms/resolvers/superstruct';
 import { valibotResolver } from '@primevue/forms/resolvers/valibot';
 import { yupResolver } from '@primevue/forms/resolvers/yup';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useRegle } from '@regle/core';
+import { required, withMessage } from '@regle/rules';
 import * as s from 'superstruct';
 import * as v from 'valibot';
 import * as yup from 'yup';
@@ -166,6 +173,9 @@ export default {
                         username: s.nonempty(s.string())
                     })
                 );
+            } else if (schema === 'Regle') {
+                const { r$ } = useRegle({ username: '' }, { username: { required: withMessage(required, 'Username is required via Regle.') } });
+                this.resolver = regleResolver(r$);
             } else if (schema === 'Custom') {
                 this.resolver = ({ values }) => {
                     const errors = {};
@@ -214,6 +224,10 @@ export default {
                     <label for="superStruct">SuperStruct</label>
                 </div>
                 <div class="flex items-center gap-2">
+                    <RadioButton inputId="regle" value="Regle" />
+                    <label for="regle">Regle</label>
+                </div>
+                <div class="flex items-center gap-2">
                     <RadioButton inputId="custom" value="Custom" />
                     <label for="custom">Custom</label>
                 </div>
@@ -236,6 +250,9 @@ import { superStructResolver } from '@primevue/forms/resolvers/superstruct';
 import { valibotResolver } from '@primevue/forms/resolvers/valibot';
 import { yupResolver } from '@primevue/forms/resolvers/yup';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { regleResolver } from '@primevue/forms/resolvers/regle';
+import { useRegle } from '@regle/core';
+import { required, withMessage } from '@regle/rules';
 import * as s from 'superstruct';
 import * as v from 'valibot';
 import * as yup from 'yup';
@@ -284,6 +301,9 @@ const changeResolver = (schema) => {
                 username: s.nonempty(s.string())
             })
         );
+    } else if (schema === 'Regle') {
+        const { r$ } = useRegle({ username: '' }, { username: { required: withMessage(required, 'Username is required via Regle.') } });
+        resolver.value = regleResolver(r$);
     } else if (schema === 'Custom') {
         resolver.value = ({ values }) => {
             const errors = {};
@@ -336,6 +356,9 @@ const onFormSubmit = ({ valid }) => {
                         username: s.nonempty(s.string())
                     })
                 );
+            } else if (schema === 'Regle') {
+                const { r$ } = useRegle({ username: '' }, { username: { required: withMessage(required, 'Username is required via Regle.') } });
+                this.resolver = regleResolver(r$);
             } else if (schema === 'Custom') {
                 this.resolver = ({ values }) => {
                     const errors = {};

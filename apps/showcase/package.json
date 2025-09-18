@@ -51,7 +51,9 @@
         "superstruct": "^2.0.2",
         "valibot": "^0.42.1",
         "yup": "1.4.0",
-        "zod": "3.23.8"
+        "zod": "3.23.8",
+        "@regle/core": "1.8.5",
+        "@regle/rules": "1.8.5"
     },
     "devDependencies": {
         "@stackblitz/sdk": "^1.8.2",
