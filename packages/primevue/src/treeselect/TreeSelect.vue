@@ -458,7 +458,7 @@ export default {
             }
         },
         isSelected(node, keys) {
-            return this.selectionMode === 'checkbox' ? keys[node.key] && keys[node.key].checked : keys[node.key];
+            return this.selectionMode === 'checkbox' ? keys[node?.key] && keys[node?.key].checked : keys[node?.key];
         },
         updateTreeState() {
             let keys = { ...this.d_value };
