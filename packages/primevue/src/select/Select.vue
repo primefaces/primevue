@@ -450,6 +450,7 @@ export default {
                     if (!metaKey && isPrintableCharacter(event.key)) {
                         !this.overlayVisible && this.show();
                         !this.editable && this.searchOptions(event, event.key);
+                        this.filter && (this.filterValue = event.key);
                     }
 
                     break;
