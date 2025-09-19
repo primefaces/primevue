@@ -60,10 +60,4 @@ export declare type InputSwitchEmits = EmitFn<InputSwitchEmitsOptions> & ToggleS
  */
 declare const InputSwitch: DefineComponent<InputSwitchProps, InputSwitchSlots, InputSwitchEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        InputSwitch: DefineComponent<InputSwitchProps, InputSwitchSlots, InputSwitchEmits>;
-    }
-}
-
 export default InputSwitch;
