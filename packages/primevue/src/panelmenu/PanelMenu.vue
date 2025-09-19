@@ -131,12 +131,14 @@ export default {
             focus(event.currentTarget);
         },
         onHeaderKeyDown(event, item) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     this.onHeaderArrowDownKey(event);
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     this.onHeaderArrowUpKey(event);
                     break;
 
@@ -149,8 +151,8 @@ export default {
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.onHeaderEnterKey(event, item);
                     break;
 

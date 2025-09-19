@@ -394,15 +394,16 @@ export default {
             event.preventDefault();
         },
         onToggleButtonKeyDown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'Enter':
-                case 'NumpadEnter':
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.toggleMenu(event);
 
                     break;
 
                 case 'Escape':
+                case 'Esc':
                     this.overlayVisible = false;
                     break;
             }
@@ -419,8 +420,9 @@ export default {
         onRowMatchModeKeyDown(event) {
             let item = event.target;
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     var nextItem = this.findNextItem(item);
 
                     if (nextItem) {
@@ -433,6 +435,7 @@ export default {
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     var prevItem = this.findPrevItem(item);
 
                     if (prevItem) {

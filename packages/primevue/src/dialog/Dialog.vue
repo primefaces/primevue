@@ -238,7 +238,7 @@ export default {
             }
         },
         onKeyDown(event) {
-            if (event.code === 'Escape' && this.closeOnEscape) {
+            if ((event.key === 'Escape' || event.key === 'Esc') && this.closeOnEscape) {
                 this.close();
             }
         },

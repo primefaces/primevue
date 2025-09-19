@@ -127,7 +127,7 @@ export default {
                 return;
             }
 
-            let k = event.code,
+            let k = event.key,
                 pos,
                 begin,
                 end;
@@ -136,14 +136,14 @@ export default {
             this.oldVal = this.$el.value;
 
             //backspace, delete, and escape get special treatment
-            if (k === 'Backspace' || k === 'Delete' || (iPhone && k === 'Escape')) {
+            if (k === 'Backspace' || k === 'Delete' || k === 'Del' || (iPhone && k === 'Escape')) {
                 pos = this.caret();
                 begin = pos.begin;
                 end = pos.end;
 
                 if (end - begin === 0) {
-                    begin = k !== 'Delete' ? this.seekPrev(begin) : (end = this.seekNext(begin - 1));
-                    end = k === 'Delete' ? this.seekNext(end) : end;
+                    begin = (k !== 'Delete' && k !== 'Del') ? this.seekPrev(begin) : (end = this.seekNext(begin - 1));
+                    end = (k === 'Delete' || k === 'Del') ? this.seekNext(end) : end;
                 }
 
                 this.clearBuffer(begin, end);
@@ -155,7 +155,7 @@ export default {
                 // enter
                 this.$el.blur();
                 this.updateModelValue(event.target.value);
-            } else if (k === 'Escape') {
+            } else if (k === 'Escape' || k === 'Esc') {
                 // escape
                 this.$el.value = this.focusText;
                 this.caret(0, this.checkVal());
@@ -170,14 +170,14 @@ export default {
                 return;
             }
 
-            var k = event.code,
+            var k = event.key,
                 pos = this.caret(),
                 p,
                 c,
                 next,
                 completed;
 
-            if (event.ctrlKey || event.altKey || event.metaKey || event.shiftKey || event.key === 'CapsLock' || event.key === 'Escape' || event.key === 'Tab') {
+            if (event.ctrlKey || event.altKey || event.metaKey || event.shiftKey || event.key === 'CapsLock' || event.key === 'Escape' || event.key === 'Esc' || event.key === 'Tab') {
                 //Ignore
                 return;
             } else if (k && k !== 'Enter') {

@@ -182,20 +182,24 @@ export default {
             return resolveFieldData(node, this.dataKey);
         },
         onKeyDown(event, item) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     this.onArrowDownKey(event);
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     this.onArrowUpKey(event);
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                     this.onArrowLeftKey(event);
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     this.onArrowRightKey(event);
                     break;
 
@@ -208,8 +212,8 @@ export default {
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     if (!isClickable(event.target)) {
                         this.onEnterKey(event, item);
                     }

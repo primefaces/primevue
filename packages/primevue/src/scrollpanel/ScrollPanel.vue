@@ -187,53 +187,59 @@ export default {
         },
         onKeyDown(event) {
             if (this.orientation === 'vertical') {
-                switch (event.code) {
-                    case 'ArrowDown': {
+                switch (event.key) {
+                    case 'ArrowDown':
+                    case 'Down': {
                         this.setTimer('scrollTop', this.step);
                         event.preventDefault();
                         break;
                     }
 
-                    case 'ArrowUp': {
+                    case 'ArrowUp':
+                    case 'Up': {
                         this.setTimer('scrollTop', this.step * -1);
                         event.preventDefault();
                         break;
                     }
 
                     case 'ArrowLeft':
-
-                    case 'ArrowRight': {
+                    case 'Left':
+                    case 'ArrowRight':
+                    case 'Right': {
                         event.preventDefault();
                         break;
                     }
 
                     default:
-                        //no op
+                        //NOOP
                         break;
                 }
             } else if (this.orientation === 'horizontal') {
-                switch (event.code) {
-                    case 'ArrowRight': {
+                switch (event.key) {
+                    case 'ArrowRight':
+                    case 'Right': {
                         this.setTimer('scrollLeft', this.step);
                         event.preventDefault();
                         break;
                     }
 
-                    case 'ArrowLeft': {
+                    case 'ArrowLeft':
+                    case 'Left': {
                         this.setTimer('scrollLeft', this.step * -1);
                         event.preventDefault();
                         break;
                     }
 
                     case 'ArrowDown':
-
-                    case 'ArrowUp': {
+                    case 'Down':
+                    case 'ArrowUp':
+                    case 'Up': {
                         event.preventDefault();
                         break;
                     }
 
                     default:
-                        //no op
+                        //NOOP
                         break;
                 }
             }

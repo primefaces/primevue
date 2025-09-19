@@ -779,7 +779,7 @@ export default {
             }
         },
         onColumnKeyDown(event, col) {
-            if ((event.code === 'Enter' || event.code === 'NumpadEnter') && event.currentTarget.nodeName === 'TH' && getAttribute(event.currentTarget, 'data-p-sortable-column')) {
+            if (event.key === 'Enter' && event.currentTarget.nodeName === 'TH' && getAttribute(event.currentTarget, 'data-p-sortable-column')) {
                 this.onColumnHeaderClick(event, col);
             }
         },

@@ -75,7 +75,7 @@ export default {
             });
         },
         onKeyDown(event) {
-            if (event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') {
+            if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
                 this.toggle(event);
                 event.preventDefault();
             }

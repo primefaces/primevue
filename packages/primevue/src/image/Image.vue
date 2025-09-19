@@ -119,8 +119,9 @@ export default {
             this.previewClick = false;
         },
         onMaskKeydown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'Escape':
+                case 'Esc':
                     this.hidePreview();
                     setTimeout(() => {
                         focus(this.$refs.previewButton);

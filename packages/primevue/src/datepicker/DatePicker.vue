@@ -1523,10 +1523,10 @@ export default {
             this.clearTimePickerTimer();
         },
         onTimePickerElementKeyDown(event, type, direction) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'Enter':
-                case 'NumpadEnter':
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     if (this.isEnabled()) {
                         this.repeat(event, null, type, direction);
                         event.preventDefault();
@@ -1535,10 +1535,10 @@ export default {
             }
         },
         onTimePickerElementKeyUp(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'Enter':
-                case 'NumpadEnter':
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     if (this.isEnabled()) {
                         this.clearTimePickerTimer();
                         this.updateModelTime();
@@ -2119,8 +2119,9 @@ export default {
 
             const cellIndex = getIndex(cell);
 
-            switch (event.code) {
-                case 'ArrowDown': {
+            switch (event.key) {
+                case 'ArrowDown':
+                case 'Down': {
                     cellContent.tabIndex = '-1';
 
                     let nextRow = cell.parentElement.nextElementSibling;
@@ -2154,7 +2155,8 @@ export default {
                     break;
                 }
 
-                case 'ArrowUp': {
+                case 'ArrowUp':
+                case 'Up': {
                     cellContent.tabIndex = '-1';
 
                     if (event.altKey) {
@@ -2193,7 +2195,8 @@ export default {
                     break;
                 }
 
-                case 'ArrowLeft': {
+                case 'ArrowLeft':
+                case 'Left': {
                     cellContent.tabIndex = '-1';
                     let prevCell = cell.previousElementSibling;
 
@@ -2223,7 +2226,8 @@ export default {
                     break;
                 }
 
-                case 'ArrowRight': {
+                case 'ArrowRight':
+                case 'Right': {
                     cellContent.tabIndex = '-1';
                     let nextCell = cell.nextElementSibling;
 
@@ -2253,15 +2257,15 @@ export default {
                 }
 
                 case 'Enter':
-                case 'NumpadEnter':
-
-                case 'Space': {
+                case ' ':
+                case 'Spacebar': {
                     this.onDateSelect(event, date);
                     event.preventDefault();
                     break;
                 }
 
-                case 'Escape': {
+                case 'Escape':
+                case 'Esc': {
                     this.overlayVisible = false;
                     event.preventDefault();
                     break;
@@ -2330,7 +2334,7 @@ export default {
                 }
 
                 default:
-                    //no op
+                    //NOOP
                     break;
             }
         },
@@ -2363,14 +2367,15 @@ export default {
         onMonthCellKeydown(event, index) {
             const cell = event.currentTarget;
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowUp':
-
-                case 'ArrowDown': {
+                case 'Up':
+                case 'ArrowDown':
+                case 'Down': {
                     cell.tabIndex = '-1';
                     var cells = cell.parentElement.children;
                     var cellIndex = getIndex(cell);
-                    let nextCell = cells[event.code === 'ArrowDown' ? cellIndex + 3 : cellIndex - 3];
+                    let nextCell = cells[(event.key === 'ArrowDown' || event.key == 'Down') ? cellIndex + 3 : cellIndex - 3];
 
                     if (nextCell) {
                         nextCell.tabIndex = '0';
@@ -2381,7 +2386,8 @@ export default {
                     break;
                 }
 
-                case 'ArrowLeft': {
+                case 'ArrowLeft':
+                case 'Left': {
                     cell.tabIndex = '-1';
                     let prevCell = cell.previousElementSibling;
 
@@ -2397,7 +2403,8 @@ export default {
                     break;
                 }
 
-                case 'ArrowRight': {
+                case 'ArrowRight':
+                case 'Right': {
                     cell.tabIndex = '-1';
                     let nextCell = cell.nextElementSibling;
 
@@ -2430,15 +2437,15 @@ export default {
                 }
 
                 case 'Enter':
-                case 'NumpadEnter':
-
-                case 'Space': {
+                case ' ':
+                case 'Spacebar': {
                     this.onMonthSelect(event, index);
                     event.preventDefault();
                     break;
                 }
 
-                case 'Escape': {
+                case 'Escape':
+                case 'Esc': {
                     this.overlayVisible = false;
                     event.preventDefault();
                     break;
@@ -2450,21 +2457,22 @@ export default {
                 }
 
                 default:
-                    //no op
+                    //NOOP
                     break;
             }
         },
         onYearCellKeydown(event, index) {
             const cell = event.currentTarget;
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowUp':
-
-                case 'ArrowDown': {
+                case 'Up':
+                case 'ArrowDown':
+                case 'Down': {
                     cell.tabIndex = '-1';
                     var cells = cell.parentElement.children;
                     var cellIndex = getIndex(cell);
-                    let nextCell = cells[event.code === 'ArrowDown' ? cellIndex + 2 : cellIndex - 2];
+                    let nextCell = cells[(event.key === 'ArrowDown' || event.key == 'Down') ? cellIndex + 2 : cellIndex - 2];
 
                     if (nextCell) {
                         nextCell.tabIndex = '0';
@@ -2475,7 +2483,8 @@ export default {
                     break;
                 }
 
-                case 'ArrowLeft': {
+                case 'ArrowLeft':
+                case 'Left': {
                     cell.tabIndex = '-1';
                     let prevCell = cell.previousElementSibling;
 
@@ -2491,7 +2500,8 @@ export default {
                     break;
                 }
 
-                case 'ArrowRight': {
+                case 'ArrowRight':
+                case 'Right': {
                     cell.tabIndex = '-1';
                     let nextCell = cell.nextElementSibling;
 
@@ -2524,15 +2534,15 @@ export default {
                 }
 
                 case 'Enter':
-                case 'NumpadEnter':
-
-                case 'Space': {
+                case ' ':
+                case 'Spacebar': {
                     this.onYearSelect(event, index);
                     event.preventDefault();
                     break;
                 }
 
-                case 'Escape': {
+                case 'Escape':
+                case 'Esc': {
                     this.overlayVisible = false;
                     event.preventDefault();
                     break;
@@ -2544,7 +2554,7 @@ export default {
                 }
 
                 default:
-                    //no op
+                    //NOOP
                     break;
             }
         },
@@ -2668,18 +2678,19 @@ export default {
             }
         },
         onContainerButtonKeydown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'Tab':
                     this.trapFocus(event);
                     break;
 
                 case 'Escape':
+                case 'Esc':
                     this.overlayVisible = false;
                     event.preventDefault();
                     break;
 
                 default:
-                    //Noop
+                    //NOOP
                     break;
             }
 
@@ -2724,17 +2735,17 @@ export default {
             event.target.value = this.formatValue(this.d_value);
         },
         onKeyDown(event) {
-            if (event.code === 'ArrowDown' && this.overlay) {
+            if ((event.key === 'ArrowDown' || event.key == 'Down') && this.overlay) {
                 this.trapFocus(event);
-            } else if (event.code === 'ArrowDown' && !this.overlay) {
+            } else if (event.key === 'ArrowDown' || event.key == 'Down') {
                 this.overlayVisible = true;
-            } else if (event.code === 'Escape') {
+            } else if (event.key === 'Escape' || event.key === 'Esc') {
                 if (this.overlayVisible) {
                     this.overlayVisible = false;
                     event.preventDefault();
                     event.stopPropagation();
                 }
-            } else if (event.code === 'Tab') {
+            } else if (event.key === 'Tab') {
                 if (this.overlay) {
                     getFocusableElements(this.overlay).forEach((el) => (el.tabIndex = '-1'));
                 }
@@ -2742,7 +2753,7 @@ export default {
                 if (this.overlayVisible) {
                     this.overlayVisible = false;
                 }
-            } else if (event.code === 'Enter') {
+            } else if (event.key === 'Enter') {
                 if (this.manualInput && event.target.value !== null && event.target.value?.trim() !== '') {
                     try {
                         let value = this.parseValue(event.target.value);
@@ -2791,8 +2802,9 @@ export default {
             }
         },
         onOverlayKeyDown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'Escape':
+                case 'Esc':
                     if (!this.inline) {
                         this.input.focus();
                         this.overlayVisible = false;

@@ -159,14 +159,14 @@ export default {
             this.visible = false;
         },
         onAcceptKeydown(event) {
-            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
+            if (event.key === ' ' || event.key === 'Spacebar' || event.key === 'Enter') {
                 this.accept();
                 focus(this.target);
                 event.preventDefault();
             }
         },
         onRejectKeydown(event) {
-            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
+            if (event.key === ' ' || event.key === 'Spacebar' || event.key === 'Enter') {
                 this.reject();
                 focus(this.target);
                 event.preventDefault();
@@ -295,7 +295,7 @@ export default {
             });
         },
         onOverlayKeydown(event) {
-            if (event.code === 'Escape') {
+            if (event.key === 'Escape' || event.key === 'Esc') {
                 ConfirmationEventBus.emit('close', this.closeListener);
                 focus(this.target);
             }

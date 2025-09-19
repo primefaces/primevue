@@ -186,8 +186,9 @@ export default {
             this.onResizeEnd();
         },
         onGutterKeyDown(event, index) {
-            switch (event.code) {
-                case 'ArrowLeft': {
+            switch (event.key) {
+                case 'ArrowLeft':
+                case 'Left': {
                     if (this.layout === 'horizontal') {
                         this.setTimer(event, index, this.step * -1);
                     }
@@ -196,7 +197,8 @@ export default {
                     break;
                 }
 
-                case 'ArrowRight': {
+                case 'ArrowRight':
+                case 'Right': {
                     if (this.layout === 'horizontal') {
                         this.setTimer(event, index, this.step);
                     }
@@ -205,7 +207,8 @@ export default {
                     break;
                 }
 
-                case 'ArrowDown': {
+                case 'ArrowDown':
+                case 'Down': {
                     if (this.layout === 'vertical') {
                         this.setTimer(event, index, this.step * -1);
                     }
@@ -214,7 +217,8 @@ export default {
                     break;
                 }
 
-                case 'ArrowUp': {
+                case 'ArrowUp':
+                case 'Up': {
                     if (this.layout === 'vertical') {
                         this.setTimer(event, index, this.step);
                     }
@@ -224,7 +228,7 @@ export default {
                 }
 
                 default:
-                    //no op
+                    //NOOP
                     break;
             }
         },

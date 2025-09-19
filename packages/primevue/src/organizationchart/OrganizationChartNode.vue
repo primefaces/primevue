@@ -126,7 +126,7 @@ export default {
             this.$emit('node-toggle', node);
         },
         onKeydown(event) {
-            if (event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') {
+            if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
                 this.toggleNode();
                 event.preventDefault();
             }

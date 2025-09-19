@@ -164,17 +164,21 @@ export default {
             }
         },
         onContentKeydown(event) {
-            if (event.code === 'Escape' && this.closeOnEscape) {
+            if ((event.key === 'Escape' || event.key === 'Esc') && this.closeOnEscape) {
                 this.hide();
                 focus(this.target);
             }
         },
         onButtonKeydown(event) {
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                 case 'ArrowUp':
+                case 'Up':
                 case 'ArrowLeft':
+                case 'Left':
                 case 'ArrowRight':
+                case 'Right':
                     event.preventDefault();
 
                 default:
@@ -189,7 +193,7 @@ export default {
             }
         },
         onKeyDown(event) {
-            if (event.code === 'Escape' && this.closeOnEscape) {
+            if ((event.key === 'Escape' || event.key === 'Esc') && this.closeOnEscape) {
                 this.visible = false;
             }
         },

@@ -97,7 +97,7 @@ export default {
             this.isExpanded = this.$refs.menu.visible;
         },
         onDropdownKeydown(event) {
-            if (event.code === 'ArrowDown' || event.code === 'ArrowUp') {
+            if (event.key === 'ArrowDown' || event.key === 'Down' || event.key === 'ArrowUp' || event.key === 'Up') {
                 this.onDropdownButtonClick();
                 event.preventDefault();
             }

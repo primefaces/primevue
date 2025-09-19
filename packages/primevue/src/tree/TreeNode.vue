@@ -178,35 +178,39 @@ export default {
         onKeyDown(event) {
             if (!this.isSameNode(event)) return;
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'Tab':
                     this.onTabKey(event);
 
                     break;
 
                 case 'ArrowDown':
+                case 'Down':
                     this.onArrowDown(event);
 
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     this.onArrowUp(event);
 
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     this.onArrowRight(event);
 
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                     this.onArrowLeft(event);
 
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.onEnterKey(event);
 
                     break;

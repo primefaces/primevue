@@ -381,13 +381,13 @@ export default {
         },
         onKeyDown(event) {
             if (this.editMode === 'cell') {
-                switch (event.code) {
+                switch (event.key) {
                     case 'Enter':
-                    case 'NumpadEnter':
                         this.completeEdit(event, 'enter');
                         break;
 
                     case 'Escape':
+                    case 'Esc':
                         this.switchCellToViewMode();
                         this.$emit('cell-edit-cancel', { originalEvent: event, data: this.rowData, field: this.field, index: this.rowIndex });
                         break;

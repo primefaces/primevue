@@ -197,20 +197,24 @@ export default {
 
             const metaKey = event.metaKey || event.ctrlKey;
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowDown':
+                case 'Down':
                     this.onArrowDownKey(event);
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                     this.onArrowUpKey(event);
                     break;
 
                 case 'ArrowLeft':
+                case 'Left':
                     this.onArrowLeftKey(event);
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     this.onArrowRightKey(event);
                     break;
 
@@ -222,16 +226,17 @@ export default {
                     this.onEndKey(event);
                     break;
 
-                case 'Space':
+                case ' ':
+                case 'Spacebar':
                     this.onSpaceKey(event);
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
                     this.onEnterKey(event);
                     break;
 
                 case 'Escape':
+                case 'Esc':
                     this.onEscapeKey(event);
                     break;
 
@@ -242,8 +247,7 @@ export default {
                 case 'PageDown':
                 case 'PageUp':
                 case 'Backspace':
-                case 'ShiftLeft':
-                case 'ShiftRight':
+                case 'Shift':
                     //NOOP
                     break;
 
@@ -303,7 +307,7 @@ export default {
             this.toggle(event);
         },
         menuButtonKeydown(event) {
-            (event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') && this.menuButtonClick(event);
+            (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') && this.menuButtonClick(event);
         },
         onArrowDownKey(event) {
             if (this.horizontal) {
