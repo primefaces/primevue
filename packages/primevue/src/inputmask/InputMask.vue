@@ -468,10 +468,9 @@ export default {
 
             return unmaskedBuffer.join('');
         },
-
         updateModelValue(value) {
             if (this.currentVal === value) return;
-            const val = this.unmask ? this.unmaskValue(value) : value;
+            const val = this.unmask ? this.getUnmaskedValue() : value;
 
             this.currentVal = value;
 
