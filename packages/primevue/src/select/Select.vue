@@ -948,6 +948,9 @@ export default {
                 const element = findSingle(this.list, `li[id="${id}"]`);
 
                 if (element) {
+                    if (this.scrollOnHoverDisabled) {
+                        return;
+                    }
                     element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'nearest' });
                 } else if (!this.virtualScrollerDisabled) {
                     this.virtualScroller && this.virtualScroller.scrollToIndex(index !== -1 ? index : this.focusedOptionIndex);

@@ -168,6 +168,10 @@ export default {
         ariaLabelledby: {
             type: String,
             default: null
+        },
+        scrollOnHoverDisabled: {
+            type: Boolean,
+            default: false
         }
     },
     style: SelectStyle,

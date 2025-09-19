@@ -549,6 +549,10 @@ export interface SelectProps {
      */
     ariaLabelledby?: string | undefined;
     /**
+     * Disables auto scroll on hover of options.
+     */
+    scrollOnHoverDisabled?: boolean | undefined;
+    /**
      * Form control object, typically used for handling validation and form state.
      */
     formControl?: Record<string, any> | undefined;
