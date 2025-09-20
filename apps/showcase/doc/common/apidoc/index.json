@@ -28092,6 +28092,14 @@
                             "description": "Used to pass the custom value to read for the button inside the component."
                         },
                         {
+                            "name": "closeOnEscape",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "true",
+                            "description": "Specifies if pressing escape key should hide the drawer."
+                        },
+                        {
                             "name": "closeIcon",
                             "optional": true,
                             "readonly": false,
