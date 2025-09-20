@@ -71,6 +71,11 @@ export default {
                 this.renderValue(newValue);
             }
         },
+        d_value(newValue, oldValue) {
+            if (newValue !== oldValue && this.quill && !this.quill.hasFocus()) {
+                this.renderValue(newValue);
+            }
+        },
         readonly() {
             this.handleReadOnlyChange();
         }
@@ -86,7 +91,6 @@ export default {
             formats: this.formats,
             placeholder: this.placeholder
         };
-
         if (QuillJS) {
             // Loaded by script only
             this.quill = new QuillJS(this.$refs.editorElement, configuration);
