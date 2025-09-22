@@ -31,7 +31,8 @@ export default {
     emits: ['show', 'hide'],
     data() {
         return {
-            visible: false
+            visible: false,
+            hideOnScroll: true
         };
     },
     watch: {
@@ -110,7 +111,10 @@ export default {
                 this.bindOutsideClickListener();
             }
 
-            this.bindScrollListener();
+            if (this.hideOnScroll) {
+                this.bindScrollListener();
+            }
+
             this.bindResizeListener();
 
             if (this.autoZIndex) {
