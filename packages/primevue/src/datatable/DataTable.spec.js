@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils';
 import Button from 'primevue/button';
 import PrimeVue from 'primevue/config';
 import InputText from 'primevue/inputtext';
+import { defineComponent, nextTick } from 'vue';
 import Column from '../column/Column.vue';
 import ColumnGroup from '../columngroup/ColumnGroup.vue';
 import Row from '../row/Row.vue';
@@ -175,6 +176,42 @@ describe('DataTable.vue', () => {
     });
 
     // column templating
+
+    it('should allow column wrappers', async () => {
+        const ColumnWrapper = defineComponent({
+            name: 'ColumnWrapper',
+            components: { Column },
+            template: `<Column sortable></Column>`
+        });
+
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    ColumnWrapper
+                }
+            },
+            props: {
+                value: smallData
+            },
+            slots: {
+                default: `
+                    <ColumnWrapper key="code" field="code" header="Code"></ColumnWrapper>
+                    <ColumnWrapper key="name" field="name" header="Name"></ColumnWrapper>
+                `
+            }
+        });
+
+        // Helpers are registered on Column mount, it is not immediate
+        await nextTick();
+
+        expect(wrapper.findAll('.p-datatable-column-header-content').length).toEqual(2);
+        const tbody = wrapper.find('.p-datatable-tbody');
+        const rows = tbody.findAll('tr');
+
+        expect(rows[0].findAll('td').length).toEqual(2);
+        expect(wrapper.findAll('.p-datatable-sortable-column').length).toEqual(2);
+    });
 
     // column grouping
     it('should exist', () => {
