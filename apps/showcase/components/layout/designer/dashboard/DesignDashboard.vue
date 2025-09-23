@@ -8,12 +8,12 @@
     <div class="text-lg font-semibold mb-2">Authenticate</div>
     <div v-if="!$appState.designer.verified">
         <span class="block leading-6 mb-4"
-            >Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to code, cloud storage, and migration assistant. <NuxtLink to="/designer" class="doc-link">Discover</NuxtLink> more about the
-            Theme Designer by visiting the detailed <NuxtLink to="/designer/guide" class="doc-link">documentation</NuxtLink>.</span
+            >Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to theme code, cloud storage, and migration assistant. <NuxtLink to="/designer" class="doc-link">Discover</NuxtLink> more about
+            the Theme Designer by visiting the detailed <NuxtLink to="/designer/guide" class="doc-link">documentation</NuxtLink>.</span
         >
         <span class="block leading-6 mb-4"
             >A license can be purchased from <a href="https://primefaces.org/store/designer.xhtml" class="doc-link" rel="noopener noreferrer">PrimeStore</a>, if you do not have a license key, you are still able to experience the Designer in trial
-            mode. Note that in trial mode, downloads, figma to code, migration assistant and cloud storage are not available.</span
+            mode. Note that in trial mode, downloads, figma to theme code, migration assistant and cloud storage are not available.</span
         >
         <span class="block leading-6 mb-4">Sign-in at <a href="https://primefaces.org/store/designer.xhtml" class="doc-link" rel="noopener noreferrer">PrimeStore</a> to retrieve your license key along with the pass key.</span>
     </div>
