@@ -23,5 +23,10 @@
     "[scss]": {
         "editor.defaultFormatter": "vscode.css-language-features"
     },
-    "vue.server.hybridMode": "typeScriptPluginOnly"
+    "vue.server.hybridMode": "typeScriptPluginOnly",
+    "search.exclude": {
+        "**/dist": true,
+        "**/node_modules": true,
+        "apps/volt/**": true
+    }
 }
