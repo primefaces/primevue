@@ -15,10 +15,12 @@ export const regleResolver = (r$, resolverOptions) => {
             };
         }
 
-        const errors = flatErrors(r$.$errors, { includePath: true }).reduce((acc, { error, path }) => {
+        const errors = flatErrors(r$.$errors, { includePath: true }).reduce((acc, { message, path }) => {
             if (path) {
-                acc[path] ||= [];
-                acc[path].push({ message: error });
+                const joinedPath = path.join('.');
+
+                acc[joinedPath] ||= [];
+                acc[joinedPath].push({ message });
             }
 
             return acc;

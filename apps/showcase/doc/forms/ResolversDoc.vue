@@ -54,7 +54,7 @@ import { superStructResolver } from '@primevue/forms/resolvers/superstruct';
 import { valibotResolver } from '@primevue/forms/resolvers/valibot';
 import { yupResolver } from '@primevue/forms/resolvers/yup';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
-import { useRegle } from '@regle/core';
+import { useRules } from '@regle/core';
 import { required, withMessage } from '@regle/rules';
 import * as s from 'superstruct';
 import * as v from 'valibot';
@@ -107,6 +107,10 @@ export default {
                     <label for="superStruct">SuperStruct</label>
                 </div>
                 <div class="flex items-center gap-2">
+                    <RadioButton inputId="regle" value="Regle" />
+                    <label for="regle">Regle</label>
+                </div>
+                <div class="flex items-center gap-2">
                     <RadioButton inputId="custom" value="Custom" />
                     <label for="custom">Custom</label>
                 </div>
@@ -128,10 +132,13 @@ import { superStructResolver } from '@primevue/forms/resolvers/superstruct';
 import { valibotResolver } from '@primevue/forms/resolvers/valibot';
 import { yupResolver } from '@primevue/forms/resolvers/yup';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { regleResolver } from '@primevue/forms/resolvers/regle';
 import * as s from 'superstruct';
 import * as v from 'valibot';
 import * as yup from 'yup';
 import { z } from 'zod';
+import { useRules } from '@regle/core';
+import { required, withMessage } from '@regle/rules';
 
 export default {
     data() {
@@ -174,8 +181,11 @@ export default {
                     })
                 );
             } else if (schema === 'Regle') {
-                const { r$ } = useRegle({ username: '' }, { username: { required: withMessage(required, 'Username is required via Regle.') } });
-                this.resolver = regleResolver(r$);
+                this.resolver = regleResolver(
+                    useRules({
+                        username: { required: withMessage(required, 'Username is required via Regle.') }
+                    })
+                );
             } else if (schema === 'Custom') {
                 this.resolver = ({ values }) => {
                     const errors = {};
@@ -251,7 +261,7 @@ import { valibotResolver } from '@primevue/forms/resolvers/valibot';
 import { yupResolver } from '@primevue/forms/resolvers/yup';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
 import { regleResolver } from '@primevue/forms/resolvers/regle';
-import { useRegle } from '@regle/core';
+import { useRules } from '@regle/core';
 import { required, withMessage } from '@regle/rules';
 import * as s from 'superstruct';
 import * as v from 'valibot';
@@ -302,8 +312,11 @@ const changeResolver = (schema) => {
             })
         );
     } else if (schema === 'Regle') {
-        const { r$ } = useRegle({ username: '' }, { username: { required: withMessage(required, 'Username is required via Regle.') } });
-        resolver.value = regleResolver(r$);
+        resolver.value = regleResolver(
+            useRules({
+                username: { required: withMessage(required, 'Username is required via Regle.') }
+            })
+        );
     } else if (schema === 'Custom') {
         resolver.value = ({ values }) => {
             const errors = {};
@@ -357,8 +370,11 @@ const onFormSubmit = ({ valid }) => {
                     })
                 );
             } else if (schema === 'Regle') {
-                const { r$ } = useRegle({ username: '' }, { username: { required: withMessage(required, 'Username is required via Regle.') } });
-                this.resolver = regleResolver(r$);
+                this.resolver = regleResolver(
+                    useRules({
+                        username: { required: withMessage(required, 'Username is required via Regle.') }
+                    })
+                );
             } else if (schema === 'Custom') {
                 this.resolver = ({ values }) => {
                     const errors = {};
