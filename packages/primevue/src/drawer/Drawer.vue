@@ -73,8 +73,8 @@ export default {
     documentKeydownListener: null,
     watch: {
         dismissable(newValue) {
-            if (newValue) {
-                this.enableDocumentSettings();
+            if (newValue && !this.modal) {
+                this.bindOutsideClickListener();
             } else {
                 this.unbindOutsideClickListener();
             }
