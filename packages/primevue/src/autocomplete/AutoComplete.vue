@@ -457,6 +457,7 @@ export default {
                 }
 
                 if (query.length === 0) {
+                    this.searching = false;
                     this.hide();
                     this.$emit('clear');
                 } else {
@@ -467,6 +468,7 @@ export default {
                             this.search(event, query, 'input');
                         }, this.delay);
                     } else {
+                        this.searching = false;
                         this.hide();
                     }
                 }
