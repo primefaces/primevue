@@ -331,8 +331,9 @@ export default {
             return this.optionDisabled ? resolveFieldData(option, this.optionDisabled) : false;
         },
         isOptionGroup(option) {
-            return this.optionGroupLabel && option.optionGroup && option.group;
+            return !!(this.optionGroupLabel && option.optionGroup && option.group);
         },
+
         getOptionGroupLabel(optionGroup) {
             return resolveFieldData(optionGroup, this.optionGroupLabel);
         },
@@ -1020,11 +1021,14 @@ export default {
         },
         flatOptions(options) {
             return (options || []).reduce((result, option, index) => {
-                result.push({ optionGroup: option, group: true, index });
-
                 const optionGroupChildren = this.getOptionGroupChildren(option);
 
-                optionGroupChildren && optionGroupChildren.forEach((o) => result.push(o));
+                if (optionGroupChildren && Array.isArray(optionGroupChildren)) {
+                    result.push({ optionGroup: option, group: true, index });
+                    optionGroupChildren.forEach((o) => result.push(o));
+                } else {
+                    result.push(option);
+                }
 
                 return result;
             }, []);
