@@ -832,7 +832,7 @@ export default {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
             const matchedOption = options.find((option) => !this.isOptionGroup(option) && equals(this.getOptionValue(option), value, this.equalityKey));
 
-            return matchedOption ? this.getOptionLabel(matchedOption) : null;
+            return this.getOptionLabel(matchedOption);
         },
         getSelectedItemsLabel() {
             let pattern = /{(.*?)}/;
