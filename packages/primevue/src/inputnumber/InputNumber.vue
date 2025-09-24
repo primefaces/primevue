@@ -175,7 +175,9 @@ export default {
         this.constructParser();
     },
     mounted() {
-        this.$refs.clearIcon.$el.style.display = !this.$filled ? 'none' : 'block';
+        if (this.$refs.clearIcon?.$el?.style) {
+            this.$refs.clearIcon.$el.style.display = !this.$filled ? 'none' : 'block';
+        }
     },
     methods: {
         getOptions() {
