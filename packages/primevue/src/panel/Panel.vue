@@ -1,7 +1,7 @@
 <template>
     <div :class="cx('root')" :data-p="dataP" v-bind="ptmi('root')">
         <div :class="cx('header')" :data-p="dataP" v-bind="ptm('header')">
-            <slot :id="$id + '_header'" name="header" :class="cx('title')">
+            <slot :id="$id + '_header'" name="header" :class="cx('title')" :collapsed="d_collapsed" >
                 <span v-if="header" :id="$id + '_header'" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
             </slot>
             <div :class="cx('headerActions')" v-bind="ptm('headerActions')">

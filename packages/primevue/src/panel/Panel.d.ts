@@ -208,6 +208,10 @@ export interface PanelSlots {
          * Style class of the icon
          */
         class: string;
+        /**
+         * Collapsed state as a boolean
+         */
+        collapsed: boolean,
     }): VNode[];
     /**
      * Custom icons template.
