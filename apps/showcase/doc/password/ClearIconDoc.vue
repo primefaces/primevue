@@ -3,7 +3,7 @@
         <p>When <i>showClear</i> is enabled, a clear icon is added to reset the Password.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <Password v-model="value" :feedback="false" showClear />
+        <Password v-model="value" :feedback="false" showClear inputClass="w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -15,12 +15,12 @@ export default {
             value: null,
             code: {
                 basic: `
-<Password v-model="value" :feedback="false" showClear />
+<Password v-model="value" :feedback="false" showClear inputClass="w-56" />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <Password v-model="value" :feedback="false" showClear />
+        <Password v-model="value" :feedback="false" showClear inputClass="w-56" />
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <Password v-model="value" :feedback="false" showClear />
+        <Password v-model="value" :feedback="false" showClear inputClass="w-56" />
     </div>
 </template>
 

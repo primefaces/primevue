@@ -3,7 +3,7 @@
         <p>When <i>showClear</i> is enabled, a clear icon is added to reset the AutoComplete.</p>
     </DocSectionText>
     <div class="card flex justify-center">
-        <AutoComplete v-model="value" showClear :suggestions="items" @complete="search" />
+        <AutoComplete v-model="value" showClear :suggestions="items" @complete="search" inputClass="w-56" />
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -16,12 +16,12 @@ export default {
             items: [],
             code: {
                 basic: `
-<AutoComplete v-model="value" showClear :suggestions="items" @complete="search" />
+<AutoComplete v-model="value" showClear :suggestions="items" @complete="search" inputClass="w-56" />
 `,
                 options: `
 <template>
     <div class="card flex justify-center">
-        <AutoComplete v-model="value" showClear :suggestions="items" @complete="search" />
+        <AutoComplete v-model="value" showClear :suggestions="items" @complete="search" inputClass="w-56" />
     </div>
 </template>
 
@@ -44,7 +44,7 @@ export default {
                 composition: `
 <template>
     <div class="card flex justify-center">
-        <AutoComplete v-model="value" showClear :suggestions="items" @complete="search" />
+        <AutoComplete v-model="value" showClear :suggestions="items" @complete="search" inputClass="w-56" />
     </div>
 </template>
 
