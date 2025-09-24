@@ -51,6 +51,10 @@ export default {
         blockScroll: {
             type: Boolean,
             default: false
+        },
+        closeOnEscape: {
+            type: Boolean,
+            default: true
         }
     },
     style: DrawerStyle,
