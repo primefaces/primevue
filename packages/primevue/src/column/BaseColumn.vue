@@ -30,6 +30,10 @@ export default {
             type: Boolean,
             default: false
         },
+        defaultSortOrder: {
+            type: Number,
+            default: null
+        },
         header: {
             type: null,
             default: null

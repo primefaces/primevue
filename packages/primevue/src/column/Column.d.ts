@@ -380,6 +380,11 @@ export interface ColumnProps {
      */
     sortable?: boolean | undefined;
     /**
+     * Defines the default sorting order for a column.
+     * Overrides the global sorting order.
+     */
+    defaultSortOrder?: number | undefined;
+    /**
      * Header content of the column.
      */
     header?: string | undefined;

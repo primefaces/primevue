@@ -539,6 +539,7 @@ export default {
             if (this.columnProp(column, 'sortable')) {
                 const targetNode = event.target;
                 const columnField = this.columnProp(column, 'sortField') || this.columnProp(column, 'field');
+                const columnDefaultSortOrder = this.columnProp(column, 'defaultSortOrder') || this.defaultSortOrder;
 
                 if (
                     getAttribute(targetNode, 'data-p-sortable-column') === true ||
@@ -553,14 +554,14 @@ export default {
 
                     if (this.sortMode === 'single') {
                         if (this.d_sortField === columnField) {
-                            if (this.removableSort && this.d_sortOrder * -1 === this.defaultSortOrder) {
+                            if (this.removableSort && this.d_sortOrder * -1 === columnDefaultSortOrder) {
                                 this.d_sortOrder = null;
                                 this.d_sortField = null;
                             } else {
                                 this.d_sortOrder = this.d_sortOrder * -1;
                             }
                         } else {
-                            this.d_sortOrder = this.defaultSortOrder;
+                            this.d_sortOrder = columnDefaultSortOrder;
                             this.d_sortField = columnField;
                         }
 
@@ -574,7 +575,7 @@ export default {
                             this.d_multiSortMeta = this.d_multiSortMeta.filter((meta) => meta.field === columnField);
                         }
 
-                        this.addMultiSortField(columnField);
+                        this.addMultiSortField(columnField, columnDefaultSortOrder);
                         this.$emit('update:multiSortMeta', this.d_multiSortMeta);
                     }
 
@@ -647,14 +648,14 @@ export default {
 
             return sort(value1, value2, this.d_multiSortMeta[index].order, comparer, this.d_nullSortOrder);
         },
-        addMultiSortField(field) {
+        addMultiSortField(field, defaultSortOrder) {
             let index = this.d_multiSortMeta.findIndex((meta) => meta.field === field);
 
             if (index >= 0) {
-                if (this.removableSort && this.d_multiSortMeta[index].order * -1 === this.defaultSortOrder) this.d_multiSortMeta.splice(index, 1);
+                if (this.removableSort && this.d_multiSortMeta[index].order * -1 === defaultSortOrder) this.d_multiSortMeta.splice(index, 1);
                 else this.d_multiSortMeta[index] = { field: field, order: this.d_multiSortMeta[index].order * -1 };
             } else {
-                this.d_multiSortMeta.push({ field: field, order: this.defaultSortOrder });
+                this.d_multiSortMeta.push({ field: field, order: defaultSortOrder });
             }
 
             this.d_multiSortMeta = [...this.d_multiSortMeta];
