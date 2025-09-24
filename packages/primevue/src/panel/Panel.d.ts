@@ -211,7 +211,7 @@ export interface PanelSlots {
         /**
          * Collapsed state as a boolean
          */
-        collapsed: boolean,
+        collapsed: boolean;
     }): VNode[];
     /**
      * Custom icons template.
