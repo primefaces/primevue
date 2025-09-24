@@ -32,7 +32,7 @@
             :unstyled="unstyled"
             :data-p="dataP"
         />
-        <slot v-if="showClear" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
+        <slot v-if="showClear && buttonLayout !== 'vertical'" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
             <TimesIcon ref="clearIcon" :class="[cx('clearIcon')]" @click="onClearClick" v-bind="ptm('clearIcon')" />
         </slot>
         <span v-if="showButtons && buttonLayout === 'stacked'" :class="cx('buttonGroup')" v-bind="ptm('buttonGroup')" :data-p="dataP">
@@ -173,6 +173,9 @@ export default {
     },
     created() {
         this.constructParser();
+    },
+    mounted() {
+        this.$refs.clearIcon.$el.style.display = !this.$filled ? 'none' : 'block';
     },
     methods: {
         getOptions() {
