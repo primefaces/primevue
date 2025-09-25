@@ -16,7 +16,7 @@
         :unstyled="unstyled"
     >
         <template v-if="$slots.container" #container="slotProps">
-            <slot name="container" :message="confirmation" :closeCallback="slotProps.closeCallback" :acceptCallback="accept" :rejectCallback="reject" />
+            <slot name="container" :message="confirmation" :closeCallback="slotProps.closeCallback" :acceptCallback="accept" :rejectCallback="reject" :initDragCallback="slotProps.initDragCallback" />
         </template>
         <template v-if="!$slots.container">
             <template v-if="!$slots.message">

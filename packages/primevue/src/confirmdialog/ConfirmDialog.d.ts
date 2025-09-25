@@ -262,6 +262,11 @@ export interface ConfirmDialogSlots {
          * Reject function of the component
          */
         rejectCallback: () => void;
+        /**
+         * Initialize drag function for custom container elements.
+         * @param {Event} event - Browser event
+         */
+        initDragCallback: (event: Event) => void;
     }): VNode[];
 }
 
