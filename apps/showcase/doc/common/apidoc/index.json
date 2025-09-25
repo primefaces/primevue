@@ -3284,14 +3284,14 @@
                             "name": "arg",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "any",
                             "default": ""
                         },
                         {
                             "name": "dir",
                             "optional": false,
                             "readonly": false,
-                            "type": "ObjectDirective<any, any, string, string>",
+                            "type": "ObjectDirective<any, any, string, any>",
                             "default": ""
                         },
                         {
@@ -6063,14 +6063,14 @@
                             "name": "arg",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "any",
                             "default": ""
                         },
                         {
                             "name": "dir",
                             "optional": false,
                             "readonly": false,
-                            "type": "ObjectDirective<any, any, string, string>",
+                            "type": "ObjectDirective<any, any, string, any>",
                             "default": ""
                         },
                         {
@@ -7993,6 +7993,13 @@
                             "default": ""
                         },
                         {
+                            "name": "onFormdata",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onInput",
                             "optional": true,
                             "readonly": false,
@@ -8015,6 +8022,20 @@
                         },
                         {
                             "name": "onInvalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onFullscreenchange",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onFullscreenerror",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -8050,27 +8071,6 @@
                         },
                         {
                             "name": "onKeyup",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "onAuxclick",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "onClick",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "onContextmenu",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -8336,6 +8336,41 @@
                             "default": ""
                         },
                         {
+                            "name": "onAuxclick",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onClick",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onContextmenu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onGotpointercapture",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onLostpointercapture",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onPointerdown",
                             "optional": true,
                             "readonly": false,
@@ -8392,7 +8427,28 @@
                             "default": ""
                         },
                         {
+                            "name": "onBeforetoggle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onToggle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onWheel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onAnimationcancel",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -8420,7 +8476,28 @@
                             "default": ""
                         },
                         {
+                            "name": "onSecuritypolicyviolation",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onTransitioncancel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onTransitionend",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onTransitionrun",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -17660,7 +17737,7 @@
                                 {
                                     "name": "scope",
                                     "optional": false,
-                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">message</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Message of the component</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">closeCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Close dialog function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">acceptCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Accept function of the component</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">rejectCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Reject function of the component</span>\n}",
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">message</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Message of the component</span>\n \t <span class=\"ml-3 doc-option-parameter-name\">closeCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Close dialog function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">acceptCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Accept function of the component</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">rejectCallback</span>: <span class=\"doc-option-parameter-type\">() &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Reject function of the component</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">initDragCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Initialize drag function for custom container elements.</span>\n}",
                                     "description": "container slot's params."
                                 }
                             ],
@@ -31866,14 +31943,14 @@
                             "name": "arg",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "any",
                             "default": ""
                         },
                         {
                             "name": "dir",
                             "optional": false,
                             "readonly": false,
-                            "type": "ObjectDirective<any, any, string, string>",
+                            "type": "ObjectDirective<any, any, string, any>",
                             "default": ""
                         },
                         {
@@ -39887,6 +39964,13 @@
                             "default": ""
                         },
                         {
+                            "name": "onCancel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onCopy",
                             "optional": true,
                             "readonly": false,
@@ -40027,6 +40111,13 @@
                             "default": ""
                         },
                         {
+                            "name": "onFormdata",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onInput",
                             "optional": true,
                             "readonly": false,
@@ -40049,6 +40140,20 @@
                         },
                         {
                             "name": "onInvalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onFullscreenchange",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onFullscreenerror",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -40084,27 +40189,6 @@
                         },
                         {
                             "name": "onKeyup",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "onAuxclick",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "onClick",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "onContextmenu",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -40370,6 +40454,41 @@
                             "default": ""
                         },
                         {
+                            "name": "onAuxclick",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onClick",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onContextmenu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onGotpointercapture",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onLostpointercapture",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onPointerdown",
                             "optional": true,
                             "readonly": false,
@@ -40426,7 +40545,28 @@
                             "default": ""
                         },
                         {
+                            "name": "onBeforetoggle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onToggle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onWheel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onAnimationcancel",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -40454,7 +40594,28 @@
                             "default": ""
                         },
                         {
+                            "name": "onSecuritypolicyviolation",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onTransitioncancel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onTransitionend",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onTransitionrun",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -40893,14 +41054,14 @@
                             "name": "arg",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "any",
                             "default": ""
                         },
                         {
                             "name": "dir",
                             "optional": false,
                             "readonly": false,
-                            "type": "ObjectDirective<any, any, string, string>",
+                            "type": "ObjectDirective<any, any, string, any>",
                             "default": ""
                         },
                         {
@@ -53359,6 +53520,13 @@
                             "default": ""
                         },
                         {
+                            "name": "onCancel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onCopy",
                             "optional": true,
                             "readonly": false,
@@ -53499,6 +53667,13 @@
                             "default": ""
                         },
                         {
+                            "name": "onFormdata",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onInput",
                             "optional": true,
                             "readonly": false,
@@ -53521,6 +53696,20 @@
                         },
                         {
                             "name": "onInvalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onFullscreenchange",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onFullscreenerror",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -53556,27 +53745,6 @@
                         },
                         {
                             "name": "onKeyup",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "onAuxclick",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "onClick",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "onContextmenu",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -53842,6 +54010,41 @@
                             "default": ""
                         },
                         {
+                            "name": "onAuxclick",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onClick",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onContextmenu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onGotpointercapture",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onLostpointercapture",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onPointerdown",
                             "optional": true,
                             "readonly": false,
@@ -53898,7 +54101,28 @@
                             "default": ""
                         },
                         {
+                            "name": "onBeforetoggle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onToggle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onWheel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onAnimationcancel",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -53926,7 +54150,28 @@
                             "default": ""
                         },
                         {
+                            "name": "onSecuritypolicyviolation",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onTransitioncancel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onTransitionend",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onTransitionrun",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -58386,14 +58631,14 @@
                             "name": "arg",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "any",
                             "default": ""
                         },
                         {
                             "name": "dir",
                             "optional": false,
                             "readonly": false,
-                            "type": "ObjectDirective<any, any, string, string>",
+                            "type": "ObjectDirective<any, any, string, any>",
                             "default": ""
                         },
                         {
@@ -66780,14 +67025,14 @@
                             "name": "arg",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "any",
                             "default": ""
                         },
                         {
                             "name": "dir",
                             "optional": false,
                             "readonly": false,
-                            "type": "ObjectDirective<any, any, string, string>",
+                            "type": "ObjectDirective<any, any, string, any>",
                             "default": ""
                         },
                         {
@@ -70977,6 +71222,13 @@
                             "default": ""
                         },
                         {
+                            "name": "onFormdata",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onInput",
                             "optional": true,
                             "readonly": false,
@@ -70999,6 +71251,20 @@
                         },
                         {
                             "name": "onInvalid",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onFullscreenchange",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onFullscreenerror",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -71034,27 +71300,6 @@
                         },
                         {
                             "name": "onKeyup",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "onAuxclick",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "onClick",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "Function",
-                            "default": ""
-                        },
-                        {
-                            "name": "onContextmenu",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -71320,6 +71565,41 @@
                             "default": ""
                         },
                         {
+                            "name": "onAuxclick",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onClick",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onContextmenu",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onGotpointercapture",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onLostpointercapture",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onPointerdown",
                             "optional": true,
                             "readonly": false,
@@ -71376,7 +71656,28 @@
                             "default": ""
                         },
                         {
+                            "name": "onBeforetoggle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onToggle",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onWheel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onAnimationcancel",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -71404,7 +71705,28 @@
                             "default": ""
                         },
                         {
+                            "name": "onSecuritypolicyviolation",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onTransitioncancel",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "onTransitionend",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
+                            "name": "onTransitionrun",
                             "optional": true,
                             "readonly": false,
                             "type": "Function",
@@ -75327,14 +75649,14 @@
                             "name": "arg",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "any",
                             "default": ""
                         },
                         {
                             "name": "dir",
                             "optional": false,
                             "readonly": false,
-                            "type": "ObjectDirective<any, any, string, string>",
+                            "type": "ObjectDirective<any, any, string, any>",
                             "default": ""
                         },
                         {
