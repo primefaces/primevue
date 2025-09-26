@@ -130,15 +130,18 @@ export default {
                 return;
             }
 
-            switch (event.code) {
+            switch (event.key) {
                 case 'ArrowLeft':
+                case 'Left':
                     this.moveToPrev(event);
                     event.preventDefault();
 
                     break;
 
                 case 'ArrowUp':
+                case 'Up':
                 case 'ArrowDown':
+                case 'Down':
                     event.preventDefault();
 
                     break;
@@ -152,13 +155,13 @@ export default {
                     break;
 
                 case 'ArrowRight':
+                case 'Right':
                     this.moveToNext(event);
                     event.preventDefault();
 
                     break;
 
                 case 'Enter':
-                case 'NumpadEnter':
                 case 'Tab':
                     break;
 
@@ -168,7 +171,7 @@ export default {
                     const isAtMaxLength = this.tokens.join('').length >= this.length;
                     const isValidKey = this.integerOnly ? /^[0-9]$/.test(event.key) : true;
 
-                    if (!isValidKey || (isAtMaxLength && event.code !== 'Delete' && !hasSelection)) {
+                    if (!isValidKey || (isAtMaxLength && event.key !== 'Delete' && event.key !== 'Del' && !hasSelection)) {
                         event.preventDefault();
                     }
 
