@@ -21,6 +21,7 @@ import InlineDoc from '@/doc/datepicker/InlineDoc.vue';
 import InvalidDoc from '@/doc/datepicker/InvalidDoc.vue';
 import LocaleDoc from '@/doc/datepicker/LocaleDoc.vue';
 import MinMaxDoc from '@/doc/datepicker/MinMaxDoc.vue';
+import ModelTypeDoc from '@/doc/datepicker/ModelTypeDoc.vue';
 import MonthPickerDoc from '@/doc/datepicker/MonthPickerDoc.vue';
 import MultipleDoc from '@/doc/datepicker/MultipleDoc.vue';
 import MultipleMonthsDoc from '@/doc/datepicker/MultipleMonthsDoc.vue';
@@ -104,6 +105,11 @@ export default {
                     id: 'multiplemonths',
                     label: 'Multiple Months',
                     component: MultipleMonthsDoc
+                },
+                {
+                    id: 'modeltype',
+                    label: 'Model Type',
+                    component: ModelTypeDoc
                 },
                 {
                     id: 'datetemplate',
