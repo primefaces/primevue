@@ -24441,6 +24441,14 @@
                             "description": "Format of the date. Defaults to PrimeVue Locale configuration."
                         },
                         {
+                            "name": "updateModelType",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "undefined | HintedString<\"string\" | \"date\">",
+                            "default": "date",
+                            "description": "Type of the value to write back to modelValue."
+                        },
+                        {
                             "name": "inline",
                             "optional": true,
                             "readonly": false,
