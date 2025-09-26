@@ -36,8 +36,8 @@
             :data-p-has-e-icon="showIcon && iconDisplay === 'input' && !inline"
             :pt="ptm('pcInputText')"
         />
-        <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
-            <TimesIcon :class="[cx('clearIcon')]" @click="onClearClick" v-bind="ptm('clearIcon')" />
+        <slot v-if="showClear && !inline" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
+            <TimesIcon ref="clearIcon" :class="[cx('clearIcon')]" @click="onClearClick" v-bind="ptm('clearIcon')" />
         </slot>
         <slot v-if="showIcon && iconDisplay === 'button' && !inline" name="dropdownbutton" :toggleCallback="onButtonClick">
             <button
@@ -566,7 +566,7 @@
 <script>
 import { cn } from '@primeuix/utils';
 import { absolutePosition, addStyle, find, findSingle, getAttribute, getFocusableElements, getIndex, getOuterWidth, isTouchDevice, relativePosition, setAttribute } from '@primeuix/utils/dom';
-import { localeComparator } from '@primeuix/utils/object';
+import { isDate, isEmpty, isNotEmpty, localeComparator } from '@primeuix/utils/object';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { ConnectedOverlayScrollHandler } from '@primevue/core/utils';
 import CalendarIcon from '@primevue/icons/calendar';
@@ -618,18 +618,27 @@ export default {
             query: null,
             queryMatches: false,
             queryOrientation: null,
-            focusedDateIndex: 0
+            focusedDateIndex: 0,
+            rawValue: null
         };
     },
     watch: {
-        modelValue(newValue) {
-            this.updateCurrentMetaData();
+        modelValue: {
+            immediate: true,
+            handler(newValue) {
+                this.updateCurrentMetaData();
+                this.rawValue = typeof newValue === 'string' ? this.parseValue(newValue) : newValue;
 
-            if (!this.typeUpdate && !this.inline && this.input) {
-                this.input.value = this.inputFieldValue;
+                if (!this.typeUpdate && !this.inline && this.input) {
+                    this.input.value = this.formatValue(this.rawValue);
+                }
+
+                this.typeUpdate = false;
+
+                if (this.$refs.clearIcon?.$el?.style) {
+                    this.$refs.clearIcon.$el.style.display = isEmpty(newValue) ? 'none' : 'block';
+                }
             }
-
-            this.typeUpdate = false;
         },
         showTime() {
             this.updateCurrentMetaData();
@@ -681,6 +690,10 @@ export default {
             }
         } else {
             this.input.value = this.inputFieldValue;
+
+            if (this.$refs.clearIcon?.$el?.style) {
+                this.$refs.clearIcon.$el.style.display = !this.$filled ? 'none' : 'block';
+            }
         }
     },
     updated() {
@@ -720,22 +733,15 @@ export default {
         this.overlay = null;
     },
     methods: {
-        isComparable() {
-            return this.d_value != null && typeof this.d_value !== 'string';
-        },
         isSelected(dateMeta) {
-            if (!this.isComparable()) {
-                return false;
-            }
-
-            if (this.d_value) {
+            if (this.rawValue) {
                 if (this.isSingleSelection()) {
-                    return this.isDateEquals(this.d_value, dateMeta);
+                    return this.isDateEquals(this.parseValueForComparison(this.rawValue), dateMeta);
                 } else if (this.isMultipleSelection()) {
                     let selected = false;
 
-                    for (let date of this.d_value) {
-                        selected = this.isDateEquals(date, dateMeta);
+                    for (let date of this.rawValue) {
+                        selected = this.isDateEquals(this.parseValueForComparison(date), dateMeta);
 
                         if (selected) {
                             break;
@@ -744,9 +750,14 @@ export default {
 
                     return selected;
                 } else if (this.isRangeSelection()) {
-                    if (this.d_value[1]) return this.isDateEquals(this.d_value[0], dateMeta) || this.isDateEquals(this.d_value[1], dateMeta) || this.isDateBetween(this.d_value[0], this.d_value[1], dateMeta);
-                    else {
-                        return this.isDateEquals(this.d_value[0], dateMeta);
+                    const start = this.parseValueForComparison(this.rawValue[0]);
+
+                    if (this.rawValue[1]) {
+                        const end = this.parseValueForComparison(this.rawValue[1]);
+
+                        return this.isDateEquals(start, dateMeta) || this.isDateEquals(end, dateMeta) || this.isDateBetween(start, end, dateMeta);
+                    } else {
+                        return this.isDateEquals(start, dateMeta);
                     }
                 }
             }
@@ -754,36 +765,45 @@ export default {
             return false;
         },
         isMonthSelected(month) {
-            if (!this.isComparable()) return false;
-
             if (this.isMultipleSelection()) {
-                return this.d_value.some((currentValue) => currentValue.getMonth() === month && currentValue.getFullYear() === this.currentYear);
+                return this.rawValue?.some((currentValue) => {
+                    const parsedDate = this.parseValueForComparison(currentValue);
+
+                    return parsedDate.getMonth() === month && parsedDate.getFullYear() === this.currentYear;
+                });
             } else if (this.isRangeSelection()) {
-                if (!this.d_value[1]) {
-                    return this.d_value[0]?.getFullYear() === this.currentYear && this.d_value[0]?.getMonth() === month;
+                const parsedStart = this.rawValue?.[0] ? this.parseValueForComparison(this.rawValue[0]) : null;
+                const parsedEnd = this.rawValue?.[1] ? this.parseValueForComparison(this.rawValue[1]) : null;
+
+                if (!parsedEnd) {
+                    return parsedStart?.getFullYear() === this.currentYear && parsedStart?.getMonth() === month;
                 } else {
                     const currentDate = new Date(this.currentYear, month, 1);
-                    const startDate = new Date(this.d_value[0].getFullYear(), this.d_value[0].getMonth(), 1);
-                    const endDate = new Date(this.d_value[1].getFullYear(), this.d_value[1].getMonth(), 1);
-
+                    const startDate = new Date(parsedStart.getFullYear(), parsedStart.getMonth(), 1);
+                    const endDate = new Date(parsedEnd.getFullYear(), parsedEnd.getMonth(), 1);
                     return currentDate >= startDate && currentDate <= endDate;
                 }
             } else {
-                return this.d_value.getMonth() === month && this.d_value.getFullYear() === this.currentYear;
+                return this.rawValue?.getMonth() === month && this.rawValue?.getFullYear() === this.currentYear;
             }
         },
         isYearSelected(year) {
-            if (!this.isComparable()) return false;
-
             if (this.isMultipleSelection()) {
-                return this.d_value.some((currentValue) => currentValue.getFullYear() === year);
+                return this.rawValue?.some((currentValue) => {
+                    const parsedDate = this.parseValueForComparison(currentValue);
+
+                    return parsedDate.getFullYear() === year;
+                });
             } else if (this.isRangeSelection()) {
-                const start = this.d_value[0] ? this.d_value[0].getFullYear() : null;
-                const end = this.d_value[1] ? this.d_value[1].getFullYear() : null;
+                const parsedStart = this.rawValue?.[0] ? this.parseValueForComparison(this.rawValue[0]) : null;
+                const parsedEnd = this.rawValue?.[1] ? this.parseValueForComparison(this.rawValue[1]) : null;
+
+                const start = parsedStart ? parsedStart.getFullYear() : null;
+                const end = parsedEnd ? parsedEnd.getFullYear() : null;
 
                 return start === year || end === year || (start < year && end > year);
             } else {
-                return this.d_value.getFullYear() === year;
+                return this.rawValue?.getFullYear() === year;
             }
         },
         isDateEquals(value, dateMeta) {
@@ -792,11 +812,13 @@ export default {
         },
         isDateBetween(start, end, dateMeta) {
             let between = false;
+            let parsedStart = this.parseValueForComparison(start);
+            let parsedEnd = this.parseValueForComparison(end);
 
-            if (start && end) {
+            if (parsedStart && parsedEnd) {
                 let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
 
-                return start.getTime() <= date.getTime() && end.getTime() >= date.getTime();
+                return parsedStart.getTime() <= date.getTime() && parsedEnd.getTime() >= date.getTime();
             }
 
             return between;
@@ -1205,7 +1227,7 @@ export default {
             }
 
             if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
-                let newValue = this.d_value.filter((date) => !this.isDateEquals(date, dateMeta));
+                let newValue = this.rawValue.filter((date) => !this.isDateEquals(this.parseValueForComparison(date), dateMeta));
 
                 this.updateModel(newValue);
             } else {
@@ -1257,14 +1279,13 @@ export default {
             let modelVal = null;
 
             if (this.isSingleSelection()) {
-                modelVal = this.d_value?.getTime() !== date.getTime() ? date : null;
+                modelVal = date;
             } else if (this.isMultipleSelection()) {
-                modelVal = this.d_value ? [...this.d_value, date] : [date];
+                modelVal = this.rawValue ? [...this.rawValue, date] : [date];
             } else if (this.isRangeSelection()) {
-                if (this.d_value && this.d_value.length) {
-                    let startDate = this.d_value[0];
-                    let endDate = this.d_value[1];
-
+                if (this.rawValue && this.rawValue.length) {
+                    let startDate = this.parseValueForComparison(this.rawValue[0]);
+                    let endDate = this.rawValue[1];
                     if (!endDate && date.getTime() >= startDate.getTime()) {
                         endDate = date;
                         this.focusedDateIndex = 1;
@@ -1273,7 +1294,6 @@ export default {
                         endDate = null;
                         this.focusedDateIndex = 0;
                     }
-
                     modelVal = [startDate, endDate];
                 } else {
                     modelVal = [date, null];
@@ -1294,10 +1314,49 @@ export default {
             this.$emit('date-select', date);
         },
         updateModel(value) {
-            this.writeValue(value);
+            this.rawValue = value;
+
+            if (this.updateModelType === 'date') {
+                if (this.isSingleSelection()) {
+                    this.writeValue(value);
+                } else {
+                    let stringArrValue = null;
+
+                    if (Array.isArray(value)) {
+                        stringArrValue = value.map((date) => this.parseValueForComparison(date));
+                    }
+
+                    this.writeValue(stringArrValue);
+                }
+            } else if (this.updateModelType == 'string') {
+                if (this.isSingleSelection()) {
+                    this.writeValue(this.formatDateTime(value));
+                } else if (this.isMultipleSelection()) {
+                    let stringArrValue = null;
+
+                    if (Array.isArray(value)) {
+                        stringArrValue = value.map((date) => this.formatDateTime(date));
+                    }
+
+                    this.writeValue(stringArrValue);
+                } else if (this.isRangeSelection()) {
+                    let stringArrValue = null;
+
+                    if (Array.isArray(value)) {
+                        stringArrValue = value.map((date) => {
+                            if (date === null || date === undefined) {
+                                return null;
+                            }
+                            return typeof date === 'string' ? date : this.formatDateTime(date);
+                        });
+                    }
+
+                    this.writeValue(stringArrValue);
+                }
+            }
         },
         shouldSelectDate() {
-            if (this.isMultipleSelection()) return this.maxDateCount != null ? this.maxDateCount > (this.d_value ? this.d_value.length : 0) : true;
+            if (this.isMultipleSelection()) return this.maxDateCount != null ? this.maxDateCount > (this.rawValue ? this.rawValue.length : 0) : true;
             else return true;
         },
         isSingleSelection() {
@@ -1322,7 +1381,7 @@ export default {
                         formattedValue = this.formatDateTime(value);
                     } else if (this.isMultipleSelection()) {
                         for (let i = 0; i < value.length; i++) {
-                            let dateAsString = this.formatDateTime(value[i]);
+                            let dateAsString = typeof value[i] === 'string' ? this.formatDateTime(this.parseValueForComparison(value[i])) : this.formatDateTime(value[i]);
 
                             formattedValue += dateAsString;
 
@@ -1332,8 +1391,8 @@ export default {
                         }
                     } else if (this.isRangeSelection()) {
                         if (value && value.length) {
-                            let startDate = value[0];
-                            let endDate = value[1];
+                            let startDate = this.parseValueForComparison(value[0]);
+                            let endDate = this.parseValueForComparison(value[1]);
 
                             formattedValue = this.formatDateTime(startDate);
 
@@ -1352,7 +1411,7 @@ export default {
         formatDateTime(date) {
             let formattedValue = null;
 
-            if (date) {
+            if (isDate(date) && isNotEmpty(date)) {
                 if (this.timeOnly) {
                     formattedValue = this.formatTime(date);
                 } else {
@@ -1362,6 +1421,8 @@ export default {
                         formattedValue += ' ' + this.formatTime(date);
                     }
                 }
+            } else if (this.updateModelType === 'string') {
+                formattedValue = date;
             }
 
             return formattedValue;
@@ -1584,15 +1645,15 @@ export default {
             return hours;
         },
         validateTime(hour, minute, second, pm) {
-            let value = this.isComparable() ? this.d_value : this.viewDate;
+            let value = this.viewDate;
             const convertedHour = this.convertTo24Hour(hour, pm);
 
             if (this.isRangeSelection()) {
-                value = this.d_value[1] || this.d_value[0];
+                value = this.rawValue[1] || this.rawValue[0];
             }
 
             if (this.isMultipleSelection()) {
-                value = this.d_value[this.d_value.length - 1];
+                value = this.rawValue[this.rawValue.length - 1];
             }
 
             const valueDateString = value ? value.toDateString() : null;
@@ -1720,14 +1781,14 @@ export default {
         },
         updateModelTime() {
             this.timePickerChange = true;
-            let value = this.isComparable() ? this.d_value : this.viewDate;
+            let value = this.viewDate;
 
             if (this.isRangeSelection()) {
-                value = this.d_value[this.focusedDateIndex] || this.d_value[0];
+                value = this.rawValue[this.focusedDateIndex] || this.rawValue[0];
             }
 
             if (this.isMultipleSelection()) {
-                value = this.d_value[this.d_value.length - 1];
+                value = this.rawValue[this.rawValue.length - 1];
             }
 
             value = value ? new Date(value.getTime()) : new Date();
@@ -1743,17 +1804,17 @@ export default {
             value.setSeconds(this.currentSecond);
 
             if (this.isRangeSelection()) {
-                if (this.focusedDateIndex === 1 && this.d_value[1]) {
-                    value = [this.d_value[0], value];
+                if (this.focusedDateIndex === 1 && this.rawValue[1]) {
+                    value = [this.rawValue[0], value];
                 } else if (this.focusedDateIndex === 0) {
-                    value = [value, this.d_value[1]];
+                    value = [value, this.rawValue[1]];
                 } else {
                     value = [value, null];
                 }
             }
 
             if (this.isMultipleSelection()) {
-                value = [...this.d_value.slice(0, -1), value];
+                value = [...this.rawValue.slice(0, -1), value];
             }
 
             this.updateModel(value);
@@ -1805,8 +1866,8 @@ export default {
             if (this.showTime || this.timeOnly) {
                 let timeDate = viewDate;
 
-                if (this.isRangeSelection() && this.d_value && this.d_value[this.focusedDateIndex]) {
-                    timeDate = this.d_value[this.focusedDateIndex];
+                if (this.isRangeSelection() && this.rawValue && this.rawValue[this.focusedDateIndex]) {
+                    timeDate = this.rawValue[this.focusedDateIndex];
                 }
 
                 this.updateCurrentTimeMeta(timeDate);
@@ -1856,6 +1917,15 @@ export default {
                 for (let i = 0; i < tokens.length; i++) {
                     value[i] = this.parseDateTime(tokens[i].trim());
                 }
+            }
+
+            return value;
+        },
+        parseValueForComparison(value) {
+            if (typeof value === 'string') {
+                const parsedValue = this.parseValue(value);
+
+                return this.isSingleSelection() ? parsedValue : parsedValue[0];
             }
 
             return value;
@@ -2690,11 +2760,15 @@ export default {
                 this.selectionStart = this.input.selectionStart;
                 this.selectionEnd = this.input.selectionEnd;
 
+                if (this.$refs.clearIcon?.$el?.style) {
+                    this.$refs.clearIcon.$el.style.display = isEmpty(event.target.value) ? 'none' : 'block';
+                }
+
                 let value = this.parseValue(event.target.value);
 
                 if (this.isValidSelection(value)) {
                     this.typeUpdate = true;
-                    this.updateModel(value);
+                    this.updateModel(this.updateModelType === 'string' ? this.formatValue(value) : value);
                     this.updateCurrentMetaData();
                 }
             } catch (err) {
@@ -2721,7 +2795,11 @@ export default {
             this.formField.onBlur?.();
 
             this.focused = false;
-            event.target.value = this.formatValue(this.d_value);
+            event.target.value = this.formatValue(this.rawValue);
+
+            if (this.$refs.clearIcon?.$el?.style) {
+                this.$refs.clearIcon.$el.style.display = isEmpty(event.target.value) ? 'none' : 'block';
+            }
         },
         onKeyDown(event) {
             if (event.code === 'ArrowDown' && this.overlay) {
@@ -2867,18 +2945,24 @@ export default {
     },
     computed: {
         viewDate() {
-            let propValue = this.d_value;
+            let propValue = this.rawValue;
 
             if (propValue && Array.isArray(propValue)) {
                 if (this.isRangeSelection()) {
-                    if (propValue.length === 1) {
+                    if (propValue.length === 0) {
+                        propValue = null;
+                    } else if (propValue.length === 1) {
                         propValue = propValue[0];
                     } else {
-                        let lastVisibleMonth = new Date(propValue[0].getFullYear(), propValue[0].getMonth() + this.numberOfMonths, 1);
+                        const start = this.parseValueForComparison(propValue[0]);
+                        let lastVisibleMonth = new Date(start.getFullYear(), start.getMonth() + this.numberOfMonths, 1);
+
                         if (propValue[1] < lastVisibleMonth) {
                             propValue = propValue[0];
                         } else {
-                            propValue = new Date(propValue[1].getFullYear(), propValue[1].getMonth() - this.numberOfMonths + 1, 1);
+                            const end = this.parseValueForComparison(propValue[1]);
+
+                            propValue = new Date(end.getFullYear(), end.getMonth() - this.numberOfMonths + 1, 1);
                         }
                     }
                 } else if (this.isMultipleSelection()) {
@@ -2903,7 +2987,7 @@ export default {
             }
         },
         inputFieldValue() {
-            return this.formatValue(this.d_value);
+            return this.formatValue(this.rawValue);
         },
         months() {
             let months = [];
@@ -2933,13 +3017,26 @@ export default {
                         for (let j = prevMonthDaysLength - firstDay + 1; j <= prevMonthDaysLength; j++) {
                             let prev = this.getPreviousMonthAndYear(month, year);
 
-                            week.push({ day: j, month: prev.month, year: prev.year, otherMonth: true, today: this.isToday(today, j, prev.month, prev.year), selectable: this.isSelectable(j, prev.month, prev.year, true) });
+                            week.push({
+                                day: j,
+                                month: prev.month,
+                                year: prev.year,
+                                otherMonth: true,
+                                today: this.isToday(today, j, prev.month, prev.year),
+                                selectable: this.isSelectable(j, prev.month, prev.year, true)
+                            });
                         }
 
                         let remainingDaysLength = 7 - week.length;
 
                         for (let j = 0; j < remainingDaysLength; j++) {
-                            week.push({ day: dayNo, month: month, year: year, today: this.isToday(today, dayNo, month, year), selectable: this.isSelectable(dayNo, month, year, false) });
+                            week.push({
+                                day: dayNo,
+                                month: month,
+                                year: year,
+                                today: this.isToday(today, dayNo, month, year),
+                                selectable: this.isSelectable(dayNo, month, year, false)
+                            });
                             dayNo++;
                         }
                     } else {
@@ -2956,7 +3053,13 @@ export default {
                                     selectable: this.isSelectable(dayNo - daysLength, next.month, next.year, true)
                                 });
                             } else {
-                                week.push({ day: dayNo, month: month, year: year, today: this.isToday(today, dayNo, month, year), selectable: this.isSelectable(dayNo, month, year, false) });
+                                week.push({
+                                    day: dayNo,
+                                    month: month,
+                                    year: year,
+                                    today: this.isToday(today, dayNo, month, year),
+                                    selectable: this.isSelectable(dayNo, month, year, false)
+                                });
                             }
 
                             dayNo++;
@@ -3026,7 +3129,10 @@ export default {
             };
 
             for (let i = 0; i <= 11; i++) {
-                monthPickerValues.push({ value: this.$primevue.config.locale.monthNamesShort[i], selectable: isSelectableMonth(i) });
+                monthPickerValues.push({
+                    value: this.$primevue.config.locale.monthNamesShort[i],
+                    selectable: isSelectableMonth(i)
+                });
             }
 
             return monthPickerValues;
@@ -3082,7 +3188,8 @@ export default {
             return this.numberOfMonths > 1 || this.disabled;
         },
         isClearIconVisible() {
-            return this.showClear && this.d_value != null && !this.disabled;
+            console.log(this.$refs.input?.$el.value);
+            return this.showClear && this.rawValue != null && !this.disabled;
         },
         panelId() {
             return this.$id + '_panel';

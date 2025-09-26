@@ -55,7 +55,10 @@ const classes = {
         let selectedDayClass = '';
 
         if (instance.isRangeSelection() && instance.isSelected(date) && date.selectable) {
-            selectedDayClass = instance.isDateEquals(state.d_value[0], date) || instance.isDateEquals(state.d_value[1], date) ? 'p-datepicker-day-selected' : 'p-datepicker-day-selected-range';
+            const start = typeof state.rawValue[0] === 'string' ? instance.parseValue(state.rawValue[0])[0] : state.rawValue[0];
+            const end = typeof state.rawValue[1] === 'string' ? instance.parseValue(state.rawValue[1])[0] : state.rawValue[1];
+
+            selectedDayClass = instance.isDateEquals(start, date) || instance.isDateEquals(end, date) ? 'p-datepicker-day-selected' : 'p-datepicker-day-selected-range';
         }
 
         return [

@@ -14,6 +14,10 @@ export default {
             type: String,
             default: null
         },
+        updateModelType: {
+            type: String,
+            default: 'date'
+        },
         inline: {
             type: Boolean,
             default: false

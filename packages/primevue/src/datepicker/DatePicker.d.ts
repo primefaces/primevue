@@ -539,6 +539,11 @@ export interface DatePickerProps {
      */
     dateFormat?: string | undefined;
     /**
+     * Type of the value to write back to modelValue.
+     * @defaultValue date
+     */
+    updateModelType: HintedString<'date' | 'string'> | undefined;
+    /**
      * When enabled, displays the datepicker as inline instead of an overlay.
      * @defaultValue false
      */
