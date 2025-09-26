@@ -1,6 +1,7 @@
 <template>
     <div :class="cx('root')" v-bind="getPTOptions('root')" :data-p-checked="checked" :data-p-indeterminate="d_indeterminate || undefined" :data-p-disabled="disabled" :data-p="dataP">
         <input
+            ref="input"
             :id="inputId"
             type="checkbox"
             :class="[cx('input'), inputClass]"
@@ -15,7 +16,6 @@
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             :aria-invalid="invalid || undefined"
-            :aria-checked="d_indeterminate ? 'mixed' : undefined"
             @focus="onFocus"
             @blur="onBlur"
             @change="onChange"
@@ -55,7 +55,15 @@ export default {
     watch: {
         indeterminate(newValue) {
             this.d_indeterminate = newValue;
-        }
+
+            this.updateIndeterminate();
+        },
+    },
+    mounted() {
+        this.updateIndeterminate();
+    },
+    updated() {
+        this.updateIndeterminate();
     },
     methods: {
         getPTOptions(key) {
@@ -96,6 +104,11 @@ export default {
         onBlur(event) {
             this.$emit('blur', event);
             this.formField.onBlur?.(event);
+        },
+        updateIndeterminate() {
+            if (this.$refs.input) {
+                this.$refs.input.indeterminate = this.d_indeterminate;
+            }
         }
     },
     computed: {
