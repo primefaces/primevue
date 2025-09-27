@@ -318,10 +318,4 @@ export declare type EditorEmits = EmitFn<EditorEmitsOptions>;
  */
 declare const Editor: DefineComponent<EditorProps, EditorSlots, EditorEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Editor: DefineComponent<EditorProps, EditorSlots, EditorEmits>;
-    }
-}
-
 export default Editor;

@@ -296,10 +296,4 @@ export declare type RatingEmits = EmitFn<RatingEmitsOptions>;
  */
 declare const Rating: DefineComponent<RatingProps, RatingSlots, RatingEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Rating: DefineComponent<RatingProps, RatingSlots, RatingEmits>;
-    }
-}
-
 export default Rating;

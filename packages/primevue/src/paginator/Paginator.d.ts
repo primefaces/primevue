@@ -517,10 +517,4 @@ export declare type PaginatorEmits = EmitFn<PaginatorEmitsOptions>;
  */
 declare const Paginator: DefineComponent<PaginatorProps, PaginatorSlots, PaginatorEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Paginator: DefineComponent<PaginatorProps, PaginatorSlots, PaginatorEmits>;
-    }
-}
-
 export default Paginator;
