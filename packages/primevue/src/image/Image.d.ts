@@ -318,30 +318,24 @@ export interface ImageSlots {
     }): VNode[];
 }
 
-export interface ImageEmitsOptions {}
-
-export declare type ImageEmits = EmitFn<ImageEmitsOptions>;
-
-export interface ImageMethods {
+export interface ImageEmitsOptions {
     /**
      * Triggered when the preview overlay is shown.
-     *
-     * @memberof Image
      */
     show(): void;
     /**
      * Triggered when the preview overlay is hidden.
-     *
-     * @memberof Image
      */
     hide(): void;
     /**
      * Triggered when an error occurs while loading an image file.
-     *
-     * @memberof Image
      */
     error(): void;
 }
+
+export declare type ImageEmits = EmitFn<ImageEmitsOptions>;
+
+export interface ImageMethods {}
 
 /**
  * **PrimeVue - Image**
