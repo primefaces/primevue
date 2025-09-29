@@ -20,7 +20,7 @@
             aria-autocomplete="none"
             aria-haspopup="dialog"
             :aria-expanded="overlayVisible"
-            :aria-controls="panelId"
+            :aria-controls="overlayVisible ? panelId : undefined"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
             inputmode="none"
