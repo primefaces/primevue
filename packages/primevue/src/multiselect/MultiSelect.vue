@@ -14,7 +14,7 @@
                 :aria-labelledby="ariaLabelledby"
                 aria-haspopup="listbox"
                 :aria-expanded="overlayVisible"
-                :aria-controls="$id + '_list'"
+                :aria-controls="overlayVisible ? $id + '_list' : undefined"
                 :aria-activedescendant="focused ? focusedOptionId : undefined"
                 :aria-invalid="invalid || undefined"
                 @focus="onFocus"
