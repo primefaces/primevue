@@ -9,7 +9,7 @@
             :aria-label="columnFilterButtonAriaLabel"
             aria-haspopup="true"
             :aria-expanded="overlayVisible"
-            :aria-controls="overlayId"
+            :aria-controls="overlayVisible ? overlayId : undefined"
             :class="cx('pcColumnFilterButton')"
             :unstyled="unstyled"
             @click="toggleMenu($event)"
