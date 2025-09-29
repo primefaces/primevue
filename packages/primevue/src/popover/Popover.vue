@@ -4,7 +4,7 @@
             <div v-if="visible" :ref="containerRef" v-focustrap role="dialog" :aria-modal="visible" @click="onOverlayClick" :class="cx('root')" v-bind="ptmi('root')">
                 <slot v-if="$slots.container" name="container" :closeCallback="hide" :keydownCallback="(event) => onButtonKeydown(event)"></slot>
                 <template v-else>
-                    <div :class="cx('content')" @click="onContentClick" @mousedown="onContentClick" @keydown="onContentKeydown" v-bind="ptm('content')">
+                    <div :class="cx('content')" @mousedown="onContentClick" @keydown="onContentKeydown" v-bind="ptm('content')">
                         <slot></slot>
                     </div>
                 </template>
@@ -215,12 +215,12 @@ export default {
                     this.selfClick = false;
                 };
 
-                document.addEventListener('click', this.outsideClickListener);
+                document.addEventListener('click', this.outsideClickListener, true);
             }
         },
         unbindOutsideClickListener() {
             if (this.outsideClickListener) {
-                document.removeEventListener('click', this.outsideClickListener);
+                document.removeEventListener('click', this.outsideClickListener, true);
                 this.outsideClickListener = null;
                 this.selfClick = false;
             }
