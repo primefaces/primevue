@@ -76070,6 +76070,22 @@
                             "description": "Used to pass attributes to the loading icon's DOM element."
                         },
                         {
+                            "name": "emptyMessage",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the empty message's DOM element."
+                        },
+                        {
+                            "name": "dropPoint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the drop point's DOM element."
+                        },
+                        {
                             "name": "hooks",
                             "optional": true,
                             "readonly": false,
@@ -76304,6 +76320,38 @@
                             "description": "Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size."
                         },
                         {
+                            "name": "dndNodes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "null",
+                            "description": "Whether the nodes are draggable and droppable."
+                        },
+                        {
+                            "name": "draggableScope",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | string[]",
+                            "default": "null",
+                            "description": "Scope of the draggable nodes to match a droppableScope."
+                        },
+                        {
+                            "name": "droppableScope",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | string[]",
+                            "default": "null",
+                            "description": "Scope of the droppable nodes to match a draggableScope."
+                        },
+                        {
+                            "name": "validateDrop",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, drop can be accepted or rejected based on condition defined at node-drop."
+                        },
+                        {
                             "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
@@ -76510,6 +76558,12 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom footer"
+                        },
+                        {
+                            "name": "empty",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom empty template."
                         }
                     ]
                 },
@@ -76924,6 +76978,22 @@
                             "type": "string",
                             "default": "",
                             "description": "Icon to use in collapsed state."
+                        },
+                        {
+                            "name": "draggable",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "null",
+                            "description": "Specifies if the node is draggable.\nAvailable only for Tree component."
+                        },
+                        {
+                            "name": "droppable",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "null",
+                            "description": "Specifies if the node is droppable.\nAvailable only for Tree component."
                         },
                         {
                             "name": "[key: string]",
