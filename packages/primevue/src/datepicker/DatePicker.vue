@@ -3188,7 +3188,6 @@ export default {
             return this.numberOfMonths > 1 || this.disabled;
         },
         isClearIconVisible() {
-            console.log(this.$refs.input?.$el.value);
             return this.showClear && this.rawValue != null && !this.disabled;
         },
         panelId() {
