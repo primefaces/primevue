@@ -174,6 +174,14 @@ export interface TreePassThroughOptions<T = any> {
      */
     loadingIcon?: TreePassThroughOptionType<T>;
     /**
+     * Used to pass attributes to the empty message's DOM element.
+     */
+    emptyMessage?: TreePassThroughOptionType<T>;
+    /**
+     * Used to pass attributes to the drop point's DOM element.
+     */
+    dropPoint?: TreePassThroughOptionType<T>;
+    /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
      */
@@ -312,6 +320,26 @@ export interface TreeProps {
      * Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size.
      */
     scrollHeight?: HintedString<'flex'> | undefined;
+    /**
+     * Whether the nodes are draggable and droppable.
+     * @defaultValue null
+     */
+    dndNodes?: boolean | undefined;
+    /**
+     * Scope of the draggable nodes to match a droppableScope.
+     * @defaultValue null
+     */
+    draggableScope?: string | string[] | undefined;
+    /**
+     * Scope of the droppable nodes to match a draggableScope.
+     * @defaultValue null
+     */
+    droppableScope?: string | string[] | undefined;
+    /**
+     * When enabled, drop can be accepted or rejected based on condition defined at node-drop.
+     * @defaultValue false
+     */
+    validateDrop?: boolean | undefined;
     /**
      * Defines a string value that labels an interactive element.
      */
@@ -501,6 +529,10 @@ export interface TreeSlots {
          */
         selectionKeys: TreeSelectionKeys;
     }): VNode[];
+    /**
+     * Custom empty template.
+     */
+    empty(): VNode[];
     /**
      * Optional slots.
      * @todo

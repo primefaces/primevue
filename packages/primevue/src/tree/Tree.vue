@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" :data-p="containerDataP" v-bind="ptmi('root')">
+    <div :class="cx('root')" @dragover="onDragOver" @dragenter="onDragEnter" @dragleave="onDragLeave" @drop="onDrop" :data-p="containerDataP" v-bind="ptmi('root')">
         <template v-if="loading && loadingMode === 'mask'">
             <div :class="cx('mask')" v-bind="ptm('mask')">
                 <slot name="loadingicon" :class="cx('loadingIcon')">
@@ -19,11 +19,12 @@
         </IconField>
         <div :class="cx('wrapper')" :style="{ maxHeight: scrollHeight }" :data-p="wrapperDataP" v-bind="ptm('wrapper')">
             <slot name="header" :value="value" :expandedKeys="expandedKeys" :selectionKeys="selectionKeys" />
-            <ul :class="cx('rootChildren')" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('rootChildren')">
+            <ul v-if="!empty" :class="cx('rootChildren')" role="tree" :aria-labelledby="ariaLabelledby" :aria-label="ariaLabel" v-bind="ptm('rootChildren')">
                 <TreeNode
                     v-for="(node, index) of valueToRender"
                     :key="node.key"
                     :node="node"
+                    :rootNodes="valueToRender"
                     :templates="$slots"
                     :level="level + 1"
                     :index="index"
@@ -34,10 +35,19 @@
                     :selectionKeys="selectionKeys"
                     @checkbox-change="onCheckboxChange"
                     :loadingMode="loadingMode"
+                    :draggableScope="draggableScope"
+                    :dndNodes="dndNodes"
+                    :validateDrop="validateDrop"
+                    @node-drop="onNodeDrop"
                     :unstyled="unstyled"
                     :pt="pt"
                 ></TreeNode>
             </ul>
+            <div v-else :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
+                <slot name="empty">
+                    {{ emptyMessageText }}
+                </slot>
+            </div>
             <slot name="footer" :value="value" :expandedKeys="expandedKeys" :selectionKeys="selectionKeys" />
         </div>
     </div>
@@ -52,22 +62,60 @@ import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
 import InputText from 'primevue/inputtext';
 import BaseTree from './BaseTree.vue';
+import { useTreeDragDropService } from './TreeDragDropService';
 import TreeNode from './TreeNode.vue';
 
 export default {
     name: 'Tree',
     extends: BaseTree,
     inheritAttrs: false,
-    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 'filter'],
+    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 'filter', 'node-drop', 'update:value'],
     data() {
         return {
             d_expandedKeys: this.expandedKeys || {},
-            filterValue: null
+            filterValue: null,
+            dragNode: null,
+            dragNodeSubNodes: null,
+            dragNodeIndex: null,
+            dragNodeScope: null,
+            dragHover: null
         };
     },
+    dragDropService: null,
+    dragStartCleanup: null,
+    dragStopCleanup: null,
     watch: {
         expandedKeys(newValue) {
             this.d_expandedKeys = newValue;
+        }
+    },
+    mounted() {
+        if (this.dndNodes) {
+            this.dragDropService = useTreeDragDropService();
+
+            this.dragStartCleanup = this.dragDropService.onDragStart((event) => {
+                this.dragNode = event.node;
+                this.dragNodeSubNodes = event.subNodes;
+                this.dragNodeIndex = event.index;
+                this.dragNodeScope = event.scope;
+            });
+
+            this.dragStopCleanup = this.dragDropService.onDragStop(() => {
+                this.dragNode = null;
+                this.dragNodeSubNodes = null;
+                this.dragNodeIndex = null;
+                this.dragNodeScope = null;
+                this.dragHover = false;
+            });
+        }
+    },
+    beforeUnmount() {
+        if (this.dragStartCleanup) {
+            this.dragStartCleanup();
+        }
+
+        if (this.dragStopCleanup) {
+            this.dragStopCleanup();
         }
     },
     methods: {
@@ -220,6 +268,127 @@ export default {
             }
 
             return matched;
+        },
+        onNodeDrop(event) {
+            this.$emit('node-drop', event);
+        },
+        allowDrop(dragNode, dropNode, dragNodeScope) {
+            if (!dragNode) {
+                //prevent random html elements to be dragged
+                return false;
+            } else if (this.isValidDragScope(dragNodeScope)) {
+                let allow = true;
+
+                if (dropNode) {
+                    if (dragNode === dropNode) {
+                        allow = false;
+                    } else {
+                        let parent = dropNode.parent;
+
+                        while (parent != null) {
+                            if (parent === dragNode) {
+                                allow = false;
+
+                                break;
+                            }
+
+                            parent = parent.parent;
+                        }
+                    }
+                }
+
+                return allow;
+            } else {
+                return false;
+            }
+        },
+        allowNodeDrop(dropNode) {
+            return this.allowDrop(this.dragNode, dropNode, this.dragNodeScope);
+        },
+        isValidDragScope(dragScope) {
+            let dropScope = this.droppableScope;
+
+            if (dropScope !== null) {
+                if (typeof dropScope === 'string') {
+                    if (typeof dragScope === 'string') return dropScope === dragScope;
+                    else if (Array.isArray(dragScope)) return dragScope.indexOf(dropScope) != -1;
+                } else if (Array.isArray(dropScope)) {
+                    if (typeof dragScope === 'string') {
+                        return dropScope.indexOf(dragScope) != -1;
+                    } else if (Array.isArray(dragScope)) {
+                        for (let s of dropScope) {
+                            for (let ds of dragScope) {
+                                if (s === ds) {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+                return false;
+            } else {
+                return true;
+            }
+        },
+        onDragOver(event) {
+            if (this.dndNodes && (!this.value || this.value.length === 0)) {
+                event.dataTransfer.dropEffect = 'move';
+                event.preventDefault();
+            }
+        },
+        onDragEnter() {
+            if (this.dndNodes && this.allowDrop(this.dragNode, null, this.dragNodeScope)) {
+                this.dragHover = true;
+            }
+        },
+        onDragLeave(event) {
+            if (this.dndNodes) {
+                let rect = event.currentTarget.getBoundingClientRect();
+
+                if (event.x > rect.left + rect.width || event.x < rect.left || event.y > rect.top + rect.height || event.y < rect.top) {
+                    this.dragHover = false;
+                }
+            }
+        },
+        processTreeDrop(dragNode, dragNodeIndex) {
+            this.dragNodeSubNodes.splice(dragNodeIndex, 1);
+            const newValue = [...(this.value || []), dragNode];
+            this.$emit('update:value', newValue);
+
+            this.dragDropService.stopDrag({
+                node: dragNode
+            });
+        },
+        onDrop(event) {
+            if (this.dndNodes && (!this.value || this.value.length === 0)) {
+                event.preventDefault();
+                let dragNode = this.dragNode;
+
+                if (this.allowDrop(dragNode, null, this.dragNodeScope)) {
+                    let dragNodeIndex = this.dragNodeIndex;
+
+                    if (this.validateDrop) {
+                        this.$emit('node-drop', {
+                            originalEvent: event,
+                            dragNode: dragNode,
+                            dropNode: null,
+                            index: dragNodeIndex,
+                            accept: () => {
+                                this.processTreeDrop(dragNode, dragNodeIndex);
+                            }
+                        });
+                    } else {
+                        this.$emit('node-drop', {
+                            originalEvent: event,
+                            dragNode: dragNode,
+                            dropNode: null,
+                            index: dragNodeIndex
+                        });
+
+                        this.processTreeDrop(dragNode, dragNodeIndex);
+                    }
+                }
+            }
         }
     },
     computed: {
@@ -246,6 +415,12 @@ export default {
         valueToRender() {
             if (this.filterValue && this.filterValue.trim().length > 0) return this.filteredValue;
             else return this.value;
+        },
+        empty() {
+            return !this.valueToRender || this.valueToRender.length === 0;
+        },
+        emptyMessageText() {
+            return this.$primevue.config?.locale?.emptyMessage || '';
         },
         containerDataP() {
             return cn({

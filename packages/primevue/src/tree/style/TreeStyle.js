@@ -2,12 +2,13 @@ import { style } from '@primeuix/styles/tree';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
-    root: ({ props }) => [
+    root: ({ props, state }) => [
         'p-tree p-component',
         {
             'p-tree-selectable': props.selectionMode != null,
             'p-tree-loading': props.loading,
-            'p-tree-flex-scrollable': props.scrollHeight === 'flex'
+            'p-tree-flex-scrollable': props.scrollHeight === 'flex',
+            'p-tree-node-dragover': state.dragHover
         }
     ],
     mask: 'p-tree-mask p-overlay-mask',
@@ -22,7 +23,8 @@ const classes = {
         instance.node.styleClass,
         {
             'p-tree-node-selectable': instance.selectable,
-            'p-tree-node-selected': instance.checkboxMode && instance.$parentInstance.highlightOnSelect ? instance.checked : instance.selected
+            'p-tree-node-selected': instance.checkboxMode && instance.$parentInstance.highlightOnSelect ? instance.checked : instance.selected,
+            'p-tree-node-dragover': instance.isNodeDropActive
         }
     ],
     nodeToggleButton: 'p-tree-node-toggle-button',
@@ -30,7 +32,9 @@ const classes = {
     nodeCheckbox: 'p-tree-node-checkbox',
     nodeIcon: 'p-tree-node-icon',
     nodeLabel: 'p-tree-node-label',
-    nodeChildren: 'p-tree-node-children'
+    nodeChildren: 'p-tree-node-children',
+    emptyMessage: 'p-tree-empty-message',
+    dropPoint: 'p-tree-node-drop-point'
 };
 
 export default BaseStyle.extend({
