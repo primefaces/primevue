@@ -49,8 +49,11 @@ export default {
         };
     },
     watch: {
-        modelValue(newValue) {
-            this.d_value = newValue;
+        modelValue: {
+            deep: true,
+            handler(newValue) {
+                this.d_value = newValue;
+            }
         },
         defaultValue(newValue) {
             this.d_value = newValue;
