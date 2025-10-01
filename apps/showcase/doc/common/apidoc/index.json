@@ -34174,11 +34174,6 @@
                 "ImageEmitsOptions": {
                     "relatedProp": "",
                     "props": [],
-                    "methods": []
-                },
-                "ImageMethods": {
-                    "relatedProp": "",
-                    "props": [],
                     "methods": [
                         {
                             "name": "show",
@@ -34199,6 +34194,11 @@
                             "description": "Triggered when an error occurs while loading an image file."
                         }
                     ]
+                },
+                "ImageMethods": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
                 }
             }
         },
