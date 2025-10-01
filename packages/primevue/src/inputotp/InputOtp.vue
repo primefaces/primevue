@@ -132,16 +132,13 @@ export default {
 
             switch (event.key) {
                 case 'ArrowLeft':
-                case 'Left':
                     this.moveToPrev(event);
                     event.preventDefault();
 
                     break;
 
                 case 'ArrowUp':
-                case 'Up':
                 case 'ArrowDown':
-                case 'Down':
                     event.preventDefault();
 
                     break;
@@ -155,7 +152,6 @@ export default {
                     break;
 
                 case 'ArrowRight':
-                case 'Right':
                     this.moveToNext(event);
                     event.preventDefault();
 
@@ -171,7 +167,7 @@ export default {
                     const isAtMaxLength = this.tokens.join('').length >= this.length;
                     const isValidKey = this.integerOnly ? /^[0-9]$/.test(event.key) : true;
 
-                    if (!isValidKey || (isAtMaxLength && event.key !== 'Delete' && event.key !== 'Del' && !hasSelection)) {
+                    if (!isValidKey || (isAtMaxLength && event.key !== 'Delete' && !hasSelection)) {
                         event.preventDefault();
                     }
 
