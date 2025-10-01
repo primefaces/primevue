@@ -351,10 +351,10 @@ export default {
                 hsb = this.HEXtoHSB(this.defaultColor);
             }
 
-            if (this.localHue == null || (!this.overlayVisible && !this.inline)) {
-                this.localHue = hsb.h;
-            } else {
+            if (hsb.s === 0 || hsb.b === 0) {
                 hsb.h = this.localHue;
+            } else {
+                this.localHue = hsb.h;
             }
 
             return hsb;
