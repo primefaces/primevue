@@ -249,7 +249,7 @@ export default {
                 this.prefixChar = formatter.format(1).split('1')[0];
             }
 
-            return new RegExp(`${this.escapeRegExp(this.prefixChar || '')}`, 'g');
+            return new RegExp(`${this.escapeRegExp(this.prefixChar.trim() || '')}`, 'g');
         },
         getSuffixExpression() {
             if (this.suffix) {
@@ -260,7 +260,7 @@ export default {
                 this.suffixChar = formatter.format(1).split('1')[1];
             }
 
-            return new RegExp(`${this.escapeRegExp(this.suffixChar || '')}`, 'g');
+            return new RegExp(`${this.escapeRegExp(this.suffixChar.trim() || '')}`, 'g');
         },
         formatValue(value) {
             if (value != null) {
