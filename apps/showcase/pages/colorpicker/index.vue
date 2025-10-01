@@ -5,7 +5,6 @@
 <script>
 import AccessibilityDoc from '@/doc/colorpicker/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/colorpicker/BasicDoc.vue';
-import ControlledDoc from '@/doc/colorpicker/ControlledDoc.vue';
 import DisabledDoc from '@/doc/colorpicker/DisabledDoc.vue';
 import FormatDoc from '@/doc/colorpicker/FormatDoc.vue';
 import FormsDoc from '@/doc/colorpicker/FormsDoc.vue';
@@ -42,11 +41,6 @@ export default {
                     id: 'format',
                     label: 'Format',
                     component: FormatDoc
-                },
-                {
-                    id: 'controlled',
-                    label: 'Controlled',
-                    component: ControlledDoc
                 },
                 {
                     id: 'disabled',
