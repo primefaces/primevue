@@ -36,7 +36,7 @@
                     @checkbox-change="onCheckboxChange"
                     :loadingMode="loadingMode"
                     :draggableScope="draggableScope"
-                    :dndNodes="dndNodes"
+                    :dragdrop="dragdrop"
                     :validateDrop="validateDrop"
                     @node-drop="onNodeDrop"
                     :unstyled="unstyled"
@@ -90,7 +90,7 @@ export default {
         }
     },
     mounted() {
-        if (this.dndNodes) {
+        if (this.dragdrop) {
             this.dragDropService = useTreeDragDropService();
 
             this.dragStartCleanup = this.dragDropService.onDragStart((event) => {
@@ -331,18 +331,18 @@ export default {
             }
         },
         onDragOver(event) {
-            if (this.dndNodes && (!this.value || this.value.length === 0)) {
+            if (this.dragdrop && (!this.value || this.value.length === 0)) {
                 event.dataTransfer.dropEffect = 'move';
                 event.preventDefault();
             }
         },
         onDragEnter() {
-            if (this.dndNodes && this.allowDrop(this.dragNode, null, this.dragNodeScope)) {
+            if (this.dragdrop && this.allowDrop(this.dragNode, null, this.dragNodeScope)) {
                 this.dragHover = true;
             }
         },
         onDragLeave(event) {
-            if (this.dndNodes) {
+            if (this.dragdrop) {
                 let rect = event.currentTarget.getBoundingClientRect();
 
                 if (event.x > rect.left + rect.width || event.x < rect.left || event.y > rect.top + rect.height || event.y < rect.top) {
@@ -360,7 +360,7 @@ export default {
             });
         },
         onDrop(event) {
-            if (this.dndNodes && (!this.value || this.value.length === 0)) {
+            if (this.dragdrop && (!this.value || this.value.length === 0)) {
                 event.preventDefault();
                 let dragNode = this.dragNode;
 

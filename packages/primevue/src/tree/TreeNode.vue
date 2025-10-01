@@ -84,7 +84,7 @@
                 :selectionKeys="selectionKeys"
                 @checkbox-change="propagateUp"
                 :draggableScope="draggableScope"
-                :dndNodes="dndNodes"
+                :dragdrop="dragdrop"
                 :validateDrop="validateDrop"
                 @node-drop="onChildNodeDrop"
                 :unstyled="unstyled"
@@ -151,7 +151,7 @@ export default {
             type: [String, Array],
             default: null
         },
-        dndNodes: {
+        dragdrop: {
             type: Boolean,
             default: null
         },
@@ -464,7 +464,7 @@ export default {
                 }
             }
 
-            if (this.dndNodes) {
+            if (this.dragdrop) {
                 event.preventDefault();
                 event.stopPropagation();
             }
@@ -667,10 +667,10 @@ export default {
             return this.parentNode ? this.parentNode.children : this.rootNodes;
         },
         isDraggable() {
-            return this.dndNodes;
+            return this.dragdrop;
         },
         isDroppable() {
-            return this.dndNodes && this.$pcTree.allowNodeDrop(this.node);
+            return this.dragdrop && this.$pcTree.allowNodeDrop(this.node);
         },
         isNodeDraggable() {
             return this.node?.draggable !== false && this.isDraggable;

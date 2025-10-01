@@ -70,7 +70,7 @@ export default {
             type: Number,
             default: 0
         },
-        dndNodes: {
+        dragdrop: {
             type: Boolean,
             default: null
         },

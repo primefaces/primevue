@@ -3,7 +3,7 @@
         <p>Nodes can be reordered within the same tree and also can be transferred between other trees using drag&drop.</p>
     </DocSectionText>
     <div class="card">
-        <Tree :value="nodes" class="w-full md:w-[30rem]" dndNodes></Tree>
+        <Tree :value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
     </div>
     <DocSectionCode :code="code" v-bind="$attrs" />
 </template>
@@ -138,12 +138,12 @@ export default {
             ],
             code: {
                 basic: `
-<Tree :value="nodes" dndNodes></Tree>
+<Tree :value="nodes" dragdrop></Tree>
 `,
                 options: `
 <template>
     <div class="card">
-        <Tree :value="nodes" class="w-full md:w-[30rem]" dndNodes></Tree>
+        <Tree :value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
     </div>
 </template>
 
@@ -283,7 +283,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Tree :value="nodes" class="w-full md:w-[30rem]" dndNodes></Tree>
+        <Tree :value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
     </div>
 </template>
 

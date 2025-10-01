@@ -98,6 +98,29 @@ export interface TreeFilterEvent {
 }
 
 /**
+ * Custom node drop event.
+ * @see {@link TreeEmitsOptions.node-drop}
+ */
+export interface TreeNodeDropEvent {
+    /**
+     * Original event
+     */
+    originalEvent: Event;
+    /**
+     * Dragged node
+     */
+    dragNode: TreeNode;
+    /**
+     * Dropped node
+     */
+    dropNode: TreeNode;
+    /**
+     * Index of the dropped node
+     */
+    index: number;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link TreeProps.pt}
  */
@@ -324,7 +347,7 @@ export interface TreeProps {
      * Whether the nodes are draggable and droppable.
      * @defaultValue null
      */
-    dndNodes?: boolean | undefined;
+    dragdrop?: boolean | undefined;
     /**
      * Scope of the draggable nodes to match a droppableScope.
      * @defaultValue null
@@ -545,6 +568,11 @@ export interface TreeSlots {
  */
 export interface TreeEmitsOptions {
     /**
+     * Emitted when the value change.
+     * @param {TreeNode} value - New value.
+     */
+    'update:value'(value: TreeNode[]): void;
+    /**
      * Emitted when the expanded keys change.
      * @param {TreeNode} value - New expanded keys.
      */
@@ -574,6 +602,11 @@ export interface TreeEmitsOptions {
      * @param {TreeNode} node - Node instance.
      */
     'node-collapse'(node: TreeNode): void;
+    /**
+     * Callback to invoke when a node is collapsed.
+     * @param {TreeNode} node - Node instance.
+     */
+    'node-drop'(node: TreeNodeDropEvent): void;
     /**
      * Callback to invoke on filter input.
      * @param {TreeFilterEvent} event - Custom filter event.
