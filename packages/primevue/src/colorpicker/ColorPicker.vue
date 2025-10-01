@@ -58,6 +58,14 @@ export default {
             immediate: true,
             handler(newValue) {
                 this.hsbValue = this.toHSB(newValue);
+                if (this.selfUpdate) this.selfUpdate = false;
+                else this.updateUI();
+            }
+        },
+        d_value: {
+            immediate: true,
+            handler(newValue) {
+                this.hsbValue = this.toHSB(newValue);
 
                 if (this.selfUpdate) this.selfUpdate = false;
                 else this.updateUI();
