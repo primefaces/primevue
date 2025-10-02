@@ -65,6 +65,18 @@ export interface TreeNode {
      */
     collapsedIcon?: string;
     /**
+     * Specifies if the node is draggable.
+     * Available only for Tree component.
+     * @defaultValue null
+     */
+    draggable?: boolean;
+    /**
+     * Specifies if the node is droppable.
+     * Available only for Tree component.
+     * @defaultValue null
+     */
+    droppable?: boolean;
+    /**
      * Optional
      */
     [key: string]: any;

@@ -98,6 +98,29 @@ export interface TreeFilterEvent {
 }
 
 /**
+ * Custom node drop event.
+ * @see {@link TreeEmitsOptions.node-drop}
+ */
+export interface TreeNodeDropEvent {
+    /**
+     * Original event
+     */
+    originalEvent: Event;
+    /**
+     * Dragged node
+     */
+    dragNode: TreeNode;
+    /**
+     * Dropped node
+     */
+    dropNode: TreeNode;
+    /**
+     * Index of the dropped node
+     */
+    index: number;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link TreeProps.pt}
  */
@@ -173,6 +196,14 @@ export interface TreePassThroughOptions<T = any> {
      * Used to pass attributes to the loading icon's DOM element.
      */
     loadingIcon?: TreePassThroughOptionType<T>;
+    /**
+     * Used to pass attributes to the empty message's DOM element.
+     */
+    emptyMessage?: TreePassThroughOptionType<T>;
+    /**
+     * Used to pass attributes to the drop point's DOM element.
+     */
+    dropPoint?: TreePassThroughOptionType<T>;
     /**
      * Used to manage all lifecycle hooks.
      * @see {@link BaseComponent.ComponentHooks}
@@ -312,6 +343,26 @@ export interface TreeProps {
      * Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size.
      */
     scrollHeight?: HintedString<'flex'> | undefined;
+    /**
+     * Whether the nodes are draggable and droppable.
+     * @defaultValue null
+     */
+    dragdrop?: boolean | undefined;
+    /**
+     * Scope of the draggable nodes to match a droppableScope.
+     * @defaultValue null
+     */
+    draggableScope?: string | string[] | undefined;
+    /**
+     * Scope of the droppable nodes to match a draggableScope.
+     * @defaultValue null
+     */
+    droppableScope?: string | string[] | undefined;
+    /**
+     * When enabled, drop can be accepted or rejected based on condition defined at node-drop.
+     * @defaultValue false
+     */
+    validateDrop?: boolean | undefined;
     /**
      * Defines a string value that labels an interactive element.
      */
@@ -502,6 +553,10 @@ export interface TreeSlots {
         selectionKeys: TreeSelectionKeys;
     }): VNode[];
     /**
+     * Custom empty template.
+     */
+    empty(): VNode[];
+    /**
      * Optional slots.
      * @todo
      */
@@ -512,6 +567,11 @@ export interface TreeSlots {
  * Defines valid emits in Tree component.
  */
 export interface TreeEmitsOptions {
+    /**
+     * Emitted when the value change.
+     * @param {TreeNode} value - New value.
+     */
+    'update:value'(value: TreeNode[]): void;
     /**
      * Emitted when the expanded keys change.
      * @param {TreeNode} value - New expanded keys.
@@ -542,6 +602,11 @@ export interface TreeEmitsOptions {
      * @param {TreeNode} node - Node instance.
      */
     'node-collapse'(node: TreeNode): void;
+    /**
+     * Callback to invoke when a node is collapsed.
+     * @param {TreeNode} node - Node instance.
+     */
+    'node-drop'(node: TreeNodeDropEvent): void;
     /**
      * Callback to invoke on filter input.
      * @param {TreeFilterEvent} event - Custom filter event.

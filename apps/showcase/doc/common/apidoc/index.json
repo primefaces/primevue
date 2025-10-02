@@ -34174,11 +34174,6 @@
                 "ImageEmitsOptions": {
                     "relatedProp": "",
                     "props": [],
-                    "methods": []
-                },
-                "ImageMethods": {
-                    "relatedProp": "",
-                    "props": [],
                     "methods": [
                         {
                             "name": "show",
@@ -34199,6 +34194,11 @@
                             "description": "Triggered when an error occurs while loading an image file."
                         }
                     ]
+                },
+                "ImageMethods": {
+                    "relatedProp": "",
+                    "props": [],
+                    "methods": []
                 }
             }
         },
@@ -75929,6 +75929,45 @@
                     ],
                     "methods": []
                 },
+                "TreeNodeDropEvent": {
+                    "description": "Custom node drop event.",
+                    "relatedProp": "TreeEmitsOptions.node-drop",
+                    "props": [
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "default": "",
+                            "description": "Original event"
+                        },
+                        {
+                            "name": "dragNode",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeNode",
+                            "default": "",
+                            "description": "Dragged node"
+                        },
+                        {
+                            "name": "dropNode",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeNode",
+                            "default": "",
+                            "description": "Dropped node"
+                        },
+                        {
+                            "name": "index",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "number",
+                            "default": "",
+                            "description": "Index of the dropped node"
+                        }
+                    ],
+                    "methods": []
+                },
                 "TreePassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "TreeProps.pt",
@@ -76068,6 +76107,22 @@
                             "type": "TreePassThroughOptionType<T>",
                             "default": "",
                             "description": "Used to pass attributes to the loading icon's DOM element."
+                        },
+                        {
+                            "name": "emptyMessage",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the empty message's DOM element."
+                        },
+                        {
+                            "name": "dropPoint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "TreePassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the drop point's DOM element."
                         },
                         {
                             "name": "hooks",
@@ -76304,6 +76359,38 @@
                             "description": "Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size."
                         },
                         {
+                            "name": "dragdrop",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "null",
+                            "description": "Whether the nodes are draggable and droppable."
+                        },
+                        {
+                            "name": "draggableScope",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | string[]",
+                            "default": "null",
+                            "description": "Scope of the draggable nodes to match a droppableScope."
+                        },
+                        {
+                            "name": "droppableScope",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string | string[]",
+                            "default": "null",
+                            "description": "Scope of the droppable nodes to match a draggableScope."
+                        },
+                        {
+                            "name": "validateDrop",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "When enabled, drop can be accepted or rejected based on condition defined at node-drop."
+                        },
+                        {
                             "name": "ariaLabel",
                             "optional": true,
                             "readonly": false,
@@ -76510,6 +76597,12 @@
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "Custom footer"
+                        },
+                        {
+                            "name": "empty",
+                            "parameters": [],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom empty template."
                         }
                     ]
                 },
@@ -76518,6 +76611,19 @@
                     "relatedProp": "",
                     "props": [],
                     "methods": [
+                        {
+                            "name": "update:value",
+                            "parameters": [
+                                {
+                                    "name": "value",
+                                    "optional": false,
+                                    "type": "TreeNode[]",
+                                    "description": "New value."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Emitted when the value change."
+                        },
                         {
                             "name": "update:expandedKeys",
                             "parameters": [
@@ -76597,6 +76703,19 @@
                             "description": "Callback to invoke when a node is collapsed."
                         },
                         {
+                            "name": "node-drop",
+                            "parameters": [
+                                {
+                                    "name": "node",
+                                    "optional": false,
+                                    "type": "TreeNodeDropEvent",
+                                    "description": "Node instance."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when a node is collapsed."
+                        },
+                        {
                             "name": "filter",
                             "parameters": [
                                 {
@@ -76634,6 +76753,10 @@
                 },
                 "TreeFilterEvent": {
                     "description": "Custom filter event.",
+                    "props": []
+                },
+                "TreeNodeDropEvent": {
+                    "description": "Custom node drop event.",
                     "props": []
                 },
                 "TreePassThroughOptions": {
@@ -76924,6 +77047,22 @@
                             "type": "string",
                             "default": "",
                             "description": "Icon to use in collapsed state."
+                        },
+                        {
+                            "name": "draggable",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "null",
+                            "description": "Specifies if the node is draggable.\nAvailable only for Tree component."
+                        },
+                        {
+                            "name": "droppable",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "null",
+                            "description": "Specifies if the node is droppable.\nAvailable only for Tree component."
                         },
                         {
                             "name": "[key: string]",
