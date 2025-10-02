@@ -458,7 +458,7 @@ export default {
 
                 if (query.length === 0) {
                     this.searching = false;
-                    this.hide();
+                    !this.keepOverlayOnClear && this.hide();
                     this.$emit('clear');
                 } else {
                     if (query.length >= this.minLength) {

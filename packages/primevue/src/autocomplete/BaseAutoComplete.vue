@@ -58,6 +58,10 @@ export default {
             type: Boolean,
             default: false
         },
+        keepOverlayOnClear: {
+            type: Boolean,
+            default: true
+        },
         completeOnFocus: {
             type: Boolean,
             default: false
