@@ -15,7 +15,7 @@
                 :aria-label="ariaLabel"
                 aria-haspopup="tree"
                 :aria-expanded="overlayVisible"
-                :aria-controls="listId"
+                :aria-controls="overlayVisible ? listId : undefined"
                 @focus="onFocus($event)"
                 @blur="onBlur($event)"
                 @keydown="onKeyDown($event)"
