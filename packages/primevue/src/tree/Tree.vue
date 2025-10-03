@@ -44,7 +44,7 @@
                     :pt="pt"
                 ></TreeNode>
             </ul>
-            <div v-else :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
+            <div v-else-if="empty && !$pcTreeSelect" :class="cx('emptyMessage')" v-bind="ptm('emptyMessage')">
                 <slot name="empty">
                     {{ emptyMessageText }}
                 </slot>
@@ -81,6 +81,9 @@ export default {
             dragNodeScope: null,
             dragHover: null
         };
+    },
+    inject: {
+        $pcTreeSelect: { default: null }
     },
     dragDropService: null,
     dragStartCleanup: null,
