@@ -13,7 +13,7 @@
                     </div>
                     <div class="flex gap-2">
                         <Button size="small" label="Today" @click="todayCallback" variant="outlined" />
-                        <Button size="small" icon="pi pi-times" severity="secondary" variant="outlined" @click="clearCallback" />
+                        <Button size="small" icon="pi pi-times" severity="danger" variant="text" @click="clearCallback" />
                     </div>
                 </div>
             </template>
@@ -40,7 +40,7 @@ export default {
             </div>
             <div class="flex gap-2">
                 <Button size="small" label="Today" @click="todayCallback" variant="outlined" />
-                <Button size="small" icon="pi pi-times" severity="secondary" variant="outlined" @click="clearCallback" />
+                <Button size="small" icon="pi pi-times" severity="danger" variant="outlined" @click="clearCallback" />
             </div>
         </div>
     </template>
@@ -59,7 +59,7 @@ export default {
                     </div>
                     <div class="flex gap-2">
                         <Button size="small" label="Today" @click="todayCallback" variant="outlined" />
-                        <Button size="small" icon="pi pi-times" severity="secondary" variant="outlined" @click="clearCallback" />
+                        <Button size="small" icon="pi pi-times" severity="danger" variant="outlined" @click="clearCallback" />
                     </div>
                 </div>
             </template>
@@ -91,7 +91,7 @@ export default {
                     </div>
                     <div class="flex gap-2">
                         <Button size="small" label="Today" @click="todayCallback" variant="outlined" />
-                        <Button size="small" icon="pi pi-times" severity="secondary" variant="outlined" @click="clearCallback" />
+                        <Button size="small" icon="pi pi-times" severity="danger" variant="outlined" @click="clearCallback" />
                     </div>
                 </div>
             </template>
