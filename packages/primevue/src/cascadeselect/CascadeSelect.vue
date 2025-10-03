@@ -16,7 +16,7 @@
                 :aria-labelledby="ariaLabelledby"
                 aria-haspopup="tree"
                 :aria-expanded="overlayVisible"
-                :aria-controls="$id + '_tree'"
+                :aria-controls="overlayVisible ? $id + '_tree' : undefined"
                 :aria-activedescendant="focused ? focusedOptionId : undefined"
                 :aria-invalid="invalid || undefined"
                 @focus="onFocus"

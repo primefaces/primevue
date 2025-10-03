@@ -23,7 +23,7 @@
             aria-haspopup="listbox"
             aria-autocomplete="list"
             :aria-expanded="overlayVisible"
-            :aria-controls="panelId"
+            :aria-controls="overlayVisible ? panelId : undefined"
             :aria-activedescendant="focused ? focusedOptionId : undefined"
             @focus="onFocus"
             @blur="onBlur"

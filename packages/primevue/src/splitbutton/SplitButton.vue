@@ -33,7 +33,7 @@
             :disabled="disabled"
             aria-haspopup="true"
             :aria-expanded="isExpanded"
-            :aria-controls="$id + '_overlay'"
+            :aria-controls="isExpanded ?  $id + '_overlay' : undefined"
             @click="onDropdownButtonClick"
             @keydown="onDropdownKeydown"
             :severity="severity"
