@@ -1,9 +1,13 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Nodes can be reordered within the same tree and also can be transferred between other trees using drag&drop.</p>
+        <p>When using <i>v-model:value</i>, the tree data is automatically updated after drag & drop operations. The component handles all internal state management, making it the recommended approach for most use cases.</p>
+        <p>
+            Alternatively, you can use <i>:value</i> with the <i>@update-value</i> and <i>@node-drop</i> events to manually control the tree state. The event payload includes <i>updatedValue</i> which contains the new tree structure after the drop
+            operation.
+        </p>
     </DocSectionText>
     <div class="card">
-        <Tree :value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
+        <Tree v-model:value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
     </div>
     <DocSectionCode :code="code" v-bind="$attrs" />
 </template>
