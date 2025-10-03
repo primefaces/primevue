@@ -75942,6 +75942,13 @@
                             "description": "Original event"
                         },
                         {
+                            "name": "updatedValue",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeNode[]",
+                            "default": ""
+                        },
+                        {
                             "name": "dragNode",
                             "optional": false,
                             "readonly": false,
