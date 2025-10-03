@@ -5,7 +5,8 @@
 import AccessibilityDoc from '@/doc/tree/AccessibilityDoc.vue';
 import BasicDoc from '@/doc/tree/BasicDoc.vue';
 import ControlledDoc from '@/doc/tree/ControlledDoc.vue';
-import DragDropDoc from '@/doc/tree/DragDropDoc.vue';
+import MultipleDragDropDoc from '@/doc/tree/dragdrop/MultipleDragDropDoc.vue';
+import SingleDragDropDoc from '@/doc/tree/dragdrop/SingleDragDropDoc.vue';
 import EventsDoc from '@/doc/tree/EventsDoc.vue';
 import FilterDoc from '@/doc/tree/FilterDoc.vue';
 import ImportDoc from '@/doc/tree/ImportDoc.vue';
@@ -80,8 +81,20 @@ export default {
                 {
                     id: 'dragdrop',
                     label: 'DragDrop',
-                    component: DragDropDoc
+                    children: [
+                        {
+                            id: 'dragdrop-single',
+                            label: 'Single',
+                            component: SingleDragDropDoc
+                        },
+                        {
+                            id: 'dragdrop-multiple',
+                            label: 'Multiple',
+                            component: MultipleDragDropDoc
+                        }
+                    ]
                 },
+
                 {
                     id: 'accessibility',
                     label: 'Accessibility',

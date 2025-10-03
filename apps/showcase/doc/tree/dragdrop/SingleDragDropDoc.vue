@@ -1,10 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>When using <i>v-model:value</i>, the tree data is automatically updated after drag & drop operations. The component handles all internal state management, making it the recommended approach for most use cases.</p>
-        <p>
-            Alternatively, you can use <i>:value</i> with the <i>@update-value</i> and <i>@node-drop</i> events to manually control the tree state. The event payload includes <i>updatedValue</i> which contains the new tree structure after the drop
-            operation.
-        </p>
+        <p>Drag&Drop based reordering is enabled by adding the <i>dragdrop</i> property and definining a two-way model binding to the <i>value</i> option. The optional <i>@node-drop</i> event is available to get notified about the new tree state.</p>
     </DocSectionText>
     <div class="card">
         <Tree v-model:value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
@@ -142,12 +138,12 @@ export default {
             ],
             code: {
                 basic: `
-<Tree :value="nodes" dragdrop></Tree>
+<Tree v-model:value="nodes" dragdrop></Tree>
 `,
                 options: `
 <template>
     <div class="card">
-        <Tree :value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
+        <Tree v-model:value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
     </div>
 </template>
 
@@ -287,7 +283,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Tree :value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
+        <Tree v-model:value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
     </div>
 </template>
 
