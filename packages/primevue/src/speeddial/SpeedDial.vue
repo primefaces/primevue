@@ -6,7 +6,7 @@
                 :disabled="disabled"
                 :aria-expanded="d_visible"
                 :aria-haspopup="true"
-                :aria-controls="d_visible ? $id + '_list' ? undefined"
+                :aria-controls="d_visible ? $id + '_list' : undefined"
                 :aria-label="ariaLabel"
                 :aria-labelledby="ariaLabelledby"
                 :unstyled="unstyled"
