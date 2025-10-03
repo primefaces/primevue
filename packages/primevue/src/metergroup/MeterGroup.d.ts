@@ -303,10 +303,4 @@ export declare type MeterGroupEmits = EmitFn<MeterGroupEmitsOptions>;
  */
 declare const MeterGroup: DefineComponent<MeterGroupProps, MeterGroupSlots, MeterGroupEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        MeterGroup: DefineComponent<MeterGroupProps, MeterGroupSlots, MeterGroupEmits>;
-    }
-}
-
 export default MeterGroup;
