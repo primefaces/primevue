@@ -24442,7 +24442,7 @@
                         },
                         {
                             "name": "updateModelType",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
                             "type": "undefined | HintedString<\"string\" | \"date\">",
                             "default": "date",
