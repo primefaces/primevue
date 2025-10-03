@@ -531,29 +531,31 @@
                         </div>
                     </div>
                     <div v-if="showButtonBar" :class="cx('buttonbar')" v-bind="ptm('buttonbar')">
-                        <slot name="todaybutton" :actionCallback="(event) => onTodayButtonClick(event)" :keydownCallback="(event) => onContainerButtonKeydown(event)">
-                            <Button
-                                :label="todayLabel"
-                                @click="onTodayButtonClick($event)"
-                                :class="cx('pcTodayButton')"
-                                :unstyled="unstyled"
-                                @keydown="onContainerButtonKeydown"
-                                v-bind="todayButtonProps"
-                                :pt="ptm('pcTodayButton')"
-                                data-pc-group-section="button"
-                            />
-                        </slot>
-                        <slot name="clearbutton" :actionCallback="(event) => onClearButtonClick(event)" :keydownCallback="(event) => onContainerButtonKeydown(event)">
-                            <Button
-                                :label="clearLabel"
-                                @click="onClearButtonClick($event)"
-                                :class="cx('pcClearButton')"
-                                :unstyled="unstyled"
-                                @keydown="onContainerButtonKeydown"
-                                v-bind="clearButtonProps"
-                                :pt="ptm('pcClearButton')"
-                                data-pc-group-section="button"
-                            />
+                        <slot name="buttonbar" :todayCallback="(event) => onTodayButtonClick(event)" :clearCallback="(event) => onClearButtonClick(event)">
+                            <slot name="todaybutton" :actionCallback="(event) => onTodayButtonClick(event)" :keydownCallback="(event) => onContainerButtonKeydown(event)">
+                                <Button
+                                    :label="todayLabel"
+                                    @click="onTodayButtonClick($event)"
+                                    :class="cx('pcTodayButton')"
+                                    :unstyled="unstyled"
+                                    @keydown="onContainerButtonKeydown"
+                                    v-bind="todayButtonProps"
+                                    :pt="ptm('pcTodayButton')"
+                                    data-pc-group-section="button"
+                                />
+                            </slot>
+                            <slot name="clearbutton" :actionCallback="(event) => onClearButtonClick(event)" :keydownCallback="(event) => onContainerButtonKeydown(event)">
+                                <Button
+                                    :label="clearLabel"
+                                    @click="onClearButtonClick($event)"
+                                    :class="cx('pcClearButton')"
+                                    :unstyled="unstyled"
+                                    @keydown="onContainerButtonKeydown"
+                                    v-bind="clearButtonProps"
+                                    :pt="ptm('pcClearButton')"
+                                    data-pc-group-section="button"
+                                />
+                            </slot>
                         </slot>
                     </div>
                     <slot name="footer"></slot>

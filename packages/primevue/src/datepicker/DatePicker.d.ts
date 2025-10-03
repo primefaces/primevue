@@ -542,7 +542,7 @@ export interface DatePickerProps {
      * Type of the value to write back to modelValue.
      * @defaultValue date
      */
-    updateModelType: HintedString<'date' | 'string'> | undefined;
+    updateModelType?: HintedString<'date' | 'string'> | undefined;
     /**
      * When enabled, displays the datepicker as inline instead of an overlay.
      * @defaultValue false
@@ -903,8 +903,24 @@ export interface DatePickerSlots {
         keydownCallback: (event: Event) => void;
     }): VNode[];
     /**
+     * Custom buttonbar template
+     * @param {Object} scope - buttonbar slot's params.
+     */
+    buttonbar(scope: {
+        /**
+         * Today click function.
+         * @param {Event} event - Browser event
+         */
+        todayCallback: (event: Event) => void;
+        /**
+         * Clear click function.
+         * @param {Event} event - Browser event
+         */
+        clearCallback: (event: Event) => void;
+    }): VNode[];
+    /**
      * Custom today button template
-     * @param {Object} scope - button slot's params.
+     * @param {Object} scope - today button slot's params.
      */
     todaybutton(scope: {
         /**
@@ -920,7 +936,7 @@ export interface DatePickerSlots {
     }): VNode[];
     /**
      * Custom clear button template
-     * @param {Object} scope - button slot's params.
+     * @param {Object} scope - clear button slot's params.
      */
     clearbutton(scope: {
         /**

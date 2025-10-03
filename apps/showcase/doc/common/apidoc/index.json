@@ -24442,9 +24442,9 @@
                         },
                         {
                             "name": "updateModelType",
-                            "optional": false,
+                            "optional": true,
                             "readonly": false,
-                            "type": "undefined | HintedString<\"string\" | \"date\">",
+                            "type": "HintedString<\"string\" | \"date\">",
                             "default": "date",
                             "description": "Type of the value to write back to modelValue."
                         },
@@ -25031,13 +25031,26 @@
                             "description": "Custom next button template"
                         },
                         {
+                            "name": "buttonbar",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">todayCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Today click function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">clearCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Clear click function.</span>\n}",
+                                    "description": "buttonbar slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom buttonbar template"
+                        },
+                        {
                             "name": "todaybutton",
                             "parameters": [
                                 {
                                     "name": "scope",
                                     "optional": false,
                                     "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">actionCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Action function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">keydownCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Keydown function.</span>\n}",
-                                    "description": "button slot's params."
+                                    "description": "today button slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -25050,7 +25063,7 @@
                                     "name": "scope",
                                     "optional": false,
                                     "type": "{\n \t <span class=\"ml-3 doc-option-parameter-name\">actionCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Action function.</span>\n\t <span class=\"ml-3 doc-option-parameter-name\">keydownCallback</span>: <span class=\"doc-option-parameter-type\">(<span class=\"doc-option-parameter-name\">event</span>: Event) &rArr; void</span>, <span class=\"doc-option-parameter-type\">// Keydown function.</span>\n}",
-                                    "description": "button slot's params."
+                                    "description": "clear button slot's params."
                                 }
                             ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
@@ -75942,11 +75955,12 @@
                             "description": "Original event"
                         },
                         {
-                            "name": "updatedValue",
+                            "name": "value",
                             "optional": false,
                             "readonly": false,
                             "type": "TreeNode[]",
-                            "default": ""
+                            "default": "",
+                            "description": "New tree value state"
                         },
                         {
                             "name": "dragNode",
