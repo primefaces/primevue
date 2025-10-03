@@ -24444,7 +24444,7 @@
                             "name": "updateModelType",
                             "optional": true,
                             "readonly": false,
-                            "type": "undefined | HintedString<\"string\" | \"date\">",
+                            "type": "HintedString<\"string\" | \"date\">",
                             "default": "date",
                             "description": "Type of the value to write back to modelValue."
                         },
