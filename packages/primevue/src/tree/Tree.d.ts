@@ -106,6 +106,10 @@ export interface TreeNodeDropEvent {
      * Original event
      */
     originalEvent: Event;
+    /*
+     * Updated value
+     */
+    updatedValue: TreeNode[];
     /**
      * Dragged node
      */

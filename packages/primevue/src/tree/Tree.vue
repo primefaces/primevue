@@ -39,6 +39,7 @@
                     :dragdrop="dragdrop"
                     :validateDrop="validateDrop"
                     @node-drop="onNodeDrop"
+                    @value-change="onValueChanged"
                     :unstyled="unstyled"
                     :pt="pt"
                 ></TreeNode>
@@ -272,6 +273,9 @@ export default {
         onNodeDrop(event) {
             this.$emit('node-drop', event);
         },
+        onValueChanged(event) {
+            this.$emit('update:value', event.nodes);
+        },
         allowDrop(dragNode, dropNode, dragNodeScope) {
             if (!dragNode) {
                 //prevent random html elements to be dragged
@@ -373,6 +377,7 @@ export default {
                             dragNode: dragNode,
                             dropNode: null,
                             index: dragNodeIndex,
+                            updatedValue: this.value,
                             accept: () => {
                                 this.processTreeDrop(dragNode, dragNodeIndex);
                             }
@@ -380,6 +385,7 @@ export default {
                     } else {
                         this.$emit('node-drop', {
                             originalEvent: event,
+                            updatedValue: this.value,
                             dragNode: dragNode,
                             dropNode: null,
                             index: dragNodeIndex
