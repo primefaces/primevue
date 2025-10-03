@@ -430,7 +430,7 @@ export default {
                     if (this.validateDrop) {
                         this.$emit('node-drop', {
                             originalEvent: event,
-                            updatedValue: this.rootNodes,
+                            value: this.rootNodes,
                             dragNode: dragNode,
                             dropNode: this.node,
                             index: this.index,
@@ -439,7 +439,7 @@ export default {
 
                                 this.$emit('node-drop', {
                                     originalEvent: event,
-                                    updatedValue: updatedNodes,
+                                    value: updatedNodes,
                                     dragNode: dragNode,
                                     dropNode: this.node,
                                     index: this.index
@@ -451,7 +451,7 @@ export default {
 
                         this.$emit('node-drop', {
                             originalEvent: event,
-                            updatedValue: updatedNodes,
+                            value: updatedNodes,
                             dragNode: dragNode,
                             dropNode: this.node,
                             index: this.index

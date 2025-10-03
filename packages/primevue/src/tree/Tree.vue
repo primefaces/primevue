@@ -377,10 +377,10 @@ export default {
                     if (this.validateDrop) {
                         this.$emit('node-drop', {
                             originalEvent: event,
+                            value: this.value,
                             dragNode: dragNode,
                             dropNode: null,
                             index: dragNodeIndex,
-                            updatedValue: this.value,
                             accept: () => {
                                 this.processTreeDrop(dragNode, dragNodeIndex);
                             }
@@ -388,7 +388,7 @@ export default {
                     } else {
                         this.$emit('node-drop', {
                             originalEvent: event,
-                            updatedValue: this.value,
+                            value: this.value,
                             dragNode: dragNode,
                             dropNode: null,
                             index: dragNodeIndex
