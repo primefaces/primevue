@@ -75955,11 +75955,12 @@
                             "description": "Original event"
                         },
                         {
-                            "name": "updatedValue",
+                            "name": "value",
                             "optional": false,
                             "readonly": false,
                             "type": "TreeNode[]",
-                            "default": ""
+                            "default": "",
+                            "description": "New tree value state"
                         },
                         {
                             "name": "dragNode",
