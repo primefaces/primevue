@@ -5,6 +5,12 @@
         </NuxtLink>
     </div>
 
+    <div class="text-lg font-semibold mb-2">System Maintenance</div>
+    <p>We're currently performing scheduled maintenance on our system to launch our new PrimeUI Store application that hosts the Theme Designer APIs.</p>
+    <p>We apologize for any inconvenience and expect to be back online by 05 Oct 2025, 18:00 UTC.</p>
+    <p>Thank you for your patience. We're excited to introduce you to our improved platform!</p>
+
+    <!--
     <div class="text-lg font-semibold mb-2">Authenticate</div>
     <div v-if="!$appState.designer.verified">
         <span class="block leading-6 mb-4"
@@ -76,7 +82,7 @@
             </button>
         </div>
         <Menu ref="themeMenu" :model="themeOptions" :popup="true" @show="onMenuShow" @hide="onMenuHide" />
-    </div>
+    </div>-->
 </template>
 
 <script>
