@@ -284,6 +284,11 @@ export interface FormInstance {
      */
     getFieldState: (field: string) => FormFieldState | undefined;
     /**
+     * Sets the errors of the form fields.
+     * @param values
+     */
+    setErrors: (values: Record<string, any>) => void;
+    /**
      * Validates the form or a specific field.
      * @param field
      * @returns
