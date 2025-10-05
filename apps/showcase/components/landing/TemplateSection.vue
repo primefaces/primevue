@@ -3,7 +3,7 @@
         <div class="section-header relative z-30">Templates</div>
         <p class="section-detail relative z-30">Professionally designed highly customizable application templates to get started in style.</p>
         <div class="flex justify-center mt-6 relative z-30">
-            <a href="https://www.primefaces.org/store" class="linkbox linkbox-primary">
+            <a href="https://primeui.store/templates" class="linkbox linkbox-primary">
                 <span>Explore All</span>
                 <i class="pi pi-arrow-right ms-2"></i>
             </a>

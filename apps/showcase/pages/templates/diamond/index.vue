@@ -30,6 +30,7 @@ export default {
                                 description: 'An amazing application template for Vue based on Vite with light-dark modes with 8 surface colors, seven menu layouts, various menu themes, sample apps, ready to use template pages and 3 presets.',
                                 liveHref: 'https://diamond.primevue.org',
                                 docHref: 'https://diamond.primevue.org/documentation',
+                                storeHref: 'https://primeui.store/templates/vue/diamond',
                                 pattern: {
                                     className: 'select-none absolute z-[6] w-[62rem] h-[44rem] -top-8 -left-36 md:-left-12',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/diamond/diamond-hero-pattern.png'
