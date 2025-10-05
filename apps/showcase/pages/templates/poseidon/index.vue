@@ -31,6 +31,7 @@ export default {
                                     'Experience a modern, user-friendly premium application template featuring a variety of color schemes. Based on flat design principles, it is fully responsive and touch-optimized, built with SASS, CSS3, and HTML5.',
                                 liveHref: 'https://poseidon.primevue.org',
                                 docHref: 'https://poseidon.primevue.org/documentation',
+                                storeHref: 'https://primeui.store/templates/vue/poseidon',
                                 pattern: {
                                     className: 'select-none absolute z-[6] w-[72rem] md:w-[100rem] h-auto bottom-[25rem] -left-40 md:-bottom-12 xl:bottom-0 md:-left-48 xl:-left-28 opacity-90',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/poseidon/hero-background.png'

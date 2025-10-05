@@ -30,6 +30,7 @@ export default {
                                 dashboard2: 'https://primefaces.org/cdn/primevue/images/templates/ultima/ultima-hero-dashboard2.png',
                                 liveHref: 'https://ultima.primevue.org',
                                 docHref: 'https://ultima.primevue.org/documentation',
+                                storeHref: 'https://primeui.store/templates/vue/ultima',
                                 pattern: {
                                     className: 'select-none absolute z-[6] opacity-75 w-[80rem] h-auto bottom-8 -left-64 md:-bottom-[26rem] md:-left-[22rem]',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/ultima/ultima-hero-pattern.png'

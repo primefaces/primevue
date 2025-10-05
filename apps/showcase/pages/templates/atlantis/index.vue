@@ -30,6 +30,7 @@ export default {
                                 description: 'Prepare to be amazed by the remastered Atlantis for PrimeVue featuring a new gorgeous dark mode for the entire layout, 5 menu modes, reusable css widgets, utilities, modern icons and many more.',
                                 liveHref: 'https://atlantis.primevue.org',
                                 docHref: 'https://www.primefaces.org/atlantis-vue/documentation/',
+                                storeHref: 'https://primeui.store/templates/vue/atlantis',
                                 pattern: {
                                     className: 'select-none absolute md:-bottom-28 bottom-36 -left-20 md:-left-28 z-[6] md:w-[50rem] h-auto w-[60rem] opacity-75',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/atlantis/atlantis-hero-pattern.png'

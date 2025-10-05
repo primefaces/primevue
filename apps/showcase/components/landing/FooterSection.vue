@@ -49,7 +49,7 @@
                             >
                         </li>
                         <li class="mb-6">
-                            <a href="https://www.primefaces.org/store/" class="text-surface-500 dark:text-surface-400 font-medium hover:text-primary rounded transition-all duration-300" target="_blank" rel="noopener noreferrer">Store</a>
+                            <a href="https://primeui.store" class="text-surface-500 dark:text-surface-400 font-medium hover:text-primary rounded transition-all duration-300" target="_blank" rel="noopener noreferrer">Store</a>
                         </li>
                         <li class="mb-6">
                             <a href="https://github.com/primefaces/primevue" class="text-surface-500 dark:text-surface-400 font-medium hover:text-primary rounded transition-all duration-300" target="_blank" rel="noopener noreferrer">Source Code</a>

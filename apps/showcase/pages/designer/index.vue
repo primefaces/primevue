@@ -179,7 +179,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700 mt-auto" />
-                                <a v-ripple href="https://www.primefaces.org/store/designer.xhtml" class="bg-blue-500 text-white hover:bg-blue-400 p-4 w-full rounded text-center transition-colors duration-300 font-bold p-ripple">Buy Now</a>
+                                <a v-ripple href="https://primeui.store/designer" class="bg-blue-500 text-white hover:bg-blue-400 p-4 w-full rounded text-center transition-colors duration-300 font-bold p-ripple">Buy Now</a>
                             </div>
                         </div>
                     </div>
@@ -226,7 +226,7 @@
                                     </li>
                                 </ul>
                                 <hr class="mb-4 mx-0 border-t border-0 border-surface-200 dark:border-surface-700" />
-                                <a v-ripple href="https://www.primefaces.org/store/designer.xhtml" class="bg-purple-500 text-white hover:bg-purple-400 p-4 w-full rounded text-center transition-colors duration-300 font-bold p-ripple">Buy Now</a>
+                                <a v-ripple href="https://primeui.store/designer" class="bg-purple-500 text-white hover:bg-purple-400 p-4 w-full rounded text-center transition-colors duration-300 font-bold p-ripple">Buy Now</a>
                             </div>
                         </div>
                     </div>

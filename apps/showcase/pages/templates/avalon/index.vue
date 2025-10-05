@@ -31,6 +31,7 @@ export default {
                                 description: 'A sleek, user-friendly premium app template featuring a highly customizable layout. Built with Tailwind CSS, it`s fully responsive, touch-optimized, and developed with PrimeVue.',
                                 liveHref: 'https://avalon.primevue.org/',
                                 docHref: 'https://avalon.primevue.org/documentation',
+                                storeHref: 'https://primeui.store/templates/vue/avalon',
                                 pattern: {
                                     className: 'select-none absolute md:w-[60rem] h-auto md:bottom-0 bottom-40 -left-32 xl:-left-12 md:-left-32 z-[6] opacity-75',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/avalon/avalon-hero-pattern.png'

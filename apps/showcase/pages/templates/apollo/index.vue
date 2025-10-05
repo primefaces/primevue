@@ -30,6 +30,7 @@ export default {
                                 description: 'A spectacular application template for Vue based on Vite featuring light-dark modes with 8 surface colors, 7 menu layouts, various menu themes, sample apps, ready to use template pages and 3 presets.',
                                 liveHref: 'https://apollo.primevue.org',
                                 docHref: 'https://apollo.primevue.org/documentation',
+                                storeHref: 'https://primeui.store/templates/vue/apollo',
                                 pattern: {
                                     className: 'select-none absolute md:bottom-0 bottom-80 left-0 z-[6] md:w-[95rem] h-auto w-[90rem] opacity-60',
                                     src: 'https://primefaces.org/cdn/primevue/images/templates/apollo/apollo-hero-pattern.png'
