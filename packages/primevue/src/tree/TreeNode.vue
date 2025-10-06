@@ -23,6 +23,7 @@
             @touchend="onTouchEnd"
             @dragstart="onNodeDragStart"
             @dragover="onNodeDragOver"
+            @dragenter="onNodeDragEnter"
             @dragleave="onNodeDragLeave"
             @dragend="onNodeDragEnd"
             @drop="onNodeDrop"
@@ -84,9 +85,12 @@
                 :selectionKeys="selectionKeys"
                 @checkbox-change="propagateUp"
                 :draggableScope="draggableScope"
-                :dragdrop="dragdrop"
+                :draggableNodes="draggableNodes"
+                :droppableNodes="droppableNodes"
                 :validateDrop="validateDrop"
                 @node-drop="$emit('node-drop', $event)"
+                @node-dragenter="$emit('node-dragenter', $event)"
+                @node-dragleave="$emit('node-dragleave', $event)"
                 @value-change="$emit('value-change', $event)"
                 :unstyled="unstyled"
                 :pt="pt"
@@ -110,7 +114,7 @@ export default {
     name: 'TreeNode',
     hostName: 'Tree',
     extends: BaseComponent,
-    emits: ['node-toggle', 'node-click', 'checkbox-change', 'node-drop', 'value-change'],
+    emits: ['node-toggle', 'node-click', 'checkbox-change', 'node-drop', 'value-change', 'node-dragenter', 'node-dragleave'],
     props: {
         node: {
             type: null,
@@ -152,7 +156,11 @@ export default {
             type: [String, Array],
             default: null
         },
-        dragdrop: {
+        draggableNodes: {
+            type: Boolean,
+            default: null
+        },
+        droppableNodes: {
             type: Boolean,
             default: null
         },
@@ -515,12 +523,21 @@ export default {
                 }
             }
 
-            if (this.dragdrop) {
+            if (this.droppableNodes) {
                 event.preventDefault();
                 event.stopPropagation();
             }
         },
+        onNodeDragEnter() {
+            this.$emit('node-dragenter', {
+                node: this.node
+            });
+        },
         onNodeDragLeave() {
+            this.$emit('node-dragleave', {
+                node: this.node
+            });
+
             this.isPrevDropPointHovered = false;
             this.isNextDropPointHovered = false;
             this.isNodeDropHovered = false;
@@ -718,10 +735,10 @@ export default {
             return this.parentNode ? this.parentNode.children : this.rootNodes;
         },
         isDraggable() {
-            return this.dragdrop;
+            return this.draggableNodes;
         },
         isDroppable() {
-            return this.dragdrop && this.$pcTree.allowNodeDrop(this.node);
+            return this.droppableNodes && this.$pcTree.allowNodeDrop(this.node);
         },
         isNodeDraggable() {
             return this.node?.draggable !== false && this.isDraggable;

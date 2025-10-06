@@ -35,10 +35,13 @@
                     :selectionKeys="selectionKeys"
                     @checkbox-change="onCheckboxChange"
                     :loadingMode="loadingMode"
+                    :draggableNodes="draggableNodes"
+                    :droppableNodes="droppableNodes"
                     :draggableScope="draggableScope"
-                    :dragdrop="dragdrop"
                     :validateDrop="validateDrop"
                     @node-drop="onNodeDrop"
+                    @node-dragenter="onNodeDragEnter"
+                    @node-dragleave="onNodeDragLeave"
                     @value-change="onValueChanged"
                     :unstyled="unstyled"
                     :pt="pt"
@@ -70,7 +73,7 @@ export default {
     name: 'Tree',
     extends: BaseTree,
     inheritAttrs: false,
-    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 'filter', 'node-drop', 'update:value'],
+    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 'filter', 'node-drop', 'node-dragenter', 'node-dragleave', 'update:value'],
     data() {
         return {
             d_expandedKeys: this.expandedKeys || {},
@@ -94,7 +97,7 @@ export default {
         }
     },
     mounted() {
-        if (this.dragdrop) {
+        if (this.droppableNodes) {
             this.dragDropService = useTreeDragDropService();
 
             this.dragStartCleanup = this.dragDropService.onDragStart((event) => {
@@ -276,7 +279,14 @@ export default {
         onNodeDrop(event) {
             this.$emit('node-drop', event);
         },
+        onNodeDragEnter(event) {
+            this.$emit('node-dragenter', event);
+        },
+        onNodeDragLeave(event) {
+            this.$emit('node-dragleave', event);
+        },
         onValueChanged(event) {
+            this.dragNodeSubNodes.splice(this.dragNodeIndex, 1);
             this.$emit('update:value', event.nodes);
         },
         allowDrop(dragNode, dropNode, dragNodeScope) {
@@ -338,18 +348,18 @@ export default {
             }
         },
         onDragOver(event) {
-            if (this.dragdrop && (!this.value || this.value.length === 0)) {
+            if (this.droppableNodes && (!this.value || this.value.length === 0)) {
                 event.dataTransfer.dropEffect = 'move';
                 event.preventDefault();
             }
         },
         onDragEnter() {
-            if (this.dragdrop && this.allowDrop(this.dragNode, null, this.dragNodeScope)) {
+            if (this.droppableNodes && this.allowDrop(this.dragNode, null, this.dragNodeScope)) {
                 this.dragHover = true;
             }
         },
         onDragLeave(event) {
-            if (this.dragdrop) {
+            if (this.droppableNodes) {
                 let rect = event.currentTarget.getBoundingClientRect();
 
                 if (event.x > rect.left + rect.width || event.x < rect.left || event.y > rect.top + rect.height || event.y < rect.top) {
@@ -367,7 +377,7 @@ export default {
             });
         },
         onDrop(event) {
-            if (this.dragdrop && (!this.value || this.value.length === 0)) {
+            if (this.droppableNodes && (!this.value || this.value.length === 0)) {
                 event.preventDefault();
                 let dragNode = this.dragNode;
 

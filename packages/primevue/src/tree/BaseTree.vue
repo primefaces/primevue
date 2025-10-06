@@ -70,7 +70,11 @@ export default {
             type: Number,
             default: 0
         },
-        dragdrop: {
+        draggableNodes: {
+            type: Boolean,
+            default: null
+        },
+        droppableNodes: {
             type: Boolean,
             default: null
         },
