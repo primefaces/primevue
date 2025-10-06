@@ -348,7 +348,7 @@ export default {
             }
         },
         onDragOver(event) {
-            if (this.droppableNodes && (!this.value || this.value.length === 0)) {
+            if (this.droppableNodes && this.allowDrop(this.dragNode, null, this.dragNodeScope)) {
                 event.dataTransfer.dropEffect = 'move';
                 event.preventDefault();
             }
@@ -391,7 +391,7 @@ export default {
             });
         },
         onDrop(event) {
-            if (this.droppableNodes && (!this.value || this.value.length === 0)) {
+            if (this.droppableNodes) {
                 event.preventDefault();
                 let dragNode = this.dragNode;
 
