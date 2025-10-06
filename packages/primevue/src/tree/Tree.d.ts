@@ -125,6 +125,52 @@ export interface TreeNodeDropEvent {
 }
 
 /**
+ * Custom tree drag enter event.
+ * @see {@link TreeEmitsOptions.drag-enter}
+ */
+export interface TreeDragEnterEvent {
+    /**
+     * Original event
+     */
+    originalEvent: Event;
+    /**
+     * Current tree value state
+     */
+    value: TreeNode[];
+    /**
+     * Dragged node
+     */
+    dragNode: TreeNode;
+    /**
+     * Dragged node's scope
+     */
+    dragNodeScope: string;
+}
+
+/**
+ * Custom tree drag leave event.
+ * @see {@link TreeEmitsOptions.drag-leave}
+ */
+export interface TreeDragLeaveEvent {
+    /**
+     * Original event
+     */
+    originalEvent: Event;
+    /**
+     * Current tree value state
+     */
+    value: TreeNode[];
+    /**
+     * Dragged node
+     */
+    dragNode: TreeNode;
+    /**
+     * Dragged node's scope
+     */
+    dragNodeScope: string;
+}
+
+/**
  * Custom passthrough(pt) options.
  * @see {@link TreeProps.pt}
  */
@@ -631,6 +677,16 @@ export interface TreeEmitsOptions {
      * @param {TreeFilterEvent} event - Custom filter event.
      */
     'filter'(event: TreeFilterEvent): void;
+    /**
+     * Callback to invoke on drag enter.
+     * @param {TreeDragEnterEvent} event - Custom drag enter event.
+     */
+    'drag-enter'(event: TreeDragEnterEvent): void;
+    /**
+     * Callback to invoke on drag leave.
+     * @param {TreeDragLeaveEvent} event - Custom drag leave event.
+     */
+    'drag-leave'(event: TreeDragLeaveEvent): void;
 }
 
 export declare type TreeEmits = EmitFn<TreeEmitsOptions>;

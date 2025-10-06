@@ -73,7 +73,7 @@ export default {
     name: 'Tree',
     extends: BaseTree,
     inheritAttrs: false,
-    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 'filter', 'node-drop', 'node-dragenter', 'node-dragleave', 'update:value'],
+    emits: ['node-expand', 'node-collapse', 'update:expandedKeys', 'update:selectionKeys', 'node-select', 'node-unselect', 'filter', 'node-drop', 'node-dragenter', 'node-dragleave', 'update:value', 'drag-enter', 'drag-leave'],
     data() {
         return {
             d_expandedKeys: this.expandedKeys || {},
@@ -324,7 +324,10 @@ export default {
         },
         isValidDragScope(dragScope) {
             let dropScope = this.droppableScope;
-
+            console.log(dropScope);
+            if (dropScope === 'first') {
+                // debugger;
+            }
             if (dropScope !== null) {
                 if (typeof dropScope === 'string') {
                     if (typeof dragScope === 'string') return dropScope === dragScope;
@@ -353,9 +356,16 @@ export default {
                 event.preventDefault();
             }
         },
-        onDragEnter() {
+        onDragEnter(event) {
             if (this.droppableNodes && this.allowDrop(this.dragNode, null, this.dragNodeScope)) {
                 this.dragHover = true;
+
+                this.$emit('drag-enter', {
+                    originalEvent: event,
+                    value: this.value,
+                    dragNode: this.dragNode,
+                    dragNodeScope: this.dragNodeScope
+                });
             }
         },
         onDragLeave(event) {
@@ -365,6 +375,13 @@ export default {
                 if (event.x > rect.left + rect.width || event.x < rect.left || event.y > rect.top + rect.height || event.y < rect.top) {
                     this.dragHover = false;
                 }
+
+                this.$emit('drag-leave', {
+                    originalEvent: event,
+                    value: this.value,
+                    dragNode: this.dragNode,
+                    dragNodeScope: this.dragNodeScope
+                });
             }
         },
         processTreeDrop(dragNode, dragNodeIndex) {

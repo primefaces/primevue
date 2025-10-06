@@ -141,12 +141,12 @@ export default {
             ],
             code: {
                 basic: `
-<Tree v-model:value="nodes" dragdrop></Tree>
+<Tree v-model:value="nodes" draggableNodes droppableNodes></Tree>
 `,
                 options: `
 <template>
     <div class="card">
-        <Tree v-model:value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
+        <Tree v-model:value="nodes" class="w-full md:w-[30rem]" draggableNodes droppableNodes></Tree>
     </div>
 </template>
 
@@ -286,7 +286,7 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <Tree v-model:value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
+        <Tree v-model:value="nodes" class="w-full md:w-[30rem]" draggableNodes droppableNodes></Tree>
     </div>
 </template>
 
