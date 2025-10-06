@@ -1,9 +1,12 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Drag&Drop based reordering is enabled by adding the <i>dragdrop</i> property and definining a two-way model binding to the <i>value</i> option. The optional <i>@node-drop</i> event is available to get notified about the new tree state.</p>
+        <p>
+            Drag&Drop based reordering is enabled by adding the <i>draggableNodes</i> and <i>droppableNodes</i> properties and definining a two-way model binding to the <i>value</i> option. The optional <i>@node-drop</i> event is available to get
+            notified about the new tree state.
+        </p>
     </DocSectionText>
     <div class="card">
-        <Tree v-model:value="nodes" class="w-full md:w-[30rem]" dragdrop></Tree>
+        <Tree v-model:value="nodes" class="w-full md:w-[30rem]" draggableNodes droppableNodes></Tree>
     </div>
     <DocSectionCode :code="code" v-bind="$attrs" />
 </template>
