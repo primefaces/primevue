@@ -614,3 +614,9 @@ const value3 = ref([
     }
 };
 </script>
+
+<style scoped>
+.p-tree-node-dragover {
+    border: 1px dashed var(--p-primary-color);
+}
+</style>
