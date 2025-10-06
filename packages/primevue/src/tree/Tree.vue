@@ -322,30 +322,43 @@ export default {
         allowNodeDrop(dropNode) {
             return this.allowDrop(this.dragNode, dropNode, this.dragNodeScope);
         },
-        isValidDragScope(dragScope) {
-            let dropScope = this.droppableScope;
+        hasCommonScope(dragScope, dropScope) {
+            if (dragScope === null && dropScope === null) {
+                return true;
+            } else if (dragScope === null || dropScope === null) {
+                return false;
+            }
 
-            if (dropScope !== null) {
-                if (typeof dropScope === 'string') {
-                    if (typeof dragScope === 'string') return dropScope === dragScope;
-                    else if (Array.isArray(dragScope)) return dragScope.indexOf(dropScope) != -1;
-                } else if (Array.isArray(dropScope)) {
-                    if (typeof dragScope === 'string') {
-                        return dropScope.indexOf(dragScope) != -1;
-                    } else if (Array.isArray(dragScope)) {
-                        for (let s of dropScope) {
-                            for (let ds of dragScope) {
-                                if (s === ds) {
-                                    return true;
-                                }
-                            }
+            if (typeof dropScope === 'string') {
+                if (typeof dragScope === 'string') {
+                    return dragScope === dropScope;
+                } else if (Array.isArray(dragScope)) {
+                    return dragScope.indexOf(dropScope) !== -1;
+                }
+            } else if (Array.isArray(dropScope)) {
+                if (typeof dragScope === 'string') {
+                    return dropScope.indexOf(dragScope) !== -1;
+                } else if (Array.isArray(dragScope)) {
+                    for (let ds of dragScope) {
+                        if (dropScope.indexOf(ds) !== -1) {
+                            return true;
                         }
                     }
+                    return false;
                 }
-                return false;
-            } else {
+            }
+
+            return false;
+        },
+        isValidDragScope(dragScope) {
+            if (this.droppableScope === null) {
                 return true;
             }
+
+            return this.hasCommonScope(dragScope, this.droppableScope);
+        },
+        isSameTreeScope(dragScope) {
+            return this.hasCommonScope(dragScope, this.draggableScope);
         },
         onDragOver(event) {
             if (this.droppableNodes && this.allowDrop(this.dragNode, null, this.dragNodeScope)) {
@@ -397,6 +410,14 @@ export default {
 
                 if (this.allowDrop(dragNode, null, this.dragNodeScope)) {
                     let dragNodeIndex = this.dragNodeIndex;
+
+                    if (this.isSameTreeScope(this.dragNodeScope)) {
+                        this.dragDropService.stopDrag({
+                            node: dragNode
+                        });
+
+                        return;
+                    }
 
                     if (this.validateDrop) {
                         this.$emit('node-drop', {
