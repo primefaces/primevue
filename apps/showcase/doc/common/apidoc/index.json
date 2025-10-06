@@ -75989,6 +75989,84 @@
                     ],
                     "methods": []
                 },
+                "TreeDragEnterEvent": {
+                    "description": "Custom tree drag enter event.",
+                    "relatedProp": "TreeEmitsOptions.drag-enter",
+                    "props": [
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "default": "",
+                            "description": "Original event"
+                        },
+                        {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeNode[]",
+                            "default": "",
+                            "description": "Current tree value state"
+                        },
+                        {
+                            "name": "dragNode",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeNode",
+                            "default": "",
+                            "description": "Dragged node"
+                        },
+                        {
+                            "name": "dragNodeScope",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Dragged node's scope"
+                        }
+                    ],
+                    "methods": []
+                },
+                "TreeDragLeaveEvent": {
+                    "description": "Custom tree drag leave event.",
+                    "relatedProp": "TreeEmitsOptions.drag-leave",
+                    "props": [
+                        {
+                            "name": "originalEvent",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Event",
+                            "default": "",
+                            "description": "Original event"
+                        },
+                        {
+                            "name": "value",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeNode[]",
+                            "default": "",
+                            "description": "Current tree value state"
+                        },
+                        {
+                            "name": "dragNode",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeNode",
+                            "default": "",
+                            "description": "Dragged node"
+                        },
+                        {
+                            "name": "dragNodeScope",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": "Dragged node's scope"
+                        }
+                    ],
+                    "methods": []
+                },
                 "TreePassThroughOptions": {
                     "description": "Custom passthrough(pt) options.",
                     "relatedProp": "TreeProps.pt",
@@ -76782,6 +76860,32 @@
                             ],
                             "returnType": "void",
                             "description": "Callback to invoke on filter input."
+                        },
+                        {
+                            "name": "drag-enter",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "TreeDragEnterEvent",
+                                    "description": "Custom drag enter event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke on drag enter."
+                        },
+                        {
+                            "name": "drag-leave",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "TreeDragLeaveEvent",
+                                    "description": "Custom drag leave event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke on drag leave."
                         }
                     ]
                 }
@@ -76812,6 +76916,14 @@
                 },
                 "TreeNodeDropEvent": {
                     "description": "Custom node drop event.",
+                    "props": []
+                },
+                "TreeDragEnterEvent": {
+                    "description": "Custom tree drag enter event.",
+                    "props": []
+                },
+                "TreeDragLeaveEvent": {
+                    "description": "Custom tree drag leave event.",
                     "props": []
                 },
                 "TreePassThroughOptions": {
