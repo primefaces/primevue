@@ -12,7 +12,7 @@
             :aria-label="ariaLabel"
             :aria-expanded="overlayVisible"
             :aria-controls="overlayVisible ? ((overlayProps && overlayProps.id) || overlayId || (panelProps && panelProps.id) || panelId || overlayUniqueId) : undefined"
-            :aria-haspopup="true"
+            :aria-haspopup="feedback || undefined"
             :placeholder="placeholder"
             :required="required"
             :fluid="fluid"
