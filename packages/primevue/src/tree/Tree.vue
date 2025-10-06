@@ -324,10 +324,7 @@ export default {
         },
         isValidDragScope(dragScope) {
             let dropScope = this.droppableScope;
-            console.log(dropScope);
-            if (dropScope === 'first') {
-                // debugger;
-            }
+
             if (dropScope !== null) {
                 if (typeof dropScope === 'string') {
                     if (typeof dragScope === 'string') return dropScope === dragScope;
