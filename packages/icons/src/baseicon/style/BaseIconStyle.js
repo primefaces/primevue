@@ -4,6 +4,7 @@ const css = `
 .p-icon {
     display: inline-block;
     vertical-align: baseline;
+    flex-shrink: 0;
 }
 
 .p-icon-spin {
