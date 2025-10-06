@@ -474,7 +474,8 @@ export default {
         },
         onNodeDragStart(event) {
             if (this.isNodeDraggable) {
-                event.dataTransfer?.setData('text', 'data');
+                event.dataTransfer.effectAllowed = 'all';
+                event.dataTransfer.setData('text', 'data');
 
                 const target = event.currentTarget;
                 const dragEl = target.cloneNode(true);
@@ -488,7 +489,7 @@ export default {
                 toggler.style.visibility = 'hidden';
                 checkbox?.remove();
                 document.body.appendChild(dragEl);
-                event.dataTransfer?.setDragImage(dragEl, 0, 0);
+                event.dataTransfer.setDragImage(dragEl, 0, 0);
 
                 setTimeout(() => document.body.removeChild(dragEl), 0);
 
@@ -503,9 +504,8 @@ export default {
             }
         },
         onNodeDragOver(event) {
-            event.dataTransfer.dropEffect = 'move';
-
             if (this.isDroppable) {
+                event.dataTransfer.dropEffect = 'copy';
                 const nodeElement = event.currentTarget;
                 const rect = nodeElement.getBoundingClientRect();
                 const y = event.clientY - rect.top;
@@ -521,6 +521,8 @@ export default {
                 } else if (this.isNodeDroppable) {
                     this.isNodeDropHovered = true;
                 }
+            } else {
+                event.dataTransfer.dropEffect = 'none';
             }
 
             if (this.droppableNodes) {

@@ -362,9 +362,12 @@ export default {
         },
         onDragOver(event) {
             if (this.droppableNodes && this.allowDrop(this.dragNode, null, this.dragNodeScope)) {
-                event.dataTransfer.dropEffect = 'move';
-                event.preventDefault();
+                event.dataTransfer.dropEffect = 'copy';
+            } else {
+                event.dataTransfer.dropEffect = 'none';
             }
+
+            event.preventDefault();
         },
         onDragEnter(event) {
             if (this.droppableNodes && this.allowDrop(this.dragNode, null, this.dragNodeScope)) {
@@ -382,7 +385,7 @@ export default {
             if (this.droppableNodes) {
                 let rect = event.currentTarget.getBoundingClientRect();
 
-                if (event.x > rect.left + rect.width || event.x < rect.left || event.y > rect.top + rect.height || event.y < rect.top) {
+                if (event.x >= parseInt(rect.right) || event.x <= parseInt(rect.left) || event.y >= parseInt(rect.bottom) || event.y <= parseInt(rect.top)) {
                     this.dragHover = false;
                 }
 
