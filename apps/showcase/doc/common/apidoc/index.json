@@ -76380,12 +76380,20 @@
                             "description": "Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size."
                         },
                         {
-                            "name": "dragdrop",
+                            "name": "draggableNodes",
                             "optional": true,
                             "readonly": false,
                             "type": "boolean",
                             "default": "null",
-                            "description": "Whether the nodes are draggable and droppable."
+                            "description": "Whether the nodes are draggable."
+                        },
+                        {
+                            "name": "droppableNodes",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "null",
+                            "description": "Whether the nodes are droppable."
                         },
                         {
                             "name": "draggableScope",
@@ -76727,14 +76735,40 @@
                             "name": "node-drop",
                             "parameters": [
                                 {
-                                    "name": "node",
+                                    "name": "event",
                                     "optional": false,
                                     "type": "TreeNodeDropEvent",
-                                    "description": "Node instance."
+                                    "description": ""
                                 }
                             ],
                             "returnType": "void",
                             "description": "Callback to invoke when a node is collapsed."
+                        },
+                        {
+                            "name": "node-dragenter",
+                            "parameters": [
+                                {
+                                    "name": "node",
+                                    "optional": false,
+                                    "type": "TreeNode",
+                                    "description": "Node instance."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when a dragged element enters a node."
+                        },
+                        {
+                            "name": "node-dragleave",
+                            "parameters": [
+                                {
+                                    "name": "node",
+                                    "optional": false,
+                                    "type": "TreeNode",
+                                    "description": "Node instance."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke when a dragged element leaves a node."
                         },
                         {
                             "name": "filter",
