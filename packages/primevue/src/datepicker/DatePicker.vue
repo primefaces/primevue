@@ -1934,7 +1934,7 @@ export default {
         },
         parseDateTime(text) {
             let date;
-            let parts = text.match(/(?:(.+?) )?(\d{2}:\d{2})(?: (am|pm))?/);
+            let parts = text.match(/(?:(.+?) )?(\d{2}:\d{2}(?::\d{2})?)(?: (am|pm))?/);
 
             if (this.timeOnly) {
                 date = new Date();
