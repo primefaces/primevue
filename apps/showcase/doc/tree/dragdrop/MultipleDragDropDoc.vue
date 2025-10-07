@@ -6,13 +6,13 @@
         </p>
     </DocSectionText>
     <div class="card flex gap-4 flex-wrap">
-        <Tree v-model:value="value1" class="flex-1 border rounded-lg" draggableNodes droppableNodes draggableScope="first" droppableScope="none">
+        <Tree v-model:value="value1" class="flex-1 border border-surface rounded-lg" draggableNodes droppableNodes draggableScope="first" droppableScope="none">
             <template #empty> No Items Left </template>
         </Tree>
-        <Tree v-model:value="value2" class="flex-1 border rounded-lg" draggableNodes droppableNodes draggableScope="second" droppableScope="first">
+        <Tree v-model:value="value2" class="flex-1 border border-surface rounded-lg" draggableNodes droppableNodes draggableScope="second" droppableScope="first">
             <template #empty> Drag Nodes Here </template>
         </Tree>
-        <Tree v-model:value="value3" class="flex-1 border rounded-lg" draggableNodes droppableNodes :droppableScope="['first', 'second']">
+        <Tree v-model:value="value3" class="flex-1 border border-surface rounded-lg" draggableNodes droppableNodes :droppableScope="['first', 'second']">
             <template #empty> Drag Nodes Here </template>
         </Tree>
     </div>
@@ -164,13 +164,13 @@ export default {
                 options: `
 <template>
     <div class="card flex gap-4 flex-wrap">
-        <Tree v-model:value="value1" class="flex-1 border rounded-lg" draggableNodes droppableNodes draggableScope="first" droppableScope="none">
+        <Tree v-model:value="value1" class="flex-1 border border-surface rounded-lg" draggableNodes droppableNodes draggableScope="first" droppableScope="none">
             <template #empty> No Items Left </template>
         </Tree>
-        <Tree v-model:value="value2" class="flex-1 border rounded-lg" draggableNodes droppableNodes draggableScope="second" droppableScope="first">
+        <Tree v-model:value="value2" class="flex-1 border border-surface rounded-lg" draggableNodes droppableNodes draggableScope="second" droppableScope="first">
             <template #empty> Drag Nodes Here </template>
         </Tree>
-        <Tree v-model:value="value3" class="flex-1 border rounded-lg" draggableNodes droppableNodes :droppableScope="['first', 'second']">
+        <Tree v-model:value="value3" class="flex-1 border border-surface rounded-lg" draggableNodes droppableNodes :droppableScope="['first', 'second']">
             <template #empty> Drag Nodes Here </template>
         </Tree>
     </div>
@@ -320,13 +320,13 @@ export default {
                 composition: `
 <template>
     <div class="card flex gap-4 flex-wrap">
-        <Tree v-model:value="value1" class="flex-1 border rounded-lg" draggableNodes droppableNodes draggableScope="first" droppableScope="none">
+        <Tree v-model:value="value1" class="flex-1 border border-surface rounded-lg" draggableNodes droppableNodes draggableScope="first" droppableScope="none">
             <template #empty> No Items Left </template>
         </Tree>
-        <Tree v-model:value="value2" class="flex-1 border rounded-lg" draggableNodes droppableNodes draggableScope="second" droppableScope="first">
+        <Tree v-model:value="value2" class="flex-1 border border-surface rounded-lg" draggableNodes droppableNodes draggableScope="second" droppableScope="first">
             <template #empty> Drag Nodes Here </template>
         </Tree>
-        <Tree v-model:value="value3" class="flex-1 border rounded-lg" draggableNodes droppableNodes :droppableScope="['first', 'second']">
+        <Tree v-model:value="value3" class="flex-1 border border-surface rounded-lg" draggableNodes droppableNodes :droppableScope="['first', 'second']">
             <template #empty> Drag Nodes Here </template>
         </Tree>
     </div>
