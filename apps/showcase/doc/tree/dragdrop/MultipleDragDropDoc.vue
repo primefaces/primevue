@@ -10,9 +10,11 @@
             <template #empty> No Items Left </template>
         </Tree>
         <Tree v-model:value="value2" class="flex-1 border rounded-lg" draggableNodes droppableNodes draggableScope="second" droppableScope="first">
-            <template #empty> No Items Left </template>
+            <template #empty> Drag Nodes Here </template>
         </Tree>
-        <Tree v-model:value="value3" class="flex-1 border rounded-lg" draggableNodes droppableNodes :droppableScope="['first', 'second']" />
+        <Tree v-model:value="value3" class="flex-1 border rounded-lg" draggableNodes droppableNodes :droppableScope="['first', 'second']">
+            <template #empty> Drag Nodes Here </template>
+        </Tree>
     </div>
     <DocSectionCode :code="code" v-bind="$attrs" />
 </template>
@@ -152,13 +154,7 @@ export default {
                     icon: 'pi pi-fw pi-folder'
                 }
             ],
-            value3: [
-                {
-                    key: '2-0',
-                    label: '/var',
-                    icon: 'pi pi-fw pi-folder'
-                }
-            ],
+            value3: [],
             code: {
                 basic: `
 <Tree v-model:value="value1" draggableNodes droppableNodes draggableScope="first" droppableScope="none" />
@@ -172,9 +168,11 @@ export default {
             <template #empty> No Items Left </template>
         </Tree>
         <Tree v-model:value="value2" class="flex-1 border rounded-lg" draggableNodes droppableNodes draggableScope="second" droppableScope="first">
-            <template #empty> No Items Left </template>
+            <template #empty> Drag Nodes Here </template>
         </Tree>
-        <Tree v-model:value="value3" class="flex-1 border rounded-lg" draggableNodes droppableNodes :droppableScope="['first', 'second']" />
+        <Tree v-model:value="value3" class="flex-1 border rounded-lg" draggableNodes droppableNodes :droppableScope="['first', 'second']">
+            <template #empty> Drag Nodes Here </template>
+        </Tree>
     </div>
 </template>
 
@@ -313,13 +311,7 @@ export default {
                     icon: 'pi pi-fw pi-folder'
                 }
             ],
-            value3: [
-                {
-                    key: '2-0',
-                    label: '/var',
-                    icon: 'pi pi-fw pi-folder'
-                }
-            ]
+            value3: []
         };
     }
 }
@@ -332,9 +324,11 @@ export default {
             <template #empty> No Items Left </template>
         </Tree>
         <Tree v-model:value="value2" class="flex-1 border rounded-lg" draggableNodes droppableNodes draggableScope="second" droppableScope="first">
-            <template #empty> No Items Left </template>
+            <template #empty> Drag Nodes Here </template>
         </Tree>
-        <Tree v-model:value="value3" class="flex-1 border rounded-lg" draggableNodes droppableNodes :droppableScope="['first', 'second']" />
+        <Tree v-model:value="value3" class="flex-1 border rounded-lg" draggableNodes droppableNodes :droppableScope="['first', 'second']">
+            <template #empty> Drag Nodes Here </template>
+        </Tree>
     </div>
 </template>
 
@@ -474,13 +468,7 @@ const value2 = ref([
     }
 ]);
 
-const value3 = ref([
-    {
-        key: '2-0',
-        label: '/var',
-        icon: 'pi pi-fw pi-folder'
-    }
-]);
+const value3 = ref([]);
 
 <\/script>
 `,
