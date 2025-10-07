@@ -124,11 +124,11 @@ export default {
                 return;
             }
 
-            if (this.overlayVisible) this.hide();
-
             if (item.command) {
                 item.command(event);
             }
+
+            if (this.overlayVisible) this.hide();
 
             if (!this.popup && this.focusedOptionIndex !== event.id) {
                 this.focusedOptionIndex = event.id;
