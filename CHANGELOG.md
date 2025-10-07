@@ -1,5 +1,27 @@
 # Changelog
 
+## [4.4.1](https://github.com/primefaces/primevue/tree/4.4.0) (2025-10-07)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.4.0...4.4.1)
+
+**Implemented New Features and Enhancements:**
+
+- Improve drag and drop behaviour between multiple Tree's [\#8183](https://github.com/primefaces/primevue/issues/8183
+- DatePicker | new `buttonbar` slot [\#8172](https://github.com/primefaces/primevue/issues/8172)
+  )
+
+**Fixed bugs:**
+
+- Typescript PrimeIconsOptions differs from PrimeIcons constants [\#8181](https://github.com/primefaces/primevue/issues/8181)
+- Tree | draggableScope and droppableScope implementation fixes [\#8175](https://github.com/primefaces/primevue/issues/8175)
+- `DatePickerProps`'s `updateModelType` is being necessary instead of optional [\#8169](https://github.com/primefaces/primevue/issues/8169)
+- Tree | controlled/uncontrolled updates [\#8166](https://github.com/primefaces/primevue/issues/8166)
+- Duplicated Empty Mesage on TreeSelect [\#8165](https://github.com/primefaces/primevue/issues/8165)
+- DatePicker | add seconds support to time parsing regex [\#8163](https://github.com/primefaces/primevue/issues/8163)
+- Menu | itemClick means event.currentTarget is now always null [\#8104](https://github.com/primefaces/primevue/issues/8104)
+- Unable to determine if aria-controls referenced ID exists on the page while using aria-haspopup: aria-controls [\#8092](https://github.com/primefaces/primevue/issues/8092)
+- Accessibility Issue | role="complementary" used with aria-modal="true" in Drawer – conflicting roles [\#7943](https://github.com/primefaces/primevue/issues/7943)
+
 ## [4.4.0](https://github.com/primefaces/primevue/tree/4.4.0) (2025-10-01)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.3.9...4.4.0)
