@@ -191,7 +191,7 @@
                                 </div>
                                 <table v-if="currentView === 'date'" :class="cx('dayView')" role="grid" v-bind="ptm('dayView')">
                                     <thead v-bind="ptm('tableHeader')">
-                                        <tr row="row" role="row"  v-bind="ptm('tableHeaderRow')">
+                                        <tr role="row"  v-bind="ptm('tableHeaderRow')">
                                             <th v-if="showWeek" scope="col" :class="cx('weekHeader')" role="gridcell" v-bind="ptm('weekHeader', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tableheadercell">
                                                 <slot name="weekheaderlabel">
                                                     <span v-bind="ptm('weekHeaderLabel', { context: { disabled: showWeek } })" data-pc-group-section="tableheadercelllabel">
