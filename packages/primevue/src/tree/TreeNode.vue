@@ -426,10 +426,10 @@ export default {
             return updatedNodes;
         },
         onNodeDrop(event) {
-            event.preventDefault();
-            event.stopPropagation();
-
             if (this.isDroppable) {
+                event.preventDefault();
+                event.stopPropagation();
+
                 const { dragNode } = this.$pcTree;
                 const position = this.dropPosition;
                 const isValidDrop = position !== 0 || (position === 0 && this.isNodeDroppable);
@@ -466,11 +466,11 @@ export default {
                         });
                     }
                 }
-            }
 
-            this.isPrevDropPointHovered = false;
-            this.isNextDropPointHovered = false;
-            this.isNodeDropHovered = false;
+                this.isPrevDropPointHovered = false;
+                this.isNextDropPointHovered = false;
+                this.isNodeDropHovered = false;
+            }
         },
         onNodeDragStart(event) {
             if (this.isNodeDraggable) {
