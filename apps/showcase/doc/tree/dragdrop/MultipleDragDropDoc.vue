@@ -5,7 +5,7 @@
             end.
         </p>
     </DocSectionText>
-    <div class="card flex gap-4 flex-wrap">
+    <div class="card flex flex-col md:flex-row gap-4">
         <Tree v-model:value="value1" class="flex-1 border border-surface rounded-lg" draggableNodes droppableNodes draggableScope="first" droppableScope="none">
             <template #empty> No Items Left </template>
         </Tree>
@@ -163,7 +163,7 @@ export default {
 `,
                 options: `
 <template>
-    <div class="card flex gap-4 flex-wrap">
+    <div class="card flex flex-col md:flex-row gap-4">
         <Tree v-model:value="value1" class="flex-1 border border-surface rounded-lg" draggableNodes droppableNodes draggableScope="first" droppableScope="none">
             <template #empty> No Items Left </template>
         </Tree>
@@ -319,7 +319,7 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex gap-4 flex-wrap">
+    <div class="card flex flex-col md:flex-row gap-4">
         <Tree v-model:value="value1" class="flex-1 border border-surface rounded-lg" draggableNodes droppableNodes draggableScope="first" droppableScope="none">
             <template #empty> No Items Left </template>
         </Tree>
