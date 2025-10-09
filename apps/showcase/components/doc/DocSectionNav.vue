@@ -21,13 +21,15 @@
         </ul>
 
         <div class="mt-8 px-4 py-6 rounded-lg border border-surface-200 dark:border-surface-800 bg-surface-0 dark:bg-surface-900 w-full">
+            <img src="https://primefaces.org/cdn/primevue/images/primeblocks/primeblocks-menu-light.jpg" class="w-full rounded-xl block dark:hidden mb-4" />
+            <img src="https://primefaces.org/cdn/primevue/images/primeblocks/primeblocks-menu-dark.jpg" class="w-full rounded-xl hidden dark:block mb-4" />
             <div class="text-xl font-semibold flex flex-col gap-2 text-center">
                 <span class="leading-none">Build Faster </span>
                 <span class="leading-none text-primary">Design Better</span>
             </div>
             <div class="text-center text-sm mt-4 text-secondary">490+ ready to use UI blocks crafted with PrimeVue and Tailwind CSS.</div>
             <span class="flex justify-center">
-                <Button as="a" label="Learn More" href="https://primeblocks.org/" target="_blank" rel="noopener" class="mt-4 inline-flex" rounded />
+                <Button as="a" label="Learn More" href="https://primeblocks.org/" target="_blank" rel="noopener" class="mt-4 inline-flex" rounded size="small" />
             </span>
         </div>
 
