@@ -126,6 +126,10 @@ export default {
             type: String,
             default: null
         },
+        selectable: {
+            type: Function,
+            default: null
+        },
         expander: {
             type: Boolean,
             default: false
