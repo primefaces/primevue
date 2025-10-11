@@ -557,6 +557,10 @@
                 {
                     "name": "Guide",
                     "to": "/designer/guide"
+                },
+                {
+                    "name": "Continuous Integration",
+                    "to": "/designer/ci"
                 }
             ]
         },
