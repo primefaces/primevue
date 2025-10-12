@@ -58,7 +58,9 @@ export default {
             });
         },
         removeAriaLabel() {
-            return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
+            const closeLabel = this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : 'close';
+
+            return this.label ? `${closeLabel} ${this.label}` : closeLabel;
         }
     },
     components: {
