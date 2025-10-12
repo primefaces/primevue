@@ -5,7 +5,7 @@
         <h3>Parameters</h3>
         <p>The request type must be <i>POST</i>.</p>
         <div class="doc-tablewrapper">
-            <table class="doc-table">
+            <table class="doc-table !mb-0">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -22,6 +22,14 @@
                         <td>string</td>
                         <td>yes</td>
                         <td>Secret key to access the API, can be generated at PrimeUI Store.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>name</i>
+                        </td>
+                        <td>string</td>
+                        <td>yes</td>
+                        <td>Name of the theme to be generated.</td>
                     </tr>
                     <tr>
                         <td>
@@ -58,11 +66,20 @@
                 </tbody>
             </table>
         </div>
+
+        <h3>Get a Secret Key</h3>
+        <ul class="leading-relaxed list-decimal list-inside">
+            <li>Visit the <a href="https://primeui.store/designer" target="_blank" rel="noopener noreferrer">PrimeUI Store</a>.</li>
+            <li>Purchase an Extended License of Theme Designer.</li>
+            <li>Navigate to your <a href="https://primeui.store/user/designer" target="_blank" rel="noopener noreferrer"> account settings</a>.</li>
+            <li>Generate a secret key for CI/CD integration.</li>
+        </ul>
+
         <h3>Response</h3>
         <p>A successful response returns a zip file containing the source code of the generated theme preset. The content-type header of this type of response is <i>application/zip</i>.</p>
 
         <h3>Error Handling</h3>
-        <p>When theme generation fails, a json response is returned with <i>application/zip</i> content-type header. The response contains an error object with <i>code</i> and <i>message</i>.</p>
+        <p>When theme generation fails, a json response is returned with <i>application/json</i> content-type header. The response contains an error object with <i>code</i> and <i>message</i>.</p>
         <DocSectionCode :code="code2" hideToggleCode importCode hideStackBlitz />
     </DocSectionText>
 </template>

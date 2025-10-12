@@ -24,8 +24,8 @@ import FigmaDoc from '@/doc/designer/ci/FigmaDoc.vue';
 import BitbucketDoc from '@/doc/designer/ci/integration/BitbucketDoc.vue';
 import GitHubDoc from '@/doc/designer/ci/integration/GitHubDoc.vue';
 import GitLabDoc from '@/doc/designer/ci/integration/GitLabDoc.vue';
+import LivePreviewDoc from '@/doc/designer/ci/LivePreviewDoc.vue';
 import OverviewDoc from '@/doc/designer/ci/OverviewDoc.vue';
-import PreviewDoc from '@/doc/designer/ci/PreviewDoc.vue';
 
 export default {
     data() {
@@ -38,18 +38,18 @@ export default {
                 },
                 {
                     id: 'api',
-                    label: 'Designer API',
+                    label: '1) Designer API',
                     component: DesignerApiDoc
                 },
                 {
                     id: 'figma',
-                    label: 'Figma',
+                    label: '2) Figma',
                     component: FigmaDoc
                 },
                 {
                     id: 'integration',
-                    label: 'Integration',
-                    description: 'Once the Token Studio Sync Provider is running, you are able to connect your repository to the Theme Designer API to generate themes automatically whenever the tokens file changes.',
+                    label: '3) Integration',
+                    description: `Once the Token Studio Sync Provider is running and you have obtained a Secret Key for the Designer API, you can connect your repository to the Theme Designer API to automatically generate themes whenever the tokens file changes via your CI pipeline. For GitHub, PrimeTek provides an official GitHub Action available on the GitHub Marketplace, while for GitLab and Bitbucket, sample implementations are provided as references for building your own integration.`,
                     children: [
                         {
                             id: 'github',
@@ -69,9 +69,9 @@ export default {
                     ]
                 },
                 {
-                    id: 'preview',
-                    label: 'Preview',
-                    component: PreviewDoc
+                    id: 'livepreview',
+                    label: '4) Live Preview',
+                    component: LivePreviewDoc
                 }
             ]
         };
