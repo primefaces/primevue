@@ -1,7 +1,6 @@
 {
-    "id": 86,
-    "content": "PrimeBlocks with Tailwind v4 is now live!🚀",
+    "id": 90,
+    "content": "Introducing CI Pipeline for Figma to Theme Code ⭐️",
     "linkText": "Learn More",
-    "linkHref": "https://primeblocks.org",
-    "target": "_blank"
+    "to": "/designer/ci"
 }
