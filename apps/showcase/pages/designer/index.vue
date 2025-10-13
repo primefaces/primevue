@@ -69,6 +69,14 @@
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
+                                <span class="font-bold">CI Pipeline</span>
+                            </li>
+                            <li class="flex items-center w-6/12 p-4">
+                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
+                                <span class="font-bold">Live Preview</span>
+                            </li>
+                            <li class="flex items-center w-6/12 p-4">
+                                <i class="pi pi-check-circle text-green-600 mr-2"></i>
                                 <span class="font-bold">Maintain Perfect Fidelity</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">

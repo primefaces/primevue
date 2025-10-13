@@ -36,6 +36,7 @@ import ImportingDoc from '@/doc/uikit/installation/ImportingDoc.vue';
 import PublishingDoc from '@/doc/uikit/installation/PublishingDoc.vue';
 import DesignChangesDoc from '@/doc/uikit/workflow/DesignChangesDoc.vue';
 import TokensStudioSetupDoc from '@/doc/uikit/workflow/TokensStudioSetupDoc.vue';
+import CIPipelineDoc from '@/doc/uikit/workflow/CIPipelineDoc.vue';
 
 export default {
     data() {
@@ -82,6 +83,11 @@ export default {
                             id: 'tokens-studio-setup',
                             label: 'Tokens Studio Setup',
                             component: TokensStudioSetupDoc
+                        },
+                        {
+                            id: 'ci-pipeline',
+                            label: 'CI Pipeline',
+                            component: CIPipelineDoc
                         },
                         {
                             id: 'designchanges',

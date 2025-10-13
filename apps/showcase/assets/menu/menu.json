@@ -65,6 +65,11 @@
                 {
                     "name": "Unstyled Mode",
                     "to": "/theming/unstyled"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "icon": "pi pi-star",
+                    "to": "/tailwind"
                 }
             ]
         },
@@ -498,25 +503,44 @@
             ]
         },
         {
+            "name": "Guides",
+            "icon": "pi pi-book",
+            "children": [
+                {
+                    "name": "Accessibility",
+                    "to": "/guides/accessibility"
+                },
+                {
+                    "name": "Dynamic Imports",
+                    "to": "/guides/dynamicimports"
+                },
+                {
+                    "name": "Migration to V4",
+                    "to": "/guides/migration/v4"
+                },
+                {
+                    "name": "Pass Through",
+                    "icon": "pi pi-directions",
+                    "to": "/passthrough"
+                },
+                {
+                    "name": "PrimeFlex",
+                    "to": "/guides/primeflex"
+                },
+                {
+                    "name": "PrimeTV",
+                    "href": "https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw"
+                },
+                {
+                    "name": "RTL",
+                    "to": "/guides/rtl"
+                }
+            ]
+        },
+        {
             "name": "Forms",
             "icon": "pi pi-check-circle",
             "to": "/forms"
-        },
-        {
-            "name": "Pass Through",
-            "icon": "pi pi-directions",
-            "to": "/passthrough"
-        },
-        {
-            "name": "Tailwind CSS",
-            "icon": "pi pi-star",
-            "to": "/tailwind"
-        },
-        {
-            "name": "Volt UI",
-            "icon": "pi pi-bolt",
-            "href": "https://volt.primevue.org",
-            "badge": "NEW"
         },
         {
             "name": "Icons",
@@ -531,6 +555,11 @@
                     "to": "/customicons"
                 }
             ]
+        },
+        {
+            "name": "Volt UI",
+            "icon": "pi pi-bolt",
+            "href": "https://volt.primevue.org"
         },
         {
             "name": "Figma UI Kit",
@@ -559,7 +588,7 @@
                     "to": "/designer/guide"
                 },
                 {
-                    "name": "Continuous Integration",
+                    "name": "CI Pipeline",
                     "to": "/designer/ci"
                 }
             ]
@@ -572,38 +601,13 @@
         {
             "name": "PrimeBlocks",
             "icon": "pi pi-server",
-            "href": "https://primeblocks.org",
-            "badge": "NEW"
+            "href": "https://primeblocks.org"
         },
         {
-            "name": "Guides",
-            "icon": "pi pi-book",
-            "children": [
-                {
-                    "name": "Accessibility",
-                    "to": "/guides/accessibility"
-                },
-                {
-                    "name": "Dynamic Imports",
-                    "to": "/guides/dynamicimports"
-                },
-                {
-                    "name": "Migration to V4",
-                    "to": "/guides/migration/v4"
-                },
-                {
-                    "name": "PrimeFlex",
-                    "to": "/guides/primeflex"
-                },
-                {
-                    "name": "PrimeTV",
-                    "href": "https://www.youtube.com/channel/UCTgmp69aBOlLnPEqlUyetWw"
-                },
-                {
-                    "name": "RTL",
-                    "to": "/guides/rtl"
-                }
-            ]
+            "name": "Store",
+            "href": "https://primeui.store",
+            "icon": "pi pi-shopping-bag",
+            "badge": "NEW"
         },
         {
             "name": "Support",
@@ -647,10 +651,6 @@
                     "name": "Contribution",
                     "to": "/contribution",
                     "icon": "pi pi-users"
-                },
-                {
-                    "name": "Store",
-                    "href": "https://primeui.store"
                 },
                 {
                     "name": "Twitter",
