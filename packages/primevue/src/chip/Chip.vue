@@ -7,17 +7,7 @@
             <div v-if="label !== null" :class="cx('label')" v-bind="ptm('label')">{{ label }}</div>
         </slot>
         <slot v-if="removable" name="removeicon" :removeCallback="close" :keydownCallback="onKeydown">
-            <component
-                :is="removeIcon ? 'span' : 'TimesCircleIcon'"
-                :class="[cx('removeIcon'), removeIcon]"
-                :tabindex="disabled ? -1 : 0"
-                role="button"
-                :aria-label="removeAriaLabel"
-                :aria-disabled="disabled"
-                @click="!disabled && close($event)"
-                @keydown="onKeydown"
-                v-bind="ptm('removeIcon')"
-            ></component>
+            <component :is="removeIcon ? 'span' : 'TimesCircleIcon'" :class="[cx('removeIcon'), removeIcon]" :tabindex="0" role="button" :aria-label="removeAriaLabel" @click="close($event)" @keydown="onKeydown" v-bind="ptm('removeIcon')"></component>
         </slot>
     </div>
 </template>
@@ -39,16 +29,14 @@ export default {
     },
     methods: {
         onKeydown(event) {
-            if (!this.disabled && (event.key === 'Enter' || event.key === ' ' || event.key === 'Backspace')) {
+            if (event.key === 'Enter' || event.key === ' ' || event.key === 'Backspace') {
                 event.preventDefault();
                 this.close(event);
             }
         },
         close(event) {
-            if (!this.disabled) {
-                this.visible = false;
-                this.$emit('remove', event);
-            }
+            this.visible = false;
+            this.$emit('remove', event);
         }
     },
     computed: {
