@@ -3,7 +3,14 @@
         <section class="flex justify-between items-center mb-5 gap-8">
             <div class="flex gap-2 items-center">
                 <span class="text-sm">Surface</span>
-                <input :value="surface" @input="onSurfaceColorChange($event)" type="color" @blur="onColorPickerBlur" />
+                <input
+                    :value="surface"
+                    @input="onSurfaceColorChange($event)"
+                    type="color"
+                    @blur="onColorPickerBlur"
+                    :disabled="$appState.designer.theme.origin !== 'web'"
+                    :class="{ '!cursor-not-allowed': $appState.designer.theme.origin !== 'web' }"
+                />
             </div>
             <DesignColorPalette :value="$colorScheme.surface" />
         </section>

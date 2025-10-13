@@ -24,8 +24,8 @@
         </li>
     </ul>
     <div class="flex justify-between">
-        <button type="button" @click="addToken" class="btn-design-outlined">Add New</button>
-        <button type="button" @click="save" class="btn-design">Save</button>
+        <button type="button" @click="addToken" class="btn-design-outlined" :disabled="$appState.designer.theme.origin !== 'web'">Add New</button>
+        <button type="button" @click="save" class="btn-design" :disabled="$appState.designer.theme.origin !== 'web'">Save</button>
     </div>
 </template>
 

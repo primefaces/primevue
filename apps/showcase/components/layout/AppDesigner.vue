@@ -121,21 +121,23 @@ export default {
             }
         },
         async saveTheme(theme) {
-            const { error } = await $fetch(this.designerApiUrl + '/theme/update', {
-                method: 'PATCH',
-                credentials: 'include',
-                headers: {
-                    'X-CSRF-Token': this.$appState.designer.csrfToken
-                },
-                body: {
-                    key: theme.key,
-                    preset: theme.preset,
-                    config: theme.config
-                }
-            });
+            if (theme.origin === 'web') {
+                const { error } = await $fetch(this.designerApiUrl + '/theme/update', {
+                    method: 'PATCH',
+                    credentials: 'include',
+                    headers: {
+                        'X-CSRF-Token': this.$appState.designer.csrfToken
+                    },
+                    body: {
+                        key: theme.key,
+                        preset: theme.preset,
+                        config: theme.config
+                    }
+                });
 
-            if (error) {
-                this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
+                if (error) {
+                    this.$toast.add({ severity: 'error', summary: 'An error occured', detail: error.message, life: 3000 });
+                }
             }
         },
         applyTheme(theme) {
@@ -221,7 +223,8 @@ export default {
                 key: data.t_key,
                 name: data.t_name,
                 preset: typeof data.t_preset === 'string' ? JSON.parse(data.t_preset) : data.t_preset,
-                config: typeof data.t_config === 'string' ? JSON.parse(data.t_config) : data.t_config
+                config: typeof data.t_config === 'string' ? JSON.parse(data.t_config) : data.t_config,
+                origin: data.t_origin
             };
 
             usePreset(this.$appState.designer.theme.preset);

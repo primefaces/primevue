@@ -51,10 +51,12 @@
         <div v-for="theme of $appState.designer.themes" :key="theme.t_key" class="flex flex-col gap-2 relative">
             <button
                 type="button"
-                class="rounded-xl h-32 w-32 px-4 overflow-hidden text-ellipsis bg-transparent border border-surface-200 dark:border-surface-700 hover:border-surface-400 dark:hover:border-surface-500 text-black dark:text-white"
+                class="relative rounded-xl h-32 w-32 px-4 overflow-hidden text-ellipsis bg-transparent border border-surface-200 dark:border-surface-700 hover:border-surface-400 dark:hover:border-surface-500 text-black dark:text-white"
                 @click="loadTheme(theme)"
             >
                 <span class="text-2xl uppercase font-bold">{{ abbrThemeName(theme) }}</span>
+
+                <span class="absolute bottom-2 start-0 text-xs text-muted-color ms-start w-full" v-if="theme.t_origin !== 'web'">View Only</span>
             </button>
             <div class="flex flex-col items-center gap-1">
                 <div class="group flex items-center gap-2 relative">
@@ -63,11 +65,12 @@
                         type="text"
                         :class="['w-24 text-sm px-2 text-center pr-4t', { 'bg-red-50 dark:bg-red-500/30': !theme.t_name, 'bg-transparent': theme.t_name }]"
                         maxlength="100"
+                        :disabled="theme.t_origin !== 'web'"
                         @blur="renameTheme(theme)"
                         @keydown.enter="onThemeNameEnterKey($event)"
                         @keydown.escape="onThemeNameEscape($event)"
                     />
-                    <i class="hidden group-hover:block pi pi-pencil !text-xs absolute top-50 text-muted-color" style="right: 2px"></i>
+                    <i class="hidden group-hover:block pi pi-pencil !text-xs absolute top-50 text-muted-color" style="right: 2px" v-if="theme.t_origin === 'web'"></i>
                 </div>
                 <span class="text-muted-color text-xs">{{ formatTimestamp(theme.t_last_updated) }}</span>
             </div>
@@ -242,7 +245,7 @@ export default {
             }
         },
         async renameTheme(theme) {
-            if (theme.t_name && theme.t_name.trim().length) {
+            if (theme.t_name && theme.t_name.trim().length && theme.t_origin === 'web') {
                 const { error } = await $fetch(this.designerApiUrl + '/theme/rename/' + theme.t_key, {
                     method: 'PATCH',
                     credentials: 'include',

@@ -3,7 +3,15 @@
         <section class="flex justify-between items-center mb-5 gap-8">
             <div class="flex gap-2 items-center">
                 <span class="text-sm">Primary</span>
-                <input :value="primary" @input="onPrimaryColorChange($event)" type="color" class="w-0 h-0" @onBlur="onColorPickerBlur" />
+                <input
+                    :value="primary"
+                    @input="onPrimaryColorChange($event)"
+                    type="color"
+                    class="w-0 h-0"
+                    @onBlur="onColorPickerBlur"
+                    :disabled="$appState.designer.theme.origin !== 'web'"
+                    :class="{ '!cursor-not-allowed': $appState.designer.theme.origin !== 'web' }"
+                />
             </div>
             <DesignColorPalette :value="$appState.designer.theme.preset.semantic.primary" />
         </section>

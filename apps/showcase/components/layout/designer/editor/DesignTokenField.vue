@@ -18,6 +18,7 @@
                 optionLabel="label"
                 :showEmptyMessage="false"
                 appendTo="self"
+                :disabled="$appState.designer.theme.origin !== 'web'"
                 :pt="{
                     pcInputText: {
                         root: {

@@ -8,7 +8,7 @@
     }
 
     .btn-design-outlined {
-        @apply px-3 py-2 bg-transparent border border-gray-200 dark:border-gray-700 hover:border-gray-800 dark:hover:border-gray-500 text-black dark:text-white rounded-md font-medium cursor-pointer transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 dark:focus:outline-white disabled:opacity-60;
+        @apply px-3 py-2 bg-transparent border border-gray-200 dark:border-gray-700 hover:border-gray-800 dark:hover:border-gray-500 text-black dark:text-white rounded-md font-medium cursor-pointer disabled:cursor-auto transition-colors duration-200 focus:outline focus:outline-offset-2 focus:outline-zinc-950 dark:focus:outline-white disabled:opacity-60 disabled:hover:border-gray-200 dark:disabled:hover:border-gray-700;
     }
 
     .icon-btn {

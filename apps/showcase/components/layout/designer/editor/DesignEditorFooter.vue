@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-end gap-2">
         <button type="button" @click="download" icon="pi pi-download" class="btn-design-outlined">Download</button>
-        <button type="button" @click="apply" icon="pi pi-download" class="btn-design">Apply</button>
+        <button type="button" @click="apply" icon="pi pi-download" class="btn-design" :disabled="$appState.designer.theme.origin !== 'web'">Apply</button>
     </div>
 </template>
 
