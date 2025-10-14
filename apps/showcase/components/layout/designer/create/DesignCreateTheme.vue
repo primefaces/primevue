@@ -219,7 +219,8 @@ export default {
                 config: {
                     font_size: '14px',
                     font_family: 'Inter var'
-                }
+                },
+                origin: 'web'
             };
             this.designerService.applyFont('Inter var');
             document.documentElement.style.fontSize = '14px';
