@@ -50,7 +50,7 @@ pipelines:
                   - chmod +x pipe.sh
                   - export DESIGNER_SECRET="\${THEME_DESIGNER_SECRET_KEY}"
                   - export THEME_NAME="acme-theme"
-                  - export PROJECT="primeng"
+                  - export PROJECT="primevue"
                   - export FONT_SIZE="14px"
                   - export FONT_FAMILY="Inter Var"
                   - export TOKENS_PATH="./tokens.json"
