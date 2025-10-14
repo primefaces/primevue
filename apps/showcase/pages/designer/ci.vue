@@ -26,6 +26,7 @@ import GitHubDoc from '@/doc/designer/ci/integration/GitHubDoc.vue';
 import GitLabDoc from '@/doc/designer/ci/integration/GitLabDoc.vue';
 import LivePreviewDoc from '@/doc/designer/ci/LivePreviewDoc.vue';
 import OverviewDoc from '@/doc/designer/ci/OverviewDoc.vue';
+import VideoTutorialDoc from '@/doc/designer/ci/VideoTutorialDoc.vue';
 
 export default {
     data() {
@@ -35,6 +36,11 @@ export default {
                     id: 'overview',
                     label: 'Overview',
                     component: OverviewDoc
+                },
+                {
+                    id: 'videotutorial',
+                    label: 'Video Tutorial',
+                    component: VideoTutorialDoc
                 },
                 {
                     id: 'api',
