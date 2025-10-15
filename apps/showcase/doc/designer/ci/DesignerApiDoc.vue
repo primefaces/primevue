@@ -60,7 +60,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <i>config.font-family</i>
+                            <i>config.font_family</i>
                         </td>
                         <td>string</td>
                         <td>no</td>
