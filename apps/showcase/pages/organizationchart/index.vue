@@ -35,14 +35,14 @@ export default {
                     component: BasicDoc
                 },
                 {
-                    id: 'template',
-                    label: 'Template',
-                    component: TemplateDoc
-                },
-                {
                     id: 'selection',
                     label: 'Selection',
                     component: SelectionDoc
+                },
+                {
+                    id: 'template',
+                    label: 'Template',
+                    component: TemplateDoc
                 },
                 {
                     id: 'colored',

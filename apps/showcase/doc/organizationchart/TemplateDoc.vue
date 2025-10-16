@@ -3,7 +3,7 @@
         <p>The <i>type</i> property of an OrganizationChartNode is used to map a template to a node. If it is undefined, the default template is used.</p>
     </DocSectionText>
     <div class="card overflow-x-auto">
-        <OrganizationChart :value="data" collapsible>
+        <OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="single">
             <template #country="slotProps">
                 <div class="flex flex-col items-center">
                     <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="`w-2rem flag flag-${slotProps.node.data}`" />
@@ -70,9 +70,10 @@ export default {
                     }
                 ]
             },
+            selection: {},
             code: {
                 basic: `
-<OrganizationChart :value="data" collapsible>
+<OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="single">
     <template #country="slotProps">
         <div class="flex flex-col items-center">
             <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`w-2rem flag flag-\${slotProps.node.data}\`" />
@@ -80,14 +81,14 @@ export default {
         </div>
     </template>
     <template #default="slotProps">
-        <span>{{slotProps.node.data.label}}</span>
+        <span>{{slotProps.node.label}}</span>
     </template>
 </OrganizationChart>
 `,
                 options: `
 <template>
     <div class="card overflow-x-auto">
-        <OrganizationChart :value="data" collapsible>
+        <OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="single">
             <template #country="slotProps">
                 <div class="flex flex-col items-center">
                     <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`w-2rem flag flag-\${slotProps.node.data}\`" />
@@ -152,7 +153,8 @@ export default {
                         ]
                     }
                 ]
-            }
+            },
+            selection: {},
         };
     }
 };
@@ -161,7 +163,7 @@ export default {
                 composition: `
 <template>
     <div class="card overflow-x-auto">
-        <OrganizationChart :value="data" collapsible>
+        <OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="single">
             <template #country="slotProps">
                 <div class="flex flex-col items-center">
                     <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`w-2rem flag flag-\${slotProps.node.data}\`" />
@@ -178,6 +180,7 @@ export default {
 <script setup>
 import { ref } from "vue";
 
+const selection = ref({});
 const data = ref({
     key: '0',
     type: 'country',
