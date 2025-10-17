@@ -169,10 +169,4 @@ export declare type AvatarEmits = EmitFn<AvatarEmitsOptions>;
  */
 declare const Avatar: DefineComponent<AvatarProps, AvatarSlots, AvatarEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Avatar: DefineComponent<AvatarProps, AvatarSlots, AvatarEmits>;
-    }
-}
-
 export default Avatar;

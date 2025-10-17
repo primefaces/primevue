@@ -138,10 +138,4 @@ export declare type AccordionPanelEmits = EmitFn<AccordionPanelEmitsOptions>;
  */
 declare const AccordionPanel: DefineComponent<AccordionPanelProps, AccordionPanelSlots, AccordionPanelEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        AccordionPanel: DefineComponent<AccordionPanelProps, AccordionPanelSlots, AccordionPanelEmits>;
-    }
-}
-
 export default AccordionPanel;

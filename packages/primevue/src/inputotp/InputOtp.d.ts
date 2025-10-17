@@ -308,10 +308,4 @@ export declare type InputOtpEmits = EmitFn<InputOtpEmitsOptions>;
  */
 declare const InputOtp: DefineComponent<InputOtpProps, InputOtpSlots, InputOtpEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        InputOtp: DefineComponent<InputOtpProps, InputOtpSlots, InputOtpEmits>;
-    }
-}
-
 export default InputOtp;
