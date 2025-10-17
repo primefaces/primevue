@@ -8,7 +8,7 @@
     <DeferredDemo @load="loadDemoData">
         <div class="card">
             <DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
-                <Column selectionMode="single" headerStyle="width: 3rem"></Column>
+                <Column selectionMode="single" headerStyle="width: 3rem" :selectable="selectable"></Column>
                 <Column field="code" header="Code"></Column>
                 <Column field="name" header="Name"></Column>
                 <Column field="category" header="Category"></Column>
@@ -30,7 +30,7 @@ export default {
             code: {
                 basic: `
 <DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
-    <Column selectionMode="single" headerStyle="width: 3rem"></Column>
+    <Column selectionMode="single" headerStyle="width: 3rem" :selectable="selectable"></Column>
     <Column field="code" header="Code"></Column>
     <Column field="name" header="Name"></Column>
     <Column field="category" header="Category"></Column>
@@ -41,7 +41,7 @@ export default {
 <template>
     <div class="card">
         <DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
-            <Column selectionMode="single" headerStyle="width: 3rem"></Column>
+            <Column selectionMode="single" headerStyle="width: 3rem" :selectable="selectable"></Column>
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
@@ -62,6 +62,11 @@ export default {
     },
     mounted() {
         ProductService.getProductsMini().then((data) => (this.products = data));
+    },
+    methods: {
+        selectable(rowData, rowIndex) {
+            return rowIndex !== 0;
+        }
     }
 };
 <\/script>
@@ -70,7 +75,7 @@ export default {
 <template>
     <div class="card">
         <DataTable v-model:selection="selectedProduct" :value="products" dataKey="id" tableStyle="min-width: 50rem">
-            <Column selectionMode="single" headerStyle="width: 3rem"></Column>
+            <Column selectionMode="single" headerStyle="width: 3rem" :selectable="selectable"></Column>
             <Column field="code" header="Code"></Column>
             <Column field="name" header="Name"></Column>
             <Column field="category" header="Category"></Column>
@@ -89,6 +94,10 @@ onMounted(() => {
 
 const products = ref();
 const selectedProduct = ref();
+
+const selectable = (rowData, rowIndex) => {
+    return rowIndex !== 0;
+}
 
 <\/script>
 `,
@@ -113,6 +122,9 @@ const selectedProduct = ref();
     methods: {
         loadDemoData() {
             ProductService.getProductsMini().then((data) => (this.products = data));
+        },
+        selectable(rowData, rowIndex) {
+            return rowIndex !== 0;
         }
     }
 };
