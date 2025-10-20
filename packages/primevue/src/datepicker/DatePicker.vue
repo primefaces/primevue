@@ -377,7 +377,7 @@
                         <div v-bind="ptm('separatorContainer')" data-pc-group-section="timepickerContainer">
                             <span v-bind="ptm('separator')" data-pc-group-section="timepickerlabel">{{ timeSeparator }}</span>
                         </div>
-                        <div :class="cx('minutePicker')" v-bind="ptm('minutePicker')" data-pc-group-section="timepickerContainer">
+                        <div v-if="!hideMinutes" :class="cx('minutePicker')" v-bind="ptm('minutePicker')" data-pc-group-section="timepickerContainer">
                             <slot name="minuteincrementbutton" :callbacks="minuteIncrementCallbacks">
                                 <Button
                                     :class="cx('pcIncrementButton')"
