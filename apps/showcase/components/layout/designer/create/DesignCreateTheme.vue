@@ -35,9 +35,7 @@
                     <button type="button" @click="createThemeFromPreset" class="btn-design">Create</button>
                 </div>
             </div>
-
             <Divider>OR</Divider>
-
             <div class="flex flex-col gap-4 border border-surface-200 dark:border-surface-700 rounded-md p-4">
                 <div class="flex items-center gap-1">
                     <svg width="20px" height="20px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,9 +54,7 @@
                     <button type="button" @click="createThemeFromFigma" class="btn-design">Create</button>
                 </div>
             </div>
-
             <Divider>OR</Divider>
-
             <div class="flex flex-col gap-4 border border-surface-200 dark:border-surface-700 rounded-md p-4">
                 <div class="flex items-center gap-1">
                     <svg width="20px" height="20px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
