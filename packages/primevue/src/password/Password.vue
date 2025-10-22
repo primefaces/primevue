@@ -10,7 +10,7 @@
             :name="$formName"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
-            :aria-describedby="overlayId || panelId || overlayUniqueId"
+            :aria-describedby="overlayVisible ? (overlayId || panelId || overlayUniqueId) : undefined"
             :aria-controls="overlayVisible ? ((overlayProps && overlayProps.id) || overlayId || (panelProps && panelProps.id) || panelId || overlayUniqueId) : undefined"
             :aria-haspopup="true"
             :placeholder="placeholder"
