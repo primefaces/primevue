@@ -507,7 +507,7 @@ export default {
             return [this.cx('row', { rowData: this.rowData, index: this.rowIndex, columnSelectionMode }), rowStyleClass];
         },
         rowTabindex() {
-            if (this.selection === null && (this.selectionMode === 'single' || this.selectionMode === 'multiple')) {
+            if ((this.selection === null || this.selection === []) && (this.selectionMode === 'single' || this.selectionMode === 'multiple')) {
                 return this.rowIndex === 0 ? 0 : -1;
             }
 
