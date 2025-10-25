@@ -418,10 +418,4 @@ export declare type SpeedDialEmits = EmitFn<SpeedDialEmitsOptions>;
  */
 declare const SpeedDial: DefineComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        SpeedDial: DefineComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits>;
-    }
-}
-
 export default SpeedDial;

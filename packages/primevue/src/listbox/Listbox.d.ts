@@ -638,10 +638,4 @@ export declare type ListboxEmits = EmitFn<ListboxEmitsOptions>;
  */
 declare const Listbox: DefineComponent<ListboxProps, ListboxSlots, ListboxEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Listbox: DefineComponent<ListboxProps, ListboxSlots, ListboxEmits>;
-    }
-}
-
 export default Listbox;
