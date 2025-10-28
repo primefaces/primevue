@@ -2,7 +2,7 @@
     <section class="landing-users py-20 px-4 lg:px-20">
         <div class="section-header">Who Uses</div>
         <p class="section-detail">
-            PrimeTek libraries have reached over <span class="font-semibold animated-text relative whitespace-nowrap"> <span>250 Million Downloads </span> </span> on npm! Join the PrimeLand community and experience the difference yourself.
+            PrimeTek libraries have reached over <span class="font-semibold animated-text relative whitespace-nowrap"> <span>400 Million Downloads </span> </span> on npm! Join the PrimeLand community and experience the difference yourself.
         </p>
         <div class="flex justify-center items-center mt-6">
             <span class="ml-2"> </span>
