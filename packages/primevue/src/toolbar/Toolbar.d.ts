@@ -144,10 +144,4 @@ export declare type ToolbarEmits = EmitFn<ToolbarEmitsOptions>;
  */
 declare const Toolbar: DefineComponent<ToolbarProps, ToolbarSlots, ToolbarEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Toolbar: DefineComponent<ToolbarProps, ToolbarSlots, ToolbarEmits>;
-    }
-}
-
 export default Toolbar;
