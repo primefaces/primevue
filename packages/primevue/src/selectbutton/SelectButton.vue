@@ -80,7 +80,7 @@ export default {
             }
 
             this.writeValue(newValue, event);
-            this.$emit('change', { event: event, value: newValue });
+            this.$emit('change', { event: event, originalEvent: event, value: newValue });
         },
         isSelected(option) {
             let selected = false;
