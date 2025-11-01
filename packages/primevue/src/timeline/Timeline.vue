@@ -1,6 +1,6 @@
 <template>
-    <div :class="cx('root')" v-bind="ptmi('root')" :data-p="dataP">
-        <div v-for="(item, index) of value" :key="getKey(item, index)" :class="cx('event')" v-bind="getPTOptions('event', index)" :data-p="dataP">
+    <ol :class="cx('root')" v-bind="ptmi('root')" :data-p="dataP">
+        <li v-for="(item, index) of value" :key="getKey(item, index)" :class="cx('event')" v-bind="getPTOptions('event', index)" :data-p="dataP">
             <div :class="cx('eventOpposite', { index })" v-bind="getPTOptions('eventOpposite', index)" :data-p="dataP">
                 <slot name="opposite" :item="item" :index="index"></slot>
             </div>
@@ -15,8 +15,8 @@
             <div :class="cx('eventContent')" v-bind="getPTOptions('eventContent', index)" :data-p="dataP">
                 <slot name="content" :item="item" :index="index"></slot>
             </div>
-        </div>
-    </div>
+        </li>
+    </ol>
 </template>
 
 <script>
