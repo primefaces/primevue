@@ -54,7 +54,18 @@
             <slot name="value" :value="d_value" :placeholder="placeholder">{{ label === 'p-emptylabel' ? '&nbsp;' : (label ?? 'empty') }}</slot>
         </span>
         <slot v-if="isClearIconVisible" name="clearicon" :class="cx('clearIcon')" :clearCallback="onClearClick">
-            <component :is="clearIcon ? 'i' : 'TimesIcon'" ref="clearIcon" :class="[cx('clearIcon'), clearIcon]" @click="onClearClick" v-bind="ptm('clearIcon')" data-pc-section="clearicon" />
+            <component
+                :is="clearIcon ? 'i' : 'TimesIcon'"
+                ref="clearIcon"
+                :class="[cx('clearIcon'), clearIcon]"
+                :tabindex="!disabled ? 0 : -1"
+                role="button"
+                :aria-label="clearButtonLabel"
+                @click="onClearClick"
+                @keydown="onClearKeyDown"
+                v-bind="ptm('clearIcon')"
+                data-pc-section="clearicon"
+            />
         </slot>
         <div :class="cx('dropdown')" v-bind="ptm('dropdown')">
             <slot v-if="loading" name="loadingicon" :class="cx('loadingIcon')">
@@ -486,6 +497,12 @@ export default {
         onClearClick(event) {
             this.updateModel(event, null);
             this.resetFilterOnClear && (this.filterValue = null);
+        },
+        onClearKeyDown(event) {
+            if (event.code === 'Enter' || event.code === 'NumpadEnter' || event.code === 'Space') {
+                this.onClearClick(event);
+                event.preventDefault();
+            }
         },
         onFirstHiddenFocus(event) {
             const focusableEl = event.relatedTarget === this.$refs.focusInput ? getFirstFocusableElement(this.overlay, ':not([data-p-hidden-focusable="true"])') : this.$refs.focusInput;
@@ -1061,6 +1078,9 @@ export default {
         },
         ariaSetSize() {
             return this.visibleOptions.filter((option) => !this.isOptionGroup(option)).length;
+        },
+        clearButtonLabel() {
+            return this.$primevue.config.locale.clear || 'Clear';
         },
         isClearIconVisible() {
             return this.showClear && this.d_value != null && !this.disabled && !this.loading;
