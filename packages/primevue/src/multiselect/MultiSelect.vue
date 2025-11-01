@@ -532,7 +532,7 @@ export default {
             this.focusedOptionIndex = -1;
             this.$emit('filter', { originalEvent: event, value });
 
-            !this.virtualScrollerDisabled && this.virtualScroller.scrollToIndex(0);
+            !this.virtualScrollerDisabled && this.virtualScroller && this.virtualScroller.element && this.virtualScroller.scrollToIndex(0);
         },
         onFilterKeyDown(event) {
             switch (event.code) {
@@ -741,7 +741,10 @@ export default {
 
             addStyle(el, { position: 'absolute', top: '0' });
             this.alignOverlay();
-            this.scrollInView();
+
+            this.$nextTick(() => {
+                this.scrollInView();
+            });
 
             this.autoFilterFocus && focus(this.$refs.filterInput.$el);
             this.autoUpdateModel();
@@ -763,6 +766,8 @@ export default {
 
             this.$emit('hide');
             this.overlay = null;
+            this.virtualScroller = null;
+            this.list = null;
         },
         onOverlayAfterLeave(el) {
             ZIndex.clear(el);
@@ -900,6 +905,10 @@ export default {
         },
         findSelectedOptionIndex() {
             if (this.$filled) {
+                if (!this.virtualScrollerDisabled) {
+                    return this.findFirstSelectedOptionIndex();
+                }
+
                 for (let index = this.d_value.length - 1; index >= 0; index--) {
                     const value = this.d_value[index];
                     const matchedOptionIndex = this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option) && this.isEquals(value, this.getOptionValue(option)));
@@ -1000,7 +1009,11 @@ export default {
                 if (element) {
                     element.scrollIntoView && element.scrollIntoView({ block: 'nearest', inline: 'nearest' });
                 } else if (!this.virtualScrollerDisabled) {
-                    this.virtualScroller && this.virtualScroller.scrollToIndex(index !== -1 ? index : this.focusedOptionIndex);
+                    const scrollIndex = index !== -1 ? index : this.focusedOptionIndex;
+
+                    if (scrollIndex !== -1 && this.virtualScroller && this.virtualScroller.element) {
+                        this.virtualScroller.scrollToIndex(scrollIndex);
+                    }
                 }
             });
         },
