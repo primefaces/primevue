@@ -1084,7 +1084,11 @@ export default {
         bindScrollListener() {
             if (!this.scrollHandler) {
                 this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, () => {
-                    if (this.overlayVisible) {
+                    if (this.overlayVisible && this.$refs.container) {
+                        for (let p = this.$refs.container.parentElement; p && p !== document.body; p = p.parentElement) {
+                            const style = getComputedStyle(p);
+                            if ((style.overflow === 'auto' || style.overflow === 'scroll' || style.overflowY === 'auto' || style.overflowY === 'scroll') && p.scrollHeight > p.clientHeight) return;
+                        }
                         this.overlayVisible = false;
                     }
                 });
