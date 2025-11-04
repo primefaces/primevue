@@ -147,7 +147,7 @@ export default {
                 this.isNextButtonEnabled = list.offsetHeight >= offsetHeight && parseInt(scrollTop) !== scrollHeight - height;
             } else {
                 this.isPrevButtonEnabled = scrollLeft !== 0;
-                this.isNextButtonEnabled = list.offsetWidth >= offsetWidth && parseInt(scrollLeft) !== scrollWidth - width;
+                this.isNextButtonEnabled = list.offsetWidth >= offsetWidth && Math.abs(parseInt(scrollLeft) - scrollWidth + width) > 1;
             }
         },
         getVisibleButtonWidths() {
