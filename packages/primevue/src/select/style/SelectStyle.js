@@ -21,7 +21,7 @@ const classes = {
         'p-select-label',
         {
             'p-placeholder': !props.editable && instance.label === props.placeholder,
-            'p-select-label-empty': !props.editable && !instance.$slots['value'] && (instance.label === 'p-emptylabel' || instance.label.length === 0)
+            'p-select-label-empty': !props.editable && !instance.$slots['value'] && (instance.label === 'p-emptylabel' || instance.label?.length === 0)
         }
     ],
     clearIcon: 'p-select-clear-icon',
