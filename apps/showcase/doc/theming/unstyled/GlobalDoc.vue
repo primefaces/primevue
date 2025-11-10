@@ -31,7 +31,9 @@ app.use(PrimeVue, {
             header: 'bg-primary text-primary-contrast border-primary',
             content: 'border-primary text-lg text-primary-700',
             title: 'bg-primary text-primary-contrast text-xl',
-            toggler: 'bg-primary text-primary-contrast hover:text-primary hover:bg-primary-contrast'
+            pcToggleButton: {
+                root: 'bg-primary text-primary-contrast hover:text-primary hover:bg-primary-contrast'
+            }
         }
     }
 });
