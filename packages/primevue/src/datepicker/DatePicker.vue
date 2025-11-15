@@ -1649,12 +1649,13 @@ export default {
         validateTime(hour, minute, second, pm) {
             let value = this.viewDate;
             const convertedHour = this.convertTo24Hour(hour, pm);
+            const hasRawValues = Array.isArray(this.rawValue) && this.rawValue.length;
 
-            if (this.isRangeSelection()) {
+            if (this.isRangeSelection() && hasRawValues) {
                 value = this.rawValue[1] || this.rawValue[0];
             }
 
-            if (this.isMultipleSelection()) {
+            if (this.isMultipleSelection() && hasRawValues) {
                 value = this.rawValue[this.rawValue.length - 1];
             }
 
@@ -1784,12 +1785,13 @@ export default {
         updateModelTime() {
             this.timePickerChange = true;
             let value = this.viewDate;
+            const hasRawValues = Array.isArray(this.rawValue) && this.rawValue.length;
 
-            if (this.isRangeSelection()) {
+            if (this.isRangeSelection() && hasRawValues) {
                 value = this.rawValue[this.focusedDateIndex] || this.rawValue[0];
             }
 
-            if (this.isMultipleSelection()) {
+            if (this.isMultipleSelection() && hasRawValues) {
                 value = this.rawValue[this.rawValue.length - 1];
             }
 
@@ -1806,17 +1808,18 @@ export default {
             value.setSeconds(this.currentSecond);
 
             if (this.isRangeSelection()) {
-                if (this.focusedDateIndex === 1 && this.rawValue[1]) {
+                if (this.focusedDateIndex === 1 && this.rawValue && this.rawValue[1]) {
                     value = [this.rawValue[0], value];
                 } else if (this.focusedDateIndex === 0) {
-                    value = [value, this.rawValue[1]];
+                    value = [value, (this.rawValue && this.rawValue[1]) || null];
                 } else {
                     value = [value, null];
                 }
             }
 
             if (this.isMultipleSelection()) {
-                value = [...this.rawValue.slice(0, -1), value];
+                const existingValues = Array.isArray(this.rawValue) ? this.rawValue.slice(0, -1) : [];
+                value = [...existingValues, value];
             }
 
             this.updateModel(value);
