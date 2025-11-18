@@ -19,10 +19,6 @@
                         <td>animation-name: leave; <br />--p-leave-opacity: initial; <br />--p-leave-scale: initial; <br />--p-leave-rotate: initial; <br />--p-leave-translate-x: initial; <br />--p-leave-translate-y: initial;</td>
                     </tr>
                     <tr>
-                        <td>animate-leave</td>
-                        <td>fadein 0.15s linear</td>
-                    </tr>
-                    <tr>
                         <td>animate-fadein</td>
                         <td>fadein 0.15s linear</td>
                     </tr>
