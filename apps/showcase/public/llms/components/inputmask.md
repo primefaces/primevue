@@ -148,5 +148,3 @@ Default placeholder for a mask is underscore that can be customized using slotCh
 
 ## Inputmask
 
-## Inputmask
-

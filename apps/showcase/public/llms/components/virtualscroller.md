@@ -38,5 +38,3 @@ Busy state is enabled by adding showLoader property which blocks the UI with a m
 
 ## Virtualscroller
 
-## Virtualscroller
-

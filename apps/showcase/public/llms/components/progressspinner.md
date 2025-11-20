@@ -51,5 +51,3 @@ ProgressSpinner can be customized with styling property like style , strokeWidth
 
 ## Progressspinner
 
-## Progressspinner
-

@@ -108,8 +108,6 @@ There are four choices to position the tooltip, default value is right and alter
 
 ## Tooltip
 
-## Tooltip
-
 ## Pass Through Options
 
 | Name | Type | Description |

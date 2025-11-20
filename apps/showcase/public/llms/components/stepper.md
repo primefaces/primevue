@@ -430,19 +430,6 @@ Vertical layout requires StepItem as a wrapper of Step and StepPanel components.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Stepper
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | string \| number | null | Active value of stepper. |
-| linear | boolean | false | Whether the steps are clickable or not. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<StepperPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

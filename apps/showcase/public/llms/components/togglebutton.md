@@ -77,5 +77,3 @@ ToggleButton provides small and large sizes as alternatives to the base.
 
 ## Togglebutton
 
-## Togglebutton
-

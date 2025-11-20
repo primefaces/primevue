@@ -320,29 +320,6 @@ Custom content at the header and footer sections is displayed with templating.
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 | closeOnEscape | boolean | true | Specifies if pressing escape key should hide the drawer. |
 
-## Drawer
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| visible | boolean | false | Specifies the visibility of the dialog. |
-| position | HintedString<"left" \| "right" \| "top" \| "bottom" \| "full"> | left | Specifies the position of the drawer. |
-| header | string | - | Title content of the dialog. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| dismissable | boolean | true | Whether clicking outside closes the panel. |
-| showCloseIcon | boolean | true | Whether to display a close icon inside the panel. |
-| closeButtonProps | object | - | Used to pass the custom value to read for the button inside the component. |
-| closeIcon | string | - | Icon to display in the drawer close button. |
-| modal | boolean | true | Whether to a modal layer behind the drawer. |
-| blockScroll | boolean | false | Whether background scroll should be blocked when drawer is visible. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<DrawerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the drawer. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

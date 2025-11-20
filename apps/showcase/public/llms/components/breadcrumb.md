@@ -54,21 +54,6 @@ Custom content can be placed inside the items using the item template. The divid
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Breadcrumb
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | An array of menuitems. |
-| home | any | - | Configuration for the home icon. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying menu element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<BreadcrumbPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

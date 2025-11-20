@@ -38,21 +38,6 @@ Commands are processed using an EventBus implementation called TerminalService .
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Terminal
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| welcomeMessage | string | - | Initial text to display on terminal. |
-| prompt | string | - | Prompt text for each command. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TerminalPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Terminalservice
-
 ## Pass Through Options
 
 | Name | Type | Description |

@@ -59,27 +59,6 @@ Dock requires a collection of menuitems as its model and an icon template. Defau
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Dock
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | MenuModel instance to define the action items. |
-| position | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of element. |
-| class | any | - | Style class of the element. |
-| style | any | - | Inline style of the element. |
-| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
-| tooltipOptions | DockTooltipOptions | - | Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'. |
-| menuId | string | - | Unique identifier of the menu. |
-| tabindex | string \| number | - | Index of the element in tabbing order. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| ariaLabel | string | - | Establishes a string value that labels the component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<DockPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

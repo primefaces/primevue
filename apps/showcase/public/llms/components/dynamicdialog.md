@@ -58,7 +58,3 @@ Use the data property to pass parameters when opening a Dialog, the internal com
 
 ## Dynamicdialog
 
-## Dynamicdialog
-
-## Dynamicdialogoptions
-

@@ -105,25 +105,6 @@ Content of the panel can be expanded and collapsed using toggleable option.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Panel
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| header | string | - | Header text of the panel. |
-| toggleable | boolean | false | Defines if content of panel can be expanded and collapsed. |
-| collapsed | boolean | false | Defines the initial state of panel content. |
-| toggleButtonProps | object | - | Used to pass the custom value to read for the button inside the component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<PanelPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Panelmenu
-
-## Panelmenu
-
 ## Pass Through Options
 
 | Name | Type | Description |

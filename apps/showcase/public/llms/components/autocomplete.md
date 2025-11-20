@@ -202,5 +202,3 @@ Virtual Scrolling is a performant way to render large lists. Configuration of th
 
 ## Autocomplete
 
-## Autocomplete
-

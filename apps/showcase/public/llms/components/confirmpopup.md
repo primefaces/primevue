@@ -36,5 +36,3 @@ Templating allows customizing the message content.
 
 ## Confirmpopup
 
-## Confirmpopup
-

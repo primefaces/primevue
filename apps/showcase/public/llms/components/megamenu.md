@@ -42,5 +42,3 @@ Layout of the MegaMenu is configured with the orientation property that accepts 
 
 ## Megamenu
 
-## Megamenu
-

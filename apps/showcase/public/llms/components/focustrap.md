@@ -41,5 +41,3 @@ FocusTrap is enabled by attaching the directive with the v- prefix.
 
 ## Focustrap
 
-## Focustrap
-

@@ -100,8 +100,6 @@ Ripple is enabled by adding add p-ripple class to the target and attach the dire
 
 ## Ripple
 
-## Ripple
-
 ## Pass Through Options
 
 | Name | Type | Description |

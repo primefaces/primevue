@@ -65,5 +65,3 @@ Custom content inside the ProgressBar is defined with the default slot.
 
 ## Progressbar
 
-## Progressbar
-

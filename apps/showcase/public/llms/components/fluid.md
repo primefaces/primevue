@@ -55,23 +55,6 @@ Components with the fluid option like InputText have the ability to span the ful
 |------|------------|-------------|
 | default | Function |  |
 
-## Fluid
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<FluidPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-### Slots
-
-| Name | Parameters | Description |
-|------|------------|-------------|
-| default | Function |  |
-
 ## Pass Through Options
 
 | Name | Type | Description |

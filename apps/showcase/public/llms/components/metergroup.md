@@ -66,5 +66,3 @@ Layout of the MeterGroup is configured with the orientation property that accept
 
 ## Metergroup
 
-## Metergroup
-

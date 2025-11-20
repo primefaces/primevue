@@ -73,59 +73,6 @@ Menu offers item customization with the item template that receives the menuitem
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Menu
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | An array of menuitems. |
-| popup | boolean | false | Defines if menu would displayed as a popup. |
-| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| tabindex | string \| number | - | Index of the element in tabbing order. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying input element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<MenuPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Menubar
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | An array of menuitems. |
-| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
-| buttonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the menu button. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying input element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<MenubarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Menubar
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | An array of menuitems. |
-| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
-| buttonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the menu button. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying input element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<MenubarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Menuitem
-
 ## Pass Through Options
 
 | Name | Type | Description |

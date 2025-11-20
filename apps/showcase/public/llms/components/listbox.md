@@ -152,56 +152,6 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Listbox
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | any | - | Value of the component. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| options | any[] | - | An array of selectitems to display as the available options. |
-| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
-| optionValue | string \| Function | - | Property name or getter function to use as the value of an option, defaults to the option itself when not defined. |
-| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
-| optionGroupLabel | string \| Function | - | Property name or getter function to use as the label of an option group. |
-| optionGroupChildren | string \| Function | - | Property name or getter function that refers to the children options of option group. |
-| listStyle | string | - | Inline style of inner list element. |
-| scrollHeight | string | 14rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When specified, disables the component. |
-| fluid | boolean | null | Spans 100% width of the container when enabled. |
-| dataKey | string | - | A property to uniquely identify an option. |
-| multiple | boolean | false | When specified, allows selecting multiple values. |
-| metaKeySelection | boolean | false | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
-| filter | boolean | false | When specified, displays a filter input at header. |
-| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
-| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
-| filterMatchMode | HintedString<"startsWith" \| "contains" \| "endsWith"> | contains | Defines the filtering algorithm to use when searching the options. |
-| filterFields | string[] | - | Fields used when filtering the options, defaults to optionLabel. |
-| virtualScrollerOptions | any | - | Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. |
-| autoOptionFocus | boolean | false | Whether to focus on the first visible or selected element. |
-| selectOnFocus | boolean | false | When enabled, the focused option is selected. |
-| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
-| highlightOnSelect | boolean | true | Whether the selected option will be add highlight class. |
-| checkmark | boolean | false | Whether the selected option will be shown with a check mark. |
-| filterMessage | string | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration. |
-| selectionMessage | string | '{0} items selected' | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration. |
-| emptySelectionMessage | string | No selected item | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration. |
-| emptyFilterMessage | string | No results found | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration. |
-| emptyMessage | string | No available options | Text to display when there are no options available. Defaults to value from PrimeVue locale configuration. |
-| striped | boolean | false | Whether to displays rows with alternating colors. |
-| tabindex | string \| number | - | Index of the element in tabbing order. |
-| filterIcon | string | - | Icon to display in filter input. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying input element. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ListboxPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

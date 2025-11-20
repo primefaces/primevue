@@ -60,5 +60,3 @@ Setting the target property to parent binds ScrollTop to its parent element that
 
 ## Scrolltop
 
-## Scrolltop
-

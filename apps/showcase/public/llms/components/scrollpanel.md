@@ -30,5 +30,3 @@ Scrollbar visuals can be styled for a unified look across different platforms.
 
 ## Scrollpanel
 
-## Scrollpanel
-

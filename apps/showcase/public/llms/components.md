@@ -1,6 +1,6 @@
 # PrimeVue Components Documentation
 
-Generated: 2025-11-20T21:41:29.950Z
+Generated: 2025-11-20T23:38:47.375Z
 
 ---
 
@@ -413,38 +413,11 @@ Custom content for a header is defined with the default slot. The optional as pr
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Accordion
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | null \| string \| number \| string[] \| number[] | null | Value of the active panel or an array of values in multiple mode. |
-| multiple | boolean | false | When enabled, multiple tabs can be activated at the same time. |
-| activeIndex | null \| number \| number[] | null | Index of the active tab or an array of indexes in multiple mode. |
-| lazy | boolean | false | When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css. |
-| expandIcon | string | - | Icon of a collapsed tab. |
-| collapseIcon | string | - | Icon of an expanded tab. |
-| tabindex | number | 0 | Index of the element in tabbing order. |
-| selectOnFocus | boolean | false | When enabled, the focused tab is activated. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<AccordionPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Accordioncontent
-
 ## Accordioncontent
 
 ## Accordionheader
 
-## Accordionheader
-
 ## Accordionpanel
-
-## Accordionpanel
-
-## Accordiontab
 
 ## Accordiontab
 
@@ -592,8 +565,6 @@ import AnimateOnScroll from 'primevue/animateonscroll';
 
 app.directive('animateonscroll', AnimateOnScroll);
 ```
-
-## Animateonscroll
 
 ## Animateonscroll
 
@@ -836,8 +807,6 @@ Virtual Scrolling is a performant way to render large lists. Configuration of th
 <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems"
     :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
 ```
-
-## Autocomplete
 
 ## Autocomplete
 
@@ -1116,26 +1085,6 @@ A letter Avatar is defined with the label property.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Avatar
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| label | string | - | Defines the text to display. |
-| icon | string | - | Defines the icon to display. |
-| image | string | - | Defines the image to display. |
-| size | HintedString<"large" \| "normal" \| "xlarge"> | normal | Size of the element. |
-| shape | HintedString<"square" \| "circle"> | square | Shape of the element. |
-| ariaLabel | string | - | Establishes a string value that labels the component. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<AvatarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Avatargroup
-
 ## Avatargroup
 
 ## Pass Through Options
@@ -1341,22 +1290,6 @@ Use the size property to customize the dimensions of a Badge.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Badge
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | string \| number | - | Value to display inside the badge. |
-| severity | null \| HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast"> | - | Severity type of the badge. |
-| size | null \| HintedString<"small" \| "large" \| "xlarge"> | - | Size of the badge, valid options are 'small', 'large', and 'xlarge'. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<BadgePassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Badgedirective
-
 ## Badgedirective
 
 ## Pass Through Options
@@ -1426,8 +1359,6 @@ import BlockUI from 'primevue/blockui';
 
 ## Blockui
 
-## Blockui
-
 ---
 
 # Vue Breadcrumb Component
@@ -1476,21 +1407,6 @@ Custom content can be placed inside the items using the item template. The divid
     <template #separator> / </template>
 </Breadcrumb>
 ```
-
-## Breadcrumb
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | An array of menuitems. |
-| home | any | - | Configuration for the home icon. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying menu element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<BreadcrumbPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Breadcrumb
 
@@ -2365,234 +2281,6 @@ Text buttons are displayed as textual elements.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Button
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| aria-activedescendant | string | - | Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application. |
-| aria-atomic | Booleanish | - | Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute. |
-| aria-autocomplete | "none" \| "inline" \| "list" \| "both" | - | Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made. |
-| aria-busy | Booleanish | - | Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user. |
-| aria-checked | Booleanish \| "mixed" | - | Indicates the current "checked" state of checkboxes, radio buttons, and other widgets. |
-| aria-colcount | Numberish | - | Defines the total number of columns in a table, grid, or treegrid. |
-| aria-colindex | Numberish | - | Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid. |
-| aria-colspan | Numberish | - | Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid. |
-| aria-controls | string | - | Identifies the element (or elements) whose contents or presence are controlled by the current element. |
-| aria-current | Booleanish \| "page" \| "step" \| "location" \| "date" \| "time" | - | Indicates the element that represents the current item within a container or set of related elements. |
-| aria-describedby | string | - | Identifies the element (or elements) that describes the object. |
-| aria-details | string | - | Identifies the element that provides a detailed, extended description for the object. |
-| aria-disabled | Booleanish | - | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable. |
-| aria-dropeffect | "link" \| "none" \| "copy" \| "execute" \| "move" \| "popup" | - | Indicates what functions can be performed when a dragged object is released on the drop target. |
-| aria-errormessage | string | - | Identifies the element that provides an error message for the object. |
-| aria-expanded | Booleanish | - | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. |
-| aria-flowto | string | - | Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order. |
-| aria-grabbed | Booleanish | - | Indicates an element's "grabbed" state in a drag-and-drop operation. |
-| aria-haspopup | Booleanish \| "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" | - | Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. |
-| aria-hidden | Booleanish | - | Indicates whether the element is exposed to an accessibility API. |
-| aria-invalid | Booleanish \| "grammar" \| "spelling" | - | Indicates the entered value does not conform to the format expected by the application. |
-| aria-keyshortcuts | string | - | Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element. |
-| aria-label | string | - | Defines a string value that labels the current element. |
-| aria-labelledby | string | - | Identifies the element (or elements) that labels the current element. |
-| aria-level | Numberish | - | Defines the hierarchical level of an element within a structure. |
-| aria-live | "off" \| "assertive" \| "polite" | - | Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region. |
-| aria-modal | Booleanish | - | Indicates whether an element is modal when displayed. |
-| aria-multiline | Booleanish | - | Indicates whether a text box accepts multiple lines of input or only a single line. |
-| aria-multiselectable | Booleanish | - | Indicates that the user may select more than one item from the current selectable descendants. |
-| aria-orientation | "horizontal" \| "vertical" | - | Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous. |
-| aria-owns | string | - | Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship. |
-| aria-placeholder | string | - | Defines a short hint (a word or short phrase) intended to aid the user with data entry when the control has no value. A hint could be a sample value or a brief description of the expected format. |
-| aria-posinset | Numberish | - | Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
-| aria-pressed | Booleanish \| "mixed" | - | Indicates the current "pressed" state of toggle buttons. |
-| aria-readonly | Booleanish | - | Indicates that the element is not editable, but is otherwise operable. |
-| aria-relevant | "text" \| "additions" \| "additions removals" \| "additions text" \| "all" \| "removals" \| "removals additions" \| "removals text" \| "text additions" \| "text removals" | - | Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. |
-| aria-required | Booleanish | - | Indicates that user input is required on the element before a form may be submitted. |
-| aria-roledescription | string | - | Defines a human-readable, author-localized description for the role of an element. |
-| aria-rowcount | Numberish | - | Defines the total number of rows in a table, grid, or treegrid. |
-| aria-rowindex | Numberish | - | Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid. |
-| aria-rowspan | Numberish | - | Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid. |
-| aria-selected | Booleanish | - | Indicates the current "selected" state of various widgets. |
-| aria-setsize | Numberish | - | Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
-| aria-sort | "none" \| "ascending" \| "descending" \| "other" | - | Indicates if items in a table or grid are sorted in ascending or descending order. |
-| aria-valuemax | Numberish | - | Defines the maximum allowed value for a range widget. |
-| aria-valuemin | Numberish | - | Defines the minimum allowed value for a range widget. |
-| aria-valuenow | Numberish | - | Defines the current value for a range widget. |
-| aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
-| innerHTML | string | - |  |
-| accesskey | string | - |  |
-| contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |
-| contextmenu | string | - |  |
-| dir | string | - |  |
-| draggable | Booleanish | - |  |
-| hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
-| id | string | - |  |
-| inert | Booleanish | - |  |
-| lang | string | - |  |
-| placeholder | string | - |  |
-| spellcheck | Booleanish | - |  |
-| tabindex | Numberish | - |  |
-| title | string | - |  |
-| translate | "yes" \| "no" | - |  |
-| radiogroup | string | - |  |
-| role | string | - |  |
-| about | string | - |  |
-| datatype | string | - |  |
-| inlist | any | - |  |
-| prefix | string | - |  |
-| property | string | - |  |
-| resource | string | - |  |
-| typeof | string | - |  |
-| vocab | string | - |  |
-| autocapitalize | string | - |  |
-| autocorrect | string | - |  |
-| autosave | string | - |  |
-| color | string | - |  |
-| itemprop | string | - |  |
-| itemscope | Booleanish | - |  |
-| itemtype | string | - |  |
-| itemid | string | - |  |
-| itemref | string | - |  |
-| results | Numberish | - |  |
-| security | string | - |  |
-| unselectable | "on" \| "off" | - |  |
-| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
-| is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
-| autofocus | Booleanish | - |  |
-| disabled | Booleanish | - |  |
-| form | string | - |  |
-| formaction | string | - |  |
-| formenctype | string | - |  |
-| formmethod | string | - |  |
-| formnovalidate | Booleanish | - |  |
-| formtarget | string | - |  |
-| name | string | - |  |
-| type | "submit" \| "reset" \| "button" | - |  |
-| value | string \| number \| readonly string[] | - |  |
-| onCopy | Function | - |  |
-| onCut | Function | - |  |
-| onPaste | Function | - |  |
-| onCompositionend | Function | - |  |
-| onCompositionstart | Function | - |  |
-| onCompositionupdate | Function | - |  |
-| onDrag | Function | - |  |
-| onDragend | Function | - |  |
-| onDragenter | Function | - |  |
-| onDragexit | Function | - |  |
-| onDragleave | Function | - |  |
-| onDragover | Function | - |  |
-| onDragstart | Function | - |  |
-| onDrop | Function | - |  |
-| onFocus | Function | - |  |
-| onFocusin | Function | - |  |
-| onFocusout | Function | - |  |
-| onBlur | Function | - |  |
-| onChange | Function | - |  |
-| onBeforeinput | Function | - |  |
-| onFormdata | Function | - |  |
-| onInput | Function | - |  |
-| onReset | Function | - |  |
-| onSubmit | Function | - |  |
-| onInvalid | Function | - |  |
-| onFullscreenchange | Function | - |  |
-| onFullscreenerror | Function | - |  |
-| onLoad | Function | - |  |
-| onError | Function | - |  |
-| onKeydown | Function | - |  |
-| onKeypress | Function | - |  |
-| onKeyup | Function | - |  |
-| onDblclick | Function | - |  |
-| onMousedown | Function | - |  |
-| onMouseenter | Function | - |  |
-| onMouseleave | Function | - |  |
-| onMousemove | Function | - |  |
-| onMouseout | Function | - |  |
-| onMouseover | Function | - |  |
-| onMouseup | Function | - |  |
-| onAbort | Function | - |  |
-| onCanplay | Function | - |  |
-| onCanplaythrough | Function | - |  |
-| onDurationchange | Function | - |  |
-| onEmptied | Function | - |  |
-| onEncrypted | Function | - |  |
-| onEnded | Function | - |  |
-| onLoadeddata | Function | - |  |
-| onLoadedmetadata | Function | - |  |
-| onLoadstart | Function | - |  |
-| onPause | Function | - |  |
-| onPlay | Function | - |  |
-| onPlaying | Function | - |  |
-| onProgress | Function | - |  |
-| onRatechange | Function | - |  |
-| onSeeked | Function | - |  |
-| onSeeking | Function | - |  |
-| onStalled | Function | - |  |
-| onSuspend | Function | - |  |
-| onTimeupdate | Function | - |  |
-| onVolumechange | Function | - |  |
-| onWaiting | Function | - |  |
-| onSelect | Function | - |  |
-| onScroll | Function | - |  |
-| onScrollend | Function | - |  |
-| onTouchcancel | Function | - |  |
-| onTouchend | Function | - |  |
-| onTouchmove | Function | - |  |
-| onTouchstart | Function | - |  |
-| onAuxclick | Function | - |  |
-| onClick | Function | - |  |
-| onContextmenu | Function | - |  |
-| onGotpointercapture | Function | - |  |
-| onLostpointercapture | Function | - |  |
-| onPointerdown | Function | - |  |
-| onPointermove | Function | - |  |
-| onPointerup | Function | - |  |
-| onPointercancel | Function | - |  |
-| onPointerenter | Function | - |  |
-| onPointerleave | Function | - |  |
-| onPointerover | Function | - |  |
-| onPointerout | Function | - |  |
-| onBeforetoggle | Function | - |  |
-| onToggle | Function | - |  |
-| onWheel | Function | - |  |
-| onAnimationcancel | Function | - |  |
-| onAnimationstart | Function | - |  |
-| onAnimationend | Function | - |  |
-| onAnimationiteration | Function | - |  |
-| onSecuritypolicyviolation | Function | - |  |
-| onTransitioncancel | Function | - |  |
-| onTransitionend | Function | - |  |
-| onTransitionrun | Function | - |  |
-| onTransitionstart | Function | - |  |
-| style | any | - | Inline style of the button. |
-| class | any | - | Style class of the button. |
-| label | string | - | Text of the button. |
-| icon | string | - | Name of the icon. |
-| iconPos | HintedString<"left" \| "right" \| "top" \| "bottom"> | left | Position of the icon. |
-| iconClass | string \| object | - | Style class of the icon. |
-| badge | string | - | Value of the badge. |
-| badgeClass | string \| object | - | Style class of the badge. |
-| badgeSeverity | null \| HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast"> | - | Severity type of the badge. |
-| loading | boolean | false | Whether the button is in loading state. |
-| loadingIcon | string | - | Icon to display in loading state. |
-| as | string \| Component | BUTTON | Use to change the HTML tag of root element. |
-| asChild | boolean | false | When enabled, it changes the default rendered element for the one passed as a child element. |
-| link | boolean | false | Add a link style to the button. |
-| severity | HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast" \| "help"> | - | Defines the style of the button. |
-| raised | boolean | false | Add a shadow to indicate elevation. |
-| rounded | boolean | false | Add a circular border radius to the button. |
-| text | boolean | false | Add a textual class to the button without a background initially. |
-| outlined | boolean | false | Add a border class without a background initially. |
-| size | HintedString<"small" \| "large"> | - | Defines the size of the button. |
-| variant | HintedString<"outlined" \| "text" \| "link"> | undefined | Specifies the variant of the component. |
-| plain | boolean | false | Add a plain textual class to the button without a background initially. |
-| fluid | boolean | null | Spans 100% width of the container when enabled. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ButtonPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Buttongroup
-
 ## Buttongroup
 
 ## Pass Through Options
@@ -2731,17 +2419,6 @@ import Card from 'primevue/card';
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Card
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<CardPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -2804,33 +2481,6 @@ Carousel supports specific configuration per screen size with the responsiveOpti
 ## Vertical
 
 To create a vertical Carousel, orientation needs to be set to vertical along with a verticalViewPortHeight .
-
-## Carousel
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | any | - | An array of objects to display. |
-| page | number | 0 | Index of the first item. |
-| numVisible | number | 1 | Number of items per page. |
-| numScroll | number | 1 | Number of items to scroll. |
-| responsiveOptions | CarouselResponsiveOptions[] | - | An array of options for responsive design. |
-| orientation | "horizontal" \| "vertical" | horizontal | Specifies the layout of the component, valid values are 'horizontal' and 'vertical'. |
-| verticalViewPortHeight | string | 300px | Height of the viewport in vertical layout. |
-| containerClass | any | - | Style class of the viewport container. |
-| contentClass | any | - | Style class of main content. |
-| indicatorsContentClass | any | - | Style class of the indicator items. |
-| circular | boolean | false | Defines if scrolling would be infinite. |
-| autoplayInterval | number | 0 | Time in milliseconds to scroll items automatically. |
-| showNavigators | boolean | true | Whether to display navigation buttons in container. |
-| showIndicators | boolean | true | Whether to display indicator container. |
-| prevButtonProps | object | - | Used to pass attributes to the previous Button component. |
-| nextButtonProps | object | - | Used to pass attributes to the next Button component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<CarouselPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Carousel
 
@@ -3109,8 +2759,6 @@ CascadeSelect offers multiple slots for customization through templating.
 
 ## Cascadeselect
 
-## Cascadeselect
-
 ---
 
 # cdn
@@ -3334,24 +2982,6 @@ A bar chart or bar graph is a chart that presents grouped data with rectangular 
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Chart
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| type | string | - | Type of the chart. |
-| data | object | - | Data to display. |
-| options | object | - | Options to customize the chart. |
-| plugins | any[] | - | Used to custom plugins of the chart. |
-| width | number | 300 | Width of the chart in non-responsive mode. |
-| height | number | 150 | Height of the chart in non-responsive mode. |
-| canvasProps | CanvasHTMLAttributes | - | Used to pass all properties of the CanvasHTMLAttributes to canvas element inside the component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ChartPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -3540,40 +3170,6 @@ Checkbox provides small and large sizes as alternatives to the base.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Checkbox
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | any | - | Value of the checkbox. |
-| modelValue | any | - | Value binding of the checkbox. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | Name of the input element. |
-| binary | boolean | - | Allows to select a boolean value instead of multiple values. |
-| indeterminate | boolean | - | When present, it specifies input state as indeterminate. |
-| size | "small" \| "large" | - | Defines the size of the component. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | - | When present, it specifies that the element should be disabled. |
-| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
-| readonly | boolean | - | When present, it specifies that an input field is read-only. |
-| required | boolean | - | When present, it specifies that the element is required. |
-| tabindex | number | - | Index of the element in tabbing order. |
-| trueValue | any | - | Value in checked state. |
-| falseValue | any | - | Value in unchecked state. |
-| inputId | string | - | Identifier of the underlying input element. |
-| inputClass | object | - | Style class of the input field. |
-| inputStyle | string \| object | - | Inline style of the input field. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| ariaLabel | string | - | Establishes a string value that labels the component. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<CheckboxPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Checkboxgroup
-
 ## Checkboxgroup
 
 ## Pass Through Options
@@ -3753,24 +3349,6 @@ The default slot allows displaying custom content inside a chip.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Chip
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| label | string \| number | - | Defines the text to display. |
-| icon | string | - | Defines the icon to display. |
-| image | string | - | Defines the image to display. |
-| removable | boolean | false | Whether to display a remove icon. |
-| removeIcon | string | - | Icon of the remove element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ChipPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Chips
-
 ## Chips
 
 ## Pass Through Options
@@ -3859,8 +3437,6 @@ ColorPicker is displayed as a popup by default, add inline property to customize
 ```vue
 <ColorPicker v-model="color" inline />
 ```
-
-## Colorpicker
 
 ## Colorpicker
 
@@ -4009,8 +3585,6 @@ Templating allows customizing the message content.
 
 ## Confirmdialog
 
-## Confirmdialog
-
 ---
 
 # Vue Confirmation Popup Component
@@ -4052,8 +3626,6 @@ import ConfirmPopup from 'primevue/confirmpopup';
 ## Template
 
 Templating allows customizing the message content.
-
-## Confirmpopup
 
 ## Confirmpopup
 
@@ -4125,8 +3697,6 @@ Items with navigation are defined with templating to be able to use a router lin
 ## Template
 
 ContextMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
-
-## Contextmenu
 
 ## Contextmenu
 
@@ -4501,9 +4071,177 @@ Custom content at header and footer sections are supported via templating.
             <img :src="\
 ```
 
-## Datatable
+## Data Table
 
-## Datatable
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | null \| readonly T[] | - | An array of objects to display. |
+| dataKey | keyof T \| Function | - | Name of the field that uniquely identifies the a record in the data. |
+| rows | number | 0 | Number of rows to display per page. |
+| first | number | 0 | Index of the first row to be displayed. |
+| totalRecords | number | 0 | Number of total records, defaults to length of value when not defined. |
+| paginator | boolean | false | When specified as true, enables the pagination. |
+| paginatorPosition | HintedString<"top" \| "bottom" \| "both"> | bottom | Position of the paginator, options are 'top','bottom' or 'both'. |
+| alwaysShowPaginator | boolean | true | Whether to show it even there is only one page. |
+| paginatorTemplate | any | FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown | Template of the paginator. It can be customized using the template property using the predefined keys.  - FirstPageLink - PrevPageLink - PageLinks - NextPageLink - LastPageLink - RowsPerPageDropdown - JumpToPageDropdown - JumpToPageInput - CurrentPageReport |
+| pageLinkSize | number | 5 | Number of page links to display. |
+| rowsPerPageOptions | number[] | - | Array of integer values to display inside rows per page dropdown. |
+| currentPageReportTemplate | string | '({currentPage} of {totalPages})' | Template of the current page report element. It displays information about the pagination state. Available placeholders are the following;  - {currentPage} - {totalPages} - {rows} - {first} - {last} - {totalRecords} |
+| lazy | boolean | false | Defines if data is loaded and interacted with in lazy manner. |
+| loading | boolean | false | Displays a loader to indicate data load is in progress. |
+| loadingIcon | string | - | The icon to show while indicating data load is in progress. |
+| sortField | keyof T \| Function | - | Property name or a getter function of a row data used for sorting by default |
+| sortOrder | number | - | Order to sort the data by default. |
+| nullSortOrder | number | 1 | Determines how null values are sorted. |
+| defaultSortOrder | number | 1 | Default sort order of an unsorted column. |
+| multiSortMeta | DataTableSortMeta[] | - | An array of SortMeta objects to sort the data. |
+| sortMode | HintedString<"single" \| "multiple"> | single | Defines whether sorting works on single column or on multiple columns. |
+| removableSort | boolean | false | When enabled, columns can have an un-sorted state. |
+| filters | DataTableFilterMeta | - | Filters object with key-value pairs to define the filters. |
+| filterDisplay | HintedString<"menu" \| "row"> | - | Layout of the filter elements. |
+| globalFilterFields | (keyof T \| Function)[] | - | An array of fields as string or function to use in global filtering. |
+| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
+| selection | NoInfer<T> \| NoInfer<T>[] | - | Selected row in single mode or an array of values in multiple mode. |
+| selectionMode | HintedString<"single" \| "multiple"> | - | Specifies the selection mode. |
+| compareSelectionBy | HintedString<"equals" \| "deepEquals"> | deepEquals | Algorithm to define if a row is selected. |
+| metaKeySelection | boolean | false | Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
+| contextMenu | boolean | false | Enables context menu integration. |
+| contextMenuSelection | NoInfer<T> \| NoInfer<T>[] | - | Selected row instance with the ContextMenu. |
+| selectAll | Nullable<boolean> | - | Whether all data is selected. |
+| rowHover | boolean | false | When enabled, background of the rows change on hover. |
+| csvSeparator | string | , | Character to use as the csv separator. |
+| exportFilename | string | download | Name of the exported file. |
+| exportFunction | Function | - |  |
+| resizableColumns | boolean | false | When enabled, columns can be resized using drag and drop. |
+| columnResizeMode | HintedString<"fit" \| "expand"> | fit | Defines whether the overall table width. |
+| reorderableColumns | boolean | false | When enabled, columns can be reordered using drag and drop. |
+| expandedRows | null \| DataTableExpandedRows \| NoInfer<T>[] | - | A collection of row data display as expanded. |
+| expandedRowIcon | string | - | Icon of the row toggler to display the row as expanded. |
+| collapsedRowIcon | string | - | Icon of the row toggler to display the row as collapsed. |
+| rowGroupMode | HintedString<"subheader" \| "rowspan"> | - | Defines the row group mode. |
+| groupRowsBy | keyof T \| Function \| (keyof T)[] | - | One or more field names to use in row grouping. |
+| expandableRowGroups | boolean | false | Whether the row groups can be expandable. |
+| expandedRowGroups | DataTableExpandedRows \| NoInfer<T>[] | - | An array of group field values whose groups would be rendered as expanded. |
+| stateStorage | HintedString<"session" \| "local"> | session | Defines where a stateful table keeps its state. |
+| stateKey | string | - | Unique identifier of a stateful table to use in state storage. |
+| editMode | HintedString<"row" \| "cell"> | - | Defines the incell editing mode. |
+| editingRows | DataTableEditingRows \| NoInfer<T>[] | - | A collection of rows to represent the current editing data in row edit mode. |
+| rowClass | Function | - |  |
+| rowStyle | Function | - |  |
+| scrollable | boolean | false | When specified, enables horizontal and/or vertical scrolling. |
+| scrollHeight | HintedString<"flex"> | - | Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size. |
+| virtualScrollerOptions | any | - | Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. Note: Currently only vertical orientation mode is supported. |
+| frozenValue | null \| NoInfer<T>[] | - | Items of the frozen part in scrollable DataTable. |
+| breakpoint | string | 960px | The breakpoint to define the maximum width boundary when using stack responsive layout. |
+| showHeaders | boolean | true | Whether to display table headers |
+| showGridlines | boolean | false | Whether to show grid lines between cells. |
+| stripedRows | boolean | false | Whether to displays rows with alternating colors. |
+| highlightOnSelect | boolean | false | Highlights automatically the first item. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the table. |
+| tableStyle | string \| object | - | Inline style of the table element. |
+| tableClass | string \| object | - | Style class of the table element. |
+| tableProps | TableHTMLAttributes | - | Used to pass all properties of the TableHTMLAttributes to table element inside the component. |
+| filterInputProps | InputHTMLAttributes | - | Used to pass all properties of the HTMLInputElement to the focusable filter input element inside the component. |
+| filterButtonProps | Partial<DataTableFilterButtonPropsOptions> | - | Used to pass all filter button property object |
+| editButtonProps | DataTableEditButtonPropsOptions | - | Used to pass all edit button property object |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DataTablePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | DataTablePassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| mask | DataTablePassThroughOptionType | Used to pass attributes to the mask's DOM element. |
+| loadingIcon | DataTablePassThroughOptionType | Used to pass attributes to the loading icon's DOM element. |
+| header | DataTablePassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| pcPaginator | any | Used to pass attributes to the Paginator component. |
+| tableContainer | DataTablePassThroughOptionType | Used to pass attributes to the table container's DOM element. |
+| virtualScroller | any | Used to pass attributes to the VirtualScroller component. |
+| table | DataTablePassThroughOptionType | Used to pass attributes to the table's DOM element. |
+| virtualScrollerSpacer | DataTablePassThroughOptionType | Used to pass attributes to the virtual scroller spacer's DOM element. |
+| footer | DataTablePassThroughOptionType | Used to pass attributes to the footer's DOM element. |
+| thead | DataTablePassThroughOptionType | Used to pass attributes to the thead's DOM element. |
+| headerRow | DataTablePassThroughOptionType | Used to pass attributes to the header row's DOM element. |
+| tbody | DataTablePassThroughOptionType | Used to pass attributes to the tbody's DOM element. |
+| rowGroupHeader | DataTablePassThroughOptionType | Used to pass attributes to the rowg roup header's DOM element. |
+| rowGroupHeaderCell | DataTablePassThroughOptionType | Used to pass attributes to the row group header cell's DOM element. |
+| bodyRow | DataTablePassThroughOptionType | Used to pass attributes to the body row's DOM element. |
+| rowExpansion | DataTablePassThroughOptionType | Used to pass attributes to the row expansion's DOM element. |
+| rowExpansionCell | DataTablePassThroughOptionType | Used to pass attributes to the row expansion cell's DOM element. |
+| rowGroupFooter | DataTablePassThroughOptionType | Used to pass attributes to the row group footer's DOM element. |
+| rowGroupFooterCell | DataTablePassThroughOptionType | Used to pass attributes to the row group footer cell's DOM element. |
+| emptyMessage | DataTablePassThroughOptionType | Used to pass attributes to the empty message's DOM element. |
+| emptyMessageCell | DataTablePassThroughOptionType | Used to pass attributes to the empty message cell's DOM element. |
+| tfoot | DataTablePassThroughOptionType | Used to pass attributes to the tfoot's DOM element. |
+| footerRow | DataTablePassThroughOptionType | Used to pass attributes to the footer row's DOM element. |
+| columnResizeIndicator | DataTablePassThroughOptionType | Used to pass attributes to the column resize indicator's DOM element. |
+| rowReorderIndicatorUp | DataTablePassThroughOptionType | Used to pass attributes to the row reorder indicator up's DOM element. |
+| rowReorderIndicatorDown | DataTablePassThroughOptionType | Used to pass attributes to the row reorder indicator down's DOM element. |
+| columnGroup | any | Used to pass attributes to the ColumnGroup helper components. |
+| row | any | Used to pass attributes to the Row helper components. |
+| column | any | Used to pass attributes to the Column helper components. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | DataTablePassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-datatable | Class name of the root element |
+| p-datatable-mask | Class name of the mask element |
+| p-datatable-loading-icon | Class name of the loading icon element |
+| p-datatable-header | Class name of the header element |
+| p-datatable-paginator-[position] | Class name of the paginator element |
+| p-datatable-table-container | Class name of the table container element |
+| p-datatable-table | Class name of the table element |
+| p-datatable-thead | Class name of the thead element |
+| p-datatable-column-resizer | Class name of the column resizer element |
+| p-datatable-column-header-content | Class name of the column header content element |
+| p-datatable-column-title | Class name of the column title element |
+| p-datatable-sort-icon | Class name of the sort icon element |
+| p-datatable-sort-badge | Class name of the sort badge element |
+| p-datatable-filter | Class name of the filter element |
+| p-datatable-filter-element-container | Class name of the filter element container element |
+| p-datatable-column-filter-button | Class name of the column filter button element |
+| p-datatable-column-filter-clear-button | Class name of the column filter clear button element |
+| p-datatable-filter-overlay | Class name of the filter overlay element |
+| p-datatable-filter-constraint-list | Class name of the filter constraint list element |
+| p-datatable-filter-constraint | Class name of the filter constraint element |
+| p-datatable-filter-constraint-separator | Class name of the filter constraint separator element |
+| p-datatable-filter-operator | Class name of the filter operator element |
+| p-datatable-filter-operator-dropdown | Class name of the filter operator dropdown element |
+| p-datatable-filter-rule-list | Class name of the filter rule list element |
+| p-datatable-filter-rule | Class name of the filter rule element |
+| p-datatable-filter-constraint-dropdown | Class name of the filter constraint dropdown element |
+| p-datatable-filter-remove-rule-button | Class name of the filter remove rule button element |
+| p-datatable-filter-add-rule-button | Class name of the filter add rule button element |
+| p-datatable-filter-buttonbar | Class name of the filter buttonbar element |
+| p-datatable-filter-clear-button | Class name of the filter clear button element |
+| p-datatable-filter-apply-button | Class name of the filter apply button element |
+| p-datatable-tbody | Class name of the tbody element |
+| p-datatable-row-group-header | Class name of the row group header element |
+| p-datatable-row-toggle-button | Class name of the row toggle button element |
+| p-datatable-row-toggle-icon | Class name of the row toggle icon element |
+| p-datatable-row-expansion | Class name of the row expansion element |
+| p-datatable-row-group-footer | Class name of the row group footer element |
+| p-datatable-empty-message | Class name of the empty message element |
+| p-datatable-reorderable-row-handle | Class name of the reorderable row handle element |
+| p-datatable-row-editor-init | Class name of the row editor init element |
+| p-datatable-row-editor-save | Class name of the row editor save element |
+| p-datatable-row-editor-cancel | Class name of the row editor cancel element |
+| p-datatable-tfoot | Class name of the tfoot element |
+| p-datatable-virtualscroller-spacer | Class name of the virtual scroller spacer element |
+| p-datatable-footer | Class name of the footer element |
+| p-datatable-column-resize-indicator | Class name of the column resize indicator element |
+| p-datatable-row-reorder-indicator-up | Class name of the row reorder indicator up element |
+| p-datatable-row-reorder-indicator-down | Class name of the row reorder indicator down element |
 
 ---
 
@@ -4667,9 +4405,57 @@ Built-in sorting is controlled by bindings sortField and sortField properties fr
                         <img class="block xl:block mx-auto rounded w-full" :src="\
 ```
 
-## Dataview
+## Data View
 
-## Dataview
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | null \| T[] | - | An array of objects to display. |
+| layout | HintedString<"list" \| "grid"> | list | Layout of the items, valid values are 'list' and 'grid'. |
+| rows | number | 0 | Number of rows to display per page. |
+| first | number | 0 | Index of the first record to render. |
+| totalRecords | number | - | Number of total records, defaults to length of value when not defined. |
+| paginator | boolean | false | When specified as true, enables the pagination. |
+| paginatorPosition | HintedString<"top" \| "bottom" \| "both"> | bottom | Position of the paginator, options are 'top','bottom' or 'both'. |
+| alwaysShowPaginator | boolean | true | Whether to show it even there is only one page. |
+| paginatorTemplate | string | FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown | Template of the paginator. It can be customized using the template property using the predefined keys,  - FirstPageLink - PrevPageLink - PageLinks - NextPageLink - LastPageLink - RowsPerPageDropdown - JumpToPageDropdown - JumpToPageInput - CurrentPageReport |
+| pageLinkSize | number | 5 | Number of page links to display. |
+| rowsPerPageOptions | number[] | - | Array of integer values to display inside rows per page dropdown. |
+| currentPageReportTemplate | string | '({currentPage} of {totalPages})' | Template of the current page report element. It displays information about the pagination state.  - {currentPage} - {totalPages} - {rows} - {first} - {last} - {totalRecords} |
+| sortField | null \| string \| Function | - | Property name or a getter function of data to use in sorting by default. |
+| sortOrder | null \| number | - | Order to sort the data by default. |
+| lazy | boolean | false | Defines if data is loaded and interacted with in lazy manner. |
+| dataKey | string | - | Name of the data that uniquely identifies the a record in the data. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DataViewPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | DataViewPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| header | DataViewPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| pcPaginator | any | Used to pass attributes to the Paginator component. |
+| content | DataViewPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| emptyMessage | DataViewPassThroughOptionType | Used to pass attributes to the empty message's DOM element. |
+| footer | DataViewPassThroughOptionType | Used to pass attributes to the footer's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-dataview | Class name of the root element |
+| p-dataview-header | Class name of the header element |
+| p-dataview-paginator-[position] | Class name of the paginator element |
+| p-dataview-content | Class name of the content element |
+| p-dataview-empty-message | Class name of the empty message element |
+| p-dataview-footer | Class name of the footer element |
 
 ---
 
@@ -4965,9 +4751,187 @@ Specifying view as year in addition to a suitable dateFormat enables the year pi
 <DatePicker v-model="date" view="year" dateFormat="yy" />
 ```
 
-## Datepicker
+## Date Picker
 
-## Datepicker
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | null \| Date \| Date[] \| (null \| Date)[] | null | Value of the component. |
+| defaultValue | null \| Date \| Date[] \| (null \| Date)[] | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| selectionMode | HintedString<"single" \| "multiple" \| "range"> | single | Defines the quantity of the selection. |
+| dateFormat | string | - | Format of the date. Defaults to PrimeVue Locale configuration. |
+| updateModelType | HintedString<"string" \| "date"> | date | Type of the value to write back to modelValue. |
+| inline | boolean | false | When enabled, displays the datepicker as inline instead of an overlay. |
+| showOtherMonths | boolean | true | Whether to display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use the selectOtherMonths option. |
+| selectOtherMonths | boolean | false | Whether days in other months shown before or after the current month are selectable. This only applies if the showOtherMonths option is set to true. |
+| showIcon | boolean | false | When enabled, displays a button with icon next to input. |
+| iconDisplay | HintedString<"button" \| "input"> | 'button' | Icon position of the component. This only applies if the showIcon option is set to true. |
+| icon | string | - | Icon of the datepicker button. |
+| prevIcon | string | - | Icon to show in the previous button. |
+| nextIcon | string | - | Icon to show in the next button. |
+| incrementIcon | string | - | Icon to show in each of the increment buttons. |
+| decrementIcon | string | - | Icon to show in each of the decrement buttons. |
+| numberOfMonths | number | 1 | Number of months to display. |
+| responsiveOptions | DatePickerResponsiveOptions[] | - | An array of options for responsive design. |
+| breakpoint | string | 769px | The breakpoint to define the maximum width boundary for datepicker panel. |
+| view | HintedString<"date" \| "month" \| "year"> | date | Type of view to display. |
+| minDate | Date | - | The minimum selectable date. |
+| maxDate | Date | - | The maximum selectable date. |
+| disabledDates | Date[] | - | Array with dates to disable. |
+| disabledDays | number[] | - | Array with disabled weekday numbers. |
+| maxDateCount | number | - | Maximum number of selectable dates in multiple mode. |
+| showOnFocus | boolean | true | When disabled, datepicker will not be visible with input focus. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| showButtonBar | boolean | false | Whether to display today and clear buttons at the footer. |
+| shortYearCutoff | string | +10 | The cutoff year for determining the century for a date. |
+| showTime | boolean | false | Whether to display timepicker. |
+| timeOnly | boolean | false | Whether to display timepicker only. |
+| hourFormat | HintedString<"12" \| "24"> | 24 | Specifies hour format. |
+| stepHour | number | 1 | Hours to change per step. |
+| stepMinute | number | 1 | Minutes to change per step. |
+| stepSecond | number | 1 | Seconds to change per step. |
+| showSeconds | boolean | false | Whether to show the seconds in time picker. |
+| hideOnDateTimeSelect | boolean | false | Whether to hide the overlay on date selection when showTime is enabled. |
+| hideOnRangeSelection | boolean | false | Whether to hide the overlay on date selection is completed when selectionMode is range. |
+| timeSeparator | string | : | Separator of time selector. |
+| showWeek | boolean | false | When enabled, datepicker will show week numbers. |
+| manualInput | boolean | true | Whether to allow entering the date manually via typing. |
+| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| readonly | boolean | false | When present, it specifies that an input field is read-only. |
+| placeholder | string | - | Placeholder text for the input. |
+| required | boolean | - |  |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
+| inputId | string | - | Identifier of the underlying input element. |
+| inputStyle | object | - | Inline style of the input field. |
+| inputClass | string \| object | - | Style class of the input field. |
+| panelStyle | object | - | Inline style of the overlay panel. |
+| panelClass | string \| object | - | Style class of the overlay panel. |
+| todayButtonProps | object | - | Used to pass all properties of the ButtonProps to the today button component. |
+| clearButtonProps | object | - | Used to pass all properties of the ButtonProps to the clear button component. |
+| navigatorButtonProps | object | - | Used to pass all properties of the ButtonProps to the navigator button component. |
+| timepickerButtonProps | object | - | Used to pass all properties of the ButtonProps to the timepicker button component. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DatePickerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | DatePickerPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| pcInputText | any | Used to pass attributes to the InputText component. |
+| dropdown | DatePickerPassThroughOptionType | Used to pass attributes to the dropdown's DOM element. |
+| dropdownIcon | DatePickerPassThroughOptionType | Used to pass attributes to the dropdown icon's DOM element. |
+| inputIconContainer | DatePickerPassThroughOptionType | Used to pass attributes to the input icon container's DOM element. |
+| inputIcon | DatePickerPassThroughOptionType | Used to pass attributes to the input icon's DOM element. |
+| clearIcon | DatePickerPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+| panel | DatePickerPassThroughOptionType | Used to pass attributes to the panel's DOM element. |
+| calendarContainer | DatePickerPassThroughOptionType | Used to pass attributes to the calendar container's DOM element. |
+| calendar | DatePickerPassThroughOptionType | Used to pass attributes to the calendar's DOM element. |
+| header | DatePickerPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| pcPrevButton | any | Used to pass attributes to the previous button's DOM element. |
+| title | DatePickerPassThroughOptionType | Used to pass attributes to the title's DOM element. |
+| selectMonth | DatePickerPassThroughOptionType | Used to pass attributes to the view month's DOM element. |
+| selectYear | DatePickerPassThroughOptionType | Used to pass attributes to the view year's DOM element. |
+| decade | DatePickerPassThroughOptionType | Used to pass attributes to the decade's DOM element. |
+| pcNextButton | any | Used to pass attributes to the next button's DOM element. |
+| dayView | DatePickerPassThroughOptionType | Used to pass attributes to the table's DOM element. |
+| tableHeader | DatePickerPassThroughOptionType | Used to pass attributes to the table header's DOM element. |
+| tableHeaderRow | DatePickerPassThroughOptionType | Used to pass attributes to the table header row's DOM element. |
+| weekHeader | DatePickerPassThroughOptionType | Used to pass attributes to the week header's DOM element. |
+| weekHeaderLabel | DatePickerPassThroughOptionType | Used to pass attributes to the week header label's DOM element. |
+| tableHeaderCell | DatePickerPassThroughOptionType | Used to pass attributes to the table header cell's DOM element. |
+| weekDayCell | DatePickerPassThroughOptionType | Used to pass attributes to the week day cell's DOM element. |
+| weekDay | DatePickerPassThroughOptionType | Used to pass attributes to the week day's DOM element. |
+| tableBody | DatePickerPassThroughOptionType | Used to pass attributes to the table body's DOM element. |
+| tableBodyRow | DatePickerPassThroughOptionType | Used to pass attributes to the table body row's DOM element. |
+| weekNumber | DatePickerPassThroughOptionType | Used to pass attributes to the week number's DOM element. |
+| weekLabelContainer | DatePickerPassThroughOptionType | Used to pass attributes to the week label container's DOM element. |
+| dayCell | DatePickerPassThroughOptionType | Used to pass attributes to the day cell's DOM element. |
+| day | DatePickerPassThroughOptionType | Used to pass attributes to the day's DOM element. |
+| monthView | DatePickerPassThroughOptionType | Used to pass attributes to the month view's DOM element. |
+| month | DatePickerPassThroughOptionType | Used to pass attributes to the month's DOM element. |
+| yearView | DatePickerPassThroughOptionType | Used to pass attributes to the year view's DOM element. |
+| year | DatePickerPassThroughOptionType | Used to pass attributes to the year's DOM element. |
+| timePicker | DatePickerPassThroughOptionType | Used to pass attributes to the time picker's DOM element. |
+| hourPicker | DatePickerPassThroughOptionType | Used to pass attributes to the hour picker's DOM element. |
+| hour | DatePickerPassThroughOptionType | Used to pass attributes to the hour's DOM element. |
+| separatorContainer | DatePickerPassThroughOptionType | Used to pass attributes to the separator container's DOM element. |
+| separator | DatePickerPassThroughOptionType | Used to pass attributes to the separator's DOM element. |
+| minutePicker | DatePickerPassThroughOptionType | Used to pass attributes to the minute picker's DOM element. |
+| minute | DatePickerPassThroughOptionType | Used to pass attributes to the minute's DOM element. |
+| secondPicker | DatePickerPassThroughOptionType | Used to pass attributes to the second picker's DOM element. |
+| second | DatePickerPassThroughOptionType | Used to pass attributes to the second's DOM element. |
+| ampmPicker | DatePickerPassThroughOptionType | Used to pass attributes to the ampm picker's DOM element. |
+| ampm | DatePickerPassThroughOptionType | Used to pass attributes to the ampm's DOM element. |
+| buttonbar | DatePickerPassThroughOptionType | Used to pass attributes to the buttonbar's DOM element. |
+| pcIncrementButton | any | Used to pass attributes to the increment button's DOM element. |
+| pcDecrementButton | any | Used to pass attributes to the decrement button's DOM element. |
+| pcTodayButton | any | Used to pass attributes to the today button's DOM element. |
+| pcClearButton | any | Used to pass attributes to the clear button's DOM element. |
+| hiddenSelectedDay | DatePickerPassThroughOptionType | Used to pass attributes to the aria selected day's DOM element. |
+| hiddenMonth | DatePickerPassThroughOptionType | Used to pass attributes to the aria month's DOM element. |
+| hiddenYear | DatePickerPassThroughOptionType | Used to pass attributes to the aria year's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | DatePickerPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-datepicker | Class name of the root element |
+| p-datepicker-input | Class name of the input element |
+| p-datepicker-dropdown | Class name of the dropdown element |
+| p-datepicker-input-icon-container | Class name of the input icon container element |
+| p-datepicker-input-icon | Class name of the input icon element |
+| p-datepicker-clear-icon | Class name of the clear icon element |
+| p-datepicker-panel | Class name of the panel element |
+| p-datepicker-calendar-container | Class name of the calendar container element |
+| p-datepicker-calendar | Class name of the calendar element |
+| p-datepicker-header | Class name of the header element |
+| p-datepicker-prev-button | Class name of the previous button element |
+| p-datepicker-title | Class name of the title element |
+| p-datepicker-select-month | Class name of the select month element |
+| p-datepicker-select-year | Class name of the select year element |
+| p-datepicker-decade | Class name of the decade element |
+| p-datepicker-next-button | Class name of the next button element |
+| p-datepicker-day-view | Class name of the day view element |
+| p-datepicker-weekheader | Class name of the week header element |
+| p-datepicker-weeknumber | Class name of the week number element |
+| p-datepicker-weeklabel-container | Class name of the week label container element |
+| p-datepicker-weekday-cell | Class name of the week day cell element |
+| p-datepicker-weekday | Class name of the week day element |
+| p-datepicker-day-cell | Class name of the day cell element |
+| p-datepicker-day | Class name of the day element |
+| p-datepicker-month-view | Class name of the month view element |
+| p-datepicker-month | Class name of the month element |
+| p-datepicker-year-view | Class name of the year view element |
+| p-datepicker-year | Class name of the year element |
+| p-datepicker-time-picker | Class name of the time picker element |
+| p-datepicker-hour-picker | Class name of the hour picker element |
+| p-datepicker-increment-button | Class name of the increment button element |
+| p-datepicker-decrement-button | Class name of the decrement button element |
+| p-datepicker-separator | Class name of the separator element |
+| p-datepicker-minute-picker | Class name of the minute picker element |
+| p-datepicker-second-picker | Class name of the second picker element |
+| p-datepicker-ampm-picker | Class name of the ampm picker element |
+| p-datepicker-buttonbar | Class name of the buttonbar element |
+| p-datepicker-today-button | Class name of the today button element |
+| p-datepicker-clear-button | Class name of the clear button element |
 
 ---
 
@@ -5023,8 +4987,6 @@ A practical example that triggers a fetch when the table becomes visible in view
 ```vue
 import DeferredContent from 'primevue/deferredcontent';
 ```
-
-## Deferredcontent
 
 ## Deferredcontent
 
@@ -5322,45 +5284,6 @@ Mask layer behind the Dialog is configured with the modal property. By default, 
     </div>
 </Dialog>
 ```
-
-## Dialog
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| header | string | - | Title content of the dialog. |
-| footer | string | - | Footer content of the dialog. |
-| visible | boolean | false | Specifies the visibility of the dialog. |
-| modal | boolean | false | Defines if background should be blocked when dialog is displayed. |
-| contentStyle | any | - | Style of the content section. |
-| contentClass | any | - | Style class of the content section. |
-| contentProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the overlay Dialog inside the component. |
-| closable | boolean | true | Adds a close icon to the header to hide the dialog. |
-| dismissableMask | boolean | false | Specifies if clicking the modal background should hide the dialog. |
-| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the dialog. |
-| showHeader | boolean | true | Whether to show the header or not. |
-| blockScroll | boolean | false | Whether background scroll should be blocked when dialog is visible. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| position | HintedString<"left" \| "right" \| "top" \| "bottom" \| "center" \| "topleft" \| "topright" \| "bottomleft" \| "bottomright"> | center | Position of the dialog. |
-| maximizable | boolean | false | Whether the dialog can be displayed full screen. |
-| breakpoints | DialogBreakpoints | - | Object literal to define widths per screen size. |
-| draggable | boolean | true | Enables dragging to change the position using header. |
-| keepInViewport | boolean | true | Keeps dialog in the viewport when dragging. |
-| minX | number | 0. | Minimum value for the left coordinate of dialog in dragging. |
-| minY | number | 0 | Minimum value for the top coordinate of dialog in dragging. |
-| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the dialog gets attached. |
-| style | any | - | Style of the dynamic dialog. |
-| closeIcon | string | - | Icon to display in the dialog close button. |
-| maximizeIcon | string | - | Icon to display in the dialog maximize button when dialog is not maximized. |
-| minimizeIcon | string | - | Icon to display in the dialog maximize button when dialog is minimized. |
-| closeButtonProps | object | - | Used to pass all properties of the ButtonProps to the Button component. |
-| maximizeButtonProps | object | - | Used to pass all properties of the ButtonProps to the Button component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<DialogPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Dialog
 
@@ -5785,20 +5708,6 @@ Vertical divider is enabled by setting the layout property as vertical .
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Divider
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| align | HintedString<"left" \| "right" \| "top" \| "bottom" \| "center"> | - | Alignment of the content. |
-| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Specifies the orientation, valid values are 'horizontal' and 'vertical'. |
-| type | HintedString<"solid" \| "dashed" \| "dotted"> | solid | Border style type. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<DividerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -5863,27 +5772,6 @@ Dock requires a collection of menuitems as its model and an icon template. Defau
 ```vue
 import Dock from 'primevue/dock';
 ```
-
-## Dock
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | MenuModel instance to define the action items. |
-| position | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of element. |
-| class | any | - | Style class of the element. |
-| style | any | - | Inline style of the element. |
-| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
-| tooltipOptions | DockTooltipOptions | - | Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'. |
-| menuId | string | - | Unique identifier of the menu. |
-| tabindex | string \| number | - | Index of the element in tabbing order. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| ariaLabel | string | - | Establishes a string value that labels the component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<DockPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Dock
 
@@ -6273,29 +6161,6 @@ Custom content at the header and footer sections is displayed with templating.
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 | closeOnEscape | boolean | true | Specifies if pressing escape key should hide the drawer. |
 
-## Drawer
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| visible | boolean | false | Specifies the visibility of the dialog. |
-| position | HintedString<"left" \| "right" \| "top" \| "bottom" \| "full"> | left | Specifies the position of the drawer. |
-| header | string | - | Title content of the dialog. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| dismissable | boolean | true | Whether clicking outside closes the panel. |
-| showCloseIcon | boolean | true | Whether to display a close icon inside the panel. |
-| closeButtonProps | object | - | Used to pass the custom value to read for the button inside the component. |
-| closeIcon | string | - | Icon to display in the drawer close button. |
-| modal | boolean | true | Whether to a modal layer behind the drawer. |
-| blockScroll | boolean | false | Whether background scroll should be blocked when drawer is visible. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<DrawerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the drawer. |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -6391,8 +6256,6 @@ Use the data property to pass parameters when opening a Dialog, the internal com
 
 ## Dynamicdialog
 
-## Dynamicdialog
-
 ## Dynamicdialogoptions
 
 ---
@@ -6464,33 +6327,6 @@ Editor provides a default toolbar with common options, to customize it define yo
     </template>
 </Editor>
 ```
-
-## Editor
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | string | - | Value of the content. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| placeholder | string | - | Placeholder text to show when editor is empty. |
-| readonly | boolean | false | Whether to instantiate the editor to readonly mode. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| formats | any[] | - | Whitelist of formats to display, see  <a target="_blank" href="https://quilljs.com/docs/formats/">here</a>  for available options. |
-| editorStyle | any | - | Inline style of the container. |
-| modules | any | - | Modules configuration, see  <a target="_blank" href="https://quilljs.com/docs/modules/">here</a>  for available options. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<EditorPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-### Slots
-
-| Name | Parameters | Description |
-|------|------------|-------------|
-| toolbar | Function |  |
 
 ## Editor
 
@@ -6688,27 +6524,6 @@ Content of the fieldset can be expanded and collapsed when toggleable option is 
 |------|------------|-------------|
 | default | Function |  |
 
-## Fieldset
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| legend | string | - | Header text of the fieldset. |
-| toggleable | boolean | false | When specified, content can toggled by clicking the legend. |
-| collapsed | boolean | false | Defines the default visibility state of the content. |
-| toggleButtonProps | AnchorHTMLAttributes | - | Used to pass the custom value to read for the AnchorHTMLAttributes inside the component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<FieldsetPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-### Slots
-
-| Name | Parameters | Description |
-|------|------------|-------------|
-| default | Function |  |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -6806,8 +6621,6 @@ Uploader UI can be customized with templating.
 
 ## Fileupload
 
-## Fileupload
-
 ---
 
 # Vue Float Label
@@ -6882,8 +6695,6 @@ The variant property defines the position of the label. Default value is over , 
 
 ## Floatlabel
 
-## Floatlabel
-
 ---
 
 # Vue Fluid Component
@@ -6929,23 +6740,6 @@ Components with the fluid option like InputText have the ability to span the ful
 ```vue
 import Fluid from 'primevue/fluid';
 ```
-
-## Fluid
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<FluidPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-### Slots
-
-| Name | Parameters | Description |
-|------|------------|-------------|
-| default | Function |  |
 
 ## Fluid
 
@@ -7025,8 +6819,6 @@ import FocusTrap from 'primevue/focustrap';
 
 app.directive('focustrap', FocusTrap);
 ```
-
-## Focustrap
 
 ## Focustrap
 
@@ -7118,36 +6910,6 @@ The submit callback returns an object that encapsulates the form's validity, any
 ## ValidateOn
 
 Form component supports flexible validation triggers, allowing validation on value updates, blur events, form mount, or submission. These behaviors can be configured at form level or on specific fields via the validateOnValueUpdate , validateOnBlur , validateOnMount , and validateOnSubmit options of the formControl property. In this example, form disables validateOnValueUpdate and enables validateOnBlur at form level, and validates firstName on mount. The firstName field, overrides the form level setting locally.
-
-## Form
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| resolver | Function | - |  |
-| initialValues | Record<string, any> | - | The initial values for the form fields. |
-| validateOnValueUpdate | boolean \| string[] | true | Whether to validate the form fields when the values change. |
-| validateOnBlur | boolean \| string[] | false | Whether to validate the form fields when they lose focus (on blur). |
-| validateOnMount | boolean \| string[] | false | Whether to validate the form fields immediately after the form is mounted. |
-| validateOnSubmit | boolean \| string[] | true | Whether to validate the form fields when the form is submitted. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<FormPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | PassThroughOptions | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-### Slots
-
-| Name | Parameters | Description |
-|------|------------|-------------|
-| default | Function |  |
-
-### Emits
-
-| Name | Parameters | Description |
-|------|------------|-------------|
-| submit | Function |  |
-| reset | Function |  |
 
 ## Forms/src
 
@@ -7283,46 +7045,6 @@ Thumbnails represent a smaller version of the actual content.
     </template>
 </Galleria>
 ```
-
-## Galleria
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| id | string | - | Unique identifier of the element. |
-| value | any[] | - | An array of objects to display. |
-| activeIndex | number | 0 | Index of the first item. |
-| fullScreen | boolean | false | Whether to display the component on fullscreen. |
-| visible | boolean | false | Specifies the visibility of the mask on fullscreen mode. |
-| numVisible | number | 3 | Number of items per page. |
-| responsiveOptions | GalleriaResponsiveOptions[] | - | An array of options for responsive design. |
-| showItemNavigators | boolean | false | Whether to display navigation buttons in item section. |
-| showThumbnailNavigators | boolean | true | Whether to display navigation buttons in thumbnail container. |
-| showItemNavigatorsOnHover | boolean | false | Whether to display navigation buttons on item hover. |
-| changeItemOnIndicatorHover | boolean | false | When enabled, item is changed on indicator hover. |
-| circular | boolean | false | Defines if scrolling would be infinite. |
-| autoPlay | boolean | false | Items are displayed with a slideshow in autoPlay mode. |
-| transitionInterval | number | 4000 | Time in milliseconds to scroll items. |
-| showThumbnails | boolean | true | Whether to display thumbnail container. |
-| thumbnailsPosition | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of thumbnails. |
-| verticalThumbnailViewPortHeight | string | 300px | Height of the viewport in vertical thumbnail. |
-| showIndicators | boolean | false | Whether to display indicator container. |
-| showIndicatorsOnItem | boolean | false | When enabled, indicator container is displayed on item container. |
-| indicatorsPosition | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of indicators. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| maskClass | string | - | Style class of the mask on fullscreen mode. |
-| containerStyle | any | - | Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used. |
-| containerClass | any | - | Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used. |
-| containerProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the container element on fullscreen mode. |
-| prevButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the previous navigation button. |
-| nextButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the next navigation button. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaRoledescription | string | - | Defines a string value that description for the role of the component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<GalleriaPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Galleria
 
@@ -7562,8 +7284,6 @@ Custom content inside an InputIcon is defined as children.
 
 ## Iconfield
 
-## Iconfield
-
 ---
 
 # icons
@@ -7692,8 +7412,6 @@ When the form element is invalid, the label is also highlighted.
 
 ## Iftalabel
 
-## Iftalabel
-
 ---
 
 # Vue Image Component
@@ -7804,27 +7522,6 @@ An eye icon is displayed by default when the image is hovered in preview mode, u
 | pt | PassThrough<ImagePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Image
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| src | string | - | Image url. |
-| preview | boolean | false | Controls the preview functionality. |
-| imageStyle | any | - | Inline style of the image element. |
-| imageClass | any | - | Style class of the image element. |
-| indicatorIcon | string | - | Custom indicator icon. |
-| previewIcon | string | - | Custom indicator icon. |
-| zoomInDisabled | boolean | false | Disable the zoom-in button |
-| zoomOutDisabled | boolean | false | Disable the zoom-out button |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ImagePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Imagecompare
 
 ## Imagecompare
 
@@ -7957,8 +7654,6 @@ Apply responsive styles to the container element to optimize display per screen 
 
 ## Imagecompare
 
-## Imagecompare
-
 ---
 
 # Vue Inplace Component
@@ -8064,20 +7759,6 @@ The open event is used to initialize the content such as loading data in a lazy 
     </template>
 </Inplace>
 ```
-
-## Inplace
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| active | boolean | false | Whether the content is displayed or not. |
-| disabled | boolean | false | When present, it specifies that the element should be disabled. |
-| displayProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to display container. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<InplacePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Inplace
 
@@ -8324,10 +8005,6 @@ Multiple add-ons can be placed inside the same group.
 
 ## Inputgroup
 
-## Inputgroup
-
-## Inputgroupaddon
-
 ## Inputgroupaddon
 
 ---
@@ -8505,8 +8182,6 @@ Default placeholder for a mask is underscore that can be customized using slotCh
 ```vue
 <InputMask id="basic" v-model="value" placeholder="99/99/9999" mask="99/99/9999" slotChar="mm/dd/yyyy" />
 ```
-
-## Inputmask
 
 ## Inputmask
 
@@ -8733,8 +8408,6 @@ Buttons can also placed vertically by setting buttonLayout as vertical .
 
 ## Inputnumber
 
-## Inputnumber
-
 ---
 
 # Vue Otp Input Component
@@ -8847,8 +8520,6 @@ Define a template with your own UI elements with bindings to the provided events
     </template>
 </InputOtp>
 ```
-
-## Inputotp
 
 ## Inputotp
 
@@ -9001,8 +8672,6 @@ InputText provides small and large sizes as alternatives to the base.
 
 ## Inputtext
 
-## Inputtext
-
 ---
 
 # introduction
@@ -9084,8 +8753,6 @@ In addition to the presets, a regular expression can be used to validate the ent
 ```vue
 <InputText v-model="text" v-keyfilter="{ pattern: /^[+]?(\d{1,12})?$/, validateOnly: true }" />
 ```
-
-## Keyfilter
 
 ## Keyfilter
 
@@ -9223,37 +8890,6 @@ The label can be customized with the valueTemplate property using either a templ
 ```vue
 <Knob v-model="value" valueTemplate="{value}%" />
 ```
-
-## Knob
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | number | - | Value of the component. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| size | number | 100 | Size of the component in pixels. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the component should be disabled. |
-| readonly | boolean | false | When present, it specifies that the component value cannot be edited. |
-| step | number | 1 | Step factor to increment/decrement the value. |
-| min | number | 0 | Mininum boundary value. |
-| max | number | 100 | Maximum boundary value. |
-| valueColor | string | $dt('knob.value.background') | Background of the value. |
-| rangeColor | string | $dt('knob.range.background') | Background color of the range. |
-| textColor | string | $dt('knob.text.color') | Color of the value text. |
-| strokeWidth | number | 14 | Width of the knob stroke. |
-| showValue | boolean | true | Whether the show the value inside the knob. |
-| valueTemplate | string \| Function | '{value}' | Template string of the value. |
-| tabindex | number | 0 | Index of the element in tabbing order. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| ariaLabel | string | - | Used to define a string that labels the element. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<KnobPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Knob
 
@@ -9563,56 +9199,6 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Listbox
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | any | - | Value of the component. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| options | any[] | - | An array of selectitems to display as the available options. |
-| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
-| optionValue | string \| Function | - | Property name or getter function to use as the value of an option, defaults to the option itself when not defined. |
-| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
-| optionGroupLabel | string \| Function | - | Property name or getter function to use as the label of an option group. |
-| optionGroupChildren | string \| Function | - | Property name or getter function that refers to the children options of option group. |
-| listStyle | string | - | Inline style of inner list element. |
-| scrollHeight | string | 14rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When specified, disables the component. |
-| fluid | boolean | null | Spans 100% width of the container when enabled. |
-| dataKey | string | - | A property to uniquely identify an option. |
-| multiple | boolean | false | When specified, allows selecting multiple values. |
-| metaKeySelection | boolean | false | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
-| filter | boolean | false | When specified, displays a filter input at header. |
-| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
-| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
-| filterMatchMode | HintedString<"startsWith" \| "contains" \| "endsWith"> | contains | Defines the filtering algorithm to use when searching the options. |
-| filterFields | string[] | - | Fields used when filtering the options, defaults to optionLabel. |
-| virtualScrollerOptions | any | - | Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. |
-| autoOptionFocus | boolean | false | Whether to focus on the first visible or selected element. |
-| selectOnFocus | boolean | false | When enabled, the focused option is selected. |
-| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
-| highlightOnSelect | boolean | true | Whether the selected option will be add highlight class. |
-| checkmark | boolean | false | Whether the selected option will be shown with a check mark. |
-| filterMessage | string | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration. |
-| selectionMessage | string | '{0} items selected' | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration. |
-| emptySelectionMessage | string | No selected item | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration. |
-| emptyFilterMessage | string | No results found | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration. |
-| emptyMessage | string | No available options | Text to display when there are no options available. Defaults to value from PrimeVue locale configuration. |
-| striped | boolean | false | Whether to displays rows with alternating colors. |
-| tabindex | string \| number | - | Index of the element in tabbing order. |
-| filterIcon | string | - | Icon to display in filter input. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying input element. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ListboxPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -9653,6 +9239,32 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 | p-listbox-option-check-icon | Class name of the option check icon element |
 | p-listbox-option-blank-icon | Class name of the option blank icon element |
 | p-listbox-empty-message | Class name of the empty message element |
+
+---
+
+# LLMs.txt - PrimeVue
+
+PrimeVue provides LLM-friendly documentation formats to help AI models better understand and navigate the component library.
+
+## /llms-full.txt
+
+The /llms-full.txt file contains the complete documentation for all PrimeVue components in a single text file. This comprehensive resource includes all component examples, API documentation, theming information, and usage patterns. This file is ideal for: AI Model Training : Complete context about PrimeVue components Comprehensive Queries : When AI assistants need full documentation access Offline Reference : Single file containing all component information Search Indexing : Building search engines or documentation tools Note: This file is large (~800KB) and includes complete documentation for {{ componentCount }}+ components with Props, Slots, Emits, Pass Through Options, and Theming information.
+
+## /llms.txt
+
+The /llms.txt file provides a curated index of key PrimeVue documentation pages in a structured format. This file follows the llms.txt industry standard and serves as an entry point for AI models to discover and navigate the documentation. Each entry in the file includes: Component Name : The display name of the component URL : Direct link to the component's documentation page Description : Brief explanation of the component's purpose
+
+## MarkdownExtensionDoc
+
+Add a .md extension to any component's documentation URL to view or retrieve a Markdown-formatted version of that page. This feature enables direct access to machine-readable documentation for any specific component. Example URLs: Each Markdown file includes: Component Overview : Description and use cases Import Statement : How to import the component Usage Examples : Code examples with Options API and Composition API Props Table : Complete list of properties with types and defaults Events/Emits : Available events and their parameters Slots : Template slot definitions Pass Through Options : PT configuration for unstyled mode Theming : CSS classes and design tokens
+
+## Overview
+
+PrimeVue implements the llms.txt standard , an industry convention designed to help AI models better understand and navigate documentation. This implementation provides multiple formats optimized for different use cases, from quick reference to comprehensive documentation.
+
+## UsageExamplesDoc
+
+The Copy Markdown dropdown menu appears on every component documentation page, providing quick access to LLM-friendly formats. Integration Examples Here are some ways to use the LLM documentation formats:
 
 ---
 
@@ -9703,8 +9315,6 @@ Layout of the MegaMenu is configured with the orientation property that accepts 
 ```vue
 <MegaMenu :model="items" orientation="vertical" />
 ```
-
-## Megamenu
 
 ## Megamenu
 
@@ -9792,41 +9402,6 @@ Menu offers item customization with the item template that receives the menuitem
 | ariaLabelledby | string | - | Identifier of the underlying input element. |
 | dt | any | - | It generates scoped CSS variables using design tokens for the component. |
 | pt | PassThrough<MenuPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Menu
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | An array of menuitems. |
-| popup | boolean | false | Defines if menu would displayed as a popup. |
-| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| tabindex | string \| number | - | Index of the element in tabbing order. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying input element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<MenuPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Menubar
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | An array of menuitems. |
-| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
-| buttonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the menu button. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying input element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<MenubarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
@@ -9934,22 +9509,6 @@ Items with navigation are defined with templating to be able to use a router lin
 ## Template
 
 Menubar offers item customization with the item template that receives the menuitem instance from the model as a parameter. Additional slots named start and end are provided to embed content before or after the menu.
-
-## Menubar
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | An array of menuitems. |
-| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
-| buttonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the menu button. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying input element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<MenubarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Menubar
 
@@ -10313,26 +9872,6 @@ Message provides small and large sizes as alternatives to the base.
 | size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
 | variant | HintedString<"outlined" \| "simple"> | undefined | Specifies the variant of the component. |
 
-## Message
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| severity | HintedString<"error" \| "secondary" \| "info" \| "success" \| "warn" \| "contrast"> | info | Severity level of the message. |
-| closable | boolean | false | Whether the message can be closed manually using the close icon. |
-| sticky | boolean | true |  |
-| life | number | null | Delay in milliseconds to close the message automatically. |
-| icon | string | - | Display a custom icon for the message. |
-| closeIcon | string | - | Icon to display in the message close button. |
-| closeButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the close button. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<MessagePassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
-| variant | HintedString<"outlined" \| "simple"> | undefined | Specifies the variant of the component. |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -10440,8 +9979,6 @@ Layout of the MeterGroup is configured with the orientation property that accept
 ```vue
 <MeterGroup :value="value" orientation="vertical" labelOrientation="vertical" />
 ```
-
-## Metergroup
 
 ## Metergroup
 
@@ -10677,8 +10214,6 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 
 ## Multiselect
 
-## Multiselect
-
 ---
 
 # nuxt
@@ -10784,8 +10319,6 @@ For custom content support define an option template that gets the item instance
 
 ## Orderlist
 
-## Orderlist
-
 ---
 
 # Vue Organization Chart Component
@@ -10828,8 +10361,6 @@ The type property of an OrganizationChartNode is used to map a template to a nod
         <div class="flex flex-col items-center">
             <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
 ```
-
-## Organizationchart
 
 ## Organizationchart
 
@@ -10935,24 +10466,6 @@ Paginator elements can be customized using the template property using the prede
 <div class="p-4 text-center">
     <img :src="\
 ```
-
-## Paginator
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| totalRecords | number | 0 | Number of total records. |
-| rows | number | 0 | Data count to display per page. |
-| first | number | 0 | Zero-relative number of the first row to be displayed. |
-| pageLinkSize | number | 5 | Number of page links to display. |
-| rowsPerPageOptions | number[] | - | Array of integer values to display inside rows per page dropdown. |
-| template | any | - | Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint. Available templates are the following;  - FirstPageLink - PrevPageLink - PageLinks - NextPageLink - LastPageLink - RowsPerPageDropdown - JumpToPageDropdown - JumpToPageInput - CurrentPageReport |
-| currentPageReportTemplate | string | '({currentPage} of {totalPages})' | Template of the current page report element. It displays information about the pagination state. Available placeholders are the following;  - {currentPage} - {totalPages} - {rows} - {first} - {last} - {totalRecords} |
-| alwaysShow | boolean | true | Whether to show the paginator even there is only one page. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<PaginatorPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 
 ## Paginator
 
@@ -11138,23 +10651,6 @@ Content of the panel can be expanded and collapsed using toggleable option.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Panel
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| header | string | - | Header text of the panel. |
-| toggleable | boolean | false | Defines if content of panel can be expanded and collapsed. |
-| collapsed | boolean | false | Defines the initial state of panel content. |
-| toggleButtonProps | object | - | Used to pass the custom value to read for the button inside the component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<PanelPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Panelmenu
-
 ## Panelmenu
 
 ## Pass Through Options
@@ -11254,8 +10750,6 @@ Items with navigation are defined with templating to be able to use a router lin
 ## Template
 
 PanelMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
-
-## Panelmenu
 
 ## Panelmenu
 
@@ -11791,266 +11285,6 @@ When toggleMask is present, an icon is displayed to show the value as plain text
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Password
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| aria-activedescendant | string | - | Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application. |
-| aria-atomic | Booleanish | - | Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute. |
-| aria-autocomplete | "none" \| "inline" \| "list" \| "both" | - | Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made. |
-| aria-busy | Booleanish | - | Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user. |
-| aria-checked | Booleanish \| "mixed" | - | Indicates the current "checked" state of checkboxes, radio buttons, and other widgets. |
-| aria-colcount | Numberish | - | Defines the total number of columns in a table, grid, or treegrid. |
-| aria-colindex | Numberish | - | Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid. |
-| aria-colspan | Numberish | - | Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid. |
-| aria-controls | string | - | Identifies the element (or elements) whose contents or presence are controlled by the current element. |
-| aria-current | Booleanish \| "page" \| "step" \| "location" \| "date" \| "time" | - | Indicates the element that represents the current item within a container or set of related elements. |
-| aria-describedby | string | - | Identifies the element (or elements) that describes the object. |
-| aria-details | string | - | Identifies the element that provides a detailed, extended description for the object. |
-| aria-disabled | Booleanish | - | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable. |
-| aria-dropeffect | "link" \| "none" \| "copy" \| "execute" \| "move" \| "popup" | - | Indicates what functions can be performed when a dragged object is released on the drop target. |
-| aria-errormessage | string | - | Identifies the element that provides an error message for the object. |
-| aria-expanded | Booleanish | - | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. |
-| aria-flowto | string | - | Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order. |
-| aria-grabbed | Booleanish | - | Indicates an element's "grabbed" state in a drag-and-drop operation. |
-| aria-haspopup | Booleanish \| "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" | - | Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. |
-| aria-hidden | Booleanish | - | Indicates whether the element is exposed to an accessibility API. |
-| aria-invalid | Booleanish \| "grammar" \| "spelling" | - | Indicates the entered value does not conform to the format expected by the application. |
-| aria-keyshortcuts | string | - | Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element. |
-| aria-label | string | - | Defines a string value that labels the current element. |
-| aria-labelledby | string | - | Identifies the element (or elements) that labels the current element. |
-| aria-level | Numberish | - | Defines the hierarchical level of an element within a structure. |
-| aria-live | "off" \| "assertive" \| "polite" | - | Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region. |
-| aria-modal | Booleanish | - | Indicates whether an element is modal when displayed. |
-| aria-multiline | Booleanish | - | Indicates whether a text box accepts multiple lines of input or only a single line. |
-| aria-multiselectable | Booleanish | - | Indicates that the user may select more than one item from the current selectable descendants. |
-| aria-orientation | "horizontal" \| "vertical" | - | Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous. |
-| aria-owns | string | - | Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship. |
-| aria-placeholder | string | - | Defines a short hint (a word or short phrase) intended to aid the user with data entry when the control has no value. A hint could be a sample value or a brief description of the expected format. |
-| aria-posinset | Numberish | - | Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
-| aria-pressed | Booleanish \| "mixed" | - | Indicates the current "pressed" state of toggle buttons. |
-| aria-readonly | Booleanish | - | Indicates that the element is not editable, but is otherwise operable. |
-| aria-relevant | "text" \| "additions" \| "additions removals" \| "additions text" \| "all" \| "removals" \| "removals additions" \| "removals text" \| "text additions" \| "text removals" | - | Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. |
-| aria-required | Booleanish | - | Indicates that user input is required on the element before a form may be submitted. |
-| aria-roledescription | string | - | Defines a human-readable, author-localized description for the role of an element. |
-| aria-rowcount | Numberish | - | Defines the total number of rows in a table, grid, or treegrid. |
-| aria-rowindex | Numberish | - | Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid. |
-| aria-rowspan | Numberish | - | Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid. |
-| aria-selected | Booleanish | - | Indicates the current "selected" state of various widgets. |
-| aria-setsize | Numberish | - | Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
-| aria-sort | "none" \| "ascending" \| "descending" \| "other" | - | Indicates if items in a table or grid are sorted in ascending or descending order. |
-| aria-valuemax | Numberish | - | Defines the maximum allowed value for a range widget. |
-| aria-valuemin | Numberish | - | Defines the minimum allowed value for a range widget. |
-| aria-valuenow | Numberish | - | Defines the current value for a range widget. |
-| aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
-| innerHTML | string | - |  |
-| class | any | - |  |
-| style | StyleValue | - |  |
-| accesskey | string | - |  |
-| contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |
-| contextmenu | string | - |  |
-| dir | string | - |  |
-| draggable | Booleanish | - |  |
-| hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
-| id | string | - |  |
-| inert | Booleanish | - |  |
-| lang | string | - |  |
-| spellcheck | Booleanish | - |  |
-| tabindex | Numberish | - |  |
-| title | string | - |  |
-| translate | "yes" \| "no" | - |  |
-| radiogroup | string | - |  |
-| role | string | - |  |
-| about | string | - |  |
-| datatype | string | - |  |
-| inlist | any | - |  |
-| prefix | string | - |  |
-| property | string | - |  |
-| resource | string | - |  |
-| typeof | string | - |  |
-| vocab | string | - |  |
-| autocapitalize | string | - |  |
-| autocorrect | string | - |  |
-| autosave | string | - |  |
-| color | string | - |  |
-| itemprop | string | - |  |
-| itemscope | Booleanish | - |  |
-| itemtype | string | - |  |
-| itemid | string | - |  |
-| itemref | string | - |  |
-| results | Numberish | - |  |
-| security | string | - |  |
-| unselectable | "on" \| "off" | - |  |
-| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
-| is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
-| accept | string | - |  |
-| alt | string | - |  |
-| autocomplete | string | - |  |
-| capture | boolean \| "user" \| "environment" | - |  |
-| checked | any[] \| Set<any> \| Booleanish | - |  |
-| crossorigin | string | - |  |
-| enterKeyHint | "search" \| "enter" \| "done" \| "go" \| "next" \| "previous" \| "send" | - |  |
-| form | string | - |  |
-| formaction | string | - |  |
-| formenctype | string | - |  |
-| formmethod | string | - |  |
-| formnovalidate | Booleanish | - |  |
-| formtarget | string | - |  |
-| height | Numberish | - |  |
-| indeterminate | boolean | - |  |
-| list | string | - |  |
-| max | Numberish | - |  |
-| maxlength | Numberish | - |  |
-| min | Numberish | - |  |
-| minlength | Numberish | - |  |
-| multiple | Booleanish | - |  |
-| pattern | string | - |  |
-| readonly | Booleanish | - |  |
-| src | string | - |  |
-| step | Numberish | - |  |
-| type | InputTypeHTMLAttribute | - |  |
-| value | any | - |  |
-| width | Numberish | - |  |
-| onCancel | Function | - |  |
-| onCopy | Function | - |  |
-| onCut | Function | - |  |
-| onPaste | Function | - |  |
-| onCompositionend | Function | - |  |
-| onCompositionstart | Function | - |  |
-| onCompositionupdate | Function | - |  |
-| onDrag | Function | - |  |
-| onDragend | Function | - |  |
-| onDragenter | Function | - |  |
-| onDragexit | Function | - |  |
-| onDragleave | Function | - |  |
-| onDragover | Function | - |  |
-| onDragstart | Function | - |  |
-| onDrop | Function | - |  |
-| onFocus | Function | - |  |
-| onFocusin | Function | - |  |
-| onFocusout | Function | - |  |
-| onBlur | Function | - |  |
-| onChange | Function | - |  |
-| onBeforeinput | Function | - |  |
-| onFormdata | Function | - |  |
-| onInput | Function | - |  |
-| onReset | Function | - |  |
-| onSubmit | Function | - |  |
-| onInvalid | Function | - |  |
-| onFullscreenchange | Function | - |  |
-| onFullscreenerror | Function | - |  |
-| onLoad | Function | - |  |
-| onError | Function | - |  |
-| onKeydown | Function | - |  |
-| onKeypress | Function | - |  |
-| onKeyup | Function | - |  |
-| onDblclick | Function | - |  |
-| onMousedown | Function | - |  |
-| onMouseenter | Function | - |  |
-| onMouseleave | Function | - |  |
-| onMousemove | Function | - |  |
-| onMouseout | Function | - |  |
-| onMouseover | Function | - |  |
-| onMouseup | Function | - |  |
-| onAbort | Function | - |  |
-| onCanplay | Function | - |  |
-| onCanplaythrough | Function | - |  |
-| onDurationchange | Function | - |  |
-| onEmptied | Function | - |  |
-| onEncrypted | Function | - |  |
-| onEnded | Function | - |  |
-| onLoadeddata | Function | - |  |
-| onLoadedmetadata | Function | - |  |
-| onLoadstart | Function | - |  |
-| onPause | Function | - |  |
-| onPlay | Function | - |  |
-| onPlaying | Function | - |  |
-| onProgress | Function | - |  |
-| onRatechange | Function | - |  |
-| onSeeked | Function | - |  |
-| onSeeking | Function | - |  |
-| onStalled | Function | - |  |
-| onSuspend | Function | - |  |
-| onTimeupdate | Function | - |  |
-| onVolumechange | Function | - |  |
-| onWaiting | Function | - |  |
-| onSelect | Function | - |  |
-| onScroll | Function | - |  |
-| onScrollend | Function | - |  |
-| onTouchcancel | Function | - |  |
-| onTouchend | Function | - |  |
-| onTouchmove | Function | - |  |
-| onTouchstart | Function | - |  |
-| onAuxclick | Function | - |  |
-| onClick | Function | - |  |
-| onContextmenu | Function | - |  |
-| onGotpointercapture | Function | - |  |
-| onLostpointercapture | Function | - |  |
-| onPointerdown | Function | - |  |
-| onPointermove | Function | - |  |
-| onPointerup | Function | - |  |
-| onPointercancel | Function | - |  |
-| onPointerenter | Function | - |  |
-| onPointerleave | Function | - |  |
-| onPointerover | Function | - |  |
-| onPointerout | Function | - |  |
-| onBeforetoggle | Function | - |  |
-| onToggle | Function | - |  |
-| onWheel | Function | - |  |
-| onAnimationcancel | Function | - |  |
-| onAnimationstart | Function | - |  |
-| onAnimationend | Function | - |  |
-| onAnimationiteration | Function | - |  |
-| onSecuritypolicyviolation | Function | - |  |
-| onTransitioncancel | Function | - |  |
-| onTransitionend | Function | - |  |
-| onTransitionrun | Function | - |  |
-| onTransitionstart | Function | - |  |
-| modelValue | Nullable<string> | - | Value of the component. |
-| defaultValue | Nullable<string> | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| promptLabel | string | - | Text to prompt password entry. Defaults to PrimeVue Locale configuration. |
-| mediumRegex | string \| RegExp | ^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}) | Regex for a medium level password. |
-| strongRegex | string \| RegExp | ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,}) | Regex for a strong level password. |
-| weakLabel | string | - | Text for a weak password. Defaults to PrimeVue Locale configuration. |
-| mediumLabel | string | - | Text for a medium password. Defaults to PrimeVue Locale configuration. |
-| strongLabel | string | - | Text for a strong password. Defaults to PrimeVue Locale configuration. |
-| feedback | boolean | true | Whether to show the strength indicator or not. |
-| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
-| toggleMask | boolean | false | Whether to show an icon to display the password as plain text. |
-| maskIcon | string | - | Icon to hide displaying the password as plain text. |
-| unmaskIcon | string | - | Icon to show displaying the password as plain text. |
-| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
-| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the component should be disabled. |
-| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
-| placeholder | string | - | Placeholder text for the input. |
-| required | boolean | false | When present, it specifies that an input field must be filled out before submitting the form. |
-| fluid | boolean | null | Spans 100% width of the container when enabled. |
-| autofocus | boolean | null | When present, it specifies that an input element should automatically get focus when the page loads. |
-| inputId | string | - | Identifier of the underlying input element. |
-| inputStyle | object | - | Inline style of the input field. |
-| inputClass | string \| object | - | Style class of the input field. |
-| inputProps | InputHTMLAttributes | - | Used to pass all properties of the HTMLInputElement to the focusable input element inside the component. |
-| panelId | string | - | Identifier of the underlying overlay panel element. |
-| panelClass | string \| object | - | Style class of the overlay panel. |
-| panelStyle | object | - | Inline style of the overlay panel. |
-| panelProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the overlay panel inside the component. |
-| overlayId | string | - | Identifier of the underlying overlay element. |
-| overlayClass | string \| object | - | Style class of the overlay. |
-| overlayStyle | object | - | Inline style of the overlay. |
-| overlayProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the overlay inside the component. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| ariaLabel | string | - | Establishes a string value that labels the component. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<PasswordPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -12119,8 +11353,6 @@ import PickList from 'primevue/picklist';
 ## Template
 
 For custom content support define an option template that gets the item instance as a parameter. In addition sourceheader and targetheader slots are provided for further customization.
-
-## Picklist
 
 ## Picklist
 
@@ -12197,23 +11429,6 @@ In this sample, data is retrieved from the content inside the popover.
                 <li v-for="member in members" :key="member.name" class="flex items-center gap-2 px-2 py-3 hover:bg-emphasis cursor-pointer rounded-border" @click="selectMember(member)">
                     <img :src="\
 ```
-
-## Popover
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dismissable | boolean | true | Enables to hide the overlay when outside is clicked. |
-| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| breakpoints | PopoverBreakpoints | - | Object literal to define widths per screen size. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<PopoverPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the dialog. |
 
 ## Popover
 
@@ -12329,8 +11544,6 @@ Custom content inside the ProgressBar is defined with the default slot.
 
 ## Progressbar
 
-## Progressbar
-
 ---
 
 # Vue ProgressSpinner Component
@@ -12391,8 +11604,6 @@ ProgressSpinner can be customized with styling property like style , strokeWidth
 ```vue
 import ProgressSpinner from 'primevue/progressspinner';
 ```
-
-## Progressspinner
 
 ## Progressspinner
 
@@ -12518,10 +11729,6 @@ RadioButton provides small and large sizes as alternatives to the base.
 
 ## Radiobutton
 
-## Radiobutton
-
-## Radiobuttongroup
-
 ## Radiobuttongroup
 
 ---
@@ -12602,27 +11809,6 @@ Custom icons are used to override the default icons with onicon , officon and ca
     </template>
 </Rating>
 ```
-
-## Rating
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | number | - | Value of the rating. |
-| defaultValue | number | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | Name of the element. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the element should be disabled. |
-| readonly | boolean | false | When present, it specifies that component is read-only. |
-| stars | number | 5 | Number of stars. |
-| onIcon | string | - | Icon for the on state. |
-| offIcon | string | - | Icon for the off state. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<RatingPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Rating
 
@@ -12782,8 +11968,6 @@ Ripple is an optional animation for the supported components such as buttons. It
 
 ## Ripple
 
-## Ripple
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -12834,8 +12018,6 @@ Scrollbar visuals can be styled for a unified look across different platforms.
 ```vue
 import ScrollPanel from 'primevue/scrollpanel';
 ```
-
-## Scrollpanel
 
 ## Scrollpanel
 
@@ -12906,8 +12088,6 @@ Setting the target property to parent binds ScrollTop to its parent element that
 ```vue
 import ScrollTop from 'primevue/scrolltop';
 ```
-
-## Scrolltop
 
 ## Scrolltop
 
@@ -13238,77 +12418,6 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Select
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | any | - | Value of the component. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| options | any[] | - | An array of select items to display as the available options. |
-| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
-| optionValue | string \| Function | - | Property name or getter function to use as the value of an option, defaults to the option itself when not defined. |
-| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
-| optionGroupLabel | string \| Function | - | Property name or getter function to use as the label of an option group. |
-| optionGroupChildren | string \| Function | - | Property name or getter function that refers to the children options of option group. |
-| scrollHeight | string | 14rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
-| filter | boolean | false | When specified, displays a filter input at header. |
-| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
-| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
-| filterMatchMode | HintedString<"startsWith" \| "contains" \| "endsWith"> | contains | Defines the filtering algorithm to use when searching the options. |
-| filterFields | string[] | - | Fields used when filtering the options, defaults to optionLabel. |
-| editable | boolean | false | When present, custom value instead of predefined options can be entered using the editable input field. |
-| placeholder | string | - | Default text to display when no option is selected. |
-| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the component should be disabled. |
-| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
-| dataKey | string | - | A property to uniquely identify an option. |
-| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
-| fluid | boolean | null | Spans 100% width of the container when enabled. |
-| inputId | string | - |  |
-| inputStyle | object | - |  |
-| inputClass | string \| object | - |  |
-| labelId | string | - | Identifier of the underlying label element. |
-| labelStyle | object | - | Inline style of the label field. |
-| labelClass | string \| object | - | Style class of the label field. |
-| panelStyle | object | - |  |
-| panelClass | string \| object | - |  |
-| overlayStyle | object | - | Inline style of the overlay. |
-| overlayClass | string \| object | - | Style class of the overlay. |
-| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
-| loading | boolean | false | Whether the select is in loading state. |
-| clearIcon | string | - | Icon to display in clear button. |
-| dropdownIcon | string | - | Icon to display in the select. |
-| filterIcon | string | - | Icon to display in filter input. |
-| loadingIcon | string | - | Icon to display in loading state. |
-| resetFilterOnHide | boolean | false | Clears the filter value when hiding the select. |
-| resetFilterOnClear | boolean | false | Clears the filter value when clicking on the clear icon. |
-| virtualScrollerOptions | any | - | Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. |
-| autoOptionFocus | boolean | false | Whether to focus on the first visible or selected element when the overlay panel is shown. |
-| autoFilterFocus | boolean | false | Whether to focus on the filter element when the overlay panel is shown. |
-| selectOnFocus | boolean | false | When enabled, the focused option is selected. |
-| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
-| highlightOnSelect | boolean | true | Whether the selected option will be add highlight class. |
-| checkmark | boolean | false | Whether the selected option will be shown with a check mark. |
-| filterMessage | string | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration. |
-| selectionMessage | string | '{0} items selected' | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration. |
-| emptySelectionMessage | string | No selected item | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration. |
-| emptyFilterMessage | string | No results found | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration. |
-| emptyMessage | string | No available options | Text to display when there are no options available. Defaults to value from PrimeVue locale configuration. |
-| tabindex | string \| number | - | Index of the element in tabbing order. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying input element. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<SelectPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Selectbutton
-
 ## Selectbutton
 
 ## Pass Through Options
@@ -13477,8 +12586,6 @@ Label of an option is used as the display text of an item by default, for custom
     </template>
 </SelectButton>
 ```
-
-## Selectbutton
 
 ## Selectbutton
 
@@ -13792,23 +12899,6 @@ Various shapes and sizes can be created using styling properties like shape , wi
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Skeleton
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| shape | HintedString<"circle" \| "rectangle"> | rectangle | Shape of the element. |
-| size | string | - | Size of the Circle or Square. |
-| width | string | 100% | Width of the element. |
-| height | string | 1rem | Height of the element. |
-| borderRadius | string | - | Border radius of the element, defaults to value from theme. |
-| animation | HintedString<"none" \| "wave"> | wave | Type of the animation. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<SkeletonPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -13917,31 +13007,6 @@ Default layout of slider is horizontal , use orientation property for the altern
 ```vue
 <Slider v-model="value" orientation="vertical" class="h-56" />
 ```
-
-## Slider
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | number \| number[] | - | Value of the component. |
-| defaultValue | number \| number[] | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| min | number | 0 | Mininum boundary value. |
-| max | number | 100 | Maximum boundary value. |
-| orientation | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the slider. |
-| step | number | 1 | Step factor to increment/decrement the value. |
-| range | boolean | false | When speficed, allows two boundary values to be picked. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the component should be disabled. |
-| tabindex | number | - | Index of the element in tabbing order. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| ariaLabel | string | - | Used to define a string that labels the element. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<SliderPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Slider
 
@@ -14086,8 +13151,6 @@ Items display a tooltip on hover when a standalone Tooltip is present with a tar
 <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', right: 0, bottom: 0 }" :buttonProps="{ severity: 'help', rounded: true }" :tooltipOptions="{ position: 'left' }" />
 <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 0, bottom: 0 }" :buttonProps="{ severity: 'danger', rounded: true }" :tooltipOptions="{ position: 'right' }" />
 ```
-
-## Speeddial
 
 ## Speeddial
 
@@ -14284,8 +13347,6 @@ Text buttons are displayed as textual elements.
 
 ## Splitbutton
 
-## Splitbutton
-
 ---
 
 # Vue Splitter Component
@@ -14464,24 +13525,6 @@ Panels are displayed as stacked by setting the layout to vertical .
 | pt | PassThrough<SplitterPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Splitter
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the panels. |
-| gutterSize | number | 4 | Size of the divider in pixels. |
-| stateKey | string | - | Storage identifier of a stateful Splitter. |
-| stateStorage | HintedString<"session" \| "local"> | session | Defines where a stateful splitter keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage. |
-| step | number | 5 | Step factor to increment/decrement the size of the panels while pressing the arrow keys. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<SplitterPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Splitterpanel
 
 ## Splitterpanel
 
@@ -14950,19 +13993,6 @@ Vertical layout requires StepItem as a wrapper of Step and StepPanel components.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Stepper
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | string \| number | null | Active value of stepper. |
-| linear | boolean | false | Whether the steps are clickable or not. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<StepperPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -15146,8 +14176,6 @@ StyleClass has two modes, toggleClass to simply add-remove a class and enter/lea
 <\/script>
 ```
 </details>
-
-## Styleclass
 
 ## Styleclass
 
@@ -15456,37 +14484,6 @@ Custom content for a tab is defined with the default slot. The optional as prope
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Tab
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | string \| number | - | Value of tab. |
-| disabled | boolean | false | Whether the tab is disabled. |
-| as | string \| Component | BUTTON | Use to change the HTML tag of root element. |
-| asChild | boolean | false | When enabled, it changes the default rendered element for the one passed as a child element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TabPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-
-## Tabs
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | string \| number | - | Value of the active tab. |
-| lazy | boolean | false | When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css. |
-| scrollable | boolean | false | When specified, enables horizontal and/or vertical scrolling. |
-| showNavigators | boolean | true | Whether to display navigation buttons in container when scrollable is enabled. |
-| tabindex | number | 0 | Index of the element in tabbing order. |
-| selectOnFocus | boolean | false | When enabled, the focused tab is activated. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TabsPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -15694,21 +14691,6 @@ Children of the component are passed as the content for templating.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Tag
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | any | - | Value to display inside the tag. |
-| severity | HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast"> | - | Severity type of the tag. |
-| rounded | boolean | false | Whether the corners of the tag are rounded. |
-| icon | string | - | Icon of the tag to display next to the value. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TagPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -15802,19 +14784,6 @@ Commands are processed using an EventBus implementation called TerminalService .
 import Terminal from 'primevue/terminal';
 import TerminalService from 'primevue/terminalservice'
 ```
-
-## Terminal
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| welcomeMessage | string | - | Initial text to display on terminal. |
-| prompt | string | - | Prompt text for each command. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TerminalPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Terminal
 
@@ -16226,228 +15195,6 @@ Textarea provides small and large sizes as alternatives to the base.
 |------|------------|-------------|
 | update:modelValue | Function |  |
 
-## Textarea
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| aria-activedescendant | string | - | Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application. |
-| aria-atomic | Booleanish | - | Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute. |
-| aria-autocomplete | "none" \| "inline" \| "list" \| "both" | - | Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made. |
-| aria-busy | Booleanish | - | Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user. |
-| aria-checked | Booleanish \| "mixed" | - | Indicates the current "checked" state of checkboxes, radio buttons, and other widgets. |
-| aria-colcount | Numberish | - | Defines the total number of columns in a table, grid, or treegrid. |
-| aria-colindex | Numberish | - | Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid. |
-| aria-colspan | Numberish | - | Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid. |
-| aria-controls | string | - | Identifies the element (or elements) whose contents or presence are controlled by the current element. |
-| aria-current | Booleanish \| "page" \| "step" \| "location" \| "date" \| "time" | - | Indicates the element that represents the current item within a container or set of related elements. |
-| aria-describedby | string | - | Identifies the element (or elements) that describes the object. |
-| aria-details | string | - | Identifies the element that provides a detailed, extended description for the object. |
-| aria-disabled | Booleanish | - | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable. |
-| aria-dropeffect | "link" \| "none" \| "copy" \| "execute" \| "move" \| "popup" | - | Indicates what functions can be performed when a dragged object is released on the drop target. |
-| aria-errormessage | string | - | Identifies the element that provides an error message for the object. |
-| aria-expanded | Booleanish | - | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. |
-| aria-flowto | string | - | Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order. |
-| aria-grabbed | Booleanish | - | Indicates an element's "grabbed" state in a drag-and-drop operation. |
-| aria-haspopup | Booleanish \| "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" | - | Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. |
-| aria-hidden | Booleanish | - | Indicates whether the element is exposed to an accessibility API. |
-| aria-invalid | Booleanish \| "grammar" \| "spelling" | - | Indicates the entered value does not conform to the format expected by the application. |
-| aria-keyshortcuts | string | - | Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element. |
-| aria-label | string | - | Defines a string value that labels the current element. |
-| aria-labelledby | string | - | Identifies the element (or elements) that labels the current element. |
-| aria-level | Numberish | - | Defines the hierarchical level of an element within a structure. |
-| aria-live | "off" \| "assertive" \| "polite" | - | Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region. |
-| aria-modal | Booleanish | - | Indicates whether an element is modal when displayed. |
-| aria-multiline | Booleanish | - | Indicates whether a text box accepts multiple lines of input or only a single line. |
-| aria-multiselectable | Booleanish | - | Indicates that the user may select more than one item from the current selectable descendants. |
-| aria-orientation | "horizontal" \| "vertical" | - | Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous. |
-| aria-owns | string | - | Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship. |
-| aria-placeholder | string | - | Defines a short hint (a word or short phrase) intended to aid the user with data entry when the control has no value. A hint could be a sample value or a brief description of the expected format. |
-| aria-posinset | Numberish | - | Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
-| aria-pressed | Booleanish \| "mixed" | - | Indicates the current "pressed" state of toggle buttons. |
-| aria-readonly | Booleanish | - | Indicates that the element is not editable, but is otherwise operable. |
-| aria-relevant | "text" \| "additions" \| "additions removals" \| "additions text" \| "all" \| "removals" \| "removals additions" \| "removals text" \| "text additions" \| "text removals" | - | Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. |
-| aria-required | Booleanish | - | Indicates that user input is required on the element before a form may be submitted. |
-| aria-roledescription | string | - | Defines a human-readable, author-localized description for the role of an element. |
-| aria-rowcount | Numberish | - | Defines the total number of rows in a table, grid, or treegrid. |
-| aria-rowindex | Numberish | - | Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid. |
-| aria-rowspan | Numberish | - | Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid. |
-| aria-selected | Booleanish | - | Indicates the current "selected" state of various widgets. |
-| aria-setsize | Numberish | - | Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
-| aria-sort | "none" \| "ascending" \| "descending" \| "other" | - | Indicates if items in a table or grid are sorted in ascending or descending order. |
-| aria-valuemax | Numberish | - | Defines the maximum allowed value for a range widget. |
-| aria-valuemin | Numberish | - | Defines the minimum allowed value for a range widget. |
-| aria-valuenow | Numberish | - | Defines the current value for a range widget. |
-| aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
-| innerHTML | string | - |  |
-| class | any | - |  |
-| style | StyleValue | - |  |
-| accesskey | string | - |  |
-| contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |
-| contextmenu | string | - |  |
-| dir | string | - |  |
-| draggable | Booleanish | - |  |
-| hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
-| id | string | - |  |
-| inert | Booleanish | - |  |
-| lang | string | - |  |
-| spellcheck | Booleanish | - |  |
-| tabindex | Numberish | - |  |
-| title | string | - |  |
-| translate | "yes" \| "no" | - |  |
-| radiogroup | string | - |  |
-| role | string | - |  |
-| about | string | - |  |
-| datatype | string | - |  |
-| inlist | any | - |  |
-| prefix | string | - |  |
-| property | string | - |  |
-| resource | string | - |  |
-| typeof | string | - |  |
-| vocab | string | - |  |
-| autocapitalize | string | - |  |
-| autocorrect | string | - |  |
-| autosave | string | - |  |
-| color | string | - |  |
-| itemprop | string | - |  |
-| itemscope | Booleanish | - |  |
-| itemtype | string | - |  |
-| itemid | string | - |  |
-| itemref | string | - |  |
-| results | Numberish | - |  |
-| security | string | - |  |
-| unselectable | "on" \| "off" | - |  |
-| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
-| is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
-| autocomplete | string | - |  |
-| autofocus | Booleanish | - |  |
-| cols | Numberish | - |  |
-| dirname | string | - |  |
-| disabled | Booleanish | - |  |
-| form | string | - |  |
-| maxlength | Numberish | - |  |
-| minlength | Numberish | - |  |
-| placeholder | string | - |  |
-| readonly | Booleanish | - |  |
-| required | Booleanish | - |  |
-| rows | Numberish | - |  |
-| value | null \| string \| number \| readonly string[] | - |  |
-| wrap | string | - |  |
-| onCopy | Function | - |  |
-| onCut | Function | - |  |
-| onPaste | Function | - |  |
-| onCompositionend | Function | - |  |
-| onCompositionstart | Function | - |  |
-| onCompositionupdate | Function | - |  |
-| onDrag | Function | - |  |
-| onDragend | Function | - |  |
-| onDragenter | Function | - |  |
-| onDragexit | Function | - |  |
-| onDragleave | Function | - |  |
-| onDragover | Function | - |  |
-| onDragstart | Function | - |  |
-| onDrop | Function | - |  |
-| onFocus | Function | - |  |
-| onFocusin | Function | - |  |
-| onFocusout | Function | - |  |
-| onBlur | Function | - |  |
-| onChange | Function | - |  |
-| onBeforeinput | Function | - |  |
-| onFormdata | Function | - |  |
-| onInput | Function | - |  |
-| onReset | Function | - |  |
-| onSubmit | Function | - |  |
-| onInvalid | Function | - |  |
-| onFullscreenchange | Function | - |  |
-| onFullscreenerror | Function | - |  |
-| onLoad | Function | - |  |
-| onError | Function | - |  |
-| onKeydown | Function | - |  |
-| onKeypress | Function | - |  |
-| onKeyup | Function | - |  |
-| onDblclick | Function | - |  |
-| onMousedown | Function | - |  |
-| onMouseenter | Function | - |  |
-| onMouseleave | Function | - |  |
-| onMousemove | Function | - |  |
-| onMouseout | Function | - |  |
-| onMouseover | Function | - |  |
-| onMouseup | Function | - |  |
-| onAbort | Function | - |  |
-| onCanplay | Function | - |  |
-| onCanplaythrough | Function | - |  |
-| onDurationchange | Function | - |  |
-| onEmptied | Function | - |  |
-| onEncrypted | Function | - |  |
-| onEnded | Function | - |  |
-| onLoadeddata | Function | - |  |
-| onLoadedmetadata | Function | - |  |
-| onLoadstart | Function | - |  |
-| onPause | Function | - |  |
-| onPlay | Function | - |  |
-| onPlaying | Function | - |  |
-| onProgress | Function | - |  |
-| onRatechange | Function | - |  |
-| onSeeked | Function | - |  |
-| onSeeking | Function | - |  |
-| onStalled | Function | - |  |
-| onSuspend | Function | - |  |
-| onTimeupdate | Function | - |  |
-| onVolumechange | Function | - |  |
-| onWaiting | Function | - |  |
-| onSelect | Function | - |  |
-| onScroll | Function | - |  |
-| onScrollend | Function | - |  |
-| onTouchcancel | Function | - |  |
-| onTouchend | Function | - |  |
-| onTouchmove | Function | - |  |
-| onTouchstart | Function | - |  |
-| onAuxclick | Function | - |  |
-| onClick | Function | - |  |
-| onContextmenu | Function | - |  |
-| onGotpointercapture | Function | - |  |
-| onLostpointercapture | Function | - |  |
-| onPointerdown | Function | - |  |
-| onPointermove | Function | - |  |
-| onPointerup | Function | - |  |
-| onPointercancel | Function | - |  |
-| onPointerenter | Function | - |  |
-| onPointerleave | Function | - |  |
-| onPointerover | Function | - |  |
-| onPointerout | Function | - |  |
-| onBeforetoggle | Function | - |  |
-| onToggle | Function | - |  |
-| onWheel | Function | - |  |
-| onAnimationcancel | Function | - |  |
-| onAnimationstart | Function | - |  |
-| onAnimationend | Function | - |  |
-| onAnimationiteration | Function | - |  |
-| onSecuritypolicyviolation | Function | - |  |
-| onTransitioncancel | Function | - |  |
-| onTransitionend | Function | - |  |
-| onTransitionrun | Function | - |  |
-| onTransitionstart | Function | - |  |
-| modelValue | Nullable<string> | - | Value of the component. |
-| defaultValue | Nullable<string> | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| autoResize | boolean | false | When present, height of textarea changes as being typed. |
-| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
-| fluid | boolean | null | Spans 100% width of the container when enabled. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TextareaPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-### Emits
-
-| Name | Parameters | Description |
-|------|------------|-------------|
-| update:modelValue | Function |  |
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -16523,8 +15270,6 @@ TieredMenu offers item customization with the item template that receives the me
 
 ## Tieredmenu
 
-## Tieredmenu
-
 ---
 
 # Vue Timeline Component
@@ -16562,21 +15307,6 @@ Additional content at the other side of the line can be provided with the opposi
 ## Template
 
 Sample implementation with custom content and styled markers.
-
-## Timeline
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | any[] | - | An array of events to display. |
-| align | HintedString<"left" \| "right" \| "top" \| "bottom" \| "alternate"> | left | Position of the timeline bar relative to the content. |
-| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the timeline. |
-| dataKey | string | - | Name of the field that uniquely identifies the a record in the data. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TimelinePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Timeline
 
@@ -16742,32 +15472,6 @@ Toast component is controlled via the ToastService that needs to be installed as
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Toast
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| group | string | - | Unique identifier of a message group. |
-| position | "center" \| "top-left" \| "top-center" \| "top-right" \| "bottom-left" \| "bottom-center" \| "bottom-right" | top-right | Position of the toast in viewport. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| breakpoints | ToastBreakpointsType | - | Object literal to define styles per screen size. |
-| closeIcon | string | - | Icon to display in the toast close button. |
-| infoIcon | string | - | Icon to display in the toast with info severity. |
-| warnIcon | string | - | Icon to display in the toast with warn severity. |
-| errorIcon | string | - | Icon to display in the toast with error severity. |
-| successIcon | string | - | Icon to display in the toast with success severity. |
-| closeButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the close button. |
-| message | ToastMessageOptions | - | Used to access message options. |
-| onMouseEnter | Function | - | Used to specify a callback function to be run when the mouseenter event is fired on the message component. |
-| onMouseLeave | Function | - | Used to specify a callback function to be run when the mouseleave event is fired on the message component. |
-| onClick | Function | - | Used to specify a callback function to be run when the click event is fired on the message component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ToastPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Toastservice-usetoast
 
 ## Pass Through Options
@@ -16900,8 +15604,6 @@ ToggleButton provides small and large sizes as alternatives to the base.
 
 ## Togglebutton
 
-## Togglebutton
-
 ---
 
 # Vue ToggleSwitch Component
@@ -16989,8 +15691,6 @@ The handle slot is available to display custom content.
     </template>
 </ToggleSwitch>
 ```
-
-## Toggleswitch
 
 ## Toggleswitch
 
@@ -17107,18 +15807,6 @@ A customized toolbar with navigation bar functionality.
 ```vue
 import Toolbar from 'primevue/toolbar';
 ```
-
-## Toolbar
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| ariaLabelledby | string | - | Defines a string value that labels an interactive element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ToolbarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Toolbar
 
@@ -17275,8 +15963,6 @@ There are four choices to position the tooltip, default value is right and alter
 
 ## Tooltip
 
-## Tooltip
-
 ## Pass Through Options
 
 | Name | Type | Description |
@@ -17414,52 +16100,9 @@ Each node can have a distinct template by matching the type property to the slot
 |------|------------|-------------|
 | [key: string] | Function |  |
 
-## Tree
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | TreeNode[] | - | An array of treenodes. |
-| expandedKeys | TreeExpandedKeys | - | A map of keys to represent the expansion state in controlled mode. |
-| selectionKeys | TreeSelectionKeys | - | A map of keys to control the selection state. |
-| selectionMode | HintedString<"single" \| "multiple" \| "checkbox"> | - | Defines the selection mode. |
-| metaKeySelection | boolean | false | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
-| loading | boolean | false | Whether to display loading indicator. |
-| loadingIcon | string | - | Icon to display when tree is loading. |
-| loadingMode | HintedString<"mask" \| "icon"> | mask | Loading mode display. |
-| filter | boolean | false | When specified, displays an input field to filter the items. |
-| filterBy | string \| Function | label | When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names. |
-| filterMode | HintedString<"lenient" \| "strict"> | lenient | Mode for filtering. |
-| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
-| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
-| highlightOnSelect | boolean | false | Highlights automatically the first item. |
-| scrollHeight | HintedString<"flex"> | - | Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size. |
-| draggableNodes | boolean | null | Whether the nodes are draggable. |
-| droppableNodes | boolean | null | Whether the nodes are droppable. |
-| draggableScope | string \| string[] | null | Scope of the draggable nodes to match a droppableScope. |
-| droppableScope | string \| string[] | null | Scope of the droppable nodes to match a draggableScope. |
-| validateDrop | boolean | false | When enabled, drop can be accepted or rejected based on condition defined at node-drop. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying menu element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TreePassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-### Slots
-
-| Name | Parameters | Description |
-|------|------------|-------------|
-| [key: string] | Function |  |
-
 ## Treenode
 
 ## Treeselect
-
-## Treeselect
-
-## Treetable
 
 ## Treetable
 
@@ -17716,8 +16359,6 @@ TreeSelect offers multiple slots for customization through templating.
 
 ## Treeselect
 
-## Treeselect
-
 ---
 
 # Vue TreeTable Component
@@ -17907,8 +16548,6 @@ Custom content at header and footer slots are supported via templating.
 
 ## Treetable
 
-## Treetable
-
 ---
 
 # uikit
@@ -17980,8 +16619,6 @@ Lazy mode is handy to deal with large datasets, instead of loading the entire da
 ## Loading
 
 Busy state is enabled by adding showLoader property which blocks the UI with a modal by default. Alternatively, loader template can be used to customize items e.g. with Skeleton .
-
-## Virtualscroller
 
 ## Virtualscroller
 

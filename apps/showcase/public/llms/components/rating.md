@@ -84,27 +84,6 @@ Custom icons are used to override the default icons with onicon , officon and ca
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Rating
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | number | - | Value of the rating. |
-| defaultValue | number | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | Name of the element. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the element should be disabled. |
-| readonly | boolean | false | When present, it specifies that component is read-only. |
-| stars | number | 5 | Number of stars. |
-| onIcon | string | - | Icon for the on state. |
-| offIcon | string | - | Icon for the off state. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<RatingPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

@@ -95,5 +95,3 @@ Define a template with your own UI elements with bindings to the provided events
 
 ## Inputotp
 
-## Inputotp
-

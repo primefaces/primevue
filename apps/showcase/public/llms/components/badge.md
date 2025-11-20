@@ -167,24 +167,6 @@ Use the size property to customize the dimensions of a Badge.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Badge
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | string \| number | - | Value to display inside the badge. |
-| severity | null \| HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast"> | - | Severity type of the badge. |
-| size | null \| HintedString<"small" \| "large" \| "xlarge"> | - | Size of the badge, valid options are 'small', 'large', and 'xlarge'. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<BadgePassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Badgedirective
-
-## Badgedirective
-
 ## Pass Through Options
 
 | Name | Type | Description |

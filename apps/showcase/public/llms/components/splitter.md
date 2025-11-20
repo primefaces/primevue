@@ -165,26 +165,6 @@ Panels are displayed as stacked by setting the layout to vertical .
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Splitter
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the panels. |
-| gutterSize | number | 4 | Size of the divider in pixels. |
-| stateKey | string | - | Storage identifier of a stateful Splitter. |
-| stateStorage | HintedString<"session" \| "local"> | session | Defines where a stateful splitter keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage. |
-| step | number | 5 | Step factor to increment/decrement the size of the panels while pressing the arrow keys. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<SplitterPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Splitterpanel
-
-## Splitterpanel
-
 ## Pass Through Options
 
 | Name | Type | Description |

@@ -106,34 +106,6 @@ Toast component is controlled via the ToastService that needs to be installed as
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Toast
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| group | string | - | Unique identifier of a message group. |
-| position | "center" \| "top-left" \| "top-center" \| "top-right" \| "bottom-left" \| "bottom-center" \| "bottom-right" | top-right | Position of the toast in viewport. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| breakpoints | ToastBreakpointsType | - | Object literal to define styles per screen size. |
-| closeIcon | string | - | Icon to display in the toast close button. |
-| infoIcon | string | - | Icon to display in the toast with info severity. |
-| warnIcon | string | - | Icon to display in the toast with warn severity. |
-| errorIcon | string | - | Icon to display in the toast with error severity. |
-| successIcon | string | - | Icon to display in the toast with success severity. |
-| closeButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the close button. |
-| message | ToastMessageOptions | - | Used to access message options. |
-| onMouseEnter | Function | - | Used to specify a callback function to be run when the mouseenter event is fired on the message component. |
-| onMouseLeave | Function | - | Used to specify a callback function to be run when the mouseleave event is fired on the message component. |
-| onClick | Function | - | Used to specify a callback function to be run when the click event is fired on the message component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ToastPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Toastservice-usetoast
-
 ## Pass Through Options
 
 | Name | Type | Description |

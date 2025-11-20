@@ -123,5 +123,3 @@ InputText provides small and large sizes as alternatives to the base.
 
 ## Inputtext
 
-## Inputtext
-

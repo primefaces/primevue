@@ -37,5 +37,3 @@ The type property of an OrganizationChartNode is used to map a template to a nod
 
 ## Organizationchart
 
-## Organizationchart
-

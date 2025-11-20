@@ -11,6 +11,25 @@ const API_DOC_PATH = path.resolve(__dirname, '../doc/common/apidoc/index.json');
 const THEMES_PATH = path.resolve(__dirname, '../node_modules/@primeuix/themes/tokens/index.mjs');
 const OUTPUT_DIR = path.resolve(__dirname, '../public/llms');
 
+// Mapping for components where route name doesn't match API interface name
+const COMPONENT_NAME_MAP = {
+    'datepicker': 'DatePicker',
+    'datatable': 'DataTable',
+    'dataview': 'DataView'
+};
+
+/**
+ * Get the correct component name for API lookups
+ */
+function getApiComponentName(componentName) {
+    const lowerName = componentName.toLowerCase();
+    if (COMPONENT_NAME_MAP[lowerName]) {
+        return COMPONENT_NAME_MAP[lowerName];
+    }
+    // Default: capitalize first letter
+    return componentName.charAt(0).toUpperCase() + componentName.slice(1);
+}
+
 // Ensure output directory exists
 if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -293,28 +312,44 @@ function getTokenOptionsFromApi(componentName) {
 }
 
 /**
- * Generate enhanced API section for markdown
+ * Generate enhanced API section for markdown (with related components)
  */
-function generateApiSection(apiDocs, componentName) {
+function generateApiSection(apiDocs, componentName, includeRelated = true) {
     let markdown = '';
-    const mainComponentName = componentName.charAt(0).toUpperCase() + componentName.slice(1);
+    const mainComponentName = getApiComponentName(componentName);
 
     // Get API data for main component
     const apiDoc = apiDocs[componentName.toLowerCase()];
 
-    // Try to find related components (e.g., ButtonGroup for Button)
-    const relatedComponents = Object.keys(apiDocs).filter(key =>
-        key.startsWith(componentName.toLowerCase()) && key !== componentName.toLowerCase()
-    );
+    // Build list of components to process
+    const components = [mainComponentName];
 
-    // Process main component
-    const components = [mainComponentName, ...relatedComponents.map(rc => {
-        return rc.charAt(0).toUpperCase() + rc.slice(1).replace('style', '');
-    })];
+    if (includeRelated) {
+        // Try to find related components (e.g., ButtonGroup for Button)
+        const relatedComponents = Object.keys(apiDocs).filter(key => {
+            // Skip the component itself and *style components
+            if (key === componentName.toLowerCase() || key.endsWith('style')) {
+                return false;
+            }
+            // Only include if it starts with component name (e.g., buttongroup for button)
+            return key.startsWith(componentName.toLowerCase());
+        });
+
+        // Add related components, but avoid duplicates
+        for (const rc of relatedComponents) {
+            const relatedName = rc.charAt(0).toUpperCase() + rc.slice(1);
+            if (!components.includes(relatedName)) {
+                components.push(relatedName);
+            }
+        }
+    }
 
     for (const compName of components) {
         const compApiDoc = apiDocs[compName.toLowerCase()];
-        if (!compApiDoc) continue;
+        if (!compApiDoc) {
+            console.warn(`⚠️  No API doc found for component: ${compName} (looking for key: ${compName.toLowerCase()})`);
+            continue;
+        }
 
         const displayName = compName.replace(/([A-Z])/g, ' $1').trim();
         markdown += `## ${displayName}\n\n`;
@@ -383,7 +418,7 @@ function generateApiSection(apiDocs, componentName) {
  */
 function generatePTSection(apiDocs, componentName) {
     let markdown = '';
-    const mainComponentName = componentName.charAt(0).toUpperCase() + componentName.slice(1);
+    const mainComponentName = getApiComponentName(componentName);
     const apiDoc = apiDocs[componentName.toLowerCase()];
 
     const ptOptions = getPTOptionsFromApi(apiDoc, mainComponentName);
@@ -411,7 +446,7 @@ function generatePTSection(apiDocs, componentName) {
  */
 function generateThemingSection(apiDocs, componentName) {
     let markdown = '';
-    const mainComponentName = componentName.charAt(0).toUpperCase() + componentName.slice(1);
+    const mainComponentName = getApiComponentName(componentName);
 
     // CSS Classes
     const styleOptions = getStyleOptionsFromApi(apiDocs, mainComponentName);
@@ -457,7 +492,7 @@ function generateJsonOutput(components, apiDocs) {
         generatedAt: new Date().toISOString(),
         components: components.map(comp => {
             const apiDoc = apiDocs[comp.name.toLowerCase()];
-            const mainComponentName = comp.name.charAt(0).toUpperCase() + comp.name.slice(1);
+            const mainComponentName = getApiComponentName(comp.name);
 
             return {
                 name: comp.name,
@@ -617,8 +652,8 @@ function generateIndividualMarkdownFiles(components, apiDocs) {
             }
         }
 
-        // Add API documentation
-        markdown += generateApiSection(apiDocs, comp.name);
+        // Add API documentation (without related components for individual files)
+        markdown += generateApiSection(apiDocs, comp.name, false);
 
         // Add Pass Through Options
         markdown += generatePTSection(apiDocs, comp.name);

@@ -72,5 +72,3 @@ The handle slot is available to display custom content.
 
 ## Toggleswitch
 
-## Toggleswitch
-

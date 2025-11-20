@@ -11,6 +11,7 @@
 - [icons](https://primevue.org/icons): 
 - [introduction](https://primevue.org/introduction): 
 - [laravel](https://primevue.org/laravel): 
+- [LLMs.txt - PrimeVue](https://primevue.org/llms): PrimeVue provides LLM-friendly documentation formats to help AI models better understand and navigate the component library.
 - [nuxt](https://primevue.org/nuxt): 
 - [passthrough](https://primevue.org/passthrough): 
 - [setup](https://primevue.org/setup): 

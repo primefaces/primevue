@@ -142,26 +142,6 @@ The default slot allows displaying custom content inside a chip.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Chip
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| label | string \| number | - | Defines the text to display. |
-| icon | string | - | Defines the icon to display. |
-| image | string | - | Defines the image to display. |
-| removable | boolean | false | Whether to display a remove icon. |
-| removeIcon | string | - | Icon of the remove element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ChipPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Chips
-
-## Chips
-
 ## Pass Through Options
 
 | Name | Type | Description |

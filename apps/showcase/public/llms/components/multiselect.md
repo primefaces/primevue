@@ -196,5 +196,3 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 
 ## Multiselect
 
-## Multiselect
-

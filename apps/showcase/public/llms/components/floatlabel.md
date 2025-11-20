@@ -62,5 +62,3 @@ The variant property defines the position of the label. Default value is over , 
 
 ## Floatlabel
 
-## Floatlabel
-

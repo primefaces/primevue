@@ -138,37 +138,6 @@ The label can be customized with the valueTemplate property using either a templ
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Knob
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | number | - | Value of the component. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| size | number | 100 | Size of the component in pixels. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the component should be disabled. |
-| readonly | boolean | false | When present, it specifies that the component value cannot be edited. |
-| step | number | 1 | Step factor to increment/decrement the value. |
-| min | number | 0 | Mininum boundary value. |
-| max | number | 100 | Maximum boundary value. |
-| valueColor | string | $dt('knob.value.background') | Background of the value. |
-| rangeColor | string | $dt('knob.range.background') | Background color of the range. |
-| textColor | string | $dt('knob.text.color') | Color of the value text. |
-| strokeWidth | number | 14 | Width of the knob stroke. |
-| showValue | boolean | true | Whether the show the value inside the knob. |
-| valueTemplate | string \| Function | '{value}' | Template string of the value. |
-| tabindex | number | 0 | Index of the element in tabbing order. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| ariaLabel | string | - | Used to define a string that labels the element. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<KnobPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

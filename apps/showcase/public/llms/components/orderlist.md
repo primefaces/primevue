@@ -29,5 +29,3 @@ For custom content support define an option template that gets the item instance
 
 ## Orderlist
 
-## Orderlist
-

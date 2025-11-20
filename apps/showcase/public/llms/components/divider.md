@@ -334,20 +334,6 @@ Vertical divider is enabled by setting the layout property as vertical .
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Divider
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| align | HintedString<"left" \| "right" \| "top" \| "bottom" \| "center"> | - | Alignment of the content. |
-| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Specifies the orientation, valid values are 'horizontal' and 'vertical'. |
-| type | HintedString<"solid" \| "dashed" \| "dotted"> | solid | Border style type. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<DividerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

@@ -102,17 +102,6 @@ A simple Card is created with a title property along with the content as childre
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Card
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<CardPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

@@ -284,47 +284,6 @@ Mask layer behind the Dialog is configured with the modal property. By default, 
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Dialog
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| header | string | - | Title content of the dialog. |
-| footer | string | - | Footer content of the dialog. |
-| visible | boolean | false | Specifies the visibility of the dialog. |
-| modal | boolean | false | Defines if background should be blocked when dialog is displayed. |
-| contentStyle | any | - | Style of the content section. |
-| contentClass | any | - | Style class of the content section. |
-| contentProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the overlay Dialog inside the component. |
-| closable | boolean | true | Adds a close icon to the header to hide the dialog. |
-| dismissableMask | boolean | false | Specifies if clicking the modal background should hide the dialog. |
-| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the dialog. |
-| showHeader | boolean | true | Whether to show the header or not. |
-| blockScroll | boolean | false | Whether background scroll should be blocked when dialog is visible. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| position | HintedString<"left" \| "right" \| "top" \| "bottom" \| "center" \| "topleft" \| "topright" \| "bottomleft" \| "bottomright"> | center | Position of the dialog. |
-| maximizable | boolean | false | Whether the dialog can be displayed full screen. |
-| breakpoints | DialogBreakpoints | - | Object literal to define widths per screen size. |
-| draggable | boolean | true | Enables dragging to change the position using header. |
-| keepInViewport | boolean | true | Keeps dialog in the viewport when dragging. |
-| minX | number | 0. | Minimum value for the left coordinate of dialog in dragging. |
-| minY | number | 0 | Minimum value for the top coordinate of dialog in dragging. |
-| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the dialog gets attached. |
-| style | any | - | Style of the dynamic dialog. |
-| closeIcon | string | - | Icon to display in the dialog close button. |
-| maximizeIcon | string | - | Icon to display in the dialog maximize button when dialog is not maximized. |
-| minimizeIcon | string | - | Icon to display in the dialog maximize button when dialog is minimized. |
-| closeButtonProps | object | - | Used to pass all properties of the ButtonProps to the Button component. |
-| maximizeButtonProps | object | - | Used to pass all properties of the ButtonProps to the Button component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<DialogPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Dialogservice-usedialog
-
 ## Pass Through Options
 
 | Name | Type | Description |

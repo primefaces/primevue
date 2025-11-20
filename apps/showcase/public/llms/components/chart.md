@@ -138,24 +138,6 @@ A bar chart or bar graph is a chart that presents grouped data with rectangular 
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Chart
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| type | string | - | Type of the chart. |
-| data | object | - | Data to display. |
-| options | object | - | Options to customize the chart. |
-| plugins | any[] | - | Used to custom plugins of the chart. |
-| width | number | 300 | Width of the chart in non-responsive mode. |
-| height | number | 150 | Height of the chart in non-responsive mode. |
-| canvasProps | CanvasHTMLAttributes | - | Used to pass all properties of the CanvasHTMLAttributes to canvas element inside the component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ChartPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

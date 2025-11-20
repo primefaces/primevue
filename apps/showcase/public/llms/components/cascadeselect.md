@@ -179,5 +179,3 @@ CascadeSelect offers multiple slots for customization through templating.
 
 ## Cascadeselect
 
-## Cascadeselect
-

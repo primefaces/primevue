@@ -171,5 +171,3 @@ TreeSelect offers multiple slots for customization through templating.
 
 ## Treeselect
 
-## Treeselect
-

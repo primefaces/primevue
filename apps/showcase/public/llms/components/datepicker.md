@@ -244,7 +244,185 @@ Specifying view as year in addition to a suitable dateFormat enables the year pi
 <DatePicker v-model="date" view="year" dateFormat="yy" />
 ```
 
-## Datepicker
+## Date Picker
 
-## Datepicker
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | null \| Date \| Date[] \| (null \| Date)[] | null | Value of the component. |
+| defaultValue | null \| Date \| Date[] \| (null \| Date)[] | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| selectionMode | HintedString<"single" \| "multiple" \| "range"> | single | Defines the quantity of the selection. |
+| dateFormat | string | - | Format of the date. Defaults to PrimeVue Locale configuration. |
+| updateModelType | HintedString<"string" \| "date"> | date | Type of the value to write back to modelValue. |
+| inline | boolean | false | When enabled, displays the datepicker as inline instead of an overlay. |
+| showOtherMonths | boolean | true | Whether to display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use the selectOtherMonths option. |
+| selectOtherMonths | boolean | false | Whether days in other months shown before or after the current month are selectable. This only applies if the showOtherMonths option is set to true. |
+| showIcon | boolean | false | When enabled, displays a button with icon next to input. |
+| iconDisplay | HintedString<"button" \| "input"> | 'button' | Icon position of the component. This only applies if the showIcon option is set to true. |
+| icon | string | - | Icon of the datepicker button. |
+| prevIcon | string | - | Icon to show in the previous button. |
+| nextIcon | string | - | Icon to show in the next button. |
+| incrementIcon | string | - | Icon to show in each of the increment buttons. |
+| decrementIcon | string | - | Icon to show in each of the decrement buttons. |
+| numberOfMonths | number | 1 | Number of months to display. |
+| responsiveOptions | DatePickerResponsiveOptions[] | - | An array of options for responsive design. |
+| breakpoint | string | 769px | The breakpoint to define the maximum width boundary for datepicker panel. |
+| view | HintedString<"date" \| "month" \| "year"> | date | Type of view to display. |
+| minDate | Date | - | The minimum selectable date. |
+| maxDate | Date | - | The maximum selectable date. |
+| disabledDates | Date[] | - | Array with dates to disable. |
+| disabledDays | number[] | - | Array with disabled weekday numbers. |
+| maxDateCount | number | - | Maximum number of selectable dates in multiple mode. |
+| showOnFocus | boolean | true | When disabled, datepicker will not be visible with input focus. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| showButtonBar | boolean | false | Whether to display today and clear buttons at the footer. |
+| shortYearCutoff | string | +10 | The cutoff year for determining the century for a date. |
+| showTime | boolean | false | Whether to display timepicker. |
+| timeOnly | boolean | false | Whether to display timepicker only. |
+| hourFormat | HintedString<"12" \| "24"> | 24 | Specifies hour format. |
+| stepHour | number | 1 | Hours to change per step. |
+| stepMinute | number | 1 | Minutes to change per step. |
+| stepSecond | number | 1 | Seconds to change per step. |
+| showSeconds | boolean | false | Whether to show the seconds in time picker. |
+| hideOnDateTimeSelect | boolean | false | Whether to hide the overlay on date selection when showTime is enabled. |
+| hideOnRangeSelection | boolean | false | Whether to hide the overlay on date selection is completed when selectionMode is range. |
+| timeSeparator | string | : | Separator of time selector. |
+| showWeek | boolean | false | When enabled, datepicker will show week numbers. |
+| manualInput | boolean | true | Whether to allow entering the date manually via typing. |
+| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| readonly | boolean | false | When present, it specifies that an input field is read-only. |
+| placeholder | string | - | Placeholder text for the input. |
+| required | boolean | - |  |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
+| inputId | string | - | Identifier of the underlying input element. |
+| inputStyle | object | - | Inline style of the input field. |
+| inputClass | string \| object | - | Style class of the input field. |
+| panelStyle | object | - | Inline style of the overlay panel. |
+| panelClass | string \| object | - | Style class of the overlay panel. |
+| todayButtonProps | object | - | Used to pass all properties of the ButtonProps to the today button component. |
+| clearButtonProps | object | - | Used to pass all properties of the ButtonProps to the clear button component. |
+| navigatorButtonProps | object | - | Used to pass all properties of the ButtonProps to the navigator button component. |
+| timepickerButtonProps | object | - | Used to pass all properties of the ButtonProps to the timepicker button component. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DatePickerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | DatePickerPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| pcInputText | any | Used to pass attributes to the InputText component. |
+| dropdown | DatePickerPassThroughOptionType | Used to pass attributes to the dropdown's DOM element. |
+| dropdownIcon | DatePickerPassThroughOptionType | Used to pass attributes to the dropdown icon's DOM element. |
+| inputIconContainer | DatePickerPassThroughOptionType | Used to pass attributes to the input icon container's DOM element. |
+| inputIcon | DatePickerPassThroughOptionType | Used to pass attributes to the input icon's DOM element. |
+| clearIcon | DatePickerPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+| panel | DatePickerPassThroughOptionType | Used to pass attributes to the panel's DOM element. |
+| calendarContainer | DatePickerPassThroughOptionType | Used to pass attributes to the calendar container's DOM element. |
+| calendar | DatePickerPassThroughOptionType | Used to pass attributes to the calendar's DOM element. |
+| header | DatePickerPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| pcPrevButton | any | Used to pass attributes to the previous button's DOM element. |
+| title | DatePickerPassThroughOptionType | Used to pass attributes to the title's DOM element. |
+| selectMonth | DatePickerPassThroughOptionType | Used to pass attributes to the view month's DOM element. |
+| selectYear | DatePickerPassThroughOptionType | Used to pass attributes to the view year's DOM element. |
+| decade | DatePickerPassThroughOptionType | Used to pass attributes to the decade's DOM element. |
+| pcNextButton | any | Used to pass attributes to the next button's DOM element. |
+| dayView | DatePickerPassThroughOptionType | Used to pass attributes to the table's DOM element. |
+| tableHeader | DatePickerPassThroughOptionType | Used to pass attributes to the table header's DOM element. |
+| tableHeaderRow | DatePickerPassThroughOptionType | Used to pass attributes to the table header row's DOM element. |
+| weekHeader | DatePickerPassThroughOptionType | Used to pass attributes to the week header's DOM element. |
+| weekHeaderLabel | DatePickerPassThroughOptionType | Used to pass attributes to the week header label's DOM element. |
+| tableHeaderCell | DatePickerPassThroughOptionType | Used to pass attributes to the table header cell's DOM element. |
+| weekDayCell | DatePickerPassThroughOptionType | Used to pass attributes to the week day cell's DOM element. |
+| weekDay | DatePickerPassThroughOptionType | Used to pass attributes to the week day's DOM element. |
+| tableBody | DatePickerPassThroughOptionType | Used to pass attributes to the table body's DOM element. |
+| tableBodyRow | DatePickerPassThroughOptionType | Used to pass attributes to the table body row's DOM element. |
+| weekNumber | DatePickerPassThroughOptionType | Used to pass attributes to the week number's DOM element. |
+| weekLabelContainer | DatePickerPassThroughOptionType | Used to pass attributes to the week label container's DOM element. |
+| dayCell | DatePickerPassThroughOptionType | Used to pass attributes to the day cell's DOM element. |
+| day | DatePickerPassThroughOptionType | Used to pass attributes to the day's DOM element. |
+| monthView | DatePickerPassThroughOptionType | Used to pass attributes to the month view's DOM element. |
+| month | DatePickerPassThroughOptionType | Used to pass attributes to the month's DOM element. |
+| yearView | DatePickerPassThroughOptionType | Used to pass attributes to the year view's DOM element. |
+| year | DatePickerPassThroughOptionType | Used to pass attributes to the year's DOM element. |
+| timePicker | DatePickerPassThroughOptionType | Used to pass attributes to the time picker's DOM element. |
+| hourPicker | DatePickerPassThroughOptionType | Used to pass attributes to the hour picker's DOM element. |
+| hour | DatePickerPassThroughOptionType | Used to pass attributes to the hour's DOM element. |
+| separatorContainer | DatePickerPassThroughOptionType | Used to pass attributes to the separator container's DOM element. |
+| separator | DatePickerPassThroughOptionType | Used to pass attributes to the separator's DOM element. |
+| minutePicker | DatePickerPassThroughOptionType | Used to pass attributes to the minute picker's DOM element. |
+| minute | DatePickerPassThroughOptionType | Used to pass attributes to the minute's DOM element. |
+| secondPicker | DatePickerPassThroughOptionType | Used to pass attributes to the second picker's DOM element. |
+| second | DatePickerPassThroughOptionType | Used to pass attributes to the second's DOM element. |
+| ampmPicker | DatePickerPassThroughOptionType | Used to pass attributes to the ampm picker's DOM element. |
+| ampm | DatePickerPassThroughOptionType | Used to pass attributes to the ampm's DOM element. |
+| buttonbar | DatePickerPassThroughOptionType | Used to pass attributes to the buttonbar's DOM element. |
+| pcIncrementButton | any | Used to pass attributes to the increment button's DOM element. |
+| pcDecrementButton | any | Used to pass attributes to the decrement button's DOM element. |
+| pcTodayButton | any | Used to pass attributes to the today button's DOM element. |
+| pcClearButton | any | Used to pass attributes to the clear button's DOM element. |
+| hiddenSelectedDay | DatePickerPassThroughOptionType | Used to pass attributes to the aria selected day's DOM element. |
+| hiddenMonth | DatePickerPassThroughOptionType | Used to pass attributes to the aria month's DOM element. |
+| hiddenYear | DatePickerPassThroughOptionType | Used to pass attributes to the aria year's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | DatePickerPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-datepicker | Class name of the root element |
+| p-datepicker-input | Class name of the input element |
+| p-datepicker-dropdown | Class name of the dropdown element |
+| p-datepicker-input-icon-container | Class name of the input icon container element |
+| p-datepicker-input-icon | Class name of the input icon element |
+| p-datepicker-clear-icon | Class name of the clear icon element |
+| p-datepicker-panel | Class name of the panel element |
+| p-datepicker-calendar-container | Class name of the calendar container element |
+| p-datepicker-calendar | Class name of the calendar element |
+| p-datepicker-header | Class name of the header element |
+| p-datepicker-prev-button | Class name of the previous button element |
+| p-datepicker-title | Class name of the title element |
+| p-datepicker-select-month | Class name of the select month element |
+| p-datepicker-select-year | Class name of the select year element |
+| p-datepicker-decade | Class name of the decade element |
+| p-datepicker-next-button | Class name of the next button element |
+| p-datepicker-day-view | Class name of the day view element |
+| p-datepicker-weekheader | Class name of the week header element |
+| p-datepicker-weeknumber | Class name of the week number element |
+| p-datepicker-weeklabel-container | Class name of the week label container element |
+| p-datepicker-weekday-cell | Class name of the week day cell element |
+| p-datepicker-weekday | Class name of the week day element |
+| p-datepicker-day-cell | Class name of the day cell element |
+| p-datepicker-day | Class name of the day element |
+| p-datepicker-month-view | Class name of the month view element |
+| p-datepicker-month | Class name of the month element |
+| p-datepicker-year-view | Class name of the year view element |
+| p-datepicker-year | Class name of the year element |
+| p-datepicker-time-picker | Class name of the time picker element |
+| p-datepicker-hour-picker | Class name of the hour picker element |
+| p-datepicker-increment-button | Class name of the increment button element |
+| p-datepicker-decrement-button | Class name of the decrement button element |
+| p-datepicker-separator | Class name of the separator element |
+| p-datepicker-minute-picker | Class name of the minute picker element |
+| p-datepicker-second-picker | Class name of the second picker element |
+| p-datepicker-ampm-picker | Class name of the ampm picker element |
+| p-datepicker-buttonbar | Class name of the buttonbar element |
+| p-datepicker-today-button | Class name of the today button element |
+| p-datepicker-clear-button | Class name of the clear button element |
 

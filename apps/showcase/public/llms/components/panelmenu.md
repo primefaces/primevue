@@ -56,5 +56,3 @@ PanelMenu offers item customization with the item template that receives the men
 
 ## Panelmenu
 
-## Panelmenu
-

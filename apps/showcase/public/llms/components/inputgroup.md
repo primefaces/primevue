@@ -194,9 +194,3 @@ Multiple add-ons can be placed inside the same group.
 
 ## Inputgroup
 
-## Inputgroup
-
-## Inputgroupaddon
-
-## Inputgroupaddon
-

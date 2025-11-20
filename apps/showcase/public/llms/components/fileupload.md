@@ -56,5 +56,3 @@ Uploader UI can be customized with templating.
 
 ## Fileupload
 
-## Fileupload
-

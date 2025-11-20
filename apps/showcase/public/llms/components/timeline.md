@@ -47,21 +47,6 @@ Sample implementation with custom content and styled markers.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Timeline
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | any[] | - | An array of events to display. |
-| align | HintedString<"left" \| "right" \| "top" \| "bottom" \| "alternate"> | left | Position of the timeline bar relative to the content. |
-| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the timeline. |
-| dataKey | string | - | Name of the field that uniquely identifies the a record in the data. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TimelinePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

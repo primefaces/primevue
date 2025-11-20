@@ -83,33 +83,6 @@ Editor provides a default toolbar with common options, to customize it define yo
 |------|------------|-------------|
 | toolbar | Function |  |
 
-## Editor
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | string | - | Value of the content. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| placeholder | string | - | Placeholder text to show when editor is empty. |
-| readonly | boolean | false | Whether to instantiate the editor to readonly mode. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| formats | any[] | - | Whitelist of formats to display, see  <a target="_blank" href="https://quilljs.com/docs/formats/">here</a>  for available options. |
-| editorStyle | any | - | Inline style of the container. |
-| modules | any | - | Modules configuration, see  <a target="_blank" href="https://quilljs.com/docs/modules/">here</a>  for available options. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<EditorPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-### Slots
-
-| Name | Parameters | Description |
-|------|------------|-------------|
-| toolbar | Function |  |
-
 ## Pass Through Options
 
 | Name | Type | Description |

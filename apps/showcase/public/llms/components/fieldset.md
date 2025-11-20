@@ -124,27 +124,6 @@ Content of the fieldset can be expanded and collapsed when toggleable option is 
 |------|------------|-------------|
 | default | Function |  |
 
-## Fieldset
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| legend | string | - | Header text of the fieldset. |
-| toggleable | boolean | false | When specified, content can toggled by clicking the legend. |
-| collapsed | boolean | false | Defines the default visibility state of the content. |
-| toggleButtonProps | AnchorHTMLAttributes | - | Used to pass the custom value to read for the AnchorHTMLAttributes inside the component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<FieldsetPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-### Slots
-
-| Name | Parameters | Description |
-|------|------------|-------------|
-| default | Function |  |
-
 ## Pass Through Options
 
 | Name | Type | Description |

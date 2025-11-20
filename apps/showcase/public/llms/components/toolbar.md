@@ -116,18 +116,6 @@ A customized toolbar with navigation bar functionality.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Toolbar
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| ariaLabelledby | string | - | Defines a string value that labels an interactive element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ToolbarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

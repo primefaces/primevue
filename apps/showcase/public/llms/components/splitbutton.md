@@ -161,5 +161,3 @@ Text buttons are displayed as textual elements.
 
 ## Splitbutton
 
-## Splitbutton
-

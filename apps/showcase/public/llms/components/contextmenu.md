@@ -59,5 +59,3 @@ ContextMenu offers item customization with the item template that receives the m
 
 ## Contextmenu
 
-## Contextmenu
-

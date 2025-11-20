@@ -99,29 +99,6 @@ An eye icon is displayed by default when the image is hovered in preview mode, u
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Image
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| src | string | - | Image url. |
-| preview | boolean | false | Controls the preview functionality. |
-| imageStyle | any | - | Inline style of the image element. |
-| imageClass | any | - | Style class of the image element. |
-| indicatorIcon | string | - | Custom indicator icon. |
-| previewIcon | string | - | Custom indicator icon. |
-| zoomInDisabled | boolean | false | Disable the zoom-in button |
-| zoomOutDisabled | boolean | false | Disable the zoom-out button |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ImagePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Imagecompare
-
-## Imagecompare
-
 ## Pass Through Options
 
 | Name | Type | Description |

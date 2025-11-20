@@ -187,5 +187,3 @@ Buttons can also placed vertically by setting buttonLayout as vertical .
 
 ## Inputnumber
 
-## Inputnumber
-

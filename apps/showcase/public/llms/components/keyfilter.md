@@ -46,5 +46,3 @@ In addition to the presets, a regular expression can be used to validate the ent
 
 ## Keyfilter
 
-## Keyfilter
-

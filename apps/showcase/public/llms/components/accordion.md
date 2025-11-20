@@ -395,41 +395,6 @@ Custom content for a header is defined with the default slot. The optional as pr
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Accordion
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | null \| string \| number \| string[] \| number[] | null | Value of the active panel or an array of values in multiple mode. |
-| multiple | boolean | false | When enabled, multiple tabs can be activated at the same time. |
-| activeIndex | null \| number \| number[] | null | Index of the active tab or an array of indexes in multiple mode. |
-| lazy | boolean | false | When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css. |
-| expandIcon | string | - | Icon of a collapsed tab. |
-| collapseIcon | string | - | Icon of an expanded tab. |
-| tabindex | number | 0 | Index of the element in tabbing order. |
-| selectOnFocus | boolean | false | When enabled, the focused tab is activated. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<AccordionPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Accordioncontent
-
-## Accordioncontent
-
-## Accordionheader
-
-## Accordionheader
-
-## Accordionpanel
-
-## Accordionpanel
-
-## Accordiontab
-
-## Accordiontab
-
 ## Pass Through Options
 
 | Name | Type | Description |

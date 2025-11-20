@@ -81,23 +81,6 @@ In this sample, data is retrieved from the content inside the popover.
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 | closeOnEscape | boolean | true | Specifies if pressing escape key should hide the dialog. |
 
-## Popover
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dismissable | boolean | true | Enables to hide the overlay when outside is clicked. |
-| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| breakpoints | PopoverBreakpoints | - | Object literal to define widths per screen size. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<PopoverPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the dialog. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

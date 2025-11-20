@@ -42,5 +42,3 @@ Enabling fullScreen property controls the document.
 
 ## Blockui
 
-## Blockui
-

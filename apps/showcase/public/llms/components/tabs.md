@@ -291,37 +291,6 @@ Custom content for a tab is defined with the default slot. The optional as prope
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Tab
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | string \| number | - | Value of tab. |
-| disabled | boolean | false | Whether the tab is disabled. |
-| as | string \| Component | BUTTON | Use to change the HTML tag of root element. |
-| asChild | boolean | false | When enabled, it changes the default rendered element for the one passed as a child element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TabPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-
-## Tabs
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | string \| number | - | Value of the active tab. |
-| lazy | boolean | false | When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css. |
-| scrollable | boolean | false | When specified, enables horizontal and/or vertical scrolling. |
-| showNavigators | boolean | true | Whether to display navigation buttons in container when scrollable is enabled. |
-| tabindex | number | 0 | Index of the element in tabbing order. |
-| selectOnFocus | boolean | false | When enabled, the focused tab is activated. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TabsPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

@@ -112,5 +112,3 @@ Custom content inside an InputIcon is defined as children.
 
 ## Iconfield
 
-## Iconfield
-

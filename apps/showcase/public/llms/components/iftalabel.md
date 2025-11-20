@@ -36,5 +36,3 @@ When the form element is invalid, the label is also highlighted.
 
 ## Iftalabel
 
-## Iftalabel
-

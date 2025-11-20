@@ -107,24 +107,6 @@ Paginator elements can be customized using the template property using the prede
 | pt | PassThrough<PaginatorPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 
-## Paginator
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| totalRecords | number | 0 | Number of total records. |
-| rows | number | 0 | Data count to display per page. |
-| first | number | 0 | Zero-relative number of the first row to be displayed. |
-| pageLinkSize | number | 5 | Number of page links to display. |
-| rowsPerPageOptions | number[] | - | Array of integer values to display inside rows per page dropdown. |
-| template | any | - | Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint. Available templates are the following;  - FirstPageLink - PrevPageLink - PageLinks - NextPageLink - LastPageLink - RowsPerPageDropdown - JumpToPageDropdown - JumpToPageInput - CurrentPageReport |
-| currentPageReportTemplate | string | '({currentPage} of {totalPages})' | Template of the current page report element. It displays information about the pagination state. Available placeholders are the following;  - {currentPage} - {totalPages} - {rows} - {first} - {last} - {totalRecords} |
-| alwaysShow | boolean | true | Whether to show the paginator even there is only one page. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<PaginatorPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

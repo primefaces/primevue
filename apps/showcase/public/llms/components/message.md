@@ -282,26 +282,6 @@ Message provides small and large sizes as alternatives to the base.
 | size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
 | variant | HintedString<"outlined" \| "simple"> | undefined | Specifies the variant of the component. |
 
-## Message
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| severity | HintedString<"error" \| "secondary" \| "info" \| "success" \| "warn" \| "contrast"> | info | Severity level of the message. |
-| closable | boolean | false | Whether the message can be closed manually using the close icon. |
-| sticky | boolean | true |  |
-| life | number | null | Delay in milliseconds to close the message automatically. |
-| icon | string | - | Display a custom icon for the message. |
-| closeIcon | string | - | Icon to display in the message close button. |
-| closeButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the close button. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<MessagePassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
-| variant | HintedString<"outlined" \| "simple"> | undefined | Specifies the variant of the component. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

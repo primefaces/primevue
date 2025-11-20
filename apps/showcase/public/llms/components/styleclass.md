@@ -157,5 +157,3 @@ StyleClass has two modes, toggleClass to simply add-remove a class and enter/lea
 
 ## Styleclass
 
-## Styleclass
-

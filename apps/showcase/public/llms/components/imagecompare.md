@@ -74,5 +74,3 @@ Apply responsive styles to the container element to optimize display per screen 
 
 ## Imagecompare
 
-## Imagecompare
-

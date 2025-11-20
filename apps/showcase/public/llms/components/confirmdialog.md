@@ -58,5 +58,3 @@ Templating allows customizing the message content.
 
 ## Confirmdialog
 
-## Confirmdialog
-

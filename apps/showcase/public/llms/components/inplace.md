@@ -108,20 +108,6 @@ The open event is used to initialize the content such as loading data in a lazy 
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Inplace
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| active | boolean | false | Whether the content is displayed or not. |
-| disabled | boolean | false | When present, it specifies that the element should be disabled. |
-| displayProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to display container. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<InplacePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

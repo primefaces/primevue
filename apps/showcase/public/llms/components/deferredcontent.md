@@ -45,5 +45,3 @@ A practical example that triggers a fetch when the table becomes visible in view
 
 ## Deferredcontent
 
-## Deferredcontent
-

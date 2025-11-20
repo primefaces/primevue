@@ -88,5 +88,3 @@ Label of an option is used as the display text of an item by default, for custom
 
 ## Selectbutton
 
-## Selectbutton
-

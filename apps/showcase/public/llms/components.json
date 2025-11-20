@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2025-11-20T21:41:29.942Z",
+  "generatedAt": "2025-11-20T23:38:47.368Z",
   "components": [
     {
       "name": "accordion",
@@ -4407,11 +4407,804 @@
         }
       ],
       "api": {
-        "props": null,
-        "slots": null,
-        "emits": null,
-        "pt": null,
-        "styles": null
+        "props": [
+          {
+            "name": "value",
+            "type": "null | readonly T[]",
+            "default": "-",
+            "description": "An array of objects to display."
+          },
+          {
+            "name": "dataKey",
+            "type": "keyof T | Function",
+            "default": "-",
+            "description": "Name of the field that uniquely identifies the a record in the data."
+          },
+          {
+            "name": "rows",
+            "type": "number",
+            "default": "0",
+            "description": "Number of rows to display per page."
+          },
+          {
+            "name": "first",
+            "type": "number",
+            "default": "0",
+            "description": "Index of the first row to be displayed."
+          },
+          {
+            "name": "totalRecords",
+            "type": "number",
+            "default": "0",
+            "description": "Number of total records, defaults to length of value when not defined."
+          },
+          {
+            "name": "paginator",
+            "type": "boolean",
+            "default": "false",
+            "description": "When specified as true, enables the pagination."
+          },
+          {
+            "name": "paginatorPosition",
+            "type": "HintedString<\"top\" | \"bottom\" | \"both\">",
+            "default": "bottom",
+            "description": "Position of the paginator, options are 'top','bottom' or 'both'."
+          },
+          {
+            "name": "alwaysShowPaginator",
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to show it even there is only one page."
+          },
+          {
+            "name": "paginatorTemplate",
+            "type": "any",
+            "default": "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown",
+            "description": "Template of the paginator. It can be customized using the template property using the predefined keys.\n\n- FirstPageLink\n- PrevPageLink\n- PageLinks\n- NextPageLink\n- LastPageLink\n- RowsPerPageDropdown\n- JumpToPageDropdown\n- JumpToPageInput\n- CurrentPageReport"
+          },
+          {
+            "name": "pageLinkSize",
+            "type": "number",
+            "default": "5",
+            "description": "Number of page links to display."
+          },
+          {
+            "name": "rowsPerPageOptions",
+            "type": "number[]",
+            "default": "-",
+            "description": "Array of integer values to display inside rows per page dropdown."
+          },
+          {
+            "name": "currentPageReportTemplate",
+            "type": "string",
+            "default": "'({currentPage} of {totalPages})'",
+            "description": "Template of the current page report element. It displays information about the pagination state. Available placeholders are the following;\n\n- {currentPage}\n- {totalPages}\n- {rows}\n- {first}\n- {last}\n- {totalRecords}"
+          },
+          {
+            "name": "lazy",
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines if data is loaded and interacted with in lazy manner."
+          },
+          {
+            "name": "loading",
+            "type": "boolean",
+            "default": "false",
+            "description": "Displays a loader to indicate data load is in progress."
+          },
+          {
+            "name": "loadingIcon",
+            "type": "string",
+            "default": "-",
+            "description": "The icon to show while indicating data load is in progress."
+          },
+          {
+            "name": "sortField",
+            "type": "keyof T | Function",
+            "default": "-",
+            "description": "Property name or a getter function of a row data used for sorting by default"
+          },
+          {
+            "name": "sortOrder",
+            "type": "number",
+            "default": "-",
+            "description": "Order to sort the data by default."
+          },
+          {
+            "name": "nullSortOrder",
+            "type": "number",
+            "default": "1",
+            "description": "Determines how null values are sorted."
+          },
+          {
+            "name": "defaultSortOrder",
+            "type": "number",
+            "default": "1",
+            "description": "Default sort order of an unsorted column."
+          },
+          {
+            "name": "multiSortMeta",
+            "type": "DataTableSortMeta[]",
+            "default": "-",
+            "description": "An array of SortMeta objects to sort the data."
+          },
+          {
+            "name": "sortMode",
+            "type": "HintedString<\"single\" | \"multiple\">",
+            "default": "single",
+            "description": "Defines whether sorting works on single column or on multiple columns."
+          },
+          {
+            "name": "removableSort",
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, columns can have an un-sorted state."
+          },
+          {
+            "name": "filters",
+            "type": "DataTableFilterMeta",
+            "default": "-",
+            "description": "Filters object with key-value pairs to define the filters."
+          },
+          {
+            "name": "filterDisplay",
+            "type": "HintedString<\"menu\" | \"row\">",
+            "default": "-",
+            "description": "Layout of the filter elements."
+          },
+          {
+            "name": "globalFilterFields",
+            "type": "(keyof T | Function)[]",
+            "default": "-",
+            "description": "An array of fields as string or function to use in global filtering."
+          },
+          {
+            "name": "filterLocale",
+            "type": "string",
+            "default": "-",
+            "description": "Locale to use in filtering. The default locale is the host environment's current locale."
+          },
+          {
+            "name": "selection",
+            "type": "NoInfer<T> | NoInfer<T>[]",
+            "default": "-",
+            "description": "Selected row in single mode or an array of values in multiple mode."
+          },
+          {
+            "name": "selectionMode",
+            "type": "HintedString<\"single\" | \"multiple\">",
+            "default": "-",
+            "description": "Specifies the selection mode."
+          },
+          {
+            "name": "compareSelectionBy",
+            "type": "HintedString<\"equals\" | \"deepEquals\">",
+            "default": "deepEquals",
+            "description": "Algorithm to define if a row is selected."
+          },
+          {
+            "name": "metaKeySelection",
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and\nwhen set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically."
+          },
+          {
+            "name": "contextMenu",
+            "type": "boolean",
+            "default": "false",
+            "description": "Enables context menu integration."
+          },
+          {
+            "name": "contextMenuSelection",
+            "type": "NoInfer<T> | NoInfer<T>[]",
+            "default": "-",
+            "description": "Selected row instance with the ContextMenu."
+          },
+          {
+            "name": "selectAll",
+            "type": "Nullable<boolean>",
+            "default": "-",
+            "description": "Whether all data is selected."
+          },
+          {
+            "name": "rowHover",
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, background of the rows change on hover."
+          },
+          {
+            "name": "csvSeparator",
+            "type": "string",
+            "default": ",",
+            "description": "Character to use as the csv separator."
+          },
+          {
+            "name": "exportFilename",
+            "type": "string",
+            "default": "download",
+            "description": "Name of the exported file."
+          },
+          {
+            "name": "exportFunction",
+            "type": "Function",
+            "default": "-",
+            "description": ""
+          },
+          {
+            "name": "resizableColumns",
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, columns can be resized using drag and drop."
+          },
+          {
+            "name": "columnResizeMode",
+            "type": "HintedString<\"fit\" | \"expand\">",
+            "default": "fit",
+            "description": "Defines whether the overall table width."
+          },
+          {
+            "name": "reorderableColumns",
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, columns can be reordered using drag and drop."
+          },
+          {
+            "name": "expandedRows",
+            "type": "null | DataTableExpandedRows | NoInfer<T>[]",
+            "default": "-",
+            "description": "A collection of row data display as expanded."
+          },
+          {
+            "name": "expandedRowIcon",
+            "type": "string",
+            "default": "-",
+            "description": "Icon of the row toggler to display the row as expanded."
+          },
+          {
+            "name": "collapsedRowIcon",
+            "type": "string",
+            "default": "-",
+            "description": "Icon of the row toggler to display the row as collapsed."
+          },
+          {
+            "name": "rowGroupMode",
+            "type": "HintedString<\"subheader\" | \"rowspan\">",
+            "default": "-",
+            "description": "Defines the row group mode."
+          },
+          {
+            "name": "groupRowsBy",
+            "type": "keyof T | Function | (keyof T)[]",
+            "default": "-",
+            "description": "One or more field names to use in row grouping."
+          },
+          {
+            "name": "expandableRowGroups",
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether the row groups can be expandable."
+          },
+          {
+            "name": "expandedRowGroups",
+            "type": "DataTableExpandedRows | NoInfer<T>[]",
+            "default": "-",
+            "description": "An array of group field values whose groups would be rendered as expanded."
+          },
+          {
+            "name": "stateStorage",
+            "type": "HintedString<\"session\" | \"local\">",
+            "default": "session",
+            "description": "Defines where a stateful table keeps its state."
+          },
+          {
+            "name": "stateKey",
+            "type": "string",
+            "default": "-",
+            "description": "Unique identifier of a stateful table to use in state storage."
+          },
+          {
+            "name": "editMode",
+            "type": "HintedString<\"row\" | \"cell\">",
+            "default": "-",
+            "description": "Defines the incell editing mode."
+          },
+          {
+            "name": "editingRows",
+            "type": "DataTableEditingRows | NoInfer<T>[]",
+            "default": "-",
+            "description": "A collection of rows to represent the current editing data in row edit mode."
+          },
+          {
+            "name": "rowClass",
+            "type": "Function",
+            "default": "-",
+            "description": ""
+          },
+          {
+            "name": "rowStyle",
+            "type": "Function",
+            "default": "-",
+            "description": ""
+          },
+          {
+            "name": "scrollable",
+            "type": "boolean",
+            "default": "false",
+            "description": "When specified, enables horizontal and/or vertical scrolling."
+          },
+          {
+            "name": "scrollHeight",
+            "type": "HintedString<\"flex\">",
+            "default": "-",
+            "description": "Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size."
+          },
+          {
+            "name": "virtualScrollerOptions",
+            "type": "any",
+            "default": "-",
+            "description": "Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.\nNote: Currently only vertical orientation mode is supported."
+          },
+          {
+            "name": "frozenValue",
+            "type": "null | NoInfer<T>[]",
+            "default": "-",
+            "description": "Items of the frozen part in scrollable DataTable."
+          },
+          {
+            "name": "breakpoint",
+            "type": "string",
+            "default": "960px",
+            "description": "The breakpoint to define the maximum width boundary when using stack responsive layout."
+          },
+          {
+            "name": "showHeaders",
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to display table headers"
+          },
+          {
+            "name": "showGridlines",
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to show grid lines between cells."
+          },
+          {
+            "name": "stripedRows",
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to displays rows with alternating colors."
+          },
+          {
+            "name": "highlightOnSelect",
+            "type": "boolean",
+            "default": "false",
+            "description": "Highlights automatically the first item."
+          },
+          {
+            "name": "size",
+            "type": "HintedString<\"small\" | \"large\">",
+            "default": "-",
+            "description": "Defines the size of the table."
+          },
+          {
+            "name": "tableStyle",
+            "type": "string | object",
+            "default": "-",
+            "description": "Inline style of the table element."
+          },
+          {
+            "name": "tableClass",
+            "type": "string | object",
+            "default": "-",
+            "description": "Style class of the table element."
+          },
+          {
+            "name": "tableProps",
+            "type": "TableHTMLAttributes",
+            "default": "-",
+            "description": "Used to pass all properties of the TableHTMLAttributes to table element inside the component."
+          },
+          {
+            "name": "filterInputProps",
+            "type": "InputHTMLAttributes",
+            "default": "-",
+            "description": "Used to pass all properties of the HTMLInputElement to the focusable filter input element inside the component."
+          },
+          {
+            "name": "filterButtonProps",
+            "type": "Partial<DataTableFilterButtonPropsOptions>",
+            "default": "-",
+            "description": "Used to pass all filter button property object"
+          },
+          {
+            "name": "editButtonProps",
+            "type": "DataTableEditButtonPropsOptions",
+            "default": "-",
+            "description": "Used to pass all edit button property object"
+          },
+          {
+            "name": "dt",
+            "type": "any",
+            "default": "-",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+          },
+          {
+            "name": "pt",
+            "type": "PassThrough<DataTablePassThroughOptions>",
+            "default": "-",
+            "description": "Used to pass attributes to DOM elements inside the component."
+          },
+          {
+            "name": "ptOptions",
+            "type": "any",
+            "default": "-",
+            "description": "Used to configure passthrough(pt) options of the component."
+          },
+          {
+            "name": "unstyled",
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+          }
+        ],
+        "slots": [],
+        "emits": [],
+        "pt": [
+          {
+            "name": "root",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the root's DOM element."
+          },
+          {
+            "name": "mask",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the mask's DOM element."
+          },
+          {
+            "name": "loadingIcon",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the loading icon's DOM element."
+          },
+          {
+            "name": "header",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the header's DOM element."
+          },
+          {
+            "name": "pcPaginator",
+            "type": "any",
+            "description": "Used to pass attributes to the Paginator component."
+          },
+          {
+            "name": "tableContainer",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the table container's DOM element."
+          },
+          {
+            "name": "virtualScroller",
+            "type": "any",
+            "description": "Used to pass attributes to the VirtualScroller component."
+          },
+          {
+            "name": "table",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the table's DOM element."
+          },
+          {
+            "name": "virtualScrollerSpacer",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the virtual scroller spacer's DOM element."
+          },
+          {
+            "name": "footer",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the footer's DOM element."
+          },
+          {
+            "name": "thead",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the thead's DOM element."
+          },
+          {
+            "name": "headerRow",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the header row's DOM element."
+          },
+          {
+            "name": "tbody",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the tbody's DOM element."
+          },
+          {
+            "name": "rowGroupHeader",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the rowg roup header's DOM element."
+          },
+          {
+            "name": "rowGroupHeaderCell",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the row group header cell's DOM element."
+          },
+          {
+            "name": "bodyRow",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the body row's DOM element."
+          },
+          {
+            "name": "rowExpansion",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the row expansion's DOM element."
+          },
+          {
+            "name": "rowExpansionCell",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the row expansion cell's DOM element."
+          },
+          {
+            "name": "rowGroupFooter",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the row group footer's DOM element."
+          },
+          {
+            "name": "rowGroupFooterCell",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the row group footer cell's DOM element."
+          },
+          {
+            "name": "emptyMessage",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the empty message's DOM element."
+          },
+          {
+            "name": "emptyMessageCell",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the empty message cell's DOM element."
+          },
+          {
+            "name": "tfoot",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the tfoot's DOM element."
+          },
+          {
+            "name": "footerRow",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the footer row's DOM element."
+          },
+          {
+            "name": "columnResizeIndicator",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the column resize indicator's DOM element."
+          },
+          {
+            "name": "rowReorderIndicatorUp",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the row reorder indicator up's DOM element."
+          },
+          {
+            "name": "rowReorderIndicatorDown",
+            "type": "DataTablePassThroughOptionType",
+            "description": "Used to pass attributes to the row reorder indicator down's DOM element."
+          },
+          {
+            "name": "columnGroup",
+            "type": "any",
+            "description": "Used to pass attributes to the ColumnGroup helper components."
+          },
+          {
+            "name": "row",
+            "type": "any",
+            "description": "Used to pass attributes to the Row helper components."
+          },
+          {
+            "name": "column",
+            "type": "any",
+            "description": "Used to pass attributes to the Column helper components."
+          },
+          {
+            "name": "hooks",
+            "type": "any",
+            "description": "Used to manage all lifecycle hooks."
+          },
+          {
+            "name": "transition",
+            "type": "DataTablePassThroughTransitionType",
+            "description": "Used to control Vue Transition API."
+          }
+        ],
+        "styles": [
+          {
+            "class": "p-datatable",
+            "description": "Class name of the root element"
+          },
+          {
+            "class": "p-datatable-mask",
+            "description": "Class name of the mask element"
+          },
+          {
+            "class": "p-datatable-loading-icon",
+            "description": "Class name of the loading icon element"
+          },
+          {
+            "class": "p-datatable-header",
+            "description": "Class name of the header element"
+          },
+          {
+            "class": "p-datatable-paginator-[position]",
+            "description": "Class name of the paginator element"
+          },
+          {
+            "class": "p-datatable-table-container",
+            "description": "Class name of the table container element"
+          },
+          {
+            "class": "p-datatable-table",
+            "description": "Class name of the table element"
+          },
+          {
+            "class": "p-datatable-thead",
+            "description": "Class name of the thead element"
+          },
+          {
+            "class": "p-datatable-column-resizer",
+            "description": "Class name of the column resizer element"
+          },
+          {
+            "class": "p-datatable-column-header-content",
+            "description": "Class name of the column header content element"
+          },
+          {
+            "class": "p-datatable-column-title",
+            "description": "Class name of the column title element"
+          },
+          {
+            "class": "p-datatable-sort-icon",
+            "description": "Class name of the sort icon element"
+          },
+          {
+            "class": "p-datatable-sort-badge",
+            "description": "Class name of the sort badge element"
+          },
+          {
+            "class": "p-datatable-filter",
+            "description": "Class name of the filter element"
+          },
+          {
+            "class": "p-datatable-filter-element-container",
+            "description": "Class name of the filter element container element"
+          },
+          {
+            "class": "p-datatable-column-filter-button",
+            "description": "Class name of the column filter button element"
+          },
+          {
+            "class": "p-datatable-column-filter-clear-button",
+            "description": "Class name of the column filter clear button element"
+          },
+          {
+            "class": "p-datatable-filter-overlay",
+            "description": "Class name of the filter overlay element"
+          },
+          {
+            "class": "p-datatable-filter-constraint-list",
+            "description": "Class name of the filter constraint list element"
+          },
+          {
+            "class": "p-datatable-filter-constraint",
+            "description": "Class name of the filter constraint element"
+          },
+          {
+            "class": "p-datatable-filter-constraint-separator",
+            "description": "Class name of the filter constraint separator element"
+          },
+          {
+            "class": "p-datatable-filter-operator",
+            "description": "Class name of the filter operator element"
+          },
+          {
+            "class": "p-datatable-filter-operator-dropdown",
+            "description": "Class name of the filter operator dropdown element"
+          },
+          {
+            "class": "p-datatable-filter-rule-list",
+            "description": "Class name of the filter rule list element"
+          },
+          {
+            "class": "p-datatable-filter-rule",
+            "description": "Class name of the filter rule element"
+          },
+          {
+            "class": "p-datatable-filter-constraint-dropdown",
+            "description": "Class name of the filter constraint dropdown element"
+          },
+          {
+            "class": "p-datatable-filter-remove-rule-button",
+            "description": "Class name of the filter remove rule button element"
+          },
+          {
+            "class": "p-datatable-filter-add-rule-button",
+            "description": "Class name of the filter add rule button element"
+          },
+          {
+            "class": "p-datatable-filter-buttonbar",
+            "description": "Class name of the filter buttonbar element"
+          },
+          {
+            "class": "p-datatable-filter-clear-button",
+            "description": "Class name of the filter clear button element"
+          },
+          {
+            "class": "p-datatable-filter-apply-button",
+            "description": "Class name of the filter apply button element"
+          },
+          {
+            "class": "p-datatable-tbody",
+            "description": "Class name of the tbody element"
+          },
+          {
+            "class": "p-datatable-row-group-header",
+            "description": "Class name of the row group header element"
+          },
+          {
+            "class": "p-datatable-row-toggle-button",
+            "description": "Class name of the row toggle button element"
+          },
+          {
+            "class": "p-datatable-row-toggle-icon",
+            "description": "Class name of the row toggle icon element"
+          },
+          {
+            "class": "p-datatable-row-expansion",
+            "description": "Class name of the row expansion element"
+          },
+          {
+            "class": "p-datatable-row-group-footer",
+            "description": "Class name of the row group footer element"
+          },
+          {
+            "class": "p-datatable-empty-message",
+            "description": "Class name of the empty message element"
+          },
+          {
+            "class": "p-datatable-reorderable-row-handle",
+            "description": "Class name of the reorderable row handle element"
+          },
+          {
+            "class": "p-datatable-row-editor-init",
+            "description": "Class name of the row editor init element"
+          },
+          {
+            "class": "p-datatable-row-editor-save",
+            "description": "Class name of the row editor save element"
+          },
+          {
+            "class": "p-datatable-row-editor-cancel",
+            "description": "Class name of the row editor cancel element"
+          },
+          {
+            "class": "p-datatable-tfoot",
+            "description": "Class name of the tfoot element"
+          },
+          {
+            "class": "p-datatable-virtualscroller-spacer",
+            "description": "Class name of the virtual scroller spacer element"
+          },
+          {
+            "class": "p-datatable-footer",
+            "description": "Class name of the footer element"
+          },
+          {
+            "class": "p-datatable-column-resize-indicator",
+            "description": "Class name of the column resize indicator element"
+          },
+          {
+            "class": "p-datatable-row-reorder-indicator-up",
+            "description": "Class name of the row reorder indicator up element"
+          },
+          {
+            "class": "p-datatable-row-reorder-indicator-down",
+            "description": "Class name of the row reorder indicator down element"
+          }
+        ]
       }
     },
     {
@@ -4475,11 +5268,193 @@
         }
       ],
       "api": {
-        "props": null,
-        "slots": null,
-        "emits": null,
-        "pt": null,
-        "styles": null
+        "props": [
+          {
+            "name": "value",
+            "type": "null | T[]",
+            "default": "-",
+            "description": "An array of objects to display."
+          },
+          {
+            "name": "layout",
+            "type": "HintedString<\"list\" | \"grid\">",
+            "default": "list",
+            "description": "Layout of the items, valid values are 'list' and 'grid'."
+          },
+          {
+            "name": "rows",
+            "type": "number",
+            "default": "0",
+            "description": "Number of rows to display per page."
+          },
+          {
+            "name": "first",
+            "type": "number",
+            "default": "0",
+            "description": "Index of the first record to render."
+          },
+          {
+            "name": "totalRecords",
+            "type": "number",
+            "default": "-",
+            "description": "Number of total records, defaults to length of value when not defined."
+          },
+          {
+            "name": "paginator",
+            "type": "boolean",
+            "default": "false",
+            "description": "When specified as true, enables the pagination."
+          },
+          {
+            "name": "paginatorPosition",
+            "type": "HintedString<\"top\" | \"bottom\" | \"both\">",
+            "default": "bottom",
+            "description": "Position of the paginator, options are 'top','bottom' or 'both'."
+          },
+          {
+            "name": "alwaysShowPaginator",
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to show it even there is only one page."
+          },
+          {
+            "name": "paginatorTemplate",
+            "type": "string",
+            "default": "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown",
+            "description": "Template of the paginator. It can be customized using the template property using the predefined keys,\n\n- FirstPageLink\n- PrevPageLink\n- PageLinks\n- NextPageLink\n- LastPageLink\n- RowsPerPageDropdown\n- JumpToPageDropdown\n- JumpToPageInput\n- CurrentPageReport"
+          },
+          {
+            "name": "pageLinkSize",
+            "type": "number",
+            "default": "5",
+            "description": "Number of page links to display."
+          },
+          {
+            "name": "rowsPerPageOptions",
+            "type": "number[]",
+            "default": "-",
+            "description": "Array of integer values to display inside rows per page dropdown."
+          },
+          {
+            "name": "currentPageReportTemplate",
+            "type": "string",
+            "default": "'({currentPage} of {totalPages})'",
+            "description": "Template of the current page report element. It displays information about the pagination state.\n\n- {currentPage}\n- {totalPages}\n- {rows}\n- {first}\n- {last}\n- {totalRecords}"
+          },
+          {
+            "name": "sortField",
+            "type": "null | string | Function",
+            "default": "-",
+            "description": "Property name or a getter function of data to use in sorting by default."
+          },
+          {
+            "name": "sortOrder",
+            "type": "null | number",
+            "default": "-",
+            "description": "Order to sort the data by default."
+          },
+          {
+            "name": "lazy",
+            "type": "boolean",
+            "default": "false",
+            "description": "Defines if data is loaded and interacted with in lazy manner."
+          },
+          {
+            "name": "dataKey",
+            "type": "string",
+            "default": "-",
+            "description": "Name of the data that uniquely identifies the a record in the data."
+          },
+          {
+            "name": "dt",
+            "type": "any",
+            "default": "-",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+          },
+          {
+            "name": "pt",
+            "type": "PassThrough<DataViewPassThroughOptions>",
+            "default": "-",
+            "description": "Used to pass attributes to DOM elements inside the component."
+          },
+          {
+            "name": "ptOptions",
+            "type": "any",
+            "default": "-",
+            "description": "Used to configure passthrough(pt) options of the component."
+          },
+          {
+            "name": "unstyled",
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+          }
+        ],
+        "slots": [],
+        "emits": [],
+        "pt": [
+          {
+            "name": "root",
+            "type": "DataViewPassThroughOptionType",
+            "description": "Used to pass attributes to the root's DOM element."
+          },
+          {
+            "name": "header",
+            "type": "DataViewPassThroughOptionType",
+            "description": "Used to pass attributes to the header's DOM element."
+          },
+          {
+            "name": "pcPaginator",
+            "type": "any",
+            "description": "Used to pass attributes to the Paginator component."
+          },
+          {
+            "name": "content",
+            "type": "DataViewPassThroughOptionType",
+            "description": "Used to pass attributes to the content's DOM element."
+          },
+          {
+            "name": "emptyMessage",
+            "type": "DataViewPassThroughOptionType",
+            "description": "Used to pass attributes to the empty message's DOM element."
+          },
+          {
+            "name": "footer",
+            "type": "DataViewPassThroughOptionType",
+            "description": "Used to pass attributes to the footer's DOM element."
+          },
+          {
+            "name": "hooks",
+            "type": "any",
+            "description": "Used to manage all lifecycle hooks."
+          }
+        ],
+        "styles": [
+          {
+            "class": "p-dataview",
+            "description": "Class name of the root element"
+          },
+          {
+            "class": "p-dataview-header",
+            "description": "Class name of the header element"
+          },
+          {
+            "class": "p-dataview-paginator-[position]",
+            "description": "Class name of the paginator element"
+          },
+          {
+            "class": "p-dataview-content",
+            "description": "Class name of the content element"
+          },
+          {
+            "class": "p-dataview-empty-message",
+            "description": "Class name of the empty message element"
+          },
+          {
+            "class": "p-dataview-footer",
+            "description": "Class name of the footer element"
+          }
+        ]
       }
     },
     {
@@ -4691,11 +5666,858 @@
         }
       ],
       "api": {
-        "props": null,
-        "slots": null,
-        "emits": null,
-        "pt": null,
-        "styles": null
+        "props": [
+          {
+            "name": "modelValue",
+            "type": "null | Date | Date[] | (null | Date)[]",
+            "default": "null",
+            "description": "Value of the component."
+          },
+          {
+            "name": "defaultValue",
+            "type": "null | Date | Date[] | (null | Date)[]",
+            "default": "-",
+            "description": "The default value for the input when not controlled by  `modelValue` ."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "default": "-",
+            "description": "The name attribute for the element, typically used in form submissions."
+          },
+          {
+            "name": "selectionMode",
+            "type": "HintedString<\"single\" | \"multiple\" | \"range\">",
+            "default": "single",
+            "description": "Defines the quantity of the selection."
+          },
+          {
+            "name": "dateFormat",
+            "type": "string",
+            "default": "-",
+            "description": "Format of the date. Defaults to PrimeVue Locale configuration."
+          },
+          {
+            "name": "updateModelType",
+            "type": "HintedString<\"string\" | \"date\">",
+            "default": "date",
+            "description": "Type of the value to write back to modelValue."
+          },
+          {
+            "name": "inline",
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, displays the datepicker as inline instead of an overlay."
+          },
+          {
+            "name": "showOtherMonths",
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to display dates in other months (non-selectable) at the start or end of the current month. To make these days selectable use the selectOtherMonths option."
+          },
+          {
+            "name": "selectOtherMonths",
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether days in other months shown before or after the current month are selectable. This only applies if the showOtherMonths option is set to true."
+          },
+          {
+            "name": "showIcon",
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, displays a button with icon next to input."
+          },
+          {
+            "name": "iconDisplay",
+            "type": "HintedString<\"button\" | \"input\">",
+            "default": "'button'",
+            "description": "Icon position of the component. This only applies if the showIcon option is set to true."
+          },
+          {
+            "name": "icon",
+            "type": "string",
+            "default": "-",
+            "description": "Icon of the datepicker button."
+          },
+          {
+            "name": "prevIcon",
+            "type": "string",
+            "default": "-",
+            "description": "Icon to show in the previous button."
+          },
+          {
+            "name": "nextIcon",
+            "type": "string",
+            "default": "-",
+            "description": "Icon to show in the next button."
+          },
+          {
+            "name": "incrementIcon",
+            "type": "string",
+            "default": "-",
+            "description": "Icon to show in each of the increment buttons."
+          },
+          {
+            "name": "decrementIcon",
+            "type": "string",
+            "default": "-",
+            "description": "Icon to show in each of the decrement buttons."
+          },
+          {
+            "name": "numberOfMonths",
+            "type": "number",
+            "default": "1",
+            "description": "Number of months to display."
+          },
+          {
+            "name": "responsiveOptions",
+            "type": "DatePickerResponsiveOptions[]",
+            "default": "-",
+            "description": "An array of options for responsive design."
+          },
+          {
+            "name": "breakpoint",
+            "type": "string",
+            "default": "769px",
+            "description": "The breakpoint to define the maximum width boundary for datepicker panel."
+          },
+          {
+            "name": "view",
+            "type": "HintedString<\"date\" | \"month\" | \"year\">",
+            "default": "date",
+            "description": "Type of view to display."
+          },
+          {
+            "name": "minDate",
+            "type": "Date",
+            "default": "-",
+            "description": "The minimum selectable date."
+          },
+          {
+            "name": "maxDate",
+            "type": "Date",
+            "default": "-",
+            "description": "The maximum selectable date."
+          },
+          {
+            "name": "disabledDates",
+            "type": "Date[]",
+            "default": "-",
+            "description": "Array with dates to disable."
+          },
+          {
+            "name": "disabledDays",
+            "type": "number[]",
+            "default": "-",
+            "description": "Array with disabled weekday numbers."
+          },
+          {
+            "name": "maxDateCount",
+            "type": "number",
+            "default": "-",
+            "description": "Maximum number of selectable dates in multiple mode."
+          },
+          {
+            "name": "showOnFocus",
+            "type": "boolean",
+            "default": "true",
+            "description": "When disabled, datepicker will not be visible with input focus."
+          },
+          {
+            "name": "autoZIndex",
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to automatically manage layering."
+          },
+          {
+            "name": "baseZIndex",
+            "type": "number",
+            "default": "0",
+            "description": "Base zIndex value to use in layering."
+          },
+          {
+            "name": "showButtonBar",
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to display today and clear buttons at the footer."
+          },
+          {
+            "name": "shortYearCutoff",
+            "type": "string",
+            "default": "+10",
+            "description": "The cutoff year for determining the century for a date."
+          },
+          {
+            "name": "showTime",
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to display timepicker."
+          },
+          {
+            "name": "timeOnly",
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to display timepicker only."
+          },
+          {
+            "name": "hourFormat",
+            "type": "HintedString<\"12\" | \"24\">",
+            "default": "24",
+            "description": "Specifies hour format."
+          },
+          {
+            "name": "stepHour",
+            "type": "number",
+            "default": "1",
+            "description": "Hours to change per step."
+          },
+          {
+            "name": "stepMinute",
+            "type": "number",
+            "default": "1",
+            "description": "Minutes to change per step."
+          },
+          {
+            "name": "stepSecond",
+            "type": "number",
+            "default": "1",
+            "description": "Seconds to change per step."
+          },
+          {
+            "name": "showSeconds",
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to show the seconds in time picker."
+          },
+          {
+            "name": "hideOnDateTimeSelect",
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to hide the overlay on date selection when showTime is enabled."
+          },
+          {
+            "name": "hideOnRangeSelection",
+            "type": "boolean",
+            "default": "false",
+            "description": "Whether to hide the overlay on date selection is completed when selectionMode is range."
+          },
+          {
+            "name": "timeSeparator",
+            "type": "string",
+            "default": ":",
+            "description": "Separator of time selector."
+          },
+          {
+            "name": "showWeek",
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, datepicker will show week numbers."
+          },
+          {
+            "name": "manualInput",
+            "type": "boolean",
+            "default": "true",
+            "description": "Whether to allow entering the date manually via typing."
+          },
+          {
+            "name": "showClear",
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, a clear icon is displayed to clear the value."
+          },
+          {
+            "name": "size",
+            "type": "HintedString<\"small\" | \"large\">",
+            "default": "-",
+            "description": "Defines the size of the component."
+          },
+          {
+            "name": "invalid",
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should have invalid state style."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that the component should be disabled."
+          },
+          {
+            "name": "variant",
+            "type": "null | HintedString<\"outlined\" | \"filled\">",
+            "default": "null",
+            "description": "Specifies the input variant of the component."
+          },
+          {
+            "name": "readonly",
+            "type": "boolean",
+            "default": "false",
+            "description": "When present, it specifies that an input field is read-only."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "default": "-",
+            "description": "Placeholder text for the input."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "default": "-",
+            "description": ""
+          },
+          {
+            "name": "appendTo",
+            "type": "HTMLElement | HintedString<\"body\" | \"self\">",
+            "default": "body",
+            "description": "A valid query selector or an HTMLElement to specify where the overlay gets attached."
+          },
+          {
+            "name": "inputId",
+            "type": "string",
+            "default": "-",
+            "description": "Identifier of the underlying input element."
+          },
+          {
+            "name": "inputStyle",
+            "type": "object",
+            "default": "-",
+            "description": "Inline style of the input field."
+          },
+          {
+            "name": "inputClass",
+            "type": "string | object",
+            "default": "-",
+            "description": "Style class of the input field."
+          },
+          {
+            "name": "panelStyle",
+            "type": "object",
+            "default": "-",
+            "description": "Inline style of the overlay panel."
+          },
+          {
+            "name": "panelClass",
+            "type": "string | object",
+            "default": "-",
+            "description": "Style class of the overlay panel."
+          },
+          {
+            "name": "todayButtonProps",
+            "type": "object",
+            "default": "-",
+            "description": "Used to pass all properties of the ButtonProps to the today button component."
+          },
+          {
+            "name": "clearButtonProps",
+            "type": "object",
+            "default": "-",
+            "description": "Used to pass all properties of the ButtonProps to the clear button component."
+          },
+          {
+            "name": "navigatorButtonProps",
+            "type": "object",
+            "default": "-",
+            "description": "Used to pass all properties of the ButtonProps to the navigator button component."
+          },
+          {
+            "name": "timepickerButtonProps",
+            "type": "object",
+            "default": "-",
+            "description": "Used to pass all properties of the ButtonProps to the timepicker button component."
+          },
+          {
+            "name": "fluid",
+            "type": "boolean",
+            "default": "null",
+            "description": "Spans 100% width of the container when enabled."
+          },
+          {
+            "name": "ariaLabelledby",
+            "type": "string",
+            "default": "-",
+            "description": "Establishes relationships between the component and label(s) where its value should be one or more element IDs."
+          },
+          {
+            "name": "ariaLabel",
+            "type": "string",
+            "default": "-",
+            "description": "Establishes a string value that labels the component."
+          },
+          {
+            "name": "formControl",
+            "type": "Record<string, any>",
+            "default": "-",
+            "description": "Form control object, typically used for handling validation and form state."
+          },
+          {
+            "name": "dt",
+            "type": "any",
+            "default": "-",
+            "description": "It generates scoped CSS variables using design tokens for the component."
+          },
+          {
+            "name": "pt",
+            "type": "PassThrough<DatePickerPassThroughOptions>",
+            "default": "-",
+            "description": "Used to pass attributes to DOM elements inside the component."
+          },
+          {
+            "name": "ptOptions",
+            "type": "any",
+            "default": "-",
+            "description": "Used to configure passthrough(pt) options of the component."
+          },
+          {
+            "name": "unstyled",
+            "type": "boolean",
+            "default": "false",
+            "description": "When enabled, it removes component related styles in the core."
+          }
+        ],
+        "slots": [],
+        "emits": [],
+        "pt": [
+          {
+            "name": "root",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the root's DOM element."
+          },
+          {
+            "name": "pcInputText",
+            "type": "any",
+            "description": "Used to pass attributes to the InputText component."
+          },
+          {
+            "name": "dropdown",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the dropdown's DOM element."
+          },
+          {
+            "name": "dropdownIcon",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the dropdown icon's DOM element."
+          },
+          {
+            "name": "inputIconContainer",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the input icon container's DOM element."
+          },
+          {
+            "name": "inputIcon",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the input icon's DOM element."
+          },
+          {
+            "name": "clearIcon",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the label's DOM element."
+          },
+          {
+            "name": "panel",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the panel's DOM element."
+          },
+          {
+            "name": "calendarContainer",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the calendar container's DOM element."
+          },
+          {
+            "name": "calendar",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the calendar's DOM element."
+          },
+          {
+            "name": "header",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the header's DOM element."
+          },
+          {
+            "name": "pcPrevButton",
+            "type": "any",
+            "description": "Used to pass attributes to the previous button's DOM element."
+          },
+          {
+            "name": "title",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the title's DOM element."
+          },
+          {
+            "name": "selectMonth",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the view month's DOM element."
+          },
+          {
+            "name": "selectYear",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the view year's DOM element."
+          },
+          {
+            "name": "decade",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the decade's DOM element."
+          },
+          {
+            "name": "pcNextButton",
+            "type": "any",
+            "description": "Used to pass attributes to the next button's DOM element."
+          },
+          {
+            "name": "dayView",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the table's DOM element."
+          },
+          {
+            "name": "tableHeader",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the table header's DOM element."
+          },
+          {
+            "name": "tableHeaderRow",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the table header row's DOM element."
+          },
+          {
+            "name": "weekHeader",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the week header's DOM element."
+          },
+          {
+            "name": "weekHeaderLabel",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the week header label's DOM element."
+          },
+          {
+            "name": "tableHeaderCell",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the table header cell's DOM element."
+          },
+          {
+            "name": "weekDayCell",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the week day cell's DOM element."
+          },
+          {
+            "name": "weekDay",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the week day's DOM element."
+          },
+          {
+            "name": "tableBody",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the table body's DOM element."
+          },
+          {
+            "name": "tableBodyRow",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the table body row's DOM element."
+          },
+          {
+            "name": "weekNumber",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the week number's DOM element."
+          },
+          {
+            "name": "weekLabelContainer",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the week label container's DOM element."
+          },
+          {
+            "name": "dayCell",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the day cell's DOM element."
+          },
+          {
+            "name": "day",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the day's DOM element."
+          },
+          {
+            "name": "monthView",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the month view's DOM element."
+          },
+          {
+            "name": "month",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the month's DOM element."
+          },
+          {
+            "name": "yearView",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the year view's DOM element."
+          },
+          {
+            "name": "year",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the year's DOM element."
+          },
+          {
+            "name": "timePicker",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the time picker's DOM element."
+          },
+          {
+            "name": "hourPicker",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the hour picker's DOM element."
+          },
+          {
+            "name": "hour",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the hour's DOM element."
+          },
+          {
+            "name": "separatorContainer",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the separator container's DOM element."
+          },
+          {
+            "name": "separator",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the separator's DOM element."
+          },
+          {
+            "name": "minutePicker",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the minute picker's DOM element."
+          },
+          {
+            "name": "minute",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the minute's DOM element."
+          },
+          {
+            "name": "secondPicker",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the second picker's DOM element."
+          },
+          {
+            "name": "second",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the second's DOM element."
+          },
+          {
+            "name": "ampmPicker",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the ampm picker's DOM element."
+          },
+          {
+            "name": "ampm",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the ampm's DOM element."
+          },
+          {
+            "name": "buttonbar",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the buttonbar's DOM element."
+          },
+          {
+            "name": "pcIncrementButton",
+            "type": "any",
+            "description": "Used to pass attributes to the increment button's DOM element."
+          },
+          {
+            "name": "pcDecrementButton",
+            "type": "any",
+            "description": "Used to pass attributes to the decrement button's DOM element."
+          },
+          {
+            "name": "pcTodayButton",
+            "type": "any",
+            "description": "Used to pass attributes to the today button's DOM element."
+          },
+          {
+            "name": "pcClearButton",
+            "type": "any",
+            "description": "Used to pass attributes to the clear button's DOM element."
+          },
+          {
+            "name": "hiddenSelectedDay",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the aria selected day's DOM element."
+          },
+          {
+            "name": "hiddenMonth",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the aria month's DOM element."
+          },
+          {
+            "name": "hiddenYear",
+            "type": "DatePickerPassThroughOptionType",
+            "description": "Used to pass attributes to the aria year's DOM element."
+          },
+          {
+            "name": "hooks",
+            "type": "any",
+            "description": "Used to manage all lifecycle hooks."
+          },
+          {
+            "name": "transition",
+            "type": "DatePickerPassThroughTransitionType",
+            "description": "Used to control Vue Transition API."
+          }
+        ],
+        "styles": [
+          {
+            "class": "p-datepicker",
+            "description": "Class name of the root element"
+          },
+          {
+            "class": "p-datepicker-input",
+            "description": "Class name of the input element"
+          },
+          {
+            "class": "p-datepicker-dropdown",
+            "description": "Class name of the dropdown element"
+          },
+          {
+            "class": "p-datepicker-input-icon-container",
+            "description": "Class name of the input icon container element"
+          },
+          {
+            "class": "p-datepicker-input-icon",
+            "description": "Class name of the input icon element"
+          },
+          {
+            "class": "p-datepicker-clear-icon",
+            "description": "Class name of the clear icon element"
+          },
+          {
+            "class": "p-datepicker-panel",
+            "description": "Class name of the panel element"
+          },
+          {
+            "class": "p-datepicker-calendar-container",
+            "description": "Class name of the calendar container element"
+          },
+          {
+            "class": "p-datepicker-calendar",
+            "description": "Class name of the calendar element"
+          },
+          {
+            "class": "p-datepicker-header",
+            "description": "Class name of the header element"
+          },
+          {
+            "class": "p-datepicker-prev-button",
+            "description": "Class name of the previous button element"
+          },
+          {
+            "class": "p-datepicker-title",
+            "description": "Class name of the title element"
+          },
+          {
+            "class": "p-datepicker-select-month",
+            "description": "Class name of the select month element"
+          },
+          {
+            "class": "p-datepicker-select-year",
+            "description": "Class name of the select year element"
+          },
+          {
+            "class": "p-datepicker-decade",
+            "description": "Class name of the decade element"
+          },
+          {
+            "class": "p-datepicker-next-button",
+            "description": "Class name of the next button element"
+          },
+          {
+            "class": "p-datepicker-day-view",
+            "description": "Class name of the day view element"
+          },
+          {
+            "class": "p-datepicker-weekheader",
+            "description": "Class name of the week header element"
+          },
+          {
+            "class": "p-datepicker-weeknumber",
+            "description": "Class name of the week number element"
+          },
+          {
+            "class": "p-datepicker-weeklabel-container",
+            "description": "Class name of the week label container element"
+          },
+          {
+            "class": "p-datepicker-weekday-cell",
+            "description": "Class name of the week day cell element"
+          },
+          {
+            "class": "p-datepicker-weekday",
+            "description": "Class name of the week day element"
+          },
+          {
+            "class": "p-datepicker-day-cell",
+            "description": "Class name of the day cell element"
+          },
+          {
+            "class": "p-datepicker-day",
+            "description": "Class name of the day element"
+          },
+          {
+            "class": "p-datepicker-month-view",
+            "description": "Class name of the month view element"
+          },
+          {
+            "class": "p-datepicker-month",
+            "description": "Class name of the month element"
+          },
+          {
+            "class": "p-datepicker-year-view",
+            "description": "Class name of the year view element"
+          },
+          {
+            "class": "p-datepicker-year",
+            "description": "Class name of the year element"
+          },
+          {
+            "class": "p-datepicker-time-picker",
+            "description": "Class name of the time picker element"
+          },
+          {
+            "class": "p-datepicker-hour-picker",
+            "description": "Class name of the hour picker element"
+          },
+          {
+            "class": "p-datepicker-increment-button",
+            "description": "Class name of the increment button element"
+          },
+          {
+            "class": "p-datepicker-decrement-button",
+            "description": "Class name of the decrement button element"
+          },
+          {
+            "class": "p-datepicker-separator",
+            "description": "Class name of the separator element"
+          },
+          {
+            "class": "p-datepicker-minute-picker",
+            "description": "Class name of the minute picker element"
+          },
+          {
+            "class": "p-datepicker-second-picker",
+            "description": "Class name of the second picker element"
+          },
+          {
+            "class": "p-datepicker-ampm-picker",
+            "description": "Class name of the ampm picker element"
+          },
+          {
+            "class": "p-datepicker-buttonbar",
+            "description": "Class name of the buttonbar element"
+          },
+          {
+            "class": "p-datepicker-today-button",
+            "description": "Class name of the today button element"
+          },
+          {
+            "class": "p-datepicker-clear-button",
+            "description": "Class name of the clear button element"
+          }
+        ]
       }
     },
     {
@@ -9297,6 +11119,50 @@
             "description": "Class name of the empty message element"
           }
         ]
+      }
+    },
+    {
+      "name": "llms",
+      "title": "LLMs.txt - PrimeVue",
+      "description": "PrimeVue provides LLM-friendly documentation formats to help AI models better understand and navigate the component library.",
+      "sections": [
+        {
+          "id": "llmsfulltxt",
+          "label": "/llms-full.txt",
+          "description": "The /llms-full.txt file contains the complete documentation for all PrimeVue components in a single text file. This comprehensive resource includes all component examples, API documentation, theming information, and usage patterns. This file is ideal for: AI Model Training : Complete context about PrimeVue components Comprehensive Queries : When AI assistants need full documentation access Offline Reference : Single file containing all component information Search Indexing : Building search engines or documentation tools Note: This file is large (~800KB) and includes complete documentation for {{ componentCount }}+ components with Props, Slots, Emits, Pass Through Options, and Theming information.",
+          "examples": null
+        },
+        {
+          "id": "llmstxt",
+          "label": "/llms.txt",
+          "description": "The /llms.txt file provides a curated index of key PrimeVue documentation pages in a structured format. This file follows the llms.txt industry standard and serves as an entry point for AI models to discover and navigate the documentation. Each entry in the file includes: Component Name : The display name of the component URL : Direct link to the component's documentation page Description : Brief explanation of the component's purpose",
+          "examples": null
+        },
+        {
+          "id": "markdownextension",
+          "label": "MarkdownExtensionDoc",
+          "description": "Add a .md extension to any component's documentation URL to view or retrieve a Markdown-formatted version of that page. This feature enables direct access to machine-readable documentation for any specific component. Example URLs: Each Markdown file includes: Component Overview : Description and use cases Import Statement : How to import the component Usage Examples : Code examples with Options API and Composition API Props Table : Complete list of properties with types and defaults Events/Emits : Available events and their parameters Slots : Template slot definitions Pass Through Options : PT configuration for unstyled mode Theming : CSS classes and design tokens",
+          "examples": null
+        },
+        {
+          "id": "overview",
+          "label": "Overview",
+          "description": "PrimeVue implements the llms.txt standard , an industry convention designed to help AI models better understand and navigate documentation. This implementation provides multiple formats optimized for different use cases, from quick reference to comprehensive documentation.",
+          "examples": null
+        },
+        {
+          "id": "usageexamples",
+          "label": "UsageExamplesDoc",
+          "description": "The Copy Markdown dropdown menu appears on every component documentation page, providing quick access to LLM-friendly formats. Integration Examples Here are some ways to use the LLM documentation formats:",
+          "examples": null
+        }
+      ],
+      "api": {
+        "props": null,
+        "slots": null,
+        "emits": null,
+        "pt": null,
+        "styles": null
       }
     },
     {

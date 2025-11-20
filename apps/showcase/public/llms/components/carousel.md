@@ -55,33 +55,6 @@ To create a vertical Carousel, orientation needs to be set to vertical along wit
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Carousel
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | any | - | An array of objects to display. |
-| page | number | 0 | Index of the first item. |
-| numVisible | number | 1 | Number of items per page. |
-| numScroll | number | 1 | Number of items to scroll. |
-| responsiveOptions | CarouselResponsiveOptions[] | - | An array of options for responsive design. |
-| orientation | "horizontal" \| "vertical" | horizontal | Specifies the layout of the component, valid values are 'horizontal' and 'vertical'. |
-| verticalViewPortHeight | string | 300px | Height of the viewport in vertical layout. |
-| containerClass | any | - | Style class of the viewport container. |
-| contentClass | any | - | Style class of main content. |
-| indicatorsContentClass | any | - | Style class of the indicator items. |
-| circular | boolean | false | Defines if scrolling would be infinite. |
-| autoplayInterval | number | 0 | Time in milliseconds to scroll items automatically. |
-| showNavigators | boolean | true | Whether to display navigation buttons in container. |
-| showIndicators | boolean | true | Whether to display indicator container. |
-| prevButtonProps | object | - | Used to pass attributes to the previous Button component. |
-| nextButtonProps | object | - | Used to pass attributes to the next Button component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<CarouselPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

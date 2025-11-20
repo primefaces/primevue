@@ -165,5 +165,3 @@ Custom content at header and footer slots are supported via templating.
 
 ## Treetable
 
-## Treetable
-

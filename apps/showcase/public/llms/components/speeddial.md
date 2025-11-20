@@ -80,5 +80,3 @@ Items display a tooltip on hover when a standalone Tooltip is present with a tar
 
 ## Speeddial
 
-## Speeddial
-

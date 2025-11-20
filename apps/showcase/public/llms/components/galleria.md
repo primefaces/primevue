@@ -143,46 +143,6 @@ Thumbnails represent a smaller version of the actual content.
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Galleria
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| id | string | - | Unique identifier of the element. |
-| value | any[] | - | An array of objects to display. |
-| activeIndex | number | 0 | Index of the first item. |
-| fullScreen | boolean | false | Whether to display the component on fullscreen. |
-| visible | boolean | false | Specifies the visibility of the mask on fullscreen mode. |
-| numVisible | number | 3 | Number of items per page. |
-| responsiveOptions | GalleriaResponsiveOptions[] | - | An array of options for responsive design. |
-| showItemNavigators | boolean | false | Whether to display navigation buttons in item section. |
-| showThumbnailNavigators | boolean | true | Whether to display navigation buttons in thumbnail container. |
-| showItemNavigatorsOnHover | boolean | false | Whether to display navigation buttons on item hover. |
-| changeItemOnIndicatorHover | boolean | false | When enabled, item is changed on indicator hover. |
-| circular | boolean | false | Defines if scrolling would be infinite. |
-| autoPlay | boolean | false | Items are displayed with a slideshow in autoPlay mode. |
-| transitionInterval | number | 4000 | Time in milliseconds to scroll items. |
-| showThumbnails | boolean | true | Whether to display thumbnail container. |
-| thumbnailsPosition | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of thumbnails. |
-| verticalThumbnailViewPortHeight | string | 300px | Height of the viewport in vertical thumbnail. |
-| showIndicators | boolean | false | Whether to display indicator container. |
-| showIndicatorsOnItem | boolean | false | When enabled, indicator container is displayed on item container. |
-| indicatorsPosition | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of indicators. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| maskClass | string | - | Style class of the mask on fullscreen mode. |
-| containerStyle | any | - | Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used. |
-| containerClass | any | - | Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used. |
-| containerProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the container element on fullscreen mode. |
-| prevButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the previous navigation button. |
-| nextButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the next navigation button. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaRoledescription | string | - | Defines a string value that description for the role of the component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<GalleriaPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

@@ -290,23 +290,6 @@ Various shapes and sizes can be created using styling properties like shape , wi
 | ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
-## Skeleton
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| shape | HintedString<"circle" \| "rectangle"> | rectangle | Shape of the element. |
-| size | string | - | Size of the Circle or Square. |
-| width | string | 100% | Width of the element. |
-| height | string | 1rem | Height of the element. |
-| borderRadius | string | - | Border radius of the element, defaults to value from theme. |
-| animation | HintedString<"none" \| "wave"> | wave | Type of the animation. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<SkeletonPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Pass Through Options
 
 | Name | Type | Description |

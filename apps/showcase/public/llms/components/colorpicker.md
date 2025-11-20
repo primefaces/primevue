@@ -52,5 +52,3 @@ ColorPicker is displayed as a popup by default, add inline property to customize
 
 ## Colorpicker
 
-## Colorpicker
-
