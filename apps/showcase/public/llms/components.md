@@ -1,0 +1,18070 @@
+# PrimeVue Components Documentation
+
+Generated: 2025-11-20T21:41:29.950Z
+
+---
+
+# Vue Accordion Component
+
+Accordion groups a collection of contents in panels.
+
+## Accessibility
+
+Screen Reader Accordion header elements is a button element and use aria-controls to define the id of the content section along with aria-expanded for the visibility state. The value to read a header element defaults to the value of the header property and can be customized by defining an aria-label or aria-labelledby via the pt property. The content uses region role, defines an id that matches the aria-controls of the header and aria-labelledby referring to the id of the header. Header Keyboard Support Key Function tab Moves focus to the next focusable element in the page tab sequence. shift + tab Moves focus to the previous focusable element in the page tab sequence. enter Toggles the visibility of the content. space Toggles the visibility of the content. down arrow Moves focus to the next header. If focus is on the last header, moves focus to the first header. up arrow Moves focus to the previous header. If focus is on the first header, moves focus to the last header. home Moves focus to the first header. end Moves focus to the last header.
+
+## Basic
+
+Accordion is defined using AccordionPanel , AccordionHeader and AccordionContent components. Each AccordionPanel must contain a unique value property to specify the active item.
+
+**Basic Usage:**
+
+```vue
+<Accordion value="0">
+    <AccordionPanel value="0">
+        <AccordionHeader>Header I</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+    <AccordionPanel value="1">
+        <AccordionHeader>Header II</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+    <AccordionPanel value="2">
+        <AccordionHeader>Header III</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+</Accordion>
+```
+
+## Controlled
+
+Panels can be controlled programmatically using value property as a model.
+
+**Basic Usage:**
+
+```vue
+<div class="flex mb-4 gap-2 justify-end">
+    <Button @click="active = '0'" rounded label="1" class="w-8 h-8 p-0" :outlined="active !== '0'" />
+    <Button @click="active = '1'" rounded label="2" class="w-8 h-8 p-0" :outlined="active !== '1'" />
+    <Button @click="active = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="active !== '2'" />
+</div>
+
+<Accordion v-model:value="active">
+    <AccordionPanel value="0">
+        <AccordionHeader>Header I</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+    <AccordionPanel value="1">
+        <AccordionHeader>Header II</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+    <AccordionPanel value="2">
+        <AccordionHeader>Header III</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+</Accordion>
+```
+
+## Disabled
+
+Enabling disabled property of an AccordionPanel prevents user interaction.
+
+**Basic Usage:**
+
+```vue
+<Accordion :value="['0']" multiple>
+    <AccordionPanel value="0">
+        <AccordionHeader>Header I</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+    <AccordionPanel value="1">
+        <AccordionHeader>Header II</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+    <AccordionPanel value="2">
+        <AccordionHeader>Header III</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+    <AccordionPanel value="3" disabled>
+        <AccordionHeader>Header IV</AccordionHeader>
+    </AccordionPanel>
+</Accordion>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Accordion :value="['0']" multiple>
+            <AccordionPanel value="0">
+                <AccordionHeader>Header I</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="1">
+                <AccordionHeader>Header II</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="2">
+                <AccordionHeader>Header III</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="3" disabled>
+                <AccordionHeader>Header IV</AccordionHeader>
+            </AccordionPanel>
+        </Accordion>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Dynamic
+
+AccordionPanel can be generated dynamically using the standard v-for directive.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Accordion from 'primevue/accordion';
+import AccordionPanel from 'primevue/accordionpanel';
+import AccordionHeader from 'primevue/accordionheader';
+import AccordionContent from 'primevue/accordioncontent';
+```
+
+## Multiple
+
+Only one tab at a time can be active by default, enabling multiple property changes this behavior to allow multiple panels. In this case value needs to be an array.
+
+**Basic Usage:**
+
+```vue
+<Accordion :value="['0']" multiple>
+    <AccordionPanel value="0">
+        <AccordionHeader>Header I</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+    <AccordionPanel value="1">
+        <AccordionHeader>Header II</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+    <AccordionPanel value="2">
+        <AccordionHeader>Header III</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+</Accordion>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Accordion :value="['0']" multiple>
+            <AccordionPanel value="0">
+                <AccordionHeader>Header I</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="1">
+                <AccordionHeader>Header II</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="2">
+                <AccordionHeader>Header III</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+        </Accordion>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Template
+
+Custom content for a header is defined with the default slot. The optional as property controls the default container element of a header, for example setting it to a div renders a div for the header instead of a button. The asChild option enables the headless mode for further customization by passing callbacks and properties to implement your own header.
+
+**Basic Usage:**
+
+```vue
+<Accordion value="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
+    <AccordionPanel value="0">
+        <AccordionHeader>
+            <span class="flex items-center gap-2 w-full">
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                <span class="font-bold whitespace-nowrap">Amy Elsner</span>
+                <Badge value="3" class="ml-auto mr-2" />
+            </span>
+        </AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+    <AccordionPanel value="1">
+        <AccordionHeader>
+            <span class="flex items-center gap-2 w-full">
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                <span class="font-bold whitespace-nowrap">Onyama Limba</span>
+                <Badge value="4" class="ml-auto mr-2" />
+            </span>
+        </AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+    <AccordionPanel value="2">
+        <AccordionHeader>
+            <span class="flex items-center gap-2 w-full">
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                <span class="font-bold whitespace-nowrap">Ioni Bowcher</span>
+                <Badge value="2" class="ml-auto mr-2" />
+            </span>
+        </AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+            </p>
+        </AccordionContent>
+    </AccordionPanel>
+</Accordion>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Accordion value="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
+            <AccordionPanel value="0">
+                <AccordionHeader>
+                    <span class="flex items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold whitespace-nowrap">Amy Elsner</span>
+                        <Badge value="3" class="ml-auto mr-2" />
+                    </span>
+                </AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="1">
+                <AccordionHeader>
+                    <span class="flex items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                        <span class="font-bold whitespace-nowrap">Onyama Limba</span>
+                        <Badge value="4" class="ml-auto mr-2" />
+                    </span>
+                </AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="2">
+                <AccordionHeader>
+                    <span class="flex items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                        <span class="font-bold whitespace-nowrap">Ioni Bowcher</span>
+                        <Badge value="2" class="ml-auto mr-2" />
+                    </span>
+                </AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+        </Accordion>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Accordion
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | null \| string \| number \| string[] \| number[] | null | Value of the active panel or an array of values in multiple mode. |
+| multiple | boolean | false | When enabled, multiple tabs can be activated at the same time. |
+| activeIndex | null \| number \| number[] | null | Index of the active tab or an array of indexes in multiple mode. |
+| lazy | boolean | false | When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css. |
+| expandIcon | string | - | Icon of a collapsed tab. |
+| collapseIcon | string | - | Icon of an expanded tab. |
+| tabindex | number | 0 | Index of the element in tabbing order. |
+| selectOnFocus | boolean | false | When enabled, the focused tab is activated. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<AccordionPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Accordion
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | null \| string \| number \| string[] \| number[] | null | Value of the active panel or an array of values in multiple mode. |
+| multiple | boolean | false | When enabled, multiple tabs can be activated at the same time. |
+| activeIndex | null \| number \| number[] | null | Index of the active tab or an array of indexes in multiple mode. |
+| lazy | boolean | false | When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css. |
+| expandIcon | string | - | Icon of a collapsed tab. |
+| collapseIcon | string | - | Icon of an expanded tab. |
+| tabindex | number | 0 | Index of the element in tabbing order. |
+| selectOnFocus | boolean | false | When enabled, the focused tab is activated. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<AccordionPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Accordioncontent
+
+## Accordioncontent
+
+## Accordionheader
+
+## Accordionheader
+
+## Accordionpanel
+
+## Accordionpanel
+
+## Accordiontab
+
+## Accordiontab
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | AccordionPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-accordion | Class name of the root element |
+
+---
+
+# Vue AnimateOnScroll Directive
+
+AnimateOnScroll is used to apply animations to elements when entering or leaving the viewport during scrolling.
+
+## Accessibility
+
+Screen Reader AnimateOnScroll does not require any roles and attributes. Keyboard Support Component does not include any interactive elements.
+
+## Basic
+
+Animation classes are defined with the enterClass and leaveClass properties. This example utilizes tailwindcss-primeui plugin animations however any valid CSS animation is supported.
+
+**Basic Usage:**
+
+```vue
+<div class="flex flex-wrap justify-center gap-8">
+    <div
+        v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-8 animate-duration-1000', leaveClass: 'animate-leave fade-out-0' }"
+        class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+    >
+        <div class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center">
+            <i class="pi pi-user !text-2xl"></i>
+        </div>
+        <span class="text-2xl font-bold">Individual</span>
+        <span class="text-muted-color text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+    <div
+        v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 animate-duration-1000', leaveClass: 'animate-leave fade-out-0' }"
+        class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+    >
+        <div class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center">
+            <i class="pi pi-users !text-2xl"></i>
+        </div>
+        <span class="text-2xl font-bold">Team</span>
+        <span class="text-muted-color text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+    <div
+        v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-8 animate-duration-1000', leaveClass: 'animate-leave fade-out-0' }"
+        class="flex flex-col border border-surface shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+    >
+        <div class="rounded-full bg-primary text-primary-contrast w-12 h-12 flex items-center justify-center">
+            <i class="pi pi-building !text-2xl"></i>
+        </div>
+        <span class="text-2xl font-bold">Enterprise</span>
+        <span class="text-muted-color text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+</div>
+
+<div class="flex flex-wrap justify-center gap-8">
+    <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-t-20 animate-duration-1000' }" class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
+        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" size="xlarge" />
+        <span class="text-2xl font-medium">Jenna Thompson</span>
+        <span class="text-muted-color text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+    <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-b-20 animate-duration-1000' }" class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
+        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/asiyajavayant.png" shape="circle" size="xlarge" />
+        <span class="text-2xl font-medium">Isabel Garcia</span>
+        <span class="text-muted-color text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+    <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 slide-in-from-t-20 animate-duration-1000' }" class="flex flex-col border border-primary-200 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
+        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" size="xlarge" />
+        <span class="text-2xl font-medium">Xavier Mason</span>
+        <span class="text-muted-color text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+</div>
+
+<div class="flex flex-wrap justify-center gap-8">
+    <div
+        v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 spin-in-45 slide-in-from-t-12 animate-duration-1000' }"
+        class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+    >
+        <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">850K</span>
+        <span class="text-2xl font-bold">Customers</span>
+        <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+    <div
+        v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 zoom-in-50 slide-in-from-t-20 animate-duration-1000' }"
+        class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+    >
+        <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">$1.5M</span>
+        <span class="text-2xl font-bold">Revenue</span>
+        <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+    <div
+        v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 spin-in-[-45deg] slide-in-from-t-16 animate-duration-1000' }"
+        class="flex flex-col bg-primary text-primary-contrast border-primary shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4"
+    >
+        <span class="bg-white/20 text-xl font-medium rounded-xl px-4 py-2">140K</span>
+        <span class="text-2xl font-bold">Sales</span>
+        <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+</div>
+
+<div class="flex flex-wrap justify-center gap-8">
+    <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 zoom-in-50 animate-duration-1000' }" class="flex flex-col bg-purple-500 text-white border-purple-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
+        <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
+            <i class="pi pi-wifi !text-2xl"></i>
+        </div>
+        <span class="text-2xl font-bold">Bandwidth</span>
+        <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+    <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 zoom-in-75 animate-duration-1000' }" class="flex flex-col bg-teal-500 text-white border-teal-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
+        <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
+            <i class="pi pi-database !text-2xl"></i>
+        </div>
+        <span class="text-2xl font-bold">Storage</span>
+        <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+    <div v-animateonscroll="{ enterClass: 'animate-enter fade-in-10 zoom-in-50 animate-duration-1000' }" class="flex flex-col bg-indigo-500 text-white border-indigo-500 shadow-lg justify-center items-center max-w-80 rounded-2xl p-8 gap-4">
+        <div class="rounded-full border-2 border-white w-12 h-12 flex items-center justify-center">
+            <i class="pi pi-arrows-v !text-2xl"></i>
+        </div>
+        <span class="text-2xl font-bold">Requests</span>
+        <span class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+</div>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import AnimateOnScroll from 'primevue/animateonscroll';
+
+app.directive('animateonscroll', AnimateOnScroll);
+```
+
+## Animateonscroll
+
+## Animateonscroll
+
+---
+
+# Vue AutoComplete Component
+
+AutoComplete is an input component that provides real-time suggestions when being typed.
+
+## Accessibility
+
+Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete , aria-haspopup and aria-expanded attributes. The relation between the input and the popup is created with aria-controls and aria-activedescendant attribute is used to instruct screen reader which option to read during keyboard navigation within the popup list. In multiple mode, chip list uses listbox role with aria-orientation set to horizontal whereas each chip has the option role with aria-label set to the label of the chip. The popup list has an id that refers to the aria-controls attribute of the input element and uses listbox as the role. Each list item has option role and an id to match the aria-activedescendant of the input element. Closed State Keyboard Support Key Function tab Moves focus to the autocomplete element. any printable character Opens the popup and moves focus to the first option. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Moves focus to the previous focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. enter Selects the focused option and closes the popup, then moves focus to the autocomplete element. space Selects the focused option and closes the popup, then moves focus to the autocomplete element. escape Closes the popup, then moves focus to the autocomplete element. down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. alt + up arrow Selects the focused option and closes the popup, then moves focus to the autocomplete element. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the last one. Chips Input Keyboard Support Key Function backspace Deletes the previous chip if the input field is empty. left arrow Moves focus to the previous chip if available and input field is empty. Chip Keyboard Support Key Function left arrow Moves focus to the previous chip if available. right arrow Moves focus to the next chip, if there is none then input field receives the focus. backspace Deletes the chips and adds focus to the input field.
+
+**Basic Usage:**
+
+```vue
+<label for="ac1">;Username</label>
+<AutoComplete inputId="ac1" />
+
+<span id="ac2">Email</span>
+<AutoComplete aria-labelledby="ac2" />
+
+<AutoComplete aria-label="City" />
+```
+
+## Basic
+
+AutoComplete is used with the v-model property for two-way value binding. In addition, suggestions property and a complete method are required to query the results.
+
+**Basic Usage:**
+
+```vue
+<AutoComplete v-model="value" :suggestions="items" @complete="search" />
+```
+
+## Clear Icon
+
+When showClear is enabled, a clear icon is added to reset the AutoComplete.
+
+**Basic Usage:**
+
+```vue
+<AutoComplete v-model="value" showClear :suggestions="items" @complete="search" inputClass="w-56" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<AutoComplete disabled placeholder="Disabled" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete disabled placeholder="Disabled" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Dropdown
+
+Enabling dropdown property displays a button next to the input field where click behavior of the button is defined using dropdownMode property that takes blank or current as possible values. blank is the default mode to send a query with an empty string whereas current setting sends a query with the current value of the input.
+
+**Basic Usage:**
+
+```vue
+<AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" />
+```
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<AutoComplete v-model="value" :suggestions="items" @complete="search" variant="filled" />
+```
+
+## Float Label
+
+A floating label appears on top of the input field when focused. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel>
+    <AutoComplete v-model="value1" inputId="over_label" :suggestions="items" @complete="search" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel variant="in">
+    <AutoComplete v-model="value2" inputId="in_label" :suggestions="items" @complete="search" variant="filled" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel variant="on">
+    <AutoComplete v-model="value3" inputId="on_label" :suggestions="items" @complete="search" />
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Fluid
+
+The fluid prop makes the component take up the full width of its container when set to true.
+
+**Basic Usage:**
+
+```vue
+<AutoComplete v-model="value" :suggestions="items" fluid @complete="search" />
+```
+
+## Force Selection
+
+ForceSelection mode validates the manual input to check whether it also exists in the suggestions list, if not the input value is cleared to make sure the value passed to the model is always one of the suggestions. Simply enable forceSelection to enforce that input is always from the suggestion list.
+
+**Basic Usage:**
+
+```vue
+<AutoComplete v-model="selectedCountry" forceSelection optionLabel="name" :suggestions="filteredCountries" @complete="search" />
+```
+
+## Forms
+
+AutoComplete integrates seamlessly with the PrimeVue Forms library.
+
+## Group
+
+Option groups are specified with the optionGroupLabel and optionGroupChildren properties.
+
+**Basic Usage:**
+
+```vue
+<AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="search" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Hint: type 'a'">
+    <template #optiongroup="slotProps">
+        <div class="flex items-center country-item">
+            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel>
+    <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" variant="filled" />
+    <label for="ac">Identifier</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import AutoComplete from 'primevue/autocomplete';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<AutoComplete v-model="value1" :suggestions="items" @complete="search" :invalid="!value1" placeholder="Code" />
+<AutoComplete v-model="value2" :suggestions="items" @complete="search" :invalid="!value2" variant="filled" placeholder="Code" />
+```
+
+## Multiple
+
+Multiple mode is enabled using multiple property used to select more than one value from the autocomplete. In this case, value reference should be an array.
+
+**Basic Usage:**
+
+```vue
+<label for="multiple-ac-1" class="font-bold mb-2 block">With Typeahead</label>
+<AutoComplete v-model="value1" inputId="multiple-ac-1" multiple fluid :suggestions="items" @complete="search" />
+
+<label for="multiple-ac-2" class="font-bold mt-8 mb-2 block">Without Typeahead</label>
+<AutoComplete v-model="value2" inputId="multiple-ac-2" multiple fluid @complete="search" :typeahead="false" />
+```
+
+## Objects
+
+AutoComplete can work with objects using the optionLabel property that defines the label to display as a suggestion. The value passed to the model would still be the object instance of a suggestion. Here is an example with a Country object that has name and code fields such as &#123;name: "United States", code:"USA"&#125; .
+
+**Basic Usage:**
+
+```vue
+<AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
+```
+
+## Sizes
+
+AutoComplete provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<AutoComplete v-model="value1" :suggestions="items" @complete="search" size="small" placeholder="Small" dropdown />
+<AutoComplete v-model="value2" :suggestions="items" @complete="search" placeholder="Normal" dropdown />
+<AutoComplete v-model="value3" :suggestions="items" @complete="search" size="large" placeholder="Large" dropdown />
+```
+
+## Template
+
+AutoComplete offers multiple slots for customization through templating.
+
+**Basic Usage:**
+
+```vue
+<AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search">
+    <template #option="slotProps">
+        <div class="flex items-center">
+            <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## Virtual Scroll
+
+Virtual Scrolling is a performant way to render large lists. Configuration of the scroll behavior is defined with virtualScrollerOptions that requires itemSize as the mandatory value to set the height of an item. Visit VirtualScroller documentation for more information about the configuration API.
+
+**Basic Usage:**
+
+```vue
+<AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems"
+    :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
+```
+
+## Autocomplete
+
+## Autocomplete
+
+---
+
+# autoimport
+
+
+
+## Example
+
+A complete example using PrimeVue with auto imports is available at the playground .
+
+## Overview
+
+PrimeVue components need to be imported and configured individually. In the next section, we'll cleanup the code using auto imports.
+
+**Basic Usage:**
+
+```vue
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+import InputText from 'primevue/inputtext';
+import Button from 'primevue/button';
+import App from './App.vue'
+const app = createApp(App);
+
+app.use(PrimeVue);
+app.component('InputText', InputText);
+app.component('Button', Button);
+```
+
+## Unplugin
+
+The unplugin-vue-components library can automatically import and register PrimeVue components with the help of @primevue/auto-import-resolver . Begin with installing the packages as dev dependencies. Next step would be adding the PrimeVueResolver at vite.config using the Components plugin. That's it, now the initialization code can be refactored as the following. For configuration like namespacing, visit the official documentation .
+
+---
+
+# Vue Avatar Component
+
+Avatar represents people using icons, labels and images.
+
+## Accessibility
+
+Screen Reader Avatar does not include any roles and attributes by default. Any attribute is passed to the root element so you may add a role like img along with aria-labelledby or aria-label to describe the component. In case avatars need to be tabbable, tabindex can be added as well to implement custom key handlers. Keyboard Support Component does not include any interactive elements.
+
+## AvatarGroup
+
+Grouping is available by wrapping multiple Avatar components inside an AvatarGroup.
+
+**Basic Usage:**
+
+```vue
+<AvatarGroup>
+    <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
+    <Avatar image="/images/avatar/asiyajavayant.png" shape="circle" />
+    <Avatar image="/images/avatar/onyamalimba.png" shape="circle" />
+    <Avatar image="/images/avatar/ionibowcher.png" shape="circle" />
+    <Avatar image="/images/avatar/xuxuefeng.png" shape="circle" />
+    <Avatar label="+2" shape="circle" />
+</AvatarGroup>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AvatarGroup>
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/asiyajavayant.png" shape="circle" />
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" shape="circle" />
+            <Avatar label="+2" shape="circle" />
+        </AvatarGroup>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Icon
+
+A font icon is displayed as an Avatar with the icon property.
+
+**Basic Usage:**
+
+```vue
+<Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
+<Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+<Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" />
+
+<Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" />
+<Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+<Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
+
+<OverlayBadge value="4" severity="danger" class="inline-flex">
+    <Avatar icon="pi pi-user" size="xlarge" />
+</OverlayBadge>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-wrap gap-8">
+            <div class="flex-auto">
+                <h5>Icon</h5>
+                <Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+                <Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" />
+            </div>
+
+            <div class="flex-auto">
+                <h5>Circle</h5>
+                <Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+                <Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
+            </div>
+
+            <div class="flex-auto">
+                <h5>Badge</h5>
+                <OverlayBadge value="4" severity="danger" class="inline-flex">
+                    <Avatar icon="pi pi-user" size="xlarge" />
+                </OverlayBadge>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Image
+
+Use the image property to display an image as an Avatar.
+
+**Basic Usage:**
+
+```vue
+<Avatar image="/images/avatar/amyelsner.png" class="mr-2" size="xlarge" shape="circle" />
+<Avatar image="/images/avatar/asiyajavayant.png" class="mr-2" size="large" shape="circle" />
+<Avatar image="/images/avatar/onyamalimba.png" shape="circle" />
+
+<OverlayBadge value="4" severity="danger" class="inline-flex">
+    <Avatar class="p-overlay-badge" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" size="xlarge" />
+</OverlayBadge>
+
+<Avatar image="https://www.gravatar.com/avatar/05dfd4b41340d09cae045235eb0893c3?d=mp" class="flex items-center justify-center mr-2" size="xlarge" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-wrap gap-8">
+            <div class="flex-auto">
+                <h5>Image</h5>
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" size="xlarge" shape="circle" />
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/asiyajavayant.png" class="mr-2" size="large" shape="circle" />
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+            </div>
+
+            <div class="flex-auto">
+                <h5>Badge</h5>
+                <OverlayBadge value="4" severity="danger" class="inline-flex">
+                    <Avatar class="p-overlay-badge" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" size="xlarge" />
+                </OverlayBadge>
+            </div>
+
+            <div class="flex-auto">
+                <h5>Gravatar</h5>
+                <Avatar image="https://www.gravatar.com/avatar/05dfd4b41340d09cae045235eb0893c3?d=mp" class="flex items-center justify-center mr-2" size="xlarge" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Avatar from 'primevue/avatar';
+import AvatarGroup from 'primevue/avatargroup';   //Optional for grouping
+```
+
+## Label
+
+A letter Avatar is defined with the label property.
+
+**Basic Usage:**
+
+```vue
+<Avatar label="P" class="mr-2" size="xlarge" />
+<Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+<Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" />
+
+<Avatar label="P" class="mr-2" size="xlarge" shape="circle" />
+<Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+<Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
+
+<OverlayBadge value="4" severity="danger" class="inline-flex">
+    <Avatar label="U" size="xlarge" />
+</OverlayBadge>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="flex flex-wrap gap-8">
+        <div class="flex-auto">
+            <h5>Label</h5>
+            <Avatar label="P" class="mr-2" size="xlarge" />
+            <Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+            <Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" />
+        </div>
+
+        <div class="flex-auto">
+            <h5>Circle</h5>
+            <Avatar label="P" class="mr-2" size="xlarge" shape="circle" />
+            <Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+            <Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
+        </div>
+
+        <div class="flex-auto">
+            <h5>Badge</h5>
+            <OverlayBadge value="4" severity="danger" class="inline-flex">
+                <Avatar label="U" size="xlarge" />
+            </OverlayBadge>
+        </div>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Avatar
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| label | string | - | Defines the text to display. |
+| icon | string | - | Defines the icon to display. |
+| image | string | - | Defines the image to display. |
+| size | HintedString<"large" \| "normal" \| "xlarge"> | normal | Size of the element. |
+| shape | HintedString<"square" \| "circle"> | square | Shape of the element. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<AvatarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Avatar
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| label | string | - | Defines the text to display. |
+| icon | string | - | Defines the icon to display. |
+| image | string | - | Defines the image to display. |
+| size | HintedString<"large" \| "normal" \| "xlarge"> | normal | Size of the element. |
+| shape | HintedString<"square" \| "circle"> | square | Shape of the element. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<AvatarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Avatargroup
+
+## Avatargroup
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | AvatarPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| label | AvatarPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+| icon | AvatarPassThroughOptionType | Used to pass attributes to the icon's DOM element. |
+| image | AvatarPassThroughOptionType | Used to pass attributes to the image's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-avatar | Class name of the root element |
+| p-avatar-label | Class name of the label element |
+| p-avatar-icon | Class name of the icon element |
+
+---
+
+# Vue Badge Component
+
+Badge is a small status indicator for another element.
+
+## Accessibility
+
+Screen Reader Badge does not include any roles and attributes by default, any attribute is passed to the root element so aria roles and attributes can be added if required. If the badges are dynamic, aria-live may be utilized as well. In case badges need to be tabbable, tabindex can be added to implement custom key handlers. Keyboard Support Component does not include any interactive elements.
+
+## Basic
+
+Content to display is defined with the value property or the default slot.
+
+**Basic Usage:**
+
+```vue
+<Badge value="2"></Badge>
+<Badge>10</Badge>
+```
+
+## Button
+
+Buttons have built-in support for badges to display a badge inline.
+
+**Basic Usage:**
+
+```vue
+<Button type="button" label="Notifications" icon="pi pi-bell" badge="2" />
+<Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" variant="outlined" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button type="button" label="Notifications" icon="pi pi-bell" badge="2" />
+        <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" variant="outlined" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+// import as component
+import Badge from 'primevue/badge';
+import OverlayBadge from 'primevue/overlaybadge';
+```
+
+## Overlay
+
+A badge can be added to any element by encapsulating the content with the OverlayBadge component.
+
+**Basic Usage:**
+
+```vue
+<OverlayBadge value="2">
+    <i class="pi pi-bell" style="font-size: 2rem" />
+</OverlayBadge>
+<OverlayBadge value="4" severity="danger">
+    <i class="pi pi-calendar" style="font-size: 2rem" />
+</OverlayBadge>
+<OverlayBadge severity="danger">
+    <i class="pi pi-envelope" style="font-size: 2rem" />
+</OverlayBadge>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-6">
+        <OverlayBadge value="2">
+            <i class="pi pi-bell" style="font-size: 2rem" />
+        </OverlayBadge>
+        <OverlayBadge value="4" severity="danger">
+            <i class="pi pi-calendar" style="font-size: 2rem" />
+        </OverlayBadge>
+        <OverlayBadge severity="danger">
+            <i class="pi pi-envelope" style="font-size: 2rem" />
+        </OverlayBadge>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Severity
+
+Severity defines the variant of a badge.
+
+**Basic Usage:**
+
+```vue
+<Badge value="2"></Badge>
+<Badge value="6" severity="secondary"></Badge>
+<Badge value="8" severity="success"></Badge>
+<Badge value="4" severity="info"></Badge>
+<Badge value="9" severity="warn"></Badge>
+<Badge value="3" severity="danger"></Badge>
+<Badge value="5" severity="contrast"></Badge>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-2">
+        <Badge value="2"></Badge>
+        <Badge value="6" severity="secondary"></Badge>
+        <Badge value="8" severity="success"></Badge>
+        <Badge value="4" severity="info"></Badge>
+        <Badge value="9" severity="warn"></Badge>
+        <Badge value="3" severity="danger"></Badge>
+        <Badge value="5" severity="contrast"></Badge>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Size
+
+Use the size property to customize the dimensions of a Badge.
+
+**Basic Usage:**
+
+```vue
+<Badge value="8" size="xlarge" severity="success"></Badge>
+<Badge value="6" size="large" severity="warn"></Badge>
+<Badge value="4" severity="info"></Badge>
+<Badge value="2" size="small"></Badge>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-2">
+        <Badge value="8" size="xlarge" severity="success"></Badge>
+        <Badge value="6" size="large" severity="warn"></Badge>
+        <Badge value="4" severity="info"></Badge>
+        <Badge value="2" size="small"></Badge>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Badge
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | string \| number | - | Value to display inside the badge. |
+| severity | null \| HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast"> | - | Severity type of the badge. |
+| size | null \| HintedString<"small" \| "large" \| "xlarge"> | - | Size of the badge, valid options are 'small', 'large', and 'xlarge'. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<BadgePassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Badge
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | string \| number | - | Value to display inside the badge. |
+| severity | null \| HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast"> | - | Severity type of the badge. |
+| size | null \| HintedString<"small" \| "large" \| "xlarge"> | - | Size of the badge, valid options are 'small', 'large', and 'xlarge'. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<BadgePassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Badgedirective
+
+## Badgedirective
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | BadgePassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-badge | Class name of the root element |
+
+---
+
+# Vue BlockUI Component
+
+BlockUI can either block other components or the whole page.
+
+## Accessibility
+
+Screen Reader BlockUI manages aria-busy state attribute when the UI gets blocked and unblocked. Any valid attribute is passed to the root element so additional attributes like role and aria-live can be used to define live regions. Keyboard Support Component does not include any interactive elements.
+
+## Basic
+
+The element to block should be placed as a child of BlockUI and blocked property is required to control the state.
+
+**Basic Usage:**
+
+```vue
+<div class="mb-4">
+    <Button label="Block" @click="blocked = true" class="mr-2"></Button>
+    <Button label="Unblock" @click="blocked = false"></Button>
+</div>
+<BlockUI :blocked="blocked">
+    <Panel header="Basic">
+        <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+    </Panel>
+</BlockUI>
+```
+
+## Document
+
+Enabling fullScreen property controls the document.
+
+**Basic Usage:**
+
+```vue
+<BlockUI :blocked="blocked" fullScreen />
+<Button label="Block" @click="blocked = true" />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import BlockUI from 'primevue/blockui';
+```
+
+## Blockui
+
+## Blockui
+
+---
+
+# Vue Breadcrumb Component
+
+Breadcrumb provides contextual information about page hierarchy.
+
+## Accessibility
+
+Screen Reader Breadcrumb uses the nav element and since any attribute is passed to the root implicitly aria-labelledby or aria-label can be used to describe the component. Inside an ordered list is used where the list item separators have aria-hidden to be able to ignored by the screen readers. If the last link represents the current route, aria-current is added with "page" as the value. Keyboard Support No special keyboard interaction is needed, all menuitems are focusable based on the page tab sequence.
+
+## Basic
+
+Breadcrumb requires a collection of menuitems as its model , the root item is defined with the home property.
+
+**Basic Usage:**
+
+```vue
+<Breadcrumb :home="home" :model="items" />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Breadcrumb from 'primevue/breadcrumb';
+```
+
+## Router
+
+Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
+
+## Template
+
+Custom content can be placed inside the items using the item template. The divider between the items has its own separator template.
+
+**Basic Usage:**
+
+```vue
+<Breadcrumb :home="home" :model="items">
+    <template #item="{ item }">
+        <a class="cursor-pointer" :href="item.url">
+            <span :class="item.icon"></span>
+        </a>
+    </template>
+    <template #separator> / </template>
+</Breadcrumb>
+```
+
+## Breadcrumb
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| model | MenuItem[] | - | An array of menuitems. |
+| home | any | - | Configuration for the home icon. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying menu element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<BreadcrumbPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Breadcrumb
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| model | MenuItem[] | - | An array of menuitems. |
+| home | any | - | Configuration for the home icon. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying menu element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<BreadcrumbPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | BreadcrumbPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| list | BreadcrumbPassThroughOptionType | Used to pass attributes to the list's DOM element. |
+| item | BreadcrumbPassThroughOptionType | Used to pass attributes to the  item's DOM element. |
+| itemLink | BreadcrumbPassThroughOptionType | Used to pass attributes to the item link's DOM element. |
+| itemIcon | BreadcrumbPassThroughOptionType | Used to pass attributes to the item icon's DOM element. |
+| itemLabel | BreadcrumbPassThroughOptionType | Used to pass attributes to the item label's DOM element. |
+| separator | BreadcrumbPassThroughOptionType | Used to pass attributes to the separator's DOM element. |
+| separatorIcon | BreadcrumbPassThroughOptionType | Used to pass attributes to the separator icon's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-breadcrumb | Class name of the root element |
+| p-breadcrumb-list | Class name of the list element |
+| p-breadcrumb-home-item | Class name of the home item element |
+| p-breadcrumb-separator | Class name of the separator element |
+| p-breadcrumb-separator-icon | Class name of the separator icon element |
+| p-breadcrumb-item | Class name of the item element |
+| p-breadcrumb-item-link | Class name of the item link element |
+| p-breadcrumb-item-icon | Class name of the item icon element |
+| p-breadcrumb-item-label | Class name of the item label element |
+
+---
+
+# Vue Button Component
+
+Button is an extension to standard input element with icons and theming.
+
+## Accessibility
+
+Screen Reader Button component renders a native button element that implicitly includes any passed prop. Text to describe the button is defined with the aria-label prop, if not present label prop is used as the value. If the button is icon only or custom templating is used, it is recommended to use aria-label so that screen readers would be able to read the element properly. Keyboard Support Key Function tab Moves focus to the button. enter Activates the button. space Activates the button.
+
+**Basic Usage:**
+
+```vue
+<Button icon="pi pi-check" aria-label="Submit" />
+
+<Button icon="pi pi-check" label="Submit" />
+
+<Button class="youtube p-0" aria-label="Youtube">
+    <i class="pi pi-youtube px-2"></i>
+    <span class="px-4">Youtube</span>
+</Button>
+```
+
+## Badge
+
+Buttons have built-in badge support with badge and badgeSeverity properties.
+
+**Basic Usage:**
+
+```vue
+<Button type="button" label="Emails" badge="2" />
+<Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" variant="outlined"  />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button type="button" label="Emails" badge="2" />
+        <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" variant="outlined"  />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Basic
+
+Text to display on a button is defined with the label property.
+
+**Basic Usage:**
+
+```vue
+<Button label="Submit" />
+```
+
+## Button Group
+
+Multiple buttons are grouped when wrapped inside an element with ButtonGroup component.
+
+**Basic Usage:**
+
+```vue
+<ButtonGroup>
+    <Button label="Save" icon="pi pi-check" />
+    <Button label="Delete" icon="pi pi-trash" />
+    <Button label="Cancel" icon="pi pi-times" />
+</ButtonGroup>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ButtonGroup>
+            <Button label="Save" icon="pi pi-check" />
+            <Button label="Delete" icon="pi pi-trash" />
+            <Button label="Cancel" icon="pi pi-times" />
+        </ButtonGroup>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Disabled
+
+When disabled is present, the element cannot be used.
+
+**Basic Usage:**
+
+```vue
+<Button label="Submit" disabled />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button label="Submit" disabled />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Headless
+
+Headless mode is enabled by adding the asChild property and defining your own UI element with the available bindings.
+
+**Basic Usage:**
+
+```vue
+<Button v-slot="slotProps" asChild>
+    <button
+        v-bind="slotProps.a11yAttrs"
+        class="rounded-lg bg-gradient-to-br from-primary-400 to-primary-700 active:from-primary-700 active:to-primary-900 text-white border-none px-6 py-3 font-bold hover:ring-2 cursor-pointer ring-offset-2 ring-offset-surface-0 dark:ring-offset-surface-900 ring-primary transition-all"
+    >
+        SIGN UP
+    </button>
+</Button>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button v-slot="slotProps" asChild>
+            <button
+                v-bind="slotProps.a11yAttrs"
+                class="rounded-lg bg-gradient-to-br from-primary-400 to-primary-700 active:from-primary-700 active:to-primary-900 text-white border-none px-6 py-3 font-bold hover:ring-2 cursor-pointer ring-offset-2 ring-offset-surface-0 dark:ring-offset-surface-900 ring-primary transition-all"
+            >
+                SIGN UP
+            </button>
+        </Button>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Icon Only
+
+Buttons can have icons without labels.
+
+**Basic Usage:**
+
+```vue
+<Button icon="pi pi-check" aria-label="Filter" />
+<Button icon="pi pi-bookmark" severity="secondary" aria-label="Bookmark" />
+<Button icon="pi pi-search" severity="success" aria-label="Search" />
+<Button icon="pi pi-user" severity="info" aria-label="User" />
+<Button icon="pi pi-bell" severity="warn" aria-label="Notification" />
+<Button icon="pi pi-heart" severity="help" aria-label="Favorite" />
+<Button icon="pi pi-times" severity="danger" aria-label="Cancel" />
+<Button icon="pi pi-star" severity="contrast" aria-label="Star" />
+
+<Button icon="pi pi-check" rounded aria-label="Filter" />
+<Button icon="pi pi-bookmark" severity="secondary" rounded aria-label="Bookmark" />
+<Button icon="pi pi-search" severity="success" rounded aria-label="Search" />
+<Button icon="pi pi-user" severity="info" rounded aria-label="User" />
+<Button icon="pi pi-bell" severity="warn" rounded aria-label="Notification" />
+<Button icon="pi pi-heart" severity="help" rounded aria-label="Favorite" />
+<Button icon="pi pi-times" severity="danger" rounded aria-label="Cancel" />
+<Button icon="pi pi-star" severity="contrast" rounded aria-label="Star" />
+
+<Button icon="pi pi-check" rounded variant="outlined" aria-label="Filter" />
+<Button icon="pi pi-bookmark" severity="secondary" rounded variant="outlined" aria-label="Bookmark" />
+<Button icon="pi pi-search" severity="success" rounded variant="outlined" aria-label="Search" />
+<Button icon="pi pi-user" severity="info" rounded variant="outlined" aria-label="User" />
+<Button icon="pi pi-bell" severity="warn" rounded variant="outlined" aria-label="Notification" />
+<Button icon="pi pi-heart" severity="help" rounded variant="outlined" aria-label="Favorite" />
+<Button icon="pi pi-times" severity="danger" rounded variant="outlined" aria-label="Cancel" />
+<Button icon="pi pi-star" severity="contrast" rounded variant="outlined" aria-label="Star" />
+
+<Button icon="pi pi-check" variant="text" raised rounded aria-label="Filter" />
+<Button icon="pi pi-bookmark" severity="secondary" variant="text" raised rounded aria-label="Bookmark" />
+<Button icon="pi pi-search" severity="success" variant="text" raised rounded aria-label="Search" />
+<Button icon="pi pi-user" severity="info" variant="text" raised rounded aria-label="User" />
+<Button icon="pi pi-bell" severity="warn" variant="text" raised rounded aria-label="Notification" />
+<Button icon="pi pi-heart" severity="help" variant="text" raised rounded aria-label="Favorite" />
+<Button icon="pi pi-times" severity="danger" variant="text" raised rounded aria-label="Cancel" />
+<Button icon="pi pi-star" severity="contrast" variant="text" raised rounded aria-label="Star" />
+
+<Button icon="pi pi-check" variant="text" rounded aria-label="Filter" />
+<Button icon="pi pi-bookmark" severity="secondary" variant="text" rounded aria-label="Bookmark" />
+<Button icon="pi pi-search" severity="success" variant="text" rounded aria-label="Search" />
+<Button icon="pi pi-user" severity="info" variant="text" rounded aria-label="User" />
+<Button icon="pi pi-bell" severity="warn" variant="text" rounded aria-label="Notification" />
+<Button icon="pi pi-heart" severity="help" variant="text" rounded aria-label="Favorite" />
+<Button icon="pi pi-times" severity="danger" variant="text" rounded aria-label="Cancel" />
+<Button icon="pi pi-star" severity="contrast" variant="text" rounded aria-label="Star" />
+```
+
+## Icons
+
+Icon of a button is specified with icon property and position is configured using iconPos attribute.
+
+**Basic Usage:**
+
+```vue
+<Button icon="pi pi-home" aria-label="Save" />
+<Button label="Profile" icon="pi pi-user" />
+<Button label="Save" icon="pi pi-check" iconPos="right" />
+<Button label="Search" icon="pi pi-search" iconPos="top" />
+<Button label="Update" icon="pi pi-refresh" iconPos="bottom" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <div class="flex flex-wrap gap-4 justify-center">
+            <Button icon="pi pi-home" aria-label="Save" />
+            <Button label="Profile" icon="pi pi-user" />
+            <Button label="Save" icon="pi pi-check" iconPos="right" />
+        </div>
+        <div class="flex flex-wrap gap-4 justify-center">
+            <Button label="Search" icon="pi pi-search" iconPos="top" />
+            <Button label="Update" icon="pi pi-refresh" iconPos="bottom" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Button from 'primevue/button';
+```
+
+## Link
+
+The button element can be displayed as a link element visually when the link property is present. If you need to customize the rendering, use the as to change the element or asChild for advanced templating.
+
+**Basic Usage:**
+
+```vue
+<Button label="Link" variant="link" />
+<Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
+<Button asChild v-slot="slotProps">
+    <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
+</Button>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center gap-4">
+        <Button label="Link" variant="link" />
+        <Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
+        <Button asChild v-slot="slotProps">
+            <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
+        </Button>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Loading
+
+Busy state is controlled with the loading property.
+
+**Basic Usage:**
+
+```vue
+<Button type="button" label="Search" icon="pi pi-search" :loading="loading" @click="load" />
+```
+
+## Outlined
+
+Outlined buttons display a border without a transparent background.
+
+**Basic Usage:**
+
+```vue
+<Button label="Primary" variant="outlined" />
+<Button label="Secondary" severity="secondary" variant="outlined" />
+<Button label="Success" severity="success" variant="outlined" />
+<Button label="Info" severity="info" variant="outlined" />
+<Button label="Warn" severity="warn" variant="outlined" />
+<Button label="Help" severity="help" variant="outlined" />
+<Button label="Danger" severity="danger" variant="outlined" />
+<Button label="Contrast" severity="contrast" variant="outlined" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" variant="outlined" />
+        <Button label="Secondary" severity="secondary" variant="outlined" />
+        <Button label="Success" severity="success" variant="outlined" />
+        <Button label="Info" severity="info" variant="outlined" />
+        <Button label="Warn" severity="warn" variant="outlined" />
+        <Button label="Help" severity="help" variant="outlined" />
+        <Button label="Danger" severity="danger" variant="outlined" />
+        <Button label="Contrast" severity="contrast" variant="outlined" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Raised
+
+Raised buttons display a shadow to indicate elevation.
+
+**Basic Usage:**
+
+```vue
+<Button label="Primary" raised />
+<Button label="Secondary" severity="secondary" raised />
+<Button label="Success" severity="success" raised />
+<Button label="Info" severity="info" raised />
+<Button label="Warn" severity="warn" raised />
+<Button label="Help" severity="help" raised />
+<Button label="Danger" severity="danger" raised />
+<Button label="Contrast" severity="contrast" raised />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" raised />
+        <Button label="Secondary" severity="secondary" raised />
+        <Button label="Success" severity="success" raised />
+        <Button label="Info" severity="info" raised />
+        <Button label="Warn" severity="warn" raised />
+        <Button label="Help" severity="help" raised />
+        <Button label="Danger" severity="danger" raised />
+        <Button label="Contrast" severity="contrast" raised />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Raised Text
+
+Text buttons can be displayed elevated with the raised option.
+
+**Basic Usage:**
+
+```vue
+<Button label="Primary" variant="text" raised />
+<Button label="Secondary" severity="secondary" variant="text" raised />
+<Button label="Success" severity="success" variant="text" raised />
+<Button label="Info" severity="info" variant="text" raised />
+<Button label="Warn" severity="warn" variant="text" raised />
+<Button label="Help" severity="help" variant="text" raised />
+<Button label="Danger" severity="danger" variant="text" raised />
+<Button label="Contrast" severity="contrast" variant="text" raised />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" variant="text" raised />
+        <Button label="Secondary" severity="secondary" variant="text" raised />
+        <Button label="Success" severity="success" variant="text" raised />
+        <Button label="Info" severity="info" variant="text" raised />
+        <Button label="Warn" severity="warn" variant="text" raised />
+        <Button label="Help" severity="help" variant="text" raised />
+        <Button label="Danger" severity="danger" variant="text" raised />
+        <Button label="Contrast" severity="contrast" variant="text" raised />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Rounded
+
+Rounded buttons have a circular border radius.
+
+**Basic Usage:**
+
+```vue
+<Button label="Primary" rounded />
+<Button label="Secondary" severity="secondary" rounded />
+<Button label="Success" severity="success" rounded />
+<Button label="Info" severity="info" rounded />
+<Button label="Warn" severity="warn" rounded />
+<Button label="Help" severity="help" rounded />
+<Button label="Danger" severity="danger" rounded />
+<Button label="Contrast" severity="contrast" rounded />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" rounded />
+        <Button label="Secondary" severity="secondary" rounded />
+        <Button label="Success" severity="success" rounded />
+        <Button label="Info" severity="info" rounded />
+        <Button label="Warn" severity="warn" rounded />
+        <Button label="Help" severity="help" rounded />
+        <Button label="Danger" severity="danger" rounded />
+        <Button label="Contrast" severity="contrast" rounded />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Severity
+
+The severity property defines the variant of a button.
+
+**Basic Usage:**
+
+```vue
+<Button label="Primary" />
+<Button label="Secondary" severity="secondary" />
+<Button label="Success" severity="success" />
+<Button label="Info" severity="info" />
+<Button label="Warn" severity="warn" />
+<Button label="Help" severity="help" />
+<Button label="Danger" severity="danger" />
+<Button label="Contrast" severity="contrast" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" />
+        <Button label="Secondary" severity="secondary" />
+        <Button label="Success" severity="success" />
+        <Button label="Info" severity="info" />
+        <Button label="Warn" severity="warn" />
+        <Button label="Help" severity="help" />
+        <Button label="Danger" severity="danger" />
+        <Button label="Contrast" severity="contrast" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Sizes
+
+Button provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<Button label="Small" icon="pi pi-check" size="small" />
+<Button label="Normal" icon="pi pi-check" />
+<Button label="Large" icon="pi pi-check" size="large" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap items-center justify-center gap-4">
+        <Button label="Small" icon="pi pi-check" size="small" />
+        <Button label="Normal" icon="pi pi-check" />
+        <Button label="Large" icon="pi pi-check" size="large" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Template
+
+Custom content inside a button is defined as children.
+
+**Basic Usage:**
+
+```vue
+<Button variant="outlined" class="!border-2">
+    <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="..." fill="var(--p-primary-color)" />
+        <path d="..." fill="var(--p-text-color)" />
+    </svg>
+</Button>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button variant="outlined" class="!border-2">
+            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                    fill="var(--p-primary-color)"
+                />
+                <path
+                    d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                    fill="var(--p-text-color)"
+                />
+            </svg>
+        </Button>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Text
+
+Text buttons are displayed as textual elements.
+
+**Basic Usage:**
+
+```vue
+<Button label="Primary" variant="text" />
+<Button label="Secondary" severity="secondary" variant="text" />
+<Button label="Success" severity="success" variant="text" />
+<Button label="Info" severity="info" variant="text" />
+<Button label="Warn" severity="warn" variant="text" />
+<Button label="Help" severity="help" variant="text" />
+<Button label="Danger" severity="danger" variant="text" />
+<Button label="Contrast" severity="contrast" variant="text" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" variant="text" />
+        <Button label="Secondary" severity="secondary" variant="text" />
+        <Button label="Success" severity="success" variant="text" />
+        <Button label="Info" severity="info" variant="text" />
+        <Button label="Warn" severity="warn" variant="text" />
+        <Button label="Help" severity="help" variant="text" />
+        <Button label="Danger" severity="danger" variant="text" />
+        <Button label="Contrast" severity="contrast" variant="text" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Button
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| aria-activedescendant | string | - | Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application. |
+| aria-atomic | Booleanish | - | Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute. |
+| aria-autocomplete | "none" \| "inline" \| "list" \| "both" | - | Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made. |
+| aria-busy | Booleanish | - | Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user. |
+| aria-checked | Booleanish \| "mixed" | - | Indicates the current "checked" state of checkboxes, radio buttons, and other widgets. |
+| aria-colcount | Numberish | - | Defines the total number of columns in a table, grid, or treegrid. |
+| aria-colindex | Numberish | - | Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid. |
+| aria-colspan | Numberish | - | Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-controls | string | - | Identifies the element (or elements) whose contents or presence are controlled by the current element. |
+| aria-current | Booleanish \| "page" \| "step" \| "location" \| "date" \| "time" | - | Indicates the element that represents the current item within a container or set of related elements. |
+| aria-describedby | string | - | Identifies the element (or elements) that describes the object. |
+| aria-details | string | - | Identifies the element that provides a detailed, extended description for the object. |
+| aria-disabled | Booleanish | - | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable. |
+| aria-dropeffect | "link" \| "none" \| "copy" \| "execute" \| "move" \| "popup" | - | Indicates what functions can be performed when a dragged object is released on the drop target. |
+| aria-errormessage | string | - | Identifies the element that provides an error message for the object. |
+| aria-expanded | Booleanish | - | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. |
+| aria-flowto | string | - | Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order. |
+| aria-grabbed | Booleanish | - | Indicates an element's "grabbed" state in a drag-and-drop operation. |
+| aria-haspopup | Booleanish \| "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" | - | Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. |
+| aria-hidden | Booleanish | - | Indicates whether the element is exposed to an accessibility API. |
+| aria-invalid | Booleanish \| "grammar" \| "spelling" | - | Indicates the entered value does not conform to the format expected by the application. |
+| aria-keyshortcuts | string | - | Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element. |
+| aria-label | string | - | Defines a string value that labels the current element. |
+| aria-labelledby | string | - | Identifies the element (or elements) that labels the current element. |
+| aria-level | Numberish | - | Defines the hierarchical level of an element within a structure. |
+| aria-live | "off" \| "assertive" \| "polite" | - | Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region. |
+| aria-modal | Booleanish | - | Indicates whether an element is modal when displayed. |
+| aria-multiline | Booleanish | - | Indicates whether a text box accepts multiple lines of input or only a single line. |
+| aria-multiselectable | Booleanish | - | Indicates that the user may select more than one item from the current selectable descendants. |
+| aria-orientation | "horizontal" \| "vertical" | - | Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous. |
+| aria-owns | string | - | Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship. |
+| aria-placeholder | string | - | Defines a short hint (a word or short phrase) intended to aid the user with data entry when the control has no value. A hint could be a sample value or a brief description of the expected format. |
+| aria-posinset | Numberish | - | Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-pressed | Booleanish \| "mixed" | - | Indicates the current "pressed" state of toggle buttons. |
+| aria-readonly | Booleanish | - | Indicates that the element is not editable, but is otherwise operable. |
+| aria-relevant | "text" \| "additions" \| "additions removals" \| "additions text" \| "all" \| "removals" \| "removals additions" \| "removals text" \| "text additions" \| "text removals" | - | Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. |
+| aria-required | Booleanish | - | Indicates that user input is required on the element before a form may be submitted. |
+| aria-roledescription | string | - | Defines a human-readable, author-localized description for the role of an element. |
+| aria-rowcount | Numberish | - | Defines the total number of rows in a table, grid, or treegrid. |
+| aria-rowindex | Numberish | - | Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid. |
+| aria-rowspan | Numberish | - | Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-selected | Booleanish | - | Indicates the current "selected" state of various widgets. |
+| aria-setsize | Numberish | - | Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-sort | "none" \| "ascending" \| "descending" \| "other" | - | Indicates if items in a table or grid are sorted in ascending or descending order. |
+| aria-valuemax | Numberish | - | Defines the maximum allowed value for a range widget. |
+| aria-valuemin | Numberish | - | Defines the minimum allowed value for a range widget. |
+| aria-valuenow | Numberish | - | Defines the current value for a range widget. |
+| aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
+| innerHTML | string | - |  |
+| accesskey | string | - |  |
+| contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |
+| contextmenu | string | - |  |
+| dir | string | - |  |
+| draggable | Booleanish | - |  |
+| hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
+| id | string | - |  |
+| inert | Booleanish | - |  |
+| lang | string | - |  |
+| placeholder | string | - |  |
+| spellcheck | Booleanish | - |  |
+| tabindex | Numberish | - |  |
+| title | string | - |  |
+| translate | "yes" \| "no" | - |  |
+| radiogroup | string | - |  |
+| role | string | - |  |
+| about | string | - |  |
+| datatype | string | - |  |
+| inlist | any | - |  |
+| prefix | string | - |  |
+| property | string | - |  |
+| resource | string | - |  |
+| typeof | string | - |  |
+| vocab | string | - |  |
+| autocapitalize | string | - |  |
+| autocorrect | string | - |  |
+| autosave | string | - |  |
+| color | string | - |  |
+| itemprop | string | - |  |
+| itemscope | Booleanish | - |  |
+| itemtype | string | - |  |
+| itemid | string | - |  |
+| itemref | string | - |  |
+| results | Numberish | - |  |
+| security | string | - |  |
+| unselectable | "on" \| "off" | - |  |
+| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| autofocus | Booleanish | - |  |
+| disabled | Booleanish | - |  |
+| form | string | - |  |
+| formaction | string | - |  |
+| formenctype | string | - |  |
+| formmethod | string | - |  |
+| formnovalidate | Booleanish | - |  |
+| formtarget | string | - |  |
+| name | string | - |  |
+| type | "submit" \| "reset" \| "button" | - |  |
+| value | string \| number \| readonly string[] | - |  |
+| onCopy | Function | - |  |
+| onCut | Function | - |  |
+| onPaste | Function | - |  |
+| onCompositionend | Function | - |  |
+| onCompositionstart | Function | - |  |
+| onCompositionupdate | Function | - |  |
+| onDrag | Function | - |  |
+| onDragend | Function | - |  |
+| onDragenter | Function | - |  |
+| onDragexit | Function | - |  |
+| onDragleave | Function | - |  |
+| onDragover | Function | - |  |
+| onDragstart | Function | - |  |
+| onDrop | Function | - |  |
+| onFocus | Function | - |  |
+| onFocusin | Function | - |  |
+| onFocusout | Function | - |  |
+| onBlur | Function | - |  |
+| onChange | Function | - |  |
+| onBeforeinput | Function | - |  |
+| onFormdata | Function | - |  |
+| onInput | Function | - |  |
+| onReset | Function | - |  |
+| onSubmit | Function | - |  |
+| onInvalid | Function | - |  |
+| onFullscreenchange | Function | - |  |
+| onFullscreenerror | Function | - |  |
+| onLoad | Function | - |  |
+| onError | Function | - |  |
+| onKeydown | Function | - |  |
+| onKeypress | Function | - |  |
+| onKeyup | Function | - |  |
+| onDblclick | Function | - |  |
+| onMousedown | Function | - |  |
+| onMouseenter | Function | - |  |
+| onMouseleave | Function | - |  |
+| onMousemove | Function | - |  |
+| onMouseout | Function | - |  |
+| onMouseover | Function | - |  |
+| onMouseup | Function | - |  |
+| onAbort | Function | - |  |
+| onCanplay | Function | - |  |
+| onCanplaythrough | Function | - |  |
+| onDurationchange | Function | - |  |
+| onEmptied | Function | - |  |
+| onEncrypted | Function | - |  |
+| onEnded | Function | - |  |
+| onLoadeddata | Function | - |  |
+| onLoadedmetadata | Function | - |  |
+| onLoadstart | Function | - |  |
+| onPause | Function | - |  |
+| onPlay | Function | - |  |
+| onPlaying | Function | - |  |
+| onProgress | Function | - |  |
+| onRatechange | Function | - |  |
+| onSeeked | Function | - |  |
+| onSeeking | Function | - |  |
+| onStalled | Function | - |  |
+| onSuspend | Function | - |  |
+| onTimeupdate | Function | - |  |
+| onVolumechange | Function | - |  |
+| onWaiting | Function | - |  |
+| onSelect | Function | - |  |
+| onScroll | Function | - |  |
+| onScrollend | Function | - |  |
+| onTouchcancel | Function | - |  |
+| onTouchend | Function | - |  |
+| onTouchmove | Function | - |  |
+| onTouchstart | Function | - |  |
+| onAuxclick | Function | - |  |
+| onClick | Function | - |  |
+| onContextmenu | Function | - |  |
+| onGotpointercapture | Function | - |  |
+| onLostpointercapture | Function | - |  |
+| onPointerdown | Function | - |  |
+| onPointermove | Function | - |  |
+| onPointerup | Function | - |  |
+| onPointercancel | Function | - |  |
+| onPointerenter | Function | - |  |
+| onPointerleave | Function | - |  |
+| onPointerover | Function | - |  |
+| onPointerout | Function | - |  |
+| onBeforetoggle | Function | - |  |
+| onToggle | Function | - |  |
+| onWheel | Function | - |  |
+| onAnimationcancel | Function | - |  |
+| onAnimationstart | Function | - |  |
+| onAnimationend | Function | - |  |
+| onAnimationiteration | Function | - |  |
+| onSecuritypolicyviolation | Function | - |  |
+| onTransitioncancel | Function | - |  |
+| onTransitionend | Function | - |  |
+| onTransitionrun | Function | - |  |
+| onTransitionstart | Function | - |  |
+| style | any | - | Inline style of the button. |
+| class | any | - | Style class of the button. |
+| label | string | - | Text of the button. |
+| icon | string | - | Name of the icon. |
+| iconPos | HintedString<"left" \| "right" \| "top" \| "bottom"> | left | Position of the icon. |
+| iconClass | string \| object | - | Style class of the icon. |
+| badge | string | - | Value of the badge. |
+| badgeClass | string \| object | - | Style class of the badge. |
+| badgeSeverity | null \| HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast"> | - | Severity type of the badge. |
+| loading | boolean | false | Whether the button is in loading state. |
+| loadingIcon | string | - | Icon to display in loading state. |
+| as | string \| Component | BUTTON | Use to change the HTML tag of root element. |
+| asChild | boolean | false | When enabled, it changes the default rendered element for the one passed as a child element. |
+| link | boolean | false | Add a link style to the button. |
+| severity | HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast" \| "help"> | - | Defines the style of the button. |
+| raised | boolean | false | Add a shadow to indicate elevation. |
+| rounded | boolean | false | Add a circular border radius to the button. |
+| text | boolean | false | Add a textual class to the button without a background initially. |
+| outlined | boolean | false | Add a border class without a background initially. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the button. |
+| variant | HintedString<"outlined" \| "text" \| "link"> | undefined | Specifies the variant of the component. |
+| plain | boolean | false | Add a plain textual class to the button without a background initially. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ButtonPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Button
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| aria-activedescendant | string | - | Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application. |
+| aria-atomic | Booleanish | - | Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute. |
+| aria-autocomplete | "none" \| "inline" \| "list" \| "both" | - | Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made. |
+| aria-busy | Booleanish | - | Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user. |
+| aria-checked | Booleanish \| "mixed" | - | Indicates the current "checked" state of checkboxes, radio buttons, and other widgets. |
+| aria-colcount | Numberish | - | Defines the total number of columns in a table, grid, or treegrid. |
+| aria-colindex | Numberish | - | Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid. |
+| aria-colspan | Numberish | - | Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-controls | string | - | Identifies the element (or elements) whose contents or presence are controlled by the current element. |
+| aria-current | Booleanish \| "page" \| "step" \| "location" \| "date" \| "time" | - | Indicates the element that represents the current item within a container or set of related elements. |
+| aria-describedby | string | - | Identifies the element (or elements) that describes the object. |
+| aria-details | string | - | Identifies the element that provides a detailed, extended description for the object. |
+| aria-disabled | Booleanish | - | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable. |
+| aria-dropeffect | "link" \| "none" \| "copy" \| "execute" \| "move" \| "popup" | - | Indicates what functions can be performed when a dragged object is released on the drop target. |
+| aria-errormessage | string | - | Identifies the element that provides an error message for the object. |
+| aria-expanded | Booleanish | - | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. |
+| aria-flowto | string | - | Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order. |
+| aria-grabbed | Booleanish | - | Indicates an element's "grabbed" state in a drag-and-drop operation. |
+| aria-haspopup | Booleanish \| "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" | - | Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. |
+| aria-hidden | Booleanish | - | Indicates whether the element is exposed to an accessibility API. |
+| aria-invalid | Booleanish \| "grammar" \| "spelling" | - | Indicates the entered value does not conform to the format expected by the application. |
+| aria-keyshortcuts | string | - | Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element. |
+| aria-label | string | - | Defines a string value that labels the current element. |
+| aria-labelledby | string | - | Identifies the element (or elements) that labels the current element. |
+| aria-level | Numberish | - | Defines the hierarchical level of an element within a structure. |
+| aria-live | "off" \| "assertive" \| "polite" | - | Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region. |
+| aria-modal | Booleanish | - | Indicates whether an element is modal when displayed. |
+| aria-multiline | Booleanish | - | Indicates whether a text box accepts multiple lines of input or only a single line. |
+| aria-multiselectable | Booleanish | - | Indicates that the user may select more than one item from the current selectable descendants. |
+| aria-orientation | "horizontal" \| "vertical" | - | Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous. |
+| aria-owns | string | - | Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship. |
+| aria-placeholder | string | - | Defines a short hint (a word or short phrase) intended to aid the user with data entry when the control has no value. A hint could be a sample value or a brief description of the expected format. |
+| aria-posinset | Numberish | - | Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-pressed | Booleanish \| "mixed" | - | Indicates the current "pressed" state of toggle buttons. |
+| aria-readonly | Booleanish | - | Indicates that the element is not editable, but is otherwise operable. |
+| aria-relevant | "text" \| "additions" \| "additions removals" \| "additions text" \| "all" \| "removals" \| "removals additions" \| "removals text" \| "text additions" \| "text removals" | - | Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. |
+| aria-required | Booleanish | - | Indicates that user input is required on the element before a form may be submitted. |
+| aria-roledescription | string | - | Defines a human-readable, author-localized description for the role of an element. |
+| aria-rowcount | Numberish | - | Defines the total number of rows in a table, grid, or treegrid. |
+| aria-rowindex | Numberish | - | Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid. |
+| aria-rowspan | Numberish | - | Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-selected | Booleanish | - | Indicates the current "selected" state of various widgets. |
+| aria-setsize | Numberish | - | Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-sort | "none" \| "ascending" \| "descending" \| "other" | - | Indicates if items in a table or grid are sorted in ascending or descending order. |
+| aria-valuemax | Numberish | - | Defines the maximum allowed value for a range widget. |
+| aria-valuemin | Numberish | - | Defines the minimum allowed value for a range widget. |
+| aria-valuenow | Numberish | - | Defines the current value for a range widget. |
+| aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
+| innerHTML | string | - |  |
+| accesskey | string | - |  |
+| contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |
+| contextmenu | string | - |  |
+| dir | string | - |  |
+| draggable | Booleanish | - |  |
+| hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
+| id | string | - |  |
+| inert | Booleanish | - |  |
+| lang | string | - |  |
+| placeholder | string | - |  |
+| spellcheck | Booleanish | - |  |
+| tabindex | Numberish | - |  |
+| title | string | - |  |
+| translate | "yes" \| "no" | - |  |
+| radiogroup | string | - |  |
+| role | string | - |  |
+| about | string | - |  |
+| datatype | string | - |  |
+| inlist | any | - |  |
+| prefix | string | - |  |
+| property | string | - |  |
+| resource | string | - |  |
+| typeof | string | - |  |
+| vocab | string | - |  |
+| autocapitalize | string | - |  |
+| autocorrect | string | - |  |
+| autosave | string | - |  |
+| color | string | - |  |
+| itemprop | string | - |  |
+| itemscope | Booleanish | - |  |
+| itemtype | string | - |  |
+| itemid | string | - |  |
+| itemref | string | - |  |
+| results | Numberish | - |  |
+| security | string | - |  |
+| unselectable | "on" \| "off" | - |  |
+| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| autofocus | Booleanish | - |  |
+| disabled | Booleanish | - |  |
+| form | string | - |  |
+| formaction | string | - |  |
+| formenctype | string | - |  |
+| formmethod | string | - |  |
+| formnovalidate | Booleanish | - |  |
+| formtarget | string | - |  |
+| name | string | - |  |
+| type | "submit" \| "reset" \| "button" | - |  |
+| value | string \| number \| readonly string[] | - |  |
+| onCopy | Function | - |  |
+| onCut | Function | - |  |
+| onPaste | Function | - |  |
+| onCompositionend | Function | - |  |
+| onCompositionstart | Function | - |  |
+| onCompositionupdate | Function | - |  |
+| onDrag | Function | - |  |
+| onDragend | Function | - |  |
+| onDragenter | Function | - |  |
+| onDragexit | Function | - |  |
+| onDragleave | Function | - |  |
+| onDragover | Function | - |  |
+| onDragstart | Function | - |  |
+| onDrop | Function | - |  |
+| onFocus | Function | - |  |
+| onFocusin | Function | - |  |
+| onFocusout | Function | - |  |
+| onBlur | Function | - |  |
+| onChange | Function | - |  |
+| onBeforeinput | Function | - |  |
+| onFormdata | Function | - |  |
+| onInput | Function | - |  |
+| onReset | Function | - |  |
+| onSubmit | Function | - |  |
+| onInvalid | Function | - |  |
+| onFullscreenchange | Function | - |  |
+| onFullscreenerror | Function | - |  |
+| onLoad | Function | - |  |
+| onError | Function | - |  |
+| onKeydown | Function | - |  |
+| onKeypress | Function | - |  |
+| onKeyup | Function | - |  |
+| onDblclick | Function | - |  |
+| onMousedown | Function | - |  |
+| onMouseenter | Function | - |  |
+| onMouseleave | Function | - |  |
+| onMousemove | Function | - |  |
+| onMouseout | Function | - |  |
+| onMouseover | Function | - |  |
+| onMouseup | Function | - |  |
+| onAbort | Function | - |  |
+| onCanplay | Function | - |  |
+| onCanplaythrough | Function | - |  |
+| onDurationchange | Function | - |  |
+| onEmptied | Function | - |  |
+| onEncrypted | Function | - |  |
+| onEnded | Function | - |  |
+| onLoadeddata | Function | - |  |
+| onLoadedmetadata | Function | - |  |
+| onLoadstart | Function | - |  |
+| onPause | Function | - |  |
+| onPlay | Function | - |  |
+| onPlaying | Function | - |  |
+| onProgress | Function | - |  |
+| onRatechange | Function | - |  |
+| onSeeked | Function | - |  |
+| onSeeking | Function | - |  |
+| onStalled | Function | - |  |
+| onSuspend | Function | - |  |
+| onTimeupdate | Function | - |  |
+| onVolumechange | Function | - |  |
+| onWaiting | Function | - |  |
+| onSelect | Function | - |  |
+| onScroll | Function | - |  |
+| onScrollend | Function | - |  |
+| onTouchcancel | Function | - |  |
+| onTouchend | Function | - |  |
+| onTouchmove | Function | - |  |
+| onTouchstart | Function | - |  |
+| onAuxclick | Function | - |  |
+| onClick | Function | - |  |
+| onContextmenu | Function | - |  |
+| onGotpointercapture | Function | - |  |
+| onLostpointercapture | Function | - |  |
+| onPointerdown | Function | - |  |
+| onPointermove | Function | - |  |
+| onPointerup | Function | - |  |
+| onPointercancel | Function | - |  |
+| onPointerenter | Function | - |  |
+| onPointerleave | Function | - |  |
+| onPointerover | Function | - |  |
+| onPointerout | Function | - |  |
+| onBeforetoggle | Function | - |  |
+| onToggle | Function | - |  |
+| onWheel | Function | - |  |
+| onAnimationcancel | Function | - |  |
+| onAnimationstart | Function | - |  |
+| onAnimationend | Function | - |  |
+| onAnimationiteration | Function | - |  |
+| onSecuritypolicyviolation | Function | - |  |
+| onTransitioncancel | Function | - |  |
+| onTransitionend | Function | - |  |
+| onTransitionrun | Function | - |  |
+| onTransitionstart | Function | - |  |
+| style | any | - | Inline style of the button. |
+| class | any | - | Style class of the button. |
+| label | string | - | Text of the button. |
+| icon | string | - | Name of the icon. |
+| iconPos | HintedString<"left" \| "right" \| "top" \| "bottom"> | left | Position of the icon. |
+| iconClass | string \| object | - | Style class of the icon. |
+| badge | string | - | Value of the badge. |
+| badgeClass | string \| object | - | Style class of the badge. |
+| badgeSeverity | null \| HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast"> | - | Severity type of the badge. |
+| loading | boolean | false | Whether the button is in loading state. |
+| loadingIcon | string | - | Icon to display in loading state. |
+| as | string \| Component | BUTTON | Use to change the HTML tag of root element. |
+| asChild | boolean | false | When enabled, it changes the default rendered element for the one passed as a child element. |
+| link | boolean | false | Add a link style to the button. |
+| severity | HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast" \| "help"> | - | Defines the style of the button. |
+| raised | boolean | false | Add a shadow to indicate elevation. |
+| rounded | boolean | false | Add a circular border radius to the button. |
+| text | boolean | false | Add a textual class to the button without a background initially. |
+| outlined | boolean | false | Add a border class without a background initially. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the button. |
+| variant | HintedString<"outlined" \| "text" \| "link"> | undefined | Specifies the variant of the component. |
+| plain | boolean | false | Add a plain textual class to the button without a background initially. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ButtonPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Buttongroup
+
+## Buttongroup
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ButtonPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| loadingIcon | ButtonPassThroughOptionType<T> | Used to pass attributes to the loading icon's DOM element. |
+| icon | ButtonPassThroughOptionType<T> | Used to pass attributes to the icon's DOM element. |
+| label | ButtonPassThroughOptionType<T> | Used to pass attributes to the label's DOM element. |
+| pcBadge | ButtonPassThroughOptionType<T> | Used to pass attributes to the Badge component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-button | Class name of the root element |
+| p-button-loading-icon | Class name of the loading icon element |
+| p-button-icon | Class name of the icon element |
+| p-button-label | Class name of the label element |
+
+---
+
+# Vue Card Component
+
+Card is a flexible container component.
+
+## Accessibility
+
+Screen Reader A card can be utilized in many use cases as a result no role is enforced, in fact a role may not be necessary if the card is used for presentational purposes only. Any valid attribute is passed to the container element so if you require to use one of the landmark roles like region , you may use the role property. Keyboard Support Component does not include any interactive elements.
+
+**Basic Usage:**
+
+```vue
+<Card role="region">
+    Content
+</Card>
+```
+
+## Advanced
+
+Card provides header , title , subtitle , content and footer as the named templates to place content.
+
+**Basic Usage:**
+
+```vue
+<Card style="width: 25rem; overflow: hidden">
+    <template #header>
+        <img alt="user header" src="/images/usercard.png" />
+    </template>
+    <template #title>Advanced Card</template>
+    <template #subtitle>Card subtitle</template>
+    <template #content>
+        <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+            quas!
+        </p>
+    </template>
+    <template #footer>
+        <div class="flex gap-4 mt-1">
+            <Button label="Cancel" severity="secondary" variant="outlined" class="w-full" />
+            <Button label="Save" class="w-full" />
+        </div>
+    </template>
+</Card>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <Card style="width: 25rem; overflow: hidden">
+        <template #header>
+            <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
+        </template>
+        <template #title>Advanced Card</template>
+        <template #subtitle>Card subtitle</template>
+        <template #content>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+                quas!
+            </p>
+        </template>
+        <template #footer>
+            <div class="flex gap-4 mt-1">
+                <Button label="Cancel" severity="secondary" variant="outlined" class="w-full" />
+                <Button label="Save" class="w-full" />
+            </div>
+        </template>
+    </Card>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Basic
+
+A simple Card is created with a title property along with the content as children.
+
+**Basic Usage:**
+
+```vue
+<Card>
+    <template #title>Simple Card</template>
+    <template #content>
+        <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+            quas!
+        </p>
+    </template>
+</Card>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Card from 'primevue/card';
+```
+
+## Card
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<CardPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Card
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<CardPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | CardPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| header | CardPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| body | CardPassThroughOptionType | Used to pass attributes to the body's DOM element. |
+| caption | CardPassThroughOptionType | Used to pass attributes to the caption's DOM element. |
+| title | CardPassThroughOptionType | Used to pass attributes to the title's DOM element. |
+| subtitle | CardPassThroughOptionType | Used to pass attributes to the subtitle's DOM element. |
+| content | CardPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| footer | CardPassThroughOptionType | Used to pass attributes to the footer's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-card | Class name of the root element |
+| p-card-header | Class name of the header element |
+| p-card-body | Class name of the body element |
+| p-card-caption | Class name of the caption element |
+| p-card-title | Class name of the title element |
+| p-card-subtitle | Class name of the subtitle element |
+| p-card-content | Class name of the content element |
+| p-card-footer | Class name of the footer element |
+
+---
+
+# Vue Carousel Component
+
+Carousel is a content slider featuring various customization options.
+
+## Accessibility
+
+Screen Reader Carousel uses region role and since any attribute is passed to the main container element, attributes such as aria-label and aria-roledescription can be used as well. The slides container has aria-live attribute set as "polite" if carousel is not in autoplay mode, otherwise "off" would be the value in autoplay. A slide has a group role with an aria-label that refers to the aria.slideNumber property of the locale API. Similarly aria.slide is used as the aria-roledescription of the item. Inactive slides are hidden from the readers with aria-hidden . Next and Previous navigators are button elements with aria-label attributes referring to the aria.prevPageLabel and aria.nextPageLabel properties of the locale API by default respectively, you may still use your own aria roles and attributes as any valid attribute is passed to the button elements implicitly by using nextButtonProps and prevButtonProps . Quick navigation elements are button elements with an aria-label attribute referring to the aria.pageLabel of the locale API. Current page is marked with aria-current . Next/Prev Keyboard Support Key Function tab Moves focus through interactive elements in the carousel. enter Activates navigation. space Activates navigation. Quick Navigation Keyboard Support Key Function tab Moves focus through the active slide link. enter Activates the focused slide link. space Activates the focused slide link. right arrow Moves focus to the next slide link. left arrow Moves focus to the previous slide link. home Moves focus to the first slide link. end Moves focus to the last slide link.
+
+## Basic
+
+Carousel requires a collection of items as its value along with a template to render each item.
+
+## Circular
+
+When autoplayInterval is defined in milliseconds, items are scrolled automatically. In addition, for infinite scrolling circular property needs to be added which is enabled automatically in auto play mode.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Carousel from 'primevue/carousel';
+```
+
+## Responsive
+
+Carousel supports specific configuration per screen size with the responsiveOptions property that takes an array of objects where each object defines the max-width breakpoint , numVisible for the number of items items per page and numScroll for number of items to scroll. When responsiveOptions is defined, the numScroll and numVisible properties of the Carousel are used as default when there is breakpoint that applies.
+
+## Vertical
+
+To create a vertical Carousel, orientation needs to be set to vertical along with a verticalViewPortHeight .
+
+## Carousel
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | any | - | An array of objects to display. |
+| page | number | 0 | Index of the first item. |
+| numVisible | number | 1 | Number of items per page. |
+| numScroll | number | 1 | Number of items to scroll. |
+| responsiveOptions | CarouselResponsiveOptions[] | - | An array of options for responsive design. |
+| orientation | "horizontal" \| "vertical" | horizontal | Specifies the layout of the component, valid values are 'horizontal' and 'vertical'. |
+| verticalViewPortHeight | string | 300px | Height of the viewport in vertical layout. |
+| containerClass | any | - | Style class of the viewport container. |
+| contentClass | any | - | Style class of main content. |
+| indicatorsContentClass | any | - | Style class of the indicator items. |
+| circular | boolean | false | Defines if scrolling would be infinite. |
+| autoplayInterval | number | 0 | Time in milliseconds to scroll items automatically. |
+| showNavigators | boolean | true | Whether to display navigation buttons in container. |
+| showIndicators | boolean | true | Whether to display indicator container. |
+| prevButtonProps | object | - | Used to pass attributes to the previous Button component. |
+| nextButtonProps | object | - | Used to pass attributes to the next Button component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<CarouselPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Carousel
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | any | - | An array of objects to display. |
+| page | number | 0 | Index of the first item. |
+| numVisible | number | 1 | Number of items per page. |
+| numScroll | number | 1 | Number of items to scroll. |
+| responsiveOptions | CarouselResponsiveOptions[] | - | An array of options for responsive design. |
+| orientation | "horizontal" \| "vertical" | horizontal | Specifies the layout of the component, valid values are 'horizontal' and 'vertical'. |
+| verticalViewPortHeight | string | 300px | Height of the viewport in vertical layout. |
+| containerClass | any | - | Style class of the viewport container. |
+| contentClass | any | - | Style class of main content. |
+| indicatorsContentClass | any | - | Style class of the indicator items. |
+| circular | boolean | false | Defines if scrolling would be infinite. |
+| autoplayInterval | number | 0 | Time in milliseconds to scroll items automatically. |
+| showNavigators | boolean | true | Whether to display navigation buttons in container. |
+| showIndicators | boolean | true | Whether to display indicator container. |
+| prevButtonProps | object | - | Used to pass attributes to the previous Button component. |
+| nextButtonProps | object | - | Used to pass attributes to the next Button component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<CarouselPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | CarouselPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| header | CarouselPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| contentContainer | CarouselPassThroughOptionType | Used to pass attributes to the content container's DOM element. |
+| content | CarouselPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| pcPrevButton | any | Used to pass attributes to the previous button's DOM element. |
+| viewport | CarouselPassThroughOptionType | Used to pass attributes to the viewport's DOM element. |
+| itemList | CarouselPassThroughOptionType | Used to pass attributes to the items list's DOM element. |
+| itemClone | CarouselPassThroughOptionType | Used to pass attributes to the item clone's DOM element. |
+| item | CarouselPassThroughOptionType | Used to pass attributes to the item's DOM element. |
+| pcNextButton | any | Used to pass attributes to the next button's DOM element. |
+| indicatorList | CarouselPassThroughOptionType | Used to pass attributes to the indicator list's DOM element. |
+| indicator | CarouselPassThroughOptionType | Used to pass attributes to the indicator's DOM element. |
+| indicatorButton | CarouselPassThroughOptionType | Used to pass attributes to the indicator button's DOM element. |
+| footer | CarouselPassThroughOptionType | Used to pass attributes to the footer's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-carousel | Class name of the root element |
+| p-carousel-header | Class name of the header element |
+| p-carousel-content-container | Class name of the content container element |
+| p-carousel-content | Class name of the content element |
+| p-carousel-prev-button | Class name of the previous button element |
+| p-carousel-viewport | Class name of the viewport element |
+| p-carousel-item-list | Class name of the item list element |
+| p-carousel-item-clone | Class name of the item clone element |
+| p-carousel-item | Class name of the item element |
+| p-carousel-next-button | Class name of the next button element |
+| p-carousel-indicator-list | Class name of the indicator list element |
+| p-carousel-indicator | Class name of the indicator element |
+| p-carousel-indicator-button | Class name of the indicator button element |
+| p-carousel-footer | Class name of the footer element |
+
+---
+
+# Vue CascadeSelect Component
+
+CascadeSelect is a form component to select a value from a nested structure of options.
+
+## Accessibility
+
+Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The cascadeselect element has a combobox role in addition to aria-haspopup and aria-expanded attributes. The relation between the combobox and the popup is created with aria-controls that refers to the id of the popup. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses tree as the role. Each list item has a treeitem role along with aria-label , aria-selected and aria-expanded attributes. The container element of a treenode has the group role. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Closed State Keyboard Support Key Function tab Moves focus to the cascadeselect element. space Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. enter Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. up arrow Opens the popup and moves visual focus to the selected option, if there is none then last option receives the focus. any printable character Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none then first option receives the focus. Popup Keyboard Support Key Function tab Hides the popup and moves focus to the next tabbable element. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Hides the popup and moves focus to the previous tabbable element. enter Selects the focused option and closes the popup. space Selects the focused option and closes the popup. escape Closes the popup, moves focus to the cascadeselect element. down arrow Moves focus to the next option. up arrow Moves focus to the previous option. alt + up arrow Selects the focused option and closes the popup, then moves focus to the cascadeselect element. right arrow If option is closed, opens the option otherwise moves focus to the first child option. left arrow If option is open, closes the option otherwise moves focus to the parent option. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. any printable character Moves focus to the option whose label starts with the characters being typed.
+
+**Basic Usage:**
+
+```vue
+<span id="dd1"></span>Options</span>
+<CascadeSelect aria-labelledby="dd1" />
+
+<CascadeSelect aria-label="Options" />
+```
+
+## Basic
+
+CascadeSelect is used with the v-model property for two-way value binding along with the options collection. To define the label of a group optionGroupLabel property is needed and also optionGroupChildren is required to define the property that refers to the children of a group. Note that order of the optionGroupChildren matters as it should correspond to the data hierarchy.
+
+**Basic Usage:**
+
+```vue
+<CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
+    :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+```
+
+## Clear Icon
+
+When showClear is enabled, a clear icon is added to reset the CascadeSelect.
+
+**Basic Usage:**
+
+```vue
+<CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
+    :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<CascadeSelect disabled placeholder="Disabled" class="w-56" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <CascadeSelect disabled placeholder="Disabled" class="w-56" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<CascadeSelect v-model="selectedCity" variant="filled" :options="countries" optionLabel="cname" optionGroupLabel="name"
+    :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+```
+
+## Float Label
+
+A floating label appears on top of the input field when focused. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel class="w-full md:w-56">
+    <CascadeSelect v-model="value1" inputId="over_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel class="w-full md:w-56">
+    <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" variant="filled" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel class="w-full md:w-56">
+    <CascadeSelect v-model="value3" inputId="on_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Fluid
+
+The fluid prop makes the component take up the full width of its container when set to true.
+
+**Basic Usage:**
+
+```vue
+<CascadeSelect v-model="selectedCity" fluid :options="countries" optionLabel="cname" optionGroupLabel="name"
+    :optionGroupChildren="['states', 'cities']" placeholder="Select a City" />
+```
+
+## Forms
+
+CascadeSelect integrates seamlessly with the PrimeVue Forms library.
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel class="w-full md:w-56">
+    <CascadeSelect v-model="selectedCity" inputId="cs_city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" variant="filled" />
+    <label for="cs_city">City</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import CascadeSelect from 'primevue/cascadeselect';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<div class="card flex flex-wrap justify-center gap-4">
+    <CascadeSelect v-model="selectedCity1" :invalid="!selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+        :optionGroupChildren="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City" />
+    <CascadeSelect v-model="selectedCity2" :invalid="!selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+        :optionGroupChildren="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City" variant="filled" />
+</div>
+```
+
+## Loading State
+
+Loading state can be used loading property.
+
+**Basic Usage:**
+
+```vue
+<CascadeSelect loading placeholder="Loading..." class="w-56" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <CascadeSelect loading placeholder="Loading..." class="w-56" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Sizes
+
+CascadeSelect provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<CascadeSelect v-model="value1" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" 
+    class="w-56" size="small" placeholder="Small" />
+<CascadeSelect v-model="value2" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" 
+    class="w-56" placeholder="Normal" />
+<CascadeSelect v-model="value3" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" 
+    class="w-56" size="large" placeholder="Large" />
+```
+
+## Template
+
+CascadeSelect offers multiple slots for customization through templating.
+
+**Basic Usage:**
+
+```vue
+<CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
+    :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
+    <template #option="slotProps">
+        <div class="flex items-center">
+            <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## Cascadeselect
+
+## Cascadeselect
+
+---
+
+# cdn
+
+
+
+## CreateApp
+
+Create an app container element and setup the application using createApp .
+
+## Example
+
+A complete example using a PrimeVue DatePicker. You can also view this sample live at Stackblitz .
+
+## Plugin
+
+PrimeVue plugin is required to be installed as an application plugin to set up the default configuration .
+
+**Basic Usage:**
+
+```vue
+app.use(PrimeVue.Config);
+```
+
+## Script
+
+You can use PrimeVue and Vue.js from a CDN with a script tag. This approach does not involve any build step, and is suitable for enhancing static HTML. This guide uses unpkg however other providers such as jsdeliver and cdnjs can also be used.
+
+**Basic Usage:**
+
+```vue
+https://unpkg.com/vue@3/dist/vue.global.js
+https://unpkg.com/primevue/umd/primevue.min.js
+https://unpkg.com/@primeuix/themes/umd/aura.js  // see theming for alternatives
+```
+
+## Theming
+
+Include the theme preset via a script element after adding PrimeVue, valid options are Aura, Lara, Nora and Material.
+
+**Basic Usage:**
+
+```vue
+<!-- <script src="https://unpkg.com/@primeuix/themes/umd/{preset}.js"><\/script> -->
+
+<script src="https://unpkg.com/@primeuix/themes/umd/aura.js"><\/script>
+<script src="https://unpkg.com/@primeuix/themes/umd/lara.js"><\/script>
+<script src="https://unpkg.com/@primeuix/themes/umd/nora.js"><\/script>
+<script src="https://unpkg.com/@primeuix/themes/umd/material.js"><\/script>
+```
+
+---
+
+# Vue Chart Component
+
+Chart components are based on Chart.js, an open source HTML5 based charting library.
+
+## Accessibility
+
+Screen Reader Chart components internally use canvas element, refer to the Chart.js accessibility guide for more information. The canvas element can be customized with canvasProps property to define aria roles and properties, in addition any content inside the component is directly passed as a child of the canvas to be able to provide fallback content like a table.
+
+**Basic Usage:**
+
+```vue
+<Chart type="line" :data="data" :canvasProps="{'role': 'img', 'aria-label': 'Data'}" />
+```
+
+## Basic
+
+A chart is configured with 3 properties; type , data and options . Chart type is defined using the type property that accepts pie , doughtnut , line , bar , radar and polarArea as a value. The data defines datasets represented with the chart and the options provide numerous customization options to customize the presentation.
+
+**Basic Usage:**
+
+```vue
+<Chart type="bar" :data="chartData" :options="chartOptions" />
+```
+
+## Chart.js
+
+Chart component uses Chart.JS underneath so it needs to be installed as a dependency.
+
+**Basic Usage:**
+
+```vue
+npm install chart.js
+```
+
+## Combo
+
+Different chart types can be combined in the same graph usign the type option of a dataset.
+
+**Basic Usage:**
+
+```vue
+<Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]" />
+```
+
+## Doughnut
+
+A doughnut chart is a variant of the pie chart, with a blank center allowing for additional information about the data as a whole to be included.
+
+**Basic Usage:**
+
+```vue
+<Chart type="doughnut" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
+```
+
+## HorizontalBarDoc
+
+A bar chart is rendered horizontally when indexAxis option is set as y .
+
+**Basic Usage:**
+
+```vue
+<Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]"  />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Chart from 'primevue/chart';
+```
+
+## Line
+
+A line chart or line graph is a type of chart which displays information as a series of data points called 'markers' connected by straight line segments.
+
+**Basic Usage:**
+
+```vue
+<Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
+```
+
+## Line Styles
+
+Various styles of a line series can be customized to display customizations like an area chart.
+
+**Basic Usage:**
+
+```vue
+<Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
+```
+
+## Multi Axis
+
+Multiple axes can be added using the scales option.
+
+**Basic Usage:**
+
+```vue
+<Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
+```
+
+## PieChartDoc
+
+A pie chart is a circular statistical graphic which is divided into slices to illustrate numerical proportion.
+
+**Basic Usage:**
+
+```vue
+<Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
+```
+
+## Polar Area
+
+Polar area charts are similar to pie charts, but each segment has the same angle - the radius of the segment differs depending on the value.
+
+**Basic Usage:**
+
+```vue
+<Chart type="polarArea" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
+```
+
+## Radar
+
+A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point.
+
+**Basic Usage:**
+
+```vue
+<Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
+```
+
+## StackedBarDoc
+
+Bars can be stacked on top of each other when stacked option of a scale is enabled.
+
+**Basic Usage:**
+
+```vue
+<Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]" />
+```
+
+## VerticalBarDoc
+
+A bar chart or bar graph is a chart that presents grouped data with rectangular bars with lengths proportional to the values that they represent.
+
+**Basic Usage:**
+
+```vue
+<Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]"  />
+```
+
+## Chart
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| type | string | - | Type of the chart. |
+| data | object | - | Data to display. |
+| options | object | - | Options to customize the chart. |
+| plugins | any[] | - | Used to custom plugins of the chart. |
+| width | number | 300 | Width of the chart in non-responsive mode. |
+| height | number | 150 | Height of the chart in non-responsive mode. |
+| canvasProps | CanvasHTMLAttributes | - | Used to pass all properties of the CanvasHTMLAttributes to canvas element inside the component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ChartPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Chart
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| type | string | - | Type of the chart. |
+| data | object | - | Data to display. |
+| options | object | - | Options to customize the chart. |
+| plugins | any[] | - | Used to custom plugins of the chart. |
+| width | number | 300 | Width of the chart in non-responsive mode. |
+| height | number | 150 | Height of the chart in non-responsive mode. |
+| canvasProps | CanvasHTMLAttributes | - | Used to pass all properties of the CanvasHTMLAttributes to canvas element inside the component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ChartPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ChartPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| canvas | ChartPassThroughOptionType | Used to pass attributes to the canvas's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-chart | Class name of the root element |
+
+---
+
+# Vue Checkbox Component
+
+Checkbox is an extension to standard checkbox element with theming.
+
+## Accessibility
+
+Screen Reader Checkbox component uses a hidden native checkbox element internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the checkbox. space Toggles the checked state.
+
+**Basic Usage:**
+
+```vue
+<label for="chkbox1">Remember Me</label>
+<Checkbox inputId="chkbox1" />
+
+<span id="chkbox2">Remember Me</span>
+<Checkbox aria-labelledby="chkbox2" />
+
+<Checkbox aria-label="Remember Me" />
+```
+
+## Basic
+
+Binary checkbox is used with the v-model for two-way value binding and the binary property.
+
+**Basic Usage:**
+
+```vue
+<Checkbox v-model="checked" binary />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<Checkbox v-model="checked1" binary disabled />
+<Checkbox v-model="checked2" binary disabled />
+```
+
+## Dynamic
+
+Checkboxes can be generated using a list of values.
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<Checkbox v-model="checked" binary variant="filled" />
+```
+
+## Forms
+
+Checkbox integrates seamlessly with the PrimeVue Forms library.
+
+## Group
+
+Multiple checkboxes can be grouped together.
+
+**Basic Usage:**
+
+```vue
+<div class="card flex flex-wrap justify-center gap-4">
+    <div class="flex items-center gap-2">
+        <Checkbox v-model="pizza" inputId="ingredient1" name="pizza" value="Cheese" />
+        <label for="ingredient1"> Cheese </label>
+    </div>
+    <div class="flex items-center gap-2">
+        <Checkbox v-model="pizza" inputId="ingredient2" name="pizza" value="Mushroom" />
+        <label for="ingredient2"> Mushroom </label>
+    </div>
+    <div class="flex items-center gap-2">
+        <Checkbox v-model="pizza" inputId="ingredient3" name="pizza" value="Pepper" />
+        <label for="ingredient3"> Pepper </label>
+    </div>
+    <div class="flex items-center gap-2">
+        <Checkbox v-model="pizza" inputId="ingredient4" name="pizza" value="Onion" />
+        <label for="ingredient4"> Onion </label>
+    </div>
+</div>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Checkbox from 'primevue/checkbox';
+import CheckboxGroup from 'primevue/checkboxgroup';
+```
+
+## Indeterminate
+
+When indeterminate is present, the checkbox masks the actual value visually.
+
+**Basic Usage:**
+
+```vue
+<Checkbox v-model="checked" indeterminate binary />
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<Checkbox v-model="checked" :invalid="!checked"  binary />
+```
+
+## Sizes
+
+Checkbox provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<div class="card flex flex-wrap justify-center gap-4">
+    <div class="flex items-center gap-2">
+        <Checkbox v-model="size" inputId="size_small" name="size" value="Small" size="small" />
+        <label for="size_small" class="text-sm">Small</label>
+    </div>
+    <div class="flex items-center gap-2">
+        <Checkbox v-model="size" inputId="size_normal" name="size" value="Normal" />
+        <label for="size_normal">Normal</label>
+    </div>
+    <div class="flex items-center gap-2">
+        <Checkbox v-model="size" inputId="size_large" name="size" value="Large" size="large" />
+        <label for="size_large" class="text-lg">Large</label>
+    </div>
+</div>
+```
+
+## Checkbox
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | any | - | Value of the checkbox. |
+| modelValue | any | - | Value binding of the checkbox. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | Name of the input element. |
+| binary | boolean | - | Allows to select a boolean value instead of multiple values. |
+| indeterminate | boolean | - | When present, it specifies input state as indeterminate. |
+| size | "small" \| "large" | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | - | When present, it specifies that the element should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| readonly | boolean | - | When present, it specifies that an input field is read-only. |
+| required | boolean | - | When present, it specifies that the element is required. |
+| tabindex | number | - | Index of the element in tabbing order. |
+| trueValue | any | - | Value in checked state. |
+| falseValue | any | - | Value in unchecked state. |
+| inputId | string | - | Identifier of the underlying input element. |
+| inputClass | object | - | Style class of the input field. |
+| inputStyle | string \| object | - | Inline style of the input field. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<CheckboxPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Checkbox
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | any | - | Value of the checkbox. |
+| modelValue | any | - | Value binding of the checkbox. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | Name of the input element. |
+| binary | boolean | - | Allows to select a boolean value instead of multiple values. |
+| indeterminate | boolean | - | When present, it specifies input state as indeterminate. |
+| size | "small" \| "large" | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | - | When present, it specifies that the element should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| readonly | boolean | - | When present, it specifies that an input field is read-only. |
+| required | boolean | - | When present, it specifies that the element is required. |
+| tabindex | number | - | Index of the element in tabbing order. |
+| trueValue | any | - | Value in checked state. |
+| falseValue | any | - | Value in unchecked state. |
+| inputId | string | - | Identifier of the underlying input element. |
+| inputClass | object | - | Style class of the input field. |
+| inputStyle | string \| object | - | Inline style of the input field. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<CheckboxPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Checkboxgroup
+
+## Checkboxgroup
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | CheckboxPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| input | CheckboxPassThroughOptionType | Used to pass attributes to the input's DOM element. |
+| box | CheckboxPassThroughOptionType | Used to pass attributes to the box's DOM element. |
+| icon | CheckboxPassThroughOptionType | Used to pass attributes to the icon's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-checkbox | Class name of the root element |
+| p-checkbox-box | Class name of the box element |
+| p-checkbox-input | Class name of the input element |
+| p-checkbox-icon | Class name of the icon element |
+
+---
+
+# Vue Chip Component
+
+Chip represents entities using icons, labels and images.
+
+## Accessibility
+
+Screen Reader Chip uses the label property as the default aria-label , since any attribute is passed to the root element aria-labelledby or aria-label can be used to override the default behavior. Removable chips have a tabindex and focusable with the tab key. Keyboard Support Key Function backspace Hides removable. enter Hides removable.
+
+## Basic
+
+A basic chip with a text is created with the label property. In addition when removable is added, a delete icon is displayed to remove a chip.
+
+**Basic Usage:**
+
+```vue
+<Chip label="Action" />
+<Chip label="Comedy" />
+<Chip label="Mystery" />
+<Chip label="Thriller" removable />
+```
+
+## Icon
+
+A font icon next to the label can be displayed with the icon property.
+
+**Basic Usage:**
+
+```vue
+<Chip label="Apple" icon="pi pi-apple" />
+<Chip label="Facebook" icon="pi pi-facebook" />
+<Chip label="Google" icon="pi pi-google" />
+<Chip label="Microsoft" icon="pi pi-microsoft" removable />
+<Chip label="GitHub" icon="pi pi-github" removable>
+    <template #removeicon="{ removeCallback, keydownCallback }">
+        <i class="pi pi-minus-circle" @click="removeCallback" @keydown="keydownCallback" />
+    </template>
+</Chip>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-2">
+        <Chip label="Apple" icon="pi pi-apple" />
+        <Chip label="Facebook" icon="pi pi-facebook" />
+        <Chip label="Google" icon="pi pi-google" />
+        <Chip label="Microsoft" icon="pi pi-microsoft" removable />
+        <Chip label="GitHub" icon="pi pi-github" removable>
+            <template #removeicon="{ removeCallback, keydownCallback }">
+                <i class="pi pi-minus-circle" @click="removeCallback" @keydown="keydownCallback" />
+            </template>
+        </Chip>
+    </div>
+</template>
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Image
+
+The image property is used to display an image like an avatar.
+
+**Basic Usage:**
+
+```vue
+<Chip label="Amy Elsner" image="/images/avatar/amyelsner.png" />
+<Chip label="Asiya Javayant" image="/images/avatar/asiyajavayant.png" />
+<Chip label="Onyama Limba" image="/images/avatar/onyamalimba.png" />
+<Chip label="Xuxue Feng" image="/images/avatar/xuxuefeng.png" removable />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-2">
+        <Chip label="Amy Elsner" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" />
+        <Chip label="Asiya Javayant" image=https://primefaces.org/cdn/primevue"/images/avatar/asiyajavayant.png" />
+        <Chip label="Onyama Limba" image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" />
+        <Chip label="Xuxue Feng" image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" removable />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Chip from 'primevue/chip';
+```
+
+## StyleDoc
+
+List of class names used in the styled mode.
+
+## TemplateDoc
+
+The default slot allows displaying custom content inside a chip.
+
+**Basic Usage:**
+
+```vue
+<Chip class="py-0 pl-0 pr-4">
+    <span class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex items-center justify-center">P</span>
+    <span class="ml-2 font-medium">PRIME</span>
+</Chip>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Chip class="py-0 pl-0 pr-4">
+            <span class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex items-center justify-center">P</span>
+            <span class="ml-2 font-medium">PRIME</span>
+        </Chip>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Chip
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| label | string \| number | - | Defines the text to display. |
+| icon | string | - | Defines the icon to display. |
+| image | string | - | Defines the image to display. |
+| removable | boolean | false | Whether to display a remove icon. |
+| removeIcon | string | - | Icon of the remove element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ChipPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Chip
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| label | string \| number | - | Defines the text to display. |
+| icon | string | - | Defines the icon to display. |
+| image | string | - | Defines the image to display. |
+| removable | boolean | false | Whether to display a remove icon. |
+| removeIcon | string | - | Icon of the remove element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ChipPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Chips
+
+## Chips
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ChipPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| image | ChipPassThroughOptionType<T> | Used to pass attributes to the image's DOM element. |
+| icon | ChipPassThroughOptionType<T> | Used to pass attributes to the icon's DOM element. |
+| label | ChipPassThroughOptionType<T> | Used to pass attributes to the label' DOM element. |
+| removeIcon | ChipPassThroughOptionType<T> | Used to pass attributes to the removeIcon's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-chip | Class name of the root element |
+| p-chip-image | Class name of the image element |
+| p-chip-icon | Class name of the icon element |
+| p-chip-label | Class name of the label element |
+| p-chip-remove-icon | Class name of the remove icon element |
+
+---
+
+# Vue ColorPicker Component
+
+ColorPicker is an input component to select a color.
+
+## Accessibility
+
+Screen Reader Specification does not cover a color picker yet and using a semantic native color picker is not consistent across browsers so currently component is not compatible with screen readers. In the upcoming versions, text fields will be introduced below the slider section to be able to pick a color using accessible text boxes in hsl, rgba and hex formats. Closed State Keyboard Support of Popup ColorPicker Key Function tab Moves focus to the color picker button. space Opens the popup and moves focus to the color slider. Popup Keyboard Support Key Function enter Selects the color and closes the popup. space Selects the color and closes the popup. escape Closes the popup, moves focus to the input. Color Picker Slider Key Function arrow keys Changes color. Hue Slider Key Function up arrow down arrow Changes hue.
+
+## Basic
+
+ColorPicker is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<ColorPicker v-model="color" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<ColorPicker v-model="color" disabled />
+```
+
+## Format
+
+Default color format to use in value binding is hex and other possible values can be rgb and hsb using the format property.
+
+**Basic Usage:**
+
+```vue
+<ColorPicker v-model="colorHEX" inputId="cp-hex" format="hex" class="mb-4" />
+<ColorPicker v-model="colorRGB" inputId="cp-rgb" format="rgb" class="mb-4" />
+<ColorPicker v-model="colorHSB" inputId="cp-hsb" format="hsb" class="mb-4" />
+```
+
+## Forms
+
+ColorPicker integrates seamlessly with the PrimeVue Forms library.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ColorPicker from 'primevue/colorpicker';
+```
+
+## Inline
+
+ColorPicker is displayed as a popup by default, add inline property to customize this behavior.
+
+**Basic Usage:**
+
+```vue
+<ColorPicker v-model="color" inline />
+```
+
+## Colorpicker
+
+## Colorpicker
+
+---
+
+# configuration
+
+
+
+## Import
+
+Configuration is managed by the PrimeVue instance imported from primevue/config .
+
+**Basic Usage:**
+
+```vue
+import PrimeVue from 'primevue/config';
+const app = createApp(App);
+
+app.use(PrimeVue, { /* options */ });
+```
+
+## InputVariant
+
+Input fields come in two styles, default is outlined with borders around the field whereas filled alternative adds a background color to the field. Applying p-variant-filled to an ancestor of an input enables the filled style. If you prefer to use filled inputs in the entire application, use a global container such as the document body or the application element to apply the style class. Note that in case you add it to the application element, components that are teleported to the document body such as Dialog will not be able to display filled inputs as they are not a descendant of the application root element in the DOM tree, to resolve this case set inputVariant to filled at PrimeVue configuration as well.
+
+**Basic Usage:**
+
+```vue
+import {createApp} from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, { inputVariant: "filled" });
+```
+
+## Pass Through
+
+Defines the shared pass through properties per component type. Visit the Pass Through Props documentation for more information.
+
+## Pass Through Options
+
+Used to configure the ptOptions properties of components and the usePassThrough method. The mergeSections defines whether the sections from the main configuration gets added and the mergeProps controls whether to override or merge the defined props. Defaults are true for mergeSections and false for mergeProps .
+
+## Ripple
+
+Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at your app's entry file (e.g. main.js) during the PrimeVue setup.
+
+**Basic Usage:**
+
+```vue
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, { ripple: true });
+```
+
+## Theme
+
+Style mode offers theming based on a design token based architecture. See the styled mode documentation for details such as building your own theme.
+
+## Unstyled
+
+Unstyled mode instructs the components not to add any built-in style classes so that they can be styled using custom css or libraries like Tailwind and Bootstrap. Visit Unstyled mode documentation for more information.
+
+**Basic Usage:**
+
+```vue
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, { unstyled: true });
+```
+
+## ZIndex
+
+ZIndexes are managed automatically to make sure layering of overlay components work seamlessly when combining multiple components. Still there may be cases where you'd like to configure the configure default values such as a custom layout where header section is fixed. In a case like this, dropdown needs to be displayed below the application header but a modal dialog should be displayed above. PrimeVue configuration offers the zIndex property to customize the default values for components categories. Default values are described below and can be customized when setting up PrimeVue.
+
+---
+
+# Vue Confirmation Dialog Component
+
+ConfirmDialog uses a Dialog UI that is integrated with the Confirmation API.
+
+## Accessibility
+
+Screen Reader ConfirmDialog component uses alertdialog role along with aria-labelledby referring to the header element however any attribute is passed to the root element so you may use aria-labelledby to override this default behavior. In addition aria-modal is added since focus is kept within the popup. When require method of the $confirm instance is used and a trigger is passed as a parameter, ConfirmDialog adds aria-expanded state attribute and aria-controls to the trigger so that the relation between the trigger and the dialog is defined. Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the dialog. shift + tab Moves focus to the previous the focusable element within the dialog. escape Closes the dialog. Buttons Keyboard Support Key Function enter Closes the dialog. space Closes the dialog.
+
+## Basic
+
+ConfirmDialog is displayed by calling the require method of the $confirm instance by passing the options to customize the Dialog. The target attribute is mandatory to align the popup to its referrer.
+
+**Basic Usage:**
+
+```vue
+<ConfirmDialog></ConfirmDialog>
+<Button @click="confirm1()" label="Save" variant="outlined"></Button>
+<Button @click="confirm2()" label="Delete" severity="danger" variant="outlined"></Button>
+```
+
+## ConfirmationServiceDoc
+
+ConfirmDialog is controlled via the ConfirmationService that needs to be installed as an application plugin.
+
+## Headless
+
+Headless mode is enabled by defining a container slot that lets you implement entire confirmation UI instead of the default elements.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ConfirmDialog from 'primevue/confirmdialog';
+```
+
+## Position
+
+The position property of the confirm options specifies the location of the Dialog.
+
+**Basic Usage:**
+
+```vue
+<ConfirmDialog group="positioned"></ConfirmDialog>
+<div class="flex flex-wrap justify-center gap-2 mb-4">
+    <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="secondary" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="secondary" style="min-width: 10rem"></Button>
+</div>
+<div class="flex flex-wrap justify-center gap-2 mb-4">
+    <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="secondary" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="secondary" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="secondary" style="min-width: 10rem"></Button>
+</div>
+<div class="flex flex-wrap justify-center gap-2">
+    <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" severity="secondary" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="secondary" style="min-width: 10rem"></Button>
+    <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="secondary" style="min-width: 10rem"></Button>
+</div>
+```
+
+## Template
+
+Templating allows customizing the message content.
+
+## Confirmdialog
+
+## Confirmdialog
+
+---
+
+# Vue Confirmation Popup Component
+
+ConfirmPopup displays a confirmation overlay displayed relatively to its target.
+
+## Accessibility
+
+Screen Reader ConfirmPopup component uses alertdialog role and since any attribute is passed to the root element you may define attributes like aria-label or aria-labelledby to describe the popup contents. In addition aria-modal is added since focus is kept within the popup. When require method of the $confirm instance is used and a trigger is passed as a parameter, ConfirmPopup adds aria-expanded state attribute and aria-controls to the trigger so that the relation between the trigger and the dialog is defined. Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the popup. shift + tab Moves focus to the previous the focusable element within the popup. escape Closes the popup and moves focus to the trigger. Buttons Keyboard Support Key Function enter Triggers the action, closes the popup and moves focus to the trigger. space Triggers the action, closes the popup and moves focus to the trigger.
+
+## Basic
+
+ConfirmPopup is displayed by calling the require method of the $confirm instance by passing the options to customize the Popup. The target attribute is mandatory to align the popup to its referrer.
+
+**Basic Usage:**
+
+```vue
+<ConfirmPopup></ConfirmPopup>
+<Button @click="confirm1($event)" label="Save" variant="outlined"></Button>
+<Button @click="confirm2($event)" label="Delete" severity="danger" variant="outlined"></Button>
+```
+
+## ConfirmationServiceDoc
+
+ConfirmPopup is controlled via the ConfirmationService that needs to be installed as an application plugin.
+
+## Headless
+
+Headless mode is enabled by defining a container slot that lets you implement entire confirmation UI instead of the default elements.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ConfirmPopup from 'primevue/confirmpopup';
+```
+
+## Template
+
+Templating allows customizing the message content.
+
+## Confirmpopup
+
+## Confirmpopup
+
+---
+
+# Vue ContextMenu Component
+
+ContextMenu displays an overlay menu to display actions related to an element.
+
+## Accessibility
+
+Screen Reader ContextMenu component uses the menubar role with aria-orientation set to "vertical" and the value to describe the menu can either be provided with aria-labelledby or aria-label props. Each list item has a menuitem role with aria-label referring to the label of the item and aria-disabled defined if the item is disabled. A submenu within a ContextMenu uses the menu role with an aria-labelledby defined as the id of the submenu root menuitem label. In addition, menuitems that open a submenu have aria-haspopup and aria-expanded to define the relation between the item and the submenu. Keyboard Support Key Function tab When focus is in the menu, closes the context menu and moves focus to the next focusable element in the page sequence. enter If menuitem has a submenu, toggles the visibility of the submenu otherwise activates the menuitem and closes all open overlays. space If menuitem has a submenu, toggles the visibility of the submenu otherwise activates the menuitem and closes all open overlays. escape Closes the context menu. down arrow If focus is not inside the menu and menu is open, add focus to the first item. If an item is already focused, moves focus to the next menuitem within the submenu. up arrow If focus is not inside the menu and menu is open, add focus to the last item. If an item is already focused, moves focus to the next menuitem within the submenu. right arrow Opens a submenu if there is one available and moves focus to the first item. left arrow Closes a submenu and moves focus to the root item of the closed submenu. home Moves focus to the first menuitem within the submenu. end Moves focus to the last menuitem within the submenu. any printable character Moves focus to the menuitem whose label starts with the characters being typed.
+
+## Basic
+
+ContextMenu requires a collection of menuitems as its model and the show method needs to be called explicity using an event of the target like contextmenu to display the menu.
+
+**Basic Usage:**
+
+```vue
+<img alt="Logo" src="/images/nature/nature2.jpg" class="w-full md:w-[30rem] rounded shadow-lg" @contextmenu="onImageRightClick" aria-haspopup="true" />
+<ContextMenu ref="menu" :model="items" />
+```
+
+## Command
+
+The command property defines the callback to run when an item is activated by click or a key event.
+
+**Basic Usage:**
+
+```vue
+<ul class="m-0 list-none border border-surface rounded p-4 flex flex-col gap-2 w-full sm:w-96">
+    <li
+        v-for="user in users"
+        :key="user.id"
+        :class="['p-2 hover:bg-emphasis rounded border border-transparent transition-all duration-200 flex items-center justify-content-between', { 'border-primary': selectedUser?.id === user.id }]"
+        @contextmenu="onRightClick($event, user)"
+    >
+        <div class="flex flex-1 items-center gap-2">
+            <img :alt="user.name" :src="\
+```
+
+## DataTable
+
+DataTable has built-in support for ContextMenu, see the ContextMenu demo for an example.
+
+## Document
+
+Setting global property attaches the context menu to the document.
+
+**Basic Usage:**
+
+```vue
+<ContextMenu global :model="items" />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ContextMenu from 'primevue/contextmenu';
+```
+
+## Router
+
+Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
+
+## Template
+
+ContextMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
+
+## Contextmenu
+
+## Contextmenu
+
+---
+
+# contribution
+
+
+
+## Benefits
+
+Contributing to PrimeVue comes with several benefits. Being part of an open-source project will enhance your career and open up exciting opportunities. Contributors and Committers will be listed on our team page . You'll gain significant visibility in the developer community while improving yourself as a professional. You'll be invited to a private communication channel at Discord to get in touch with PrimeTek. In addition, contributors have access to all PrimeVue add-ons like Premium Templates, Blocks, and UI Kit free of charge.
+
+## CLA
+
+When a community member is offered the Contributor role, they are expected to sign a Contributor License Agreement (CLA) for legal purposes. This helps protect both the contributor and PrimeTek.
+
+## Communication
+
+Join the Contributors channel on the PrimeLand Discord server to connect with PrimeVue staff and fellow contributors. In this channel, you can discuss the areas you want to contribute to and receive feedback. This channel is open to everyone who'd like to contribute.
+
+## Help Needed
+
+PrimeVue is a community-driven project backed by the expertise and sponsorship of PrimeTek, and we appreciate any help you can provide. Here are some areas where you can contribute: Issue Triage Help us manage issues by; Reproducing reported bugs Clarifying issue descriptions Tagging issues with appropriate labels Sending Pull Requests We encourage you to send pull requests, especially for issues tagged with the help-needed label. Community Support Assist other users by participating in the issue tracker, GitHub discussions , and the PrimeLand Discord server. Your expertise can help others solve problems and improve their experience with PrimeVue.
+
+## Introduction
+
+PrimeVue is a popular Vue UI library maintained by PrimeTek, a company renowned for its comprehensive set of UI components for various frameworks. PrimeTek is dedicated to providing high-quality, versatile, and accessible UI components that help developers build better applications faster. Development Setup To begin with, clone the PrimeVue repository from GitHub: Then run the showcase in your local environment at http://localhost:3000/ . Project Structure PrimeVue utilizes a monorepo architecture, the libraries are located at packages folder and the website is at apps/showcase .
+
+## Key Points
+
+PrimeVue has several add-ons such as UI Kit, Premium Templates, and Blocks that rely on design tokens and styling. Any core structural changes, such as adding new props, events, or updating design tokens, should be communicated with the core team to ensure consistency and compatibility.
+
+## Pathway
+
+PrimeTek offers an organization structure involving contributors and the core team: Contributor Role After a certain period of frequent contributions, a community member is offered the Contributor role. On average, it may take about three months, but the exact duration can vary depending on the individual commitment. Committer Role If a contributor actively participates in the codebase and PRs, their role may be upgraded to a Committer level, providing direct commit access to the PrimeVue codebase. Employment PrimeTek prefers to hire team members from open source committers, so you may be offered a full-time position when a position becomes available.
+
+---
+
+# customicons
+
+
+
+## FontAwesome
+
+Font Awesome is a popular icon library with a wide range of icons.
+
+**Basic Usage:**
+
+```vue
+<Select>
+    <template #dropdownicon>
+        <i class="fa-light fa-chevron-down"></i>
+    </template>
+</Select>
+```
+
+## Image
+
+Any type of image can be used as an icon.
+
+**Basic Usage:**
+
+```vue
+<Select>
+    <template #dropdownicon>
+        <img alt="dropdown icon" src="/assets/icons/arrow_down.png">
+    </template>
+</Select>
+```
+
+## Material
+
+Material icons is the official icon library based on Google Material Design.
+
+**Basic Usage:**
+
+```vue
+<Select>
+    <template #dropdownicon>
+        <span class="material-icons">arrow_drop_down</span>
+    </template>
+</Select>
+```
+
+## SVG
+
+Inline SVGs are embedded inside the dom.
+
+**Basic Usage:**
+
+```vue
+<Select>
+    <template #dropdownicon>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g id="chevron-down">
+                <path d="M12,15.25a.74.74,0,0,1-.53-.22l-5-5A.75.75,0,0,1,7.53,9L12,13.44,16.47,9A.75.75,0,0,1,17.53,10l-5,5A.74.74,0,0,1,12,15.25Z"/>
+            </g>
+        </svg>
+    </template>
+</Select>
+```
+
+## Video Tutorial
+
+A video tutorial to demonstrate how to customize icons.
+
+---
+
+# Vue Table Component
+
+DataTable displays data in tabular format.
+
+## AccessibilityDoc
+
+Screen Reader DataTable uses a table element whose attributes can be extended with the tableProps option. This property allows passing aria roles and attributes like aria-label and aria-describedby to define the table for readers. Default role of the table is table . Header, body and footer elements use rowgroup , rows use row role, header cells have columnheader and body cells use cell roles. Sortable headers utilizer aria-sort attribute either set to "ascending" or "descending". Built-in checkbox and radiobutton components for row selection use checkbox and radiobutton . The label to describe them is retrieved from the aria.selectRow and aria.unselectRow properties of the locale API. Similarly header checkbox uses selectAll and unselectAll keys. When a row is selected, aria-selected is set to true on a row. The element to expand or collapse a row is a button with aria-expanded and aria-controls properties. Value to describe the buttons is derived from aria.expandRow and aria.collapseRow properties of the locale API. The filter menu button use aria.showFilterMenu and aria.hideFilterMenu properties as aria-label in addition to the aria-haspopup , aria-expanded and aria-controls to define the relation between the button and the overlay. Popop menu has dialog role with aria-modal as focus is kept within the overlay. The operator dropdown use aria.filterOperator and filter constraints dropdown use aria.filterConstraint properties. Buttons to add rules on the other hand utilize aria.addRule and aria.removeRule properties. The footer buttons similarly use aria.clear and aria.apply properties. filterInputProps of the Column component can be used to define aria labels for the built-in filter components, if a custom component is used with templating you also may define your own aria labels as well. Editable cells use custom templating so you need to manage aria roles and attributes manually if required. The row editor controls are button elements with aria.editRow , aria.cancelEdit and aria.saveEdit used for the aria-label . Paginator is a standalone component used inside the DataTable, refer to the paginator for more information about the accessibility features. Keyboard Support Any button element inside the DataTable used for cases like filter, row expansion, edit are tabbable and can be used with space and enter keys. Sortable Headers Keyboard Support Key Function tab Moves through the headers. enter Sorts the column. space Sorts the column. Filter Menu Keyboard Support Key Function tab Moves through the elements inside the popup. escape Hides the popup. Selection Keyboard Support Key Function tab Moves focus to the first selected row, if there is none then first row receives the focus. up arrow Moves focus to the previous row. down arrow Moves focus to the next row. enter Toggles the selected state of the focused row depending on the metaKeySelection setting. space Toggles the selected state of the focused row depending on the metaKeySelection setting. home Moves focus to the first row. end Moves focus to the last row. shift + down arrow Moves focus to the next row and toggles the selection state. shift + up arrow Moves focus to the previous row and toggles the selection state. shift + space Selects the rows between the most recently selected row and the focused row. control + shift + home Selects the focused rows and all the options up to the first one. control + shift + end Selects the focused rows and all the options down to the last one. control + a Selects all rows.
+
+## Basic
+
+DataTable requires a value as data to display and Column components as children for the representation.
+
+**Basic Usage:**
+
+```vue
+<DataTable :value="products" tableStyle="min-width: 50rem">
+    <Column field="code" header="Code"></Column>
+    <Column field="name" header="Name"></Column>
+    <Column field="category" header="Category"></Column>
+    <Column field="quantity" header="Quantity"></Column>
+</DataTable>
+```
+
+## ColumnGroupDoc
+
+Columns can be grouped within a Row component and groups can be displayed within a ColumnGroup component. These groups can be displayed using type property that can be header or footer . Number of cells and rows to span are defined with the colspan and rowspan properties of a Column.
+
+## ColumnToggleDoc
+
+Column visibility based on a condition can be implemented with dynamic columns, in this sample a MultiSelect is used to manage the visible columns.
+
+**Basic Usage:**
+
+```vue
+<DataTable :value="products" tableStyle="min-width: 50rem">
+    <template #header>
+        <div style="text-align:left">
+            <MultiSelect :modelValue="selectedColumns" :options="columns" optionLabel="header" @update:modelValue="onToggle"
+                display="chip" placeholder="Select Columns" />
+        </div>
+    </template>
+    <Column field="code" header="Code" />
+    <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
+</DataTable>
+```
+
+## ConditionalStyleDoc
+
+Particular rows and cells can be styled based on conditions. The rowClass receives a row data as a parameter to return a style class for a row whereas cells are customized using the body template.
+
+**Basic Usage:**
+
+```vue
+<DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
+    <Column field="code" header="Code"></Column>
+    <Column field="name" header="Name"></Column>
+    <Column field="category" header="Category"></Column>
+    <Column field="quantity" header="Quantity">
+        <template #body="slotProps">
+            <Badge :value="slotProps.data.quantity" :severity="stockSeverity(slotProps.data)" />
+        </template>
+    </Column>
+</DataTable>
+```
+
+## ContextMenuDoc
+
+DataTable has exclusive integration with ContextMenu using the contextMenu event to open a menu on right click along with contextMenuSelection property and row-contextmenu event to control the selection via the menu.
+
+## DynamicColumnsDoc
+
+Columns can be created programmatically.
+
+**Basic Usage:**
+
+```vue
+<DataTable :value="products" tableStyle="min-width: 50rem">
+    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
+</DataTable>
+```
+
+## ExportDoc
+
+DataTable can export its data to CSV format.
+
+**Basic Usage:**
+
+```vue
+<DataTable :value="products" ref="dt" tableStyle="min-width: 50rem">
+    <template #header>
+        <div class="text-end pb-4">
+            <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
+        </div>
+    </template>
+    <Column field="code" header="Code" exportHeader="Product Code"></Column>
+    <Column field="name" header="Name"></Column>
+    <Column field="category" header="Category"></Column>
+    <Column field="quantity" header="Quantity"></Column>
+</DataTable>
+```
+
+## Grid Lines
+
+Enabling showGridlines displays borders between cells.
+
+**Basic Usage:**
+
+```vue
+<DataTable :value="products" showGridlines tableStyle="min-width: 50rem">
+    <Column field="code" header="Code"></Column>
+    <Column field="name" header="Name"></Column>
+    <Column field="category" header="Category"></Column>
+    <Column field="quantity" header="Quantity"></Column>
+</DataTable>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import ColumnGroup from 'primevue/columngroup';   // optional
+import Row from 'primevue/row';                   // optional
+```
+
+## LazyLoadDoc
+
+Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging , sorting and filtering occurs. Sample below imitates lazy loading data from a remote datasource using an in-memory list and timeouts to mimic network connection. Enabling the lazy property and assigning the logical number of rows to totalRecords by doing a projection query are the key elements of the implementation so that paginator displays the UI assuming there are actually records of totalRecords size although in reality they are not present on page, only the records that are displayed on the current page exist. Note that, the implementation of checkbox selection in lazy mode needs to be handled manually as in this example since the DataTable cannot know about the whole dataset.
+
+**Basic Usage:**
+
+```vue
+<DataTable :value="customers" lazy paginator :first="first" :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
+        :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
+        :globalFilterFields="['name','country.name', 'company', 'representative.name']"
+        v-model:selection="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect" tableStyle="min-width: 75rem">
+    <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
+    <Column field="name" header="Name" filterMatchMode="startsWith" sortable>
+        <template #filter="{filterModel,filterCallback}">
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+        </template>
+    </Column>
+    <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
+        <template #body="{ data }">
+            <div class="flex items-center gap-2">
+                <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## ReorderDoc
+
+Order of the columns and rows can be changed using drag and drop. Column reordering is configured by adding reorderableColumns property. Similarly, adding rowReorder property to a column enables draggable rows. For the drag handle a column needs to have rowReorder property and table needs to have row-reorder event is required to control the state of the rows after reorder completes.
+
+**Basic Usage:**
+
+```vue
+<DataTable :value="products" :reorderableColumns="true" @columnReorder="onColReorder" @rowReorder="onRowReorder" tableStyle="min-width: 50rem">
+    <Column rowReorder headerStyle="width: 3rem" :reorderableColumn="false" />
+    <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+</DataTable>
+```
+
+## RowExpansionDoc
+
+Row expansion is controlled with expandedRows property. The column that has the expander element requires expander property to be enabled. Optional rowExpand and rowCollapse events are available as callbacks. Expanded rows can either be an array of row data or when dataKey is present, an object whose keys are strings referring to the identifier of the row data and values are booleans to represent the expansion state e.g. &#123;'1004': true&#125; . The dataKey alternative is more performant for large amounts of data.
+
+**Basic Usage:**
+
+```vue
+<DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id"
+        @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
+    <template #header>
+        <div class="flex flex-wrap justify-end gap-2">
+            <Button variant="text" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+            <Button variant="text" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+        </div>
+    </template>
+    <Column expander style="width: 5rem" />
+    <Column field="name" header="Name"></Column>
+    <Column header="Image">
+        <template #body="slotProps">
+            <img :src="\
+```
+
+## Size
+
+In addition to a regular table, alternatives with alternative sizes are available.
+
+**Basic Usage:**
+
+```vue
+<SelectButton v-model="size" :options="sizeOptions" optionLabel="label" dataKey="label" />
+<DataTable :value="products" :size="size.value" tableStyle="min-width: 50rem">
+    <Column field="code" header="Code"></Column>
+    <Column field="name" header="Name"></Column>
+    <Column field="category" header="Category"></Column>
+    <Column field="quantity" header="Quantity"></Column>
+</DataTable>
+```
+
+## StatefulDoc
+
+Stateful table allows keeping the state such as page, sort and filtering either at local storage or session storage so that when the page is visited again, table would render the data using the last settings. Change the state of the table e.g paginate, navigate away and then return to this table again to test this feature, the setting is set as session with the stateStorage property so that Table retains the state until the browser is closed. Other alternative is local referring to localStorage for an extended lifetime.
+
+**Basic Usage:**
+
+```vue
+<DataTable v-model:filters="filters" v-model:selection="selectedCustomer" :value="customers"
+    stateStorage="session" stateKey="dt-state-demo-session" paginator :rows="5" filterDisplay="menu"
+    selectionMode="single" dataKey="id" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']" tableStyle="min-width: 50rem">
+    <template #header>
+        <IconField>
+            <InputIcon>
+                <i class="pi pi-search" />
+            </InputIcon>
+            <InputText v-model="filters['global'].value" placeholder="Global Search" />
+        </IconField>
+    </template>
+    <Column field="name" header="Name" sortable style="width: 25%">
+        <template #filter="{ filterModel }">
+            <InputText v-model="filterModel.value" type="text" placeholder="Search by name" />
+        </template>
+    </Column>
+    <Column header="Country" sortable sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
+        <template #body="{ data }">
+            <div class="flex items-center gap-2">
+                <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## StripedRowsDoc
+
+Alternating rows are displayed when stripedRows property is present.
+
+**Basic Usage:**
+
+```vue
+<DataTable :value="products" stripedRows tableStyle="min-width: 50rem">
+    <Column field="code" header="Code"></Column>
+    <Column field="name" header="Name"></Column>
+    <Column field="category" header="Category"></Column>
+    <Column field="quantity" header="Quantity"></Column>
+</DataTable>
+```
+
+## Template
+
+Custom content at header and footer sections are supported via templating.
+
+**Basic Usage:**
+
+```vue
+<DataTable :value="products" tableStyle="min-width: 50rem">
+    <template #header>
+        <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="text-xl font-bold">Products</span>
+            <Button icon="pi pi-refresh" rounded raised />
+        </div>
+    </template>
+    <Column field="name" header="Name"></Column>
+    <Column header="Image">
+        <template #body="slotProps">
+            <img :src="\
+```
+
+## Datatable
+
+## Datatable
+
+---
+
+# Vue DataView Component
+
+DataView displays data in grid or list layout with pagination and sorting features.
+
+## Accessibility
+
+Screen Reader The container element that wraps the layout options buttons has a group role whereas each button element uses button role and aria-pressed is updated depending on selection state. Values to describe the buttons are derived from the aria.listView and aria.gridView properties of the locale API respectively. Refer to paginator accessibility documentation for the paginator of the component. Keyboard Support Key Function tab Moves focus to the buttons. space Toggles the checked state of a button.
+
+## Basic
+
+DataView requires a value to display along with a list slot for item content.
+
+**Basic Usage:**
+
+```vue
+<DataView :value="products">
+    <template #list="slotProps">
+        <div class="flex flex-col">
+            <div v-for="(item, index) in slotProps.items" :key="index">
+                <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
+                    <div class="md:w-40 relative">
+                        <img class="block xl:block mx-auto rounded w-full" :src="\
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import DataView from 'primevue/dataview';
+```
+
+## Layout
+
+DataView supports list and grid display modes defined with the layout property. The grid mode is not built-in for flexibility purposes and requires a library with CSS grid features like Tailwind.
+
+**Basic Usage:**
+
+```vue
+<DataView :value="products" :layout="layout">
+    <template #header>
+        <div class="flex justify-end">
+            <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                <template #option="{ option }">
+                    <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
+                </template>
+            </SelectButton>
+        </div>
+    </template>
+
+    <template #list="slotProps">
+        <div class="flex flex-col">
+            <div v-for="(item, index) in slotProps.items" :key="index">
+                <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
+                    <div class="md:w-40 relative">
+                        <img class="block xl:block mx-auto rounded w-full" :src="\
+```
+
+## Loading
+
+While data is being loaded, Skeleton component may be used to indicate the busy state.
+
+**Basic Usage:**
+
+```vue
+<DataView :value="products" :layout="layout">
+    <template #header>
+        <div class="flex justify-end">
+            <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                <template #option="{ option }">
+                    <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
+                </template>
+            </SelectButton>
+        </div>
+    </template>
+
+    <template #list>
+        <div class="flex flex-col">
+            <div v-for="i in 6" :key="i">
+                <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-t border-surface-200 dark:border-surface-700': i !== 0 }">
+                    <Skeleton class="!w-9/12 sm:!w-64 xl:!w-40 !h-24 mx-auto" />
+                    <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-6">
+                        <div class="flex flex-col items-center sm:items-start gap-4">
+                            <Skeleton width="8rem" height="2rem" />
+                            <Skeleton width="6rem" height="1rem" />
+
+                            <div class="flex items-center gap-4">
+                                <Skeleton width="6rem" height="1rem" />
+                                <Skeleton width="3rem" height="1rem" />
+                            </div>
+                        </div>
+                        <div class="flex sm:flex-col items-center sm:items-end gap-4 sm:gap-2">
+                            <Skeleton width="4rem" height="2rem" />
+                            <Skeleton size="3rem" shape="circle" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template #grid>
+        <div class="grid grid-cols-12 gap-4">
+            <div v-for="i in 6" :key="i" class="col-span-12 sm:col-span-6 xl:col-span-4 p-2">
+                <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <Skeleton width="6rem" height="2rem" />
+                        <Skeleton width="3rem" height="1rem" />
+                    </div>
+                    <div class="flex flex-col items-center gap-4 py-8">
+                        <Skeleton width="75%" height="10rem" />
+                        <Skeleton width="8rem" height="2rem" />
+                        <Skeleton width="6rem" height="1rem" />
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <Skeleton width="4rem" height="2rem" />
+                        <Skeleton width="6rem" height="1rem" shape="circle" size="3rem" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</DataView>
+```
+
+## Pagination
+
+Pagination is enabled with the paginator and rows properties. Refer to the Paginator for more information about customizing the paginator.
+
+**Basic Usage:**
+
+```vue
+<DataView :value="products" paginator :rows="5">
+    <template #list="slotProps">
+        <div class="flex flex-col">
+            <div v-for="(item, index) in slotProps.items" :key="index">
+                <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
+                    <div class="md:w-40 relative">
+                        <img class="block xl:block mx-auto rounded w-full" :src="\
+```
+
+## Sorting
+
+Built-in sorting is controlled by bindings sortField and sortField properties from a custom UI.
+
+**Basic Usage:**
+
+```vue
+<DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
+    <template #header>
+        <Select v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)" />
+    </template>
+    <template #list="slotProps">
+        <div class="flex flex-col">
+            <div v-for="(item, index) in slotProps.items" :key="index">
+                <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
+                    <div class="md:w-40 relative">
+                        <img class="block xl:block mx-auto rounded w-full" :src="\
+```
+
+## Dataview
+
+## Dataview
+
+---
+
+# Vue DatePicker Component
+
+DatePicker is a form component for date inputs.
+
+## Accessibility
+
+Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete as "none", aria-haspopup as "dialog" and aria-expanded attributes. The relation between the input and the popup is created with aria-controls attribute that refers to the id of the popup. The optional datepicker button requires includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The value to read is retrieved from the chooseDate key of the aria property from the locale API. This label is also used for the aria-label of the popup as well. When there is a value selected, it is formatted and appended to the label to be able to notify users about the current value. Popup has a dialog role along with aria-modal and aria-label . The navigation buttons at the header has an aria-label retrieved from the prevYear , nextYear , prevMonth , nextMonth , prevDecade and nextDecade keys of the locale aria API. Similarly month picker button uses the chooseMonth and year picker button uses the chooseYear keys. Main date table uses grid role that contains th elements with col as the scope along with abbr tag resolving to the full name of the month. Each date cell has an aria-label referring to the full date value. Buttons at the footer utilize their readable labels as aria-label as well. Selected date also receives the aria-selected attribute. Timepicker spinner buttons get their labels for aria-label from the aria locale API using the prevHour , nextHour , prevMinute , nextMinute , prevSecond , nextSecond , am and pm keys. DatePicker also includes a hidden section that is only available to screen readers with aria-live as "polite". This element is updated when the selected date changes to instruct the user about the current date selected. Choose Date Button Keyboard Support Key Function space Opens popup and moves focus to the selected date, if there is none focuses on today. enter Opens popup and moves focus to the selected date, if there is none focuses on today. Popup Keyboard Support Key Function escape Closes the popup and moves focus to the input element. tab Moves focus to the next focusable element within the popup. shift + tab Moves focus to the next focusable element within the popup. Header Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action. Date Grid Keyboard Support Key Function enter Selects the date, closes the popup and moves focus to the input element. space Closes the popup and moves focus to the input element. up arrow Moves focus to the same day of the previous week. alt + up arrow Closes the popup and moves focus to the input element. down arrow Moves focus to the same day of the next week. right arrow Moves focus to the next day. left arrow Moves focus to the previous day. home Moves focus to the first day of the current week. end Moves focus to the last day of the current week. page up Changes the date to previous month in date picker mode. Moves to previous year in month picker mode and previous decade in year picker. shift + page up Changes the date to previous year in date picker mode. Has no effect in month or year picker. page down Changes the date to next month in date picker mode. Moves to next year in month picker mode and next decade in year picker. shift + page down Changes the date to next year in date picker mode. Has no effect in month or year picker. Footer Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action.
+
+**Basic Usage:**
+
+```vue
+<label for="date1">Date</label>
+<DatePicker inputId="date1" />
+
+<span id="date2">Date</span>
+<DatePicker aria-labelledby="date2" />
+
+<DatePicker aria-label="Date" />
+```
+
+## Basic
+
+DatePicker is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date" />
+```
+
+## ButtonBarDoc
+
+When showButtonBar is present, today and clear buttons are displayed at the footer. The content can be fully customized with the buttonbar slot as well.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date" showButtonBar placeholder="Basic" />
+<DatePicker v-model="dates" showButtonBar placeholder="Customized" selectionMode="range" :manualInput="false">
+    <template #buttonbar="{ todayCallback, clearCallback }">
+        <div class="flex justify-between w-full">
+            <div class="flex gap-2">
+                <Button size="small" label="Exact" severity="secondary" />
+                <Button size="small" label="Flexible" severity="secondary" />
+            </div>
+            <div class="flex gap-2">
+                <Button size="small" label="Today" @click="todayCallback" variant="outlined" />
+                <Button size="small" icon="pi pi-times" severity="danger" variant="outlined" @click="clearCallback" />
+            </div>
+        </div>
+    </template>
+</DatePicker>
+```
+
+## Clear Icon
+
+When showClear is enabled, a clear icon is added to reset the DatePicker.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date" showClear />
+```
+
+## Date Template
+
+Custom content can be placed inside date cells with the date slot that takes a Date as a parameter.
+
+## Disabled
+
+DatePicker is used a controlled input component with v-model property.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date" disabled />
+```
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date" variant="filled" />
+```
+
+## Float Label
+
+A floating label appears on top of the input field when focused. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel>
+    <DatePicker v-model="value1" inputId="over_label" showIcon iconDisplay="input" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel variant="in">
+    <DatePicker v-model="value2" inputId="in_label" showIcon iconDisplay="input" variant="filled" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel variant="on">
+    <DatePicker v-model="value3" inputId="on_label" showIcon iconDisplay="input" />
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Fluid
+
+The fluid prop makes the component take up the full width of its container when set to true.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date" fluid />
+```
+
+## Format
+
+Default date format is mm/dd/yy which can be customized using the dateFormat property. Following options can be a part of the format. d - day of month (no leading zero) dd - day of month (two digit) o - day of the year (no leading zeros) oo - day of the year (three digit) D - day name short DD - day name long m - month of year (no leading zero) mm - month of year (two digit) M - month name short MM - month name long y - year (two digit) yy - year (four digit) @ - Unix timestamp (ms since 01/01/1970) ! - Windows ticks (100ns since 01/01/0001) '...' - literal text '' - single quote anything else - literal text
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date" dateFormat="dd/mm/yy" />
+```
+
+## Forms
+
+DatePicker integrates seamlessly with the PrimeVue Forms library.
+
+## Icon
+
+An additional icon is displayed next to the input field when showIcon is present.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="buttondisplay" showIcon fluid :showOnFocus="false" />
+<DatePicker v-model="icondisplay" showIcon fluid iconDisplay="input" />
+<DatePicker v-model="templatedisplay" showIcon fluid iconDisplay="input" timeOnly>
+    <template #inputicon="slotProps">
+        <i class="pi pi-clock" @click="slotProps.clickCallback" />
+    </template>
+</DatePicker>
+```
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel>
+    <DatePicker v-model="value" inputId="date" showIcon iconDisplay="input" variant="filled" />
+    <label for="date">Date</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import DatePicker from 'primevue/datepicker';
+```
+
+## Inline
+
+DatePicker is displayed as a popup by default, add inline property to customize this behavior.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date" inline showWeek class="w-full sm:w-[30rem]" />
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date1" :invalid="!date1" placeholder="Date" />
+<DatePicker v-model="date2" :invalid="!date2" variant="filled" placeholder="Date" />
+```
+
+## Locale
+
+Locale for different languages and formats is defined globally, refer to the PrimeVue Locale configuration for more information.
+
+## Min / Max
+
+Boundaries for the permitted dates that can be entered are defined with minDate and maxDate properties.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
+```
+
+## Model Type
+
+The updateModelType property controls the data type of the value. When set to string it returns a string representation of the date, when set to date (default) it returns a Date object.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="dateTypeModel" />
+<DatePicker v-model="stringTypeModel" updateModelType="string" />
+```
+
+## Month Picker
+
+Month only picker is enabled by specifying view as month in addition to a suitable dateFormat .
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date" view="month" dateFormat="mm/yy" />
+```
+
+## Multiple
+
+In order to choose multiple dates, set selectionMode as multiple . In this mode, the value binding should be an array.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="dates" selectionMode="multiple" :manualInput="false" />
+```
+
+## Multiple Months
+
+Number of months to display is configured with the numberOfMonths property.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date" :numberOfMonths="2" />
+```
+
+## Range
+
+A range of dates can be selected by defining selectionMode as range , in this case the bound value would be an array with two values where first date is the start of the range and second date is the end.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="dates" selectionMode="range" :manualInput="false" />
+```
+
+## Sizes
+
+DatePicker provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="value1" size="small" placeholder="Small" showIcon iconDisplay="input" />
+<DatePicker v-model="value2" placeholder="Normal" showIcon iconDisplay="input" />
+<DatePicker v-model="value3" size="large" placeholder="Large" showIcon iconDisplay="input" />
+```
+
+## Time
+
+A time picker is displayed when showTime is enabled where 12/24 hour format is configured with hourFormat property. In case, only time needs to be selected, add timeOnly to hide the date section.
+
+**Basic Usage:**
+
+```vue
+<DatePicker id="datepicker-12h" v-model="datetime12h" showTime hourFormat="12" fluid />
+<DatePicker id="datepicker-24h" v-model="datetime24h" showTime hourFormat="24" fluid />
+<DatePicker id="datepicker-timeonly" v-model="time" timeOnly fluid />
+```
+
+## Year Picker
+
+Specifying view as year in addition to a suitable dateFormat enables the year picker.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date" view="year" dateFormat="yy" />
+```
+
+## Datepicker
+
+## Datepicker
+
+---
+
+# Vue Deferred Content Component
+
+DeferredContent postpones the loading the content that is initially not in the viewport until it becomes visible on scroll.
+
+## Accessibility
+
+Screen Reader DeferredContent can be utilized in many use cases as a result no role is enforced, in fact a role may not be necessary if the card is used for presentational purposes only. Any valid attribute is passed to the container element so you have full control over the roles like landmark and attributes like aria-live . Keyboard Support Component does not include any interactive elements.
+
+**Basic Usage:**
+
+```vue
+<DeferredContent role="region" aria-live="polite" aria-label="Content loaded after page scrolled down">
+    Content
+</DeferredContent>
+```
+
+## Basic
+
+DeferredContent is used by wrapping the target.
+
+**Basic Usage:**
+
+```vue
+<DeferredContent @load="onImageLoad">
+    <img src="/images/nature/nature4.jpg" alt="Nature" class="rounded-xl w-full md:w-96 block sm:mx-auto" />
+</DeferredContent>
+```
+
+## DataTable
+
+A practical example that triggers a fetch when the table becomes visible in viewport.
+
+**Basic Usage:**
+
+```vue
+<DeferredContent @load="onDataLoad" role="region" aria-live="polite" aria-label="Content loaded after page scrolled down">
+    <DataTable :value="products">
+        <Column field="code" header="Code"></Column>
+        <Column field="name" header="Name"></Column>
+        <Column field="category" header="Category"></Column>
+        <Column field="quantity" header="Quantity"></Column>
+    </DataTable>
+</DeferredContent>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import DeferredContent from 'primevue/deferredcontent';
+```
+
+## Deferredcontent
+
+## Deferredcontent
+
+---
+
+# designer
+
+
+
+## DashboardDoc
+
+Dashboard is the entry point of the designer. The license key can be configured at this view before getting started with the full set of features. In the My Themes section, you're able to create a theme, and manage existing themes. A theme can be renamed, duplicated and downloaded using the button.
+
+## LicenseDoc
+
+A license key is required to be able to use all the services provided by the designer. Without a license, the visual editor is still available for trial purposes with various options such as downloads, and cloud storage disabled. The license key can be purchased at PrimeStore , it is valid for 1 year and needs to be renewed manually after a year.
+
+## LimitationsDoc
+
+Current known technical limitations are listed at this section. The border width token in Figma does not support multiple values, related issue .
+
+## MigrationAssistantDoc
+
+Prime UI libraries continue to evolve with each version. New tokens are likely to be added with each major release, in order to keep your themes up to date the migration assistant is available featuring automated migration. The Check for Updates option initially scans a theme for any missing tokens. This tool does not override the values of existing tokens, and only adds missing tokens if necessary. Still, it is recommended to duplicate your theme as a backup and run a preview before the migration. Depending on the result, you may choose to proceed with the migration process. In case there are missing tokens, your theme would receive them with placeholder values so it is recommended to take a note of them before migration and then visit the components to replace the placeholder values with actual values of your choice. These types of newly added tokens would be highlighed in Editor.
+
+## OverviewDoc
+
+The theming api is open and source freely available with an extensive documentation. Theme Designer is a tool build on top of this theming api with important features to make theming easier. Designer consists of 4 key features; The visual editor provides a UI to edit the complete set of tokens. The figma to theme code generator is extremely useful to automate the design to code process and integrates seamlessly with the Figma UI Kit. The themes are saved in the cloud storage to be accessible from anywhere and any device and finally the migration assistant automatically updates your themes to the latest library version.
+
+---
+
+# Vue Dialog Component
+
+Dialog is a container to display content in an overlay window.
+
+## Accessibility
+
+Screen Reader Dialog component uses dialog role along with aria-labelledby referring to the header element however any attribute is passed to the root element so you may use aria-labelledby to override this default behavior. In addition aria-modal is added since focus is kept within the popup. Trigger element also requires aria-expanded and aria-controls to be handled explicitly. Close element is a button with an aria-label that refers to the aria.close property of the locale API by default, you may use closeButtonProps to customize the element and override the default aria-label . Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the dialog if modal is true. Otherwise, the focusable element in the page tab sequence. shift + tab Moves focus to the previous the focusable element within the dialog if modal is true. Otherwise, the focusable element in the page tab sequence. escape Closes the dialog if closeOnEscape is true. Close Button Keyboard Support Key Function enter Closes the dialog. space Closes the dialog.
+
+**Basic Usage:**
+
+```vue
+<Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'dlg' : null" :aria-expanded="visible ? true : false" />
+
+<Dialog id="dlg" header="Header" v-model:visible="visible" :style="{ width: '50vw' }">
+    <p>Content</p>
+</Dialog>
+```
+
+## Basic
+
+Dialog is used as a container and visibility is controlled with a binding to visible property.
+
+**Basic Usage:**
+
+```vue
+<Button label="Show" @click="visible = true" />
+
+<Dialog v-model:visible="visible" modal header="Edit Profile" :style="{ width: '25rem' }">
+    <span class="text-surface-500 dark:text-surface-400 block mb-8">Update your information.</span>
+    <div class="flex items-center gap-4 mb-4">
+        <label for="username" class="font-semibold w-24">Username</label>
+        <InputText id="username" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex items-center gap-4 mb-8">
+        <label for="email" class="font-semibold w-24">Email</label>
+        <InputText id="email" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex justify-end gap-2">
+        <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
+        <Button type="button" label="Save" @click="visible = false"></Button>
+    </div>
+</Dialog>
+```
+
+## Headless
+
+Headless mode is enabled by defining a container slot that lets you implement entire UI instead of the default elements.
+
+**Basic Usage:**
+
+```vue
+<Button label="Login" icon="pi pi-user" @click="visible = true" />
+
+<Dialog v-model:visible="visible" pt:root:class="!border-0 !bg-transparent" pt:mask:class="backdrop-blur-sm">
+    <template #container="{ closeCallback }">
+        <div class="flex flex-col px-8 py-8 gap-6 rounded-2xl" style="background-image: radial-gradient(circle at left top, var(--p-primary-400), var(--p-primary-700))">
+            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="block mx-auto">
+                <path
+                    d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                    fill="var(--p-primary-700)"
+                />
+                <path
+                    d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                    fill="var(--p-primary-200)"
+                />
+            </svg>
+            <div class="inline-flex flex-col gap-2">
+                <label for="username" class="text-primary-50 font-semibold">Username</label>
+                <InputText id="username" class="!bg-white/20 !border-0 !p-4 !text-primary-50 w-80"></InputText>
+            </div>
+            <div class="inline-flex flex-col gap-2">
+                <label for="password" class="text-primary-50 font-semibold">Password</label>
+                <InputText id="password" class="!bg-white/20 !border-0 !p-4 !text-primary-50 w-80" type="password"></InputText>
+            </div>
+            <div class="flex items-center gap-4">
+                <Button label="Cancel" @click="closeCallback" variant="text" class="!p-4 w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"></Button>
+                <Button label="Sign-In" @click="closeCallback" variant="text" class="!p-4 w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"></Button>
+            </div>
+        </div>
+    </template>
+</Dialog>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Dialog from 'primevue/dialog';
+```
+
+## Long Content
+
+When content exceeds viewport, Dialog automatically becomes scrollable.
+
+**Basic Usage:**
+
+```vue
+<Button label="Show" @click="visible = true" />
+
+<Dialog v-model:visible="visible" modal header="Header" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+    <p class="mb-8">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p class="mb-8">
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+        ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+    </p>
+    <p class="mb-8">
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+        maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae
+        non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+    </p>
+    <p class="mb-8">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p class="mb-8">
+        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+        adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+        ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+    </p>
+    <p>
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+        maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae
+        non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+    </p>
+</Dialog>
+```
+
+## Maximizable
+
+Adding maximizable property enables the full screen mode.
+
+**Basic Usage:**
+
+```vue
+<Button label="Show" @click="visible = true" />
+
+<Dialog v-model:visible="visible" maximizable modal header="Header" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+    <p class="m-0">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</Dialog>
+```
+
+## Position
+
+The position property defines the location of relative to the screen.
+
+**Basic Usage:**
+
+```vue
+<div class="flex flex-wrap justify-center gap-2 mb-2">
+    <Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" severity="secondary" style="min-width: 10rem" />
+    <Button label="Right" icon="pi pi-arrow-left" @click="openPosition('right')" severity="secondary" style="min-width: 10rem" />
+</div>
+<div class="flex flex-wrap justify-center gap-2 mb-2">
+    <Button label="TopLeft" icon="pi pi-arrow-down-right" @click="openPosition('topleft')" severity="secondary" style="min-width: 10rem" />
+    <Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" severity="secondary" style="min-width: 10rem" />
+    <Button label="TopRight" icon="pi pi-arrow-down-left" @click="openPosition('topright')" severity="secondary" style="min-width: 10rem" />
+</div>
+<div class="flex flex-wrap justify-center gap-2">
+    <Button label="BottomLeft" icon="pi pi-arrow-up-right" @click="openPosition('bottomleft')" severity="secondary" style="min-width: 10rem" />
+    <Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" severity="secondary" style="min-width: 10rem" />
+    <Button label="BottomRight" icon="pi pi-arrow-up-left" @click="openPosition('bottomright')" severity="secondary" style="min-width: 10rem" />
+</div>
+
+<Dialog v-model:visible="visible" header="Edit Profile" :style="{ width: '25rem' }" :position="position" :modal="true" :draggable="false">
+    <span class="text-surface-500 dark:text-surface-400 block mb-8">Update your information.</span>
+    <div class="flex items-center gap-4 mb-4">
+        <label for="username" class="font-semibold w-24">Username</label>
+        <InputText id="username" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex items-center gap-4 mb-8">
+        <label for="email" class="font-semibold w-24">Email</label>
+        <InputText id="email" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex justify-end gap-2">
+        <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
+        <Button type="button" label="Save" @click="visible = false"></Button>
+    </div>
+</Dialog>
+```
+
+## Responsive
+
+Dialog width can be adjusted per screen size with the breakpoints option where the max-width for the breakpoint and the width are defined as key-value pairs. When no breakpoint matches width defined in style or class is used. Alternatively responsive utility classes of libraries like Tailwind can also be used such as md:w-screen .
+
+**Basic Usage:**
+
+```vue
+<Button label="Show" @click="visible = true" />
+
+<Dialog v-model:visible="visible" modal header="Header" :style="{ width: '50vw' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+    <p class="m-0">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</Dialog>
+```
+
+## Template
+
+Header and Footer sections allow customization via templating.
+
+**Basic Usage:**
+
+```vue
+<Button label="Show" @click="visible = true" />
+
+<Dialog v-model:visible="visible" modal header="Edit Profile" :style="{ width: '25rem' }">
+    <template #header>
+        <div class="inline-flex items-center justify-center gap-2">
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+            <span class="font-bold whitespace-nowrap">Amy Elsner</span>
+        </div>
+    </template>
+    <span class="text-surface-500 dark:text-surface-400 block mb-8">Update your information.</span>
+    <div class="flex items-center gap-4 mb-4">
+        <label for="username" class="font-semibold w-24">Username</label>
+        <InputText id="username" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex items-center gap-4 mb-2">
+        <label for="email" class="font-semibold w-24">Email</label>
+        <InputText id="email" class="flex-auto" autocomplete="off" />
+    </div>
+    <template #footer>
+        <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
+        <Button label="Save" variant="outlined" severity="secondary" @click="visible = false" autofocus />
+    </template>
+</Dialog>
+```
+
+## WithoutModalDoc
+
+Mask layer behind the Dialog is configured with the modal property. By default, no modal layer is added.
+
+**Basic Usage:**
+
+```vue
+<Button label="Show" @click="visible = true" />
+
+<Dialog v-model:visible="visible" header="Edit Profile" :style="{ width: '25rem' }">
+    <span class="text-surface-500 dark:text-surface-400 block mb-8">Update your information.</span>
+    <div class="flex items-center gap-4 mb-4">
+        <label for="username" class="font-semibold w-24">Username</label>
+        <InputText id="username" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex items-center gap-4 mb-8">
+        <label for="email" class="font-semibold w-24">Email</label>
+        <InputText id="email" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex justify-end gap-2">
+        <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
+        <Button type="button" label="Save" @click="visible = false"></Button>
+    </div>
+</Dialog>
+```
+
+## Dialog
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| header | string | - | Title content of the dialog. |
+| footer | string | - | Footer content of the dialog. |
+| visible | boolean | false | Specifies the visibility of the dialog. |
+| modal | boolean | false | Defines if background should be blocked when dialog is displayed. |
+| contentStyle | any | - | Style of the content section. |
+| contentClass | any | - | Style class of the content section. |
+| contentProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the overlay Dialog inside the component. |
+| closable | boolean | true | Adds a close icon to the header to hide the dialog. |
+| dismissableMask | boolean | false | Specifies if clicking the modal background should hide the dialog. |
+| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the dialog. |
+| showHeader | boolean | true | Whether to show the header or not. |
+| blockScroll | boolean | false | Whether background scroll should be blocked when dialog is visible. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| position | HintedString<"left" \| "right" \| "top" \| "bottom" \| "center" \| "topleft" \| "topright" \| "bottomleft" \| "bottomright"> | center | Position of the dialog. |
+| maximizable | boolean | false | Whether the dialog can be displayed full screen. |
+| breakpoints | DialogBreakpoints | - | Object literal to define widths per screen size. |
+| draggable | boolean | true | Enables dragging to change the position using header. |
+| keepInViewport | boolean | true | Keeps dialog in the viewport when dragging. |
+| minX | number | 0. | Minimum value for the left coordinate of dialog in dragging. |
+| minY | number | 0 | Minimum value for the top coordinate of dialog in dragging. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the dialog gets attached. |
+| style | any | - | Style of the dynamic dialog. |
+| closeIcon | string | - | Icon to display in the dialog close button. |
+| maximizeIcon | string | - | Icon to display in the dialog maximize button when dialog is not maximized. |
+| minimizeIcon | string | - | Icon to display in the dialog maximize button when dialog is minimized. |
+| closeButtonProps | object | - | Used to pass all properties of the ButtonProps to the Button component. |
+| maximizeButtonProps | object | - | Used to pass all properties of the ButtonProps to the Button component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DialogPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Dialog
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| header | string | - | Title content of the dialog. |
+| footer | string | - | Footer content of the dialog. |
+| visible | boolean | false | Specifies the visibility of the dialog. |
+| modal | boolean | false | Defines if background should be blocked when dialog is displayed. |
+| contentStyle | any | - | Style of the content section. |
+| contentClass | any | - | Style class of the content section. |
+| contentProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the overlay Dialog inside the component. |
+| closable | boolean | true | Adds a close icon to the header to hide the dialog. |
+| dismissableMask | boolean | false | Specifies if clicking the modal background should hide the dialog. |
+| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the dialog. |
+| showHeader | boolean | true | Whether to show the header or not. |
+| blockScroll | boolean | false | Whether background scroll should be blocked when dialog is visible. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| position | HintedString<"left" \| "right" \| "top" \| "bottom" \| "center" \| "topleft" \| "topright" \| "bottomleft" \| "bottomright"> | center | Position of the dialog. |
+| maximizable | boolean | false | Whether the dialog can be displayed full screen. |
+| breakpoints | DialogBreakpoints | - | Object literal to define widths per screen size. |
+| draggable | boolean | true | Enables dragging to change the position using header. |
+| keepInViewport | boolean | true | Keeps dialog in the viewport when dragging. |
+| minX | number | 0. | Minimum value for the left coordinate of dialog in dragging. |
+| minY | number | 0 | Minimum value for the top coordinate of dialog in dragging. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the dialog gets attached. |
+| style | any | - | Style of the dynamic dialog. |
+| closeIcon | string | - | Icon to display in the dialog close button. |
+| maximizeIcon | string | - | Icon to display in the dialog maximize button when dialog is not maximized. |
+| minimizeIcon | string | - | Icon to display in the dialog maximize button when dialog is minimized. |
+| closeButtonProps | object | - | Used to pass all properties of the ButtonProps to the Button component. |
+| maximizeButtonProps | object | - | Used to pass all properties of the ButtonProps to the Button component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DialogPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Dialogservice-usedialog
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | DialogPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| header | DialogPassThroughOptionType<T> | Used to pass attributes to the header's DOM element. |
+| title | DialogPassThroughOptionType<T> | Used to pass attributes to the header title's DOM element. |
+| headerActions | DialogPassThroughOptionType<T> | Used to pass attributes to the header actions' DOM element. |
+| pcMaximizeButton | any | Used to pass attributes to the maximize Button component. |
+| pcCloseButton | any | Used to pass attributes to the close Button component. |
+| content | DialogPassThroughOptionType<T> | Used to pass attributes to the content's DOM element. |
+| footer | DialogPassThroughOptionType<T> | Used to pass attributes to the footer's DOM element. |
+| mask | DialogPassThroughOptionType<T> | Used to pass attributes to the mask's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | DialogPassThroughTransitionType<T> | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-dialog-mask | Class name of the mask element |
+| p-dialog | Class name of the root element |
+| p-dialog-header | Class name of the header element |
+| p-dialog-title | Class name of the title element |
+| p-dialog-header-actions | Class name of the header actions element |
+| p-dialog-maximize-button | Class name of the maximize button element |
+| p-dialog-close-button | Class name of the close button element |
+| p-dialog-content | Class name of the content element |
+| p-dialog-footer | Class name of the footer element |
+
+---
+
+# Vue Divider Component
+
+Divider is used to separate contents.
+
+## Accessibility
+
+Screen Reader Divider uses a separator role with aria-orientation set to either "horizontal" or "vertical". Keyboard Support Component does not include any interactive elements.
+
+## Basic
+
+Divider is basically placed between the items to separate.
+
+**Basic Usage:**
+
+```vue
+<p class="m-0">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<Divider />
+
+<p class="m-0">
+    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+    voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+</p>
+
+<Divider />
+
+<p class="m-0">
+    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
+    deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+</p>
+
+<Divider />
+
+<p class="m-0">
+    Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+    maiores alias consequatur aut perferendis doloribus asperiores repellat. Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.
+</p>
+```
+
+## Content
+
+Children are rendered within the boundaries of the divider where location of the content is configured with the align property. In horizontal layout, alignment options are left , center and right whereas vertical mode supports top , center and bottom .
+
+**Basic Usage:**
+
+```vue
+<p class="m-0">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<Divider align="left" type="solid">
+    <b>Left</b>
+</Divider>
+
+<p class="m-0">
+    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+    voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+</p>
+
+<Divider align="center" type="dotted">
+    <b>Center</b>
+</Divider>
+
+<p class="m-0">
+    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
+    deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+</p>
+
+<Divider align="right" type="dashed">
+    <b>Right</b>
+</Divider>
+
+<p class="m-0">
+    Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+    maiores alias consequatur aut perferendis doloribus asperiores repellat. Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.
+</p>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+
+        <Divider align="left" type="solid">
+            <b>Left</b>
+        </Divider>
+
+        <p class="m-0">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+        </p>
+
+        <Divider align="center" type="dotted">
+            <b>Center</b>
+        </Divider>
+
+        <p class="m-0">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
+            deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+        </p>
+
+        <Divider align="right" type="dashed">
+            <b>Right</b>
+        </Divider>
+
+        <p class="m-0">
+            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+            maiores alias consequatur aut perferendis doloribus asperiores repellat. Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.
+        </p>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Divider from 'primevue/divider';
+```
+
+## Login
+
+Sample implementation of a login form using a divider with content.
+
+**Basic Usage:**
+
+```vue
+<div class="flex flex-col md:flex-row">
+    <div class="w-full md:w-5/12 flex flex-col items-center justify-center gap-3 py-5">
+        <div class="flex flex-col gap-2">
+            <label for="username">Username</label>
+            <InputText id="username" type="text" />
+        </div>
+        <div class="flex flex-col gap-2">
+            <label for="password">Password</label>
+            <InputText id="password" type="password" />
+        </div>
+        <div class="flex">
+            <Button label="Login" icon="pi pi-user" class="w-full max-w-[17.35rem] mx-auto"></Button>
+        </div>
+    </div>
+    <div class="w-full md:w-2/12">
+        <Divider layout="vertical" class="!hidden md:!flex"><b>OR</b></Divider>
+        <Divider layout="horizontal" class="!flex md:!hidden" align="center"><b>OR</b></Divider>
+    </div>
+    <div class="w-full md:w-5/12 flex items-center justify-center py-5">
+        <Button label="Sign Up" icon="pi pi-user-plus" severity="success" class="w-full max-w-[17.35rem] mx-auto"></Button>
+    </div>
+</div>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-col md:flex-row">
+            <div class="w-full md:w-5/12 flex flex-col items-center justify-center gap-3 py-5">
+                <div class="flex flex-col gap-2">
+                    <label for="username">Username</label>
+                    <InputText id="username" type="text" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="password">Password</label>
+                    <InputText id="password" type="password" />
+                </div>
+                <div class="flex">
+                    <Button label="Login" icon="pi pi-user" class="w-full max-w-[17.35rem] mx-auto"></Button>
+                </div>
+            </div>
+            <div class="w-full md:w-2/12">
+                <Divider layout="vertical" class="!hidden md:!flex"><b>OR</b></Divider>
+                <Divider layout="horizontal" class="!flex md:!hidden" align="center"><b>OR</b></Divider>
+            </div>
+            <div class="w-full md:w-5/12 flex items-center justify-center py-5">
+                <Button label="Sign Up" icon="pi pi-user-plus" severity="success" class="w-full max-w-[17.35rem] mx-auto"></Button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Type
+
+Style of the border is configured with the type property that can either be solid , dotted or dashed .
+
+**Basic Usage:**
+
+```vue
+<p class="m-0">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<Divider type="solid" />
+
+<p class="m-0">
+    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+    voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+</p>
+
+<Divider type="dotted" />
+
+<p class="m-0">
+    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
+    deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+</p>
+
+<Divider type="dashed" />
+
+<p class="m-0">
+    Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+    maiores alias consequatur aut perferendis doloribus asperiores repellat. Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.
+</p>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+
+        <Divider type="solid" />
+
+        <p class="m-0">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+        </p>
+
+        <Divider type="dotted" />
+
+        <p class="m-0">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
+            deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+        </p>
+
+        <Divider type="dashed" />
+
+        <p class="m-0">
+            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+            maiores alias consequatur aut perferendis doloribus asperiores repellat. Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.
+        </p>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Vertical
+
+Vertical divider is enabled by setting the layout property as vertical .
+
+**Basic Usage:**
+
+```vue
+<p class="m-0">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<Divider layout="vertical" />
+
+<p class="m-0">
+    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+    voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+</p>
+
+<Divider layout="vertical" />
+
+<p class="m-0">
+    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
+    deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+</p>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex">
+        <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+
+        <Divider layout="vertical" />
+
+        <p class="m-0">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+        </p>
+
+        <Divider layout="vertical" />
+
+        <p class="m-0">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
+            deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+        </p>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Divider
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| align | HintedString<"left" \| "right" \| "top" \| "bottom" \| "center"> | - | Alignment of the content. |
+| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Specifies the orientation, valid values are 'horizontal' and 'vertical'. |
+| type | HintedString<"solid" \| "dashed" \| "dotted"> | solid | Border style type. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DividerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Divider
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| align | HintedString<"left" \| "right" \| "top" \| "bottom" \| "center"> | - | Alignment of the content. |
+| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Specifies the orientation, valid values are 'horizontal' and 'vertical'. |
+| type | HintedString<"solid" \| "dashed" \| "dotted"> | solid | Border style type. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DividerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | DividerPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| content | DividerPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-divider | Class name of the root element |
+| p-divider-content | Class name of the content element |
+
+---
+
+# Vue Dock Component
+
+Dock is a navigation component consisting of menuitems.
+
+## Accessibility
+
+Screen Reader Dock component uses the menu role with the aria-orientation and the value to describe the menu can either be provided with aria-labelledby or aria-label props. Each list item has a menuitem role with aria-label referring to the label of the item and aria-disabled defined if the item is disabled. Keyboard Support Key Function tab Moves focus to the first menuitem. enter Activates the focused menuitem. space Activates the focused menuitem. down arrow Moves focus to the next menuitem in vertical layout. up arrow Moves focus to the previous menuitem in vertical layout. right arrow Moves focus to the next menuitem in horizontal layout. left arrow Moves focus to the previous menuitem in horizontal layout. home Moves focus to the first menuitem. end Moves focus to the last menuitem.
+
+## AdvancedDoc
+
+A mock desktop UI implemented with various components in addition to Dock.
+
+**Basic Usage:**
+
+```vue
+<Dock :model="items">
+    <template #item="{ item }">
+        <a v-tooltip.top="item.label" href="#" class="p-dock-item-link" @click="onDockItemClick($event, item)">
+            <img :alt="item.label" :src="item.icon" style="width: 100%" />
+        </a>
+    </template>
+</Dock>
+```
+
+## Basic
+
+Dock requires a collection of menuitems as its model and an icon template. Default location is bottom and other edges are also available when defined with the position property.
+
+**Basic Usage:**
+
+```vue
+<Dock :model="items" :position="position">
+    <template #itemicon="{ item }">
+        <img v-tooltip.top="item.label" :alt="item.label" :src="item.icon" style="width: 100%" />
+    </template>
+</Dock>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Dock from 'primevue/dock';
+```
+
+## Dock
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| model | MenuItem[] | - | MenuModel instance to define the action items. |
+| position | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of element. |
+| class | any | - | Style class of the element. |
+| style | any | - | Inline style of the element. |
+| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
+| tooltipOptions | DockTooltipOptions | - | Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'. |
+| menuId | string | - | Unique identifier of the menu. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DockPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Dock
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| model | MenuItem[] | - | MenuModel instance to define the action items. |
+| position | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of element. |
+| class | any | - | Style class of the element. |
+| style | any | - | Inline style of the element. |
+| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
+| tooltipOptions | DockTooltipOptions | - | Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'. |
+| menuId | string | - | Unique identifier of the menu. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DockPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | DockPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| listContainer | DockPassThroughOptionType | Used to pass attributes to the list container's DOM element. |
+| list | DockPassThroughOptionType | Used to pass attributes to the list's DOM element. |
+| item | DockPassThroughOptionType | Used to pass attributes to the  item's DOM element. |
+| itemContent | DockPassThroughOptionType | Used to pass attributes to the item content's DOM element. |
+| itemLink | DockPassThroughOptionType | Used to pass attributes to the item link's DOM element. |
+| itemIcon | DockPassThroughOptionType | Used to pass attributes to the item icon's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-dock | Class name of the root element |
+| p-dock-list-container | Class name of the list container element |
+| p-dock-list | Class name of the list element |
+| p-dock-item | Class name of the item element |
+| p-dock-item-content | Class name of the item content element |
+| p-dock-item-link | Class name of the item link element |
+| p-dock-item-icon | Class name of the item icon element |
+
+---
+
+# Vue Drawer Component
+
+Drawer is a container component displayed as an overlay.
+
+## Accessibility
+
+Screen Reader Drawer component uses complementary role by default, since any attribute is passed to the root element aria role can be changed depending on your use case and additional attributes like aria-labelledby can be added. In addition aria-modal is added since focus is kept within the drawer when opened. Trigger element also requires aria-expanded and aria-controls to be handled explicitly. Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the drawer. shift + tab Moves focus to the previous the focusable element within the drawer. escape Closes the drawer. Close Button Keyboard Support Key Function enter Closes the drawer. space Closes the drawer.
+
+**Basic Usage:**
+
+```vue
+<Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'sbar' : null" :aria-expanded="visible"/>
+
+<Drawer id="sbar" v-model:visible="visible" role="region" >
+    <p>Content</p>
+</Drawer>
+```
+
+## Basic
+
+Drawer is used as a container and visibility is controlled with a binding to visible .
+
+**Basic Usage:**
+
+```vue
+<div class="card flex justify-center">
+    <Drawer v-model:visible="visible" header="Drawer">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </Drawer>
+    <Button icon="pi pi-arrow-right" @click="visible = true" />
+</div>
+```
+
+## Full Screen
+
+The full screen mode is enabled when position property is set as full .
+
+**Basic Usage:**
+
+```vue
+<div class="card flex justify-center">
+    <Drawer v-model:visible="visible" header="Drawer" position="full">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </Drawer>
+    <Button icon="pi pi-window-maximize" @click="visible = true" />
+</div>
+```
+
+## Headless
+
+Headless mode is enabled by defining a container slot that lets you implement entire UI instead of the default elements.
+
+**Basic Usage:**
+
+```vue
+<Drawer v-model:visible="visible">
+    <template #container="{ closeCallback }">
+        <div class="flex flex-col h-full">
+            <div class="flex items-center justify-between px-6 pt-4 shrink-0">
+                <span class="inline-flex items-center gap-2">
+                    <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="..." fill="var(--p-primary-color)" />
+                        <path d="..." fill="var(--p-text-color)" />
+                    </svg>
+                    <span class="font-semibold text-2xl text-primary">Your Logo</span>
+                </span>
+                <span>
+                    <Button type="button" @click="closeCallback" icon="pi pi-times" rounded variant="outlined"></Button>
+                </span>
+            </div>
+            <div class="overflow-y-auto">
+                <ul class="list-none p-4 m-0">
+                    <li>
+                        <div
+                            v-ripple
+                            v-styleclass="{
+                                selector: '@next',
+                                enterFromClass: 'hidden',
+                                enterActiveClass: 'animate-slidedown',
+                                leaveToClass: 'hidden',
+                                leaveActiveClass: 'animate-slideup'
+                            }"
+                            class="p-4 flex items-center justify-between text-surface-500 dark:text-surface-400 cursor-pointer p-ripple"
+                        >
+                            <span class="font-medium">FAVORITES</span>
+                            <i class="pi pi-chevron-down"></i>
+                        </div>
+                        <ul class="list-none p-0 m-0 overflow-hidden">
+                            <li>
+                                <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                    <i class="pi pi-home mr-2"></i>
+                                    <span class="font-medium">Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                    <i class="pi pi-bookmark mr-2"></i>
+                                    <span class="font-medium">Bookmarks</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    v-ripple
+                                    v-styleclass="{
+                                        selector: '@next',
+                                        enterFromClass: 'hidden',
+                                        enterActiveClass: 'animate-slidedown',
+                                        leaveToClass: 'hidden',
+                                        leaveActiveClass: 'animate-slideup'
+                                    }"
+                                    class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple"
+                                >
+                                    <i class="pi pi-chart-line mr-2"></i>
+                                    <span class="font-medium">Reports</span>
+                                    <i class="pi pi-chevron-down ml-auto"></i>
+                                </a>
+                                <ul class="list-none py-0 pl-4 pr-0 m-0 hidden overflow-y-hidden transition-all duration-[400ms] ease-in-out">
+                                    <li>
+                                        <a
+                                            v-ripple
+                                            v-styleclass="{
+                                                selector: '@next',
+                                                enterFromClass: 'hidden',
+                                                enterActiveClass: 'animate-slidedown',
+                                                leaveToClass: 'hidden',
+                                                leaveActiveClass: 'animate-slideup'
+                                            }"
+                                            class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple"
+                                        >
+                                            <i class="pi pi-chart-line mr-2"></i>
+                                            <span class="font-medium">Revenue</span>
+                                            <i class="pi pi-chevron-down ml-auto"></i>
+                                        </a>
+                                        <ul class="list-none py-0 pl-4 pr-0 m-0 hidden overflow-y-hidden transition-all duration-[400ms] ease-in-out">
+                                            <li>
+                                                <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                                    <i class="pi pi-table mr-2"></i>
+                                                    <span class="font-medium">View</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                                    <i class="pi pi-search mr-2"></i>
+                                                    <span class="font-medium">Search</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                            <i class="pi pi-chart-line mr-2"></i>
+                                            <span class="font-medium">Expenses</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                    <i class="pi pi-users mr-2"></i>
+                                    <span class="font-medium">Team</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                    <i class="pi pi-comments mr-2"></i>
+                                    <span class="font-medium">Messages</span>
+                                    <span class="inline-flex items-center justify-center ml-auto bg-primary text-primary-contrast rounded-full" style="min-width: 1.5rem; height: 1.5rem">3</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                    <i class="pi pi-calendar mr-2"></i>
+                                    <span class="font-medium">Calendar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                    <i class="pi pi-cog mr-2"></i>
+                                    <span class="font-medium">Settings</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="list-none p-4 m-0">
+                    <li>
+                        <div
+                            v-ripple
+                            v-styleclass="{
+                                selector: '@next',
+                                enterFromClass: 'hidden',
+                                enterActiveClass: 'animate-slidedown',
+                                leaveToClass: 'hidden',
+                                leaveActiveClass: 'animate-slideup'
+                            }"
+                            class="p-4 flex items-center justify-between text-surface-500 dark:text-surface-400 cursor-pointer p-ripple"
+                        >
+                            <span class="font-medium">APPLICATION</span>
+                            <i class="pi pi-chevron-down"></i>
+                        </div>
+                        <ul class="list-none p-0 m-0 overflow-hidden">
+                            <li>
+                                <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                    <i class="pi pi-folder mr-2"></i>
+                                    <span class="font-medium">Projects</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                    <i class="pi pi-chart-bar mr-2"></i>
+                                    <span class="font-medium">Performance</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                    <i class="pi pi-cog mr-2"></i>
+                                    <span class="font-medium">Settings</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="mt-auto">
+                <hr class="mb-4 mx-4 border-t border-0 border-surface-200 dark:border-surface-700" />
+                <a v-ripple class="m-4 flex items-center cursor-pointer p-4 gap-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                    <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold">Amy Elsner</span>
+                </a>
+            </div>
+        </div>
+    </template>
+</Drawer>
+<Button icon="pi pi-bars" @click="visible = true" />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Drawer from 'primevue/drawer';
+```
+
+## Position
+
+Drawer location is configured with the position property that can take left , right , top and bottom as valid values.
+
+**Basic Usage:**
+
+```vue
+<div class="flex gap-2 justify-center">
+    <Button icon="pi pi-arrow-right" @click="visibleLeft = true" />
+    <Button icon="pi pi-arrow-left" @click="visibleRight = true" />
+    <Button icon="pi pi-arrow-down" @click="visibleTop = true" />
+    <Button icon="pi pi-arrow-up" @click="visibleBottom = true" />
+</div>
+
+<Drawer v-model:visible="visibleLeft" header="Left Drawer">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</Drawer>
+
+<Drawer v-model:visible="visibleRight" header="Right Drawer" position="right">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</Drawer>
+
+<Drawer v-model:visible="visibleTop" header="Top Drawer" position="top" style="height: auto">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</Drawer>
+
+<Drawer v-model:visible="visibleBottom" header="Bottom Drawer" position="bottom" style="height: auto">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</Drawer>
+```
+
+## Size
+
+Drawer dimension can be defined with style or class properties, this responsive example utilizes Tailwind.
+
+**Basic Usage:**
+
+```vue
+<div class="card flex justify-center">
+    <Drawer v-model:visible="visible" header="Drawer" class="!w-full md:!w-80 lg:!w-[30rem]">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </Drawer>
+    <Button icon="pi pi-arrow-right" @click="visible = true" />
+</div>
+```
+
+## Template
+
+Custom content at the header and footer sections is displayed with templating.
+
+**Basic Usage:**
+
+```vue
+<Drawer v-model:visible="visible">
+    <template #header>
+        <div class="flex items-center gap-2">
+            <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
+            <span class="font-bold">Amy Elsner</span>
+        </div>
+    </template>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <template #footer>
+        <div class="flex items-center gap-2">
+            <Button label="Account" icon="pi pi-user" class="flex-auto" variant="outlined"></Button>
+            <Button label="Logout" icon="pi pi-sign-out" class="flex-auto" severity="danger" text></Button>
+        </div>
+    </template>
+</Drawer>
+<Button icon="pi pi-plus" @click="visible = true" />
+```
+
+## Drawer
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| visible | boolean | false | Specifies the visibility of the dialog. |
+| position | HintedString<"left" \| "right" \| "top" \| "bottom" \| "full"> | left | Specifies the position of the drawer. |
+| header | string | - | Title content of the dialog. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| dismissable | boolean | true | Whether clicking outside closes the panel. |
+| showCloseIcon | boolean | true | Whether to display a close icon inside the panel. |
+| closeButtonProps | object | - | Used to pass the custom value to read for the button inside the component. |
+| closeIcon | string | - | Icon to display in the drawer close button. |
+| modal | boolean | true | Whether to a modal layer behind the drawer. |
+| blockScroll | boolean | false | Whether background scroll should be blocked when drawer is visible. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DrawerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the drawer. |
+
+## Drawer
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| visible | boolean | false | Specifies the visibility of the dialog. |
+| position | HintedString<"left" \| "right" \| "top" \| "bottom" \| "full"> | left | Specifies the position of the drawer. |
+| header | string | - | Title content of the dialog. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| dismissable | boolean | true | Whether clicking outside closes the panel. |
+| showCloseIcon | boolean | true | Whether to display a close icon inside the panel. |
+| closeButtonProps | object | - | Used to pass the custom value to read for the button inside the component. |
+| closeIcon | string | - | Icon to display in the drawer close button. |
+| modal | boolean | true | Whether to a modal layer behind the drawer. |
+| blockScroll | boolean | false | Whether background scroll should be blocked when drawer is visible. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DrawerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the drawer. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | DrawerPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| header | DrawerPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| title | DrawerPassThroughOptionType | Used to pass attributes to the header content's DOM element. |
+| pcCloseButton | any | Used to pass attributes to the close button's DOM element. |
+| content | DrawerPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| footer | DrawerPassThroughOptionType | Used to pass attributes to the footer's DOM element. |
+| mask | DrawerPassThroughOptionType | Used to pass attributes to the mask's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | DrawerPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-drawer-mask | Class name of the mask element |
+| p-drawer | Class name of the root element |
+| p-drawer-header | Class name of the header element |
+| p-drawer-title | Class name of the title element |
+| p-drawer-close-button | Class name of the close button element |
+| p-drawer-content | Class name of the content element |
+
+---
+
+# Vue Dynamic Dialog Component
+
+Dialogs can be created dynamically with any component as the content using a DialogService.
+
+## Accessibility
+
+Visit accessibility section of dialog component for more information.
+
+## CloseDialogDoc
+
+The close function is available through a dialogRef that is injected to the component loaded by the dialog.
+
+**Basic Usage:**
+
+```vue
+import { inject } from "vue";
+
+const dialogRef = inject('dialogRef');
+
+const closeDialog = () => {
+    dialogRef.value.close();
+}
+```
+
+## Customization
+
+DynamicDialog uses the Dialog component internally, visit dialog for more information about the available props.
+
+## Dialog Service
+
+A single shared dialog instance is required in the application, ideal location would be defining it once at the main application template. A dynamic dialog is controlled via the DialogService that needs to be installed as an application plugin. The service is available with the useDialog function for Composition API or using the $dialog property of the application for Options API.
+
+## Events
+
+The emits object defines callbacks to handle events emitted by the component within the Dialog.
+
+## Example
+
+A sample implementation to demonstrate loading components asynchronously, nested content and passing data.
+
+**Basic Usage:**
+
+```vue
+<Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
+
+<DynamicDialog />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import DynamicDialog from 'primevue/dynamicdialog';
+```
+
+## OpenDialogDoc
+
+The open function of the DialogService is used to open a Dialog. First parameter is the component to load and second one is the configuration object to customize the Dialog. The component can also be loaded asynchronously, this approach is useful in conditional cases and to improve initial load times as well.
+
+## Passing Data
+
+Use the data property to pass parameters when opening a Dialog, the internal component can later access this data using dialogRef . Similarly when hiding a Dialog, any parameter passed to the close function is received from the onClose callback.
+
+## Dynamicdialog
+
+## Dynamicdialog
+
+## Dynamicdialogoptions
+
+---
+
+# Vue Editor Component
+
+Editor is rich text editor component based on Quill.
+
+## Accessibility
+
+Screen Reader Quill performs generally well in terms of accessibility. The elements in the toolbar can be tabbed and have the necessary ARIA roles/attributes for screen readers. One known limitation is the lack of arrow key support for dropdowns in the toolbar that may be overcome with a custom toolbar.
+
+## Basic
+
+Editor is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<Editor v-model="value" editorStyle="height: 320px" />
+```
+
+## Forms
+
+Editor integrates seamlessly with the PrimeVue Forms library.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Editor from 'primevue/editor';
+```
+
+## Quill
+
+Editor uses Quill editor underneath so it needs to be installed as a dependency.
+
+**Basic Usage:**
+
+```vue
+npm install quill
+```
+
+## ReadOnly
+
+When readonly is present, the value cannot be edited.
+
+**Basic Usage:**
+
+```vue
+<Editor v-model="value" editorStyle="height: 320px" readonly />
+```
+
+## Template
+
+Editor provides a default toolbar with common options, to customize it define your elements inside the header element. Refer to Quill documentation for available controls.
+
+**Basic Usage:**
+
+```vue
+<Editor v-model="value" editorStyle="height: 320px">
+    <template v-slot:toolbar>
+        <span class="ql-formats">
+            <button v-tooltip.bottom="'Bold'" class="ql-bold"></button>
+            <button v-tooltip.bottom="'Italic'" class="ql-italic"></button>
+            <button v-tooltip.bottom="'Underline'" class="ql-underline"></button>
+        </span>
+    </template>
+</Editor>
+```
+
+## Editor
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | string | - | Value of the content. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| placeholder | string | - | Placeholder text to show when editor is empty. |
+| readonly | boolean | false | Whether to instantiate the editor to readonly mode. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| formats | any[] | - | Whitelist of formats to display, see  <a target="_blank" href="https://quilljs.com/docs/formats/">here</a>  for available options. |
+| editorStyle | any | - | Inline style of the container. |
+| modules | any | - | Modules configuration, see  <a target="_blank" href="https://quilljs.com/docs/modules/">here</a>  for available options. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<EditorPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| toolbar | Function |  |
+
+## Editor
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | string | - | Value of the content. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| placeholder | string | - | Placeholder text to show when editor is empty. |
+| readonly | boolean | false | Whether to instantiate the editor to readonly mode. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| formats | any[] | - | Whitelist of formats to display, see  <a target="_blank" href="https://quilljs.com/docs/formats/">here</a>  for available options. |
+| editorStyle | any | - | Inline style of the container. |
+| modules | any | - | Modules configuration, see  <a target="_blank" href="https://quilljs.com/docs/modules/">here</a>  for available options. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<EditorPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| toolbar | Function |  |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | EditorPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| toolbar | EditorPassThroughOptionType | Used to pass attributes to the toolbar's DOM element. |
+| formats | EditorPassThroughOptionType | Used to pass attributes to the formats' DOM element. |
+| header | EditorPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| option | EditorPassThroughOptionType | Used to pass attributes to the option's DOM element. |
+| bold | EditorPassThroughOptionType | Used to pass attributes to the bold's DOM element. |
+| italic | EditorPassThroughOptionType | Used to pass attributes to the italic's DOM element. |
+| underline | EditorPassThroughOptionType | Used to pass attributes to the underline's DOM element. |
+| color | EditorPassThroughOptionType | Used to pass attributes to the color's DOM element. |
+| background | EditorPassThroughOptionType | Used to pass attributes to the background's DOM element. |
+| list | EditorPassThroughOptionType | Used to pass attributes to the list's DOM element. |
+| select | EditorPassThroughOptionType | Used to pass attributes to the select's DOM element. |
+| link | EditorPassThroughOptionType | Used to pass attributes to the link's DOM element. |
+| image | EditorPassThroughOptionType | Used to pass attributes to the image's DOM element. |
+| codeBlock | EditorPassThroughOptionType | Used to pass attributes to the code block's DOM element. |
+| clean | EditorPassThroughOptionType | Used to pass attributes to the clean's DOM element. |
+| content | EditorPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-editor | Class name of the root element |
+| p-editor-toolbar | Class name of the toolbar element |
+| p-editor-content | Class name of the content element |
+
+---
+
+# Vue Fieldset Component
+
+Fieldset is a grouping component with a content toggle feature.
+
+## Accessibility
+
+Screen Reader Fieldset component uses the semantic fieldset element. When toggleable option is enabled, a button element is included inside the legend element, this button has aria-controls to define the id of the content section along with aria-expanded for the visibility state. The value to read the button defaults to the value of the legend property and can be customized by defining an aria-label or aria-labelledby via the toggleButtonProps property. The content uses region , defines an id that matches the aria-controls of the content toggle button and aria-labelledby referring to the id of the header. Content Toggle Button Keyboard Support Key Function tab Moves focus to the next the focusable element in the page tab sequence. shift + tab Moves focus to the previous the focusable element in the page tab sequence. enter Toggles the visibility of the content. space Toggles the visibility of the content.
+
+## Basic
+
+A simple Fieldset is created with a legend property along with the content as children.
+
+**Basic Usage:**
+
+```vue
+<Fieldset legend="Header">
+    <p class="m-0">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</Fieldset>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Fieldset from 'primevue/fieldset';
+```
+
+## Template
+
+Legend section can be customized with custom content using templating.
+
+**Basic Usage:**
+
+```vue
+<Fieldset>
+    <template #legend>
+        <div class="flex items-center pl-2">
+            <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
+            <span class="font-bold p-2">Amy Elsner</span>
+        </div>
+    </template>
+    <p class="m-0">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</Fieldset>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Fieldset>
+            <template #legend>
+                <div class="flex items-center pl-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold p-2">Amy Elsner</span>
+                </div>
+            </template>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </Fieldset>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Toggleable
+
+Content of the fieldset can be expanded and collapsed when toggleable option is enabled.
+
+**Basic Usage:**
+
+```vue
+<Fieldset legend="Header" :toggleable="true">
+    <p class="m-0">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</Fieldset>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Fieldset legend="Header" :toggleable="true">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </Fieldset>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Fieldset
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| legend | string | - | Header text of the fieldset. |
+| toggleable | boolean | false | When specified, content can toggled by clicking the legend. |
+| collapsed | boolean | false | Defines the default visibility state of the content. |
+| toggleButtonProps | AnchorHTMLAttributes | - | Used to pass the custom value to read for the AnchorHTMLAttributes inside the component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<FieldsetPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| default | Function |  |
+
+## Fieldset
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| legend | string | - | Header text of the fieldset. |
+| toggleable | boolean | false | When specified, content can toggled by clicking the legend. |
+| collapsed | boolean | false | Defines the default visibility state of the content. |
+| toggleButtonProps | AnchorHTMLAttributes | - | Used to pass the custom value to read for the AnchorHTMLAttributes inside the component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<FieldsetPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| default | Function |  |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | FieldsetPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| legend | FieldsetPassThroughOptionType | Used to pass attributes to the legend's DOM element. |
+| toggleButton | FieldsetPassThroughOptionType | Used to pass attributes to the toggle button's DOM element. |
+| toggleIcon | FieldsetPassThroughOptionType | Used to pass attributes to the toggle icon's DOM element. |
+| legendLabel | FieldsetPassThroughOptionType | Used to pass attributes to the legend label's DOM element. |
+| contentContainer | FieldsetPassThroughOptionType | Used to pass attributes to the content container's DOM element. |
+| content | FieldsetPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | FieldsetPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-fieldset | Class name of the root element |
+| p-fieldset-legend | Class name of the legend element |
+| p-fieldset-legend-label | Class name of the legend label element |
+| p-fieldset-toggle-icon | Class name of the toggle icon element |
+| p-fieldset-content-container | Class name of the content container element |
+| p-fieldset-content | Class name of the content element |
+
+---
+
+# Vue File Upload Component
+
+FileUpload is an advanced uploader with dragdrop support, multi file uploads, auto uploading, progress tracking and validations.
+
+## Accessibility
+
+Screen Reader FileUpload uses a hidden native input element with type="file" for screen readers. Keyboard Support Interactive elements of the uploader are buttons, visit the Button accessibility section for more information.
+
+## Advanced
+
+Advanced uploader provides dragdrop support, multi file uploads, auto uploading, progress tracking and validations.
+
+**Basic Usage:**
+
+```vue
+<FileUpload name="demo[]" url="/api/upload" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
+    <template #empty>
+        <span>Drag and drop files to here to upload.</span>
+    </template>
+</FileUpload>
+```
+
+## Auto
+
+When auto property is enabled, a file gets uploaded instantly after selection.
+
+**Basic Usage:**
+
+```vue
+<FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" />
+```
+
+## Basic
+
+FileUpload basic mode provides a simpler UI as an alternative to default advanced mode.
+
+**Basic Usage:**
+
+```vue
+<FileUpload ref="fileupload" mode="basic" name="demo[]" url="/api/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" />
+<Button label="Upload" @click="upload" severity="secondary" />
+```
+
+## CustomUploadDoc
+
+Uploading implementation can be overridden by enabling customUpload property. This sample, displays the image on the client side with a grayscale filter.
+
+**Basic Usage:**
+
+```vue
+<FileUpload mode="basic" @select="onFileSelect" customUpload auto severity="secondary" class="p-button-outlined" />
+<img v-if="src" :src="src" alt="Image" class="shadow-md rounded-xl w-full sm:w-64" style="filter: grayscale(100%)" />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import FileUpload from 'primevue/fileupload';
+```
+
+## Template
+
+Uploader UI can be customized with templating.
+
+## Fileupload
+
+## Fileupload
+
+---
+
+# Vue Float Label
+
+FloatLabel visually integrates a label with its form element.
+
+## Accessibility
+
+Screen Reader FloatLabel does not require any roles and attributes. Keyboard Support Component does not include any interactive elements.
+
+## Basic
+
+FloatLabel is used by wrapping the input and its label.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel>
+    <InputText id="username" v-model="value" />
+    <label for="username">Username</label>
+</FloatLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import FloatLabel from 'primevue/floatlabel';
+```
+
+## Invalid
+
+When the form element is invalid, the label is also highlighted.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel>
+    <InputText id="value1" v-model="value1" :invalid="!value1" />
+    <label for="value1">Username</label>
+</FloatLabel>
+
+<FloatLabel variant="in">
+    <InputText id="value2" v-model="value2" :invalid="!value2" />
+    <label for="value2">Username</label>
+</FloatLabel>
+
+<FloatLabel variant="on">
+    <InputText id="value3" v-model="value3" :invalid="!value3" />
+    <label for="value3">Username</label>
+</FloatLabel>
+```
+
+## Variants
+
+The variant property defines the position of the label. Default value is over , whereas in and on are the alternatives.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel variant="in">
+    <InputText id="in_label" v-model="value1" autocomplete="off" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel variant="on">
+    <InputText id="on_label" v-model="value2" autocomplete="off" />
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Floatlabel
+
+## Floatlabel
+
+---
+
+# Vue Fluid Component
+
+Fluid is a layout component to make descendant components span full width of their container.
+
+## Accessibility
+
+Screen Reader Fluid does not require any roles and attributes. Keyboard Support Component does not include any interactive elements.
+
+## Basic
+
+Components with the fluid option like InputText have the ability to span the full width of their component. Enabling the fluid for each component individually may be cumbersome so wrap the content with Fluid to instead for an easier alternative. Any component that has the fluid property can be nested inside the Fluid component. The fluid property of a child component has higher precedence than the fluid container as shown in the last sample.
+
+**Basic Usage:**
+
+```vue
+<div>
+    <label for="non-fluid" class="font-bold mb-2 block">Non-Fluid</label>
+    <InputText id="non-fluid" />
+</div>
+
+<div>
+    <label for="fluid" class="font-bold mb-2 block">Fluid Prop</label>
+    <InputText id="fluid" fluid />
+</div>
+
+<Fluid>
+    <span class="font-bold mb-2 block">Fluid Container</span>
+    <div class="grid grid-cols-2 gap-4">
+        <div><InputText /></div>
+        <div><InputText /></div>
+        <div class="col-span-full"><InputText /></div>
+        <div><InputText :fluid="false" placeholder="Non-Fluid" /></div>
+    </div>
+</Fluid>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Fluid from 'primevue/fluid';
+```
+
+## Fluid
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<FluidPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| default | Function |  |
+
+## Fluid
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<FluidPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| default | Function |  |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | FluidPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-fluid | Class name of the root element |
+
+---
+
+# Vue FocusTrap Directive
+
+Focus Trap keeps focus within a certain DOM element while tabbing.
+
+## Basic
+
+FocusTrap is enabled by attaching the directive with the v- prefix.
+
+**Basic Usage:**
+
+```vue
+<div v-focustrap class="w-full sm:w-80 flex flex-col gap-6">
+    <IconField>
+        <InputIcon>
+            <i class="pi pi-user" />
+        </InputIcon>
+        <InputText id="input" v-model="name" type="text" placeholder="Name" autofocus fluid />
+    </IconField>
+
+    <IconField>
+        <InputIcon>
+            <i class="pi pi-envelope" />
+        </InputIcon>
+        <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
+    </IconField>
+
+    <div class="flex items-center gap-2">
+        <Checkbox id="accept" v-model="accept" name="accept" value="Accept" />
+        <label for="accept">I agree to the terms and conditions.</label>
+    </div>
+
+    <Button type="submit" label="Submit" class="mt-2" />
+</div>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import FocusTrap from 'primevue/focustrap';
+
+app.directive('focustrap', FocusTrap);
+```
+
+## Focustrap
+
+## Focustrap
+
+---
+
+# Vue Form Library
+
+The PrimeVue Forms library provides comprehensive form state management with built-in validation support.
+
+## AccessibilityDoc
+
+Screen Reader Form does not require any roles and attributes. Keyboard Support Component does not include any interactive elements.
+
+## Basic
+
+All PrimeVue form components are designed for seamless integration with the forms library. Instead of using the standard v-model , the name property is used to link a state object that tracks values, errors, and actions. The form component provides four key properties for state management.
+
+## Download
+
+Forms add-on is available for download on npm registry.
+
+**Basic Usage:**
+
+```vue
+# Using npm
+npm install @primevue/forms
+
+# Using yarn
+yarn add @primevue/forms
+
+# Using pnpm
+pnpm add @primevue/forms
+```
+
+## DynamicDoc
+
+This section demonstrates how to create a dynamic form using a custom Form component. It showcases an example where form fields are generated dynamically based on the provided configuration, allowing for flexible form structures. The components named Dynamic* shown in this example are not built-in, and only available for sampling purposes. First form uses a declarative approach whereas second form goes for a programmatic approach. We suggest running this sample in StackBlitz to view the comprehensive implementation.
+
+**Basic Usage:**
+
+```vue
+<Fieldset legend="Form 1" pt:content:class="flex justify-center">
+    <DynamicForm @submit="onFormSubmit('Form 1', $event)">
+        <DynamicFormField groupId="userId_1" name="username">
+            <DynamicFormLabel>Username</DynamicFormLabel>
+            <DynamicFormControl defaultValue="PrimeVue" fluid :schema="userNameSchema" />
+            <DynamicFormMessage />
+        </DynamicFormField>
+        <DynamicFormField groupId="passId_1" name="password">
+            <DynamicFormLabel>Password</DynamicFormLabel>
+            <DynamicFormControl as="Password" :feedback="false" toggleMask fluid :schema="passwordSchema" />
+            <DynamicFormMessage errorType="minimum" />
+            <DynamicFormMessage errorType="maximum" />
+            <DynamicFormMessage errorType="uppercase" severity="warn" />
+            <DynamicFormMessage errorType="lowercase" severity="warn" />
+            <DynamicFormMessage errorType="number" severity="secondary" />
+        </DynamicFormField>
+        <DynamicFormSubmit />
+    </DynamicForm>
+</Fieldset>
+
+<Fieldset legend="Form 2" pt:content:class="flex justify-center">
+    <DynamicForm :fields @submit="onFormSubmit('Form 2', $event)" />
+</Fieldset>
+```
+
+## Import
+
+The form component is responsible for managing the form state and must encapsulate the form fields.
+
+**Basic Usage:**
+
+```vue
+import { Form } from '@primevue/forms';
+```
+
+## Resolvers
+
+Validations are implemented with the resolver property. A custom resolver is responsible for handling the validation and returning an errors object with key-value pairs where key is the form field name and value is an array of error object data. For productivity, we recommend using a schema validation library instead of building your own custom validation logic. The forms library provide built-in resolvers for popular options including Zod , Yup , Joi , Valibot , and Superstruct that can be imported from @primevue/forms/resolvers path.
+
+## States
+
+The $form object tracks the state management of the fields. Each field is linked with the name property. View the FormFieldState type in the API documentation for details about each property.
+
+## SubmitDoc
+
+The submit callback returns an object that encapsulates the form's validity, any existing errors, and its current state. This enables access to the form values, validation status, and any errors present at the time of submission. View the FormSubmitEvent in the API documentation for more information about the available event data.
+
+## ValidateOn
+
+Form component supports flexible validation triggers, allowing validation on value updates, blur events, form mount, or submission. These behaviors can be configured at form level or on specific fields via the validateOnValueUpdate , validateOnBlur , validateOnMount , and validateOnSubmit options of the formControl property. In this example, form disables validateOnValueUpdate and enables validateOnBlur at form level, and validates firstName on mount. The firstName field, overrides the form level setting locally.
+
+## Form
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| resolver | Function | - |  |
+| initialValues | Record<string, any> | - | The initial values for the form fields. |
+| validateOnValueUpdate | boolean \| string[] | true | Whether to validate the form fields when the values change. |
+| validateOnBlur | boolean \| string[] | false | Whether to validate the form fields when they lose focus (on blur). |
+| validateOnMount | boolean \| string[] | false | Whether to validate the form fields immediately after the form is mounted. |
+| validateOnSubmit | boolean \| string[] | true | Whether to validate the form fields when the form is submitted. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<FormPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | PassThroughOptions | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| default | Function |  |
+
+### Emits
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| submit | Function |  |
+| reset | Function |  |
+
+## Forms/src
+
+## Forms/src/resolvers/joi
+
+## Forms/src/resolvers/superstruct
+
+## Forms/src/resolvers/valibot
+
+## Forms/src/resolvers/yup
+
+## Forms/src/resolvers/zod
+
+## Forms/src/types
+
+## Forms/src/useform
+
+---
+
+# Vue Gallery Component
+
+Galleria is a content gallery component.
+
+## AccessibilityDoc
+
+Screen Reader Galleria uses region role and since any attribute is passed to the main container element, attributes such as aria-label and aria-roledescription can be used as well. The slides container has aria-live attribute set as "polite" if galleria is not in autoplay mode, otherwise "off" would be the value in autoplay. A slide has a group role with an aria-label that refers to the aria.slideNumber property of the locale API. Similarly aria.slide is used as the aria-roledescription of the item. Inactive slides are hidden from the readers with aria-hidden . Next and Previous navigators are button elements with aria-label attributes referring to the aria.prevPageLabel and aria.nextPageLabel properties of the locale API by default respectively, you may still use your own aria roles and attributes as any valid attribute is passed to the button elements implicitly by using nextButtonProps and prevButtonProps . Quick navigation elements and thumnbails follow the tab pattern. They are placed inside an element with a tablist role whereas each item has a tab role with aria-selected and aria-controls attributes. The aria-label attribute of a quick navigation item refers to the aria.pageLabel of the locale API. Current page is marked with aria-current . In full screen mode, modal element uses dialog role with aria-modal enabled. The close button retrieves aria-label from the aria.close property of the locale API. Next/Prev Keyboard Support Key Function tab Moves focus through interactive elements in the carousel. enter Activates navigation. space Activates navigation. Quick Navigation Keyboard Support Key Function tab Moves focus through the active slide link. enter Activates the focused slide link. space Activates the focused slide link. right arrow Moves focus to the next slide link. left arrow Moves focus to the previous slide link. home Moves focus to the first slide link. end Moves focus to the last slide link.
+
+## AdvancedDoc
+
+Advanced Galleria implementation with a custom UI.
+
+## AutoPlayDoc
+
+A slideshow implementation is defined by adding circular and autoPlay properties.
+
+**Basic Usage:**
+
+```vue
+<Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+    :circular="true" :autoPlay="true" :transitionInterval="2000">
+    <template #item="slotProps">
+        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+    </template>
+    <template #thumbnail="slotProps">
+        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+    </template>
+</Galleria>
+```
+
+## Basic
+
+Galleria requires a value as a collection of images, item template for the higher resolution image and thumbnail template to display as a thumbnail.
+
+**Basic Usage:**
+
+```vue
+<Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
+    <template #item="slotProps">
+        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
+    </template>
+    <template #thumbnail="slotProps">
+        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
+    </template>
+</Galleria>
+```
+
+## CaptionDoc
+
+Description of an image is specified with the caption property that takes the displayed object and returns content.
+
+## Controlled
+
+Galleria can be controlled programmatically using a binding to activeIndex .
+
+**Basic Usage:**
+
+```vue
+<div>
+    <Button icon="pi pi-minus" @click="prev" />
+    <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
+</div>
+
+<Galleria v-model:activeIndex="activeIndex" :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
+    <template #item="slotProps">
+        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
+    </template>
+    <template #thumbnail="slotProps">
+        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
+    </template>
+</Galleria>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Galleria from 'primevue/galleria';
+```
+
+## ResponsiveDoc
+
+Settings per screen size is defined via the responsiveOptions property.
+
+**Basic Usage:**
+
+```vue
+<Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" containerStyle="max-width: 640px">
+    <template #item="slotProps">
+        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+    </template>
+    <template #thumbnail="slotProps">
+        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+    </template>
+</Galleria>
+```
+
+## ThumbnailDoc
+
+Thumbnails represent a smaller version of the actual content.
+
+**Basic Usage:**
+
+```vue
+<Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :thumbnailsPosition="position" containerStyle="max-width: 640px">
+    <template #item="slotProps">
+        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+    </template>
+    <template #thumbnail="slotProps">
+        <div class="grid gap-4 justify-center">
+            <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+        </div>
+    </template>
+</Galleria>
+```
+
+## Galleria
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| id | string | - | Unique identifier of the element. |
+| value | any[] | - | An array of objects to display. |
+| activeIndex | number | 0 | Index of the first item. |
+| fullScreen | boolean | false | Whether to display the component on fullscreen. |
+| visible | boolean | false | Specifies the visibility of the mask on fullscreen mode. |
+| numVisible | number | 3 | Number of items per page. |
+| responsiveOptions | GalleriaResponsiveOptions[] | - | An array of options for responsive design. |
+| showItemNavigators | boolean | false | Whether to display navigation buttons in item section. |
+| showThumbnailNavigators | boolean | true | Whether to display navigation buttons in thumbnail container. |
+| showItemNavigatorsOnHover | boolean | false | Whether to display navigation buttons on item hover. |
+| changeItemOnIndicatorHover | boolean | false | When enabled, item is changed on indicator hover. |
+| circular | boolean | false | Defines if scrolling would be infinite. |
+| autoPlay | boolean | false | Items are displayed with a slideshow in autoPlay mode. |
+| transitionInterval | number | 4000 | Time in milliseconds to scroll items. |
+| showThumbnails | boolean | true | Whether to display thumbnail container. |
+| thumbnailsPosition | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of thumbnails. |
+| verticalThumbnailViewPortHeight | string | 300px | Height of the viewport in vertical thumbnail. |
+| showIndicators | boolean | false | Whether to display indicator container. |
+| showIndicatorsOnItem | boolean | false | When enabled, indicator container is displayed on item container. |
+| indicatorsPosition | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of indicators. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| maskClass | string | - | Style class of the mask on fullscreen mode. |
+| containerStyle | any | - | Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used. |
+| containerClass | any | - | Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used. |
+| containerProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the container element on fullscreen mode. |
+| prevButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the previous navigation button. |
+| nextButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the next navigation button. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaRoledescription | string | - | Defines a string value that description for the role of the component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<GalleriaPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Galleria
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| id | string | - | Unique identifier of the element. |
+| value | any[] | - | An array of objects to display. |
+| activeIndex | number | 0 | Index of the first item. |
+| fullScreen | boolean | false | Whether to display the component on fullscreen. |
+| visible | boolean | false | Specifies the visibility of the mask on fullscreen mode. |
+| numVisible | number | 3 | Number of items per page. |
+| responsiveOptions | GalleriaResponsiveOptions[] | - | An array of options for responsive design. |
+| showItemNavigators | boolean | false | Whether to display navigation buttons in item section. |
+| showThumbnailNavigators | boolean | true | Whether to display navigation buttons in thumbnail container. |
+| showItemNavigatorsOnHover | boolean | false | Whether to display navigation buttons on item hover. |
+| changeItemOnIndicatorHover | boolean | false | When enabled, item is changed on indicator hover. |
+| circular | boolean | false | Defines if scrolling would be infinite. |
+| autoPlay | boolean | false | Items are displayed with a slideshow in autoPlay mode. |
+| transitionInterval | number | 4000 | Time in milliseconds to scroll items. |
+| showThumbnails | boolean | true | Whether to display thumbnail container. |
+| thumbnailsPosition | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of thumbnails. |
+| verticalThumbnailViewPortHeight | string | 300px | Height of the viewport in vertical thumbnail. |
+| showIndicators | boolean | false | Whether to display indicator container. |
+| showIndicatorsOnItem | boolean | false | When enabled, indicator container is displayed on item container. |
+| indicatorsPosition | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of indicators. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| maskClass | string | - | Style class of the mask on fullscreen mode. |
+| containerStyle | any | - | Inline style of the component on fullscreen mode. Otherwise, the 'style' property can be used. |
+| containerClass | any | - | Style class of the component on fullscreen mode. Otherwise, the 'class' property can be used. |
+| containerProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the container element on fullscreen mode. |
+| prevButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the previous navigation button. |
+| nextButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the next navigation button. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaRoledescription | string | - | Defines a string value that description for the role of the component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<GalleriaPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | GalleriaPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| closeButton | GalleriaPassThroughOptionType | Used to pass attributes to the close button's DOM element. |
+| closeIcon | GalleriaPassThroughOptionType | Used to pass attributes to the close icon's DOM element. |
+| header | GalleriaPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| content | GalleriaPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| footer | GalleriaPassThroughOptionType | Used to pass attributes to the footer's DOM element. |
+| itemsContainer | GalleriaPassThroughOptionType | Used to pass attributes to the item container's DOM element. |
+| items | GalleriaPassThroughOptionType | Used to pass attributes to the items' DOM element. |
+| prevButton | GalleriaPassThroughOptionType | Used to pass attributes to the previous item button's DOM element. |
+| prevIcon | GalleriaPassThroughOptionType | Used to pass attributes to the previous item icon's DOM element. |
+| item | GalleriaPassThroughOptionType | Used to pass attributes to the item's DOM element. |
+| nextButton | GalleriaPassThroughOptionType | Used to pass attributes to the next item button's DOM element. |
+| nextIcon | GalleriaPassThroughOptionType | Used to pass attributes to the next item icon's DOM element. |
+| caption | GalleriaPassThroughOptionType | Used to pass attributes to the caption's DOM element. |
+| indicatorList | GalleriaPassThroughOptionType | Used to pass attributes to the indicator list's DOM element. |
+| indicator | GalleriaPassThroughOptionType | Used to pass attributes to the indicator's DOM element. |
+| indicatorButton | GalleriaPassThroughOptionType | Used to pass attributes to the indicator button's DOM element. |
+| thumbnails | GalleriaPassThroughOptionType | Used to pass attributes to the thumbnails' DOM element. |
+| thumbnailContent | GalleriaPassThroughOptionType | Used to pass attributes to the thumbnail content's DOM element. |
+| thumbnailPrevButton | GalleriaPassThroughOptionType | Used to pass attributes to the previous thumbnail button's DOM element. |
+| thumbnailPrevIcon | GalleriaPassThroughOptionType | Used to pass attributes to the previous thumbnail icon's DOM element. |
+| thumbnailsViewport | GalleriaPassThroughOptionType | Used to pass attributes to the thumbnails viewport's DOM element. |
+| thumbnailItems | GalleriaPassThroughOptionType | Used to pass attributes to the thumbnail items' DOM element. |
+| thumbnailItem | GalleriaPassThroughOptionType | Used to pass attributes to the thumbnail item's DOM element. |
+| thumbnail | GalleriaPassThroughOptionType | Used to pass attributes to the thumbnail's DOM element. |
+| thumbnailNextButton | GalleriaPassThroughOptionType | Used to pass attributes to the next thumbnail button's DOM element. |
+| thumbnailNextIcon | GalleriaPassThroughOptionType | Used to pass attributes to the next thumbnail icon's DOM element. |
+| mask | GalleriaPassThroughOptionType | Used to pass attributes to the mask's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | GalleriaPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-galleria-mask | Class name of the mask element |
+| p-galleria | Class name of the root element |
+| p-galleria-close-button | Class name of the close button element |
+| p-galleria-close-icon | Class name of the close icon element |
+| p-galleria-header | Class name of the header element |
+| p-galleria-content | Class name of the content element |
+| p-galleria-footer | Class name of the footer element |
+| p-galleria-items-container | Class name of the items container element |
+| p-galleria-items | Class name of the items element |
+| p-galleria-prev-button | Class name of the previous item button element |
+| p-galleria-prev-icon | Class name of the previous item icon element |
+| p-galleria-item | Class name of the item element |
+| p-galleria-next-button | Class name of the next item button element |
+| p-galleria-next-icon | Class name of the next item icon element |
+| p-galleria-caption | Class name of the caption element |
+| p-galleria-indicator-list | Class name of the indicator list element |
+| p-galleria-indicator | Class name of the indicator element |
+| p-galleria-indicator-button | Class name of the indicator button element |
+| p-galleria-thumbnails | Class name of the thumbnails element |
+| p-galleria-thumbnails-content | Class name of the thumbnail content element |
+| p-galleria-thumbnail-prev-button | Class name of the previous thumbnail button element |
+| p-galleria-thumbnail-prev-icon | Class name of the previous thumbnail icon element |
+| p-galleria-thumbnails-viewport | Class name of the thumbnails viewport element |
+| p-galleria-thumbnail-items | Class name of the thumbnail items element |
+| p-galleria-thumbnail-item | Class name of the thumbnail item element |
+| p-galleria-thumbnail | Class name of the thumbnail element |
+| p-galleria-thumbnail-next-button | Class name of the next thumbnail button element |
+| p-galleria-thumbnail-next-icon | Class name of the next thumbnail icon element |
+
+---
+
+# Vue IconField
+
+IconField wraps an input and an icon.
+
+## Accessibility
+
+Screen Reader IconField and InputIcon do not require any roles and attributes. Keyboard Support Components does not include any interactive elements.
+
+## Basic
+
+IconField wraps the InputIcon and the input field component.
+
+**Basic Usage:**
+
+```vue
+<IconField>
+    <InputIcon class="pi pi-search" />
+    <InputText v-model="value1" placeholder="Search" />
+</IconField>
+
+<IconField>
+    <InputText v-model="value2" variant="filled" />
+    <InputIcon class="pi pi-spin pi-spinner" />
+</IconField>
+```
+
+## Float Label
+
+FloatLabel visually integrates a label with its form element. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel>
+    <IconField>
+        <InputIcon class="pi pi-search" />
+        <InputText id="over_label" v-model="value1" autocomplete="off" />
+    </IconField>
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel variant="in">
+    <IconField>
+        <InputIcon class="pi pi-search" />
+        <InputText id="in_label" v-model="value2" autocomplete="off" variant="filled" />
+    </IconField>
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel variant="on">
+    <IconField>
+        <InputIcon class="pi pi-search" />
+        <InputText id="on_label" v-model="value3" autocomplete="off" />
+    </IconField>
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel>
+    <IconField>
+        <InputIcon class="pi pi-user" />
+        <InputText id="username" v-model="value" variant="filled" />
+    </IconField>
+    <label for="username">Username</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import IconField from 'primevue/iconfield';
+import InputIcon from 'primevue/inputicon';
+```
+
+## Sizes
+
+IconField is compatible with the size setting of the input field.
+
+**Basic Usage:**
+
+```vue
+<IconField>
+    <InputIcon class="pi pi-search" />
+    <InputText v-model="value1" placeholder="Small" size="small" />
+</IconField>
+
+<IconField>
+    <InputIcon class="pi pi-search" />
+    <InputText v-model="value2" placeholder="Normal" />
+</IconField>
+
+<IconField>
+    <InputText v-model="value3" placeholder="Large" size="large" />
+    <InputIcon class="pi pi-spin pi-spinner" />
+</IconField>
+```
+
+## Template
+
+Custom content inside an InputIcon is defined as children.
+
+**Basic Usage:**
+
+```vue
+<IconField>
+    <InputIcon>
+        <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="..." fill="var(--p-primary-color)" />
+            <path d="..." fill="var(--p-text-color)" />
+        </svg>
+    </InputIcon>
+    <InputText v-model="value" placeholder="Search" />
+</IconField>
+```
+
+## Iconfield
+
+## Iconfield
+
+---
+
+# icons
+
+
+
+## Basic
+
+PrimeIcons use the pi pi-&#123;icon&#125; syntax such as pi pi-check . A standalone icon can be displayed using an element such as i or span
+
+**Basic Usage:**
+
+```vue
+<i class="pi pi-check"></i>
+<i class="pi pi-times"></i>
+<span class="pi pi-search"></span>
+<span class="pi pi-user"></span>
+```
+
+## Color
+
+Icon color is defined with the color property which is inherited from parent by default.
+
+**Basic Usage:**
+
+```vue
+<i class="pi pi-check" style="color: slateblue"></i>
+<i class="pi pi-times" style="color: green"></i>
+<i class="pi pi-search" style="color: 'var(--p-primary-color)'"></i>
+<i class="pi pi-user" style="color: #708090"></i>
+```
+
+## Constants
+
+Constants API is available to reference icons easily when used programmatically.
+
+## Download
+
+PrimeIcons is available at npm, run the following command to download it to your project.
+
+**Basic Usage:**
+
+```vue
+npm install primeicons
+```
+
+## Figma
+
+PrimeIcons library is now available on Figma Community . By adding them as a library, you can easily use these icons in your designs.
+
+## Import
+
+CSS file of the icon library needs to be imported in styles.scss of your application.
+
+## List
+
+Here is the full list of PrimeIcons. More icons will be added periodically and you may also request new icons at the issue tracker.
+
+## Size
+
+Size of an icon is controlled with the font-size property of the element.
+
+**Basic Usage:**
+
+```vue
+<i class="pi pi-check" style="font-size: 1rem"></i>
+<i class="pi pi-times" style="font-size: 1.5rem"></i>
+<i class="pi pi-search" style="font-size: 2rem"></i>
+<i class="pi pi-user" style="font-size: 2.5rem"></i>
+```
+
+## Spin
+
+Special pi-spin class applies infinite rotation to an icon.
+
+**Basic Usage:**
+
+```vue
+<i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+<i class="pi pi-spin pi-cog" style="font-size: 2rem"></i>
+```
+
+---
+
+# Vue Ifta Label
+
+IftaLabel is used to create infield top aligned labels
+
+## Accessibility
+
+Screen Reader IftaLabel does not require any roles and attributes. Keyboard Support Component does not include any interactive elements.
+
+## Basic
+
+IftaLabel is used by wrapping the input and its label.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel>
+    <InputText id="username" v-model="value" />
+    <label for="username">Username</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import IftaLabel from 'primevue/iftalabel';
+```
+
+## Invalid
+
+When the form element is invalid, the label is also highlighted.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel>
+    <InputText id="username" v-model="value" :invalid="!value" />
+    <label for="username">Username</label>
+</IftaLabel>
+```
+
+## Iftalabel
+
+## Iftalabel
+
+---
+
+# Vue Image Component
+
+Displays a single image with preview and tranformation options.
+
+## Accessibility
+
+Screen Reader The preview button is a native button element with an aria-label that refers to the aria.zoomImage property of the locale API by default, with previewButtonProps you may use your own aria roles and attributes as any valid attribute is passed to the button element implicitly. When preview is active, dialog role with aria-modal is applied to the overlay image container. Button controls use aria.rotateRight , aria.rotateLeft , aria.zoomIn , aria.zoomOut and aria.close from the locale API as aria-label . ButtonBar Keyboard Support When preview is activated, close button receives the initial focus. Key Function tab Moves focus through button bar. enter Activates the button. space Activates the button. esc Closes the image preview.
+
+## Basic
+
+Image is used similar to the standard img element.
+
+**Basic Usage:**
+
+```vue
+<Image src="/image.jpg" alt="Image" width="250" />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Image from 'primevue/image';
+```
+
+## Preview
+
+Enabling preview mode displays a modal layer when the image is clicked to provide transformation options such as rotating and zooming.
+
+**Basic Usage:**
+
+```vue
+<Image src="/image.jpg" alt="Image" width="250" preview />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria10.jpg" alt="Image" width="250" preview />
+    </div>
+</template>
+```
+</details>
+
+## Template
+
+An eye icon is displayed by default when the image is hovered in preview mode, use the previewicon slot for custom content. In addition, the image and preview slots are available to define the thumbnail and detailed image respectively.
+
+**Basic Usage:**
+
+```vue
+<Image alt="Image" preview>
+    <template #previewicon>
+        <i class="pi pi-search"></i>
+    </template>
+    <template #image>
+        <img src="/thumbnail.jpg" alt="image" />
+    </template>
+    <template #preview="slotProps">
+        <img src="/image.jpg" alt="preview" :style="slotProps.style" @click="slotProps.onClick" />
+    </template>
+</Image>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Image alt="Image" preview>
+            <template #previewicon>
+                <i class="pi pi-search"></i>
+            </template>
+            <template #image>
+                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria11.jpg" alt="image" width="250" />
+            </template>
+            <template #preview="slotProps">
+                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria11.jpg" alt="preview" :style="slotProps.style" @click="slotProps.onClick" />
+            </template>
+        </Image>
+    </div>
+</template>
+```
+</details>
+
+## Image
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| src | string | - | Image url. |
+| preview | boolean | false | Controls the preview functionality. |
+| imageStyle | any | - | Inline style of the image element. |
+| imageClass | any | - | Style class of the image element. |
+| indicatorIcon | string | - | Custom indicator icon. |
+| previewIcon | string | - | Custom indicator icon. |
+| zoomInDisabled | boolean | false | Disable the zoom-in button |
+| zoomOutDisabled | boolean | false | Disable the zoom-out button |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ImagePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Image
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| src | string | - | Image url. |
+| preview | boolean | false | Controls the preview functionality. |
+| imageStyle | any | - | Inline style of the image element. |
+| imageClass | any | - | Style class of the image element. |
+| indicatorIcon | string | - | Custom indicator icon. |
+| previewIcon | string | - | Custom indicator icon. |
+| zoomInDisabled | boolean | false | Disable the zoom-in button |
+| zoomOutDisabled | boolean | false | Disable the zoom-out button |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ImagePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Imagecompare
+
+## Imagecompare
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ImagePassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| image | ImagePassThroughOptionType | Used to pass attributes to the image's DOM element. |
+| previewMask | ImagePassThroughOptionType | Used to pass attributes to the preview mask's DOM element. |
+| previewIcon | ImagePassThroughOptionType | Used to pass attributes to the  preview icon's DOM element. |
+| mask | ImagePassThroughOptionType | Used to pass attributes to the mask's DOM element. |
+| toolbar | ImagePassThroughOptionType | Used to pass attributes to the toolbar's DOM element. |
+| rotateRightButton | ImagePassThroughOptionType | Used to pass attributes to the rotate right button's DOM element. |
+| rotateRightIcon | ImagePassThroughOptionType | Used to pass attributes to the rotate right icon's DOM element. |
+| rotateLeftButton | ImagePassThroughOptionType | Used to pass attributes to the rotate left button's DOM element. |
+| rotateLeftIcon | ImagePassThroughOptionType | Used to pass attributes to the rotate left icon's DOM element. |
+| zoomOutButton | ImagePassThroughOptionType | Used to pass attributes to the zoom out button's DOM element. |
+| zoomOutIcon | ImagePassThroughOptionType | Used to pass attributes to the zoom out icon's DOM element. |
+| zoomInButton | ImagePassThroughOptionType | Used to pass attributes to the zoom in button's DOM element. |
+| zoomInIcon | ImagePassThroughOptionType | Used to pass attributes to the zoom in icon's DOM element. |
+| closeButton | ImagePassThroughOptionType | Used to pass attributes to the close button's DOM element. |
+| closeIcon | ImagePassThroughOptionType | Used to pass attributes to the close icon's DOM element. |
+| originalContainer | ImagePassThroughOptionType | Used to pass attributes to the original container's DOM element. |
+| original | ImagePassThroughOptionType | Used to pass attributes to the original's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | ImagePassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-image | Class name of the root element |
+| p-image-preview-mask | Class name of the preview mask element |
+| p-image-preview-icon | Class name of the preview icon element |
+| p-image-mask | Class name of the mask element |
+| p-image-toolbar | Class name of the toolbar element |
+| p-image-rotate-right-button | Class name of the rotate right button element |
+| p-image-rotate-left-button | Class name of the rotate left button element |
+| p-image-zoom-out-button | Class name of the zoom out button element |
+| p-image-zoom-in-button | Class name of the zoom in button element |
+| p-image-close-button | Class name of the close button element |
+| p-image-original | Class name of the original element |
+
+---
+
+# Vue ImageCompare Component
+
+Compare two images side by side with a slider.
+
+## Accessibility
+
+Screen Reader ImageComponent component uses a native range slider internally. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Key Function tab Moves focus to the component. left arrow up arrow Decrements the value. right arrow down arrow Increments the value. home Set the minimum value. end Set the maximum value. page up Increments the value by 10 steps. page down Decrements the value by 10 steps.
+
+**Basic Usage:**
+
+```vue
+<span id="image_label">Compare Images</span>
+<ImageCompare class="shadow-lg rounded-2xl" aria-labelledby="image-label">
+    ...
+</ImageCompare>
+
+<ImageCompare class="shadow-lg rounded-2xl" aria-label="Compare Images">
+    ...
+</ImageCompare>
+```
+
+## Basic
+
+Images are defined using templating with left and right slots. Use the style or class properties to define the size of the container.
+
+**Basic Usage:**
+
+```vue
+<ImageCompare class="shadow-lg rounded-2xl">
+    <template #left>
+        <img src="~/assets/images/island1.jpg" />
+    </template>
+    <template #right>
+        <img src="~/assets/images/island2.jpg" />
+    </template>
+</ImageCompare>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ImageCompare from 'primevue/imagecompare';
+```
+
+## Responsive
+
+Apply responsive styles to the container element to optimize display per screen size.
+
+**Basic Usage:**
+
+```vue
+<ImageCompare class="sm:!w-96 shadow-lg rounded-2xl">
+    <template #left>
+        <img src="~/assets/images/island1.jpg" />
+    </template>
+    <template #right>
+        <img src="~/assets/images/island2.jpg" />
+    </template>
+</ImageCompare>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ImageCompare class="sm:!w-96 shadow-lg">
+            <template #left>
+                <img src="https://primefaces.org/cdn/primevue/images/compare/island1.jpg" />
+            </template>
+            <template #right>
+                <img src="https://primefaces.org/cdn/primevue/images/compare/island2.jpg" />
+            </template>
+        </ImageCompare>
+    </div>
+</template>
+```
+</details>
+
+## Imagecompare
+
+## Imagecompare
+
+---
+
+# Vue Inplace Component
+
+Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content.
+
+## Accessibility
+
+Screen Reader Inplace component defines aria-live as "polite" by default, since any valid attribute is passed to the main container aria roles and attributes of the root element can be customized easily. View Mode Keyboard Support Key Function enter Switches to content.
+
+## Basic
+
+Inplace component requires display and content templates to define the content of each state.
+
+**Basic Usage:**
+
+```vue
+<Inplace>
+    <template #display> View Content </template>
+    <template #content>
+        <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+    </template>
+</Inplace>
+```
+
+## Image
+
+Any content such as an image can be placed inside an Inplace.
+
+**Basic Usage:**
+
+```vue
+<Inplace>
+    <template #display>
+        <span class="inline-flex items-center gap-2">
+            <span class="pi pi-image"></span>
+            <span>View Photo</span>
+        </span>
+    </template>
+    <template #content>
+        <img class="w-full sm:w-80 shadow-md" alt="Nature" src="https://primefaces.org/cdn/primevue/images/nature/nature8.jpg" />
+    </template>
+</Inplace>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Inplace>
+            <template #display>
+                <span class="inline-flex items-center gap-2">
+                    <span class="pi pi-image"></span>
+                    <span>View Photo</span>
+                </span>
+            </template>
+            <template #content>
+                <img class="w-full sm:w-80 shadow-md" alt="Nature" src="https://primefaces.org/cdn/primevue/images/nature/nature8.jpg" />
+            </template>
+        </Inplace>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Inplace from 'primevue/inplace';
+```
+
+## Input
+
+The closeCallback switches the state back to display mode when called from an event.
+
+## Lazy
+
+The open event is used to initialize the content such as loading data in a lazy manner.
+
+**Basic Usage:**
+
+```vue
+<Inplace @open="loadData">
+    <template #display> View Data </template>
+    <template #content>
+        <DataTable :value="products">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity"></Column>
+        </DataTable>
+    </template>
+</Inplace>
+```
+
+## Inplace
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| active | boolean | false | Whether the content is displayed or not. |
+| disabled | boolean | false | When present, it specifies that the element should be disabled. |
+| displayProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to display container. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<InplacePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Inplace
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| active | boolean | false | Whether the content is displayed or not. |
+| disabled | boolean | false | When present, it specifies that the element should be disabled. |
+| displayProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to display container. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<InplacePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | InplacePassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| display | InplacePassThroughOptionType | Used to pass attributes to the display's DOM element. |
+| content | InplacePassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-inplace | Class name of the root element |
+| p-inplace-display | Class name of the display element |
+| p-inplace-content | Class name of the content element |
+
+---
+
+# Vue InputGroup Component
+
+Text, icon, buttons and other content can be grouped next to an input.
+
+## Accessibility
+
+Screen Reader InputGroup and InputGroupAddon do not require any roles and attributes. Keyboard Support Component does not include any interactive elements.
+
+## Basic
+
+A group is created by wrapping the input and add-ons with the InputGroup component. Each add-on element is defined as a child of InputGroupAddon component.
+
+**Basic Usage:**
+
+```vue
+<InputGroup>
+    <InputGroupAddon>
+        <i class="pi pi-user"></i>
+    </InputGroupAddon>
+    <InputText v-model="text1" placeholder="Username" />
+</InputGroup>
+
+<InputGroup>
+    <InputGroupAddon>$</InputGroupAddon>
+    <InputNumber v-model="number" placeholder="Price" />
+    <InputGroupAddon>.00</InputGroupAddon>
+</InputGroup>
+
+<InputGroup>
+    <InputGroupAddon>www</InputGroupAddon>
+    <InputText v-model="text2" placeholder="Website" />
+</InputGroup>
+
+<InputGroup>
+    <InputGroupAddon>
+        <i class="pi pi-map"></i>
+    </InputGroupAddon>
+    <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="City" />
+</InputGroup>
+```
+
+## Button
+
+Buttons can be placed at either side of an input element.
+
+**Basic Usage:**
+
+```vue
+<InputGroup>
+    <Button label="Search" />
+    <InputText placeholder="Keyword" />
+</InputGroup>
+
+<InputGroup>
+    <InputText placeholder="Keyword" />
+    <InputGroupAddon>
+        <Button icon="pi pi-search" severity="secondary" variant="text" @click="toggle" />
+    </InputGroupAddon>
+</InputGroup>
+<Menu ref="menu" :model="items" popup class="!min-w-fit" />
+
+<InputGroup>
+    <InputGroupAddon>
+        <Button icon="pi pi-check" severity="secondary" />
+    </InputGroupAddon>
+    <InputText placeholder="Vote" />
+    <InputGroupAddon>
+        <Button icon="pi pi-times" severity="secondary" />
+    </InputGroupAddon>
+</InputGroup>
+```
+
+## Checkbox & Radio
+
+Checkbox and RadioButton components can be combined with an input element under the same group.
+
+**Basic Usage:**
+
+```vue
+<InputGroup>
+    <InputText placeholder="Price" />
+    <InputGroupAddon>
+        <RadioButton v-model="radioValue1" name="rb1" value="rb1" />
+    </InputGroupAddon>
+</InputGroup>
+
+<InputGroup>
+    <InputGroupAddon>
+        <Checkbox v-model="checked1" :binary="true" />
+    </InputGroupAddon>
+    <InputText placeholder="Username" />
+</InputGroup>
+
+<InputGroup>
+    <InputGroupAddon>
+        <Checkbox v-model="checked2" :binary="true" />
+    </InputGroupAddon>
+    <InputText placeholder="Website" />
+    <InputGroupAddon>
+        <RadioButton v-model="radioValue2" name="rb2" value="rb2" />
+    </InputGroupAddon>
+</InputGroup>
+```
+
+## Float Label
+
+FloatLabel visually integrates a label with its form element. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<InputGroup>
+    <InputGroupAddon>
+        <i class="pi pi-user"></i>
+    </InputGroupAddon>
+    <FloatLabel>
+        <InputText id="over_label" v-model="value1" />
+        <label for="over_label">Over Label</label>
+    </FloatLabel>
+</InputGroup>
+
+<InputGroup>
+    <InputGroupAddon>$</InputGroupAddon>
+    <FloatLabel variant="in">
+        <InputText id="in_label" v-model="value2" />
+        <label for="in_label">In Label</label>
+    </FloatLabel>
+    <InputGroupAddon>.00</InputGroupAddon>
+</InputGroup>
+
+<InputGroup>
+    <InputGroupAddon>www</InputGroupAddon>
+    <FloatLabel variant="on">
+        <InputText id="on_label" v-model="value3" />
+        <label for="on_label">On Label</label>
+    </FloatLabel>
+</InputGroup>
+```
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<InputGroup class="md:w-80">
+    <InputGroupAddon>
+        <i class="pi pi-shopping-cart"></i>
+    </InputGroupAddon>
+    <IftaLabel>
+        <InputNumber v-model="value" inputId="price" mode="currency" currency="USD" locale="en-US" />
+        <label for="price">Price</label>
+    </IftaLabel>
+</InputGroup>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
+```
+
+## Multiple
+
+Multiple add-ons can be placed inside the same group.
+
+**Basic Usage:**
+
+```vue
+<InputGroup class="sm:!w-96">
+    <InputGroupAddon>
+        <i class="pi pi-clock"></i>
+    </InputGroupAddon>
+    <InputGroupAddon>
+        <i class="pi pi-star-fill"></i>
+    </InputGroupAddon>
+    <InputNumber placeholder="Price" />
+    <InputGroupAddon>$</InputGroupAddon>
+    <InputGroupAddon>.00</InputGroupAddon>
+</InputGroup>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputGroup class="sm:!w-96">
+            <InputGroupAddon>
+                <i class="pi pi-clock"></i>
+            </InputGroupAddon>
+            <InputGroupAddon>
+                <i class="pi pi-star-fill"></i>
+            </InputGroupAddon>
+            <InputNumber placeholder="Price" />
+            <InputGroupAddon>$</InputGroupAddon>
+            <InputGroupAddon>.00</InputGroupAddon>
+        </InputGroup>
+    </div>
+</template>
+```
+</details>
+
+## Inputgroup
+
+## Inputgroup
+
+## Inputgroupaddon
+
+## Inputgroupaddon
+
+---
+
+# Vue Mask Component
+
+InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone.
+
+## Accessibility
+
+Screen Reader InputMask component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
+
+**Basic Usage:**
+
+```vue
+<label for="date">Date</label>
+<InputMask id="date" />
+
+<span id="phone">Phone</span>
+<InputMask aria-labelledby="phone" />
+
+<InputMask aria-label="Age" />
+```
+
+## Basic
+
+InputMask is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<InputMask id="basic" v-model="value" mask="99-999999" placeholder="99-999999" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<InputMask mask="99-999999" placeholder="Disabled" disabled />
+```
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<InputMask id="basic" v-model="value" variant="filled" mask="99-999999" placeholder="99-999999" />
+```
+
+## Float Label
+
+FloatLabel visually integrates a label with its form element. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel>
+    <InputMask id="over_label" v-model="value1" mask="999-99-9999" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel variant="in">
+    <InputMask id="in_label" v-model="value2" mask="999-99-9999" variant="filled" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel variant="on">
+    <InputMask id="on_label" v-model="value3" mask="999-99-9999" />
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Fluid
+
+The fluid prop makes the component take up the full width of its container when set to true.
+
+**Basic Usage:**
+
+```vue
+<InputMask v-model="value" fluid mask="99-999999" placeholder="99-999999" />
+```
+
+## Forms
+
+InputMask integrates seamlessly with the PrimeVue Forms library.
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel>
+    <InputMask id="ssn" v-model="value" mask="999-99-9999" variant="filled" />
+    <label for="ssn">SSN</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import InputMask from 'primevue/inputmask';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<InputMask v-model="value1" mask="99-999999" placeholder="Serial Key" :invalid="!value1" />
+<InputMask v-model="value2" mask="99-999999" placeholder="Serial Key" :invalid="!value2" variant="filled" />
+```
+
+## Mask
+
+Mask format can be a combination of the following definitions; a for alphabetic characters, 9 for numeric characters and * for alphanumberic characters. In addition, formatting characters like ( , ) , - are also accepted.
+
+**Basic Usage:**
+
+```vue
+<div class="flex-auto">
+    <label for="ssn" class="font-bold block mb-2">SSN</label>
+    <InputMask id="ssn" v-model="value1" mask="999-99-9999" placeholder="999-99-9999" fluid />
+</div>
+
+<div class="flex-auto">
+    <label for="phone" class="font-bold block mb-2">Phone</label>
+    <InputMask id="phone" v-model="value2" mask="(999) 999-9999" placeholder="(999) 999-9999" fluid />
+</div>
+
+<div class="flex-auto">
+    <label for="serial" class="font-bold block mb-2">Serial</label>
+    <InputMask id="serial" v-model="value3" mask="a*-999-a999" placeholder="a*-999-a999" fluid />
+</div>
+```
+
+## Optional
+
+When the input does not complete the mask definition, it is cleared by default. Use autoClear property to control this behavior. In addition, ? is used to mark anything after the question mark optional.
+
+**Basic Usage:**
+
+```vue
+<InputMask v-model="value" mask="(999) 999-9999? x99999" placeholder="(999) 999-9999? x99999" />
+```
+
+## Sizes
+
+InputMask provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<InputMask v-model="value1" placeholder="Small" size="small" mask="99-999999" />
+<InputMask v-model="value2" placeholder="Normal" mask="99-999999" />
+<InputMask v-model="value3" placeholder="Large" size="large" mask="99-999999" />
+```
+
+## SlotChar
+
+Default placeholder for a mask is underscore that can be customized using slotChar property.
+
+**Basic Usage:**
+
+```vue
+<InputMask id="basic" v-model="value" placeholder="99/99/9999" mask="99/99/9999" slotChar="mm/dd/yyyy" />
+```
+
+## Inputmask
+
+## Inputmask
+
+---
+
+# Vue InputNumber Component
+
+InputNumber is an input component to provide numerical input.
+
+## Accessibility
+
+Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element uses spinbutton role in addition to the aria-valuemin , aria-valuemax and aria-valuenow attributes. Keyboard Support Key Function tab Moves focus to the input. up arrow Increments the value. down arrow Decrements the value. home Set the minimum value if provided. end Set the maximum value if provided.
+
+**Basic Usage:**
+
+```vue
+<label for="price">Price</label>
+<InputNumber inputId="price" />
+
+<span id="label_number">Number</span>
+<InputNumber aria-labelledby="label_number" />
+
+<InputNumber aria-label="Number" />
+```
+
+## Buttons
+
+Spinner buttons are enabled using the showButtons property and layout is defined with the buttonLayout .
+
+**Basic Usage:**
+
+```vue
+<InputNumber v-model="value1" inputId="stacked-buttons" showButtons mode="currency" currency="USD" fluid />
+<InputNumber v-model="value2" inputId="minmax-buttons" mode="decimal" showButtons :min="0" :max="100" fluid />
+<InputNumber v-model="value3" inputId="horizontal-buttons" showButtons buttonLayout="horizontal" :step="0.25" mode="currency" currency="EUR" fluid>
+    <template #incrementbuttonicon>
+        <span class="pi pi-plus" />
+    </template>
+    <template #decrementbuttonicon>
+        <span class="pi pi-minus" />
+    </template>
+</InputNumber>
+```
+
+## Clear Icon
+
+When showClear is enabled, a clear icon is added to reset the InputNumber.
+
+**Basic Usage:**
+
+```vue
+<InputNumber v-model="value" showClear />
+```
+
+## Currency
+
+Monetary values are enabled by setting mode property as currency . In this setting, currency property also needs to be defined using ISO 4217 standard such as "USD" for the US dollar.
+
+**Basic Usage:**
+
+```vue
+<InputNumber v-model="value1" inputId="currency-us" mode="currency" currency="USD" locale="en-US" fluid />
+<InputNumber v-model="value2" inputId="currency-germany" mode="currency" currency="EUR" locale="de-DE" />
+<InputNumber v-model="value3" inputId="currency-india" mode="currency" currency="INR" currencyDisplay="code" locale="en-IN" fluid />
+<InputNumber v-model="value4" inputId="currency-japan" mode="currency" currency="JPY" locale="jp-JP" fluid />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<InputNumber v-model="value" disabled prefix="%" />
+```
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<InputNumber v-model="value" variant="filled" />
+```
+
+## Float Label
+
+A floating label appears on top of the input field when focused. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel>
+    <InputNumber v-model="value1" inputId="over_label" mode="currency" currency="USD" locale="en-US" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel variant="in">
+    <InputNumber v-model="value2" inputId="in_label" mode="currency" currency="USD" locale="en-US" variant="filled" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel variant="on">
+    <InputNumber v-model="value3" inputId="on_label" mode="currency" currency="USD" locale="en-US" />
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Fluid
+
+The fluid prop makes the component take up the full width of its container when set to true.
+
+**Basic Usage:**
+
+```vue
+<InputNumber v-model="value" fluid mode="currency" currency="USD" locale="en-US" />
+```
+
+## Forms
+
+InputNumber integrates seamlessly with the PrimeVue Forms library.
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel>
+    <InputNumber v-model="value" inputId="price_input" mode="currency" currency="USD" locale="en-US" variant="filled" />
+    <label for="price_input">Price</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import InputNumber from 'primevue/inputnumber';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<InputNumber v-model="value1" :invalid="value1 === null" mode="decimal" :minFractionDigits="2" placeholder="Amount" />
+<InputNumber v-model="value2" :invalid="value2 === null" mode="decimal" :minFractionDigits="2" variant="filled" placeholder="Amount" />
+```
+
+## Locale
+
+Localization information such as grouping and decimal symbols are defined with the locale property which defaults to the user locale.
+
+**Basic Usage:**
+
+```vue
+<InputNumber v-model="value1" inputId="locale-user" :minFractionDigits="2" fluid />
+<InputNumber v-model="value2" inputId="locale-us" locale="en-US" :minFractionDigits="2" fluid />
+<InputNumber v-model="value3" inputId="locale-german" locale="de-DE" :minFractionDigits="2" fluid />
+<InputNumber v-model="value4" inputId="locale-indian" locale="en-IN" :minFractionDigits="2" fluid />
+```
+
+## Numerals
+
+InputNumber is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<InputNumber v-model="value1" inputId="integeronly" fluid />
+<InputNumber v-model="value2" inputId="withoutgrouping" :useGrouping="false" fluid />
+<InputNumber v-model="value3" inputId="minmaxfraction" :minFractionDigits="2" :maxFractionDigits="5" fluid />
+<InputNumber v-model="value4" inputId="minmax" :min="0" :max="100" fluid />
+```
+
+## Prefix & Suffix
+
+Custom texts e.g. units can be placed before or after the input section with the prefix and suffix properties.
+
+**Basic Usage:**
+
+```vue
+<InputNumber v-model="value1" inputId="mile" suffix=" mi" fluid />
+<InputNumber v-model="value2" inputId="percent" prefix="%" fluid />
+<InputNumber v-model="value3" inputId="expiry" prefix="Expires in " suffix=" days" fluid />
+<InputNumber v-model="value4" inputId="temperature" prefix="&uarr; " suffix="℃" :min="0" :max="40" fluid />
+```
+
+## Sizes
+
+InputNumber provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<InputNumber v-model="value1" size="small" placeholder="Small" mode="currency" currency="USD" locale="en-US" />
+<InputNumber v-model="value2" placeholder="Normal" mode="currency" currency="USD" locale="en-US" />
+<InputNumber v-model="value3" size="large" placeholder="Large" mode="currency" currency="USD" locale="en-US" />
+```
+
+## Vertical
+
+Buttons can also placed vertically by setting buttonLayout as vertical .
+
+**Basic Usage:**
+
+```vue
+<InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 3rem" :min="0" :max="99">
+    <template #incrementbuttonicon>
+        <span class="pi pi-plus" />
+    </template>
+    <template #decrementbuttonicon>
+        <span class="pi pi-minus" />
+    </template>
+</InputNumber>
+```
+
+## Inputnumber
+
+## Inputnumber
+
+---
+
+# Vue Otp Input Component
+
+Input Otp is used to enter one time passwords.
+
+## Accessibility
+
+Screen Reader Input OTP uses a set of InputText components, refer to the InputText component for more information about the screen reader support. Keyboard Support Key Function tab Moves focus to the input otp. right arrow Moves focus to the next input element. left arrow Moves focus to the previous input element. backspace Deletes the input and moves focus to the previous input element.
+
+## Basic
+
+InputOtp is used with the v-model property for two-way value binding. The number of characters is defined with the length option, which is set to 4 by default.
+
+**Basic Usage:**
+
+```vue
+<InputOtp v-model="value" />
+```
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<InputOtp v-model="value" variant="filled" />
+```
+
+## Forms
+
+InputOtp integrates seamlessly with the PrimeVue Forms library.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import InputOtp from 'primevue/inputotp';
+```
+
+## Integer Only
+
+When integerOnly is present, only integers can be accepted as input.
+
+**Basic Usage:**
+
+```vue
+<InputOtp v-model="value" integerOnly />
+```
+
+## Mask
+
+Enable the mask option to hide the values in the input fields.
+
+**Basic Usage:**
+
+```vue
+<InputOtp v-model="value" mask />
+```
+
+## Sample
+
+A sample UI implementation with templating and additional elements.
+
+**Basic Usage:**
+
+```vue
+<div class="flex flex-col items-center">
+    <div class="font-bold text-xl mb-2">Authenticate Your Account</div>
+    <p class="text-surface-500 dark:text-surface-400 block mb-8">Please enter the code sent to your phone.</p>
+    <InputOtp v-model="value" :length="6" style="gap: 0">
+        <template #default="{ attrs, events, index }">
+            <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+            <div v-if="index === 3" class="px-4">
+                <i class="pi pi-minus" />
+            </div>
+        </template>
+    </InputOtp>
+    <div class="flex justify-between mt-8 self-stretch">
+        <Button label="Resend Code" link class="p-0"></Button>
+        <Button label="Submit Code"></Button>
+    </div>
+</div>
+```
+
+## Sizes
+
+InputOtp provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<InputOtp v-model="value1" size="small" />
+<InputOtp v-model="value2" />
+<InputOtp v-model="value3" size="large" />
+```
+
+## Template
+
+Define a template with your own UI elements with bindings to the provided events and attributes to replace the default design.
+
+**Basic Usage:**
+
+```vue
+<InputOtp v-model="value">
+    <template #default="{ attrs, events }">
+        <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+    </template>
+</InputOtp>
+```
+
+## Inputotp
+
+## Inputotp
+
+---
+
+# Vue Input Component
+
+InputText is an extension to standard input element with theming.
+
+## Accessibility
+
+Screen Reader InputText component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
+
+**Basic Usage:**
+
+```vue
+<label for="firstname">Firstname</label>
+<InputText id="firstname" />
+
+<span id="lastname">Lastname</span>
+<InputText aria-labelledby="lastname" />
+
+<InputText aria-label="Age"/>
+```
+
+## Basic
+
+InputText is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<InputText type="text" v-model="value" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<InputText v-model="value" disabled placeholder="Disabled" />
+```
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<InputText type="text" v-model="value" variant="filled" />
+```
+
+## Float Label
+
+FloatLabel visually integrates a label with its form element. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel>
+    <InputText id="over_label" v-model="value1" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel variant="in">
+    <InputText id="in_label" v-model="value2" variant="filled" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel variant="on">
+    <InputText id="on_label" v-model="value3" />
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Fluid
+
+The fluid prop makes the component take up the full width of its container when set to true.
+
+**Basic Usage:**
+
+```vue
+<InputText type="text" v-model="value" fluid />
+```
+
+## Forms
+
+InputText integrates seamlessly with the PrimeVue Forms library.
+
+## Help Text
+
+An advisory text can be defined with the Message component.
+
+**Basic Usage:**
+
+```vue
+<div class="flex flex-col gap-2">
+    <label for="username">Username</label>
+    <InputText id="username" v-model="value" aria-describedby="username-help" />
+    <Message size="small" severity="secondary" variant="simple">Enter your username to reset your password.</Message>
+</div>
+```
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel>
+    <InputText id="username" v-model="value" variant="filled" />
+    <label for="username">Username</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import InputText from 'primevue/inputtext';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<InputText v-model="value1" :invalid="!value1" placeholder="Name" />
+<InputText v-model="value2" :invalid="!value2" variant="filled" placeholder="Name" />
+```
+
+## Sizes
+
+InputText provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<InputText v-model="value1" type="text" size="small" placeholder="Small" />
+<InputText v-model="value2" type="text" placeholder="Normal" />
+<InputText v-model="value3" type="text" size="large" placeholder="Large" />
+```
+
+## Inputtext
+
+## Inputtext
+
+---
+
+# introduction
+
+
+
+## Accessibility
+
+PrimeVue has WCAG 2.1 AA level compliance; each component has a dedicated accessibility section to document several aspects, including keyboard and screen reader support. Through communication channels such as GitHub or Discord, numerous accessibility experts worldwide continue to provide constant feedback to improve the accessibility features further. View the accessibility guide to learn more.
+
+## AddOnsDoc
+
+PrimeVue does not require financial sponsorships from its community; instead, to be backed by a solid financial foundation, optional add-ons are offered. These include a Figma UI Kit, premium application templates, and reusable UI blocks called PrimeBlocks. The add-ons are optional and there is no paywall when using PrimeVue.
+
+## Overview
+
+PrimeVue is a complete UI suite for Vue.js consisting of a rich set of UI components, icons, blocks, and application templates. The project's primary goal is to boost developer productivity by offering reusable solutions that are easy to tune and customize as an in-house library. The project has been created by PrimeTek a world-renowned vendor of popular UI Component suites, including PrimeFaces , PrimeNG , and PrimeReact. All the members in our team are full time employees of PrimeTek who share the same passion and vision for open source to create awesome UI libraries. Depending on a 3rd party library may introduce risks if the library maintainers decide not to work on the project, however, this is not the case with PrimeVue as the track record of PrimeTek shows. For example, PrimeFaces has been maintained actively since 2008.
+
+## Pass Through
+
+PassThrough is an innovative API to provide access to the internal DOM elements to add arbitrary attributes. In general, traditional UI component libraries encapsulate UI and logic with limited APIs that makes the developers dependant on the library maintainer to extend this API by adding new props or events. With Pass Through this limitation has been eliminated since, you'll be able to access the internal of the components to add events and attributes. Some common use-cases are adding test attributes, additional aria attributes, custom events and styling.
+
+## Theming
+
+PrimeVue can be styled in two modes; styled or unstyled. Styled mode is based on pre-skinned components with opinionated theme variants of PrimeOne design like Aura, Lara or Nora presets. Unstyled mode on the other hand, leaves the styling to you while implementing the functionality and accessibility. Unstyled mode provides full control over the styling with no boundaries by implementing a pluggable architecture to utilize CSS libraries like Tailwind CSS, Bootstrap, Bulma or your own custom CSS. We've even further built the Volt UI library that styles the components with utility classes of Tailwind. This design is future proof as PrimeVue can be styled with any CSS library without actually depending on it in its core.
+
+---
+
+# Vue KeyFilter Component
+
+A keyfilter is a directive used to block individual keystrokes based on a pattern.
+
+## Accessibility
+
+KeyFilter is a directive and do not require any accessibility features.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import KeyFilter from 'primevue/keyfilter';
+
+app.directive('keyfilter', KeyFilter);
+```
+
+## Presets
+
+KeyFilter provides various presets configured with the v-keyfilter directive.
+
+**Basic Usage:**
+
+```vue
+<InputText v-keyfilter.int />
+<InputText v-keyfilter.num />
+<InputText v-keyfilter.money />
+<InputText v-keyfilter.hex />
+<InputText v-keyfilter.alpha />
+<InputText v-keyfilter.alphanum />
+```
+
+## Regex (Single Keypress)
+
+In addition to the presets, a regular expression can be configured for customization of blocking a single key press.
+
+**Basic Usage:**
+
+```vue
+<InputText v-model="spacekey" v-keyfilter="/[^\s]/" />
+<InputText v-model="chars" v-keyfilter="/^[^<>*!]+$/" />
+```
+
+## Regex (Whole Word)
+
+In addition to the presets, a regular expression can be used to validate the entire word using validateOnly option.
+
+**Basic Usage:**
+
+```vue
+<InputText v-model="text" v-keyfilter="{ pattern: /^[+]?(\d{1,12})?$/, validateOnly: true }" />
+```
+
+## Keyfilter
+
+## Keyfilter
+
+---
+
+# Vue Knob Component
+
+Knob is a form component to define number inputs with a dial.
+
+## Accessibility
+
+Screen Reader Knob element component uses slider role in addition to the aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Key Function tab Moves focus to the slider. left arrow down arrow Decrements the value. right arrow up arrow Increments the value. home Set the minimum value. end Set the maximum value. page up Increments the value by 10 steps. page down Decrements the value by 10 steps.
+
+**Basic Usage:**
+
+```vue
+<span id="label_number">Number</span>
+<Knob aria-labelledby="label_number" />
+
+<Knob aria-label="Number" />
+```
+
+## Basic
+
+Knob is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<Knob v-model="value" />
+```
+
+## Color
+
+valueColor defines the value color, rangeColor defines the range background and similarly textColor configures the color of the value text. In addition, strokeWidth is used to determine the width of the stroke of range and value sections.
+
+**Basic Usage:**
+
+```vue
+<Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise" />
+```
+
+## Disabled
+
+When disabled is present, a visual hint is applied to indicate that the Knob cannot be interacted with.
+
+**Basic Usage:**
+
+```vue
+<Knob v-model="value" disabled />
+```
+
+## Forms
+
+Knob integrates seamlessly with the PrimeVue Forms library.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Knob from 'primevue/knob';
+```
+
+## Min/Max
+
+Boundaries are configured with the min and max values whose defaults are 0 and 100 respectively.
+
+**Basic Usage:**
+
+```vue
+<Knob v-model="value" :min="-50" :max="50" />
+```
+
+## Reactive
+
+Knob can be controlled with custom controls as well.
+
+**Basic Usage:**
+
+```vue
+<Knob v-model="value" :size="150" readonly />
+<div class="flex gap-2">
+    <Button icon="pi pi-plus" @click="value++" :disabled="value >= 100" />
+    <Button icon="pi pi-minus" @click="value--" :disabled="value <= 0" />
+</div>
+```
+
+## ReadOnly
+
+When readonly present, value cannot be edited.
+
+**Basic Usage:**
+
+```vue
+<Knob v-model="value" readonly />
+```
+
+## Size
+
+Diameter of the knob is defined in pixels using the size property.
+
+**Basic Usage:**
+
+```vue
+<Knob v-model="value" :size="200" />
+```
+
+## Step
+
+Step factor is 1 by default and can be customized with step option.
+
+**Basic Usage:**
+
+```vue
+<Knob v-model="value5" :step="10" />
+```
+
+## Stroke
+
+The border size is specified with the stroke property as a number in pixels.
+
+**Basic Usage:**
+
+```vue
+<Knob v-model="value" :strokeWidth="5" />
+```
+
+## Template
+
+The label can be customized with the valueTemplate property using either a template string or a function.
+
+**Basic Usage:**
+
+```vue
+<Knob v-model="value" valueTemplate="{value}%" />
+```
+
+## Knob
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | number | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| size | number | 100 | Size of the component in pixels. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| readonly | boolean | false | When present, it specifies that the component value cannot be edited. |
+| step | number | 1 | Step factor to increment/decrement the value. |
+| min | number | 0 | Mininum boundary value. |
+| max | number | 100 | Maximum boundary value. |
+| valueColor | string | $dt('knob.value.background') | Background of the value. |
+| rangeColor | string | $dt('knob.range.background') | Background color of the range. |
+| textColor | string | $dt('knob.text.color') | Color of the value text. |
+| strokeWidth | number | 14 | Width of the knob stroke. |
+| showValue | boolean | true | Whether the show the value inside the knob. |
+| valueTemplate | string \| Function | '{value}' | Template string of the value. |
+| tabindex | number | 0 | Index of the element in tabbing order. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Used to define a string that labels the element. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<KnobPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Knob
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | number | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| size | number | 100 | Size of the component in pixels. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| readonly | boolean | false | When present, it specifies that the component value cannot be edited. |
+| step | number | 1 | Step factor to increment/decrement the value. |
+| min | number | 0 | Mininum boundary value. |
+| max | number | 100 | Maximum boundary value. |
+| valueColor | string | $dt('knob.value.background') | Background of the value. |
+| rangeColor | string | $dt('knob.range.background') | Background color of the range. |
+| textColor | string | $dt('knob.text.color') | Color of the value text. |
+| strokeWidth | number | 14 | Width of the knob stroke. |
+| showValue | boolean | true | Whether the show the value inside the knob. |
+| valueTemplate | string \| Function | '{value}' | Template string of the value. |
+| tabindex | number | 0 | Index of the element in tabbing order. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Used to define a string that labels the element. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<KnobPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | KnobPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| svg | KnobPassThroughOptionType | Used to pass attributes to the svg's DOM element. |
+| range | KnobPassThroughOptionType | Used to pass attributes to the range's DOM element. |
+| value | KnobPassThroughOptionType | Used to pass attributes to the value' DOM element. |
+| text | KnobPassThroughOptionType | Used to pass attributes to the text's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-knob | Class name of the root element |
+| p-knob-range | Class name of the range element |
+| p-knob-value | Class name of the value element |
+| p-knob-text | Class name of the text element |
+
+---
+
+# laravel
+
+
+
+## Download
+
+PrimeVue is available for download on npm registry .
+
+**Basic Usage:**
+
+```vue
+# Using npm
+npm install primevue @primeuix/themes
+
+# Using yarn
+yarn add primevue @primeuix/themes
+
+# Using pnpm
+pnpm add primevue @primeuix/themes
+```
+
+## Examples
+
+We've created various samples for the popular options in the Vue ecosystem. Visit the primevue-examples repository for more samples including laravel-quickstart and inertia-quickstart .
+
+## Next Steps
+
+Welcome to the Prime UI Ecosystem! Once you have PrimeVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes Getting support
+
+## PluginDoc
+
+PrimeVue plugin is required to be installed as an application plugin to set up the default configuration . The plugin is lightweight, and only utilized for configuration purposes.
+
+**Basic Usage:**
+
+```vue
+import { createApp } from 'vue';
+import PrimeVue from 'primevue/config';
+
+const app = createApp(App);
+app.use(PrimeVue);
+```
+
+## Plugin
+
+Configure PrimeVue to use a theme like Aura.
+
+## Verify
+
+Verify your setup by adding a component such as Button . Each component can be imported and registered individually so that you only include what you use for bundle optimization. Import path is available in the documentation of the corresponding component.
+
+**Basic Usage:**
+
+```vue
+import Button from "primevue/button"
+
+const app = createApp(App);
+app.component('Button', Button);
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button label="Verify" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+---
+
+# Vue Listbox Component
+
+Listbox is used to select one or more values from a list of items.
+
+## Accessibility
+
+Screen Reader Value to describe the component can be provided aria-labelledby or aria-label props. The list element has a listbox role with the aria-multiselectable attribute that sets to true when multiple selection is enabled. Each list item has an option role with aria-selected and aria-disabled as their attributes. If filtering is enabled, filterInputProps can be defined to give aria-* props to the input element. Alternatively filterPlaceholder is usually utilized by the screen readers as well. Keyboard Support Key Function tab Moves focus to the first selected option, if there is none then first option receives the focus. up arrow Moves focus to the previous option. down arrow Moves focus to the next option. enter Toggles the selected state of the focused option. space Toggles the selected state of the focused option. home Moves focus to the first option. end Moves focus to the last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the last one. control + a Selects all options. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. any printable character Moves focus to the option whose label starts with the characters being typed. Filter Input Keyboard Support Key Function down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. enter Closes the popup and moves focus to the multiselect element. escape Closes the popup and moves focus to the multiselect element. tab Moves focus to the next focusable element in the component. If there is none, moves focus to next element in page.
+
+**Basic Usage:**
+
+```vue
+<span id="lb"></span>Options</span>
+<Listbox aria-labelledby="lb" />
+
+<Listbox aria-label="City" />
+```
+
+## Basic
+
+Listbox is used with the v-model property for two-way value binding along with the options collection. Label and value of an option are defined with the optionLabel and optionValue properties respectively. Note that, when options are simple primitive values such as a string array, no optionLabel and optionValue would be necessary.
+
+**Basic Usage:**
+
+```vue
+<Listbox v-model="selectedCity" :options="cities" optionLabel="name" class="w-full md:w-56" />
+```
+
+## Checkmark
+
+An alternative way to highlight the selected option is displaying a checkmark instead.
+
+**Basic Usage:**
+
+```vue
+<Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<Listbox v-model="selectedCity" disabled :options="cities" optionLabel="name" class="w-full md:w-56" />
+```
+
+## Filter
+
+Listbox provides built-in filtering that is enabled by adding the filter property.
+
+**Basic Usage:**
+
+```vue
+<Listbox v-model="selectedCity" :options="cities" filter optionLabel="name" class="w-full md:w-56" />
+```
+
+## Forms
+
+Listbox integrates seamlessly with the PrimeVue Forms library.
+
+## Group
+
+Options can be grouped when a nested data structures is provided. To define the label of a group optionGroupLabel property is needed and also optionGroupChildren is required to define the property that refers to the children of a group.
+
+**Basic Usage:**
+
+```vue
+<Listbox v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" class="w-full md:w-56" listStyle="max-height:250px">
+    <template #optiongroup="slotProps">
+        <div class="flex items-center">
+            <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Listbox from 'primevue/listbox';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<Listbox v-model="selectedCity" :options="cities" optionLabel="name" :invalid="selectedCity === null"  class="w-full md:w-56" />
+```
+
+## Multiple
+
+Listbox allows choosing a single item by default, enable multiple property to choose more than one. When the optional metaKeySelection is present, behavior is changed in a way that selecting a new item requires meta key to be present.
+
+**Basic Usage:**
+
+```vue
+<Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-56" />
+```
+
+## Template
+
+Custom content for an option is displayed with the option slot that takes an option as a parameter. Additional available templating sections are filter and optionGroup .
+
+**Basic Usage:**
+
+```vue
+<Listbox v-model="selectedCountry" :options="countries" optionLabel="name" class="w-full md:w-56" listStyle="max-height:250px">
+    <template #option="slotProps">
+        <div class="flex items-center">
+            <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## Virtual Scroll
+
+VirtualScroller is used to render a long list of options efficiently like 100K records in this demo. The configuration is done with virtualScrollerOptions property, refer to the VirtualScroller for more information about the available options as it is used internally by Listbox.
+
+**Basic Usage:**
+
+```vue
+<Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
+    :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" striped />
+```
+
+## Listbox
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| options | any[] | - | An array of selectitems to display as the available options. |
+| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
+| optionValue | string \| Function | - | Property name or getter function to use as the value of an option, defaults to the option itself when not defined. |
+| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
+| optionGroupLabel | string \| Function | - | Property name or getter function to use as the label of an option group. |
+| optionGroupChildren | string \| Function | - | Property name or getter function that refers to the children options of option group. |
+| listStyle | string | - | Inline style of inner list element. |
+| scrollHeight | string | 14rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When specified, disables the component. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| dataKey | string | - | A property to uniquely identify an option. |
+| multiple | boolean | false | When specified, allows selecting multiple values. |
+| metaKeySelection | boolean | false | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
+| filter | boolean | false | When specified, displays a filter input at header. |
+| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
+| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
+| filterMatchMode | HintedString<"startsWith" \| "contains" \| "endsWith"> | contains | Defines the filtering algorithm to use when searching the options. |
+| filterFields | string[] | - | Fields used when filtering the options, defaults to optionLabel. |
+| virtualScrollerOptions | any | - | Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. |
+| autoOptionFocus | boolean | false | Whether to focus on the first visible or selected element. |
+| selectOnFocus | boolean | false | When enabled, the focused option is selected. |
+| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
+| highlightOnSelect | boolean | true | Whether the selected option will be add highlight class. |
+| checkmark | boolean | false | Whether the selected option will be shown with a check mark. |
+| filterMessage | string | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration. |
+| selectionMessage | string | '{0} items selected' | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration. |
+| emptySelectionMessage | string | No selected item | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration. |
+| emptyFilterMessage | string | No results found | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration. |
+| emptyMessage | string | No available options | Text to display when there are no options available. Defaults to value from PrimeVue locale configuration. |
+| striped | boolean | false | Whether to displays rows with alternating colors. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| filterIcon | string | - | Icon to display in filter input. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ListboxPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Listbox
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| options | any[] | - | An array of selectitems to display as the available options. |
+| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
+| optionValue | string \| Function | - | Property name or getter function to use as the value of an option, defaults to the option itself when not defined. |
+| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
+| optionGroupLabel | string \| Function | - | Property name or getter function to use as the label of an option group. |
+| optionGroupChildren | string \| Function | - | Property name or getter function that refers to the children options of option group. |
+| listStyle | string | - | Inline style of inner list element. |
+| scrollHeight | string | 14rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When specified, disables the component. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| dataKey | string | - | A property to uniquely identify an option. |
+| multiple | boolean | false | When specified, allows selecting multiple values. |
+| metaKeySelection | boolean | false | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
+| filter | boolean | false | When specified, displays a filter input at header. |
+| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
+| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
+| filterMatchMode | HintedString<"startsWith" \| "contains" \| "endsWith"> | contains | Defines the filtering algorithm to use when searching the options. |
+| filterFields | string[] | - | Fields used when filtering the options, defaults to optionLabel. |
+| virtualScrollerOptions | any | - | Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. |
+| autoOptionFocus | boolean | false | Whether to focus on the first visible or selected element. |
+| selectOnFocus | boolean | false | When enabled, the focused option is selected. |
+| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
+| highlightOnSelect | boolean | true | Whether the selected option will be add highlight class. |
+| checkmark | boolean | false | Whether the selected option will be shown with a check mark. |
+| filterMessage | string | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration. |
+| selectionMessage | string | '{0} items selected' | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration. |
+| emptySelectionMessage | string | No selected item | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration. |
+| emptyFilterMessage | string | No results found | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration. |
+| emptyMessage | string | No available options | Text to display when there are no options available. Defaults to value from PrimeVue locale configuration. |
+| striped | boolean | false | Whether to displays rows with alternating colors. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| filterIcon | string | - | Icon to display in filter input. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ListboxPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ListboxPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| header | ListboxPassThroughOptionType<T> | Used to pass attributes to the header's DOM element. |
+| pcFilterContainer | any | Used to pass attributes to the IconField component. |
+| pcFilter | any | Used to pass attributes to the InputText component. |
+| pcFilterIconContainer | any | Used to pass attributes to the InputIcon component. |
+| filterIcon | ListboxPassThroughOptionType<T> | Used to pass attributes to the filter icon's DOM element. |
+| listContainer | ListboxPassThroughOptionType<T> | Used to pass attributes to the list container's DOM element. |
+| virtualScroller | any | Used to pass attributes to the VirtualScroller component. |
+| list | ListboxPassThroughOptionType<T> | Used to pass attributes to the list's DOM element. |
+| optionGroup | ListboxPassThroughOptionType<T> | Used to pass attributes to the option group's DOM element. |
+| option | ListboxPassThroughOptionType<T> | Used to pass attributes to the option's DOM element. |
+| optionCheckIcon | ListboxPassThroughOptionType<T> | Used to pass attributes to the option check icon's DOM element. |
+| optionBlankIcon | ListboxPassThroughOptionType<T> | Used to pass attributes to the option blank icon's DOM element. |
+| emptyMessage | ListboxPassThroughOptionType<T> | Used to pass attributes to the emptyMessage's DOM element. |
+| hiddenFirstFocusableEl | ListboxPassThroughOptionType<T> | Used to pass attributes to the hidden first focusable element's DOM element. |
+| hiddenFilterResult | ListboxPassThroughOptionType<T> | Used to pass attributes to the hidden filter result's DOM element. |
+| hiddenSelectedMessage | ListboxPassThroughOptionType<T> | Used to pass attributes to the hidden selected message's DOM element. |
+| hiddenLastFocusableEl | ListboxPassThroughOptionType<T> | Used to pass attributes to the hidden last focusable element's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-listbox | Class name of the root element |
+| p-listbox-header | Class name of the header element |
+| p-listbox-filter | Class name of the filter element |
+| p-listbox-list-container | Class name of the list container element |
+| p-listbox-list | Class name of the list element |
+| p-listbox-option-group | Class name of the option group element |
+| p-listbox-option | Class name of the option element |
+| p-listbox-option-check-icon | Class name of the option check icon element |
+| p-listbox-option-blank-icon | Class name of the option blank icon element |
+| p-listbox-empty-message | Class name of the empty message element |
+
+---
+
+# Vue MegaMenu Component
+
+MegaMenu is a navigation component that displays submenus and content in columns.
+
+## Accessibility
+
+Screen Reader MegaMenu component uses the menubar role along with aria-orientation and the value to describe the component can either be provided with aria-labelledby or aria-label props. Each list item has a menuitem role with aria-label referring to the label of the item and aria-disabled defined if the item is disabled. A submenu within a MegaMenu uses the menu role with an aria-labelledby defined as the id of the submenu root menuitem label. In addition, root menuitems that open a submenu have aria-haspopup and aria-expanded to define the relation between the item and the submenu. Keyboard Support Key Function tab Add focus to the first item if focus moves in to the menu. If the focus is already within the menu, focus moves to the next focusable item in the page tab sequence. shift + tab Add focus to the first item if focus moves in to the menu. If the focus is already within the menu, focus moves to the previous focusable item in the page tab sequence. enter If menuitem has a submenu, toggles the visibility of the submenu otherwise activates the menuitem and closes all open overlays. space If menuitem has a submenu, toggles the visibility of the submenu otherwise activates the menuitem and closes all open overlays. escape If focus is inside a popup submenu, closes the submenu and moves focus to the root item of the closed submenu. down arrow If focus is on a root element, open a submenu and moves focus to the first element in the submenu otherwise moves focus to the next menuitem within the submenu. up arrow If focus is on a root element, opens a submenu and moves focus to the last element in the submenu otherwise moves focus to the previous menuitem within the submenu. alt + up arrow If focus is inside a popup menu, moves focus to the first element in the submenu otherwise closes the submenu and moves focus to the root item of the closed submenu in horizontal mode. right arrow If focus is on a root element, moves focus to the next menuitem. If the focus in inside a submenu, moves focus to the first menuitem of the next menu group. left arrow If focus is on a root element, moves focus to the previous menuitem. If the focus in inside a submenu, moves focus to the first menuitem of the previous menu group. home Moves focus to the first menuitem within the submenu. end Moves focus to the last menuitem within the submenu. any printable character Moves focus to the menuitem whose label starts with the characters being typed.
+
+## Basic
+
+MegaMenu requires a collection of menuitems as its model .
+
+**Basic Usage:**
+
+```vue
+<MegaMenu :model="items" />
+```
+
+## Command
+
+The command property of a menuitem defines the callback to run when an item is activated by click or a key event.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import MegaMenu from 'primevue/megamenu';
+```
+
+## Router
+
+Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
+
+## Template
+
+MegaMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter. Additional slots named start and end are provided to embed content before or after the menu.
+
+## VerticalDoc
+
+Layout of the MegaMenu is configured with the orientation property that accepts horizontal and vertical as options.
+
+**Basic Usage:**
+
+```vue
+<MegaMenu :model="items" orientation="vertical" />
+```
+
+## Megamenu
+
+## Megamenu
+
+---
+
+# Vue Menu Component
+
+Menu displays a list of items in vertical orientation.
+
+## Accessibility
+
+Screen Reader Menu component uses the menu role and the value to describe the menu can either be provided with aria-labelledby or aria-label props. Each list item has a menuitem role with aria-label referring to the label of the item and aria-disabled defined if the item is disabled. In popup mode, the component implicitly manages the aria-expanded , aria-haspopup and aria-controls attributes of the target element to define the relation between the target and the popup. Keyboard Support Key Function tab Add focus to the first item if focus moves in to the menu. If the focus is already within the menu, focus moves to the next focusable item in the page tab sequence. shift + tab Add focus to the first item if focus moves in to the menu. If the focus is already within the menu, focus moves to the previous focusable item in the page tab sequence. enter Activates the focused menuitem. If menu is in overlay mode, popup gets closes and focus moves to target. space Activates the focused menuitem. If menu is in overlay mode, popup gets closes and focus moves to target. escape If menu is in overlay mode, popup gets closes and focus moves to target. down arrow Moves focus to the next menuitem. up arrow Moves focus to the previous menuitem. alt + up arrow If menu is in overlay mode, popup gets closes and focus moves to the target. home Moves focus to the first menuitem. end Moves focus to the last menuitem.
+
+## Basic
+
+Menu requires a collection of menuitems as its model .
+
+**Basic Usage:**
+
+```vue
+<Menu :model="items" />
+```
+
+## Command
+
+The command property defines the callback to run when an item is activated by click or a key event.
+
+**Basic Usage:**
+
+```vue
+<Menu :model="items" />
+<Toast />
+```
+
+## Group
+
+Menu supports single level of grouping by defining children with the items property.
+
+**Basic Usage:**
+
+```vue
+<Menu :model="items" />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Menu from 'primevue/menu';
+```
+
+## Popup
+
+Overlay mode is enabled by adding popup property and calling toggle function of the menu ref with an event of the target.
+
+**Basic Usage:**
+
+```vue
+<Button type="button" icon="pi pi-ellipsis-v" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
+<Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
+```
+
+## Router
+
+Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
+
+## Template
+
+Menu offers item customization with the item template that receives the menuitem instance from the model as a parameter. The submenu label has its own submenulabel template, additional slots named start and end are provided to embed content before or after the menu.
+
+## Menu
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| model | MenuItem[] | - | An array of menuitems. |
+| popup | boolean | false | Defines if menu would displayed as a popup. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<MenuPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Menu
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| model | MenuItem[] | - | An array of menuitems. |
+| popup | boolean | false | Defines if menu would displayed as a popup. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<MenuPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Menubar
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| model | MenuItem[] | - | An array of menuitems. |
+| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
+| buttonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the menu button. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<MenubarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Menubar
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| model | MenuItem[] | - | An array of menuitems. |
+| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
+| buttonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the menu button. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<MenubarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Menuitem
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | MenuPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| list | MenuPassThroughOptionType | Used to pass attributes to the list's DOM element. |
+| submenuLabel | MenuPassThroughOptionType | Used to pass attributes to the submenu item's DOM element. |
+| item | MenuPassThroughOptionType | Used to pass attributes to the item's DOM element. |
+| itemContent | MenuPassThroughOptionType | Used to pass attributes to the item content's DOM element. |
+| itemLink | MenuPassThroughOptionType | Used to pass attributes to the item link's DOM element. |
+| itemIcon | MenuPassThroughOptionType | Used to pass attributes to the item icon's DOM element. |
+| itemLabel | MenuPassThroughOptionType | Used to pass attributes to the item label's DOM element. |
+| separator | MenuPassThroughOptionType | Used to pass attributes to the separator's DOM element. |
+| start | MenuPassThroughOptionType | Used to pass attributes to the start of the component. |
+| end | MenuPassThroughOptionType | Used to pass attributes to the end of the component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | MenuPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-menu | Class name of the root element |
+| p-menu-start | Class name of the start element |
+| p-menu-list | Class name of the list element |
+| p-menu-submenu-item | Class name of the submenu item element |
+| p-menu-separator | Class name of the separator element |
+| p-menu-end | Class name of the end element |
+| p-menu-item | Class name of the item element |
+| p-menu-item-content | Class name of the item content element |
+| p-menu-item-link | Class name of the item link element |
+| p-menu-item-icon | Class name of the item icon element |
+| p-menu-item-label | Class name of the item label element |
+
+---
+
+# Vue Navbar Component
+
+Menubar also known as Navbar, is a horizontal menu component.
+
+## Accessibility
+
+Screen Reader Menubar component uses the menubar role and the value to describe the menu can either be provided with aria-labelledby or aria-label props. Each list item has a menuitem role with aria-label referring to the label of the item and aria-disabled defined if the item is disabled. A submenu within a MenuBar uses the menu role with an aria-labelledby defined as the id of the submenu root menuitem label. In addition, menuitems that open a submenu have aria-haspopup , aria-expanded and aria-controls to define the relation between the item and the submenu. In mobile viewports, a menu icon appears with a button role along with aria-haspopup , aria-expanded and aria-controls to manage the relation between the overlay menubar and the button. The value to describe the button can be defined aria-label or aria-labelledby specified using buttonProps , by default navigation key of the aria property from the locale API as the aria-label . Keyboard Support Key Function tab Add focus to the first item if focus moves in to the menu. If the focus is already within the menu, focus moves to the next focusable item in the page tab sequence. shift + tab Add focus to the first item if focus moves in to the menu. If the focus is already within the menu, focus moves to the previous focusable item in the page tab sequence. enter If menuitem has a submenu, toggles the visibility of the submenu otherwise activates the menuitem and closes all open overlays. space If menuitem has a submenu, toggles the visibility of the submenu otherwise activates the menuitem and closes all open overlays. escape If focus is inside a popup submenu, closes the submenu and moves focus to the root item of the closed submenu. down arrow If focus is on a root element, open a submenu and moves focus to the first element in the submenu otherwise moves focus to the next menuitem within the submenu. up arrow If focus is on a root element, opens a submenu and moves focus to the last element in the submenu otherwise moves focus to the previous menuitem within the submenu. right arrow If focus is on a root element, moves focus to the next menuitem otherwise opens a submenu if there is one available and moves focus to the first item. left arrow If focus is on a root element, moves focus to the previous menuitem otherwise closes a submenu and moves focus to the root item of the closed submenu. home Moves focus to the first menuitem within the submenu. end Moves focus to the last menuitem within the submenu. any printable character Moves focus to the menuitem whose label starts with the characters being typed.
+
+## Advanced
+
+Menubar is a simple horizontal navigation component, for advanced use cases consider Marketing and Application NavBars in PrimeBlocks or templates with horizontal menus in application templates.
+
+## Basic
+
+Menubar requires a collection of menuitems as its model .
+
+**Basic Usage:**
+
+```vue
+<Menubar :model="items" />
+```
+
+## Command
+
+The command property defines the callback to run when an item is activated by click or a key event.
+
+**Basic Usage:**
+
+```vue
+<Menubar :model="items" />
+<Toast />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Menubar from 'primevue/menubar';
+```
+
+## Router
+
+Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
+
+## Template
+
+Menubar offers item customization with the item template that receives the menuitem instance from the model as a parameter. Additional slots named start and end are provided to embed content before or after the menu.
+
+## Menubar
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| model | MenuItem[] | - | An array of menuitems. |
+| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
+| buttonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the menu button. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<MenubarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Menubar
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| model | MenuItem[] | - | An array of menuitems. |
+| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
+| buttonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the menu button. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<MenubarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | MenubarPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| rootList | MenubarPassThroughOptionType | Used to pass attributes to the root list's DOM element. |
+| item | MenubarPassThroughOptionType | Used to pass attributes to the item's DOM element. |
+| itemContent | MenubarPassThroughOptionType | Used to pass attributes to the item content's DOM element. |
+| itemLink | MenubarPassThroughOptionType | Used to pass attributes to the item link's DOM element. |
+| itemIcon | MenubarPassThroughOptionType | Used to pass attributes to the item icon's DOM element. |
+| itemLabel | MenubarPassThroughOptionType | Used to pass attributes to the item label's DOM element. |
+| submenuIcon | MenubarPassThroughOptionType | Used to pass attributes to the submenu icon's DOM element. |
+| separator | MenubarPassThroughOptionType | Used to pass attributes to the separator's DOM element. |
+| button | MenubarPassThroughOptionType | Used to pass attributes to the mobile menu button's DOM element. |
+| buttonIcon | MenubarPassThroughOptionType | Used to pass attributes to the mobile menu button icon's DOM element. |
+| submenu | MenubarPassThroughOptionType | Used to pass attributes to the submenu's DOM element. |
+| start | MenubarPassThroughOptionType | Used to pass attributes to the start of the component. |
+| end | MenubarPassThroughOptionType | Used to pass attributes to the end of the component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-menubar | Class name of the root element |
+| p-menubar-start | Class name of the start element |
+| p-menubar-button | Class name of the button element |
+| p-menubar-root-list | Class name of the root list element |
+| p-menubar-item | Class name of the item element |
+| p-menubar-item-content | Class name of the item content element |
+| p-menubar-item-link | Class name of the item link element |
+| p-menubar-item-icon | Class name of the item icon element |
+| p-menubar-item-label | Class name of the item label element |
+| p-menubar-submenu-icon | Class name of the submenu icon element |
+| p-menubar-submenu | Class name of the submenu element |
+| p-menubar-separator | Class name of the separator element |
+| p-menubar-end | Class name of the end element |
+
+---
+
+# Vue Message Component
+
+Message component is used to display inline messages.
+
+## Accessibility
+
+Screen Reader Message component uses alert role that implicitly defines aria-live as "assertive" and aria-atomic as "true". Since any attribute is passed to the root element, attributes like aria-labelledby and aria-label can optionally be used as well. Close element is a button with an aria-label that refers to the aria.close property of the locale API by default, you may use closeButtonProps to customize the element and override the default aria-label . Close Button Keyboard Support Key Function enter Closes the message. space Closes the message.
+
+## Basic
+
+Message component requires a content to display.
+
+**Basic Usage:**
+
+```vue
+<Message>Message Content</Message>
+```
+
+## Closable
+
+Enable closable option to display an icon to remove a message.
+
+**Basic Usage:**
+
+```vue
+<Message closable>Closable Message</Message>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Message closable>Closable Message</Message>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Dynamic
+
+Multiple messages can be displayed using the standard v-for directive.
+
+## Forms
+
+Validation errors in a form are displayed with the error severity.
+
+**Basic Usage:**
+
+```vue
+<Message v-if="!username || !email" severity="error" icon="pi pi-times-circle" class="mb-2">Validation error</Message>
+<Message v-if="username && email" severity="success" icon="pi pi-times-circle" class="mb-2">Form is valid</Message>
+<div class="flex flex-col gap-1">
+    <InputText v-model="username" placeholder="Username" aria-label="username" :invalid="!username" />
+    <Message v-if="!username" severity="error" variant="simple" size="small">Username is required</Message>
+</div>
+<div class="flex flex-col gap-1">
+    <InputText v-model="email" placeholder="Email" aria-label="email" :invalid="!email" />
+    <Message v-if="!email" severity="error" variant="simple" size="small">Email is not valid</Message>
+</div>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="flex flex-col gap-4">
+        <Message v-if="!username || !email" severity="error" icon="pi pi-times-circle" class="mb-2">Validation error</Message>
+        <Message v-if="username && email" severity="success" icon="pi pi-times-circle" class="mb-2">Form is valid</Message>
+        <div class="flex flex-col gap-1">
+            <InputText v-model="username" placeholder="Username" aria-label="username" :invalid="!username" />
+            <Message v-if="!username" severity="error" variant="simple" size="small">Username is required</Message>
+        </div>
+        <div class="flex flex-col gap-1">
+            <InputText v-model="email" placeholder="Email" aria-label="email" :invalid="!email" />
+            <Message v-if="!email" severity="error" variant="simple" size="small">Email is not valid</Message>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const username = ref(null);
+const email = ref(null);
+<\/script>
+```
+</details>
+
+## Icon
+
+Icon property and the icon slots are available to customize the icon of the message.
+
+**Basic Usage:**
+
+```vue
+<Message severity="info" icon="pi pi-send">Info Message</Message>
+<Message severity="success">
+    <template #icon>
+        <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
+    </template>
+    <span class="ml-2">How may I help you?</span>
+</Message>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center gap-4">
+        <Message severity="info" icon="pi pi-send">Info Message</Message>
+        <Message severity="success">
+            <template #icon>
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+            </template>
+            <span class="ml-2">How may I help you?</span>
+        </Message>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Message from 'primevue/message';
+```
+
+## Life
+
+Messages can disappear automatically by defined the life in milliseconds.
+
+**Basic Usage:**
+
+```vue
+<Button label="Show" @click="showMessage" :disabled="visible" class="mb-4" />
+<Message v-if="visible" severity="success" :life="3000">Auto Disappear Message</Message>
+```
+
+## Outlined
+
+Configure the variant value as outlined for messages with borders and no background.
+
+**Basic Usage:**
+
+```vue
+<Message severity="success" variant="outlined">Success Message</Message>
+<Message severity="info" variant="outlined">Info Message</Message>
+<Message severity="warn" variant="outlined">Warn Message</Message>
+<Message severity="error" variant="outlined">Error Message</Message>
+<Message severity="secondary" variant="outlined">Secondary Message</Message>
+<Message severity="contrast" variant="outlined">Contrast Message</Message>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4 justify-center">
+        <Message severity="success" variant="outlined">Success Message</Message>
+        <Message severity="info" variant="outlined">Info Message</Message>
+        <Message severity="warn" variant="outlined">Warn Message</Message>
+        <Message severity="error" variant="outlined">Error Message</Message>
+        <Message severity="secondary" variant="outlined">Secondary Message</Message>
+        <Message severity="contrast" variant="outlined">Contrast Message</Message>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Severity
+
+The severity option specifies the type of the message.
+
+**Basic Usage:**
+
+```vue
+<Message severity="success">Success Message</Message>
+<Message severity="info">Info Message</Message>
+<Message severity="warn">Warn Message</Message>
+<Message severity="error">Error Message</Message>
+<Message severity="secondary">Secondary Message</Message>
+<Message severity="contrast">Contrast Message</Message>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4 justify-center">
+        <Message severity="success">Success Message</Message>
+        <Message severity="info">Info Message</Message>
+        <Message severity="warn">Warn Message</Message>
+        <Message severity="error">Error Message</Message>
+        <Message severity="secondary">Secondary Message</Message>
+        <Message severity="contrast">Contrast Message</Message>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Simple
+
+Configure the variant value as simple for messages without borders, backgrounds and paddings.
+
+**Basic Usage:**
+
+```vue
+<Message severity="success" variant="simple">Success Message</Message>
+<Message severity="info" variant="simple">Info Message</Message>
+<Message severity="warn" variant="simple">Warn Message</Message>
+<Message severity="error" variant="simple">Error Message</Message>
+<Message severity="secondary" variant="simple">Secondary Message</Message>
+<Message severity="contrast" variant="simple">Contrast Message</Message>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-8 justify-center">
+        <Message severity="success" variant="simple">Success Message</Message>
+        <Message severity="info" variant="simple">Info Message</Message>
+        <Message severity="warn" variant="simple">Warn Message</Message>
+        <Message severity="error" variant="simple">Error Message</Message>
+        <Message severity="secondary" variant="simple">Secondary Message</Message>
+        <Message severity="contrast" variant="simple">Contrast Message</Message>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Sizes
+
+Message provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<Message size="small" icon="pi pi-send">Small Message</Message>
+<Message icon="pi pi-user">Normal Message</Message>
+<Message size="large" icon="pi pi-check">Large Message</Message>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <Message size="small" icon="pi pi-send">Small Message</Message>
+        <Message icon="pi pi-user">Normal Message</Message>
+        <Message size="large" icon="pi pi-check">Large Message</Message>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Message
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| severity | HintedString<"error" \| "secondary" \| "info" \| "success" \| "warn" \| "contrast"> | info | Severity level of the message. |
+| closable | boolean | false | Whether the message can be closed manually using the close icon. |
+| sticky | boolean | true |  |
+| life | number | null | Delay in milliseconds to close the message automatically. |
+| icon | string | - | Display a custom icon for the message. |
+| closeIcon | string | - | Icon to display in the message close button. |
+| closeButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the close button. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<MessagePassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| variant | HintedString<"outlined" \| "simple"> | undefined | Specifies the variant of the component. |
+
+## Message
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| severity | HintedString<"error" \| "secondary" \| "info" \| "success" \| "warn" \| "contrast"> | info | Severity level of the message. |
+| closable | boolean | false | Whether the message can be closed manually using the close icon. |
+| sticky | boolean | true |  |
+| life | number | null | Delay in milliseconds to close the message automatically. |
+| icon | string | - | Display a custom icon for the message. |
+| closeIcon | string | - | Icon to display in the message close button. |
+| closeButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the close button. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<MessagePassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| variant | HintedString<"outlined" \| "simple"> | undefined | Specifies the variant of the component. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | MessagePassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| content | MessagePassThroughOptionType<T> | Used to pass attributes to the content's DOM element. |
+| icon | MessagePassThroughOptionType<T> | Used to pass attributes to the icon's DOM element. |
+| text | MessagePassThroughOptionType<T> | Used to pass attributes to the text's DOM element. |
+| closeButton | MessagePassThroughOptionType<T> | Used to pass attributes to the button's DOM element. |
+| closeIcon | MessagePassThroughOptionType<T> | Used to pass attributes to the button icon's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | MessagePassThroughTransitionType<T> | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-message | Class name of the root element |
+| p-message-content | Class name of the content element |
+| p-message-icon | Class name of the icon element |
+| p-message-text | Class name of the text element |
+| p-message-close-button | Class name of the close button element |
+| p-message-close-icon | Class name of the close icon element |
+
+---
+
+# Vue MeterGroup Component
+
+MeterGroup displays scalar measurements within a known range.
+
+## Accessibility
+
+Screen Reader MeterGroup component uses meter role in addition to the aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby prop. Keyboard Support Component does not include any interactive elements.
+
+## Basic
+
+MeterGroup requires a value as the data to display where each item in the collection should be a type of MeterItem .
+
+**Basic Usage:**
+
+```vue
+<MeterGroup :value="value" />
+```
+
+## Icon
+
+Icons can be displayed next to the labels instead of the default marker.
+
+**Basic Usage:**
+
+```vue
+<MeterGroup :value="value" />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import MeterGroup from 'primevue/metergroup';
+```
+
+## Label
+
+The position of the labels relative to the meters is defined using the labelPosition property. The default orientation of the labels is horizontal, and the vertical alternative is available through the labelOrientation option.
+
+**Basic Usage:**
+
+```vue
+<MeterGroup :value="value" labelPosition="start" labelOrientation="vertical" />
+```
+
+## Min-Max
+
+Boundaries are configured with the min and max values whose defaults are 0 and 100 respectively.
+
+**Basic Usage:**
+
+```vue
+<MeterGroup :value="value" :max="200"  />
+```
+
+## Multiple
+
+Adding more items to the array displays the meters in a group.
+
+**Basic Usage:**
+
+```vue
+<MeterGroup :value="value" />
+```
+
+## Template
+
+MeterGroup provides templating support for labels, meter items, and content around the meters.
+
+## Vertical
+
+Layout of the MeterGroup is configured with the orientation property that accepts either horizontal or vertical as available options.
+
+**Basic Usage:**
+
+```vue
+<MeterGroup :value="value" orientation="vertical" labelOrientation="vertical" />
+```
+
+## Metergroup
+
+## Metergroup
+
+---
+
+# Vue MultiSelect Component
+
+MultiSelect is used to select multiple items from a collection.
+
+## Accessibility
+
+Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The multiselect component has a combobox role in addition to aria-haspopup and aria-expanded attributes. The relation between the combobox and the popup is created with aria-controls attribute that refers to the id of the popup listbox. The popup listbox uses listbox as the role with aria-multiselectable enabled. Each list item has an option role along with aria-label , aria-selected and aria-disabled attributes. Checkbox component at the header uses a hidden native checkbox element internally that is only visible to screen readers. Value to read is defined with the selectAll and unselectAll keys of the aria property from the locale API. If filtering is enabled, filterInputProps can be defined to give aria-* props to the input element. Close button uses close key of the aria property from the locale API as the aria-label by default, this can be overridden with the closeButtonProps . Closed State Keyboard Support Key Function tab Moves focus to the multiselect element. space Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. enter Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. up arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. any printable character Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the popup, if there is none then first focusable element receives the focus. shift + tab Moves focus to the previous focusable element in the popup, if there is none then last focusable element receives the focus. enter Toggles the selection state of the focused option, then moves focus to the multiselect element. space Toggles the selection state of the focused option, then moves focus to the multiselect element. escape Closes the popup, moves focus to the multiselect element. down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. alt + up arrow Selects the focused option and closes the popup, then moves focus to the multiselect element. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. home Moves focus to the first option. end Moves focus to the last option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the last one. control + a Selects all options. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. any printable character Moves focus to the option whose label starts with the characters being typed. Toggle All Checkbox Keyboard Support Key Function space Toggles the checked state. escape Closes the popup and moves focus to the multiselect element. Filter Input Keyboard Support Key Function down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. enter Closes the popup and moves focus to the multiselect element. escape Closes the popup and moves focus to the multiselect element. tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page.
+
+**Basic Usage:**
+
+```vue
+<span id="dd1"></span>Options</span>
+<MultiSelect aria-labelledby="dd1" />
+
+<MultiSelect aria-label="Options" />
+```
+
+## Basic
+
+MultiSelect is used with the v-model property for two-way value binding along with the options collection. Label and value of an option are defined with the optionLabel and optionValue properties respectively. Note that, when options are simple primitive values such as a string array, no optionLabel and optionValue would be necessary.
+
+**Basic Usage:**
+
+```vue
+<MultiSelect v-model="selectedCities" :options="cities" optionLabel="name" filter placeholder="Select Cities"
+    :maxSelectedLabels="3" class="w-full md:w-80" />
+```
+
+## Chips
+
+Selected values are displayed as a comma separated list by default, setting display as chip displays them as chips.
+
+**Basic Usage:**
+
+```vue
+<MultiSelect v-model="selectedCities" display="chip" :options="cities" optionLabel="name" filter placeholder="Select Cities"
+    :maxSelectedLabels="3" class="w-full md:w-80" />
+```
+
+## Clear Icon
+
+When showClear is enabled, a clear icon is added to reset the MultiSelect.
+
+**Basic Usage:**
+
+```vue
+<MultiSelect v-model="selectedCities" showClear :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<MultiSelect disabled placeholder="Select Cities" class="w-full md:w-80" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="flex justify-center">
+        <MultiSelect disabled placeholder="Select Cities" class="w-full md:w-80" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<MultiSelect v-model="selectedCities" variant="filled" :options="cities" optionLabel="name" filter placeholder="Select Cities"
+    :maxSelectedLabels="3" class="w-full md:w-80" />
+```
+
+## Filter
+
+Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable filter property. By default, optionLabel is used when searching and filterFields can be used to customize the fields being utilized. Furthermore, filterMatchMode is available to define the search algorithm. Valid values are "contains" (default), "startsWith" and "endsWith".
+
+**Basic Usage:**
+
+```vue
+<MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities"
+    :maxSelectedLabels="3" class="w-full md:w-80" />
+```
+
+## Float Label
+
+A floating label appears on top of the input field when focused. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel class="w-full md:w-80">
+    <MultiSelect id="over_label" v-model="value1" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel class="w-full md:w-80" variant="in">
+    <MultiSelect id="in_label" v-model="value2" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" variant="filled" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel class="w-full md:w-80" variant="on">
+    <MultiSelect id="on_label" v-model="value3" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Group
+
+Options can be grouped when a nested data structures is provided. To define the label of a group optionGroupLabel property is needed and also optionGroupChildren is required to define the property that refers to the children of a group.
+
+**Basic Usage:**
+
+```vue
+<MultiSelect v-model="selectedCities" :options="groupedCities" optionLabel="label" filter optionGroupLabel="label" optionGroupChildren="items" display="chip" placeholder="Select Cities" class="w-full md:w-80">
+    <template #optiongroup="slotProps">
+        <div class="flex items-center">
+            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel>
+    <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" variant="filled" />
+    <label for="ms_cities">Cities</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import MultiSelect from 'primevue/multiselect';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" filter placeholder="Select Cities" 
+        :maxSelectedLabels="3" :invalid="selectedCities1?.length === 0" class="w-full md:w-80" />
+<MultiSelect v-model="selectedCities2" :options="cities" optionLabel="name" filter placeholder="Select Cities" 
+        :maxSelectedLabels="3" :invalid="selectedCities2?.length === 0" class="w-full md:w-80" variant="filled" />
+```
+
+## Loading State
+
+Loading state can be used loading property.
+
+**Basic Usage:**
+
+```vue
+<MultiSelect placeholder="Loading..." loading class="w-full md:w-80"></MultiSelect>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <MultiSelect placeholder="Loading..." loading class="w-full md:w-80"></MultiSelect>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Sizes
+
+MultiSelect provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<MultiSelect v-model="value1" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full md:w-80" size="small" placeholder="Small" />
+<MultiSelect v-model="value2" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full md:w-80" placeholder="Normal" />
+<MultiSelect v-model="value3" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full md:w-80" size="large" placeholder="Large" />
+```
+
+## Template
+
+MultiSelect offers multiple slots for customization through templating.
+
+**Basic Usage:**
+
+```vue
+<MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" filter placeholder="Select Countries" display="chip" class="w-full md:w-80">
+    <template #option="slotProps">
+        <div class="flex items-center">
+            <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## VirtualScroll
+
+VirtualScroller is used to render a long list of options efficiently like 100K records in this demo. The configuration is done with virtualScrollerOptions property, refer to the VirtualScroller for more information about the available options as it is used internally by MultiSelect.
+
+**Basic Usage:**
+
+```vue
+<MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" optionLabel="label" optionValue="value"
+    @selectall-change="onSelectAllChange($event)" @change="onChange($event)" :virtualScrollerOptions="{ itemSize: 44 }" filter placeholder="Select Item" class="w-full md:w-80" />
+```
+
+## Multiselect
+
+## Multiselect
+
+---
+
+# nuxt
+
+
+
+## autoImport
+
+The auto import feature registers components automatically with tree shaking support. Defaults to true , when disabled use include/exclude options of components and directives for manual registration. Use the prefix in components and directives to add a prefix for registration.
+
+## Download
+
+PrimeVue is available for download on npm registry along with the official @primevue/nuxt-module .
+
+**Basic Usage:**
+
+```vue
+# Using npm
+npm install primevue @primeuix/themes
+npm install --save-dev @primevue/nuxt-module
+
+# Using yarn
+yarn add primevue @primeuix/themes
+yarn add --dev @primevue/nuxt-module
+
+# Using pnpm
+pnpm add primevue @primeuix/themes
+pnpm add -D @primevue/nuxt-module
+```
+
+## ExamplesDoc
+
+Nuxt based samples with different options are available at PrimeVue examples repository.
+
+## Module
+
+In nuxt.config file, add the @primevue/nuxt-module to the modules section and define primevue object for the configuration of the module.
+
+## NextStepsDoc
+
+Welcome to the Prime UI Ecosystem! Once you have PrimeVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Customization of styles Pass through attributes Getting support
+
+## StyledModeDoc
+
+Styled mode provides pre-skinned components, default theme is Aura with emerald as the primary color. See the styled mode documentation for details. Install the @primeuix/themes add-on package as the themes are not included in PrimeVue by default. Configure the module to use a theme like Aura.
+
+## Theme
+
+Configure the module to use a theme like Aura.
+
+## UnstyledModeDoc
+
+In unstyled mode, the components do not include any CSS so you'd need to style the components on your end, this is especially useful when building your own UI library on top of PrimeVue. Visit the Unstyled mode documentation for more information and examples.
+
+## Verify
+
+The nuxt-primevue module registers the components automatically with tree-shaking support so you may start using them instantly.
+
+**Basic Usage:**
+
+```vue
+<Button label="Verify" />
+```
+
+## VideoDoc
+
+A video tutorial that goes through steps of setting up PrimeVue with the nuxt-primevue module.
+
+---
+
+# Vue OrderList Component
+
+OrderList is used to sort a collection.
+
+## Accessibility
+
+Screen Reader Value to describe the listbox can be provided with listProps by passing aria-labelledby or aria-label props. The list element has a listbox role with the aria-multiselectable attribute. Each list item has an option role with aria-selected and aria-disabled as their attributes. Controls buttons are button elements with an aria-label that refers to the aria.moveTop , aria.moveUp , aria.moveDown and aria.moveBottom properties of the locale API by default, alternatively you may use moveTopButtonProps , moveUpButtonProps , moveDownButtonProps and moveBottomButtonProps to customize the buttons like overriding the default aria-label attributes. ListBox Keyboard Support Key Function tab Moves focus to the first selected option, if there is none then first option receives the focus. up arrow Moves focus to the previous option. down arrow Moves focus to the next option. enter Toggles the selected state of the focused option. space Toggles the selected state of the focused option. home Moves focus to the first option. end Moves focus to the last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the first one. control + a Selects all options. Buttons Keyboard Support Key Function enter Executes button action. space Executes button action.
+
+**Basic Usage:**
+
+```vue
+<span id="lb">Options</span>
+<OrderList aria-labelledby="lb" />
+
+<OrderList aria-label="City" />
+```
+
+## Basic
+
+OrderList requires an array as its value bound with the v-model directive and option template for its content.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import OrderList from 'primevue/orderlist';
+```
+
+## Template
+
+For custom content support define an option template that gets the item instance as a parameter. In addition header slot is provided for further customization.
+
+## Orderlist
+
+## Orderlist
+
+---
+
+# Vue Organization Chart Component
+
+OrganizationChart visualizes hierarchical organization data.
+
+## Accessibility
+
+Screen Reader Component currently uses a table based implementation and does not provide high level of screen reader support, a nested list implementation replacement is planned with aria roles and attributes aligned to a tree widget for high level of reader support in the upcoming versions. Keyboard Support Key Function tab Moves focus through the focusable elements within the chart. enter Toggles the expanded state of a node. space Toggles the expanded state of a node.
+
+## Basic
+
+OrganizationChart requires a collection of TreeNode instances as a value .
+
+## Colored
+
+Styling a specific node is configured with styleClass and style options of a TreeNode.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import OrganizationChart from 'primevue/organizationchart';
+```
+
+## Selection
+
+Selection is enabled by defining the selectionMode to either "single" or "multiple" and specifying the selectionKeys with the v-model directive. Note that selection on a particular node can be disabled if the selectable is false on the node instance.
+
+## Template
+
+The type property of an OrganizationChartNode is used to map a template to a node. If it is undefined, the default template is used.
+
+**Basic Usage:**
+
+```vue
+<OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="single">
+    <template #country="slotProps">
+        <div class="flex flex-col items-center">
+            <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## Organizationchart
+
+## Organizationchart
+
+---
+
+# Vue Paginator Component
+
+Paginator displays data in paged format and provides navigation between pages.
+
+## Accessibility
+
+Screen Reader Paginator is placed inside a nav element to indicate a navigation section. All of the paginator elements can be customized using templating however the default behavious is listed below. First, previous, next and last page navigators elements with aria-label attributes referring to the aria.firstPageLabel , aria.prevPageLabel , aria.nextPageLabel and aria.lastPageLabel properties of the locale API respectively. Page links are also button elements with an aria-label attribute derived from the aria.pageLabel of the locale API. Current page is marked with aria-current set to "page" as well. Current page report uses aria-live="polite" to instruct screen reader about the changes to the pagination state. Rows per page dropdown internally uses a dropdown component, refer to the select documentation for accessibility details. Additionally, the dropdown uses an aria-label from the aria.rowsPerPageLabel property of the locale API. Jump to page input is an input element with an aria-label that refers to the aria.jumpToPageInputLabel property and jump to page dropdown internally uses a dropdown component, with an aria-label that refers to the aria.jumpToPageDropdownLabel property of the locale API. Keyboard Support Key Function tab Moves focus through the paginator elements. enter Executes the paginator element action. space Executes the paginator element action. Rows Per Page Dropdown Keyboard Support Refer to the select documentation for more details about keyboard support.
+
+## Basic
+
+Paginator is used as a controlled component with first and rows properties to manage the first index and number of records to display per page. Total number of records need to be with totalRecords property. Default template includes a dropdown to change the rows so rowsPerPageOptions is also necessary for the dropdown options.
+
+**Basic Usage:**
+
+```vue
+<Paginator :rows="10" :totalRecords="120" :rowsPerPageOptions="[10, 20, 30]"></Paginator>
+```
+
+## Current Page Report
+
+Current page report item in the template displays information about the pagination state. Default value is ({currentPage} of {totalPages}) whereas available placeholders are the following; {currentPage} {totalPages} {rows} {first} {last} {totalRecords}
+
+**Basic Usage:**
+
+```vue
+<Paginator :rows="10" :totalRecords="120" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" />
+```
+
+## Custom Content
+
+There are two templates available named start and end to add custom content to these locations. Both templates get a state object as a slot property to provide the current page, first index and the rows.
+
+## Headless
+
+Headless mode is enabled by defining a container slot that lets you implement entire UI instead of the default elements. The template receives the following data; first last rows page pageCount totalRecords firstPageCallback lastPageCallback prevPageCallback nextPageCallback rowChangeCallback
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Paginator from 'primevue/paginator';
+```
+
+## Responsive
+
+Paginator elements can be customized per screen size by defining a template per breakpoint. Note that breakpoints are based on max-width setting, if default key is omitted then the default template would be used. Example below has 4 settings; up to 640px, between 641px-960px, between 961px-1300px and larger than 1301px which is the default.
+
+**Basic Usage:**
+
+```vue
+<Paginator
+    :template="{
+        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+        '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
+        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown JumpToPageInput'
+    }"
+    :rows="10"
+    :totalRecords="120">
+</Paginator>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Paginator
+            :template="{
+                '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
+                '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+                default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown JumpToPageInput'
+            }"
+            :rows="10"
+            :totalRecords="120">
+        </Paginator>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Template
+
+Paginator elements can be customized using the template property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that can be placed inside a paginator in any order. FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown JumpToPageDropdown JumpToPageInput CurrentPageReport
+
+**Basic Usage:**
+
+```vue
+<Paginator v-model:first="first" :rows="1" :totalRecords="12" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink" />
+
+<div class="p-4 text-center">
+    <img :src="\
+```
+
+## Paginator
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| totalRecords | number | 0 | Number of total records. |
+| rows | number | 0 | Data count to display per page. |
+| first | number | 0 | Zero-relative number of the first row to be displayed. |
+| pageLinkSize | number | 5 | Number of page links to display. |
+| rowsPerPageOptions | number[] | - | Array of integer values to display inside rows per page dropdown. |
+| template | any | - | Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint. Available templates are the following;  - FirstPageLink - PrevPageLink - PageLinks - NextPageLink - LastPageLink - RowsPerPageDropdown - JumpToPageDropdown - JumpToPageInput - CurrentPageReport |
+| currentPageReportTemplate | string | '({currentPage} of {totalPages})' | Template of the current page report element. It displays information about the pagination state. Available placeholders are the following;  - {currentPage} - {totalPages} - {rows} - {first} - {last} - {totalRecords} |
+| alwaysShow | boolean | true | Whether to show the paginator even there is only one page. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<PaginatorPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+
+## Paginator
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| totalRecords | number | 0 | Number of total records. |
+| rows | number | 0 | Data count to display per page. |
+| first | number | 0 | Zero-relative number of the first row to be displayed. |
+| pageLinkSize | number | 5 | Number of page links to display. |
+| rowsPerPageOptions | number[] | - | Array of integer values to display inside rows per page dropdown. |
+| template | any | - | Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint. Available templates are the following;  - FirstPageLink - PrevPageLink - PageLinks - NextPageLink - LastPageLink - RowsPerPageDropdown - JumpToPageDropdown - JumpToPageInput - CurrentPageReport |
+| currentPageReportTemplate | string | '({currentPage} of {totalPages})' | Template of the current page report element. It displays information about the pagination state. Available placeholders are the following;  - {currentPage} - {totalPages} - {rows} - {first} - {last} - {totalRecords} |
+| alwaysShow | boolean | true | Whether to show the paginator even there is only one page. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<PaginatorPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| paginatorContainer | any | Used to pass attributes to the paginator container's DOM element. |
+| root | PaginatorPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| content | PaginatorPassThroughOptionType<T> | Used to pass attributes to the content DOM element. |
+| contentStart | PaginatorPassThroughOptionType<T> | Used to pass attributes to the content start's DOM element. |
+| first | PaginatorPassThroughOptionType<T> | Used to pass attributes to the first page button's DOM element. |
+| firstIcon | PaginatorPassThroughOptionType<T> | Used to pass attributes to the first icon's DOM element. |
+| prev | PaginatorPassThroughOptionType<T> | Used to pass attributes to the prev page button's DOM element. |
+| prevIcon | PaginatorPassThroughOptionType<T> | Used to pass attributes to the prev page icon's DOM element. |
+| next | PaginatorPassThroughOptionType<T> | Used to pass attributes to the next page button's DOM element. |
+| nextIcon | PaginatorPassThroughOptionType<T> | Used to pass attributes to the next page icon's DOM element. |
+| last | PaginatorPassThroughOptionType<T> | Used to pass attributes to the last page button's DOM element. |
+| lastIcon | PaginatorPassThroughOptionType<T> | Used to pass attributes to the last page icon's DOM element. |
+| pages | PaginatorPassThroughOptionType<T> | Used to pass attributes to the pages's DOM element. |
+| page | PaginatorPassThroughOptionType<T> | Used to pass attributes to the page button's DOM element. |
+| current | PaginatorPassThroughOptionType<T> | Used to pass attributes to the current's DOM element. |
+| pcRowPerPageDropdown | any | Used to pass attributes to the Dropdown component. |
+| pcJumpToPageDropdown | any | Used to pass attributes to the Dropdown component. |
+| pcJumpToPageInputText | any | Used to pass attributes to the Dropdown component. |
+| contentEnd | PaginatorPassThroughOptionType<T> | Used to pass attributes to the content end's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-paginator | Class name of the paginator element |
+| p-paginator-content-start | Class name of the content start element |
+| p-paginator-content-end | Class name of the content end element |
+| p-paginator-first | Class name of the first element |
+| p-paginator-first-icon | Class name of the first icon element |
+| p-paginator-prev | Class name of the prev element |
+| p-paginator-prev-icon | Class name of the prev icon element |
+| p-paginator-next | Class name of the next element |
+| p-paginator-next-icon | Class name of the next icon element |
+| p-paginator-last | Class name of the last element |
+| p-paginator-last-icon | Class name of the last icon element |
+| p-paginator-pages | Class name of the pages element |
+| p-paginator-page | Class name of the page element |
+| p-paginator-current | Class name of the current element |
+| p-paginator-rpp-dropdown | Class name of the row per page dropdown element |
+| p-paginator-jtp-dropdown | Class name of the jump to page dropdown element |
+| p-paginator-jtp-input | Class name of the jump to page input element |
+
+---
+
+# Vue Panel Component
+
+Panel is a grouping component providing with content toggle feature.
+
+## Accessibility
+
+Screen Reader Toggleable panels use a content toggle button at the header that has aria-controls to define the id of the content section along with aria-expanded for the visibility state. The value to read the button defaults to the value of the header property and can be customized by defining an aria-label or aria-labelledby via the toggleButtonProps property. The content uses region , defines an id that matches the aria-controls of the content toggle button and aria-labelledby referring to the id of the header. Content Toggle Button Keyboard Support Key Function tab Moves focus to the next the focusable element in the page tab sequence. shift + tab Moves focus to the previous the focusable element in the page tab sequence. enter Toggles the visibility of the content. space Toggles the visibility of the content.
+
+## Basic
+
+A simple Panel is created with a header property along with the content as children.
+
+**Basic Usage:**
+
+```vue
+<Panel header="Header">
+    <p class="m-0">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</Panel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Panel from 'primevue/panel';
+```
+
+## Template
+
+Header, icons and footer sections of the panel are customizable via templating.
+
+**Basic Usage:**
+
+```vue
+<Panel toggleable>
+    <template #header>
+        <div class="flex items-center gap-2">
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+            <span class="font-bold">Amy Elsner</span>
+        </div>
+    </template>
+    <template #footer>
+        <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <Button icon="pi pi-user" rounded text></Button>
+                <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
+            </div>
+            <span class="text-surface-500 dark:text-surface-400">Updated 2 hours ago</span>
+        </div>
+    </template>
+    <template #icons>
+        <Button icon="pi pi-cog" severity="secondary" rounded text @click="toggle" />
+        <Menu ref="menu" id="config_menu" :model="items" popup />
+    </template>
+    <p class="m-0">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</Panel>
+```
+
+## Toggleable
+
+Content of the panel can be expanded and collapsed using toggleable option.
+
+**Basic Usage:**
+
+```vue
+<Panel header="Header" toggleable>
+    <p class="m-0">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</Panel>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Panel header="Header" toggleable>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </Panel>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Panel
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| header | string | - | Header text of the panel. |
+| toggleable | boolean | false | Defines if content of panel can be expanded and collapsed. |
+| collapsed | boolean | false | Defines the initial state of panel content. |
+| toggleButtonProps | object | - | Used to pass the custom value to read for the button inside the component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<PanelPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Panel
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| header | string | - | Header text of the panel. |
+| toggleable | boolean | false | Defines if content of panel can be expanded and collapsed. |
+| collapsed | boolean | false | Defines the initial state of panel content. |
+| toggleButtonProps | object | - | Used to pass the custom value to read for the button inside the component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<PanelPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Panelmenu
+
+## Panelmenu
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | PanelPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| header | PanelPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| title | PanelPassThroughOptionType | Used to pass attributes to the title's DOM element. |
+| headerActions | PanelPassThroughOptionType | Used to pass attributes to the header actions' DOM element. |
+| pcToggleButton | any | Used to pass attributes to the toggle button button's DOM element. |
+| contentContainer | PanelPassThroughOptionType | Used to pass attributes to the content container's DOM element. |
+| content | PanelPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| footer | PanelPassThroughOptionType | Used to pass attributes to the footer's DOM element. |
+| transition | PanelPassThroughTransitionType | Used to control Vue Transition API. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-panel | Class name of the root element |
+| p-panel-header | Class name of the header element |
+| p-panel-title | Class name of the title element |
+| p-panel-header-actions | Class name of the header actions element |
+| p-panel-toggle-button | Class name of the toggle button element |
+| p-panel-content-container | Class name of the content container element |
+| p-panel-content | Class name of the content element |
+| p-panel-footer | Class name of the footer element |
+
+---
+
+# Vue PanelMenu Component
+
+PanelMenu is a hybrid of accordion-tree components.
+
+## Accessibility
+
+Screen Reader Accordion header elements have a button role, an aria-label defined using the label property of the menuitem model and aria-controls to define the id of the content section along with aria-expanded for the visibility state. The content of an accordion panel uses region role, defines an id that matches the aria-controls of the header and aria-labelledby referring to the id of the header. The tree elements has a tree as the role and each menu item has a treeitem role along with aria-label and aria-expanded attributes. The container element of a treenode has the group role. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Header Keyboard Support Key Function tab Moves focus to the next the focusable element in the page tab sequence. shift + tab Moves focus to the previous the focusable element in the page tab sequence. enter Toggles the visibility of the content. space Toggles the visibility of the content. down arrow Moves focus to the next header. If focus is on the last header, moves focus to the first header. up arrow Moves focus to the previous header. If focus is on the first header, moves focus to the last header. home Moves focus to the first header. end Moves focus to the last header.
+
+## Basic
+
+PanelMenu requires a collection of menuitems as its model .
+
+**Basic Usage:**
+
+```vue
+<PanelMenu :model="items" />
+```
+
+## Command
+
+The command property defines the callback to run when an item is activated by click or a key event.
+
+**Basic Usage:**
+
+```vue
+<PanelMenu :model="items" />
+<Toast />
+```
+
+## Controlled
+
+If the menuitem has a key defined, PanelMenu state can be controlled programmatically with the expandedKeys property that defines the keys that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean.
+
+**Basic Usage:**
+
+```vue
+<Button type="button" label="Toggle All" text @click="toggleAll" />
+<PanelMenu v-model:expandedKeys="expandedKeys" :model="items" />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import PanelMenu from 'primevue/panelmenu';
+```
+
+## Multiple
+
+Only one root menuitem at a time can be active by default, enabling multiple property changes this behavior to allow multiple root menuitems.
+
+**Basic Usage:**
+
+```vue
+<PanelMenu :model="items" multiple />
+```
+
+## Router
+
+Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
+
+## Template
+
+PanelMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
+
+## Panelmenu
+
+## Panelmenu
+
+---
+
+# passthrough
+
+
+
+## Basic
+
+Each component has a special pt property to define an object with keys corresponding to the available DOM elements. Each value can either be a string, an object or a function that returns a string or an object to define the arbitrary properties to apply to the element such as styling, aria, data-* or custom attributes. If the value is a string or a function that returns a string, it is considered as a class definition and added to the class attribute of the element. Every component documentation has a dedicated section to document the available section names exposed via PT. Most common usage of pt is styling and customization. The class and style properties support the exact syntax of the corresponding Vue bindings like arrays, objects and conditionals. Example below styles an unstyled Panel component with Tailwind CSS library.
+
+## Custom CSS
+
+The global property has a css option to define custom css that belongs to a global pt configuration. Common use case of this feature is defining global styles and animations related to the pass through configuration.
+
+**Basic Usage:**
+
+```vue
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, {
+    pt: {
+        global: {
+            css: \
+```
+
+## Declarative
+
+The declarative syntax provides an alternative to the programmatic syntax. The attributes that start with pt are interpreted differently by the component based on the format below. An IDE extension is also being planned to autocomplete the values for better developer experience in the future. Here is another example using both syntax alternatives for the same options.
+
+## Global
+
+Defines the shared pass through properties per component type. For example, with the configuration below all panel headers have the bg-primary style class and all autocomplete components have a fixed width. These settings can be overridden by a particular component as components pt property has higher precedence over global pt .
+
+## Introduction
+
+In traditional 3rd party UI libraries, users are limited to the API provided by component author. This API commonly consists of props, events and slots. Whenever a requirement emerges for a new customization option in the API, the component author needs to develop and publish it with a new release. Vision of PrimeTek is Your components, not ours . The pass through feature is a key element to implement this vision by exposing the component internals in order to apply arbitrary attributes and listeners to the DOM elements. The primary advantage of this approach is that it frees you from being restricted by the main component API. We recommend considering the pass-through feature whenever you need to tailor a component that lacks a built-in feature for your specific requirement. Two videos are available at PrimeTV youtube channel, first one is an introduction and second one covers a unique case that is solved by the pass-through.
+
+## Lifecycle
+
+Lifecycle hooks of components are exposed as pass through using the hooks property so that callback functions can be registered. Available callbacks are onBeforeCreate , onCreated , onBeforeUpdate , onUpdated , onBeforeMount , onMounted , onBeforeUnmount and onUnmounted . Refer to the Vue.js documentation for detailed information about lifecycle hooks.
+
+**Basic Usage:**
+
+```vue
+<Panel header="Header" :pt="panelPT">
+    Content
+</Panel>
+```
+
+## PC Prefix
+
+Section names prefixed with pc denote PrimeVue components, distinguishing them from standard DOM elements and indicating the necessity for a nested structure. For example, the "badge" section is identified as pcBadge because the button component incorporates the badge component internally.
+
+## UsePassThrough
+
+An existing pass through configuration is customized with the usePassThrough utility. The first parameter is the object to customize, the second parameter is the customizations and the final parameter is the merge strategy. The mergeSections defines whether the sections from the main configuration gets added and the mergeProps controls whether to override or merge the defined props. Defaults are true for mergeSections and false for mergeProps .
+
+---
+
+# Vue Password Component
+
+Password displays strength indicator for password fields.
+
+## Accessibility
+
+Screen Reader Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Screen reader is notified about the changes to the strength of the password using a section that has aria-live while typing. Keyboard Support Key Function tab Moves focus to the input. escape Hides the strength meter if open.
+
+**Basic Usage:**
+
+```vue
+<label for="pwd1">Password</label>
+<Password inputId="pwd1" />
+
+<span id="pwd2">Password</span>
+<Password aria-labelledby="pwd2" />
+
+<Password aria-label="Password"/>
+```
+
+## Basic
+
+Password is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<Password v-model="value" :feedback="false" />
+```
+
+## Clear Icon
+
+When showClear is enabled, a clear icon is added to reset the Password.
+
+**Basic Usage:**
+
+```vue
+<Password v-model="value" :feedback="false" showClear inputClass="w-56" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<Password disabled placeholder="Disabled" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password disabled placeholder="Disabled" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<Password v-model="value" :feedback="false" variant="filled" />
+```
+
+## Float Label
+
+A floating label appears on top of the input field when focused. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel>
+    <Password v-model="value1" inputId="over_label" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel variant="in">
+    <Password v-model="value2" inputId="in_label" variant="filled" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel variant="on">
+    <Password v-model="value3" inputId="on_label" />
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Fluid
+
+The fluid prop makes the component take up the full width of its container when set to true.
+
+**Basic Usage:**
+
+```vue
+<Password v-model="value" :feedback="false" fluid />
+```
+
+## Forms
+
+InputText is used with the v-model property.
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel>
+    <Password v-model="value" inputId="password" variant="filled" />
+    <label for="password">Password</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Password from 'primevue/password';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<Password v-model="value1" :invalid="!value1" placeholder="Password" />
+<Password v-model="value2" :invalid="!value2" variant="filled" placeholder="Password" />
+```
+
+## Locale
+
+Labels are translated at component level by promptLabel , weakLabel , mediumLabel and strongLabel properties. In order to apply global translations for all Password components in the application, refer to the locale .
+
+**Basic Usage:**
+
+```vue
+<Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
+```
+
+## Meter
+
+Strength meter is displayed as a popup while a value is being entered.
+
+**Basic Usage:**
+
+```vue
+<Password v-model="value" />
+```
+
+## Sizes
+
+Password provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<div class="card flex flex-col items-center gap-4">
+    <Password v-model="value1" size="small" placeholder="Small" />
+    <Password v-model="value2" placeholder="Normal" />
+    <Password v-model="value3" size="large" placeholder="Large" />
+</div>
+```
+
+## Template
+
+3 slots are included to customize the overlay. These are header , content and footer . Note that content overrides the default meter.
+
+**Basic Usage:**
+
+```vue
+<Password v-model="value">
+    <template #header>
+        <div class="font-semibold text-xm mb-4">Reset Password</div>
+    </template>
+    <template #footer>
+        <Divider />
+        <ul class="pl-2 my-0 leading-normal text-sm">
+            <li>At least one lowercase</li>
+            <li>At least one uppercase</li>
+            <li>At least one numeric</li>
+            <li>Minimum 8 characters</li>
+        </ul>
+    </template>
+</Password>
+```
+
+## ToggleMask
+
+When toggleMask is present, an icon is displayed to show the value as plain text.
+
+**Basic Usage:**
+
+```vue
+<Password v-model="value" toggleMask />
+```
+
+## Password
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| aria-activedescendant | string | - | Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application. |
+| aria-atomic | Booleanish | - | Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute. |
+| aria-autocomplete | "none" \| "inline" \| "list" \| "both" | - | Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made. |
+| aria-busy | Booleanish | - | Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user. |
+| aria-checked | Booleanish \| "mixed" | - | Indicates the current "checked" state of checkboxes, radio buttons, and other widgets. |
+| aria-colcount | Numberish | - | Defines the total number of columns in a table, grid, or treegrid. |
+| aria-colindex | Numberish | - | Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid. |
+| aria-colspan | Numberish | - | Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-controls | string | - | Identifies the element (or elements) whose contents or presence are controlled by the current element. |
+| aria-current | Booleanish \| "page" \| "step" \| "location" \| "date" \| "time" | - | Indicates the element that represents the current item within a container or set of related elements. |
+| aria-describedby | string | - | Identifies the element (or elements) that describes the object. |
+| aria-details | string | - | Identifies the element that provides a detailed, extended description for the object. |
+| aria-disabled | Booleanish | - | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable. |
+| aria-dropeffect | "link" \| "none" \| "copy" \| "execute" \| "move" \| "popup" | - | Indicates what functions can be performed when a dragged object is released on the drop target. |
+| aria-errormessage | string | - | Identifies the element that provides an error message for the object. |
+| aria-expanded | Booleanish | - | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. |
+| aria-flowto | string | - | Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order. |
+| aria-grabbed | Booleanish | - | Indicates an element's "grabbed" state in a drag-and-drop operation. |
+| aria-haspopup | Booleanish \| "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" | - | Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. |
+| aria-hidden | Booleanish | - | Indicates whether the element is exposed to an accessibility API. |
+| aria-invalid | Booleanish \| "grammar" \| "spelling" | - | Indicates the entered value does not conform to the format expected by the application. |
+| aria-keyshortcuts | string | - | Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element. |
+| aria-label | string | - | Defines a string value that labels the current element. |
+| aria-labelledby | string | - | Identifies the element (or elements) that labels the current element. |
+| aria-level | Numberish | - | Defines the hierarchical level of an element within a structure. |
+| aria-live | "off" \| "assertive" \| "polite" | - | Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region. |
+| aria-modal | Booleanish | - | Indicates whether an element is modal when displayed. |
+| aria-multiline | Booleanish | - | Indicates whether a text box accepts multiple lines of input or only a single line. |
+| aria-multiselectable | Booleanish | - | Indicates that the user may select more than one item from the current selectable descendants. |
+| aria-orientation | "horizontal" \| "vertical" | - | Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous. |
+| aria-owns | string | - | Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship. |
+| aria-placeholder | string | - | Defines a short hint (a word or short phrase) intended to aid the user with data entry when the control has no value. A hint could be a sample value or a brief description of the expected format. |
+| aria-posinset | Numberish | - | Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-pressed | Booleanish \| "mixed" | - | Indicates the current "pressed" state of toggle buttons. |
+| aria-readonly | Booleanish | - | Indicates that the element is not editable, but is otherwise operable. |
+| aria-relevant | "text" \| "additions" \| "additions removals" \| "additions text" \| "all" \| "removals" \| "removals additions" \| "removals text" \| "text additions" \| "text removals" | - | Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. |
+| aria-required | Booleanish | - | Indicates that user input is required on the element before a form may be submitted. |
+| aria-roledescription | string | - | Defines a human-readable, author-localized description for the role of an element. |
+| aria-rowcount | Numberish | - | Defines the total number of rows in a table, grid, or treegrid. |
+| aria-rowindex | Numberish | - | Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid. |
+| aria-rowspan | Numberish | - | Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-selected | Booleanish | - | Indicates the current "selected" state of various widgets. |
+| aria-setsize | Numberish | - | Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-sort | "none" \| "ascending" \| "descending" \| "other" | - | Indicates if items in a table or grid are sorted in ascending or descending order. |
+| aria-valuemax | Numberish | - | Defines the maximum allowed value for a range widget. |
+| aria-valuemin | Numberish | - | Defines the minimum allowed value for a range widget. |
+| aria-valuenow | Numberish | - | Defines the current value for a range widget. |
+| aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
+| innerHTML | string | - |  |
+| class | any | - |  |
+| style | StyleValue | - |  |
+| accesskey | string | - |  |
+| contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |
+| contextmenu | string | - |  |
+| dir | string | - |  |
+| draggable | Booleanish | - |  |
+| hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
+| id | string | - |  |
+| inert | Booleanish | - |  |
+| lang | string | - |  |
+| spellcheck | Booleanish | - |  |
+| tabindex | Numberish | - |  |
+| title | string | - |  |
+| translate | "yes" \| "no" | - |  |
+| radiogroup | string | - |  |
+| role | string | - |  |
+| about | string | - |  |
+| datatype | string | - |  |
+| inlist | any | - |  |
+| prefix | string | - |  |
+| property | string | - |  |
+| resource | string | - |  |
+| typeof | string | - |  |
+| vocab | string | - |  |
+| autocapitalize | string | - |  |
+| autocorrect | string | - |  |
+| autosave | string | - |  |
+| color | string | - |  |
+| itemprop | string | - |  |
+| itemscope | Booleanish | - |  |
+| itemtype | string | - |  |
+| itemid | string | - |  |
+| itemref | string | - |  |
+| results | Numberish | - |  |
+| security | string | - |  |
+| unselectable | "on" \| "off" | - |  |
+| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| accept | string | - |  |
+| alt | string | - |  |
+| autocomplete | string | - |  |
+| capture | boolean \| "user" \| "environment" | - |  |
+| checked | any[] \| Set<any> \| Booleanish | - |  |
+| crossorigin | string | - |  |
+| enterKeyHint | "search" \| "enter" \| "done" \| "go" \| "next" \| "previous" \| "send" | - |  |
+| form | string | - |  |
+| formaction | string | - |  |
+| formenctype | string | - |  |
+| formmethod | string | - |  |
+| formnovalidate | Booleanish | - |  |
+| formtarget | string | - |  |
+| height | Numberish | - |  |
+| indeterminate | boolean | - |  |
+| list | string | - |  |
+| max | Numberish | - |  |
+| maxlength | Numberish | - |  |
+| min | Numberish | - |  |
+| minlength | Numberish | - |  |
+| multiple | Booleanish | - |  |
+| pattern | string | - |  |
+| readonly | Booleanish | - |  |
+| src | string | - |  |
+| step | Numberish | - |  |
+| type | InputTypeHTMLAttribute | - |  |
+| value | any | - |  |
+| width | Numberish | - |  |
+| onCancel | Function | - |  |
+| onCopy | Function | - |  |
+| onCut | Function | - |  |
+| onPaste | Function | - |  |
+| onCompositionend | Function | - |  |
+| onCompositionstart | Function | - |  |
+| onCompositionupdate | Function | - |  |
+| onDrag | Function | - |  |
+| onDragend | Function | - |  |
+| onDragenter | Function | - |  |
+| onDragexit | Function | - |  |
+| onDragleave | Function | - |  |
+| onDragover | Function | - |  |
+| onDragstart | Function | - |  |
+| onDrop | Function | - |  |
+| onFocus | Function | - |  |
+| onFocusin | Function | - |  |
+| onFocusout | Function | - |  |
+| onBlur | Function | - |  |
+| onChange | Function | - |  |
+| onBeforeinput | Function | - |  |
+| onFormdata | Function | - |  |
+| onInput | Function | - |  |
+| onReset | Function | - |  |
+| onSubmit | Function | - |  |
+| onInvalid | Function | - |  |
+| onFullscreenchange | Function | - |  |
+| onFullscreenerror | Function | - |  |
+| onLoad | Function | - |  |
+| onError | Function | - |  |
+| onKeydown | Function | - |  |
+| onKeypress | Function | - |  |
+| onKeyup | Function | - |  |
+| onDblclick | Function | - |  |
+| onMousedown | Function | - |  |
+| onMouseenter | Function | - |  |
+| onMouseleave | Function | - |  |
+| onMousemove | Function | - |  |
+| onMouseout | Function | - |  |
+| onMouseover | Function | - |  |
+| onMouseup | Function | - |  |
+| onAbort | Function | - |  |
+| onCanplay | Function | - |  |
+| onCanplaythrough | Function | - |  |
+| onDurationchange | Function | - |  |
+| onEmptied | Function | - |  |
+| onEncrypted | Function | - |  |
+| onEnded | Function | - |  |
+| onLoadeddata | Function | - |  |
+| onLoadedmetadata | Function | - |  |
+| onLoadstart | Function | - |  |
+| onPause | Function | - |  |
+| onPlay | Function | - |  |
+| onPlaying | Function | - |  |
+| onProgress | Function | - |  |
+| onRatechange | Function | - |  |
+| onSeeked | Function | - |  |
+| onSeeking | Function | - |  |
+| onStalled | Function | - |  |
+| onSuspend | Function | - |  |
+| onTimeupdate | Function | - |  |
+| onVolumechange | Function | - |  |
+| onWaiting | Function | - |  |
+| onSelect | Function | - |  |
+| onScroll | Function | - |  |
+| onScrollend | Function | - |  |
+| onTouchcancel | Function | - |  |
+| onTouchend | Function | - |  |
+| onTouchmove | Function | - |  |
+| onTouchstart | Function | - |  |
+| onAuxclick | Function | - |  |
+| onClick | Function | - |  |
+| onContextmenu | Function | - |  |
+| onGotpointercapture | Function | - |  |
+| onLostpointercapture | Function | - |  |
+| onPointerdown | Function | - |  |
+| onPointermove | Function | - |  |
+| onPointerup | Function | - |  |
+| onPointercancel | Function | - |  |
+| onPointerenter | Function | - |  |
+| onPointerleave | Function | - |  |
+| onPointerover | Function | - |  |
+| onPointerout | Function | - |  |
+| onBeforetoggle | Function | - |  |
+| onToggle | Function | - |  |
+| onWheel | Function | - |  |
+| onAnimationcancel | Function | - |  |
+| onAnimationstart | Function | - |  |
+| onAnimationend | Function | - |  |
+| onAnimationiteration | Function | - |  |
+| onSecuritypolicyviolation | Function | - |  |
+| onTransitioncancel | Function | - |  |
+| onTransitionend | Function | - |  |
+| onTransitionrun | Function | - |  |
+| onTransitionstart | Function | - |  |
+| modelValue | Nullable<string> | - | Value of the component. |
+| defaultValue | Nullable<string> | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| promptLabel | string | - | Text to prompt password entry. Defaults to PrimeVue Locale configuration. |
+| mediumRegex | string \| RegExp | ^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}) | Regex for a medium level password. |
+| strongRegex | string \| RegExp | ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,}) | Regex for a strong level password. |
+| weakLabel | string | - | Text for a weak password. Defaults to PrimeVue Locale configuration. |
+| mediumLabel | string | - | Text for a medium password. Defaults to PrimeVue Locale configuration. |
+| strongLabel | string | - | Text for a strong password. Defaults to PrimeVue Locale configuration. |
+| feedback | boolean | true | Whether to show the strength indicator or not. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
+| toggleMask | boolean | false | Whether to show an icon to display the password as plain text. |
+| maskIcon | string | - | Icon to hide displaying the password as plain text. |
+| unmaskIcon | string | - | Icon to show displaying the password as plain text. |
+| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| placeholder | string | - | Placeholder text for the input. |
+| required | boolean | false | When present, it specifies that an input field must be filled out before submitting the form. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| autofocus | boolean | null | When present, it specifies that an input element should automatically get focus when the page loads. |
+| inputId | string | - | Identifier of the underlying input element. |
+| inputStyle | object | - | Inline style of the input field. |
+| inputClass | string \| object | - | Style class of the input field. |
+| inputProps | InputHTMLAttributes | - | Used to pass all properties of the HTMLInputElement to the focusable input element inside the component. |
+| panelId | string | - | Identifier of the underlying overlay panel element. |
+| panelClass | string \| object | - | Style class of the overlay panel. |
+| panelStyle | object | - | Inline style of the overlay panel. |
+| panelProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the overlay panel inside the component. |
+| overlayId | string | - | Identifier of the underlying overlay element. |
+| overlayClass | string \| object | - | Style class of the overlay. |
+| overlayStyle | object | - | Inline style of the overlay. |
+| overlayProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the overlay inside the component. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<PasswordPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Password
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| aria-activedescendant | string | - | Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application. |
+| aria-atomic | Booleanish | - | Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute. |
+| aria-autocomplete | "none" \| "inline" \| "list" \| "both" | - | Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made. |
+| aria-busy | Booleanish | - | Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user. |
+| aria-checked | Booleanish \| "mixed" | - | Indicates the current "checked" state of checkboxes, radio buttons, and other widgets. |
+| aria-colcount | Numberish | - | Defines the total number of columns in a table, grid, or treegrid. |
+| aria-colindex | Numberish | - | Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid. |
+| aria-colspan | Numberish | - | Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-controls | string | - | Identifies the element (or elements) whose contents or presence are controlled by the current element. |
+| aria-current | Booleanish \| "page" \| "step" \| "location" \| "date" \| "time" | - | Indicates the element that represents the current item within a container or set of related elements. |
+| aria-describedby | string | - | Identifies the element (or elements) that describes the object. |
+| aria-details | string | - | Identifies the element that provides a detailed, extended description for the object. |
+| aria-disabled | Booleanish | - | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable. |
+| aria-dropeffect | "link" \| "none" \| "copy" \| "execute" \| "move" \| "popup" | - | Indicates what functions can be performed when a dragged object is released on the drop target. |
+| aria-errormessage | string | - | Identifies the element that provides an error message for the object. |
+| aria-expanded | Booleanish | - | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. |
+| aria-flowto | string | - | Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order. |
+| aria-grabbed | Booleanish | - | Indicates an element's "grabbed" state in a drag-and-drop operation. |
+| aria-haspopup | Booleanish \| "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" | - | Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. |
+| aria-hidden | Booleanish | - | Indicates whether the element is exposed to an accessibility API. |
+| aria-invalid | Booleanish \| "grammar" \| "spelling" | - | Indicates the entered value does not conform to the format expected by the application. |
+| aria-keyshortcuts | string | - | Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element. |
+| aria-label | string | - | Defines a string value that labels the current element. |
+| aria-labelledby | string | - | Identifies the element (or elements) that labels the current element. |
+| aria-level | Numberish | - | Defines the hierarchical level of an element within a structure. |
+| aria-live | "off" \| "assertive" \| "polite" | - | Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region. |
+| aria-modal | Booleanish | - | Indicates whether an element is modal when displayed. |
+| aria-multiline | Booleanish | - | Indicates whether a text box accepts multiple lines of input or only a single line. |
+| aria-multiselectable | Booleanish | - | Indicates that the user may select more than one item from the current selectable descendants. |
+| aria-orientation | "horizontal" \| "vertical" | - | Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous. |
+| aria-owns | string | - | Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship. |
+| aria-placeholder | string | - | Defines a short hint (a word or short phrase) intended to aid the user with data entry when the control has no value. A hint could be a sample value or a brief description of the expected format. |
+| aria-posinset | Numberish | - | Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-pressed | Booleanish \| "mixed" | - | Indicates the current "pressed" state of toggle buttons. |
+| aria-readonly | Booleanish | - | Indicates that the element is not editable, but is otherwise operable. |
+| aria-relevant | "text" \| "additions" \| "additions removals" \| "additions text" \| "all" \| "removals" \| "removals additions" \| "removals text" \| "text additions" \| "text removals" | - | Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. |
+| aria-required | Booleanish | - | Indicates that user input is required on the element before a form may be submitted. |
+| aria-roledescription | string | - | Defines a human-readable, author-localized description for the role of an element. |
+| aria-rowcount | Numberish | - | Defines the total number of rows in a table, grid, or treegrid. |
+| aria-rowindex | Numberish | - | Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid. |
+| aria-rowspan | Numberish | - | Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-selected | Booleanish | - | Indicates the current "selected" state of various widgets. |
+| aria-setsize | Numberish | - | Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-sort | "none" \| "ascending" \| "descending" \| "other" | - | Indicates if items in a table or grid are sorted in ascending or descending order. |
+| aria-valuemax | Numberish | - | Defines the maximum allowed value for a range widget. |
+| aria-valuemin | Numberish | - | Defines the minimum allowed value for a range widget. |
+| aria-valuenow | Numberish | - | Defines the current value for a range widget. |
+| aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
+| innerHTML | string | - |  |
+| class | any | - |  |
+| style | StyleValue | - |  |
+| accesskey | string | - |  |
+| contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |
+| contextmenu | string | - |  |
+| dir | string | - |  |
+| draggable | Booleanish | - |  |
+| hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
+| id | string | - |  |
+| inert | Booleanish | - |  |
+| lang | string | - |  |
+| spellcheck | Booleanish | - |  |
+| tabindex | Numberish | - |  |
+| title | string | - |  |
+| translate | "yes" \| "no" | - |  |
+| radiogroup | string | - |  |
+| role | string | - |  |
+| about | string | - |  |
+| datatype | string | - |  |
+| inlist | any | - |  |
+| prefix | string | - |  |
+| property | string | - |  |
+| resource | string | - |  |
+| typeof | string | - |  |
+| vocab | string | - |  |
+| autocapitalize | string | - |  |
+| autocorrect | string | - |  |
+| autosave | string | - |  |
+| color | string | - |  |
+| itemprop | string | - |  |
+| itemscope | Booleanish | - |  |
+| itemtype | string | - |  |
+| itemid | string | - |  |
+| itemref | string | - |  |
+| results | Numberish | - |  |
+| security | string | - |  |
+| unselectable | "on" \| "off" | - |  |
+| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| accept | string | - |  |
+| alt | string | - |  |
+| autocomplete | string | - |  |
+| capture | boolean \| "user" \| "environment" | - |  |
+| checked | any[] \| Set<any> \| Booleanish | - |  |
+| crossorigin | string | - |  |
+| enterKeyHint | "search" \| "enter" \| "done" \| "go" \| "next" \| "previous" \| "send" | - |  |
+| form | string | - |  |
+| formaction | string | - |  |
+| formenctype | string | - |  |
+| formmethod | string | - |  |
+| formnovalidate | Booleanish | - |  |
+| formtarget | string | - |  |
+| height | Numberish | - |  |
+| indeterminate | boolean | - |  |
+| list | string | - |  |
+| max | Numberish | - |  |
+| maxlength | Numberish | - |  |
+| min | Numberish | - |  |
+| minlength | Numberish | - |  |
+| multiple | Booleanish | - |  |
+| pattern | string | - |  |
+| readonly | Booleanish | - |  |
+| src | string | - |  |
+| step | Numberish | - |  |
+| type | InputTypeHTMLAttribute | - |  |
+| value | any | - |  |
+| width | Numberish | - |  |
+| onCancel | Function | - |  |
+| onCopy | Function | - |  |
+| onCut | Function | - |  |
+| onPaste | Function | - |  |
+| onCompositionend | Function | - |  |
+| onCompositionstart | Function | - |  |
+| onCompositionupdate | Function | - |  |
+| onDrag | Function | - |  |
+| onDragend | Function | - |  |
+| onDragenter | Function | - |  |
+| onDragexit | Function | - |  |
+| onDragleave | Function | - |  |
+| onDragover | Function | - |  |
+| onDragstart | Function | - |  |
+| onDrop | Function | - |  |
+| onFocus | Function | - |  |
+| onFocusin | Function | - |  |
+| onFocusout | Function | - |  |
+| onBlur | Function | - |  |
+| onChange | Function | - |  |
+| onBeforeinput | Function | - |  |
+| onFormdata | Function | - |  |
+| onInput | Function | - |  |
+| onReset | Function | - |  |
+| onSubmit | Function | - |  |
+| onInvalid | Function | - |  |
+| onFullscreenchange | Function | - |  |
+| onFullscreenerror | Function | - |  |
+| onLoad | Function | - |  |
+| onError | Function | - |  |
+| onKeydown | Function | - |  |
+| onKeypress | Function | - |  |
+| onKeyup | Function | - |  |
+| onDblclick | Function | - |  |
+| onMousedown | Function | - |  |
+| onMouseenter | Function | - |  |
+| onMouseleave | Function | - |  |
+| onMousemove | Function | - |  |
+| onMouseout | Function | - |  |
+| onMouseover | Function | - |  |
+| onMouseup | Function | - |  |
+| onAbort | Function | - |  |
+| onCanplay | Function | - |  |
+| onCanplaythrough | Function | - |  |
+| onDurationchange | Function | - |  |
+| onEmptied | Function | - |  |
+| onEncrypted | Function | - |  |
+| onEnded | Function | - |  |
+| onLoadeddata | Function | - |  |
+| onLoadedmetadata | Function | - |  |
+| onLoadstart | Function | - |  |
+| onPause | Function | - |  |
+| onPlay | Function | - |  |
+| onPlaying | Function | - |  |
+| onProgress | Function | - |  |
+| onRatechange | Function | - |  |
+| onSeeked | Function | - |  |
+| onSeeking | Function | - |  |
+| onStalled | Function | - |  |
+| onSuspend | Function | - |  |
+| onTimeupdate | Function | - |  |
+| onVolumechange | Function | - |  |
+| onWaiting | Function | - |  |
+| onSelect | Function | - |  |
+| onScroll | Function | - |  |
+| onScrollend | Function | - |  |
+| onTouchcancel | Function | - |  |
+| onTouchend | Function | - |  |
+| onTouchmove | Function | - |  |
+| onTouchstart | Function | - |  |
+| onAuxclick | Function | - |  |
+| onClick | Function | - |  |
+| onContextmenu | Function | - |  |
+| onGotpointercapture | Function | - |  |
+| onLostpointercapture | Function | - |  |
+| onPointerdown | Function | - |  |
+| onPointermove | Function | - |  |
+| onPointerup | Function | - |  |
+| onPointercancel | Function | - |  |
+| onPointerenter | Function | - |  |
+| onPointerleave | Function | - |  |
+| onPointerover | Function | - |  |
+| onPointerout | Function | - |  |
+| onBeforetoggle | Function | - |  |
+| onToggle | Function | - |  |
+| onWheel | Function | - |  |
+| onAnimationcancel | Function | - |  |
+| onAnimationstart | Function | - |  |
+| onAnimationend | Function | - |  |
+| onAnimationiteration | Function | - |  |
+| onSecuritypolicyviolation | Function | - |  |
+| onTransitioncancel | Function | - |  |
+| onTransitionend | Function | - |  |
+| onTransitionrun | Function | - |  |
+| onTransitionstart | Function | - |  |
+| modelValue | Nullable<string> | - | Value of the component. |
+| defaultValue | Nullable<string> | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| promptLabel | string | - | Text to prompt password entry. Defaults to PrimeVue Locale configuration. |
+| mediumRegex | string \| RegExp | ^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,}) | Regex for a medium level password. |
+| strongRegex | string \| RegExp | ^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,}) | Regex for a strong level password. |
+| weakLabel | string | - | Text for a weak password. Defaults to PrimeVue Locale configuration. |
+| mediumLabel | string | - | Text for a medium password. Defaults to PrimeVue Locale configuration. |
+| strongLabel | string | - | Text for a strong password. Defaults to PrimeVue Locale configuration. |
+| feedback | boolean | true | Whether to show the strength indicator or not. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
+| toggleMask | boolean | false | Whether to show an icon to display the password as plain text. |
+| maskIcon | string | - | Icon to hide displaying the password as plain text. |
+| unmaskIcon | string | - | Icon to show displaying the password as plain text. |
+| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| placeholder | string | - | Placeholder text for the input. |
+| required | boolean | false | When present, it specifies that an input field must be filled out before submitting the form. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| autofocus | boolean | null | When present, it specifies that an input element should automatically get focus when the page loads. |
+| inputId | string | - | Identifier of the underlying input element. |
+| inputStyle | object | - | Inline style of the input field. |
+| inputClass | string \| object | - | Style class of the input field. |
+| inputProps | InputHTMLAttributes | - | Used to pass all properties of the HTMLInputElement to the focusable input element inside the component. |
+| panelId | string | - | Identifier of the underlying overlay panel element. |
+| panelClass | string \| object | - | Style class of the overlay panel. |
+| panelStyle | object | - | Inline style of the overlay panel. |
+| panelProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the overlay panel inside the component. |
+| overlayId | string | - | Identifier of the underlying overlay element. |
+| overlayClass | string \| object | - | Style class of the overlay. |
+| overlayStyle | object | - | Inline style of the overlay. |
+| overlayProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the overlay inside the component. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<PasswordPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | PasswordPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| pcInputText | any | Used to pass attributes to the InputText component. |
+| maskIcon | PasswordPassThroughOptionType | Used to pass attributes to the mask icon's DOM element. |
+| unmaskIcon | PasswordPassThroughOptionType | Used to pass attributes to the unmask icon's DOM element. |
+| clearIcon | PasswordPassThroughOptionType | Used to pass attributes to the clear icon's DOM element. |
+| overlay | PasswordPassThroughOptionType | Used to pass attributes to the overlay's DOM element. |
+| content | PasswordPassThroughOptionType | Used to pass attributes to the overlay's content DOM element. |
+| meter | PasswordPassThroughOptionType | Used to pass attributes to the meter's DOM element. |
+| meterLabel | PasswordPassThroughOptionType | Used to pass attributes to the meter label's DOM element. |
+| meterText | PasswordPassThroughOptionType | Used to pass attributes to the meter text's DOM element. |
+| hiddenAccesible | PasswordPassThroughOptionType | Used to pass attributes to the hidden accessible DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | PasswordPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-password | Class name of the root element |
+| p-password-input | Class name of the pt input element |
+| p-password-mask-icon | Class name of the mask icon element |
+| p-password-unmask-icon | Class name of the unmask icon element |
+| p-password-clear-icon | Class name of the clear icon element |
+| p-password-overlay | Class name of the overlay element |
+| p-password-meter | Class name of the meter element |
+| p-password-meter-label | Class name of the meter label element |
+| p-password-meter-text | Class name of the meter text element |
+
+---
+
+# Vue PickList Component
+
+PickList is used to reorder items between different lists.
+
+## Accessibility
+
+Screen Reader Value to describe the source listbox and target listbox can be provided with sourceListProps and targetListProps by passing aria-labelledby or aria-label props. The list elements has a listbox role with the aria-multiselectable attribute. Each list item has an option role with aria-selected as their attributes. Controls buttons are button elements with an aria-label that refers to the aria.moveTop , aria.moveUp , aria.moveDown , aria.moveBottom , aria.moveToTarget , aria.moveAllToTarget , aria.moveToSource and aria.moveAllToSource properties of the locale API by default, alternatively you may use moveTopButtonProps , moveUpButtonProps , moveDownButtonProps , moveToButtonProps , moveAllToButtonProps , moveFromButtonProps , moveFromButtonProps moveAllFromButtonProps moveToTargetProps , moveAllToTargetProps , moveToSourceProps and moveAllToSourceProps to customize the buttons like overriding the default aria-label attributes. ListBox Keyboard Support Key Function tab Moves focus to the first selected option, if there is none then first option receives the focus. up arrow Moves focus to the previous option. down arrow Moves focus to the next option. enter Toggles the selected state of the focused option. space Toggles the selected state of the focused option. home Moves focus to the first option. end Moves focus to the last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the first one. control + a Selects all options. Buttons Keyboard Support Key Function enter Executes button action. space Executes button action.
+
+**Basic Usage:**
+
+```vue
+<span id="lb">Options</span>
+<PickList aria-labelledby="lb" />
+
+<PickList aria-label="City" />
+```
+
+## Basic
+
+PickList requires a multidimensional array as its value bound with the v-model directive and a template for its content that gets the option instance and the index via slotProps.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import PickList from 'primevue/picklist';
+```
+
+## Template
+
+For custom content support define an option template that gets the item instance as a parameter. In addition sourceheader and targetheader slots are provided for further customization.
+
+## Picklist
+
+## Picklist
+
+---
+
+# Vue Popover Component
+
+Popover is a container component that can overlay other components on page.
+
+## Accessibility
+
+Screen Reader Popover component uses dialog role and since any attribute is passed to the root element you may define attributes like aria-label or aria-labelledby to describe the popup contents. In addition aria-modal is added since focus is kept within the popup. Popover adds aria-expanded state attribute and aria-controls to the trigger so that the relation between the trigger and the popup is defined. Popover Keyboard Support When the popup gets opened, the first focusable element receives the focus and this can be customized by adding autofocus to an element within the popup. Key Function tab Moves focus to the next the focusable element within the popup. shift + tab Moves focus to the previous the focusable element within the popup. escape Closes the popup and moves focus to the trigger.
+
+## Basic
+
+Popover is accessed via its ref and visibility is controlled using toggle , show and hide functions with an event of the target.
+
+**Basic Usage:**
+
+```vue
+<Button type="button" icon="pi pi-share-alt" label="Share" @click="toggle" />
+
+<Popover ref="op">
+    <div class="flex flex-col gap-4 w-[25rem]">
+        <div>
+            <span class="font-medium block mb-2">Share this document</span>
+            <InputGroup>
+                <InputText value="https://primevue.org/12323ff26t2g243g423g234gg52hy25XADXAG3" readonly class="w-[25rem]"></InputText>
+                <InputGroupAddon>
+                    <i class="pi pi-copy"></i>
+                </InputGroupAddon>
+            </InputGroup>
+        </div>
+        <div>
+            <span class="font-medium block mb-2">Invite Member</span>
+            <InputGroup>
+                <InputText disabled />
+                <Button label="Invite" icon="pi pi-users"></Button>
+            </InputGroup>
+        </div>
+        <div>
+            <span class="font-medium block mb-2">Team Members</span>
+            <ul class="list-none p-0 m-0 flex flex-col gap-4">
+                <li v-for="member in members" :key="member.name" class="flex items-center gap-2">
+                    <img :src="\
+```
+
+## DataTable
+
+Place the Popover outside of the data iteration components to avoid rendering it multiple times.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Popover from 'primevue/popover';
+```
+
+## Select Data
+
+In this sample, data is retrieved from the content inside the popover.
+
+**Basic Usage:**
+
+```vue
+<Button type="button" :label="selectedMember ? selectedMember.name : 'Select Member'" @click="toggle" class="min-w-48" />
+
+<Popover ref="op">
+    <div class="flex flex-col gap-4">
+        <div>
+            <span class="font-medium block mb-2">Team Members</span>
+            <ul class="list-none p-0 m-0 flex flex-col">
+                <li v-for="member in members" :key="member.name" class="flex items-center gap-2 px-2 py-3 hover:bg-emphasis cursor-pointer rounded-border" @click="selectMember(member)">
+                    <img :src="\
+```
+
+## Popover
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| dismissable | boolean | true | Enables to hide the overlay when outside is clicked. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| breakpoints | PopoverBreakpoints | - | Object literal to define widths per screen size. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<PopoverPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the dialog. |
+
+## Popover
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| dismissable | boolean | true | Enables to hide the overlay when outside is clicked. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| breakpoints | PopoverBreakpoints | - | Object literal to define widths per screen size. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<PopoverPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the dialog. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | PopoverPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| content | PopoverPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | PopoverPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-popover | Class name of the root element |
+| p-popover-content | Class name of the content element |
+
+---
+
+# Vue ProgressBar Component
+
+ProgressBar is a process status indicator.
+
+## Accessibility
+
+Screen Reader ProgressBar components uses progressbar role along with aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Not applicable.
+
+**Basic Usage:**
+
+```vue
+<span id="label_status" />
+<ProgressBar aria-labelledby="label_status" />
+
+<ProgressBar aria-label="Status" />
+```
+
+## Basic
+
+ProgressBar is used with the value property.
+
+**Basic Usage:**
+
+```vue
+<ProgressBar :value="50"></ProgressBar>
+```
+
+## Dynamic
+
+Value is reactive so updating it dynamically changes the bar as well.
+
+**Basic Usage:**
+
+```vue
+<ProgressBar :value="value"></ProgressBar>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ProgressBar from 'primevue/progressbar';
+```
+
+## Indeterminate
+
+For progresses with no value to track, set the mode property to indeterminate .
+
+**Basic Usage:**
+
+```vue
+<ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Template
+
+Custom content inside the ProgressBar is defined with the default slot.
+
+## Progressbar
+
+## Progressbar
+
+---
+
+# Vue ProgressSpinner Component
+
+ProgressSpinner is a process status indicator.
+
+## Accessibility
+
+Screen Reader ProgressSpinner components uses progressbar role. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Component does not include any interactive elements.
+
+**Basic Usage:**
+
+```vue
+<ProgressSpinner aria-label="Loading" />
+```
+
+## Basic
+
+An infinite spin animation is displayed by default.
+
+**Basic Usage:**
+
+```vue
+<ProgressSpinner />
+```
+
+## Custom
+
+ProgressSpinner can be customized with styling property like style , strokeWidth fill and animationDuration .
+
+**Basic Usage:**
+
+```vue
+<ProgressSpinner style="width: 50px; height: 50px" strokeWidth="8" fill="transparent"
+    animationDuration=".5s" aria-label="Custom ProgressSpinner" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="8" fill="transparent"
+            animationDuration=".5s" aria-label="Custom ProgressSpinner" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ProgressSpinner from 'primevue/progressspinner';
+```
+
+## Progressspinner
+
+## Progressspinner
+
+---
+
+# Vue RadioButton Component
+
+RadioButton is an extension to standard radio button element with theming.
+
+## Accessibility
+
+Screen Reader RadioButton component uses a hidden native radio button element internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the checked radio button, if there is none within the group then first radio button receives the focus. left arrow up arrow Moves focus to the previous radio button, if there is none then last radio button receives the focus. right arrow down arrow Moves focus to the next radio button, if there is none then first radio button receives the focus. space If the focused radio button is unchecked, changes the state to checked.
+
+**Basic Usage:**
+
+```vue
+<label for="rb1">One</label>
+<RadioButton inputId="rb1" />
+
+<span id="rb2">Two</span>
+<RadioButton aria-labelledby="rb2" />
+
+<RadioButton aria-label="Three" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<RadioButton v-model="value" :value="1" disabled />
+<RadioButton v-model="value" :value="2" disabled />
+```
+
+## Dynamic
+
+RadioButtons can be generated using a list of values.
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<RadioButton v-model="value" value="1" variant="filled" />
+```
+
+## Forms
+
+RadioButton integrates seamlessly with the PrimeVue Forms library.
+
+## Group
+
+RadioButton is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<div class="flex flex-wrap gap-4">
+    <div class="flex items-center gap-2">
+        <RadioButton v-model="ingredient" inputId="ingredient1" name="pizza" value="Cheese" />
+        <label for="ingredient1">Cheese</label>
+    </div>
+    <div class="flex items-center gap-2">
+        <RadioButton v-model="ingredient" inputId="ingredient2" name="pizza" value="Mushroom" />
+        <label for="ingredient2">Mushroom</label>
+    </div>
+    <div class="flex items-center gap-2">
+        <RadioButton v-model="ingredient" inputId="ingredient3" name="pizza" value="Pepper" />
+        <label for="ingredient3">Pepper</label>
+    </div>
+    <div class="flex items-center gap-2">
+        <RadioButton v-model="ingredient" inputId="ingredient4" name="pizza" value="Onion" />
+        <label for="ingredient4">Onion</label>
+    </div>
+</div>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import RadioButton from 'primevue/radiobutton';
+import RadioButtonGroup from 'primevue/radiobuttongroup';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<RadioButton v-model="value" value="1" :invalid="value === null" />
+```
+
+## Sizes
+
+RadioButton provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<div class="flex flex-wrap gap-4">
+    <div class="flex items-center gap-2">
+        <RadioButton v-model="size" inputId="size_small" name="size" value="Small" size="small" />
+        <label for="size_small" class="text-sm">Small</label>
+    </div>
+    <div class="flex items-center gap-2">
+        <RadioButton v-model="size" inputId="size_normal" name="size" value="Normal" />
+        <label for="size_normal">Normal</label>
+    </div>
+    <div class="flex items-center gap-2">
+        <RadioButton v-model="size" inputId="size_large" name="size" value="Large" size="large" />
+        <label for="size_large" class="text-lg">Large</label>
+    </div>
+</div>
+```
+
+## Radiobutton
+
+## Radiobutton
+
+## Radiobuttongroup
+
+## Radiobuttongroup
+
+---
+
+# Vue Rating Component
+
+Rating component is a star based selection input.
+
+## Accessibility
+
+Screen Reader Rating component internally uses radio buttons that are only visible to screen readers. The value to read for item is retrieved from the locale API via star and stars of the aria property. Keyboard Support Keyboard interaction is derived from the native browser handling of radio buttons in a group. Key Function tab Moves focus to the star representing the value, if there is none then first star receives the focus. left arrow up arrow Moves focus to the previous star, if there is none then last radio button receives the focus. right arrow down arrow Moves focus to the next star, if there is none then first star receives the focus. space If the focused star does not represent the value, changes the value to the star value.
+
+## Basic
+
+Rating is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<Rating v-model="value" />
+```
+
+## Disabled
+
+When disabled is present, a visual hint is applied to indicate that the Knob cannot be interacted with.
+
+**Basic Usage:**
+
+```vue
+<Rating v-model="value" disabled />
+```
+
+## Forms
+
+Rating integrates seamlessly with the PrimeVue Forms library.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Rating from 'primevue/rating';
+```
+
+## Number of Stars
+
+Number of stars to display is defined with stars property.
+
+**Basic Usage:**
+
+```vue
+<Rating v-model="value" :stars="10" />
+```
+
+## ReadOnly
+
+When readOnly present, value cannot be edited.
+
+**Basic Usage:**
+
+```vue
+<Rating v-model="value" readonly />
+```
+
+## Template
+
+Custom icons are used to override the default icons with onicon , officon and cancelicon slots.
+
+**Basic Usage:**
+
+```vue
+<Rating v-model="value">
+    <template #onicon>
+        <img src="/images/rating/custom-onicon.png" height="24" width="24" />
+    </template>
+    <template #officon>
+        <img src="/images/rating/custom-officon.png" height="24" width="24" />
+    </template>
+</Rating>
+```
+
+## Rating
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | number | - | Value of the rating. |
+| defaultValue | number | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | Name of the element. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the element should be disabled. |
+| readonly | boolean | false | When present, it specifies that component is read-only. |
+| stars | number | 5 | Number of stars. |
+| onIcon | string | - | Icon for the on state. |
+| offIcon | string | - | Icon for the off state. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<RatingPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Rating
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | number | - | Value of the rating. |
+| defaultValue | number | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | Name of the element. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the element should be disabled. |
+| readonly | boolean | false | When present, it specifies that component is read-only. |
+| stars | number | 5 | Number of stars. |
+| onIcon | string | - | Icon for the on state. |
+| offIcon | string | - | Icon for the off state. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<RatingPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | RatingPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| option | RatingPassThroughOptionType | Used to pass attributes to the option's DOM element. |
+| onIcon | RatingPassThroughOptionType | Used to pass attributes to the on icon's DOM element. |
+| offIcon | RatingPassThroughOptionType | Used to pass attributes to the off icon's DOM element. |
+| hiddenOptionInputContainer | RatingPassThroughOptionType | Used to pass attributes to the hidden option input container's DOM element. |
+| hiddenOptionInput | RatingPassThroughOptionType | Used to pass attributes to the hidden option input's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-rating | Class name of the root element |
+| p-rating-option | Class name of the option element |
+| p-rating-on-icon | Class name of the on icon element |
+| p-rating-off-icon | Class name of the off icon element |
+
+---
+
+# Vue Ripple Component
+
+Ripple directive adds ripple effect to the host element.
+
+## Accessibility
+
+Screen Reader Ripple element has the aria-hidden attribute as true so that it gets ignored by the screen readers. Keyboard Support Component does not include any interactive elements.
+
+## Configuration
+
+To start with, Ripple needs to be enabled globally. See the Configuration API for details.
+
+**Basic Usage:**
+
+```vue
+mounted() {
+    this.$primevue.config.ripple = true;
+}
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+import { usePrimeVue } from 'primevue/config';
+
+const PrimeVue = usePrimeVue();
+
+PrimeVue.config.ripple = true;
+```
+</details>
+
+## Custom
+
+Default styling of the animation adds a shade of white. This can easily be customized using css that changes the color of p-ink element.
+
+**Basic Usage:**
+
+```vue
+<div v-ripple class="box" style="border: 1px solid rgba(75, 175, 80, 0.3); --p-ripple-background: rgba(75, 175, 80, 0.3)">Green</div>
+<div v-ripple class="box" style="border: 1px solid rgba(255, 193, 6, 0.3); --p-ripple-background: rgba(255, 193, 6, 0.3)">Orange</div>
+<div v-ripple class="box" style="border: 1px solid rgba(156, 39, 176, 0.3); --p-ripple-background: rgba(156, 39, 176, 0.3)">Purple</div>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="flex justify-center items-center gap-2">
+        <div v-ripple class="box" style="border: 1px solid rgba(75, 175, 80, 0.3); --p-ripple-background: rgba(75, 175, 80, 0.3)">Green</div>
+        <div v-ripple class="box" style="border: 1px solid rgba(255, 193, 6, 0.3); --p-ripple-background: rgba(255, 193, 6, 0.3)">Orange</div>
+        <div v-ripple class="box" style="border: 1px solid rgba(156, 39, 176, 0.3); --p-ripple-background: rgba(156, 39, 176, 0.3)">Purple</div>
+    </div>
+</template>
+
+<style scoped>
+.box {
+    padding: 2rem;
+    border-radius: 10px;
+    width: 110px;
+    text-align: center;
+}
+</style>
+```
+</details>
+
+## Default
+
+Ripple is enabled by adding add p-ripple class to the target and attach the directive with the v- prefix.
+
+**Basic Usage:**
+
+```vue
+<div v-ripple class="ripple-box">Default</div>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <div v-ripple class="ripple-box">Default</div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+
+<style scoped>
+.ripple-box {
+    display: flex;
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    font-weight: bold;
+    background: var(--p-content-background);
+    border: 1px solid var(--p-content-border-color);
+    border-radius: var(--p-content-border-radius);
+}
+<\/style>
+```
+</details>
+
+## Import
+
+Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at your app's entry file (e.g. main.js) during the PrimeVue setup. Ripple describes how to use it with your own components and standard elements that needs to be imported and configured with a name of your choice. Global configuration is done with the app.directive function.
+
+## Ripple
+
+## Ripple
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | RippleDirectivePassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-ink | Class name of the root element |
+
+---
+
+# Vue ScrollPanel Component
+
+ScrollPanel is a cross browser, lightweight and skinnable alternative to native browser scrollbar.
+
+## Accessibility
+
+Screen Reader Scrollbars of the ScrollPanel has a scrollbar role along with the aria-controls attribute that refers to the id of the scrollable content container and the aria-orientation to indicate the orientation of scrolling. Header Keyboard Support Key Function tab Moves focus through the bar. down arrow Scrolls content down when vertical scrolling is available. up arrow Scrolls content up when vertical scrolling is available. left Scrolls content left when horizontal scrolling is available. right Scrolls content right when horizontal scrolling is available.
+
+## Basic
+
+ScrollPanel is defined using dimensions for the scrollable viewport.
+
+**Basic Usage:**
+
+```vue
+<ScrollPanel style="width: 100%; height: 200px">
+    <p>
+        Lorem ipsum dolor ...
+    </p>
+</ScrollPanel>
+```
+
+## Custom
+
+Scrollbar visuals can be styled for a unified look across different platforms.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ScrollPanel from 'primevue/scrollpanel';
+```
+
+## Scrollpanel
+
+## Scrollpanel
+
+---
+
+# Vue ScrollTop Component
+
+ScrollTop gets displayed after a certain scroll position and used to navigates to the top of the page quickly.
+
+## Accessibility
+
+Screen Reader ScrollTop uses a button element with an aria-label that refers to the aria.scrollTop property of the locale API by default, you may use your own aria roles and attributes as any valid attribute is passed to the button element implicitly. Keyboard Support Key Function enter Scrolls to top. space Scrolls to top.
+
+## Basic
+
+ScrollTop listens window scroll by default.
+
+**Basic Usage:**
+
+```vue
+<ScrollTop />
+```
+
+## Element
+
+Setting the target property to parent binds ScrollTop to its parent element that has scrolling content.
+
+**Basic Usage:**
+
+```vue
+<ScrollPanel style="width: 250px; height: 200px">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam. Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing
+        elit ut. Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna. Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris. Semper
+        feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus. Cursus sit amet
+        dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas. Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris. Eget egestas purus viverra accumsan in nisl nisi.
+        Suscipit adipiscing bibendum est ultricies integer. Mattis aliquam faucibus purus in massa tempor nec.
+    </p>
+    <ScrollTop target="parent" :threshold="100" icon="pi pi-arrow-up" :buttonProps="{ severity: 'contrast', raised: true, rounded: true }" />
+</ScrollPanel>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ScrollPanel style="width: 250px; height: 200px">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam. Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing
+                elit ut. Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna. Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris. Semper
+                feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus. Cursus sit amet
+                dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas. Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris. Eget egestas purus viverra accumsan in nisl nisi.
+                Suscipit adipiscing bibendum est ultricies integer. Mattis aliquam faucibus purus in massa tempor nec.
+            </p>
+            <ScrollTop target="parent" :threshold="100" icon="pi pi-arrow-up" :buttonProps="{ severity: 'contrast', raised: true, rounded: true }" />
+        </ScrollPanel>
+    </div>
+</template>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ScrollTop from 'primevue/scrolltop';
+```
+
+## Scrolltop
+
+## Scrolltop
+
+---
+
+# Vue Select Component
+
+Select is used to choose an item from a collection of options.
+
+## Accessibility
+
+Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The select element has a combobox role in addition to aria-haspopup and aria-expanded attributes. If the editable option is enabled aria-autocomplete is also added. The relation between the combobox and the popup is created with aria-controls and aria-activedescendant attribute is used to instruct screen reader which option to read during keyboard navigation within the popup list. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses listbox as the role. Each list item has an option role, an id to match the aria-activedescendant of the input element along with aria-label , aria-selected and aria-disabled attributes. If filtering is enabled, filterInputProps can be defined to give aria-* props to the filter input element. Closed State Keyboard Support Key Function tab Moves focus to the select element. space Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. enter Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. up arrow Opens the popup and moves visual focus to the selected option, if there is none then last option receives the focus. any printable character Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none and select is not editable then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Moves focus to the previous focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. enter Selects the focused option and closes the popup, then moves focus to the select element. space Selects the focused option and closes the popup, then moves focus to the select element. escape Closes the popup, then moves focus to the select element. down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. alt + up arrow Selects the focused option and closes the popup, then moves focus to the select element. left arrow If the select is editable, removes the visual focus from the current option and moves input cursor to one character left. right arrow If the select is editable, removes the visual focus from the current option and moves input cursor to one character right. home If the select is editable, moves input cursor at the end, if not then moves focus to the first option. end If the select is editable, moves input cursor at the beginning, if not then moves focus to the last option. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. any printable character Moves focus to the option whose label starts with the characters being typed if select is not editable. Filter Input Keyboard Support Key Function down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. enter Closes the popup and moves focus to the select element. escape Closes the popup and moves focus to the select element. tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page.
+
+**Basic Usage:**
+
+```vue
+<span id="dd1"></span>Options</span>
+<select aria-labelledby="dd1" />
+
+<select aria-label="Options" />
+```
+
+## Basic
+
+Select is used with the v-model property for two-way value binding along with the options collection. Label and value of an option are defined with the optionLabel and optionValue properties respectively. Note that, when options are simple primitive values such as a string array, no optionLabel and optionValue would be necessary.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+```
+
+## Checkmark
+
+An alternative way to highlight the selected option is displaying a checkmark instead.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
+```
+
+## Clear Icon
+
+When showClear is enabled, a clear icon is added to reset the Select.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="selectedCity" :options="cities" showClear optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<Select disabled placeholder="Select a City" class="w-full md:w-56" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select disabled placeholder="Select a City" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Editable
+
+When editable is present, the input can also be entered with typing.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+```
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+```
+
+## Filter
+
+Select provides built-in filtering that is enabled by adding the filter property.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="selectedCountry" :options="countries" filter optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
+    <template #value="slotProps">
+        <div v-if="slotProps.value" class="flex items-center">
+            <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## Float Label
+
+A floating label appears on top of the input field when focused. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel class="w-full md:w-56">
+    <Select v-model="value1" inputId="over_label" :options="cities" optionLabel="name" class="w-full" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel class="w-full md:w-56" variant="in">
+    <Select v-model="value2" inputId="in_label" :options="cities" optionLabel="name" class="w-full" variant="filled" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel class="w-full md:w-56" variant="on">
+    <Select v-model="value3" inputId="on_label" :options="cities" optionLabel="name" class="w-full" />
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Fluid
+
+The fluid prop makes the component take up the full width of its container when set to true.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
+```
+
+## Group
+
+Options can be grouped when a nested data structures is provided. To define the label of a group optionGroupLabel property is needed and also optionGroupChildren is required to define the property that refers to the children of a group.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-56">
+    <template #optiongroup="slotProps">
+        <div class="flex items-center">
+            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel>
+    <Select v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" class="w-full" variant="filled" />
+    <label for="dd-city">City</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Select from 'primevue/select';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity1" class="w-full md:w-56" />
+<Select v-model="selectedCity2" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity2" class="w-full md:w-56" variant="filled" />
+```
+
+## Lazy Virtual Scroll
+
+The virtual scrolling also supports dynamically loading items on demand.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" class="w-full md:w-56"
+    :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 38, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item" />
+```
+
+## Loading State
+
+Loading state is enabled with the loading property.
+
+**Basic Usage:**
+
+```vue
+<Select placeholder="Loading..." loading class="w-full md:w-56" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select placeholder="Loading..." loading class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Sizes
+
+Select provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="value1" :options="cities" optionLabel="name" size="small" placeholder="Small" class="w-full md:w-56" />
+<Select v-model="value2" :options="cities" optionLabel="name" placeholder="Normal" class="w-full md:w-56" />
+<Select v-model="value3" :options="cities" optionLabel="name" size="large" placeholder="Large" class="w-full md:w-56" />
+```
+
+## Template
+
+Select offers multiple slots for customization through templating.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="selectedCountry" :options="countries" optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
+    <template #value="slotProps">
+        <div v-if="slotProps.value" class="flex items-center">
+            <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+```
+
+## Virtual Scroll
+
+VirtualScroller is used to render a long list of options efficiently like 100K records in this demo. The configuration is done with virtualScrollerOptions property, refer to the VirtualScroller for more information about the available options as it is used internally by Select.
+
+**Basic Usage:**
+
+```vue
+<Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
+    :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-56" />
+```
+
+## Select
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| options | any[] | - | An array of select items to display as the available options. |
+| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
+| optionValue | string \| Function | - | Property name or getter function to use as the value of an option, defaults to the option itself when not defined. |
+| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
+| optionGroupLabel | string \| Function | - | Property name or getter function to use as the label of an option group. |
+| optionGroupChildren | string \| Function | - | Property name or getter function that refers to the children options of option group. |
+| scrollHeight | string | 14rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
+| filter | boolean | false | When specified, displays a filter input at header. |
+| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
+| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
+| filterMatchMode | HintedString<"startsWith" \| "contains" \| "endsWith"> | contains | Defines the filtering algorithm to use when searching the options. |
+| filterFields | string[] | - | Fields used when filtering the options, defaults to optionLabel. |
+| editable | boolean | false | When present, custom value instead of predefined options can be entered using the editable input field. |
+| placeholder | string | - | Default text to display when no option is selected. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| dataKey | string | - | A property to uniquely identify an option. |
+| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| inputId | string | - |  |
+| inputStyle | object | - |  |
+| inputClass | string \| object | - |  |
+| labelId | string | - | Identifier of the underlying label element. |
+| labelStyle | object | - | Inline style of the label field. |
+| labelClass | string \| object | - | Style class of the label field. |
+| panelStyle | object | - |  |
+| panelClass | string \| object | - |  |
+| overlayStyle | object | - | Inline style of the overlay. |
+| overlayClass | string \| object | - | Style class of the overlay. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
+| loading | boolean | false | Whether the select is in loading state. |
+| clearIcon | string | - | Icon to display in clear button. |
+| dropdownIcon | string | - | Icon to display in the select. |
+| filterIcon | string | - | Icon to display in filter input. |
+| loadingIcon | string | - | Icon to display in loading state. |
+| resetFilterOnHide | boolean | false | Clears the filter value when hiding the select. |
+| resetFilterOnClear | boolean | false | Clears the filter value when clicking on the clear icon. |
+| virtualScrollerOptions | any | - | Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. |
+| autoOptionFocus | boolean | false | Whether to focus on the first visible or selected element when the overlay panel is shown. |
+| autoFilterFocus | boolean | false | Whether to focus on the filter element when the overlay panel is shown. |
+| selectOnFocus | boolean | false | When enabled, the focused option is selected. |
+| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
+| highlightOnSelect | boolean | true | Whether the selected option will be add highlight class. |
+| checkmark | boolean | false | Whether the selected option will be shown with a check mark. |
+| filterMessage | string | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration. |
+| selectionMessage | string | '{0} items selected' | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration. |
+| emptySelectionMessage | string | No selected item | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration. |
+| emptyFilterMessage | string | No results found | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration. |
+| emptyMessage | string | No available options | Text to display when there are no options available. Defaults to value from PrimeVue locale configuration. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SelectPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Select
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| options | any[] | - | An array of select items to display as the available options. |
+| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
+| optionValue | string \| Function | - | Property name or getter function to use as the value of an option, defaults to the option itself when not defined. |
+| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
+| optionGroupLabel | string \| Function | - | Property name or getter function to use as the label of an option group. |
+| optionGroupChildren | string \| Function | - | Property name or getter function that refers to the children options of option group. |
+| scrollHeight | string | 14rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
+| filter | boolean | false | When specified, displays a filter input at header. |
+| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
+| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
+| filterMatchMode | HintedString<"startsWith" \| "contains" \| "endsWith"> | contains | Defines the filtering algorithm to use when searching the options. |
+| filterFields | string[] | - | Fields used when filtering the options, defaults to optionLabel. |
+| editable | boolean | false | When present, custom value instead of predefined options can be entered using the editable input field. |
+| placeholder | string | - | Default text to display when no option is selected. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| dataKey | string | - | A property to uniquely identify an option. |
+| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| inputId | string | - |  |
+| inputStyle | object | - |  |
+| inputClass | string \| object | - |  |
+| labelId | string | - | Identifier of the underlying label element. |
+| labelStyle | object | - | Inline style of the label field. |
+| labelClass | string \| object | - | Style class of the label field. |
+| panelStyle | object | - |  |
+| panelClass | string \| object | - |  |
+| overlayStyle | object | - | Inline style of the overlay. |
+| overlayClass | string \| object | - | Style class of the overlay. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
+| loading | boolean | false | Whether the select is in loading state. |
+| clearIcon | string | - | Icon to display in clear button. |
+| dropdownIcon | string | - | Icon to display in the select. |
+| filterIcon | string | - | Icon to display in filter input. |
+| loadingIcon | string | - | Icon to display in loading state. |
+| resetFilterOnHide | boolean | false | Clears the filter value when hiding the select. |
+| resetFilterOnClear | boolean | false | Clears the filter value when clicking on the clear icon. |
+| virtualScrollerOptions | any | - | Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. |
+| autoOptionFocus | boolean | false | Whether to focus on the first visible or selected element when the overlay panel is shown. |
+| autoFilterFocus | boolean | false | Whether to focus on the filter element when the overlay panel is shown. |
+| selectOnFocus | boolean | false | When enabled, the focused option is selected. |
+| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
+| highlightOnSelect | boolean | true | Whether the selected option will be add highlight class. |
+| checkmark | boolean | false | Whether the selected option will be shown with a check mark. |
+| filterMessage | string | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration. |
+| selectionMessage | string | '{0} items selected' | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration. |
+| emptySelectionMessage | string | No selected item | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration. |
+| emptyFilterMessage | string | No results found | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration. |
+| emptyMessage | string | No available options | Text to display when there are no options available. Defaults to value from PrimeVue locale configuration. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SelectPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Selectbutton
+
+## Selectbutton
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | SelectPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| label | SelectPassThroughOptionType<T> | Used to pass attributes to the label's DOM element. |
+| clearIcon | SelectPassThroughOptionType<T> | Used to pass attributes to the clear icon's DOM element. |
+| dropdown | SelectPassThroughOptionType<T> | Used to pass attributes to the dropdown's DOM element. |
+| dropdownIcon | SelectPassThroughOptionType<T> | Used to pass attributes to the dropdown icon's DOM element. |
+| loadingIcon | SelectPassThroughOptionType<T> | Used to pass attributes to the loading icon's DOM element. |
+| overlay | SelectPassThroughOptionType<T> | Used to pass attributes to the overlay's DOM element. |
+| header | SelectPassThroughOptionType<T> | Used to pass attributes to the header's DOM element. |
+| pcFilterContainer | any | Used to pass attributes to the IconField component. |
+| pcFilter | any | Used to pass attributes to the InputText component. |
+| pcFilterIconContainer | any | Used to pass attributes to the InputIcon component. |
+| filterIcon | SelectPassThroughOptionType<T> | Used to pass attributes to the filter icon's DOM element. |
+| listContainer | SelectPassThroughOptionType<T> | Used to pass attributes to the list container's DOM element. |
+| virtualScroller | any | Used to pass attributes to the VirtualScroller component. |
+| list | SelectPassThroughOptionType<T> | Used to pass attributes to the list's DOM element. |
+| optionGroup | SelectPassThroughOptionType<T> | Used to pass attributes to the option group's DOM element. |
+| optionGroupLabel | SelectPassThroughOptionType<T> | Used to pass attributes to the option group label's DOM element. |
+| option | SelectPassThroughOptionType<T> | Used to pass attributes to the option's DOM element. |
+| optionLabel | SelectPassThroughOptionType<T> | Used to pass attributes to the option label's DOM element. |
+| optionCheckIcon | SelectPassThroughOptionType<T> | Used to pass attributes to the option check icon's DOM element. |
+| optionBlankIcon | SelectPassThroughOptionType<T> | Used to pass attributes to the option blank icon's DOM element. |
+| emptyMessage | SelectPassThroughOptionType<T> | Used to pass attributes to the empty message's DOM element. |
+| hiddenFirstFocusableEl | SelectPassThroughOptionType<T> | Used to pass attributes to the hidden first focusable element's DOM element. |
+| hiddenFilterResult | SelectPassThroughOptionType<T> | Used to pass attributes to the hidden filter result's DOM element. |
+| hiddenEmptyMessage | SelectPassThroughOptionType<T> | Used to pass attributes to the hidden empty message's DOM element. |
+| hiddenSelectedMessage | SelectPassThroughOptionType<T> | Used to pass attributes to the hidden selected message's DOM element. |
+| hiddenLastFocusableEl | SelectPassThroughOptionType<T> | Used to pass attributes to the hidden last focusable element's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | SelectPassThroughTransitionType<any> | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-select | Class name of the root element |
+| p-select-label | Class name of the label element |
+| p-select-clear-icon | Class name of the clear icon element |
+| p-select-dropdown | Class name of the dropdown element |
+| p-select-loading-icon | Class name of the loadingicon element |
+| p-select-dropdown-icon | Class name of the dropdown icon element |
+| p-select-overlay | Class name of the overlay element |
+| p-select-header | Class name of the header element |
+| p-select-filter | Class name of the filter element |
+| p-select-list-container | Class name of the list container element |
+| p-select-list | Class name of the list element |
+| p-select-option-group | Class name of the option group element |
+| p-select-option-group-label | Class name of the option group label element |
+| p-select-option | Class name of the option element |
+| p-select-option-label | Class name of the option label element |
+| p-select-option-check-icon | Class name of the option check icon element |
+| p-select-option-blank-icon | Class name of the option blank icon element |
+| p-select-empty-message | Class name of the empty message element |
+
+---
+
+# Vue SelectButton Component
+
+SelectButton is used to choose single or multiple items from a list using buttons.
+
+## Accessibility
+
+Screen Reader SelectButton component uses ToggleButton internally and has group role. Value to describe the component can be provided via aria-labelledby property. Keyboard Support Keyboard interaction is derived from the native browser handling of checkboxs in a group. Key Function tab Moves focus to the next the focusable element in the page tab sequence. shift + tab Moves focus to the previous the focusable element in the page tab sequence. space Toggles the checked state of a button.
+
+**Basic Usage:**
+
+```vue
+<span id="label_number">Number</span>
+<Slider aria-labelledby="label_number" />
+
+<Slider aria-label="Number" />
+```
+
+## Basic
+
+SelectButton is used with the v-model property for two-way value binding along with the options collection. Label and value of an option are defined with the optionLabel and optionValue properties respectively. Note that, when options are simple primitive values such as a string array, no optionLabel and optionValue would be necessary.
+
+**Basic Usage:**
+
+```vue
+<SelectButton v-model="value" :options="options" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused entirely. Certain options can also be disabled using the optionDisabled property.
+
+**Basic Usage:**
+
+```vue
+<SelectButton v-model="value" :options="options" disabled />
+<SelectButton v-model="value" :options="options2" optionDisabled="constant" optionLabel="name" />
+```
+
+## Fluid
+
+The fluid prop makes the component take up the full width of its container when set to true.
+
+**Basic Usage:**
+
+```vue
+<SelectButton v-model="value" :options="options" fluid />
+```
+
+## Forms
+
+SelectButton integrates seamlessly with the PrimeVue Forms library.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import SelectButton from 'primevue/selectbutton';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<SelectButton v-model="value" :options="options" aria-labelledby="basic" allowEmpty :invalid="value === null"  />
+```
+
+## Multiple
+
+SelectButton allows selecting only one item by default and setting multiple option enables choosing more than one item. In multiple case, model property should be an array.
+
+**Basic Usage:**
+
+```vue
+<SelectButton v-model="value" :options="options" optionLabel="name" multiple aria-labelledby="multiple" />
+```
+
+## Sizes
+
+SelectButton provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<SelectButton v-model="value1" :options="options" size="small" />
+<SelectButton v-model="value2" :options="options" />
+<SelectButton v-model="value3" :options="options" size="large" />
+```
+
+## Template
+
+Label of an option is used as the display text of an item by default, for custom content support define an option template that gets the option instance as a parameter.
+
+**Basic Usage:**
+
+```vue
+<SelectButton v-model="value" :options="options" optionLabel="value" dataKey="value" aria-labelledby="custom">
+    <template #option="slotProps">
+        <i :class="slotProps.option.icon"></i>
+    </template>
+</SelectButton>
+```
+
+## Selectbutton
+
+## Selectbutton
+
+---
+
+# setup
+
+
+
+---
+
+# Vue Skeleton Component
+
+Skeleton is a placeholder to display instead of the actual content.
+
+## Accessibility
+
+Screen Reader Skeleton uses aria-hidden as "true" so that it gets ignored by screen readers, any valid attribute is passed to the root element so you may customize it further if required. If multiple skeletons are grouped inside a container, you may use aria-busy on the container element as well to indicate the loading process. Keyboard Support Component does not include any interactive elements.
+
+## Card
+
+Sample card implementation using different Skeleton components and Tailwind CSS utilities.
+
+**Basic Usage:**
+
+```vue
+<div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+    <div class="flex mb-4">
+        <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+        <div>
+            <Skeleton width="10rem" class="mb-2"></Skeleton>
+            <Skeleton width="5rem" class="mb-2"></Skeleton>
+            <Skeleton height=".5rem"></Skeleton>
+        </div>
+    </div>
+    <Skeleton width="100%" height="150px"></Skeleton>
+    <div class="flex justify-between mt-4">
+        <Skeleton width="4rem" height="2rem"></Skeleton>
+        <Skeleton width="4rem" height="2rem"></Skeleton>
+    </div>
+</div>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+            <div class="flex mb-4">
+                <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                <div>
+                    <Skeleton width="10rem" class="mb-2"></Skeleton>
+                    <Skeleton width="5rem" class="mb-2"></Skeleton>
+                    <Skeleton height=".5rem"></Skeleton>
+                </div>
+            </div>
+            <Skeleton width="100%" height="150px"></Skeleton>
+            <div class="flex justify-between mt-4">
+                <Skeleton width="4rem" height="2rem"></Skeleton>
+                <Skeleton width="4rem" height="2rem"></Skeleton>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## DataTable
+
+Sample DataTable implementation using different Skeleton components and Tailwind CSS utilities.
+
+**Basic Usage:**
+
+```vue
+<DataTable :value="products">
+    <Column field="code" header="Code">
+        <template #body>
+            <Skeleton></Skeleton>
+        </template>
+    </Column>
+    <Column field="name" header="Name">
+        <template #body>
+            <Skeleton></Skeleton>
+        </template>
+    </Column>
+    <Column field="category" header="Category">
+        <template #body>
+            <Skeleton></Skeleton>
+        </template>
+    </Column>
+    <Column field="quantity" header="Quantity">
+        <template #body>
+            <Skeleton></Skeleton>
+        </template>
+    </Column>
+</DataTable>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Skeleton from 'primevue/skeleton';
+```
+
+## List
+
+Sample list implementation using different Skeleton components and Tailwind CSS utilities.
+
+**Basic Usage:**
+
+```vue
+<div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+    <ul class="m-0 p-0 list-none">
+        <li class="mb-4">
+            <div class="flex">
+                <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                <div class="self-center" style="flex: 1">
+                    <Skeleton width="100%" class="mb-2"></Skeleton>
+                    <Skeleton width="75%"></Skeleton>
+                </div>
+            </div>
+        </li>
+        <li class="mb-4">
+            <div class="flex">
+                <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                <div class="self-center" style="flex: 1">
+                    <Skeleton width="100%" class="mb-2"></Skeleton>
+                    <Skeleton width="75%"></Skeleton>
+                </div>
+            </div>
+        </li>
+        <li class="mb-4">
+            <div class="flex">
+                <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                <div class="self-center" style="flex: 1">
+                    <Skeleton width="100%" class="mb-2"></Skeleton>
+                    <Skeleton width="75%"></Skeleton>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="flex">
+                <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                <div class="self-center" style="flex: 1">
+                    <Skeleton width="100%" class="mb-2"></Skeleton>
+                    <Skeleton width="75%"></Skeleton>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+        <ul class="m-0 p-0 list-none">
+            <li class="mb-4">
+                <div class="flex">
+                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                    <div class="self-center" style="flex: 1">
+                        <Skeleton width="100%" class="mb-2"></Skeleton>
+                        <Skeleton width="75%"></Skeleton>
+                    </div>
+                </div>
+            </li>
+            <li class="mb-4">
+                <div class="flex">
+                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                    <div class="self-center" style="flex: 1">
+                        <Skeleton width="100%" class="mb-2"></Skeleton>
+                        <Skeleton width="75%"></Skeleton>
+                    </div>
+                </div>
+            </li>
+            <li class="mb-4">
+                <div class="flex">
+                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                    <div class="self-center" style="flex: 1">
+                        <Skeleton width="100%" class="mb-2"></Skeleton>
+                        <Skeleton width="75%"></Skeleton>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="flex">
+                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                    <div class="self-center" style="flex: 1">
+                        <Skeleton width="100%" class="mb-2"></Skeleton>
+                        <Skeleton width="75%"></Skeleton>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Shapes
+
+Various shapes and sizes can be created using styling properties like shape , width , height , borderRadius and class .
+
+**Basic Usage:**
+
+```vue
+<h5>Rectangle</h5>
+<Skeleton class="mb-2"></Skeleton>
+<Skeleton width="10rem" class="mb-2"></Skeleton>
+<Skeleton width="5rem" class="mb-2"></Skeleton>
+<Skeleton height="2rem" class="mb-2"></Skeleton>
+<Skeleton width="10rem" height="4rem"></Skeleton>
+
+<h5>Rounded</h5>
+<Skeleton class="mb-2" borderRadius="16px"></Skeleton>
+<Skeleton width="10rem" class="mb-2" borderRadius="16px"></Skeleton>
+<Skeleton width="5rem" borderRadius="16px" class="mb-2"></Skeleton>
+<Skeleton height="2rem" class="mb-2" borderRadius="16px"></Skeleton>
+<Skeleton width="10rem" height="4rem" borderRadius="16px"></Skeleton>
+
+<h5 class="mt-4">Square</h5>
+<Skeleton size="2rem" class="mr-2"></Skeleton>
+<Skeleton size="3rem" class="mr-2"></Skeleton>
+<Skeleton size="4rem" class="mr-2"></Skeleton>
+<Skeleton size="5rem"></Skeleton>
+
+<h5 class="mt-4">Circle</h5>
+<Skeleton shape="circle" size="2rem" class="mr-2"></Skeleton>
+<Skeleton shape="circle" size="3rem" class="mr-2"></Skeleton>
+<Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+<Skeleton shape="circle" size="5rem"></Skeleton>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-wrap">
+            <div class="w-full xl:w-6/12 p-4">
+                <h5>Rectangle</h5>
+                <Skeleton class="mb-2"></Skeleton>
+                <Skeleton width="10rem" class="mb-2"></Skeleton>
+                <Skeleton width="5rem" class="mb-2"></Skeleton>
+                <Skeleton height="2rem" class="mb-2"></Skeleton>
+                <Skeleton width="10rem" height="4rem"></Skeleton>
+            </div>
+            <div class="w-full xl:w-6/12 p-4">
+                <h5>Rounded</h5>
+                <Skeleton class="mb-2" borderRadius="16px"></Skeleton>
+                <Skeleton width="10rem" class="mb-2" borderRadius="16px"></Skeleton>
+                <Skeleton width="5rem" borderRadius="16px" class="mb-2"></Skeleton>
+                <Skeleton height="2rem" class="mb-2" borderRadius="16px"></Skeleton>
+                <Skeleton width="10rem" height="4rem" borderRadius="16px"></Skeleton>
+            </div>
+            <div class="w-full xl:w-6/12 p-4">
+                <h5 class="mt-4">Square</h5>
+                <div class="flex items-end">
+                    <Skeleton size="2rem" class="mr-2"></Skeleton>
+                    <Skeleton size="3rem" class="mr-2"></Skeleton>
+                    <Skeleton size="4rem" class="mr-2"></Skeleton>
+                    <Skeleton size="5rem"></Skeleton>
+                </div>
+            </div>
+            <div class="w-full xl:w-6/12 p-4">
+                <h5 class="mt-4">Circle</h5>
+                <div class="flex items-end">
+                    <Skeleton shape="circle" size="2rem" class="mr-2"></Skeleton>
+                    <Skeleton shape="circle" size="3rem" class="mr-2"></Skeleton>
+                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                    <Skeleton shape="circle" size="5rem"></Skeleton>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Skeleton
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| shape | HintedString<"circle" \| "rectangle"> | rectangle | Shape of the element. |
+| size | string | - | Size of the Circle or Square. |
+| width | string | 100% | Width of the element. |
+| height | string | 1rem | Height of the element. |
+| borderRadius | string | - | Border radius of the element, defaults to value from theme. |
+| animation | HintedString<"none" \| "wave"> | wave | Type of the animation. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SkeletonPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Skeleton
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| shape | HintedString<"circle" \| "rectangle"> | rectangle | Shape of the element. |
+| size | string | - | Size of the Circle or Square. |
+| width | string | 100% | Width of the element. |
+| height | string | 1rem | Height of the element. |
+| borderRadius | string | - | Border radius of the element, defaults to value from theme. |
+| animation | HintedString<"none" \| "wave"> | wave | Type of the animation. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SkeletonPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | SkeletonPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-skeleton | Class name of the root element |
+
+---
+
+# Vue Slider Component
+
+Slider is a component to provide input with a drag handle.
+
+## Accessibility
+
+Screen Reader Slider element component uses slider role on the handle in addition to the aria-orientation , aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Key Function tab Moves focus to the slider. left arrow up arrow Decrements the value. right arrow down arrow Increments the value. home Set the minimum value. end Set the maximum value. page up Increments the value by 10 steps. page down Decrements the value by 10 steps.
+
+**Basic Usage:**
+
+```vue
+<span id="label_number">Number</span>
+<Slider aria-labelledby="label_number" />
+
+<Slider aria-label="Number" />
+```
+
+## Basic
+
+Slider is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<Slider v-model="value" class="w-56" />
+```
+
+## Filter
+
+Image filter implementation using multiple sliders.
+
+**Basic Usage:**
+
+```vue
+<img alt="user header" class="w-full md:w-80 rounded mb-6" src="https://primefaces.org/cdn/primevue/images/card-vue.jpg" :style="filterStyle" />
+<SelectButton v-model="filter" :options="filterOptions" optionLabel="label" optionValue="value" class="mb-4" />
+<Slider v-model="filterValues[filter]" class="w-56" :min="0" :max="200" />
+```
+
+## Forms
+
+Slider integrates seamlessly with the PrimeVue Forms library.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Slider from 'primevue/slider';
+```
+
+## Input
+
+Slider is connected to an input field using two-way binding.
+
+**Basic Usage:**
+
+```vue
+<InputText v-model.number="value" />
+<Slider v-model="value" />
+```
+
+## Range
+
+When range property is present, slider provides two handles to define two values. In range mode, value should be an array instead of a single value.
+
+**Basic Usage:**
+
+```vue
+<Slider v-model="value" range class="w-56" />
+```
+
+## Step
+
+Size of each movement is defined with the step property.
+
+**Basic Usage:**
+
+```vue
+<Slider v-model="value" :step="20" class="w-56" />
+```
+
+## Vertical
+
+Default layout of slider is horizontal , use orientation property for the alternative vertical mode.
+
+**Basic Usage:**
+
+```vue
+<Slider v-model="value" orientation="vertical" class="h-56" />
+```
+
+## Slider
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | number \| number[] | - | Value of the component. |
+| defaultValue | number \| number[] | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| min | number | 0 | Mininum boundary value. |
+| max | number | 100 | Maximum boundary value. |
+| orientation | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the slider. |
+| step | number | 1 | Step factor to increment/decrement the value. |
+| range | boolean | false | When speficed, allows two boundary values to be picked. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| tabindex | number | - | Index of the element in tabbing order. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Used to define a string that labels the element. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SliderPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Slider
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | number \| number[] | - | Value of the component. |
+| defaultValue | number \| number[] | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| min | number | 0 | Mininum boundary value. |
+| max | number | 100 | Maximum boundary value. |
+| orientation | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the slider. |
+| step | number | 1 | Step factor to increment/decrement the value. |
+| range | boolean | false | When speficed, allows two boundary values to be picked. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| tabindex | number | - | Index of the element in tabbing order. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Used to define a string that labels the element. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SliderPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | SliderPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| range | SliderPassThroughOptionType | Used to pass attributes to the range's DOM element. |
+| handle | SliderPassThroughOptionType | Used to pass attributes to the handle's DOM element. |
+| startHandler | SliderPassThroughOptionType | Used to pass attributes to the start handler's DOM element. |
+| endHandler | SliderPassThroughOptionType | Used to pass attributes to the end handler's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-slider | Class name of the root element |
+| p-slider-range | Class name of the range element |
+| p-slider-handle | Class name of the handle element |
+
+---
+
+# Vue Speed Dial Component
+
+When pressed, a floating action button can display multiple primary actions that can be performed on a page.
+
+## Accessibility
+
+Screen Reader SpeedDial component renders a native button element that implicitly includes any passed prop. Text to describe the button can be defined with the aria-labelledby or aria-label props. Addititonally the button includes includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The popup overlay uses menu role on the list and each action item has a menuitem role with an aria-label as the menuitem label. The id of the menu refers to the aria-controls of the button. Menu Button Keyboard Support Key Function enter Toggles the visibility of the menu. space Toggles the visibility of the menu. down arrow Opens the menu and moves focus to the first item. up arrow Opens the menu and moves focus to the last item. right arrow Opens the menu and moves focus to the last item. left arrow Opens the menu and moves focus to the first item. escape Closes the menu. Menu Keyboard Support Key Function enter Actives the menuitem, closes the menu and sets focus on the menu button. space Actives the menuitem, closes the menu and sets focus on the menu button. escape Closes the menu and sets focus on the menu button. arrow keys Navigates between the menu items. home Moves focus to the first item. end Moves focus to the last item.
+
+**Basic Usage:**
+
+```vue
+<SpeedDial aria-label="Options" />
+```
+
+## Circle
+
+Items can be displayed around the button when type is set to circle . Additional radius property defines the radius of the circle.
+
+**Basic Usage:**
+
+```vue
+<SpeedDial :model="items" :radius="80" type="circle" :style="{ position: 'absolute' }" :buttonProps="{ severity: 'warn', rounded: true }" />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import SpeedDial from 'primevue/speeddial';
+```
+
+## Linear
+
+SpeedDial items are defined with the model property based on MenuModel API. Default orientation of the items is linear and direction property is used to define the position of the items related to the button.
+
+**Basic Usage:**
+
+```vue
+<SpeedDial :model="items" direction="up" style="position: absolute; left: calc(50% - 2rem); bottom: 0" />
+<SpeedDial :model="items" direction="down" style="position: absolute; left: calc(50% - 2rem); top: 0" />
+<SpeedDial :model="items" direction="left" style="position: absolute; top: calc(50% - 2rem); right: 0" />
+<SpeedDial :model="items" direction="right" style="position: absolute; top: calc(50% - 2rem); left: 0" />
+```
+
+## Mask
+
+Adding mask property displays a modal layer behind the popup items.
+
+**Basic Usage:**
+
+```vue
+<SpeedDial :model="items" direction="up" mask :style="{ position: 'absolute', right: '1rem', bottom: '1rem' }" />
+```
+
+## QuarterCircleDoc
+
+Setting type as quarter-circle displays the items at one of four corners of a button based on the direction .
+
+**Basic Usage:**
+
+```vue
+<SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-left" :style="{ position: 'absolute', right: 0, bottom: 0 }" />
+<SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-right" :style="{ position: 'absolute', left: 0, bottom: 0 }" />
+<SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-left" :style="{ position: 'absolute', right: 0, top: 0 }" />
+<SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-right" :style="{ position: 'absolute', left: 0, top: 0 }" />
+```
+
+## SemiCircleDoc
+
+When type is defined as semi-circle , items are displayed in a half-circle around the button.
+
+**Basic Usage:**
+
+```vue
+<SpeedDial :model="items" :radius="80" type="semi-circle" direction="up" style="position: absolute; left: calc(50% - 2rem); bottom: 0" />
+<SpeedDial :model="items" :radius="80" type="semi-circle" direction="down" style="position: absolute; left: calc(50% - 2rem); top: 0" />
+<SpeedDial :model="items" :radius="80" type="semi-circle" direction="left" style="position: absolute; top: calc(50% - 2rem); right: 0" />
+<SpeedDial :model="items" :radius="80" type="semi-circle" direction="right" style="position: absolute; top: calc(50% - 2rem); left: 0" />
+```
+
+## Template
+
+SpeedDial offers item customization with the item template that receives the menuitem instance from the model as a parameter. The button has its own button template, additional slot named icon is provided to embed icon content for default button.
+
+## Tooltip
+
+Items display a tooltip on hover when a standalone Tooltip is present with a target that matches the items.
+
+**Basic Usage:**
+
+```vue
+<SpeedDial :model="items" direction="up" :style="{ position: 'absolute', right: 0, bottom: 0 }" :buttonProps="{ severity: 'help', rounded: true }" :tooltipOptions="{ position: 'left' }" />
+<SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 0, bottom: 0 }" :buttonProps="{ severity: 'danger', rounded: true }" :tooltipOptions="{ position: 'right' }" />
+```
+
+## Speeddial
+
+## Speeddial
+
+---
+
+# Vue SplitButton Component
+
+SplitButton groups a set of commands in an overlay with a default command.
+
+## Accessibility
+
+Screen Reader SplitButton component renders two native button elements, main button uses the label property to define aria-label by default which can be customized with buttonProps . Dropdown button requires an explicit definition to describe it using menuButtonProps option and also includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The popup overlay uses menu role on the list and each action item has a menuitem role with an aria-label as the menuitem label. The id of the menu refers to the aria-controls of the dropdown button. Main Button Keyboard Support Key Function enter Activates the button. space Activates the button. Menu Button Keyboard Support Key Function enter space down arrow up arrow Opens the menu and moves focus to the first item. Menu Keyboard Support Key Function enter If menuitem has a submenu, opens the submenu otherwise activates the menuitem and closes all open overlays. space If menuitem has a submenu, opens the submenu otherwise activates the menuitem and closes all open overlays. escape If focus is inside a popup submenu, closes the submenu and moves focus to the root item of the closed submenu. down arrow Moves focus to the next menuitem within the submenu. up arrow Moves focus to the previous menuitem within the submenu. alt + up arrow Closes the popup, then moves focus to the target element. right arrow In nested mode if option is closed, opens the option otherwise moves focus to the first child option. left arrow In nested mode if option is open, closes the option otherwise moves focus to the parent option. home Moves focus to the first menuitem within the submenu. end Moves focus to the last menuitem within the submenu. any printable character Moves focus to the menuitem whose label starts with the characters being typed.
+
+**Basic Usage:**
+
+```vue
+<SplitButton :buttonProps="{'aria-label': 'Default Action'}" :menuButtonProps="{'aria-label': 'More Options'}" />
+```
+
+## Basic
+
+SplitButton has a default command button and a collection of additional options defined by the model property.
+
+**Basic Usage:**
+
+```vue
+<SplitButton label="Save" @click="save" :model="items" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<SplitButton label="Save" @click="save" :model="items" disabled />
+```
+
+## Icons
+
+The buttons and menuitems have support to display icons.
+
+**Basic Usage:**
+
+```vue
+<SplitButton label="Save" icon="pi pi-check" dropdownIcon="pi pi-cog" @click="save" :model="items" />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import SplitButton from 'primevue/splitbutton';
+```
+
+## Nested
+
+Multi-level menus are supported with a nested menu hierarchy.
+
+**Basic Usage:**
+
+```vue
+<SplitButton label="Save" @click="save" :model="items" />
+```
+
+## Outlined
+
+Outlined buttons display a border without a background initially.
+
+**Basic Usage:**
+
+```vue
+<SplitButton label="Save" :model="items" @click="save" outlined></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" outlined severity="secondary"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" outlined severity="success"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" outlined severity="info"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" outlined severity="warn"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" outlined severity="help"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" outlined severity="danger"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" outlined severity="contrast"></SplitButton>
+```
+
+## Raised
+
+Raised buttons display a shadow to indicate elevation.
+
+**Basic Usage:**
+
+```vue
+<SplitButton label="Save" :model="items" @click="save" raised></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised severity="secondary"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised severity="success"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised severity="info"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised severity="warn"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised severity="help"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised severity="danger"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised severity="contrast"></SplitButton>
+```
+
+## Raised Text
+
+Text buttons can be displayed as raised as well for elevation.
+
+**Basic Usage:**
+
+```vue
+<SplitButton label="Save" :model="items" @click="save" raised text></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised text severity="secondary"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised text severity="success"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised text severity="info"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised text severity="warn"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised text severity="help"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" raised text severity="danger"></SplitButton>
+```
+
+## Rounded
+
+Rounded buttons have a circular border radius.
+
+**Basic Usage:**
+
+```vue
+<SplitButton label="Save" :model="items" @click="save" rounded></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" rounded severity="secondary"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" rounded severity="success"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" rounded severity="info"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" rounded severity="warn"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" rounded severity="help"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" rounded severity="danger"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" rounded severity="contrast"></SplitButton>
+```
+
+## Severity
+
+The severity property defines the variant of a button.
+
+**Basic Usage:**
+
+```vue
+<SplitButton label="Save" :model="items" @click="save"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" severity="secondary"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" severity="success"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" severity="info"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" severity="warn"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" severity="help"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" severity="danger"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" severity="contrast"></SplitButton>
+```
+
+## Sizes
+
+SplitButton provides small and large sizes as alternatives to the standard.
+
+**Basic Usage:**
+
+```vue
+<SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
+<SplitButton label="Save" :model="items" icon="pi pi-plus"></SplitButton>
+<SplitButton label="Save" :model="items" icon="pi pi-plus" size="large"></SplitButton>
+```
+
+## Template
+
+Custom content inside a button is defined as children.
+
+**Basic Usage:**
+
+```vue
+<SplitButton :model="items" @click="save" severity="contrast">
+    <span class="flex items-center font-bold">
+        <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="height: 1rem; margin-right: 0.5rem" />
+        <span>PrimeVue</span>
+    </span>
+</SplitButton>
+```
+
+## Text
+
+Text buttons are displayed as textual elements.
+
+**Basic Usage:**
+
+```vue
+<SplitButton label="Save" :model="items" @click="save" text></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" text severity="secondary"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" text severity="success"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" text severity="info"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" text severity="warn"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" text severity="help"></SplitButton>
+<SplitButton label="Save" :model="items" @click="save" text severity="danger"></SplitButton>
+```
+
+## Splitbutton
+
+## Splitbutton
+
+---
+
+# Vue Splitter Component
+
+Splitter is utilized to separate and resize panels.
+
+## Accessibility
+
+Screen Reader Splitter bar defines separator as the role with aria-orientation set to either horizontal or vertical. Keyboard Support Key Function tab Moves focus through the splitter bar. down arrow Moves a vertical splitter down. up arrow Moves a vertical splitter up. left arrow Moves a horizontal splitter to the left. right arrow Moves a horizontal splitter to the right.
+
+## Horizontal
+
+Splitter requires two SplitterPanel components as children which are displayed horizontally by default.
+
+**Basic Usage:**
+
+```vue
+<Splitter style="height: 300px">
+    <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
+    <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
+</Splitter>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Splitter style="height: 300px">
+            <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
+        </Splitter>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Splitter from 'primevue/splitter';
+import SplitterPanel from 'primevue/splitterpanel';
+```
+
+## Nested
+
+Splitters can be combined to create advanced layouts.
+
+**Basic Usage:**
+
+```vue
+<Splitter style="height: 300px">
+    <SplitterPanel class="flex items-center justify-center" :size="20" :minSize="10"> Panel 1 </SplitterPanel>
+    <SplitterPanel :size="80">
+        <Splitter layout="vertical">
+            <SplitterPanel class="flex items-center justify-center" :size="15"> Panel 2 </SplitterPanel>
+            <SplitterPanel :size="85">
+                <Splitter>
+                    <SplitterPanel class="flex items-center justify-center" :size="20"> Panel 3 </SplitterPanel>
+                    <SplitterPanel class="flex items-center justify-center" :size="80"> Panel 4 </SplitterPanel>
+                </Splitter>
+            </SplitterPanel>
+        </Splitter>
+    </SplitterPanel>
+</Splitter>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Splitter style="height: 300px">
+            <SplitterPanel class="flex items-center justify-center" :size="20" :minSize="10"> Panel 1 </SplitterPanel>
+            <SplitterPanel :size="80">
+                <Splitter layout="vertical">
+                    <SplitterPanel class="flex items-center justify-center" :size="15"> Panel 2 </SplitterPanel>
+                    <SplitterPanel :size="85">
+                        <Splitter>
+                            <SplitterPanel class="flex items-center justify-center" :size="20"> Panel 3 </SplitterPanel>
+                            <SplitterPanel class="flex items-center justify-center" :size="80"> Panel 4 </SplitterPanel>
+                        </Splitter>
+                    </SplitterPanel>
+                </Splitter>
+            </SplitterPanel>
+        </Splitter>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Size
+
+Initial dimension of a panel is percentage based and defined using the size property. In addition, minSize is provided to set a minimum value during a resize.
+
+**Basic Usage:**
+
+```vue
+<Splitter style="height: 300px">
+    <SplitterPanel class="flex items-center justify-center" :size="25" :minSize="10"> Panel 1 </SplitterPanel>
+    <SplitterPanel class="flex items-center justify-center" :size="75"> Panel 2 </SplitterPanel>
+</Splitter>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Splitter style="height: 300px">
+            <SplitterPanel class="flex items-center justify-center" :size="25" :minSize="10"> Panel 1 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center" :size="75"> Panel 2 </SplitterPanel>
+        </Splitter>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Vertical
+
+Panels are displayed as stacked by setting the layout to vertical .
+
+**Basic Usage:**
+
+```vue
+<Splitter style="height: 300px" layout="vertical">
+    <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
+    <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
+</Splitter>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Splitter style="height: 300px" layout="vertical">
+            <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
+        </Splitter>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Splitter
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the panels. |
+| gutterSize | number | 4 | Size of the divider in pixels. |
+| stateKey | string | - | Storage identifier of a stateful Splitter. |
+| stateStorage | HintedString<"session" \| "local"> | session | Defines where a stateful splitter keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage. |
+| step | number | 5 | Step factor to increment/decrement the size of the panels while pressing the arrow keys. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SplitterPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Splitter
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the panels. |
+| gutterSize | number | 4 | Size of the divider in pixels. |
+| stateKey | string | - | Storage identifier of a stateful Splitter. |
+| stateStorage | HintedString<"session" \| "local"> | session | Defines where a stateful splitter keeps its state, valid values are 'session' for sessionStorage and 'local' for localStorage. |
+| step | number | 5 | Step factor to increment/decrement the size of the panels while pressing the arrow keys. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SplitterPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Splitterpanel
+
+## Splitterpanel
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | SplitterPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| gutter | SplitterPassThroughOptionType | Used to pass attributes to the gutter's DOM element. |
+| gutterHandle | SplitterPassThroughOptionType | Used to pass attributes to the gutter handle's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-splitter | Class name of the root element |
+| p-splitter-gutter | Class name of the gutter element |
+| p-splitter-gutter-handle | Class name of the gutter handle element |
+
+---
+
+# Vue Stepper Component
+
+The Stepper component displays a wizard-like workflow by guiding users through the multi-step progression.
+
+## Accessibility
+
+Screen Reader Stepper container is defined with the tablist role, as any attribute is passed to the container element aria-labelledby can be optionally used to specify an element to describe the Stepper. Each stepper header has a tab role and aria-controls to refer to the corresponding stepper content element. The content element of each stepper has tabpanel role, an id to match the aria-controls of the header and aria-labelledby reference to the header as the accessible name. Tab Header Keyboard Support Key Function tab Moves focus through the header. enter Activates the focused stepper header. space Activates the focused stepper header.
+
+## Horizontal
+
+Stepper consists of a combination of StepList , Step , StepPanels and StepPanel components. The value property is essential for associating Step and StepPanel with each other.
+
+**Basic Usage:**
+
+```vue
+<Stepper value="1">
+    <StepList>
+        <Step value="1">Header I</Step>
+        <Step value="2">Header II</Step>
+        <Step value="3">Header III</Step>
+    </StepList>
+    <StepPanels>
+        <StepPanel v-slot="{ activateCallback }" value="1">
+            <div class="flex flex-col h-48">
+                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
+            </div>
+            <div class="flex pt-6 justify-end">
+                <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('2')" />
+            </div>
+        </StepPanel>
+        <StepPanel v-slot="{ activateCallback }" value="2">
+            <div class="flex flex-col h-48">
+                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+            </div>
+            <div class="flex pt-6 justify-between">
+                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('1')" />
+                <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('3')" />
+            </div>
+        </StepPanel>
+        <StepPanel v-slot="{ activateCallback }" value="3">
+            <div class="flex flex-col h-48">
+                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
+            </div>
+            <div class="pt-6">
+                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('2')" />
+            </div>
+        </StepPanel>
+    </StepPanels>
+</Stepper>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Stepper value="1" class="basis-[50rem]">
+            <StepList>
+                <Step value="1">Header I</Step>
+                <Step value="2">Header II</Step>
+                <Step value="3">Header III</Step>
+            </StepList>
+            <StepPanels>
+                <StepPanel v-slot="{ activateCallback }" value="1">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
+                    </div>
+                    <div class="flex pt-6 justify-end">
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('2')" />
+                    </div>
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" value="2">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                    </div>
+                    <div class="flex pt-6 justify-between">
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('1')" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('3')" />
+                    </div>
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" value="3">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
+                    </div>
+                    <div class="pt-6">
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('2')" />
+                    </div>
+                </StepPanel>
+            </StepPanels>
+        </Stepper>
+    </div>
+</template>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Stepper from 'primevue/stepper';
+import StepList from 'primevue/steplist';
+import StepPanels from 'primevue/steppanels';
+import StepItem from 'primevue/stepitem';
+import Step from 'primevue/step';
+import StepPanel from 'primevue/steppanel';
+```
+
+## Linear
+
+When linear property is present, current step must be completed in order to move to the next step.
+
+**Basic Usage:**
+
+```vue
+<Stepper value="1" linear>
+    <StepList>
+        <Step value="1">Header I</Step>
+        <Step value="2">Header II</Step>
+        <Step value="3">Header III</Step>
+    </StepList>
+    <StepPanels>
+        <StepPanel v-slot="{ activateCallback }" value="1">
+            <div class="flex flex-col h-48">
+                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
+            </div>
+            <div class="flex pt-6 justify-end">
+                <Button label="Next" icon="pi pi-arrow-right" @click="activateCallback('2')" />
+            </div>
+        </StepPanel>
+        <StepPanel v-slot="{ activateCallback }" value="2">
+            <div class="flex flex-col h-48">
+                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+            </div>
+            <div class="flex pt-6 justify-between">
+                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('1')" />
+                <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('3')" />
+            </div>
+        </StepPanel>
+        <StepPanel v-slot="{ activateCallback }" value="3">
+            <div class="flex flex-col h-48">
+                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
+            </div>
+            <div class="pt-6">
+                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('2')" />
+            </div>
+        </StepPanel>
+    </StepPanels>
+</Stepper>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Stepper value="1" linear class="basis-[50rem]">
+            <StepList>
+                <Step value="1">Header I</Step>
+                <Step value="2">Header II</Step>
+                <Step value="3">Header III</Step>
+            </StepList>
+            <StepPanels>
+                <StepPanel v-slot="{ activateCallback }" value="1">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
+                    </div>
+                    <div class="flex pt-6 justify-end">
+                        <Button label="Next" icon="pi pi-arrow-right" @click="activateCallback('2')" />
+                    </div>
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" value="2">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                    </div>
+                    <div class="flex pt-6 justify-between">
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('1')" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('3')" />
+                    </div>
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" value="3">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
+                    </div>
+                    <div class="pt-6">
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('2')" />
+                    </div>
+                </StepPanel>
+            </StepPanels>
+        </Stepper>
+    </div>
+</template>
+```
+</details>
+
+## Steps Only
+
+Use Stepper with a StepList only for custom requirements where a progress indicator is needed.
+
+**Basic Usage:**
+
+```vue
+<Stepper value="1" class="basis-[50rem]">
+    <StepList>
+        <Step value="1">Design</Step>
+        <Step value="2">Development</Step>
+        <Step value="3">QA</Step>
+    </StepList>
+</Stepper>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Stepper value="1" class="basis-[50rem]">
+            <StepList>
+                <Step value="1">Design</Step>
+                <Step value="2">Development</Step>
+                <Step value="3">QA</Step>
+            </StepList>
+        </Stepper>
+    </div>
+</template>
+```
+</details>
+
+## Template
+
+Custom content for a step is defined with the default slot. The optional as property controls the default container element of a step, for example setting it to a button renders a button for the header instead of a div. The asChild option enables the headless mode for further customization by passing callbacks and properties to implement your own step.
+
+**Basic Usage:**
+
+```vue
+<Stepper v-model:value="activeStep" class="basis-[40rem]">
+    <StepList>
+        <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="1">
+            <div class="flex flex-row flex-auto gap-2" v-bind="a11yAttrs.root">
+                <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                    <span
+                        :class="[
+                            'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                            { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                        ]"
+                    >
+                        <i class="pi pi-user" />
+                    </span>
+                </button>
+                <Divider />
+            </div>
+        </Step>
+        <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="2">
+            <div class="flex flex-row flex-auto gap-2 pl-2" v-bind="a11yAttrs.root">
+                <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                    <span
+                        :class="[
+                            'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                            { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                        ]"
+                    >
+                        <i class="pi pi-star" />
+                    </span>
+                </button>
+                <Divider />
+            </div>
+        </Step>
+        <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="3">
+            <div class="flex flex-row pl-2" v-bind="a11yAttrs.root">
+                <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                    <span
+                        :class="[
+                            'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                            { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                        ]"
+                    >
+                        <i class="pi pi-id-card" />
+                    </span>
+                </button>
+            </div>
+        </Step>
+    </StepList>
+    <StepPanels>
+        <StepPanel v-slot="{ activateCallback }" :value="1">
+            <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
+                <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
+                <div class="field">
+                    <InputText id="input" v-model="name" type="text" placeholder="Name" fluid />
+                </div>
+                <div class="field">
+                    <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
+                </div>
+                <div class="field">
+                    <Password v-model="password" placeholder="Password" fluid />
+                </div>
+            </div>
+            <div class="flex pt-6 justify-end">
+                <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(2)" />
+            </div>
+        </StepPanel>
+        <StepPanel v-slot="{ activateCallback }" :value="2">
+            <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                <div class="text-center mt-4 mb-4 text-xl font-semibold">Choose your interests</div>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <ToggleButton v-model="option1" onLabel="Nature" offLabel="Nature" />
+                    <ToggleButton v-model="option2" onLabel="Art" offLabel="Art" />
+                    <ToggleButton v-model="option3" onLabel="Music" offLabel="Music" />
+                    <ToggleButton v-model="option4" onLabel="Design" offLabel="Design" />
+                    <ToggleButton v-model="option5" onLabel="Photography" offLabel="Photography" />
+                    <ToggleButton v-model="option6" onLabel="Movies" offLabel="Movies" />
+                    <ToggleButton v-model="option7" onLabel="Sports" offLabel="Sports" />
+                    <ToggleButton v-model="option8" onLabel="Gaming" offLabel="Gaming" />
+                    <ToggleButton v-model="option9" onLabel="Traveling" offLabel="Traveling" />
+                    <ToggleButton v-model="option10" onLabel="Dancing" offLabel="Dancing" />
+                </div>
+            </div>
+            <div class="flex pt-6 justify-between">
+                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback(1)" />
+                <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(3)" />
+            </div>
+        </StepPanel>
+        <StepPanel v-slot="{ activateCallback }" :value="3">
+            <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                <div class="text-center mt-4 mb-4 text-xl font-semibold">Account created successfully</div>
+                <div class="flex justify-center">
+                    <img alt="logo" src="https://primefaces.org/cdn/primevue/images/stepper/content.svg" />
+                </div>
+            </div>
+            <div class="flex pt-6 justify-start">
+                <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback(2)" />
+            </div>
+        </StepPanel>
+    </StepPanels>
+</Stepper>
+```
+
+## Vertical
+
+Vertical layout requires StepItem as a wrapper of Step and StepPanel components.
+
+**Basic Usage:**
+
+```vue
+<Stepper value="1">
+    <StepItem value="1">
+        <Step>Header I</Step>
+        <StepPanel v-slot="{ activateCallback }">
+            <div class="flex flex-col h-48">
+                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
+            </div>
+             <div class="py-6">
+                <Button label="Next" @click="activateCallback('2')" />
+            </div>
+        </StepPanel>
+    </StepItem>
+    <StepItem value="2">
+        <Step>Header II</Step>
+        <StepPanel v-slot="{ activateCallback }">
+            <div class="flex flex-col h-48">
+                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+            </div>
+            <div class="flex py-6 gap-2">
+                <Button label="Back" severity="secondary" @click="activateCallback('1')" />
+                <Button label="Next" @click="activateCallback('3')" />
+            </div>
+        </StepPanel>
+    </StepItem>
+    <StepItem value="3">
+        <Step>Header III</Step>
+        <StepPanel v-slot="{ activateCallback }">
+            <div class="flex flex-col h-48">
+                <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
+            </div>
+             <div class="py-6">
+                <Button label="Back" severity="secondary" @click="activateCallback('2')" />
+            </div>
+        </StepPanel>
+    </StepItem>
+</Stepper>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Stepper value="1">
+            <StepItem value="1">
+                <Step>Header I</Step>
+                <StepPanel v-slot="{ activateCallback }">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
+                    </div>
+                    <div class="py-6">
+                        <Button label="Next" @click="activateCallback('2')" />
+                    </div>
+                </StepPanel>
+            </StepItem>
+            <StepItem value="2">
+                <Step>Header II</Step>
+                <StepPanel v-slot="{ activateCallback }">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                    </div>
+                    <div class="flex py-6 gap-2">
+                        <Button label="Back" severity="secondary" @click="activateCallback('1')" />
+                        <Button label="Next" @click="activateCallback('3')" />
+                    </div>
+                </StepPanel>
+            </StepItem>
+            <StepItem value="3">
+                <Step>Header III</Step>
+                <StepPanel v-slot="{ activateCallback }">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
+                    </div>
+                    <div class="py-6">
+                        <Button label="Back" severity="secondary" @click="activateCallback('2')" />
+                    </div>
+                </StepPanel>
+            </StepItem>
+        </Stepper>
+    </div>
+</template>
+```
+</details>
+
+## Stepper
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | string \| number | null | Active value of stepper. |
+| linear | boolean | false | Whether the steps are clickable or not. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<StepperPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Stepper
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | string \| number | null | Active value of stepper. |
+| linear | boolean | false | Whether the steps are clickable or not. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<StepperPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | StepperPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| separator | StepperPassThroughOptionType | Used to pass attributes to the separator's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-stepper | Class name of the root element |
+| p-stepper-separator | Class name of the separator element |
+
+---
+
+# Vue StyleClass Directive
+
+StyleClass manages css classes declaratively to during enter/leave animations or just to toggle classes on an element.
+
+## Animation
+
+Classes to apply during enter and leave animations are specified using the enterFromClass , enterActiveClass , enterToClass , leaveFromClass , leaveActiveClass , leaveToClass properties. In addition in case the target is an overlay, hideOnOutsideClick would be handy to hide the target if outside of the popup is clicked. First example uses a custom fade animation, and second one uses animate-slide from tailwind-primeui plugin.
+
+**Basic Usage:**
+
+```vue
+<div class="card flex items-center justify-center gap-8">
+    <div class="flex flex-col items-center">
+        <div>
+            <Button v-styleclass="{ selector: '.box1', enterFromClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="FadeIn" class="mr-2" />
+            <Button v-styleclass="{ selector: '.box1', leaveActiveClass: 'my-fadeout', leaveToClass: 'my-hidden' }" label="FadeOut" severity="secondary" />
+        </div>
+        <div class="h-32">
+            <div class="my-hidden animate-duration-500 box1">
+                <div class="flex bg-primary text-primary-contrast items-center justify-center py-4 rounded-md mt-4 font-bold w-32 h-32">Custom</div>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col items-center">
+        <div>
+            <Button v-styleclass="{ selector: '.box2', enterFromClass: 'hidden', enterActiveClass: 'animate-slidedown' }" label="SlideDown" class="mr-2" />
+            <Button v-styleclass="{ selector: '.box2', leaveActiveClass: 'animate-slideup', leaveToClass: 'hidden' }" label="SlideUp" severity="secondary" />
+        </div>
+        <div class="h-32">
+            <div class="hidden animate-duration-500 box2 overflow-hidden">
+                <div class="flex bg-primary text-primary-contrast items-center justify-center py-4 rounded-md mt-4 font-bold w-32 h-32">Content</div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+## HideOnResizeDoc
+
+When hideOnResize is enabled, the leave animation is triggered automatically when resizing occurs. Use the resizeSelector property to specify whether to listen to window resize events or element-specific resize events. Set resizeSelector to "window" (default) or "document" for browser resize, or a CSS selector to observe the target element's dimensions.
+
+**Basic Usage:**
+
+```vue
+<Button
+    v-styleclass="{ selector: '.box', hideOnResize: true, enterFromClass: 'hidden', enterActiveClass: 'animate-fadein', leaveActiveClass: 'animate-fadeout', leaveToClass: 'hidden' }"
+    label="Show Window Responsive Content"
+/>
+<div class="box hidden animate-duration-300 border border-lg border-surface">
+    <div class="p-4 flex flex-col gap-2">
+        <h3 class="text-xl font-bold">Window Responsive Panel</h3>
+        <p class="text-sm">This panel will hide when you resize the browser window.</p>
+        <p class="text-sm">Try resizing your browser window to see the effect.</p>
+    </div>
+</div>
+
+<Button
+    v-styleclass="{
+        selector: '.resizable',
+        resizeSelector: '.resizable',
+        hideOnResize: true,
+        enterFromClass: 'hidden',
+        enterActiveClass: 'animate-fadein',
+        leaveActiveClass: 'animate-fadeout',
+        leaveToClass: 'hidden'
+    }"
+    label="Show Resizable Panel"
+/>
+<div class="resizable hidden animate-duration-300 border border-lg border-surface w-[20rem] w-max-[25rem] w-min-[15rem] overflow-auto resize">
+    <div class="p-4 h-full flex flex-col gap-2">
+        <h3 class="text-xl font-bold">Resizable Panel</h3>
+        <p class="text-sm">Drag the resize handle in the bottom-right corner to resize this panel.</p>
+        <p class="text-sm">The panel will hide when you resize it.</p>
+    </div>
+</div>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex justify-center">
+            <div class="flex flex-col items-center gap-4 w-[25rem]">
+                <Button
+                    v-styleclass="{ selector: '.box', hideOnResize: true, enterFromClass: 'hidden', enterActiveClass: 'animate-fadein', leaveActiveClass: 'animate-fadeout', leaveToClass: 'hidden' }"
+                    label="Show Window Responsive Content"
+                />
+                <div class="box hidden animate-duration-300 border border-lg border-surface">
+                    <div class="p-4 flex flex-col gap-2">
+                        <h3 class="text-xl font-bold">Window Responsive Panel</h3>
+                        <p class="text-sm">This panel will hide when you resize the browser window.</p>
+                        <p class="text-sm">Try resizing your browser window to see the effect.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center gap-4 w-[25rem]">
+                <Button
+                    v-styleclass="{
+                        selector: '.resizable',
+                        resizeSelector: '.resizable',
+                        hideOnResize: true,
+                        enterFromClass: 'hidden',
+                        enterActiveClass: 'animate-fadein',
+                        leaveActiveClass: 'animate-fadeout',
+                        leaveToClass: 'hidden'
+                    }"
+                    label="Show Resizable Panel"
+                />
+                <div class="resizable hidden animate-duration-300 border border-lg border-surface w-[20rem] w-max-[25rem] w-min-[15rem] overflow-auto resize">
+                    <div class="p-4 h-full flex flex-col gap-2">
+                        <h3 class="text-xl font-bold">Resizable Panel</h3>
+                        <p class="text-sm">Drag the resize handle in the bottom-right corner to resize this panel.</p>
+                        <p class="text-sm">The panel will hide when you resize it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import StyleClass from 'primevue/styleclass';
+
+app.directive('styleclass', StyleClass);
+```
+
+## ToggleClassDoc
+
+StyleClass has two modes, toggleClass to simply add-remove a class and enter/leave animations.
+
+**Basic Usage:**
+
+```vue
+<Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle p-disabled" />
+<InputText />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle .p-disabled" />
+        <InputText />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Styleclass
+
+## Styleclass
+
+---
+
+# Vue Tabs Component
+
+Tabs facilitates seamless switching between different views.
+
+## Accessibility
+
+Screen Reader The tabs container in TabList is defined with the tablist role, as any attribute is passed to the container element aria-labelledby can be optionally used to specify an element to describe the Tabs. Each Tab has a tab role along with aria-selected state attribute and aria-controls to refer to the corresponding TabPanel. TabPanel has tabpanel role, an id to match the aria-controls of Tab and aria-labelledby reference to Tab as the accessible name. Tab Keyboard Support Key Function tab Moves focus through the header. enter Activates the focused tab header. space Activates the focused tab header. right arrow Moves focus to the next header. If focus is on the last header, moves focus to the first header. left arrow Moves focus to the previous header. If focus is on the first header, moves focus to the last header. home Moves focus to the last header. end Moves focus to the first header. pageUp Moves scroll position to first header. pageDown Moves scroll position to last header.
+
+## Basic
+
+Tabs is defined using TabList , Tab , TabPanels and TabPanel components. Tab and TabPanel components are associated with their value properties.
+
+**Basic Usage:**
+
+```vue
+<Tabs value="0">
+    <TabList>
+        <Tab value="0">Header I</Tab>
+        <Tab value="1">Header II</Tab>
+        <Tab value="2">Header III</Tab>
+    </TabList>
+    <TabPanels>
+        <TabPanel value="0">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </TabPanel>
+        <TabPanel value="1">
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+            </p>
+        </TabPanel>
+        <TabPanel value="2">
+            <p class="m-0">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+            </p>
+        </TabPanel>
+    </TabPanels>
+</Tabs>
+```
+
+## Controlled
+
+Tabs can be controlled programmatically using value property as a model.
+
+**Basic Usage:**
+
+```vue
+<div class="flex mb-2 gap-2 justify-end">
+    <Button @click="value = '0'" rounded label="1" class="w-8 h-8 p-0" :outlined="value !== '0'" />
+    <Button @click="value = '1'" rounded label="2" class="w-8 h-8 p-0" :outlined="value !== '1'" />
+    <Button @click="value = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="value !== '2'" />
+</div>
+
+<Tabs v-model:value="value">
+    <TabList>
+        <Tab value="0">Header I</Tab>
+        <Tab value="1">Header II</Tab>
+        <Tab value="2">Header III</Tab>
+    </TabList>
+    <TabPanels>
+        <TabPanel value="0">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </TabPanel>
+        <TabPanel value="1">
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+            </p>
+        </TabPanel>
+        <TabPanel value="2">
+            <p class="m-0">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+            </p>
+        </TabPanel>
+    </TabPanels>
+</Tabs>
+```
+
+## Disabled
+
+Enabling disabled property of a Tab prevents user interaction.
+
+**Basic Usage:**
+
+```vue
+<Tabs value="0">
+    <TabList>
+        <Tab value="0">Header I</Tab>
+        <Tab value="1">Header II</Tab>
+        <Tab value="2">Header III</Tab>
+        <Tab disabled>Header IV</Tab>
+    </TabList>
+    <TabPanels>
+        <TabPanel value="0">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </TabPanel>
+        <TabPanel value="1">
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+            </p>
+        </TabPanel>
+        <TabPanel value="2">
+            <p class="m-0">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+            </p>
+        </TabPanel>
+    </TabPanels>
+</Tabs>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Tabs value="0">
+            <TabList>
+                <Tab value="0">Header I</Tab>
+                <Tab value="1">Header II</Tab>
+                <Tab value="2">Header III</Tab>
+                <Tab disabled>Header IV</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel value="0">
+                    <p class="m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </TabPanel>
+                <TabPanel value="1">
+                    <p class="m-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                    </p>
+                </TabPanel>
+                <TabPanel value="2">
+                    <p class="m-0">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                    </p>
+                </TabPanel>
+            </TabPanels>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Dynamic
+
+Tabs can be generated dynamically using the standard v-for directive on Tab and TabPanel.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Tabs from 'primevue/tabs';
+import TabList from 'primevue/tablist';
+import Tab from 'primevue/tab';
+import TabPanels from 'primevue/tabpanels';
+import TabPanel from 'primevue/tabpanel';
+```
+
+## Scrollable
+
+Adding scrollable property displays navigational buttons at each side to scroll between tabs.
+
+## Tab Menu
+
+A navigation menu is implemented using tabs without the panels where the content of a tab is provided by a route component like router-view . For the purpose of this demo, router-view is not included.
+
+## Template
+
+Custom content for a tab is defined with the default slot. The optional as property controls the default container element of a tab, for example setting it to a div renders a div for the header instead of a button. The asChild option enables the headless mode for further customization by passing callbacks and properties to implement your own tab header.
+
+**Basic Usage:**
+
+```vue
+<Tabs value="0">
+    <TabList>
+        <Tab value="0" as="div" class="flex items-center gap-2">
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+            <span class="font-bold whitespace-nowrap">Amy Elsner</span>
+        </Tab>
+        <Tab value="1" as="div" class="flex items-center gap-2">
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+            <span class="font-bold whitespace-nowrap">Onyama Limba</span>
+        </Tab>
+        <Tab v-slot="slotProps" value="2" asChild>
+            <div :class="['flex items-center gap-2', slotProps.class]" @click="slotProps.onClick" v-bind="slotProps.a11yAttrs">
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                <span class="font-bold whitespace-nowrap">Ioni Bowcher</span>
+                <Badge value="2" />
+            </div>
+        </Tab>
+    </TabList>
+    <TabPanels>
+        <TabPanel value="0" as="p" class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </TabPanel>
+        <TabPanel value="1" as="p" class="m-0">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+            ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+        </TabPanel>
+        <TabPanel v-slot="slotProps" value="2" asChild>
+            <div v-show="slotProps.active" :class="slotProps.class" v-bind="slotProps.a11yAttrs">
+                <p class="m-0">
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+                    culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                </p>
+            </div>
+        </TabPanel>
+    </TabPanels>
+</Tabs>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Tabs value="0">
+            <TabList>
+                <Tab value="0" as="div" class="flex items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold whitespace-nowrap">Amy Elsner</span>
+                </Tab>
+                <Tab value="1" as="div" class="flex items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                    <span class="font-bold whitespace-nowrap">Onyama Limba</span>
+                </Tab>
+                <Tab v-slot="slotProps" value="2" asChild>
+                    <div :class="['flex items-center gap-2', slotProps.class]" @click="slotProps.onClick" v-bind="slotProps.a11yAttrs">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                        <span class="font-bold whitespace-nowrap">Ioni Bowcher</span>
+                        <Badge value="2" />
+                    </div>
+                </Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel value="0" as="p" class="m-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </TabPanel>
+                <TabPanel value="1" as="p" class="m-0">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                    ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                </TabPanel>
+                <TabPanel v-slot="slotProps" value="2" asChild>
+                    <div v-show="slotProps.active" :class="slotProps.class" v-bind="slotProps.a11yAttrs">
+                        <p class="m-0">
+                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+                            culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                        </p>
+                    </div>
+                </TabPanel>
+            </TabPanels>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Tabs
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | string \| number | - | Value of the active tab. |
+| lazy | boolean | false | When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css. |
+| scrollable | boolean | false | When specified, enables horizontal and/or vertical scrolling. |
+| showNavigators | boolean | true | Whether to display navigation buttons in container when scrollable is enabled. |
+| tabindex | number | 0 | Index of the element in tabbing order. |
+| selectOnFocus | boolean | false | When enabled, the focused tab is activated. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TabsPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Tab
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | string \| number | - | Value of tab. |
+| disabled | boolean | false | Whether the tab is disabled. |
+| as | string \| Component | BUTTON | Use to change the HTML tag of root element. |
+| asChild | boolean | false | When enabled, it changes the default rendered element for the one passed as a child element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TabPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+
+## Tabs
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | string \| number | - | Value of the active tab. |
+| lazy | boolean | false | When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css. |
+| scrollable | boolean | false | When specified, enables horizontal and/or vertical scrolling. |
+| showNavigators | boolean | true | Whether to display navigation buttons in container when scrollable is enabled. |
+| tabindex | number | 0 | Index of the element in tabbing order. |
+| selectOnFocus | boolean | false | When enabled, the focused tab is activated. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TabsPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | TabsPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-tabs | Class name of the root element |
+
+---
+
+# Vue Tag Component
+
+Tag component is used to categorize content.
+
+## Accessibility
+
+Screen Reader Tag does not include any roles and attributes by default, any attribute is passed to the root element so aria roles and attributes can be added if required. If the tags are dynamic, aria-live may be utilized as well. In case badges need to be tabbable, tabindex can be added to implement custom key handlers. Keyboard Support Component does not include any interactive elements.
+
+## Basic
+
+Label of the tag is defined with the value property.
+
+**Basic Usage:**
+
+```vue
+<Tag value="New"></Tag>
+```
+
+## IconDoc
+
+A font icon next to the value can be displayed with the icon property.
+
+**Basic Usage:**
+
+```vue
+<Tag icon="pi pi-user" value="Primary"></Tag>
+<Tag icon="pi pi-search" severity="secondary" value="Secondary"></Tag>
+<Tag icon="pi pi-check" severity="success" value="Success"></Tag>
+<Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
+<Tag icon="pi pi-exclamation-triangle" severity="warn" value="Warn"></Tag>
+<Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
+<Tag icon="pi pi-cog" severity="contrast" value="Contrast"></Tag>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-2">
+        <Tag icon="pi pi-user" value="Primary"></Tag>
+        <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
+        <Tag icon="pi pi-search" severity="secondary" value="Secondary"></Tag>
+        <Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
+        <Tag icon="pi pi-exclamation-triangle" severity="warn" value="Warn"></Tag>
+        <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
+        <Tag icon="pi pi-cog" severity="contrast" value="Contrast"></Tag>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Tag from 'primevue/tag';
+```
+
+## Pill
+
+Enabling rounded , displays a tag as a pill.
+
+**Basic Usage:**
+
+```vue
+<Tag value="Primary" rounded></Tag>
+<Tag severity="secondary" value="Secondary" rounded></Tag>
+<Tag severity="success" value="Success" rounded></Tag>
+<Tag severity="info" value="Info" rounded></Tag>
+<Tag severity="warn" value="Warn" rounded></Tag>
+<Tag severity="danger" value="Danger" rounded></Tag>
+<Tag severity="contrast" value="Contrast" rounded></Tag>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-2">
+        <Tag value="Primary" rounded></Tag>
+        <Tag severity="success" value="Success" rounded></Tag>
+        <Tag severity="secondary" value="Secondary" rounded></Tag>
+        <Tag severity="info" value="Info" rounded></Tag>
+        <Tag severity="warn" value="Warn" rounded></Tag>
+        <Tag severity="danger" value="Danger" rounded></Tag>
+        <Tag severity="contrast" value="Contrast" rounded></Tag>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Severity
+
+Severity defines the variant of a tag.
+
+**Basic Usage:**
+
+```vue
+<Tag value="Primary"></Tag>
+<Tag severity="secondary" value="Secondary"></Tag>
+<Tag severity="success" value="Success"></Tag>
+<Tag severity="info" value="Info"></Tag>
+<Tag severity="warn" value="Warn"></Tag>
+<Tag severity="danger" value="Danger"></Tag>
+<Tag severity="contrast" value="Contrast"></Tag>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="flex flex-wrap justify-center gap-2">
+        <Tag value="Primary"></Tag>
+        <Tag severity="secondary" value="Secondary"></Tag>
+        <Tag severity="success" value="Success"></Tag>
+        <Tag severity="info" value="Info"></Tag>
+        <Tag severity="warn" value="Warn"></Tag>
+        <Tag severity="danger" value="Danger"></Tag>
+        <Tag severity="contrast" value="Contrast"></Tag>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Template
+
+Children of the component are passed as the content for templating.
+
+**Basic Usage:**
+
+```vue
+<Tag style="border: 2px solid var(--border-color); background: transparent; color: var(--text-color)">
+    <div class="flex items-center gap-2 px-1">
+        <img alt="Country" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
+        <span class="text-base">Italy</span>
+    </div>
+</Tag>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Tag style="border: 2px solid var(--border-color); background: transparent; color: var(--text-color)">
+            <div class="flex items-center gap-2 px-1">
+                <img alt="Country" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
+                <span class="text-base">Italy</span>
+            </div>
+        </Tag>
+    </div>    
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Tag
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | any | - | Value to display inside the tag. |
+| severity | HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast"> | - | Severity type of the tag. |
+| rounded | boolean | false | Whether the corners of the tag are rounded. |
+| icon | string | - | Icon of the tag to display next to the value. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TagPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Tag
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | any | - | Value to display inside the tag. |
+| severity | HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast"> | - | Severity type of the tag. |
+| rounded | boolean | false | Whether the corners of the tag are rounded. |
+| icon | string | - | Icon of the tag to display next to the value. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TagPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | TagPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| icon | TagPassThroughOptionType | Used to pass attributes to the icon's DOM element. |
+| label | TagPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-tag | Class name of the root element |
+| p-tag-icon | Class name of the icon element |
+| p-tag-label | Class name of the label element |
+
+---
+
+# tailwind
+
+
+
+## AnimationsDoc
+
+The plugin also adds extended animation utilities that can be used with the styleclass and animateonscroll directives. Enter and Leave In addition to the prebuilt animations, you may also build your own declaratively using the animate-enter and animate-leave along with the opacity, rotate, scale and translate parameters. These animations work perfectly with the AnimateOnScroll directive, visit this directive for various examples. Animations Class Property animate-enter animation-name: enter; --p-enter-opacity: initial; --p-enter-scale: initial; --p-enter-rotate: initial; --p-enter-translate-x: initial; --p-enter-translate-y: initial; animate-leave animation-name: leave; --p-leave-opacity: initial; --p-leave-scale: initial; --p-leave-rotate: initial; --p-leave-translate-x: initial; --p-leave-translate-y: initial; animate-leave fadein 0.15s linear animate-fadein fadein 0.15s linear animate-fadeout fadeout 0.15s linear animate-slidedown slidedown 0.45s ease-in-out animate-slideup slideup 0.45s cubic-bezier(0, 1, 0, 1) animate-scalein scalein 0.15s linear animate-fadeinleft fadeinleft 0.15s linear animate-fadeoutleft fadeoutleft 0.15s linear animate-fadeinright fadeinright 0.15s linear animate-fadeoutright fadeoutright 0.15s linear animate-fadeinup fadeinup 0.15s linear animate-fadeoutup fadeoutup 0.15s linear animate-fadeindown fadeindown 0.15s linear animate-fadeoutup fadeoutup 0.15s linear animate-width width 0.15s linear animate-flip flip 0.15s linear animate-flipup flipup 0.15s linear animate-flipleft fadein 0.15s linear animate-flipright flipright 0.15s linear animate-zoomin zoomin 0.15s linear animate-zoomindown zoomindown 0.15s linear animate-zoominleft zoominleft 0.15s linear animate-zoominright zoominright 0.15s linear animate-zoominup zoominup 0.15s linear Animation Duration Class Property animate-duration-0 animation-duration: 0s animate-duration-75 animation-duration: 75ms animate-duration-100 animation-duration: 100ms animate-duration-200 animation-duration: 200ms animate-duration-300 animation-duration: 300ms animate-duration-400 animation-duration: 400ms animate-duration-500 animation-duration: 500ms animate-duration-700 animation-duration: 700ms animate-duration-1000 animation-duration: 1000ms animate-duration-2000 animation-duration: 2000ms animate-duration-3000 animation-duration: 300ms animate-duration-[value] animation-duration: value Animation Delay Class Property animate-delay-none animation-duration: 0s animate-delay-75 animation-delay: 75ms animate-delay-100 animation-delay: 100ms animate-delay-150 animation-delay: 150ms animate-delay-200 animation-delay: 200ms animate-delay-300 animation-delay: 300ms animate-delay-400 animation-delay: 400ms animate-delay-500 animation-delay: 500ms animate-delay-700 animation-delay: 700ms animate-delay-1000 animation-delay: 1000ms Iteration Count Class Property animate-infinite animation-iteration-count: infinite animate-once animation-iteration-count: 1 animate-twice animation-iteration-count: 2 Direction Class Property animate-normal animation-direction: normal animate-reverse animation-direction: reverse animate-alternate animation-direction: alternate animate-alternate-reverse animation-direction: alternate-reverse Timing Function Class Property animate-ease-linear animation-timing-function: linear animate-ease-in animation-timing-function: cubic-bezier(0.4, 0, 1, 1) animate-ease-out animation-timing-function: cubic-bezier(0, 0, 0.2, 1) animate-ease-in-out animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1) Fill Mode Class Property animate-fill-none animation-fill-mode: normal animate-fill-forwards animation-fill-mode: forwards animate-fill-backwards animation-fill-mode: backwards animate-fill-both animation-fill-mode: both Play State Class Property animate-running animation-play-state: running animate-paused animation-play-state: paused Backface Visibility State Class Property backface-visible backface-visibility: visible backface-hidden backface-visibility: hidden Fade In and Out Values are derived from the Tailwind CSS opacity e.g. fade-in-50 and fade-out-20 . Arbitrary values such as fade-in-[15] are also supported. Class Property fade-in-{value} --p-enter-opacity: {value} fade-out-{value} --p-leave-opacity: {value} Zoom In and Out Values are derived from the Tailwind CSS scale e.g. zoom-in-50 and zoom-out-75 . Arbitrary values such as zoom-in-[0.8] are also supported. Class Property zoom-in-{value} --p-enter-scale: {value} zoom-out-{value} --p-leave-scale: {value} Spin In and Out Values are derived from the Tailwind CSS rotate e.g. spin-in-45 and spin-out-90 . Arbitrary values such as spin-in-[60deg] are also supported. Class Property spin-in-{value} --p-enter-rotate: {value} spin-out-{value} --p-leave-rotate: {value} Slide In and Out Values are derived from the Tailwind CSS translate e.g. slide-in-from-t-50 and slide-out-to-l-8 . Arbitrary values such as slide-in-from-b-[8px] are also supported. Class Property slide-in-from-t-{value} --p-enter-translate-y: -{value} slide-in-from-b-{value} --p-enter-translate-y: {value} slide-in-from-l-{value} --p-enter-translate-x: -{value} slide-in-from-r-{value} --p-enter-translate-x: {value} slide-out-to-t-{value} --p-leave-translate-y: -{value} slide-out-to-b-{value} --p-leave-translate-y: {value} slide-out-to-l-{value} --p-leave-translate-x: -{value} slide-out-to-r-{value} --p-leave-translate-x: {value}
+
+**Basic Usage:**
+
+```vue
+<Select v-model="animation" :options="animations" placeholder="Select One" class="w-full sm:w-44" />
+<div class="py-8 overflow-hidden">
+    <div :class="\
+```
+
+## Dark Mode
+
+In styled mode, PrimeVue uses the system as the default darkModeSelector in theme configuration. If you have a dark mode switch in your application, ensure that darkModeSelector is aligned with the Tailwind dark variant for seamless integration. Note that, this particular configuration isn't required if you're utilizing the default system color scheme. Suppose that, the darkModeSelector is set as my-app-dark in PrimeVue. Tailwind v4 Add a custom variant for dark with a custom selector. Tailwind v3 Use the plugins option in your Tailwind config file to configure the plugin.
+
+## Extensions
+
+The plugin extends the default configuration with a new set of utilities whose values are derived from the PrimeVue theme in use. All variants and breakpoints are supported e.g. dark:sm:hover:bg-primary . Color Palette Class Property primary-[50-950] Primary color palette. surface-[0-950] Surface color palette. primary Default primary color. primary-contrast Default primary contrast color. primary-emphasis Default primary emphasis color. border-surface Content border color. bg-emphasis Emphasis background e.g. hovered element. bg-highlight Highlight background. bg-highlight-emphasis Highlight background with emphasis. rounded-border Border radius. text-color Text color with emphasis. text-color-emphasis Default primary emphasis color. text-muted-color Secondary text color. text-muted-color-emphasis Secondary text color with emphasis.
+
+## Override
+
+Tailwind utilities may not be able to override the default styling of components due to css specificity, there are two possible solutions; Important and CSS Layer. Important Use the ! as a prefix to enforce the styling. This is not the recommend approach, and should be used as last resort to avoid adding unnecessary style classes to your bundle. Tailwind v4 Tailwind v3 CSS Layer CSS Layer provides control over the css specificity so that Tailwind utilities can safely override components. Tailwind v4 Ensure primevue layer is after theme and base , but before the other Tailwind layers such as utilities . No change in the CSS configuration is required. Tailwind v3 The primevue layer should be between base and utilities. Tailwind v3 does not use native layer so needs to be defined with CSS.
+
+## Overview
+
+Tailwind CSS is a popular CSS framework based on a utility-first design. The core provides flexible CSS classes with predefined CSS rules to build your own UI elements. For example, instead of an opinionated btn class as in Bootstrap, Tailwind offers primitive classes like bg-blue-500 , rounded and p-4 to apply a button. Tailwind is an outstanding CSS library, however it lacks a true comprehensive UI suite when combined with Vue.js, this is where PrimeVue comes in by providing a wide range of highly accessible and feature rich UI component library. The core of PrimeVue does not depend on Tailwind CSS, instead we provide the necessary integration points such as the primeui tailwind plugin or a spin-off UI library called Volt based on unstyled PrimeVue. Tailwind CSS and PrimeVue can be used together via two main approaches to choose from. First approach is using Tailwind CSS around the styled PrimeVue components as demonstrated in the samples section below. The second alternative approach takes the integration a step further by replacing the default design token based styled mode with the unstyled mode and utilizing Tailwind CSS within the component internals via pass-through feature. A spin-off library from the PrimeTek UI ecosystem has been created based on this advanced integration called VOLT .
+
+## Plugin
+
+The tailwindcss-primeui is an official plugin by PrimeTek to provide first class integration between a Prime UI library like PrimeVue and Tailwind CSS. It is designed to work both in styled and unstyled modes. In styled mode, for instance the semantic colors such as primary and surfaces are provided as Tailwind utilities e.g. bg-primary , text-surface-500 , text-muted-color . If you haven't already done so, start by integrating Tailwind into your project. Detailed steps for this process can be found in the Tailwind documentation . After successfully installing Tailwind, proceed with the installation of the PrimeUI plugin. This single npm package comes with two libraries: the CSS version is compatible with Tailwind v4, while the JS version is designed for Tailwind v3. Tailwind v4 In the CSS file that contains the tailwindcss import, add the tailwindcss-primeui import as well. Tailwind v3 Use the plugins option in your Tailwind config file to configure the plugin.
+
+## Volt UI
+
+Volt is ideal for developers who prefer customizing component styles using Tailwind CSS rather than the default design token-based styling. If you do not have this use case and prefer the default styled mode for PrimeVue, while using Tailwind CSS only for other requirements such as layout, you can proceed to the next section. Volt is an open source UI component library implemented with the Unstyled PrimeVue components and Tailwind CSS. Volt follows the Code Ownership model where the components live in your application code base as your own UI library rather than imported from node_modules as a 3rd party. Main benefit of this approach is full control over styling and ease of customization. Internally a Volt component wraps its PrimeVue counterpart, removes the default design token based theming and applies Tailwind utility classes via the pass through attributes feature. Volt components are designed to be customized with Tailwind CSS and do not require separate updates. They serve as wrappers around PrimeVue components, so maintenance is handled simply by updating the PrimeVue version.
+
+---
+
+# Vue Terminal Component
+
+Terminal is a text based user interface.
+
+## Accessibility
+
+Screen Reader Terminal component has an input element that can be described with aria-label or aria-labelledby props. The element that lists the previous commands has aria-live so that changes are received by the screen reader. Keyboard Support Key Function tab Moves focus through the input element. enter Executes the command when focus in on the input element.
+
+## Basic
+
+Commands are processed using an EventBus implementation called TerminalService . Import this service into your component and subscribe to the command event to process the commands by sending replies with the response event.
+
+**Basic Usage:**
+
+```vue
+<Terminal
+    welcomeMessage="Welcome to PrimeVue"
+    prompt="primevue $"
+    aria-label="PrimeVue Terminal Service"
+/>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Terminal from 'primevue/terminal';
+import TerminalService from 'primevue/terminalservice'
+```
+
+## Terminal
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| welcomeMessage | string | - | Initial text to display on terminal. |
+| prompt | string | - | Prompt text for each command. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TerminalPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Terminal
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| welcomeMessage | string | - | Initial text to display on terminal. |
+| prompt | string | - | Prompt text for each command. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TerminalPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Terminalservice
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | TerminalPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| welcomeMessage | TerminalPassThroughOptionType | Used to pass attributes to the welcome message's DOM element. |
+| content | TerminalPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| commands | TerminalPassThroughOptionType | Used to pass attributes to the commands' DOM element. |
+| prompt | TerminalPassThroughOptionType | Used to pass attributes to the prompt's DOM element. |
+| command | TerminalPassThroughOptionType | Used to pass attributes to the command's DOM element. |
+| response | TerminalPassThroughOptionType | Used to pass attributes to the response's DOM element. |
+| container | TerminalPassThroughOptionType | Used to pass attributes to the container's DOM element. |
+| commandText | TerminalPassThroughOptionType | Used to pass attributes to the command text's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-terminal | Class name of the root element |
+| p-terminal-welcome-message | Class name of the welcome message element |
+| p-terminal-command-list | Class name of the command list element |
+| p-terminal-command | Class name of the command element |
+| p-terminal-command-value | Class name of the command value element |
+| p-terminal-command-response | Class name of the command response element |
+| p-terminal-prompt | Class name of the prompt element |
+| p-terminal-prompt-label | Class name of the prompt label element |
+| p-terminal-prompt-value | Class name of the prompt value element |
+
+---
+
+# Vue Textarea Component
+
+Textarea adds styling and autoResize functionality to standard textarea element.
+
+## Accessibility
+
+Screen Reader Textarea component renders a native textarea element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
+
+**Basic Usage:**
+
+```vue
+<label for="address1">Address 1</label>
+<Textarea id="address1" />
+
+<span id="address2">Address 2</span>
+<Textarea aria-labelledby="address2" />
+
+<Textarea aria-label="Address Details"/>
+```
+
+## AutoResizeDoc
+
+When autoResize is enabled, textarea grows instead of displaying a scrollbar.
+
+**Basic Usage:**
+
+```vue
+<Textarea v-model="value" autoResize rows="5" cols="30" />
+```
+
+## Basic
+
+Textarea is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<Textarea v-model="value" rows="5" cols="30" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<Textarea v-model="value" rows="5" cols="30" disabled />
+```
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<Textarea v-model="value" variant="filled" rows="5" cols="30" />
+```
+
+## Float Label
+
+A floating label appears on top of the input field when focused. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel>
+    <Textarea id="over_label" v-model="value1" rows="5" cols="30" style="resize: none" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel variant="in">
+    <Textarea id="in_label" v-model="value2" rows="5" cols="30" style="resize: none" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel variant="on">
+    <Textarea id="on_label" v-model="value3" rows="5" cols="30" style="resize: none" />
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Fluid
+
+The fluid prop makes the component take up the full width of its container when set to true.
+
+**Basic Usage:**
+
+```vue
+<Textarea v-model="value" rows="5" fluid />
+```
+
+## Forms
+
+Textarea integrates seamlessly with the PrimeVue Forms library.
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel>
+    <Textarea id="description" v-model="value" rows="5" cols="30" style="resize: none" />
+    <label for="description">Description</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Textarea from 'primevue/textarea';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<Textarea v-model="value" rows="5" cols="30" :invalid="!value" style="resize: none" placeholder="Address" />
+```
+
+## Sizes
+
+Textarea provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<Textarea v-model="value1" size="small" placeholder="Small" rows="3" />
+<Textarea v-model="value2" placeholder="Normal" rows="3" />
+<Textarea v-model="value3" size="large" placeholder="Large" rows="3" />
+```
+
+## Textarea
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| aria-activedescendant | string | - | Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application. |
+| aria-atomic | Booleanish | - | Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute. |
+| aria-autocomplete | "none" \| "inline" \| "list" \| "both" | - | Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made. |
+| aria-busy | Booleanish | - | Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user. |
+| aria-checked | Booleanish \| "mixed" | - | Indicates the current "checked" state of checkboxes, radio buttons, and other widgets. |
+| aria-colcount | Numberish | - | Defines the total number of columns in a table, grid, or treegrid. |
+| aria-colindex | Numberish | - | Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid. |
+| aria-colspan | Numberish | - | Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-controls | string | - | Identifies the element (or elements) whose contents or presence are controlled by the current element. |
+| aria-current | Booleanish \| "page" \| "step" \| "location" \| "date" \| "time" | - | Indicates the element that represents the current item within a container or set of related elements. |
+| aria-describedby | string | - | Identifies the element (or elements) that describes the object. |
+| aria-details | string | - | Identifies the element that provides a detailed, extended description for the object. |
+| aria-disabled | Booleanish | - | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable. |
+| aria-dropeffect | "link" \| "none" \| "copy" \| "execute" \| "move" \| "popup" | - | Indicates what functions can be performed when a dragged object is released on the drop target. |
+| aria-errormessage | string | - | Identifies the element that provides an error message for the object. |
+| aria-expanded | Booleanish | - | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. |
+| aria-flowto | string | - | Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order. |
+| aria-grabbed | Booleanish | - | Indicates an element's "grabbed" state in a drag-and-drop operation. |
+| aria-haspopup | Booleanish \| "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" | - | Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. |
+| aria-hidden | Booleanish | - | Indicates whether the element is exposed to an accessibility API. |
+| aria-invalid | Booleanish \| "grammar" \| "spelling" | - | Indicates the entered value does not conform to the format expected by the application. |
+| aria-keyshortcuts | string | - | Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element. |
+| aria-label | string | - | Defines a string value that labels the current element. |
+| aria-labelledby | string | - | Identifies the element (or elements) that labels the current element. |
+| aria-level | Numberish | - | Defines the hierarchical level of an element within a structure. |
+| aria-live | "off" \| "assertive" \| "polite" | - | Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region. |
+| aria-modal | Booleanish | - | Indicates whether an element is modal when displayed. |
+| aria-multiline | Booleanish | - | Indicates whether a text box accepts multiple lines of input or only a single line. |
+| aria-multiselectable | Booleanish | - | Indicates that the user may select more than one item from the current selectable descendants. |
+| aria-orientation | "horizontal" \| "vertical" | - | Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous. |
+| aria-owns | string | - | Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship. |
+| aria-placeholder | string | - | Defines a short hint (a word or short phrase) intended to aid the user with data entry when the control has no value. A hint could be a sample value or a brief description of the expected format. |
+| aria-posinset | Numberish | - | Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-pressed | Booleanish \| "mixed" | - | Indicates the current "pressed" state of toggle buttons. |
+| aria-readonly | Booleanish | - | Indicates that the element is not editable, but is otherwise operable. |
+| aria-relevant | "text" \| "additions" \| "additions removals" \| "additions text" \| "all" \| "removals" \| "removals additions" \| "removals text" \| "text additions" \| "text removals" | - | Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. |
+| aria-required | Booleanish | - | Indicates that user input is required on the element before a form may be submitted. |
+| aria-roledescription | string | - | Defines a human-readable, author-localized description for the role of an element. |
+| aria-rowcount | Numberish | - | Defines the total number of rows in a table, grid, or treegrid. |
+| aria-rowindex | Numberish | - | Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid. |
+| aria-rowspan | Numberish | - | Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-selected | Booleanish | - | Indicates the current "selected" state of various widgets. |
+| aria-setsize | Numberish | - | Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-sort | "none" \| "ascending" \| "descending" \| "other" | - | Indicates if items in a table or grid are sorted in ascending or descending order. |
+| aria-valuemax | Numberish | - | Defines the maximum allowed value for a range widget. |
+| aria-valuemin | Numberish | - | Defines the minimum allowed value for a range widget. |
+| aria-valuenow | Numberish | - | Defines the current value for a range widget. |
+| aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
+| innerHTML | string | - |  |
+| class | any | - |  |
+| style | StyleValue | - |  |
+| accesskey | string | - |  |
+| contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |
+| contextmenu | string | - |  |
+| dir | string | - |  |
+| draggable | Booleanish | - |  |
+| hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
+| id | string | - |  |
+| inert | Booleanish | - |  |
+| lang | string | - |  |
+| spellcheck | Booleanish | - |  |
+| tabindex | Numberish | - |  |
+| title | string | - |  |
+| translate | "yes" \| "no" | - |  |
+| radiogroup | string | - |  |
+| role | string | - |  |
+| about | string | - |  |
+| datatype | string | - |  |
+| inlist | any | - |  |
+| prefix | string | - |  |
+| property | string | - |  |
+| resource | string | - |  |
+| typeof | string | - |  |
+| vocab | string | - |  |
+| autocapitalize | string | - |  |
+| autocorrect | string | - |  |
+| autosave | string | - |  |
+| color | string | - |  |
+| itemprop | string | - |  |
+| itemscope | Booleanish | - |  |
+| itemtype | string | - |  |
+| itemid | string | - |  |
+| itemref | string | - |  |
+| results | Numberish | - |  |
+| security | string | - |  |
+| unselectable | "on" \| "off" | - |  |
+| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| autocomplete | string | - |  |
+| autofocus | Booleanish | - |  |
+| cols | Numberish | - |  |
+| dirname | string | - |  |
+| disabled | Booleanish | - |  |
+| form | string | - |  |
+| maxlength | Numberish | - |  |
+| minlength | Numberish | - |  |
+| placeholder | string | - |  |
+| readonly | Booleanish | - |  |
+| required | Booleanish | - |  |
+| rows | Numberish | - |  |
+| value | null \| string \| number \| readonly string[] | - |  |
+| wrap | string | - |  |
+| onCopy | Function | - |  |
+| onCut | Function | - |  |
+| onPaste | Function | - |  |
+| onCompositionend | Function | - |  |
+| onCompositionstart | Function | - |  |
+| onCompositionupdate | Function | - |  |
+| onDrag | Function | - |  |
+| onDragend | Function | - |  |
+| onDragenter | Function | - |  |
+| onDragexit | Function | - |  |
+| onDragleave | Function | - |  |
+| onDragover | Function | - |  |
+| onDragstart | Function | - |  |
+| onDrop | Function | - |  |
+| onFocus | Function | - |  |
+| onFocusin | Function | - |  |
+| onFocusout | Function | - |  |
+| onBlur | Function | - |  |
+| onChange | Function | - |  |
+| onBeforeinput | Function | - |  |
+| onFormdata | Function | - |  |
+| onInput | Function | - |  |
+| onReset | Function | - |  |
+| onSubmit | Function | - |  |
+| onInvalid | Function | - |  |
+| onFullscreenchange | Function | - |  |
+| onFullscreenerror | Function | - |  |
+| onLoad | Function | - |  |
+| onError | Function | - |  |
+| onKeydown | Function | - |  |
+| onKeypress | Function | - |  |
+| onKeyup | Function | - |  |
+| onDblclick | Function | - |  |
+| onMousedown | Function | - |  |
+| onMouseenter | Function | - |  |
+| onMouseleave | Function | - |  |
+| onMousemove | Function | - |  |
+| onMouseout | Function | - |  |
+| onMouseover | Function | - |  |
+| onMouseup | Function | - |  |
+| onAbort | Function | - |  |
+| onCanplay | Function | - |  |
+| onCanplaythrough | Function | - |  |
+| onDurationchange | Function | - |  |
+| onEmptied | Function | - |  |
+| onEncrypted | Function | - |  |
+| onEnded | Function | - |  |
+| onLoadeddata | Function | - |  |
+| onLoadedmetadata | Function | - |  |
+| onLoadstart | Function | - |  |
+| onPause | Function | - |  |
+| onPlay | Function | - |  |
+| onPlaying | Function | - |  |
+| onProgress | Function | - |  |
+| onRatechange | Function | - |  |
+| onSeeked | Function | - |  |
+| onSeeking | Function | - |  |
+| onStalled | Function | - |  |
+| onSuspend | Function | - |  |
+| onTimeupdate | Function | - |  |
+| onVolumechange | Function | - |  |
+| onWaiting | Function | - |  |
+| onSelect | Function | - |  |
+| onScroll | Function | - |  |
+| onScrollend | Function | - |  |
+| onTouchcancel | Function | - |  |
+| onTouchend | Function | - |  |
+| onTouchmove | Function | - |  |
+| onTouchstart | Function | - |  |
+| onAuxclick | Function | - |  |
+| onClick | Function | - |  |
+| onContextmenu | Function | - |  |
+| onGotpointercapture | Function | - |  |
+| onLostpointercapture | Function | - |  |
+| onPointerdown | Function | - |  |
+| onPointermove | Function | - |  |
+| onPointerup | Function | - |  |
+| onPointercancel | Function | - |  |
+| onPointerenter | Function | - |  |
+| onPointerleave | Function | - |  |
+| onPointerover | Function | - |  |
+| onPointerout | Function | - |  |
+| onBeforetoggle | Function | - |  |
+| onToggle | Function | - |  |
+| onWheel | Function | - |  |
+| onAnimationcancel | Function | - |  |
+| onAnimationstart | Function | - |  |
+| onAnimationend | Function | - |  |
+| onAnimationiteration | Function | - |  |
+| onSecuritypolicyviolation | Function | - |  |
+| onTransitioncancel | Function | - |  |
+| onTransitionend | Function | - |  |
+| onTransitionrun | Function | - |  |
+| onTransitionstart | Function | - |  |
+| modelValue | Nullable<string> | - | Value of the component. |
+| defaultValue | Nullable<string> | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| autoResize | boolean | false | When present, height of textarea changes as being typed. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TextareaPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Emits
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| update:modelValue | Function |  |
+
+## Textarea
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| aria-activedescendant | string | - | Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application. |
+| aria-atomic | Booleanish | - | Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute. |
+| aria-autocomplete | "none" \| "inline" \| "list" \| "both" | - | Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made. |
+| aria-busy | Booleanish | - | Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user. |
+| aria-checked | Booleanish \| "mixed" | - | Indicates the current "checked" state of checkboxes, radio buttons, and other widgets. |
+| aria-colcount | Numberish | - | Defines the total number of columns in a table, grid, or treegrid. |
+| aria-colindex | Numberish | - | Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid. |
+| aria-colspan | Numberish | - | Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-controls | string | - | Identifies the element (or elements) whose contents or presence are controlled by the current element. |
+| aria-current | Booleanish \| "page" \| "step" \| "location" \| "date" \| "time" | - | Indicates the element that represents the current item within a container or set of related elements. |
+| aria-describedby | string | - | Identifies the element (or elements) that describes the object. |
+| aria-details | string | - | Identifies the element that provides a detailed, extended description for the object. |
+| aria-disabled | Booleanish | - | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable. |
+| aria-dropeffect | "link" \| "none" \| "copy" \| "execute" \| "move" \| "popup" | - | Indicates what functions can be performed when a dragged object is released on the drop target. |
+| aria-errormessage | string | - | Identifies the element that provides an error message for the object. |
+| aria-expanded | Booleanish | - | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. |
+| aria-flowto | string | - | Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order. |
+| aria-grabbed | Booleanish | - | Indicates an element's "grabbed" state in a drag-and-drop operation. |
+| aria-haspopup | Booleanish \| "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" | - | Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. |
+| aria-hidden | Booleanish | - | Indicates whether the element is exposed to an accessibility API. |
+| aria-invalid | Booleanish \| "grammar" \| "spelling" | - | Indicates the entered value does not conform to the format expected by the application. |
+| aria-keyshortcuts | string | - | Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element. |
+| aria-label | string | - | Defines a string value that labels the current element. |
+| aria-labelledby | string | - | Identifies the element (or elements) that labels the current element. |
+| aria-level | Numberish | - | Defines the hierarchical level of an element within a structure. |
+| aria-live | "off" \| "assertive" \| "polite" | - | Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region. |
+| aria-modal | Booleanish | - | Indicates whether an element is modal when displayed. |
+| aria-multiline | Booleanish | - | Indicates whether a text box accepts multiple lines of input or only a single line. |
+| aria-multiselectable | Booleanish | - | Indicates that the user may select more than one item from the current selectable descendants. |
+| aria-orientation | "horizontal" \| "vertical" | - | Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous. |
+| aria-owns | string | - | Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship. |
+| aria-placeholder | string | - | Defines a short hint (a word or short phrase) intended to aid the user with data entry when the control has no value. A hint could be a sample value or a brief description of the expected format. |
+| aria-posinset | Numberish | - | Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-pressed | Booleanish \| "mixed" | - | Indicates the current "pressed" state of toggle buttons. |
+| aria-readonly | Booleanish | - | Indicates that the element is not editable, but is otherwise operable. |
+| aria-relevant | "text" \| "additions" \| "additions removals" \| "additions text" \| "all" \| "removals" \| "removals additions" \| "removals text" \| "text additions" \| "text removals" | - | Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. |
+| aria-required | Booleanish | - | Indicates that user input is required on the element before a form may be submitted. |
+| aria-roledescription | string | - | Defines a human-readable, author-localized description for the role of an element. |
+| aria-rowcount | Numberish | - | Defines the total number of rows in a table, grid, or treegrid. |
+| aria-rowindex | Numberish | - | Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid. |
+| aria-rowspan | Numberish | - | Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-selected | Booleanish | - | Indicates the current "selected" state of various widgets. |
+| aria-setsize | Numberish | - | Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-sort | "none" \| "ascending" \| "descending" \| "other" | - | Indicates if items in a table or grid are sorted in ascending or descending order. |
+| aria-valuemax | Numberish | - | Defines the maximum allowed value for a range widget. |
+| aria-valuemin | Numberish | - | Defines the minimum allowed value for a range widget. |
+| aria-valuenow | Numberish | - | Defines the current value for a range widget. |
+| aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
+| innerHTML | string | - |  |
+| class | any | - |  |
+| style | StyleValue | - |  |
+| accesskey | string | - |  |
+| contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |
+| contextmenu | string | - |  |
+| dir | string | - |  |
+| draggable | Booleanish | - |  |
+| hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
+| id | string | - |  |
+| inert | Booleanish | - |  |
+| lang | string | - |  |
+| spellcheck | Booleanish | - |  |
+| tabindex | Numberish | - |  |
+| title | string | - |  |
+| translate | "yes" \| "no" | - |  |
+| radiogroup | string | - |  |
+| role | string | - |  |
+| about | string | - |  |
+| datatype | string | - |  |
+| inlist | any | - |  |
+| prefix | string | - |  |
+| property | string | - |  |
+| resource | string | - |  |
+| typeof | string | - |  |
+| vocab | string | - |  |
+| autocapitalize | string | - |  |
+| autocorrect | string | - |  |
+| autosave | string | - |  |
+| color | string | - |  |
+| itemprop | string | - |  |
+| itemscope | Booleanish | - |  |
+| itemtype | string | - |  |
+| itemid | string | - |  |
+| itemref | string | - |  |
+| results | Numberish | - |  |
+| security | string | - |  |
+| unselectable | "on" \| "off" | - |  |
+| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| autocomplete | string | - |  |
+| autofocus | Booleanish | - |  |
+| cols | Numberish | - |  |
+| dirname | string | - |  |
+| disabled | Booleanish | - |  |
+| form | string | - |  |
+| maxlength | Numberish | - |  |
+| minlength | Numberish | - |  |
+| placeholder | string | - |  |
+| readonly | Booleanish | - |  |
+| required | Booleanish | - |  |
+| rows | Numberish | - |  |
+| value | null \| string \| number \| readonly string[] | - |  |
+| wrap | string | - |  |
+| onCopy | Function | - |  |
+| onCut | Function | - |  |
+| onPaste | Function | - |  |
+| onCompositionend | Function | - |  |
+| onCompositionstart | Function | - |  |
+| onCompositionupdate | Function | - |  |
+| onDrag | Function | - |  |
+| onDragend | Function | - |  |
+| onDragenter | Function | - |  |
+| onDragexit | Function | - |  |
+| onDragleave | Function | - |  |
+| onDragover | Function | - |  |
+| onDragstart | Function | - |  |
+| onDrop | Function | - |  |
+| onFocus | Function | - |  |
+| onFocusin | Function | - |  |
+| onFocusout | Function | - |  |
+| onBlur | Function | - |  |
+| onChange | Function | - |  |
+| onBeforeinput | Function | - |  |
+| onFormdata | Function | - |  |
+| onInput | Function | - |  |
+| onReset | Function | - |  |
+| onSubmit | Function | - |  |
+| onInvalid | Function | - |  |
+| onFullscreenchange | Function | - |  |
+| onFullscreenerror | Function | - |  |
+| onLoad | Function | - |  |
+| onError | Function | - |  |
+| onKeydown | Function | - |  |
+| onKeypress | Function | - |  |
+| onKeyup | Function | - |  |
+| onDblclick | Function | - |  |
+| onMousedown | Function | - |  |
+| onMouseenter | Function | - |  |
+| onMouseleave | Function | - |  |
+| onMousemove | Function | - |  |
+| onMouseout | Function | - |  |
+| onMouseover | Function | - |  |
+| onMouseup | Function | - |  |
+| onAbort | Function | - |  |
+| onCanplay | Function | - |  |
+| onCanplaythrough | Function | - |  |
+| onDurationchange | Function | - |  |
+| onEmptied | Function | - |  |
+| onEncrypted | Function | - |  |
+| onEnded | Function | - |  |
+| onLoadeddata | Function | - |  |
+| onLoadedmetadata | Function | - |  |
+| onLoadstart | Function | - |  |
+| onPause | Function | - |  |
+| onPlay | Function | - |  |
+| onPlaying | Function | - |  |
+| onProgress | Function | - |  |
+| onRatechange | Function | - |  |
+| onSeeked | Function | - |  |
+| onSeeking | Function | - |  |
+| onStalled | Function | - |  |
+| onSuspend | Function | - |  |
+| onTimeupdate | Function | - |  |
+| onVolumechange | Function | - |  |
+| onWaiting | Function | - |  |
+| onSelect | Function | - |  |
+| onScroll | Function | - |  |
+| onScrollend | Function | - |  |
+| onTouchcancel | Function | - |  |
+| onTouchend | Function | - |  |
+| onTouchmove | Function | - |  |
+| onTouchstart | Function | - |  |
+| onAuxclick | Function | - |  |
+| onClick | Function | - |  |
+| onContextmenu | Function | - |  |
+| onGotpointercapture | Function | - |  |
+| onLostpointercapture | Function | - |  |
+| onPointerdown | Function | - |  |
+| onPointermove | Function | - |  |
+| onPointerup | Function | - |  |
+| onPointercancel | Function | - |  |
+| onPointerenter | Function | - |  |
+| onPointerleave | Function | - |  |
+| onPointerover | Function | - |  |
+| onPointerout | Function | - |  |
+| onBeforetoggle | Function | - |  |
+| onToggle | Function | - |  |
+| onWheel | Function | - |  |
+| onAnimationcancel | Function | - |  |
+| onAnimationstart | Function | - |  |
+| onAnimationend | Function | - |  |
+| onAnimationiteration | Function | - |  |
+| onSecuritypolicyviolation | Function | - |  |
+| onTransitioncancel | Function | - |  |
+| onTransitionend | Function | - |  |
+| onTransitionrun | Function | - |  |
+| onTransitionstart | Function | - |  |
+| modelValue | Nullable<string> | - | Value of the component. |
+| defaultValue | Nullable<string> | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| autoResize | boolean | false | When present, height of textarea changes as being typed. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TextareaPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Emits
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| update:modelValue | Function |  |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | TextareaPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-textarea | Class name of the root element |
+
+---
+
+# Vue TieredMenu Component
+
+TieredMenu displays submenus in nested overlays.
+
+## Accessibility
+
+Screen Reader TieredMenu component uses the menubar role with aria-orientation set to "vertical" and the value to describe the menu can either be provided with aria-labelledby or aria-label props. Each list item has a menuitem role with aria-label referring to the label of the item and aria-disabled defined if the item is disabled. A submenu within a TieredMenu uses the menu role with an aria-labelledby defined as the id of the submenu root menuitem label. In addition, menuitems that open a submenu have aria-haspopup and aria-expanded to define the relation between the item and the submenu. In popup mode, the component implicitly manages the aria-expanded , aria-haspopup and aria-controls attributes of the target element to define the relation between the target and the popup. Keyboard Support Key Function tab Add focus to the first item if focus moves in to the menu. If the focus is already within the menu, focus moves to the next focusable item in the page tab sequence. shift + tab Add focus to the first item if focus moves in to the menu. If the focus is already within the menu, focus moves to the previous focusable item in the page tab sequence. enter If menuitem has a submenu, opens the submenu otherwise activates the menuitem and closes all open overlays. space If menuitem has a submenu, opens the submenu otherwise activates the menuitem and closes all open overlays. escape If focus is inside a popup submenu, closes the submenu and moves focus to the root item of the closed submenu. down arrow Moves focus to the next menuitem within the submenu. up arrow Moves focus to the previous menuitem within the submenu. alt + up arrow Closes the popup, then moves focus to the target element. right arrow If option is closed, opens the option otherwise moves focus to the first child option. left arrow If option is open, closes the option otherwise moves focus to the parent option. home Moves focus to the first menuitem within the submenu. end Moves focus to the last menuitem within the submenu. any printable character Moves focus to the menuitem whose label starts with the characters being typed.
+
+## Basic
+
+TieredMenu requires a collection of menuitems as its model .
+
+**Basic Usage:**
+
+```vue
+<TieredMenu :model="items" />
+```
+
+## Command
+
+The command property defines the callback to run when an item is activated by click or a key event.
+
+**Basic Usage:**
+
+```vue
+<TieredMenu :model="items" />
+<Toast />
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import TieredMenu from 'primevue/tieredmenu';
+```
+
+## Popup
+
+Overlay mode is enabled by adding popup property and calling toggle function of the menu ref with an event of the target.
+
+**Basic Usage:**
+
+```vue
+<Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_tmenu" />
+<TieredMenu ref="menu" id="overlay_tmenu" :model="items" popup />
+```
+
+## Router
+
+Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
+
+## Template
+
+TieredMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
+
+## Tieredmenu
+
+## Tieredmenu
+
+---
+
+# Vue Timeline Component
+
+Timeline visualizes a series of chained events.
+
+## Accessibility
+
+Screen Reader Timeline uses a semantic ordered list element to list the events. No specific role is enforced, still you may use any aria role and attributes as any valid attribute is passed to the list element. Keyboard Support Component does not include any interactive elements.
+
+## Alignment
+
+Content location relative the line is defined with the align property.
+
+## Basic
+
+Timeline requires a value for the collection of events and content slot that receives an object as a parameter to return content.
+
+## Horizontal
+
+TimeLine orientation is controlled with the layout property, default is vertical having horizontal as the alternative.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Timeline from 'primevue/timeline';
+```
+
+## Opposite
+
+Additional content at the other side of the line can be provided with the opposite property.
+
+## Template
+
+Sample implementation with custom content and styled markers.
+
+## Timeline
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | any[] | - | An array of events to display. |
+| align | HintedString<"left" \| "right" \| "top" \| "bottom" \| "alternate"> | left | Position of the timeline bar relative to the content. |
+| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the timeline. |
+| dataKey | string | - | Name of the field that uniquely identifies the a record in the data. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TimelinePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Timeline
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | any[] | - | An array of events to display. |
+| align | HintedString<"left" \| "right" \| "top" \| "bottom" \| "alternate"> | left | Position of the timeline bar relative to the content. |
+| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the timeline. |
+| dataKey | string | - | Name of the field that uniquely identifies the a record in the data. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TimelinePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | TimelinePassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| event | TimelinePassThroughOptionType | Used to pass attributes to the event's DOM element. |
+| eventOpposite | TimelinePassThroughOptionType | Used to pass attributes to the event opposite's DOM element. |
+| eventSeparator | TimelinePassThroughOptionType | Used to pass attributes to the event separator's DOM element. |
+| eventMarker | TimelinePassThroughOptionType | Used to pass attributes to the event marker's DOM element. |
+| eventConnector | TimelinePassThroughOptionType | Used to pass attributes to the event connector's DOM element. |
+| eventContent | TimelinePassThroughOptionType | Used to pass attributes to the event content's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-timeline | Class name of the root element |
+| p-timeline-event | Class name of the event element |
+| p-timeline-event-opposite | Class name of the event opposite element |
+| p-timeline-event-separator | Class name of the event separator element |
+| p-timeline-event-marker | Class name of the event marker element |
+| p-timeline-event-connector | Class name of the event connector element |
+| p-timeline-event-content | Class name of the event content element |
+
+---
+
+# Vue Toast Component
+
+Toast is used to display messages in an overlay.
+
+## Accessibility
+
+Screen Reader Toast component use alert role that implicitly defines aria-live as "assertive" and aria-atomic as "true". Close element is a button with an aria-label that refers to the aria.close property of the locale API by default, you may use closeButtonProps to customize the element and override the default aria-label . Close Button Keyboard Support Key Function enter Closes the message. space Closes the message.
+
+## Basic
+
+Ideal location of a Toast is the main application template so that it can be used by any component within the application. A single message is represented by the Message interface that defines properties such as severity, summary and detail.
+
+**Basic Usage:**
+
+```vue
+<Toast />
+<Button label="Show" @click="show()" />
+```
+
+## Headless
+
+Headless mode is enabled by defining a container slot that lets you implement entire toast UI instead of the default elements.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Toast from 'primevue/toast';
+```
+
+## Multiple
+
+Multiple messages are displayed by passing an array to the show method.
+
+**Basic Usage:**
+
+```vue
+<Toast />
+<Button label="Multiple" @click="showMultiple()" />
+```
+
+## Position
+
+A message can be targeted to a certain Toast component by matching the group keys whereas location is customized with the position .
+
+**Basic Usage:**
+
+```vue
+<Toast position="top-left" group="tl" />
+<Toast position="bottom-left" group="bl" />
+<Toast position="bottom-right" group="br" />
+
+<Button label="Top Left" @click="showTopLeft" />
+<Button label="Bottom Left" @click="showBottomLeft" />
+<Button label="Bottom Right" @click="showBottomRight" />
+```
+
+## Severity
+
+The severity option specifies the type of the message.
+
+**Basic Usage:**
+
+```vue
+<Toast />
+<Button label="Success" severity="success" @click="showSuccess" />
+<Button label="Info" severity="info" @click="showInfo" />
+<Button label="Warn" severity="warn" @click="showWarn" />
+<Button label="Error" severity="danger" @click="showError" />
+<Button label="Secondary" severity="secondary" @click="showSecondary" />
+<Button label="Contrast" severity="contrast" @click="showContrast" />
+```
+
+## Sticky
+
+A message disappears after the number of milliseconds defined in the life option. Omit the life option to make the message sticky.
+
+**Basic Usage:**
+
+```vue
+<Toast />
+<Button @click="showSticky" label="Sticky" />
+<Button label="Clear" severity="secondary" @click="clear()" />
+```
+
+## Template
+
+Custom content inside a message is defined with the message template.
+
+## ToastServiceDoc
+
+Toast component is controlled via the ToastService that needs to be installed as an application plugin.
+
+## Toast
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| group | string | - | Unique identifier of a message group. |
+| position | "center" \| "top-left" \| "top-center" \| "top-right" \| "bottom-left" \| "bottom-center" \| "bottom-right" | top-right | Position of the toast in viewport. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| breakpoints | ToastBreakpointsType | - | Object literal to define styles per screen size. |
+| closeIcon | string | - | Icon to display in the toast close button. |
+| infoIcon | string | - | Icon to display in the toast with info severity. |
+| warnIcon | string | - | Icon to display in the toast with warn severity. |
+| errorIcon | string | - | Icon to display in the toast with error severity. |
+| successIcon | string | - | Icon to display in the toast with success severity. |
+| closeButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the close button. |
+| message | ToastMessageOptions | - | Used to access message options. |
+| onMouseEnter | Function | - | Used to specify a callback function to be run when the mouseenter event is fired on the message component. |
+| onMouseLeave | Function | - | Used to specify a callback function to be run when the mouseleave event is fired on the message component. |
+| onClick | Function | - | Used to specify a callback function to be run when the click event is fired on the message component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ToastPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Toast
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| group | string | - | Unique identifier of a message group. |
+| position | "center" \| "top-left" \| "top-center" \| "top-right" \| "bottom-left" \| "bottom-center" \| "bottom-right" | top-right | Position of the toast in viewport. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| breakpoints | ToastBreakpointsType | - | Object literal to define styles per screen size. |
+| closeIcon | string | - | Icon to display in the toast close button. |
+| infoIcon | string | - | Icon to display in the toast with info severity. |
+| warnIcon | string | - | Icon to display in the toast with warn severity. |
+| errorIcon | string | - | Icon to display in the toast with error severity. |
+| successIcon | string | - | Icon to display in the toast with success severity. |
+| closeButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the close button. |
+| message | ToastMessageOptions | - | Used to access message options. |
+| onMouseEnter | Function | - | Used to specify a callback function to be run when the mouseenter event is fired on the message component. |
+| onMouseLeave | Function | - | Used to specify a callback function to be run when the mouseleave event is fired on the message component. |
+| onClick | Function | - | Used to specify a callback function to be run when the click event is fired on the message component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ToastPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Toastservice-usetoast
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ToastPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| message | ToastPassThroughOptionType | Used to pass attributes to the message's DOM element. |
+| messageContent | ToastPassThroughOptionType | Used to pass attributes to the message content's DOM element. |
+| messageIcon | ToastPassThroughOptionType | Used to pass attributes to the message icon's DOM element. |
+| messageText | ToastPassThroughOptionType | Used to pass attributes to the message text's DOM element. |
+| summary | ToastPassThroughOptionType | Used to pass attributes to the summary's DOM element. |
+| detail | ToastPassThroughOptionType | Used to pass attributes to the detail's DOM element. |
+| buttonContainer | ToastPassThroughOptionType | Used to pass attributes to the button container's DOM element. |
+| closeButton | ToastPassThroughOptionType | Used to pass attributes to the button's DOM element. |
+| closeIcon | ToastPassThroughOptionType | Used to pass attributes to the button icon's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | ToastPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-toast | Class name of the root element |
+| p-toast-message | Class name of the message element |
+| p-toast-message-content | Class name of the message content element |
+| p-toast-message-icon | Class name of the message icon element |
+| p-toast-message-text | Class name of the message text element |
+| p-toast-summary | Class name of the summary element |
+| p-toast-detail | Class name of the detail element |
+| p-toast-close-button | Class name of the close button element |
+| p-toast-close-icon | Class name of the close icon element |
+
+---
+
+# Vue ToggleButton Component
+
+ToggleButton is used to select a boolean value using a button.
+
+## Accessibility
+
+Screen Reader ToggleButton component uses a native button element as the switch element internally that is only visible to screen readers. Value to describe the component can be defined with aria-labelledby or aria-label props, it is highly suggested to use either of these props as the component changes the label displayed which will result in screen readers to read different labels when the component receives focus. To prevent this, always provide an aria label that does not change related to state. Keyboard Support Keyboard interaction is derived from the native browser handling of checkboxs in a group. Key Function tab Moves focus to the button. space Toggles the checked state.
+
+**Basic Usage:**
+
+```vue
+<span id="rememberme">Remember Me</span>
+<ToggleButton aria-labelledby="rememberme" />
+
+<ToggleButton aria-label="Remember Me" />
+```
+
+## Basic
+
+ToggleButton is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<ToggleButton v-model="checked" onLabel="On" offLabel="Off" />
+```
+
+## Customized
+
+Icons and Labels can be customized using onLabel , offLabel , onIcon and offIcon properties.
+
+**Basic Usage:**
+
+```vue
+<ToggleButton v-model="checked" onLabel="Locked" offLabel="Unlocked" onIcon="pi pi-lock" 
+    offIcon="pi pi-lock-open" class="w-36" aria-label="Do you confirm" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<ToggleButton v-model="checked" disabled onIcon="pi pi-check" offIcon="pi pi-times"
+    class="w-full sm:w-40" aria-label="Confirmation" />
+```
+
+## Fluid
+
+The fluid prop makes the component take up the full width of its container when set to true.
+
+**Basic Usage:**
+
+```vue
+<ToggleButton v-model="checked" onLabel="On" offLabel="Off" />
+```
+
+## Forms
+
+ToggleButton integrates seamlessly with the PrimeVue Forms library.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ToggleButton from 'primevue/togglebutton';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<ToggleButton v-model="checked" onIcon="pi pi-check" offIcon="pi pi-times" :invalid="!checked" class="w-full sm:w-40" aria-label="Confirmation" />
+```
+
+## Sizes
+
+ToggleButton provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<ToggleButton v-model="value1" onLabel="On" offLabel="Off" size="small" class="min-w-16" />
+<ToggleButton v-model="value2" onLabel="On" offLabel="Off" class="min-w-20" />
+<ToggleButton v-model="value3" onLabel="On" offLabel="Off" size="large" class="min-w-24" />
+```
+
+## Togglebutton
+
+## Togglebutton
+
+---
+
+# Vue ToggleSwitch Component
+
+ToggleSwitch is used to select a boolean value.
+
+## Accessibility
+
+Screen Reader ToggleSwitch component uses a hidden native checkbox element with switch role internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the switch. space Toggles the checked state.
+
+**Basic Usage:**
+
+```vue
+<label for="switch1">Remember Me</label>
+<ToggleSwitch inputId="switch1" />
+
+<span id="switch2">Remember Me</span>
+<ToggleSwitch aria-labelledby="switch2" />
+
+<ToggleSwitch aria-label="Remember Me" />
+```
+
+## Basic
+
+ToggleSwitch is used with the v-model property for two-way value binding.
+
+**Basic Usage:**
+
+```vue
+<ToggleSwitch v-model="checked" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<ToggleSwitch v-model="checked" disabled />
+```
+
+## Forms
+
+ToggleSwitch integrates seamlessly with the PrimeVue Forms library.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ToggleSwitch from 'primevue/toggleswitch';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<ToggleSwitch v-model="checked" :invalid="!checked" />
+```
+
+## Preselection
+
+Enabling checked property displays the component as active initially.
+
+**Basic Usage:**
+
+```vue
+<ToggleSwitch v-model="checked" />
+```
+
+## Template
+
+The handle slot is available to display custom content.
+
+**Basic Usage:**
+
+```vue
+<ToggleSwitch v-model="checked">
+    <template #handle="{ checked }">
+        <i :class="['!text-xs pi', { 'pi-check': checked, 'pi-times': !checked }]" />
+    </template>
+</ToggleSwitch>
+```
+
+## Toggleswitch
+
+## Toggleswitch
+
+---
+
+# Vue Toolbar Component
+
+Toolbar is a grouping component for buttons and other content.
+
+## Accessibility
+
+Screen Reader Toolbar uses toolbar role to the root element, aria-orientation is not included as it defaults to "horizontal". Any valid attribute is passed to the root element so you may add additional properties like aria-labelledby to define the element if required. Keyboard Support Component does not include any interactive elements. Arbitrary content can be placed with templating and elements like buttons inside should follow the page tab sequence.
+
+## Basic
+
+Toolbar provides start , center and end properties to place content at these sections.
+
+**Basic Usage:**
+
+```vue
+<Toolbar>
+    <template #start>
+        <Button icon="pi pi-plus" class="mr-2" severity="secondary" text />
+        <Button icon="pi pi-print" class="mr-2" severity="secondary" text />
+        <Button icon="pi pi-upload" severity="secondary" text />
+    </template>
+
+    <template #center>
+        <IconField>
+            <InputIcon>
+                <i class="pi pi-search" />
+            </InputIcon>
+            <InputText placeholder="Search" />
+        </IconField>
+    </template>
+
+    <template #end> <SplitButton label="Save" :model="items"></SplitButton></template>
+</Toolbar>
+```
+
+## Custom
+
+A customized toolbar with navigation bar functionality.
+
+**Basic Usage:**
+
+```vue
+<Toolbar style="border-radius: 3rem; padding: 1rem 1rem 1rem 1.5rem">
+    <template #start>
+        <div class="flex items-center gap-2">
+            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="..." fill="var(--p-text-color)" />
+                <path d="..." fill="transparent" />
+            </svg>
+            <Button label="Files" text plain />
+            <Button label="Edit" text plain />
+            <Button label="View" text plain />
+        </div>
+    </template>
+
+    <template #end>
+        <div class="flex items-center gap-2">
+            <Button label="Share" severity="contrast" size="small" />
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" style="width: 32px; height: 32px" />
+        </div>
+    </template>
+</Toolbar>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Toolbar style="border-radius: 3rem; padding: 1rem 1rem 1rem 1.5rem">
+            <template #start>
+                <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 2rem; margin-right: 1rem">
+                        <path
+                            d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                            fill="var(--p-text-color)"
+                        />
+                        <path
+                            d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                            fill="transparent"
+                        />
+                    </svg>
+                    <Button label="Files" text plain />
+                    <Button label="Edit" text plain />
+                    <Button label="View" text plain />
+                </div>
+            </template>
+
+            <template #end>
+                <div class="flex items-center gap-2">
+                    <Button label="Share" severity="contrast" size="small" />
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" style="width: 32px; height: 32px" />
+                </div>
+            </template>
+        </Toolbar>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Toolbar from 'primevue/toolbar';
+```
+
+## Toolbar
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| ariaLabelledby | string | - | Defines a string value that labels an interactive element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ToolbarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Toolbar
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| ariaLabelledby | string | - | Defines a string value that labels an interactive element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ToolbarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ToolbarPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| start | ToolbarPassThroughOptionType | Used to pass attributes to the start's DOM element. |
+| center | ToolbarPassThroughOptionType | Used to pass attributes to the center's DOM element. |
+| end | ToolbarPassThroughOptionType | Used to pass attributes to the right's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-toolbar | Class name of the root element |
+| p-toolbar-start | Class name of the start element |
+| p-toolbar-center | Class name of the center element |
+| p-toolbar-end | Class name of the end element |
+
+---
+
+# Vue Tooltip Directive
+
+Tooltip directive provides advisory information for a component.
+
+## Accessibility
+
+Screen Reader Tooltip component uses tooltip role and when it becomes visible the generated id of the tooltip is defined as the aria-describedby of the target. Keyboard Support Key Function escape Closes the tooltip when focus is on the target.
+
+## Auto Hide
+
+Tooltip gets hidden when mouse leaves the target element by default, set autoHide to false to customize this behavior so that tooltip stays open when the cursor is on the tooltip.
+
+**Basic Usage:**
+
+```vue
+<InputText v-tooltip.bottom="{ value: 'Enter your username', autoHide: false }" type="text" placeholder="autoHide: false" />
+<InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="autoHide: true" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-2">
+        <InputText v-tooltip.bottom="{ value: 'Enter your username', autoHide: false }" type="text" placeholder="autoHide: false" />
+        <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="autoHide: true" />
+    </div>
+</template>
+```
+</details>
+
+## Custom
+
+A tooltip sample with a custom style and content.
+
+## Delay
+
+Delays to the enter and leave events are defined with showDelay and hideDelay options respectively.
+
+**Basic Usage:**
+
+```vue
+<Button v-tooltip="{ value: 'Confirm to proceed', showDelay: 1000, hideDelay: 300 }" label="Save" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center">
+        <Button v-tooltip="{ value: 'Confirm to proceed', showDelay: 1000, hideDelay: 300 }" label="Save" />
+    </div>
+</template>
+```
+</details>
+
+## Event
+
+Event to display the tooltip is defined as a modifier, default event is hover.
+
+**Basic Usage:**
+
+```vue
+<InputText v-tooltip.focus.top="'Enter your username'" type="text" placeholder="Focus" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center">
+        <InputText v-tooltip.focus.top="'Enter your username'" type="text" placeholder="Focus" />
+    </div>
+</template>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Tooltip from 'primevue/tooltip';
+
+app.directive('tooltip', Tooltip);
+```
+
+## Position
+
+There are four choices to position the tooltip, default value is right and alternatives are top , bottom , left .
+
+**Basic Usage:**
+
+```vue
+<InputText v-tooltip="'Enter your username'" type="text" placeholder="Right" />
+<InputText v-tooltip.top="'Enter your username'" type="text" placeholder="Top" />
+<InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />
+<InputText v-tooltip.left="'Enter your username'" type="text" placeholder="Left" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-2">
+        <InputText v-tooltip="'Enter your username'" type="text" placeholder="Right" />
+        <InputText v-tooltip.top="'Enter your username'" type="text" placeholder="Top" />
+        <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />
+        <InputText v-tooltip.left="'Enter your username'" type="text" placeholder="Left" />
+    </div>
+</template>
+```
+</details>
+
+## Tooltip
+
+## Tooltip
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | TooltipDirectivePassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| text | TooltipDirectivePassThroughOptionType | Used to pass attributes to the text's DOM element. |
+| arrow | TooltipDirectivePassThroughOptionType | Used to pass attributes to the arrow's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-tooltip | Class name of the root element |
+| p-tooltip-arrow | Class name of the arrow element |
+| p-tooltip-text | Class name of the text element |
+
+---
+
+# Vue Tree Component
+
+Tree is used to display hierarchical data.
+
+## AccessibilityDoc
+
+Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The root list element has a tree role whereas each list item has a treeitem role along with aria-label , aria-selected and aria-expanded attributes. In checkbox selection, aria-checked is used instead of aria-selected . The container element of a treenode has the group role. Checkbox and toggle icons are hidden from screen readers as their parent element with treeitem role and attributes are used instead for readers and keyboard support. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Keyboard Support Key Function tab Moves focus to the first selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the next focusable element in the page tab sequence. shift + tab Moves focus to the last selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the previous focusable element in the page tab sequence. enter Selects the focused treenode. space Selects the focused treenode. down arrow Moves focus to the next treenode. up arrow Moves focus to the previous treenode. right arrow If node is closed, opens the node otherwise moves focus to the first child node. left arrow If node is open, closes the node otherwise moves focus to the parent node.
+
+## Basic
+
+Tree component requires an array of TreeNode objects as its value .
+
+**Basic Usage:**
+
+```vue
+<Tree :value="nodes" class="w-full md:w-[30rem]"></Tree>
+```
+
+## Controlled
+
+Tree state can be controlled programmatically with the expandedKeys property that defines the keys that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean. Note that expandedKeys also supports two-way binding with the v-model directive.
+
+**Basic Usage:**
+
+```vue
+<div class="flex flex-wrap gap-2 mb-6">
+    <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+    <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+</div>
+<Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-[30rem]"></Tree>
+```
+
+## EventsDoc
+
+An event is provided for each type of user interaction such as expand, collapse and selection.
+
+**Basic Usage:**
+
+```vue
+<Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false"
+    @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect" @nodeExpand="onNodeExpand" @nodeCollapse="onNodeCollapse" class="w-full md:w-[30rem]"></Tree>
+```
+
+## FilterDoc
+
+Filtering is enabled by adding the filter property, by default label property of a node is used to compare against the value in the text field, in order to customize which field(s) should be used during search define filterBy property. In addition filterMode specifies the filtering strategy. In lenient mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, in strict mode when the query matches a node, filtering continues on all descendants.
+
+**Basic Usage:**
+
+```vue
+<Tree :value="nodes" :filter="true" filterMode="lenient" class="w-full md:w-[30rem]"></Tree>
+<Tree :value="nodes" :filter="true" filterMode="strict" class="w-full md:w-[30rem]"></Tree>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Tree from 'primevue/tree';
+```
+
+## LazyDoc
+
+Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using loading property and node-expand method. Default value of loadingMode is mask and also icon is available.
+
+**Basic Usage:**
+
+```vue
+<Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
+<Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
+```
+
+## TemplateDoc
+
+Each node can have a distinct template by matching the type property to the slot name.
+
+## Tree
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | TreeNode[] | - | An array of treenodes. |
+| expandedKeys | TreeExpandedKeys | - | A map of keys to represent the expansion state in controlled mode. |
+| selectionKeys | TreeSelectionKeys | - | A map of keys to control the selection state. |
+| selectionMode | HintedString<"single" \| "multiple" \| "checkbox"> | - | Defines the selection mode. |
+| metaKeySelection | boolean | false | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
+| loading | boolean | false | Whether to display loading indicator. |
+| loadingIcon | string | - | Icon to display when tree is loading. |
+| loadingMode | HintedString<"mask" \| "icon"> | mask | Loading mode display. |
+| filter | boolean | false | When specified, displays an input field to filter the items. |
+| filterBy | string \| Function | label | When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names. |
+| filterMode | HintedString<"lenient" \| "strict"> | lenient | Mode for filtering. |
+| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
+| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
+| highlightOnSelect | boolean | false | Highlights automatically the first item. |
+| scrollHeight | HintedString<"flex"> | - | Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size. |
+| draggableNodes | boolean | null | Whether the nodes are draggable. |
+| droppableNodes | boolean | null | Whether the nodes are droppable. |
+| draggableScope | string \| string[] | null | Scope of the draggable nodes to match a droppableScope. |
+| droppableScope | string \| string[] | null | Scope of the droppable nodes to match a draggableScope. |
+| validateDrop | boolean | false | When enabled, drop can be accepted or rejected based on condition defined at node-drop. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying menu element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TreePassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| [key: string] | Function |  |
+
+## Tree
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | TreeNode[] | - | An array of treenodes. |
+| expandedKeys | TreeExpandedKeys | - | A map of keys to represent the expansion state in controlled mode. |
+| selectionKeys | TreeSelectionKeys | - | A map of keys to control the selection state. |
+| selectionMode | HintedString<"single" \| "multiple" \| "checkbox"> | - | Defines the selection mode. |
+| metaKeySelection | boolean | false | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
+| loading | boolean | false | Whether to display loading indicator. |
+| loadingIcon | string | - | Icon to display when tree is loading. |
+| loadingMode | HintedString<"mask" \| "icon"> | mask | Loading mode display. |
+| filter | boolean | false | When specified, displays an input field to filter the items. |
+| filterBy | string \| Function | label | When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names. |
+| filterMode | HintedString<"lenient" \| "strict"> | lenient | Mode for filtering. |
+| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
+| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
+| highlightOnSelect | boolean | false | Highlights automatically the first item. |
+| scrollHeight | HintedString<"flex"> | - | Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size. |
+| draggableNodes | boolean | null | Whether the nodes are draggable. |
+| droppableNodes | boolean | null | Whether the nodes are droppable. |
+| draggableScope | string \| string[] | null | Scope of the draggable nodes to match a droppableScope. |
+| droppableScope | string \| string[] | null | Scope of the droppable nodes to match a draggableScope. |
+| validateDrop | boolean | false | When enabled, drop can be accepted or rejected based on condition defined at node-drop. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying menu element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TreePassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| [key: string] | Function |  |
+
+## Treenode
+
+## Treeselect
+
+## Treeselect
+
+## Treetable
+
+## Treetable
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | TreePassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| pcFilterContainer | any | Used to pass attributes to the IconField component. |
+| pcFilterInput | any | Used to pass attributes to the InputText component. |
+| pcFilterIconContainer | any | Used to pass attributes to the InputIcon component. |
+| filterIcon | TreePassThroughOptionType<T> | Used to pass attributes to the filter icon's DOM element. |
+| wrapper | TreePassThroughOptionType<T> | Used to pass attributes to the wrapper's DOM element. |
+| rootChildren | TreePassThroughOptionType<T> | Used to pass attributes to the root children's DOM element. |
+| node | TreePassThroughOptionType<T> | Used to pass attributes to the node's DOM element. |
+| nodeContent | TreePassThroughOptionType<T> | Used to pass attributes to the node content's DOM element. |
+| nodeToggleButton | TreePassThroughOptionType<T> | Used to pass attributes to the node toggle button's DOM element. |
+| nodeToggleIcon | TreePassThroughOptionType<T> | Used to pass attributes to the node toggle icon's DOM element. |
+| pcNodeCheckbox | TreePassThroughOptionType<T> | Used to pass attributes to the checkbox's DOM element. |
+| nodeIcon | TreePassThroughOptionType<T> | Used to pass attributes to the node icon's DOM element. |
+| nodeLabel | TreePassThroughOptionType<T> | Used to pass attributes to the node label's DOM element. |
+| nodeChildren | TreePassThroughOptionType<T> | Used to pass attributes to the node children's DOM element. |
+| mask | TreePassThroughOptionType<T> | Used to pass attributes to the mask's DOM element. |
+| loadingIcon | TreePassThroughOptionType<T> | Used to pass attributes to the loading icon's DOM element. |
+| emptyMessage | TreePassThroughOptionType<T> | Used to pass attributes to the empty message's DOM element. |
+| dropPoint | TreePassThroughOptionType<T> | Used to pass attributes to the drop point's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-tree | Class name of the root element |
+| p-tree-mask | Class name of the mask element |
+| p-tree-loading-icon | Class name of the loading icon element |
+| p-tree-filter-input | Class name of the filter input element |
+| p-tree-root | Class name of the wrapper element |
+| p-tree-root-children | Class name of the root children element |
+| p-tree-node | Class name of the node element |
+| p-tree-node-content | Class name of the node content element |
+| p-tree-node-toggle-button | Class name of the node toggle button element |
+| p-tree-node-toggle-icon | Class name of the node toggle icon element |
+| p-tree-node-checkbox | Class name of the node checkbox element |
+| p-tree-node-icon | Class name of the node icon element |
+| p-tree-node-label | Class name of the node label element |
+| p-tree-node-children | Class name of the node children element |
+
+---
+
+# Vue TreeSelect Component
+
+TreeSelect is a form component to choose from hierarchical data.
+
+## Accessibility
+
+Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The treeselect element has a combobox role in addition to aria-haspopup and aria-expanded attributes. The relation between the combobox and the popup is created with aria-controls that refers to the id of the popup. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses tree as the role. Each list item has a treeitem role along with aria-label , aria-selected and aria-expanded attributes. In checkbox selection, aria-checked is used instead of aria-selected . Checkbox and toggle icons are hidden from screen readers as their parent element with treeitem role and attributes are used instead for readers and keyboard support. The container element of a treenode has the group role. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Closed State Keyboard Support Key Function tab Moves focus to the treeselect element. space Opens the popup and moves visual focus to the selected treenode, if there is none then first treenode receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the page tab sequence. shift + tab Moves focus to the previous focusable element in the page tab sequence. enter Selects the focused option, closes the popup if selection mode is single. space Selects the focused option, closes the popup if selection mode is single. escape Closes the popup, moves focus to the treeselect element. down arrow Moves focus to the next treenode. up arrow Moves focus to the previous treenode. right arrow If node is closed, opens the node otherwise moves focus to the first child node. left arrow If node is open, closes the node otherwise moves focus to the parent node.
+
+**Basic Usage:**
+
+```vue
+<span id="dd1">Options</span>
+<TreeSelect aria-labelledby="dd1" />
+
+<TreeSelect aria-label="Options" />
+```
+
+## Basic
+
+TreeSelect is used with the v-model property for two-way value binding along with the options collection. Internally Tree component is used so the options model is based on TreeNode API. In single selection mode, value binding should be the key value of a node.
+
+**Basic Usage:**
+
+```vue
+<TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+```
+
+## Checkbox
+
+Selection of multiple nodes via checkboxes is enabled by configuring selectionMode as checkbox . In checkbox selection mode, value binding should be a key-value pair where key is the node key and value is an object that has checked and partialChecked properties to represent the checked state of a node object to indicate selection.
+
+**Basic Usage:**
+
+```vue
+<TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-80 w-full" />
+```
+
+## Clear Icon
+
+When showClear is enabled, a clear icon is added to reset the TreeSelect.
+
+**Basic Usage:**
+
+```vue
+<TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+```
+
+## Disabled
+
+When disabled is present, the element cannot be edited and focused.
+
+**Basic Usage:**
+
+```vue
+<TreeSelect v-model="selectedValue" disabled class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+```
+
+## Filled
+
+Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
+
+**Basic Usage:**
+
+```vue
+<TreeSelect v-model="selectedValue" variant="filled" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+```
+
+## Filter
+
+Filtering is enabled by adding the filter property, by default label property of a node is used to compare against the value in the text field, in order to customize which field(s) should be used during search define filterBy property. In addition filterMode specifies the filtering strategy. In lenient mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, in strict mode when the query matches a node, filtering continues on all descendants.
+
+**Basic Usage:**
+
+```vue
+<TreeSelect v-model="selectedValue" filter filterMode="lenient" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+<TreeSelect v-model="selectedValue" filter filterMode="strict" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+```
+
+## Float Label
+
+A floating label appears on top of the input field when focused. Visit FloatLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<FloatLabel class="w-full md:w-80">
+    <TreeSelect v-model="value1" inputId="over_label" :options="nodes" class="w-full" />
+    <label for="over_label">Over Label</label>
+</FloatLabel>
+
+<FloatLabel class="w-full md:w-80" variant="in">
+    <TreeSelect v-model="value2" inputId="in_label" :options="nodes" class="w-full" variant="filled" />
+    <label for="in_label">In Label</label>
+</FloatLabel>
+
+<FloatLabel class="w-full md:w-80" variant="on">
+    <TreeSelect v-model="value3" inputId="on_label" :options="nodes" class="w-full" />
+    <label for="on_label">On Label</label>
+</FloatLabel>
+```
+
+## Fluid
+
+The fluid prop makes the component take up the full width of its container when set to true.
+
+**Basic Usage:**
+
+```vue
+<TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" fluid />
+```
+
+## Forms
+
+TreeSelect is used with the v-model property.
+
+## Ifta Label
+
+IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
+
+**Basic Usage:**
+
+```vue
+<IftaLabel class="w-full md:w-80">
+    <TreeSelect v-model="selectedValue" inputId="t_file" :options="nodes" class="w-full" variant="filled" />
+    <label for="t_file">File</label>
+</IftaLabel>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import TreeSelect from 'primevue/treeselect';
+```
+
+## Invalid
+
+Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
+
+**Basic Usage:**
+
+```vue
+<TreeSelect v-model="selectedValue1" :invalid="Object.keys(selectedValue1).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+<TreeSelect v-model="selectedValue2" :invalid="Object.keys(selectedValue2).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" variant="filled" />
+```
+
+## Lazy
+
+Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using loading property and node-expand method. Default value of loadingMode is mask and also icon is available.
+
+**Basic Usage:**
+
+```vue
+<TreeSelect v-model="selectedValue" :loading="loading" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
+<TreeSelect v-model="selectedValue2" loadingMode="icon" :options="nodes2" @node-expand="onNodeExpand2" placeholder="Select Item" class="md:w-80 w-full" />
+```
+
+## Multiple
+
+More than one node is selectable by setting selectionMode to multiple . By default in multiple selection mode, metaKey press (e.g. ⌘ ) is not necessary to add to existing selections. When the optional metaKeySelection is present, behavior is changed in a way that selecting a new node requires meta key to be present. Note that in touch enabled devices, TreeSelect always ignores metaKey. In multiple selection mode, value binding should be a key-value pair where key is the node key and value is a boolean to indicate selection.
+
+**Basic Usage:**
+
+```vue
+<TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" display="chip" :maxSelectedLabels="3" placeholder="Select Items" class="md:w-80 w-full" />
+```
+
+## Sizes
+
+TreeSelect provides small and large sizes as alternatives to the base.
+
+**Basic Usage:**
+
+```vue
+<TreeSelect v-model="value1" :options="nodes" size="small" placeholder="Small" class="md:w-80 w-full" />
+<TreeSelect v-model="value2" :options="nodes" placeholder="Normal" class="md:w-80 w-full" />
+<TreeSelect v-model="value3" :options="nodes" size="large" placeholder="Large" class="md:w-80 w-full" />
+```
+
+## Template
+
+TreeSelect offers multiple slots for customization through templating.
+
+**Basic Usage:**
+
+```vue
+<TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-80 w-full">
+    <template #dropdownicon>
+        <i class="pi pi-search" />
+    </template>
+    <template #header>
+        <div class="font-medium px-3 py-2">Available Files</div>
+    </template>
+    <template #footer>
+        <div class="px-3 pt-1 pb-2 flex justify-between">
+            <Button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
+            <Button label="Remove All" severity="danger" text size="small" icon="pi pi-plus" />
+        </div>
+    </template>
+</TreeSelect>
+```
+
+## Treeselect
+
+## Treeselect
+
+---
+
+# Vue TreeTable Component
+
+TreeTable is used to display hierarchical data in tabular format.
+
+## AccessibilityDoc
+
+Screen Reader DataTable uses a treegrid element whose attributes can be extended with the tableProps option. This property allows passing aria roles and attributes like aria-label and aria-describedby to define the table for readers. Default role of the table is table . Header, body and footer elements use rowgroup , rows use row role, header cells have columnheader and body cells use cell roles. Sortable headers utilizer aria-sort attribute either set to "ascending" or "descending". Row elements manage aria-expanded for state along with aria-posinset , aria-setsize and aria-level attribute to define the hierachy. When selection is enabled, aria-selected is set to true on a row. In checkbox mode, TreeTable component uses a hidden native checkbox element. Editable cells use custom templating so you need to manage aria roles and attributes manually if required. Paginator is a standalone component used inside the DataTable, refer to the paginator for more information about the accessibility features. Sortable Headers Keyboard Support Key Function tab Moves through the headers. enter Sorts the column. space Sorts the column. Keyboard Support Key Function tab Moves focus to the first selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the next focusable element in the page tab sequence. shift + tab Moves focus to the last selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the previous focusable element in the page tab sequence. enter Selects the focused treenode. space Selects the focused treenode. down arrow Moves focus to the next treenode. up arrow Moves focus to the previous treenode. right arrow If node is closed, opens the node otherwise moves focus to the first child node. left arrow If node is open, closes the node otherwise moves focus to the parent node. home Moves focus to the first same-level node. end Moves focus to the last same-level node.
+
+## Basic
+
+TreeTable requires a collection of TreeNode instances as a value and Column components as children for the representation. The column with the element to toggle a node should have expander enabled.
+
+**Basic Usage:**
+
+```vue
+<TreeTable :value="nodes" tableStyle="min-width: 50rem">
+    <Column field="name" header="Name" expander style="width: 34%"></Column>
+    <Column field="size" header="Size" style="width: 33%"></Column>
+    <Column field="type" header="Type" style="width: 33%"></Column>
+</TreeTable>
+```
+
+## ColumnToggleDoc
+
+Column visibility based on a condition can be implemented with dynamic columns, in this sample a MultiSelect is used to manage the visible columns.
+
+**Basic Usage:**
+
+```vue
+<TreeTable :value="nodes" tableStyle="min-width: 50rem">
+    <template #header>
+        <div style="text-align:left">
+            <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-64" display="chip"/>
+        </div>
+    </template>
+    <Column field="name" header="Name" :expander="true"></Column>
+    <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
+</TreeTable>
+```
+
+## ContextMenuDoc
+
+TreeTable has exclusive integration with ContextMenu using the contextMenu event to open a menu on right click along with contextMenuSelection property and row-contextmenu event to control the selection via the menu.
+
+**Basic Usage:**
+
+```vue
+<ContextMenu ref="cm" :model="menuModel" @hide="selectedNode = null" />
+<TreeTable v-model:contextMenuSelection="selectedNode" :value="nodes" contextMenu @row-contextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
+    <Column field="name" header="Name" expander style="width: 34%"></Column>
+    <Column field="size" header="Size" style="width: 33%"></Column>
+    <Column field="type" header="Type" style="width: 33%"></Column>
+</TreeTable>
+```
+
+## Controlled
+
+Expansion state is controlled with expandedKeys property. The expandedKeys should be an object whose keys refer to the node key and values represent the expanded state e.g. &#123;'0-0': true&#125; .
+
+**Basic Usage:**
+
+```vue
+<Button @click="toggleApplications" label="Toggle Applications" />
+<TreeTable v-model:expandedKeys="expandedKeys" :value="nodes" class="mt-6" tableStyle="min-width: 50rem">
+    <Column field="name" header="Name" expander style="width: 34%"></Column>
+    <Column field="size" header="Size" style="width: 33%"></Column>
+    <Column field="type" header="Type" style="width: 33%"></Column>
+</TreeTable>
+```
+
+## DynamicColumnsDoc
+
+Columns can be created programmatically.
+
+**Basic Usage:**
+
+```vue
+<TreeTable :value="nodes" tableStyle="min-width: 50rem">
+    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
+</TreeTable>
+```
+
+## FilterDoc
+
+Filtering is enabled by adding the filter property to a Column. The filterMode specifies the filtering strategy, in lenient mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, in strict mode when the query matches a node, filtering continues on all descendants. A general filled called globalFilter is also provided to search all columns that support filtering.
+
+**Basic Usage:**
+
+```vue
+<SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />
+<TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
+    <template #header>
+        <div class="flex justify-end">
+            <IconField>
+                <InputIcon class="pi pi-search" />
+                <InputText v-model="filters['global']" placeholder="Global Search" />
+            </IconField>
+        </div>
+    </template>
+    <Column field="name" header="Name" expander style="min-width: 12rem">
+        <template #filter>
+            <InputText v-model="filters['name']" type="text" placeholder="Filter by name" />
+        </template>
+    </Column>
+    <Column field="size" header="Size" style="min-width: 12rem">
+        <template #filter>
+            <InputText v-model="filters['size']" type="text" placeholder="Filter by size" />
+        </template>
+    </Column>
+    <Column field="type" header="Type" style="min-width: 12rem">
+        <template #filter>
+            <InputText v-model="filters['type']" type="text" placeholder="Filter by type" />
+        </template>
+    </Column>
+</TreeTable>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import TreeTable from 'primevue/treetable';
+import Column from 'primevue/column';
+```
+
+## LazyLoadDoc
+
+Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging , sorting and filtering occurs. Sample below imitates lazy loading data from a remote datasource using an in-memory list and timeouts to mimic network connection. Enabling the lazy property and assigning the logical number of rows to totalRecords by doing a projection query are the key elements of the implementation so that paginator displays the UI assuming there are actually records of totalRecords size although in reality they are not present on page, only the records that are displayed on the current page exist. In addition, only the root elements should be loaded, children can be loaded on demand using nodeExpand callback.
+
+**Basic Usage:**
+
+```vue
+<TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
+    @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords" tableStyle="min-width: 50rem">
+    <Column field="name" header="Name" expander></Column>
+    <Column field="size" header="Size"></Column>
+    <Column field="type" header="Type"></Column>
+</TreeTable>
+```
+
+## Size
+
+In addition to a regular table, alternatives with alternative sizes are available.
+
+**Basic Usage:**
+
+```vue
+<TreeTable :value="nodes" :size="size.value" tableStyle="min-width: 50rem">
+    <Column field="name" header="Name" expander style="width: 34%"></Column>
+    <Column field="size" header="Size" style="width: 33%"></Column>
+    <Column field="type" header="Type" style="width: 33%"></Column>
+</TreeTable>
+```
+
+## Template
+
+Custom content at header and footer slots are supported via templating.
+
+**Basic Usage:**
+
+```vue
+<TreeTable :value="nodes" tableStyle="min-width: 50rem">
+    <template #header>
+        <div class="text-xl font-bold">File Viewer</div>
+    </template>
+    <Column field="name" header="Name" expander style="width: 250px"></Column>
+    <Column field="size" header="Size" style="width: 150px"></Column>
+    <Column field="type" header="Type" style="width: 150px"></Column>
+    <Column style="width: 10rem">
+        <template #body>
+            <div class="flex flex-wrap gap-2">
+                <Button type="button" icon="pi pi-search" rounded />
+                <Button type="button" icon="pi pi-pencil" rounded severity="success" />
+            </div>
+        </template>
+    </Column>
+    <template #footer>
+        <div class="flex justify-start">
+            <Button icon="pi pi-refresh" label="Reload" severity="warn" />
+        </div>
+    </template>
+</TreeTable>
+```
+
+## Treetable
+
+## Treetable
+
+---
+
+# uikit
+
+
+
+## AddingPrimeIconsDoc
+
+PrimeOne uses PrimeIcons, the official icon library by PrimeTek. To use it effectively within your design system, you need to add PrimeIcons to your Figma environment by following these steps: Open the PrimeIcons file in Figma and move it to your team project. Publish the PrimeIcons file and enable it for all team files in your Team Settings. Return to your PrimeOne file. In the Libraries panel, click on the banner that says “Includes X missing libraries.” From the dropdown, select “ PrimeIcons (Community) ” and click the Swap Library button.
+
+## OverviewDoc
+
+PrimeOne is the official Figma library of UI components designed to match the implementations in the Prime UI Suites. The current iteration of PrimeOne is structured around the Aura Light and Aura Dark themes.
+
+## ResourcesDoc
+
+PrimeOne for Figma takes full advantage of powerful Figma features such as components, variants, auto layout, styles, interactivity, and design tokens via Tokens Studio. If you're new to Figma or want to get the most out of PrimeOne, we recommend exploring the following resources: Tokens Studio Documentation - PrimeOne uses Tokens Studio for design token management. Visit the official docs to understand how it works and how to use it effectively. Figma's Best Practice Guides - Learn how to work efficiently with components, variants, and layouts. Figma's Official YouTube Channel - Tutorials and feature walkthroughs from the Figma team. Figmalion Newsletter - Stay updated with curated insights from the Figma community.
+
+## SupportDoc
+
+The community gathers on GitHub Discussions and Discord to ask questions, share ideas, and discuss the technology. For direct inquiries or suggestions, feel free to contact us at contact@primetek.com.tr .
+
+## TokenSetsDoc
+
+Primitive This set contains the most foundational tokens, such as base colors and border radius, elements that are considered “primitive” by nature. Semantic Includes essential system-wide tokens like primary, surface, and other shared design values It also defines tokens used across multiple component groups. For example, tokens under {form.field.*} are referenced by component-level tokens in InputText, MultiSelect, Checkbox, and other form components, enabling consistent styling across the board. Component These tokens are defined specifically for each component to allow deep customization While we've aimed to create dedicated tokens for every component state, many of them still reference the semantic or primitive tokens, allowing you to make global updates from a single place when needed. App Tokens in this set are not part of the PrimeUIX system. They are intended for values defined in your own application. The same applies to tokens used in our UI library showcases. For example, there is no dedicated font size token in PrimeUIX because font styles are not part of the design system. UI components inherit their font settings from the application. Custom If you're using the Figma to Theme feature and want your newly created custom tokens to appear in your Theme Designer themes, place them in this set. Even if you're not using the Theme Designer, we still recommend creating a separate set — or using the existing “Custom” set — for your own tokens. Making changes to the default sets, especially deleting tokens or altering reference values, can lead to inconsistencies with the library tokens and cause additional work during development.
+
+## UpdatePrimeOneDoc
+
+When a new version of PrimeOne is released, follow the steps below to update your files: Download the latest version of PrimeOne from PrimeStore. Unzip the file and upload it to your Figma workspace. Publish the newly uploaded file as a library. In all consumer files, use Swap Library to point to the new version. Once the transition is complete, you can safely unpublish the old PrimeOne library Before each update, it's a good idea to review the Changelog on the Get Started page of the PrimeOne Figma file. Keep in mind that while Swap Library will update most components, any customized components may require manual review and adjustment.
+
+---
+
+# Vue Virtual Scroller Component
+
+VirtualScroller is a performant approach to render large amounts of data efficiently.
+
+## Accessibility
+
+Screen Reader VirtualScroller has no specific role is enforced, still you may use any aria role and attributes as any valid attribute is passed to the container element. Keyboard Support Component does not include any built-in interactive elements.
+
+## Basic
+
+VirtualScroller requires items as the data to display, itemSize for the dimensions of an item and item template are required on component. In addition, an initial array is required based on the total number of items to display. Size of the viewport is configured using scrollWidth , scrollHeight properties directly or with CSS width and height styles.
+
+## Delay
+
+The delay property adds a threshold to wait in milliseconds during scrolling for render optimization.
+
+## Grid
+
+Scrolling can be enabled vertically and horizontally when orientation is set as both . In this mode, itemSize should be an array where first value is the height of an item and second is the width.
+
+## Horizontal
+
+Setting orientation to horizontal enables scrolling horizontally. In this case, the itemSize should refer to the width of an item.
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import VirtualScroller from 'primevue/virtualscroller';
+```
+
+## Lazy
+
+Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded on demand. To implement lazy loading, enable the lazy property and implement onLazyLoad callback to return data.
+
+## Loading
+
+Busy state is enabled by adding showLoader property which blocks the UI with a modal by default. Alternatively, loader template can be used to customize items e.g. with Skeleton .
+
+## Virtualscroller
+
+## Virtualscroller
+
+---
+
+# vite
+
+
+
+## Download
+
+PrimeVue is available for download on npm registry .
+
+**Basic Usage:**
+
+```vue
+# Using npm
+npm install primevue @primeuix/themes
+
+# Using yarn
+yarn add primevue @primeuix/themes
+
+# Using pnpm
+pnpm add primevue @primeuix/themes
+```
+
+## Examples
+
+We've created various samples for the popular options in the Vue ecosystem. Visit the primevue-examples repository for more samples including vite-quickstart and vite-ts-quickstart .
+
+## Next Steps
+
+Welcome to the Prime UI Ecosystem! Once you have PrimeVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes Getting support
+
+## PluginDoc
+
+PrimeVue plugin is required to be installed as an application plugin to set up the default configuration . The plugin is lightweight, and only utilized for configuration purposes.
+
+**Basic Usage:**
+
+```vue
+import { createApp } from 'vue';
+import PrimeVue from 'primevue/config';
+
+const app = createApp(App);
+app.use(PrimeVue);
+```
+
+## Plugin
+
+Configure PrimeVue to use a theme like Aura.
+
+## Verify
+
+Verify your setup by adding a component such as Button . Each component can be imported and registered individually so that you only include what you use for bundle optimization. Import path is available in the documentation of the corresponding component.
+
+**Basic Usage:**
+
+```vue
+import Button from "primevue/button"
+
+const app = createApp(App);
+app.component('Button', Button);
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button label="Verify" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Video
+
+Watch the short video tutorial from Çağatay Çivici to setup PrimeVue in styled mode with Create-Vue .
+
+---
+

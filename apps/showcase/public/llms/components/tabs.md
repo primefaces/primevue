@@ -1,0 +1,339 @@
+# Vue Tabs Component
+
+Tabs facilitates seamless switching between different views.
+
+## Import
+
+```javascript
+import Tabs from 'primevue/tabs';
+import TabList from 'primevue/tablist';
+import Tab from 'primevue/tab';
+import TabPanels from 'primevue/tabpanels';
+import TabPanel from 'primevue/tabpanel';
+```
+
+## Accessibility
+
+Screen Reader The tabs container in TabList is defined with the tablist role, as any attribute is passed to the container element aria-labelledby can be optionally used to specify an element to describe the Tabs. Each Tab has a tab role along with aria-selected state attribute and aria-controls to refer to the corresponding TabPanel. TabPanel has tabpanel role, an id to match the aria-controls of Tab and aria-labelledby reference to Tab as the accessible name. Tab Keyboard Support Key Function tab Moves focus through the header. enter Activates the focused tab header. space Activates the focused tab header. right arrow Moves focus to the next header. If focus is on the last header, moves focus to the first header. left arrow Moves focus to the previous header. If focus is on the first header, moves focus to the last header. home Moves focus to the last header. end Moves focus to the first header. pageUp Moves scroll position to first header. pageDown Moves scroll position to last header.
+
+## Basic
+
+Tabs is defined using TabList , Tab , TabPanels and TabPanel components. Tab and TabPanel components are associated with their value properties.
+
+```vue
+<Tabs value="0">
+    <TabList>
+        <Tab value="0">Header I</Tab>
+        <Tab value="1">Header II</Tab>
+        <Tab value="2">Header III</Tab>
+    </TabList>
+    <TabPanels>
+        <TabPanel value="0">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </TabPanel>
+        <TabPanel value="1">
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+            </p>
+        </TabPanel>
+        <TabPanel value="2">
+            <p class="m-0">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+            </p>
+        </TabPanel>
+    </TabPanels>
+</Tabs>
+```
+
+## Controlled
+
+Tabs can be controlled programmatically using value property as a model.
+
+```vue
+<div class="flex mb-2 gap-2 justify-end">
+    <Button @click="value = '0'" rounded label="1" class="w-8 h-8 p-0" :outlined="value !== '0'" />
+    <Button @click="value = '1'" rounded label="2" class="w-8 h-8 p-0" :outlined="value !== '1'" />
+    <Button @click="value = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="value !== '2'" />
+</div>
+
+<Tabs v-model:value="value">
+    <TabList>
+        <Tab value="0">Header I</Tab>
+        <Tab value="1">Header II</Tab>
+        <Tab value="2">Header III</Tab>
+    </TabList>
+    <TabPanels>
+        <TabPanel value="0">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </TabPanel>
+        <TabPanel value="1">
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+            </p>
+        </TabPanel>
+        <TabPanel value="2">
+            <p class="m-0">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+            </p>
+        </TabPanel>
+    </TabPanels>
+</Tabs>
+```
+
+## Disabled
+
+Enabling disabled property of a Tab prevents user interaction.
+
+```vue
+<Tabs value="0">
+    <TabList>
+        <Tab value="0">Header I</Tab>
+        <Tab value="1">Header II</Tab>
+        <Tab value="2">Header III</Tab>
+        <Tab disabled>Header IV</Tab>
+    </TabList>
+    <TabPanels>
+        <TabPanel value="0">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </TabPanel>
+        <TabPanel value="1">
+            <p class="m-0">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+            </p>
+        </TabPanel>
+        <TabPanel value="2">
+            <p class="m-0">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+            </p>
+        </TabPanel>
+    </TabPanels>
+</Tabs>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Tabs value="0">
+            <TabList>
+                <Tab value="0">Header I</Tab>
+                <Tab value="1">Header II</Tab>
+                <Tab value="2">Header III</Tab>
+                <Tab disabled>Header IV</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel value="0">
+                    <p class="m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </TabPanel>
+                <TabPanel value="1">
+                    <p class="m-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                    </p>
+                </TabPanel>
+                <TabPanel value="2">
+                    <p class="m-0">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                    </p>
+                </TabPanel>
+            </TabPanels>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Dynamic
+
+Tabs can be generated dynamically using the standard v-for directive on Tab and TabPanel.
+
+## Scrollable
+
+Adding scrollable property displays navigational buttons at each side to scroll between tabs.
+
+## Tab Menu
+
+A navigation menu is implemented using tabs without the panels where the content of a tab is provided by a route component like router-view . For the purpose of this demo, router-view is not included.
+
+## Template
+
+Custom content for a tab is defined with the default slot. The optional as property controls the default container element of a tab, for example setting it to a div renders a div for the header instead of a button. The asChild option enables the headless mode for further customization by passing callbacks and properties to implement your own tab header.
+
+```vue
+<Tabs value="0">
+    <TabList>
+        <Tab value="0" as="div" class="flex items-center gap-2">
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+            <span class="font-bold whitespace-nowrap">Amy Elsner</span>
+        </Tab>
+        <Tab value="1" as="div" class="flex items-center gap-2">
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+            <span class="font-bold whitespace-nowrap">Onyama Limba</span>
+        </Tab>
+        <Tab v-slot="slotProps" value="2" asChild>
+            <div :class="['flex items-center gap-2', slotProps.class]" @click="slotProps.onClick" v-bind="slotProps.a11yAttrs">
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                <span class="font-bold whitespace-nowrap">Ioni Bowcher</span>
+                <Badge value="2" />
+            </div>
+        </Tab>
+    </TabList>
+    <TabPanels>
+        <TabPanel value="0" as="p" class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </TabPanel>
+        <TabPanel value="1" as="p" class="m-0">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+            ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+        </TabPanel>
+        <TabPanel v-slot="slotProps" value="2" asChild>
+            <div v-show="slotProps.active" :class="slotProps.class" v-bind="slotProps.a11yAttrs">
+                <p class="m-0">
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+                    culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                </p>
+            </div>
+        </TabPanel>
+    </TabPanels>
+</Tabs>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Tabs value="0">
+            <TabList>
+                <Tab value="0" as="div" class="flex items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold whitespace-nowrap">Amy Elsner</span>
+                </Tab>
+                <Tab value="1" as="div" class="flex items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                    <span class="font-bold whitespace-nowrap">Onyama Limba</span>
+                </Tab>
+                <Tab v-slot="slotProps" value="2" asChild>
+                    <div :class="['flex items-center gap-2', slotProps.class]" @click="slotProps.onClick" v-bind="slotProps.a11yAttrs">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                        <span class="font-bold whitespace-nowrap">Ioni Bowcher</span>
+                        <Badge value="2" />
+                    </div>
+                </Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel value="0" as="p" class="m-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </TabPanel>
+                <TabPanel value="1" as="p" class="m-0">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                    ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                </TabPanel>
+                <TabPanel v-slot="slotProps" value="2" asChild>
+                    <div v-show="slotProps.active" :class="slotProps.class" v-bind="slotProps.a11yAttrs">
+                        <p class="m-0">
+                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+                            culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                        </p>
+                    </div>
+                </TabPanel>
+            </TabPanels>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Tabs
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | string \| number | - | Value of the active tab. |
+| lazy | boolean | false | When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css. |
+| scrollable | boolean | false | When specified, enables horizontal and/or vertical scrolling. |
+| showNavigators | boolean | true | Whether to display navigation buttons in container when scrollable is enabled. |
+| tabindex | number | 0 | Index of the element in tabbing order. |
+| selectOnFocus | boolean | false | When enabled, the focused tab is activated. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TabsPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Tab
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | string \| number | - | Value of tab. |
+| disabled | boolean | false | Whether the tab is disabled. |
+| as | string \| Component | BUTTON | Use to change the HTML tag of root element. |
+| asChild | boolean | false | When enabled, it changes the default rendered element for the one passed as a child element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TabPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+
+## Tabs
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | string \| number | - | Value of the active tab. |
+| lazy | boolean | false | When enabled, hidden tabs are not rendered at all. Defaults to false that hides tabs with css. |
+| scrollable | boolean | false | When specified, enables horizontal and/or vertical scrolling. |
+| showNavigators | boolean | true | Whether to display navigation buttons in container when scrollable is enabled. |
+| tabindex | number | 0 | Index of the element in tabbing order. |
+| selectOnFocus | boolean | false | When enabled, the focused tab is activated. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TabsPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | TabsPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-tabs | Class name of the root element |
+

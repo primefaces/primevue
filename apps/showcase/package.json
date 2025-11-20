@@ -30,13 +30,14 @@
         "passthrough"
     ],
     "scripts": {
-        "build": "pnpm run build:prebuild && nuxt build",
+        "build": "pnpm run build:prebuild && pnpm run build:llmdocs && nuxt build",
         "dev": "nuxt dev",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
         "build:prebuild": "node ./scripts/prebuild.mjs",
-        "build:apidoc": "node ./scripts/build-apidoc.cjs"
+        "build:apidoc": "node ./scripts/build-apidoc.cjs",
+        "build:llmdocs": "node ./scripts/build-llm-docs.mjs"
     },
     "dependencies": {
         "@docsearch/js": "catalog:app",
