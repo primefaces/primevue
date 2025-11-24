@@ -1,11 +1,18 @@
 <template>
-    <DocComponent
-        title="LLMs.txt - PrimeVue"
-        header="LLMs.txt"
-        description="LLMs.txt is a file that contains the LLMs for the PrimeVue documentation."
-        :componentDocs="docs"
-        :apiDocs="[]"
-    />
+    <Head>
+        <Title>LLMs.txt - PrimeVue</Title>
+        <Meta name="description" content="LLM-optimized documentation endpoints for PrimeVue components." />
+    </Head>
+    <div class="doc">
+        <div class="doc-main">
+            <div class="doc-intro">
+                <h1>LLMs.txt</h1>
+                <p>LLM-optimized documentation endpoints for PrimeVue components.</p>
+            </div>
+            <DocSections :docs="docs" />
+        </div>
+        <DocSectionNav :docs="docs" />
+    </div>
 </template>
 
 <script>
