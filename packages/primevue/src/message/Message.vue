@@ -1,6 +1,6 @@
 <template>
     <transition name="p-message" appear v-bind="ptmi('transition')">
-        <div v-show="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" :data-p="dataP" v-bind="ptm('root')">
+        <div v-if="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" :data-p="dataP" v-bind="ptm('root')">
             <slot v-if="$slots.container" name="container" :closeCallback="close"></slot>
             <div v-else :class="cx('content')" :data-p="dataP" v-bind="ptm('content')">
                 <slot name="icon" :class="cx('icon')">
@@ -9,7 +9,8 @@
                 <div v-if="$slots.default" :class="cx('text')" :data-p="dataP" v-bind="ptm('text')">
                     <slot></slot>
                 </div>
-                <button v-if="closable" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" @click="close($event)" :data-p="dataP" v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">
+                <button v-if="closable" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" @click="close($event)" :data-p="dataP"
+                    v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">
                     <slot name="closeicon">
                         <i v-if="closeIcon" :class="[cx('closeIcon'), closeIcon]" :data-p="dataP" v-bind="ptm('closeIcon')" />
                         <TimesIcon v-else :class="[cx('closeIcon'), closeIcon]" :data-p="dataP" v-bind="ptm('closeIcon')" />
