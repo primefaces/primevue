@@ -2,14 +2,6 @@
 
 AnimateOnScroll is used to apply animations to elements when entering or leaving the viewport during scrolling.
 
-## Import
-
-```javascript
-import AnimateOnScroll from 'primevue/animateonscroll';
-
-app.directive('animateonscroll', AnimateOnScroll);
-```
-
 ## Accessibility
 
 Screen Reader AnimateOnScroll does not require any roles and attributes. Keyboard Support Component does not include any interactive elements.

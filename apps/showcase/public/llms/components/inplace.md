@@ -2,12 +2,6 @@
 
 Inplace provides an easy to do editing and display at the same time where clicking the output displays the actual content.
 
-## Import
-
-```javascript
-import Inplace from 'primevue/inplace';
-```
-
 ## Accessibility
 
 Screen Reader Inplace component defines aria-live as "polite" by default, since any valid attribute is passed to the main container aria roles and attributes of the root element can be customized easily. View Mode Keyboard Support Key Function enter Switches to content.
@@ -46,35 +40,23 @@ Any content such as an image can be placed inside an Inplace.
 </Inplace>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Inplace>
-            <template #display>
-                <span class="inline-flex items-center gap-2">
-                    <span class="pi pi-image"></span>
-                    <span>View Photo</span>
-                </span>
-            </template>
-            <template #content>
-                <img class="w-full sm:w-80 shadow-md" alt="Nature" src="https://primefaces.org/cdn/primevue/images/nature/nature8.jpg" />
-            </template>
-        </Inplace>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
 ## Input
 
 The closeCallback switches the state back to display mode when called from an event.
+
+```vue
+<Inplace>
+    <template #display>
+        {{ text || 'Click to Edit' }}
+    </template>
+    <template #content="{ closeCallback }">
+        <span class="inline-flex items-center gap-2">
+            <InputText v-model="text" autofocus />
+            <Button icon="pi pi-times" text severity="danger" @click="closeCallback" />
+        </span>
+    </template>
+</Inplace>
+```
 
 ## Lazy
 

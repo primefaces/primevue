@@ -2,25 +2,9 @@
 
 Textarea adds styling and autoResize functionality to standard textarea element.
 
-## Import
-
-```javascript
-import Textarea from 'primevue/textarea';
-```
-
 ## Accessibility
 
 Screen Reader Textarea component renders a native textarea element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
-
-```vue
-<label for="address1">Address 1</label>
-<Textarea id="address1" />
-
-<span id="address2">Address 2</span>
-<Textarea aria-labelledby="address2" />
-
-<Textarea aria-label="Address Details"/>
-```
 
 ## AutoResizeDoc
 
@@ -86,6 +70,16 @@ The fluid prop makes the component take up the full width of its container when 
 ## Forms
 
 Textarea integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <Textarea name="address" rows="5" cols="30" style="resize: none" />
+        <Message v-if="$form.address?.invalid" severity="error" size="small" variant="simple">{{ $form.address.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Ifta Label
 

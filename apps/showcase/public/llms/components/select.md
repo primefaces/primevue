@@ -2,22 +2,9 @@
 
 Select is used to choose an item from a collection of options.
 
-## Import
-
-```javascript
-import Select from 'primevue/select';
-```
-
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The select element has a combobox role in addition to aria-haspopup and aria-expanded attributes. If the editable option is enabled aria-autocomplete is also added. The relation between the combobox and the popup is created with aria-controls and aria-activedescendant attribute is used to instruct screen reader which option to read during keyboard navigation within the popup list. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses listbox as the role. Each list item has an option role, an id to match the aria-activedescendant of the input element along with aria-label , aria-selected and aria-disabled attributes. If filtering is enabled, filterInputProps can be defined to give aria-* props to the filter input element. Closed State Keyboard Support Key Function tab Moves focus to the select element. space Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. enter Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. up arrow Opens the popup and moves visual focus to the selected option, if there is none then last option receives the focus. any printable character Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none and select is not editable then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Moves focus to the previous focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. enter Selects the focused option and closes the popup, then moves focus to the select element. space Selects the focused option and closes the popup, then moves focus to the select element. escape Closes the popup, then moves focus to the select element. down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. alt + up arrow Selects the focused option and closes the popup, then moves focus to the select element. left arrow If the select is editable, removes the visual focus from the current option and moves input cursor to one character left. right arrow If the select is editable, removes the visual focus from the current option and moves input cursor to one character right. home If the select is editable, moves input cursor at the end, if not then moves focus to the first option. end If the select is editable, moves input cursor at the beginning, if not then moves focus to the last option. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. any printable character Moves focus to the option whose label starts with the characters being typed if select is not editable. Filter Input Keyboard Support Key Function down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. enter Closes the popup and moves focus to the select element. escape Closes the popup and moves focus to the select element. tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page.
-
-```vue
-<span id="dd1"></span>Options</span>
-<select aria-labelledby="dd1" />
-
-<select aria-label="Options" />
-```
 
 ## Basic
 
@@ -51,22 +38,6 @@ When disabled is present, the element cannot be edited and focused.
 <Select disabled placeholder="Select a City" class="w-full md:w-56" />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Select disabled placeholder="Select a City" class="w-full md:w-56" />
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
 ## Editable
 
 When editable is present, the input can also be entered with typing.
@@ -91,7 +62,20 @@ Select provides built-in filtering that is enabled by adding the filter property
 <Select v-model="selectedCountry" :options="countries" filter optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
     <template #value="slotProps">
         <div v-if="slotProps.value" class="flex items-center">
-            <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.value.code.toLowerCase()}\`" style="width: 18px" />
+            <div>{{ slotProps.value.name }}</div>
+        </div>
+        <span v-else>
+            {{ slotProps.placeholder }}
+        </span>
+    </template>
+    <template #option="slotProps">
+        <div class="flex items-center">
+            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+            <div>{{ slotProps.option.name }}</div>
+        </div>
+    </template>
+</Select>
 ```
 
 ## Float Label
@@ -123,6 +107,18 @@ The fluid prop makes the component take up the full width of its container when 
 <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
 ```
 
+## Forms
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-56">
+    <div class="flex flex-col gap-1">
+        <Select name="city.name" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
+        <Message v-if="$form.city?.name?.invalid" severity="error" size="small" variant="simple">{{ $form.city.name.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Group
 
 Options can be grouped when a nested data structures is provided. To define the label of a group optionGroupLabel property is needed and also optionGroupChildren is required to define the property that refers to the children of a group.
@@ -131,7 +127,11 @@ Options can be grouped when a nested data structures is provided. To define the 
 <Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-56">
     <template #optiongroup="slotProps">
         <div class="flex items-center">
-            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+            <div>{{ slotProps.option.label }}</div>
+        </div>
+    </template>
+</Select>
 ```
 
 ## Ifta Label
@@ -171,21 +171,6 @@ Loading state is enabled with the loading property.
 <Select placeholder="Loading..." loading class="w-full md:w-56" />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Select placeholder="Loading..." loading class="w-full md:w-56" />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Sizes
 
 Select provides small and large sizes as alternatives to the base.
@@ -204,7 +189,31 @@ Select offers multiple slots for customization through templating.
 <Select v-model="selectedCountry" :options="countries" optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
     <template #value="slotProps">
         <div v-if="slotProps.value" class="flex items-center">
-            <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.value.code.toLowerCase()}\`" style="width: 18px" />
+            <div>{{ slotProps.value.name }}</div>
+        </div>
+        <span v-else>
+            {{ slotProps.placeholder }}
+        </span>
+    </template>
+    <template #option="slotProps">
+        <div class="flex items-center">
+            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+            <div>{{ slotProps.option.name }}</div>
+        </div>
+    </template>
+    <template #dropdownicon>
+        <i class="pi pi-map" />
+    </template>
+    <template #header>
+        <div class="font-medium p-3">Available Countries</div>
+    </template>
+    <template #footer>
+        <div class="p-3">
+            <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+        </div>
+    </template>
+</Select>
 ```
 
 ## Virtual Scroll

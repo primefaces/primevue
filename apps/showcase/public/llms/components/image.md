@@ -2,12 +2,6 @@
 
 Displays a single image with preview and tranformation options.
 
-## Import
-
-```javascript
-import Image from 'primevue/image';
-```
-
 ## Accessibility
 
 Screen Reader The preview button is a native button element with an aria-label that refers to the aria.zoomImage property of the locale API by default, with previewButtonProps you may use your own aria roles and attributes as any valid attribute is passed to the button element implicitly. When preview is active, dialog role with aria-modal is applied to the overlay image container. Button controls use aria.rotateRight , aria.rotateLeft , aria.zoomIn , aria.zoomOut and aria.close from the locale API as aria-label . ButtonBar Keyboard Support When preview is activated, close button receives the initial focus. Key Function tab Moves focus through button bar. enter Activates the button. space Activates the button. esc Closes the image preview.
@@ -28,18 +22,6 @@ Enabling preview mode displays a modal layer when the image is clicked to provid
 <Image src="/image.jpg" alt="Image" width="250" preview />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria10.jpg" alt="Image" width="250" preview />
-    </div>
-</template>
-```
-</details>
-
 ## Template
 
 An eye icon is displayed by default when the image is hovered in preview mode, use the previewicon slot for custom content. In addition, the image and preview slots are available to define the thumbnail and detailed image respectively.
@@ -57,28 +39,6 @@ An eye icon is displayed by default when the image is hovered in preview mode, u
     </template>
 </Image>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Image alt="Image" preview>
-            <template #previewicon>
-                <i class="pi pi-search"></i>
-            </template>
-            <template #image>
-                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria11.jpg" alt="image" width="250" />
-            </template>
-            <template #preview="slotProps">
-                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria11.jpg" alt="preview" :style="slotProps.style" @click="slotProps.onClick" />
-            </template>
-        </Image>
-    </div>
-</template>
-```
-</details>
 
 ## Image
 

@@ -2,14 +2,6 @@
 
 A keyfilter is a directive used to block individual keystrokes based on a pattern.
 
-## Import
-
-```javascript
-import KeyFilter from 'primevue/keyfilter';
-
-app.directive('keyfilter', KeyFilter);
-```
-
 ## Accessibility
 
 KeyFilter is a directive and do not require any accessibility features.

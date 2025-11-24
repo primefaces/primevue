@@ -2,25 +2,9 @@
 
 InputMask component is used to enter input in a certain format such as numeric, date, currency, email and phone.
 
-## Import
-
-```javascript
-import InputMask from 'primevue/inputmask';
-```
-
 ## Accessibility
 
 Screen Reader InputMask component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
-
-```vue
-<label for="date">Date</label>
-<InputMask id="date" />
-
-<span id="phone">Phone</span>
-<InputMask aria-labelledby="phone" />
-
-<InputMask aria-label="Age" />
-```
 
 ## Basic
 
@@ -78,6 +62,16 @@ The fluid prop makes the component take up the full width of its container when 
 ## Forms
 
 InputMask integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <div class="flex flex-col gap-1">
+        <InputMask name="serialNumber" mask="99-999999" placeholder="99-999999" fluid />
+        <Message v-if="$form.serialNumber?.invalid" severity="error" size="small" variant="simple">{{ $form.serialNumber.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Ifta Label
 

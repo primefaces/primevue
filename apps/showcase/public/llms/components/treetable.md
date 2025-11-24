@@ -2,13 +2,6 @@
 
 TreeTable is used to display hierarchical data in tabular format.
 
-## Import
-
-```javascript
-import TreeTable from 'primevue/treetable';
-import Column from 'primevue/column';
-```
-
 ## AccessibilityDoc
 
 Screen Reader DataTable uses a treegrid element whose attributes can be extended with the tableProps option. This property allows passing aria roles and attributes like aria-label and aria-describedby to define the table for readers. Default role of the table is table . Header, body and footer elements use rowgroup , rows use row role, header cells have columnheader and body cells use cell roles. Sortable headers utilizer aria-sort attribute either set to "ascending" or "descending". Row elements manage aria-expanded for state along with aria-posinset , aria-setsize and aria-level attribute to define the hierachy. When selection is enabled, aria-selected is set to true on a row. In checkbox mode, TreeTable component uses a hidden native checkbox element. Editable cells use custom templating so you need to manage aria roles and attributes manually if required. Paginator is a standalone component used inside the DataTable, refer to the paginator for more information about the accessibility features. Sortable Headers Keyboard Support Key Function tab Moves through the headers. enter Sorts the column. space Sorts the column. Keyboard Support Key Function tab Moves focus to the first selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the next focusable element in the page tab sequence. shift + tab Moves focus to the last selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the previous focusable element in the page tab sequence. enter Selects the focused treenode. space Selects the focused treenode. down arrow Moves focus to the next treenode. up arrow Moves focus to the previous treenode. right arrow If node is closed, opens the node otherwise moves focus to the first child node. left arrow If node is open, closes the node otherwise moves focus to the parent node. home Moves focus to the first same-level node. end Moves focus to the last same-level node.
@@ -41,6 +34,45 @@ Column visibility based on a condition can be implemented with dynamic columns, 
 </TreeTable>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <TreeTable :value="nodes" tableStyle="min-width: 50rem">
+            <template #header>
+                <div style="text-align:left">
+                    <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-64" display="chip"/>
+                </div>
+            </template>
+            <Column field="name" header="Name" :expander="true"></Column>
+            <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const columns = ref([
+    {field: 'size', header: 'Size'},
+    {field: 'type', header: 'Type'}
+]);
+const nodes = ref();
+const selectedColumns = ref(columns.value);
+const onToggle = (val) => {
+    selectedColumns.value = columns.value.filter(col => val.includes(col));
+};
+<\/script>
+```
+</details>
+
 ## ContextMenuDoc
 
 TreeTable has exclusive integration with ContextMenu using the contextMenu event to open a menu on right click along with contextMenuSelection property and row-contextmenu event to control the selection via the menu.
@@ -53,6 +85,77 @@ TreeTable has exclusive integration with ContextMenu using the contextMenu event
     <Column field="type" header="Type" style="width: 33%"></Column>
 </TreeTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <ContextMenu ref="cm" :model="menuModel" @hide="selectedNode = null" />
+        <TreeTable v-model:contextMenuSelection="selectedNode" :value="nodes" contextMenu @row-contextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
+        </TreeTable>
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const cm = ref();
+const toast = useToast();
+const nodes = ref();
+const selectedNode = ref();
+const menuModel = ref(
+    [
+        { label: 'View', icon: 'pi pi-fw pi-search', command: () => this.viewNode(this.selectedNode) },
+        { label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.deleteNode(this.selectedNode) }
+    ]
+);
+
+const onRowContextMenu = (event) => {
+    cm.value.show(event.originalEvent);
+};
+
+const viewNode = (product) => {
+    toast.add({severity: 'info', summary: 'Node Selected', detail: node.data.name, life: 3000});
+};
+
+const deleteProduct = (node) => {
+    nodes.value = filterNodes(nodes.value, node.key);
+    toast.add({severity: 'error', summary: 'Node Deleted', detail: node.data.name, life: 3000});
+    selectedProduct.value = null;
+};
+
+const filterNodes = (nodeList, keyToRemove) => {
+    return nodes
+        .map((node) => {
+            if (node.key === keyToRemove) {
+                return null;
+            }
+
+            if (node.children) {
+                const filteredChildren = filterNodes(node.children, keyToRemove);
+
+                return { ...node, children: filteredChildren };
+            }
+
+            return node;
+        })
+        .filter((node) => node !== null);
+}
+<\/script>
+```
+</details>
 
 ## Controlled
 
@@ -67,6 +170,43 @@ Expansion state is controlled with expandedKeys property. The expandedKeys shoul
 </TreeTable>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Button @click="toggleApplications" label="Toggle Applications" />
+        <TreeTable v-model:expandedKeys="expandedKeys" :value="nodes" class="mt-6" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const nodes = ref();
+const expandedKeys = ref({});
+const toggleApplications = () => {
+    let _expandedKeys = { ...expandedKeys.value };
+
+    if (_expandedKeys['0']) delete _expandedKeys['0'];
+    else _expandedKeys['0'] = true;
+
+    expandedKeys.value = _expandedKeys;
+}
+<\/script>
+```
+</details>
+
 ## DynamicColumnsDoc
 
 Columns can be created programmatically.
@@ -76,6 +216,36 @@ Columns can be created programmatically.
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
 </TreeTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <TreeTable :value="nodes" tableStyle="min-width: 50rem">
+            <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const nodes = ref();
+const columns = ref([
+    { field: 'name', header: 'Name', expander: true },
+    { field: 'size', header: 'Size' },
+    { field: 'type', header: 'Type' }
+]);
+<\/script>
+```
+</details>
 
 ## FilterDoc
 
@@ -110,6 +280,62 @@ Filtering is enabled by adding the filter property to a Column. The filterMode s
 </TreeTable>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex justify-center mb-6">
+            <SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />
+        </div>
+        <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
+            <template #header>
+                <div class="flex justify-end">
+                    <IconField>
+                        <InputIcon class="pi pi-search" />
+                        <InputText v-model="filters['global']" placeholder="Global Search" />
+                    </IconField>
+                </div>
+            </template>
+            <Column field="name" header="Name" expander style="min-width: 12rem">
+                <template #filter>
+                    <InputText v-model="filters['name']" type="text" placeholder="Filter by name" />
+                </template>
+            </Column>
+            <Column field="size" header="Size" style="min-width: 12rem">
+                <template #filter>
+                    <InputText v-model="filters['size']" type="text" placeholder="Filter by size" />
+                </template>
+            </Column>
+            <Column field="type" header="Type" style="min-width: 12rem">
+                <template #filter>
+                    <InputText v-model="filters['type']" type="text" placeholder="Filter by type" />
+                </template>
+            </Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const nodes = ref();
+const filters = ref({});
+const filterMode = ref({ label: 'Lenient', value: 'lenient' });
+const filterOptions = ref([
+    { label: 'Lenient', value: 'lenient' },
+    { label: 'Strict', value: 'strict' }
+]);
+<\/script>
+```
+</details>
+
 ## LazyLoadDoc
 
 Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging , sorting and filtering occurs. Sample below imitates lazy loading data from a remote datasource using an in-memory list and timeouts to mimic network connection. Enabling the lazy property and assigning the logical number of rows to totalRecords by doing a projection query are the key elements of the implementation so that paginator displays the UI assuming there are actually records of totalRecords size although in reality they are not present on page, only the records that are displayed on the current page exist. In addition, only the root elements should be loaded, children can be loaded on demand using nodeExpand callback.
@@ -134,6 +360,39 @@ In addition to a regular table, alternatives with alternative sizes are availabl
     <Column field="type" header="Type" style="width: 33%"></Column>
 </TreeTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <TreeTable :value="nodes" :size="size.value" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const nodes = ref();
+const size = ref({ label: 'Normal', value: 'normal' });
+const sizeOptions = ref([
+    { label: 'Small', value: 'small', class: 'sm' },
+    { label: 'Normal', value: 'normal' },
+    { label: 'Large', value: 'large', class: 'lg' }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -162,6 +421,49 @@ Custom content at header and footer slots are supported via templating.
     </template>
 </TreeTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <TreeTable :value="nodes" tableStyle="min-width: 50rem">
+            <template #header>
+                <div class="text-xl font-bold">File Viewer</div>
+            </template>
+            <Column field="name" header="Name" expander style="width: 250px"></Column>
+            <Column field="size" header="Size" style="width: 150px"></Column>
+            <Column field="type" header="Type" style="width: 150px"></Column>
+            <Column style="width: 10rem">
+                <template #body>
+                    <div class="flex flex-wrap gap-2">
+                        <Button type="button" icon="pi pi-search" rounded/>
+                        <Button type="button" icon="pi pi-pencil" rounded severity="success" />
+                    </div>
+                </template>
+            </Column>
+            <template #footer>
+                <div class="flex justify-start">
+                    <Button icon="pi pi-refresh" label="Reload" severity="warn" />
+                </div>
+            </template>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const nodes = ref();
+<\/script>
+```
+</details>
 
 ## Tree Table
 

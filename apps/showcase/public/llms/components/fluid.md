@@ -2,12 +2,6 @@
 
 Fluid is a layout component to make descendant components span full width of their container.
 
-## Import
-
-```javascript
-import Fluid from 'primevue/fluid';
-```
-
 ## Accessibility
 
 Screen Reader Fluid does not require any roles and attributes. Keyboard Support Component does not include any interactive elements.

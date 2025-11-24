@@ -2,13 +2,6 @@
 
 IconField wraps an input and an icon.
 
-## Import
-
-```javascript
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
-```
-
 ## Accessibility
 
 Screen Reader IconField and InputIcon do not require any roles and attributes. Keyboard Support Components does not include any interactive elements.

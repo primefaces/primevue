@@ -2,12 +2,6 @@
 
 ConfirmDialog uses a Dialog UI that is integrated with the Confirmation API.
 
-## Import
-
-```javascript
-import ConfirmDialog from 'primevue/confirmdialog';
-```
-
 ## Accessibility
 
 Screen Reader ConfirmDialog component uses alertdialog role along with aria-labelledby referring to the header element however any attribute is passed to the root element so you may use aria-labelledby to override this default behavior. In addition aria-modal is added since focus is kept within the popup. When require method of the $confirm instance is used and a trigger is passed as a parameter, ConfirmDialog adds aria-expanded state attribute and aria-controls to the trigger so that the relation between the trigger and the dialog is defined. Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the dialog. shift + tab Moves focus to the previous the focusable element within the dialog. escape Closes the dialog. Buttons Keyboard Support Key Function enter Closes the dialog. space Closes the dialog.
@@ -29,6 +23,25 @@ ConfirmDialog is controlled via the ConfirmationService that needs to be install
 ## Headless
 
 Headless mode is enabled by defining a container slot that lets you implement entire confirmation UI instead of the default elements.
+
+```vue
+<ConfirmDialog group="headless">
+    <template #container="{ message, acceptCallback, rejectCallback }">
+        <div class="flex flex-col items-center p-8 bg-surface-0 dark:bg-surface-900 rounded">
+            <div class="rounded-full bg-primary text-primary-contrast inline-flex justify-center items-center h-24 w-24 -mt-20">
+                <i class="pi pi-question !text-4xl"></i>
+            </div>
+            <span class="font-bold text-2xl block mb-2 mt-6">{{ message.header }}</span>
+            <p class="mb-0">{{ message.message }}</p>
+            <div class="flex items-center gap-2 mt-6">
+                <Button label="Save" @click="acceptCallback" class="w-32"></Button>
+                <Button label="Cancel" variant="outlined" @click="rejectCallback" class="w-32"></Button>
+            </div>
+        </div>
+    </template>
+</ConfirmDialog>
+<Button @click="requireConfirmation()" label="Save"></Button>
+```
 
 ## Position
 
@@ -55,6 +68,18 @@ The position property of the confirm options specifies the location of the Dialo
 ## Template
 
 Templating allows customizing the message content.
+
+```vue
+<ConfirmDialog group="templating">
+    <template #message="slotProps">
+        <div class="flex flex-col items-center w-full gap-4 border-b border-surface-200 dark:border-surface-700">
+            <i :class="slotProps.message.icon" class="!text-6xl text-primary-500"></i>
+            <p>{{ slotProps.message.message }}</p>
+        </div>
+    </template>
+</ConfirmDialog>
+<Button @click="showTemplate()" label="Save"></Button>
+```
 
 ## Confirm Dialog
 

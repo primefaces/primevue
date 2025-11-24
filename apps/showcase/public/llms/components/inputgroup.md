@@ -2,13 +2,6 @@
 
 Text, icon, buttons and other content can be grouped next to an input.
 
-## Import
-
-```javascript
-import InputGroup from 'primevue/inputgroup';
-import InputGroupAddon from 'primevue/inputgroupaddon';
-```
-
 ## Accessibility
 
 Screen Reader InputGroup and InputGroupAddon do not require any roles and attributes. Keyboard Support Component does not include any interactive elements.
@@ -169,28 +162,6 @@ Multiple add-ons can be placed inside the same group.
     <InputGroupAddon>.00</InputGroupAddon>
 </InputGroup>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <InputGroup class="sm:!w-96">
-            <InputGroupAddon>
-                <i class="pi pi-clock"></i>
-            </InputGroupAddon>
-            <InputGroupAddon>
-                <i class="pi pi-star-fill"></i>
-            </InputGroupAddon>
-            <InputNumber placeholder="Price" />
-            <InputGroupAddon>$</InputGroupAddon>
-            <InputGroupAddon>.00</InputGroupAddon>
-        </InputGroup>
-    </div>
-</template>
-```
-</details>
 
 ## Input Group
 

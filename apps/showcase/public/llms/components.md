@@ -1,6 +1,6 @@
 # PrimeVue Components Documentation
 
-Generated: 2025-11-24T10:52:20.437Z
+Generated: 2025-11-24T13:35:24.933Z
 
 ---
 
@@ -135,65 +135,21 @@ Enabling disabled property of an AccordionPanel prevents user interaction.
 </Accordion>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Accordion :value="['0']" multiple>
-            <AccordionPanel value="0">
-                <AccordionHeader>Header I</AccordionHeader>
-                <AccordionContent>
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </AccordionContent>
-            </AccordionPanel>
-            <AccordionPanel value="1">
-                <AccordionHeader>Header II</AccordionHeader>
-                <AccordionContent>
-                    <p class="m-0">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-                    </p>
-                </AccordionContent>
-            </AccordionPanel>
-            <AccordionPanel value="2">
-                <AccordionHeader>Header III</AccordionHeader>
-                <AccordionContent>
-                    <p class="m-0">
-                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-                    </p>
-                </AccordionContent>
-            </AccordionPanel>
-            <AccordionPanel value="3" disabled>
-                <AccordionHeader>Header IV</AccordionHeader>
-            </AccordionPanel>
-        </Accordion>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Dynamic
 
 AccordionPanel can be generated dynamically using the standard v-for directive.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import Accordion from 'primevue/accordion';
-import AccordionPanel from 'primevue/accordionpanel';
-import AccordionHeader from 'primevue/accordionheader';
-import AccordionContent from 'primevue/accordioncontent';
+<Accordion value="0">
+    <AccordionPanel v-for="tab in tabs" :key="tab.title" :value="tab.value">
+        <AccordionHeader>{{ tab.title }}</AccordionHeader>
+        <AccordionContent>
+            <p class="m-0">{{ tab.content }}</p>
+        </AccordionContent>
+    </AccordionPanel>
+</Accordion>
 ```
 
 ## Multiple
@@ -233,49 +189,6 @@ Only one tab at a time can be active by default, enabling multiple property chan
     </AccordionPanel>
 </Accordion>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Accordion :value="['0']" multiple>
-            <AccordionPanel value="0">
-                <AccordionHeader>Header I</AccordionHeader>
-                <AccordionContent>
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </AccordionContent>
-            </AccordionPanel>
-            <AccordionPanel value="1">
-                <AccordionHeader>Header II</AccordionHeader>
-                <AccordionContent>
-                    <p class="m-0">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-                    </p>
-                </AccordionContent>
-            </AccordionPanel>
-            <AccordionPanel value="2">
-                <AccordionHeader>Header III</AccordionHeader>
-                <AccordionContent>
-                    <p class="m-0">
-                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-                    </p>
-                </AccordionContent>
-            </AccordionPanel>
-        </Accordion>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Template
 
@@ -332,67 +245,6 @@ Custom content for a header is defined with the default slot. The optional as pr
     </AccordionPanel>
 </Accordion>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Accordion value="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
-            <AccordionPanel value="0">
-                <AccordionHeader>
-                    <span class="flex items-center gap-2 w-full">
-                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                        <span class="font-bold whitespace-nowrap">Amy Elsner</span>
-                        <Badge value="3" class="ml-auto mr-2" />
-                    </span>
-                </AccordionHeader>
-                <AccordionContent>
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </AccordionContent>
-            </AccordionPanel>
-            <AccordionPanel value="1">
-                <AccordionHeader>
-                    <span class="flex items-center gap-2 w-full">
-                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
-                        <span class="font-bold whitespace-nowrap">Onyama Limba</span>
-                        <Badge value="4" class="ml-auto mr-2" />
-                    </span>
-                </AccordionHeader>
-                <AccordionContent>
-                    <p class="m-0">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-                    </p>
-                </AccordionContent>
-            </AccordionPanel>
-            <AccordionPanel value="2">
-                <AccordionHeader>
-                    <span class="flex items-center gap-2 w-full">
-                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
-                        <span class="font-bold whitespace-nowrap">Ioni Bowcher</span>
-                        <Badge value="2" class="ml-auto mr-2" />
-                    </span>
-                </AccordionHeader>
-                <AccordionContent>
-                    <p class="m-0">
-                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-                    </p>
-                </AccordionContent>
-            </AccordionPanel>
-        </Accordion>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Accordion
 
@@ -595,16 +447,6 @@ Animation classes are defined with the enterClass and leaveClass properties. Thi
 </div>
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import AnimateOnScroll from 'primevue/animateonscroll';
-
-app.directive('animateonscroll', AnimateOnScroll);
-```
-
 ## Animateonscroll
 
 ---
@@ -616,18 +458,6 @@ AutoComplete is an input component that provides real-time suggestions when bein
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete , aria-haspopup and aria-expanded attributes. The relation between the input and the popup is created with aria-controls and aria-activedescendant attribute is used to instruct screen reader which option to read during keyboard navigation within the popup list. In multiple mode, chip list uses listbox role with aria-orientation set to horizontal whereas each chip has the option role with aria-label set to the label of the chip. The popup list has an id that refers to the aria-controls attribute of the input element and uses listbox as the role. Each list item has option role and an id to match the aria-activedescendant of the input element. Closed State Keyboard Support Key Function tab Moves focus to the autocomplete element. any printable character Opens the popup and moves focus to the first option. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Moves focus to the previous focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. enter Selects the focused option and closes the popup, then moves focus to the autocomplete element. space Selects the focused option and closes the popup, then moves focus to the autocomplete element. escape Closes the popup, then moves focus to the autocomplete element. down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. alt + up arrow Selects the focused option and closes the popup, then moves focus to the autocomplete element. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the last one. Chips Input Keyboard Support Key Function backspace Deletes the previous chip if the input field is empty. left arrow Moves focus to the previous chip if available and input field is empty. Chip Keyboard Support Key Function left arrow Moves focus to the previous chip if available. right arrow Moves focus to the next chip, if there is none then input field receives the focus. backspace Deletes the chips and adds focus to the input field.
-
-**Basic Usage:**
-
-```vue
-<label for="ac1">;Username</label>
-<AutoComplete inputId="ac1" />
-
-<span id="ac2">Email</span>
-<AutoComplete aria-labelledby="ac2" />
-
-<AutoComplete aria-label="City" />
-```
 
 ## Basic
 
@@ -658,22 +488,6 @@ When disabled is present, the element cannot be edited and focused.
 ```vue
 <AutoComplete disabled placeholder="Disabled" />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <AutoComplete disabled placeholder="Disabled" />
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
 
 ## Dropdown
 
@@ -742,6 +556,18 @@ ForceSelection mode validates the manual input to check whether it also exists i
 
 AutoComplete integrates seamlessly with the PrimeVue Forms library.
 
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-56">
+    <div class="flex flex-col gap-1">
+        <AutoComplete name="country.name" optionLabel="name" :suggestions="filteredCountries" @complete="search" fluid />
+        <Message v-if="$form.country?.name?.invalid" severity="error" size="small" variant="simple">{{ $form.country.name.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Group
 
 Option groups are specified with the optionGroupLabel and optionGroupChildren properties.
@@ -752,7 +578,11 @@ Option groups are specified with the optionGroupLabel and optionGroupChildren pr
 <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="search" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Hint: type 'a'">
     <template #optiongroup="slotProps">
         <div class="flex items-center country-item">
-            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+            <div>{{ slotProps.option.label }}</div>
+        </div>
+    </template>
+</AutoComplete>
 ```
 
 ## Ifta Label
@@ -766,14 +596,6 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" variant="filled" />
     <label for="ac">Identifier</label>
 </IftaLabel>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import AutoComplete from 'primevue/autocomplete';
 ```
 
 ## Invalid
@@ -833,7 +655,19 @@ AutoComplete offers multiple slots for customization through templating.
 <AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search">
     <template #option="slotProps">
         <div class="flex items-center">
-            <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+            <div>{{ slotProps.option.name }}</div>
+        </div>
+    </template>
+    <template #header>
+        <div class="font-medium px-3 py-2">Available Countries</div>
+    </template>
+    <template #footer>
+        <div class="px-3 py-3">
+            <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+        </div>
+    </template>
+</AutoComplete>
 ```
 
 ## Virtual Scroll
@@ -1060,29 +894,6 @@ Grouping is available by wrapping multiple Avatar components inside an AvatarGro
 </AvatarGroup>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <AvatarGroup>
-            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/asiyajavayant.png" shape="circle" />
-            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
-            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
-            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" shape="circle" />
-            <Avatar label="+2" shape="circle" />
-        </AvatarGroup>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
 ## Icon
 
 A font icon is displayed as an Avatar with the icon property.
@@ -1103,43 +914,6 @@ A font icon is displayed as an Avatar with the icon property.
 </OverlayBadge>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <div class="flex flex-wrap gap-8">
-            <div class="flex-auto">
-                <h5>Icon</h5>
-                <Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
-                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
-                <Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" />
-            </div>
-
-            <div class="flex-auto">
-                <h5>Circle</h5>
-                <Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" />
-                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
-                <Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
-            </div>
-
-            <div class="flex-auto">
-                <h5>Badge</h5>
-                <OverlayBadge value="4" severity="danger" class="inline-flex">
-                    <Avatar icon="pi pi-user" size="xlarge" />
-                </OverlayBadge>
-            </div>
-        </div>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
 ## Image
 
 Use the image property to display an image as an Avatar.
@@ -1156,50 +930,6 @@ Use the image property to display an image as an Avatar.
 </OverlayBadge>
 
 <Avatar image="https://www.gravatar.com/avatar/05dfd4b41340d09cae045235eb0893c3?d=mp" class="flex items-center justify-center mr-2" size="xlarge" />
-```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <div class="flex flex-wrap gap-8">
-            <div class="flex-auto">
-                <h5>Image</h5>
-                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" size="xlarge" shape="circle" />
-                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/asiyajavayant.png" class="mr-2" size="large" shape="circle" />
-                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
-            </div>
-
-            <div class="flex-auto">
-                <h5>Badge</h5>
-                <OverlayBadge value="4" severity="danger" class="inline-flex">
-                    <Avatar class="p-overlay-badge" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" size="xlarge" />
-                </OverlayBadge>
-            </div>
-
-            <div class="flex-auto">
-                <h5>Gravatar</h5>
-                <Avatar image="https://www.gravatar.com/avatar/05dfd4b41340d09cae045235eb0893c3?d=mp" class="flex items-center justify-center mr-2" size="xlarge" />
-            </div>
-        </div>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Avatar from 'primevue/avatar';
-import AvatarGroup from 'primevue/avatargroup';   //Optional for grouping
 ```
 
 ## Label
@@ -1221,41 +951,6 @@ A letter Avatar is defined with the label property.
     <Avatar label="U" size="xlarge" />
 </OverlayBadge>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="flex flex-wrap gap-8">
-        <div class="flex-auto">
-            <h5>Label</h5>
-            <Avatar label="P" class="mr-2" size="xlarge" />
-            <Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
-            <Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" />
-        </div>
-
-        <div class="flex-auto">
-            <h5>Circle</h5>
-            <Avatar label="P" class="mr-2" size="xlarge" shape="circle" />
-            <Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
-            <Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
-        </div>
-
-        <div class="flex-auto">
-            <h5>Badge</h5>
-            <OverlayBadge value="4" severity="danger" class="inline-flex">
-                <Avatar label="U" size="xlarge" />
-            </OverlayBadge>
-        </div>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
 
 ## Avatar
 
@@ -1353,32 +1048,6 @@ Buttons have built-in support for badges to display a badge inline.
 <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" variant="outlined" />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center flex-wrap gap-4">
-        <Button type="button" label="Notifications" icon="pi pi-bell" badge="2" />
-        <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" variant="outlined" />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-// import as component
-import Badge from 'primevue/badge';
-import OverlayBadge from 'primevue/overlaybadge';
-```
-
 ## Overlay
 
 A badge can be added to any element by encapsulating the content with the OverlayBadge component.
@@ -1397,30 +1066,6 @@ A badge can be added to any element by encapsulating the content with the Overla
 </OverlayBadge>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap justify-center gap-6">
-        <OverlayBadge value="2">
-            <i class="pi pi-bell" style="font-size: 2rem" />
-        </OverlayBadge>
-        <OverlayBadge value="4" severity="danger">
-            <i class="pi pi-calendar" style="font-size: 2rem" />
-        </OverlayBadge>
-        <OverlayBadge severity="danger">
-            <i class="pi pi-envelope" style="font-size: 2rem" />
-        </OverlayBadge>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
 ## Severity
 
 Severity defines the variant of a badge.
@@ -1437,27 +1082,6 @@ Severity defines the variant of a badge.
 <Badge value="5" severity="contrast"></Badge>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap justify-center gap-2">
-        <Badge value="2"></Badge>
-        <Badge value="6" severity="secondary"></Badge>
-        <Badge value="8" severity="success"></Badge>
-        <Badge value="4" severity="info"></Badge>
-        <Badge value="9" severity="warn"></Badge>
-        <Badge value="3" severity="danger"></Badge>
-        <Badge value="5" severity="contrast"></Badge>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Size
 
 Use the size property to customize the dimensions of a Badge.
@@ -1470,25 +1094,6 @@ Use the size property to customize the dimensions of a Badge.
 <Badge value="4" severity="info"></Badge>
 <Badge value="2" size="small"></Badge>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap justify-center items-end gap-2">
-        <Badge value="8" size="xlarge" severity="success"></Badge>
-        <Badge value="6" size="large" severity="warn"></Badge>
-        <Badge value="4" severity="info"></Badge>
-        <Badge value="2" size="small"></Badge>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
 
 ## Badge
 
@@ -1598,14 +1203,6 @@ Enabling fullScreen property controls the document.
 <Button label="Block" @click="blocked = true" />
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import BlockUI from 'primevue/blockui';
-```
-
 ## Block U I
 
 ### Props
@@ -1663,17 +1260,27 @@ Breadcrumb requires a collection of menuitems as its model , the root item is de
 <Breadcrumb :home="home" :model="items" />
 ```
 
-## Import
+## Router
+
+Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
 
 **Basic Usage:**
 
 ```vue
-import Breadcrumb from 'primevue/breadcrumb';
+<Breadcrumb :home="home" :model="items">
+    <template #item="{ item, props }">
+        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+            <a :href="href" v-bind="props.action" @click="navigate">
+                <span :class="[item.icon, 'text-color']" />
+                <span class="text-primary font-semibold">{{ item.label }}</span>
+            </a>
+        </router-link>
+        <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+            <span class="text-surface-700 dark:text-surface-0">{{ item.label }}</span>
+        </a>
+    </template>
+</Breadcrumb>
 ```
-
-## Router
-
-Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
 
 ## Template
 
@@ -1702,19 +1309,6 @@ Button is an extension to standard input element with icons and theming.
 
 Screen Reader Button component renders a native button element that implicitly includes any passed prop. Text to describe the button is defined with the aria-label prop, if not present label prop is used as the value. If the button is icon only or custom templating is used, it is recommended to use aria-label so that screen readers would be able to read the element properly. Keyboard Support Key Function tab Moves focus to the button. enter Activates the button. space Activates the button.
 
-**Basic Usage:**
-
-```vue
-<Button icon="pi pi-check" aria-label="Submit" />
-
-<Button icon="pi pi-check" label="Submit" />
-
-<Button class="youtube p-0" aria-label="Youtube">
-    <i class="pi pi-youtube px-2"></i>
-    <span class="px-4">Youtube</span>
-</Button>
-```
-
 ## Badge
 
 Buttons have built-in badge support with badge and badgeSeverity properties.
@@ -1725,22 +1319,6 @@ Buttons have built-in badge support with badge and badgeSeverity properties.
 <Button type="button" label="Emails" badge="2" />
 <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" variant="outlined"  />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center flex-wrap gap-4">
-        <Button type="button" label="Emails" badge="2" />
-        <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" variant="outlined"  />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Basic
 
@@ -1766,25 +1344,6 @@ Multiple buttons are grouped when wrapped inside an element with ButtonGroup com
 </ButtonGroup>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <ButtonGroup>
-            <Button label="Save" icon="pi pi-check" />
-            <Button label="Delete" icon="pi pi-trash" />
-            <Button label="Cancel" icon="pi pi-times" />
-        </ButtonGroup>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Disabled
 
 When disabled is present, the element cannot be used.
@@ -1794,21 +1353,6 @@ When disabled is present, the element cannot be used.
 ```vue
 <Button label="Submit" disabled />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Button label="Submit" disabled />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Headless
 
@@ -1826,28 +1370,6 @@ Headless mode is enabled by adding the asChild property and defining your own UI
     </button>
 </Button>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Button v-slot="slotProps" asChild>
-            <button
-                v-bind="slotProps.a11yAttrs"
-                class="rounded-lg bg-gradient-to-br from-primary-400 to-primary-700 active:from-primary-700 active:to-primary-900 text-white border-none px-6 py-3 font-bold hover:ring-2 cursor-pointer ring-offset-2 ring-offset-surface-0 dark:ring-offset-surface-900 ring-primary transition-all"
-            >
-                SIGN UP
-            </button>
-        </Button>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Icon Only
 
@@ -1916,37 +1438,6 @@ Icon of a button is specified with icon property and position is configured usin
 <Button label="Update" icon="pi pi-refresh" iconPos="bottom" />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-col items-center gap-4">
-        <div class="flex flex-wrap gap-4 justify-center">
-            <Button icon="pi pi-home" aria-label="Save" />
-            <Button label="Profile" icon="pi pi-user" />
-            <Button label="Save" icon="pi pi-check" iconPos="right" />
-        </div>
-        <div class="flex flex-wrap gap-4 justify-center">
-            <Button label="Search" icon="pi pi-search" iconPos="top" />
-            <Button label="Update" icon="pi pi-refresh" iconPos="bottom" />
-        </div>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Button from 'primevue/button';
-```
-
 ## Link
 
 The button element can be displayed as a link element visually when the link property is present. If you need to customize the rendering, use the as to change the element or asChild for advanced templating.
@@ -1960,25 +1451,6 @@ The button element can be displayed as a link element visually when the link pro
     <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
 </Button>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center gap-4">
-        <Button label="Link" variant="link" />
-        <Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
-        <Button asChild v-slot="slotProps">
-            <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
-        </Button>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Loading
 
@@ -2007,28 +1479,6 @@ Outlined buttons display a border without a transparent background.
 <Button label="Contrast" severity="contrast" variant="outlined" />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center flex-wrap gap-4">
-        <Button label="Primary" variant="outlined" />
-        <Button label="Secondary" severity="secondary" variant="outlined" />
-        <Button label="Success" severity="success" variant="outlined" />
-        <Button label="Info" severity="info" variant="outlined" />
-        <Button label="Warn" severity="warn" variant="outlined" />
-        <Button label="Help" severity="help" variant="outlined" />
-        <Button label="Danger" severity="danger" variant="outlined" />
-        <Button label="Contrast" severity="contrast" variant="outlined" />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Raised
 
 Raised buttons display a shadow to indicate elevation.
@@ -2045,28 +1495,6 @@ Raised buttons display a shadow to indicate elevation.
 <Button label="Danger" severity="danger" raised />
 <Button label="Contrast" severity="contrast" raised />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center flex-wrap gap-4">
-        <Button label="Primary" raised />
-        <Button label="Secondary" severity="secondary" raised />
-        <Button label="Success" severity="success" raised />
-        <Button label="Info" severity="info" raised />
-        <Button label="Warn" severity="warn" raised />
-        <Button label="Help" severity="help" raised />
-        <Button label="Danger" severity="danger" raised />
-        <Button label="Contrast" severity="contrast" raised />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Raised Text
 
@@ -2085,28 +1513,6 @@ Text buttons can be displayed elevated with the raised option.
 <Button label="Contrast" severity="contrast" variant="text" raised />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center flex-wrap gap-4">
-        <Button label="Primary" variant="text" raised />
-        <Button label="Secondary" severity="secondary" variant="text" raised />
-        <Button label="Success" severity="success" variant="text" raised />
-        <Button label="Info" severity="info" variant="text" raised />
-        <Button label="Warn" severity="warn" variant="text" raised />
-        <Button label="Help" severity="help" variant="text" raised />
-        <Button label="Danger" severity="danger" variant="text" raised />
-        <Button label="Contrast" severity="contrast" variant="text" raised />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Rounded
 
 Rounded buttons have a circular border radius.
@@ -2123,28 +1529,6 @@ Rounded buttons have a circular border radius.
 <Button label="Danger" severity="danger" rounded />
 <Button label="Contrast" severity="contrast" rounded />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center flex-wrap gap-4">
-        <Button label="Primary" rounded />
-        <Button label="Secondary" severity="secondary" rounded />
-        <Button label="Success" severity="success" rounded />
-        <Button label="Info" severity="info" rounded />
-        <Button label="Warn" severity="warn" rounded />
-        <Button label="Help" severity="help" rounded />
-        <Button label="Danger" severity="danger" rounded />
-        <Button label="Contrast" severity="contrast" rounded />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Severity
 
@@ -2163,28 +1547,6 @@ The severity property defines the variant of a button.
 <Button label="Contrast" severity="contrast" />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center flex-wrap gap-4">
-        <Button label="Primary" />
-        <Button label="Secondary" severity="secondary" />
-        <Button label="Success" severity="success" />
-        <Button label="Info" severity="info" />
-        <Button label="Warn" severity="warn" />
-        <Button label="Help" severity="help" />
-        <Button label="Danger" severity="danger" />
-        <Button label="Contrast" severity="contrast" />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Sizes
 
 Button provides small and large sizes as alternatives to the base.
@@ -2196,23 +1558,6 @@ Button provides small and large sizes as alternatives to the base.
 <Button label="Normal" icon="pi pi-check" />
 <Button label="Large" icon="pi pi-check" size="large" />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap items-center justify-center gap-4">
-        <Button label="Small" icon="pi pi-check" size="small" />
-        <Button label="Normal" icon="pi pi-check" />
-        <Button label="Large" icon="pi pi-check" size="large" />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Template
 
@@ -2228,32 +1573,6 @@ Custom content inside a button is defined as children.
     </svg>
 </Button>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Button variant="outlined" class="!border-2">
-            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
-                    fill="var(--p-primary-color)"
-                />
-                <path
-                    d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
-                    fill="var(--p-text-color)"
-                />
-            </svg>
-        </Button>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Text
 
@@ -2271,28 +1590,6 @@ Text buttons are displayed as textual elements.
 <Button label="Danger" severity="danger" variant="text" />
 <Button label="Contrast" severity="contrast" variant="text" />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center flex-wrap gap-4">
-        <Button label="Primary" variant="text" />
-        <Button label="Secondary" severity="secondary" variant="text" />
-        <Button label="Success" severity="success" variant="text" />
-        <Button label="Info" severity="info" variant="text" />
-        <Button label="Warn" severity="warn" variant="text" />
-        <Button label="Help" severity="help" variant="text" />
-        <Button label="Danger" severity="danger" variant="text" />
-        <Button label="Contrast" severity="contrast" variant="text" />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Button
 
@@ -2734,14 +2031,6 @@ Card is a flexible container component.
 
 Screen Reader A card can be utilized in many use cases as a result no role is enforced, in fact a role may not be necessary if the card is used for presentational purposes only. Any valid attribute is passed to the container element so if you require to use one of the landmark roles like region , you may use the role property. Keyboard Support Component does not include any interactive elements.
 
-**Basic Usage:**
-
-```vue
-<Card role="region">
-    Content
-</Card>
-```
-
 ## Advanced
 
 Card provides header , title , subtitle , content and footer as the named templates to place content.
@@ -2770,37 +2059,6 @@ Card provides header , title , subtitle , content and footer as the named templa
 </Card>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <Card style="width: 25rem; overflow: hidden">
-        <template #header>
-            <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
-        </template>
-        <template #title>Advanced Card</template>
-        <template #subtitle>Card subtitle</template>
-        <template #content>
-            <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-                quas!
-            </p>
-        </template>
-        <template #footer>
-            <div class="flex gap-4 mt-1">
-                <Button label="Cancel" severity="secondary" variant="outlined" class="w-full" />
-                <Button label="Save" class="w-full" />
-            </div>
-        </template>
-    </Card>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Basic
 
 A simple Card is created with a title property along with the content as children.
@@ -2817,14 +2075,6 @@ A simple Card is created with a title property along with the content as childre
         </p>
     </template>
 </Card>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Card from 'primevue/card';
 ```
 
 ## Card
@@ -2896,25 +2146,337 @@ Screen Reader Carousel uses region role and since any attribute is passed to the
 
 Carousel requires a collection of items as its value along with a template to render each item.
 
+**Basic Usage:**
+
+```vue
+<Carousel :value="products" :numVisible="3" :numScroll="3" :responsiveOptions="responsiveOptions">
+    <template #item="slotProps">
+        <div class="border border-surface-200 dark:border-surface-700 rounded m-2  p-4">
+            <div class="mb-4">
+                <div class="relative mx-auto">
+                    <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full rounded" />
+                    <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" class="absolute" style="left:5px; top: 5px"/>
+                </div>
+            </div>
+            <div class="mb-4 font-medium">{{ slotProps.data.name }}</div>
+            <div class="flex justify-between items-center">
+                <div class="mt-0 font-semibold text-xl">\${{ slotProps.data.price }}</div>
+                <span>
+                    <Button icon="pi pi-heart" severity="secondary" variant="outlined" />
+                    <Button icon="pi pi-shopping-cart" class="ml-2"/>
+                </span>
+            </div>
+        </div>
+    </template>
+</Carousel>
+```
+
 ## Circular
 
 When autoplayInterval is defined in milliseconds, items are scrolled automatically. In addition, for infinite scrolling circular property needs to be added which is enabled automatically in auto play mode.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import Carousel from 'primevue/carousel';
+<Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" circular :autoplayInterval="3000">
+    <template #item="slotProps">
+        <div class="border border-surface-200 dark:border-surface-700 rounded m-2  p-4">
+            <div class="mb-4">
+                <div class="relative mx-auto">
+                    <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full rounded" />
+                    <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" class="absolute" style="left:5px; top: 5px"/>
+                </div>
+            </div>
+            <div class="mb-4 font-medium">{{ slotProps.data.name }}</div>
+            <div class="flex justify-between items-center">
+                <div class="mt-0 font-semibold text-xl">\${{ slotProps.data.price }}</div>
+                <span>
+                    <Button icon="pi pi-heart" severity="secondary" variant="outlined" />
+                    <Button icon="pi pi-shopping-cart" class="ml-2"/>
+                </span>
+            </div>
+        </div>
+    </template>
+</Carousel>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" circular :autoplayInterval="3000">
+            <template #item="slotProps">
+                <div class="border border-surface-200 dark:border-surface-700 rounded m-2  p-4">
+                    <div class="mb-4">
+                        <div class="relative mx-auto">
+                            <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full rounded" />
+                            <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" class="absolute" style="left:5px; top: 5px"/>
+                        </div>
+                    </div>
+                    <div class="mb-4 font-medium">{{ slotProps.data.name }}</div>
+                    <div class="flex justify-between items-center">
+                        <div class="mt-0 font-semibold text-xl">\${{ slotProps.data.price }}</div>
+                        <span>
+                            <Button icon="pi pi-heart" severity="secondary" variant="outlined" />
+                            <Button icon="pi pi-shopping-cart" class="ml-2"/>
+                        </span>
+                    </div>
+                </div>
+            </template>
+        </Carousel>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 9)));
+})
+
+const products = ref();
+const responsiveOptions = ref([
+    {
+        breakpoint: '1400px',
+        numVisible: 2,
+        numScroll: 1
+    },
+    {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1
+    },
+    {
+        breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1,
+        numScroll: 1
+    }
+]);
+
+const getSeverity = (status) => {
+    switch (status) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+};
+
+<\/script>
+```
+</details>
 
 ## Responsive
 
 Carousel supports specific configuration per screen size with the responsiveOptions property that takes an array of objects where each object defines the max-width breakpoint , numVisible for the number of items items per page and numScroll for number of items to scroll. When responsiveOptions is defined, the numScroll and numVisible properties of the Carousel are used as default when there is breakpoint that applies.
 
+**Basic Usage:**
+
+```vue
+<Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions">
+    <template #item="slotProps">
+        <div class="border border-surface-200 dark:border-surface-700 rounded m-2  p-4">
+            <div class="mb-4">
+                <div class="relative mx-auto">
+                    <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full rounded" />
+                    <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" class="absolute" style="left:5px; top: 5px"/>
+                </div>
+            </div>
+            <div class="mb-4 font-medium">{{ slotProps.data.name }}</div>
+            <div class="flex justify-between items-center">
+                <div class="mt-0 font-semibold text-xl">\${{ slotProps.data.price }}</div>
+                <span>
+                    <Button icon="pi pi-heart" severity="secondary" variant="outlined" />
+                    <Button icon="pi pi-shopping-cart" class="ml-2"/>
+                </span>
+            </div>
+        </div>
+    </template>
+</Carousel>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions">
+            <template #item="slotProps">
+                <div class="border border-surface-200 dark:border-surface-700 rounded m-2  p-4">
+                    <div class="mb-4">
+                        <div class="relative mx-auto">
+                            <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full rounded" />
+                            <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" class="absolute" style="left:5px; top: 5px"/>
+                        </div>
+                    </div>
+                    <div class="mb-4 font-medium">{{ slotProps.data.name }}</div>
+                    <div class="flex justify-between items-center">
+                        <div class="mt-0 font-semibold text-xl">\${{ slotProps.data.price }}</div>
+                        <span>
+                            <Button icon="pi pi-heart" severity="secondary" variant="outlined" />
+                            <Button icon="pi pi-shopping-cart" class="ml-2"/>
+                        </span>
+                    </div>
+                </div>
+            </template>
+        </Carousel>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 9)));
+})
+
+const products = ref();
+const responsiveOptions = ref([
+    {
+        breakpoint: '1400px',
+        numVisible: 2,
+        numScroll: 1
+    },
+    {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1
+    },
+    {
+        breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1,
+        numScroll: 1
+    }
+]);
+
+const getSeverity = (status) => {
+    switch (status) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+};
+<\/script>
+```
+</details>
+
 ## Vertical
 
 To create a vertical Carousel, orientation needs to be set to vertical along with a verticalViewPortHeight .
+
+**Basic Usage:**
+
+```vue
+<Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" containerClass="flex items-center">
+    <template #item="slotProps">
+        <div class="border border-surface-200 dark:border-surface-700 rounded m-2  p-4">
+            <div class="mb-4">
+                <div class="relative mx-auto">
+                    <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full rounded" />
+                    <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" class="absolute" style="left:5px; top: 5px"/>
+                </div>
+            </div>
+            <div class="mb-4 font-medium">{{ slotProps.data.name }}</div>
+            <div class="flex justify-between items-center">
+                <div class="mt-0 font-semibold text-xl">\${{ slotProps.data.price }}</div>
+                <span>
+                    <Button icon="pi pi-heart" severity="secondary" variant="outlined" />
+                    <Button icon="pi pi-shopping-cart" class="ml-2"/>
+                </span>
+            </div>
+        </div>
+    </template>
+</Carousel>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Carousel :value="products" :numVisible="1" :numScroll="1" orientation="vertical" verticalViewPortHeight="330px" containerClass="flex items-center">
+            <template #item="slotProps">
+                <div class="border border-surface-200 dark:border-surface-700 rounded m-2  p-4">
+                    <div class="mb-4">
+                        <div class="relative mx-auto">
+                            <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full rounded" />
+                            <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)" class="absolute" style="left:5px; top: 5px"/>
+                        </div>
+                    </div>
+                    <div class="mb-4 font-medium">{{ slotProps.data.name }}</div>
+                    <div class="flex justify-between items-center">
+                        <div class="mt-0 font-semibold text-xl">\${{ slotProps.data.price }}</div>
+                        <span>
+                            <Button icon="pi pi-heart" severity="secondary" variant="outlined" />
+                            <Button icon="pi pi-shopping-cart" class="ml-2"/>
+                        </span>
+                    </div>
+                </div>
+            </template>
+                </Carousel>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 9)));
+})
+
+const products = ref();
+
+const getSeverity = (status) => {
+    switch (status) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+};
+
+<\/script>
+```
+</details>
 
 ## Carousel
 
@@ -3014,15 +2576,6 @@ CascadeSelect is a form component to select a value from a nested structure of o
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The cascadeselect element has a combobox role in addition to aria-haspopup and aria-expanded attributes. The relation between the combobox and the popup is created with aria-controls that refers to the id of the popup. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses tree as the role. Each list item has a treeitem role along with aria-label , aria-selected and aria-expanded attributes. The container element of a treenode has the group role. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Closed State Keyboard Support Key Function tab Moves focus to the cascadeselect element. space Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. enter Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. up arrow Opens the popup and moves visual focus to the selected option, if there is none then last option receives the focus. any printable character Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none then first option receives the focus. Popup Keyboard Support Key Function tab Hides the popup and moves focus to the next tabbable element. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Hides the popup and moves focus to the previous tabbable element. enter Selects the focused option and closes the popup. space Selects the focused option and closes the popup. escape Closes the popup, moves focus to the cascadeselect element. down arrow Moves focus to the next option. up arrow Moves focus to the previous option. alt + up arrow Selects the focused option and closes the popup, then moves focus to the cascadeselect element. right arrow If option is closed, opens the option otherwise moves focus to the first child option. left arrow If option is open, closes the option otherwise moves focus to the parent option. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. any printable character Moves focus to the option whose label starts with the characters being typed.
 
-**Basic Usage:**
-
-```vue
-<span id="dd1"></span>Options</span>
-<CascadeSelect aria-labelledby="dd1" />
-
-<CascadeSelect aria-label="Options" />
-```
-
 ## Basic
 
 CascadeSelect is used with the v-model property for two-way value binding along with the options collection. To define the label of a group optionGroupLabel property is needed and also optionGroupChildren is required to define the property that refers to the children of a group. Note that order of the optionGroupChildren matters as it should correspond to the data hierarchy.
@@ -3054,22 +2607,6 @@ When disabled is present, the element cannot be edited and focused.
 ```vue
 <CascadeSelect disabled placeholder="Disabled" class="w-56" />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <CascadeSelect disabled placeholder="Disabled" class="w-56" />
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
 
 ## Filled
 
@@ -3120,6 +2657,18 @@ The fluid prop makes the component take up the full width of its container when 
 
 CascadeSelect integrates seamlessly with the PrimeVue Forms library.
 
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <CascadeSelect name="city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+        <Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -3131,14 +2680,6 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <CascadeSelect v-model="selectedCity" inputId="cs_city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" variant="filled" />
     <label for="cs_city">City</label>
 </IftaLabel>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import CascadeSelect from 'primevue/cascadeselect';
 ```
 
 ## Invalid
@@ -3166,22 +2707,6 @@ Loading state can be used loading property.
 <CascadeSelect loading placeholder="Loading..." class="w-56" />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <CascadeSelect loading placeholder="Loading..." class="w-56" />
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
 ## Sizes
 
 CascadeSelect provides small and large sizes as alternatives to the base.
@@ -3208,7 +2733,24 @@ CascadeSelect offers multiple slots for customization through templating.
     :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
     <template #option="slotProps">
         <div class="flex items-center">
-            <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px"  />
+            <i v-if="slotProps.option.cities" class="pi pi-compass mr-2"></i>
+            <i v-if="slotProps.option.cname" class="pi pi-map-marker mr-2"></i>
+            <span>{{ slotProps.option.cname || slotProps.option.name }}</span>
+        </div>
+    </template>
+    <template #dropdownicon>
+        <i class="pi pi-map" />
+    </template>
+    <template #header>
+        <div class="font-medium px-3 py-2">Available Countries</div>
+    </template>
+    <template #footer>
+        <div class="px-3 py-1">
+            <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+        </div>
+    </template>
+</CascadeSelect>
 ```
 
 ## Cascade Select
@@ -3384,12 +2926,6 @@ Chart components are based on Chart.js, an open source HTML5 based charting libr
 
 Screen Reader Chart components internally use canvas element, refer to the Chart.js accessibility guide for more information. The canvas element can be customized with canvasProps property to define aria roles and properties, in addition any content inside the component is directly passed as a child of the canvas to be able to provide fallback content like a table.
 
-**Basic Usage:**
-
-```vue
-<Chart type="line" :data="data" :canvasProps="{'role': 'img', 'aria-label': 'Data'}" />
-```
-
 ## Basic
 
 A chart is configured with 3 properties; type , data and options . Chart type is defined using the type property that accepts pie , doughtnut , line , bar , radar and polarArea as a value. The data defines datasets represented with the chart and the options provide numerous customization options to customize the presentation.
@@ -3403,12 +2939,6 @@ A chart is configured with 3 properties; type , data and options . Chart type is
 ## Chart.js
 
 Chart component uses Chart.JS underneath so it needs to be installed as a dependency.
-
-**Basic Usage:**
-
-```vue
-npm install chart.js
-```
 
 ## Combo
 
@@ -3438,14 +2968,6 @@ A bar chart is rendered horizontally when indexAxis option is set as y .
 
 ```vue
 <Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]"  />
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Chart from 'primevue/chart';
 ```
 
 ## Line
@@ -3572,18 +3094,6 @@ Checkbox is an extension to standard checkbox element with theming.
 
 Screen Reader Checkbox component uses a hidden native checkbox element internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the checkbox. space Toggles the checked state.
 
-**Basic Usage:**
-
-```vue
-<label for="chkbox1">Remember Me</label>
-<Checkbox inputId="chkbox1" />
-
-<span id="chkbox2">Remember Me</span>
-<Checkbox aria-labelledby="chkbox2" />
-
-<Checkbox aria-label="Remember Me" />
-```
-
 ## Basic
 
 Binary checkbox is used with the v-model for two-way value binding and the binary property.
@@ -3609,6 +3119,15 @@ When disabled is present, the element cannot be edited and focused.
 
 Checkboxes can be generated using a list of values.
 
+**Basic Usage:**
+
+```vue
+<div v-for="category of categories" :key="category.key" class="flex items-center gap-2">
+    <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
+    <label :for="category.key">{{ category.name }}</label>
+</div>
+```
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -3622,6 +3141,35 @@ Specify the variant property as filled to display the component with a higher vi
 ## Forms
 
 Checkbox integrates seamlessly with the PrimeVue Forms library.
+
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+    <div class="flex flex-col gap-2">
+        <CheckboxGroup name="ingredient" class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2">
+                <Checkbox inputId="cheese" value="Cheese" />
+                <label for="cheese"> Cheese </label>
+            </div>
+            <div class="flex items-center gap-2">
+                <Checkbox inputId="mushroom" value="Mushroom" />
+                <label for="mushroom"> Mushroom </label>
+            </div>
+            <div class="flex items-center gap-2">
+                <Checkbox inputId="pepper" value="Pepper" />
+                <label for="pepper"> Pepper </label>
+            </div>
+            <div class="flex items-center gap-2">
+                <Checkbox inputId="onion" value="Onion" />
+                <label for="onion"> Onion </label>
+            </div>
+        </CheckboxGroup>
+        <Message v-if="$form.ingredient?.invalid" severity="error" size="small" variant="simple">{{ $form.ingredient.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Group
 
@@ -3648,15 +3196,6 @@ Multiple checkboxes can be grouped together.
         <label for="ingredient4"> Onion </label>
     </div>
 </div>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Checkbox from 'primevue/checkbox';
-import CheckboxGroup from 'primevue/checkboxgroup';
 ```
 
 ## Indeterminate
@@ -3837,29 +3376,6 @@ A font icon next to the label can be displayed with the icon property.
 </Chip>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap gap-2">
-        <Chip label="Apple" icon="pi pi-apple" />
-        <Chip label="Facebook" icon="pi pi-facebook" />
-        <Chip label="Google" icon="pi pi-google" />
-        <Chip label="Microsoft" icon="pi pi-microsoft" removable />
-        <Chip label="GitHub" icon="pi pi-github" removable>
-            <template #removeicon="{ removeCallback, keydownCallback }">
-                <i class="pi pi-minus-circle" @click="removeCallback" @keydown="keydownCallback" />
-            </template>
-        </Chip>
-    </div>
-</template>
-<script setup>
-
-<\/script>
-```
-</details>
-
 ## Image
 
 The image property is used to display an image like an avatar.
@@ -3871,33 +3387,6 @@ The image property is used to display an image like an avatar.
 <Chip label="Asiya Javayant" image="/images/avatar/asiyajavayant.png" />
 <Chip label="Onyama Limba" image="/images/avatar/onyamalimba.png" />
 <Chip label="Xuxue Feng" image="/images/avatar/xuxuefeng.png" removable />
-```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap gap-2">
-        <Chip label="Amy Elsner" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" />
-        <Chip label="Asiya Javayant" image=https://primefaces.org/cdn/primevue"/images/avatar/asiyajavayant.png" />
-        <Chip label="Onyama Limba" image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" />
-        <Chip label="Xuxue Feng" image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" removable />
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Chip from 'primevue/chip';
 ```
 
 ## StyleDoc
@@ -3916,25 +3405,6 @@ The default slot allows displaying custom content inside a chip.
     <span class="ml-2 font-medium">PRIME</span>
 </Chip>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Chip class="py-0 pl-0 pr-4">
-            <span class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex items-center justify-center">P</span>
-            <span class="ml-2 font-medium">PRIME</span>
-        </Chip>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
 
 ## Chip
 
@@ -4046,12 +3516,16 @@ Default color format to use in value binding is hex and other possible values ca
 
 ColorPicker integrates seamlessly with the PrimeVue Forms library.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import ColorPicker from 'primevue/colorpicker';
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col items-center gap-2">
+        <ColorPicker name="color" />
+        <Message v-if="$form.color?.invalid" severity="error" size="small" variant="simple">{{ $form.color.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
 ```
 
 ## Inline
@@ -4171,12 +3645,25 @@ ConfirmDialog is controlled via the ConfirmationService that needs to be install
 
 Headless mode is enabled by defining a container slot that lets you implement entire confirmation UI instead of the default elements.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import ConfirmDialog from 'primevue/confirmdialog';
+<ConfirmDialog group="headless">
+    <template #container="{ message, acceptCallback, rejectCallback }">
+        <div class="flex flex-col items-center p-8 bg-surface-0 dark:bg-surface-900 rounded">
+            <div class="rounded-full bg-primary text-primary-contrast inline-flex justify-center items-center h-24 w-24 -mt-20">
+                <i class="pi pi-question !text-4xl"></i>
+            </div>
+            <span class="font-bold text-2xl block mb-2 mt-6">{{ message.header }}</span>
+            <p class="mb-0">{{ message.message }}</p>
+            <div class="flex items-center gap-2 mt-6">
+                <Button label="Save" @click="acceptCallback" class="w-32"></Button>
+                <Button label="Cancel" variant="outlined" @click="rejectCallback" class="w-32"></Button>
+            </div>
+        </div>
+    </template>
+</ConfirmDialog>
+<Button @click="requireConfirmation()" label="Save"></Button>
 ```
 
 ## Position
@@ -4206,6 +3693,20 @@ The position property of the confirm options specifies the location of the Dialo
 ## Template
 
 Templating allows customizing the message content.
+
+**Basic Usage:**
+
+```vue
+<ConfirmDialog group="templating">
+    <template #message="slotProps">
+        <div class="flex flex-col items-center w-full gap-4 border-b border-surface-200 dark:border-surface-700">
+            <i :class="slotProps.message.icon" class="!text-6xl text-primary-500"></i>
+            <p>{{ slotProps.message.message }}</p>
+        </div>
+    </template>
+</ConfirmDialog>
+<Button @click="showTemplate()" label="Save"></Button>
+```
 
 ## Confirm Dialog
 
@@ -4290,17 +3791,40 @@ ConfirmPopup is controlled via the ConfirmationService that needs to be installe
 
 Headless mode is enabled by defining a container slot that lets you implement entire confirmation UI instead of the default elements.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import ConfirmPopup from 'primevue/confirmpopup';
+<ConfirmPopup group="headless">
+    <template #container="{ message, acceptCallback, rejectCallback }">
+        <div class="rounded p-4">
+            <span>{{ message.message }}</span>
+            <div class="flex items-center gap-2 mt-4">
+                <Button label="Save" @click="acceptCallback" size="small"></Button>
+                <Button label="Cancel" variant="outlined" @click="rejectCallback" severity="secondary" size="small" text></Button>
+            </div>
+        </div>
+    </template>
+</ConfirmPopup>
+<Button @click="requireConfirmation($event)" label="Save"></Button>
 ```
 
 ## Template
 
 Templating allows customizing the message content.
+
+**Basic Usage:**
+
+```vue
+<ConfirmPopup group="templating">
+    <template #message="slotProps">
+        <div class="flex flex-col items-center w-full gap-4 border-b border-surface-200 dark:border-surface-700 p-4 mb-4 pb-0">
+            <i :class="slotProps.message.icon" class="!text-6xl text-primary-500"></i>
+            <p>{{ slotProps.message.message }}</p>
+        </div>
+    </template>
+</ConfirmPopup>
+<Button @click="showTemplate($event)" label="Save"></Button>
+```
 
 ## Confirm Popup
 
@@ -4396,7 +3920,14 @@ The command property defines the callback to run when an item is activated by cl
         @contextmenu="onRightClick($event, user)"
     >
         <div class="flex flex-1 items-center gap-2">
-            <img :alt="user.name" :src="\
+            <img :alt="user.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${user.image}\`" class="w-8 h-8" />
+            <span class="font-bold">{{ user.name }}</span>
+        </div>
+        <Tag :value="user.role" :severity="getBadge(user)" />
+    </li>
+</ul>
+<ContextMenu ref="menu" :model="items" @hide="selectedUser = null" />
+<Toast />
 ```
 
 ## DataTable
@@ -4413,21 +3944,74 @@ Setting global property attaches the context menu to the document.
 <ContextMenu global :model="items" />
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import ContextMenu from 'primevue/contextmenu';
-```
-
 ## Router
 
 Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
 
+**Basic Usage:**
+
+```vue
+<span class="inline-flex items-center justify-center border-2 border-primary rounded w-16 h-16" @contextmenu="onRightClick" aria-haspopup="true">
+    <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="..." fill="var(--p-primary-color)" />
+        <path d="..." fill="var(--p-text-color)" />
+    </svg>
+</span>
+<ContextMenu ref="routemenu" :model="items">
+    <template #item="{ item, props }">
+        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+            <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                <span :class="item.icon" />
+                <span class="ml-2">{{ item.label }}</span>
+            </a>
+        </router-link>
+        <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+            <span :class="item.icon" />
+            <span class="ml-2">{{ item.label }}</span>
+        </a>
+    </template>
+</ContextMenu>
+```
+
 ## Template
 
 ContextMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
+
+**Basic Usage:**
+
+```vue
+<ul class="m-0 p-0 list-none border border-surface-200 dark:border-surface-700 rounded p-4 flex flex-col gap-2 w-full md:w-[30rem]">
+    <li
+        v-for="product in products"
+        :key="product.id"
+        :class="['p-2 hover:bg-surface-100 dark:hover:bg-surface-800 rounded border border-transparent transition-all transition-duration-200', { 'border-primary': selectedId === product.id }]"
+        @contextmenu="onRightClick($event, product.id)"
+    >
+        <div class="flex flex-wrap p-2 items-center gap-4">
+            <img class="w-16 shrink-0 rounded" :src="'/images/product/' + product.image" :alt="product.name" />
+            <div class="flex-1 flex flex-col gap-1">
+                <span class="font-bold">{{ product.name }}</span>
+                <div class="flex items-center gap-2">
+                    <i class="pi pi-tag text-sm"></i>
+                    <span>{{ product.category }}</span>
+                </div>
+            </div>
+            <span class="font-bold ml-8">\${{ product.price }}</span>
+        </div>
+    </li>
+</ul>
+<ContextMenu ref="menu" :model="items" @hide="selectedId = null">
+    <template #item="{ item, props }">
+        <a v-ripple class="flex items-center" v-bind="props.action">
+            <span :class="item.icon" />
+            <span class="ml-2">{{ item.label }}</span>
+            <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+            <span v-if="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+            <i v-if="item.items" class="pi pi-angle-right ml-auto"></i>
+        </a>
+    </template>
+</ContextMenu>
+```
 
 ---
 
@@ -4458,6 +4042,53 @@ DataTable requires a value as data to display and Column components as children 
 
 Columns can be grouped within a Row component and groups can be displayed within a ColumnGroup component. These groups can be displayed using type property that can be header or footer . Number of cells and rows to span are defined with the colspan and rowspan properties of a Column.
 
+**Basic Usage:**
+
+```vue
+<DataTable :value="sales" tableStyle="min-width: 50rem">
+    <ColumnGroup type="header">
+        <Row>
+            <Column header="Product" :rowspan="3" />
+            <Column header="Sale Rate" :colspan="4" />
+        </Row>
+        <Row>
+            <Column header="Sales" :colspan="2" />
+            <Column header="Profits" :colspan="2" />
+        </Row>
+        <Row>
+            <Column header="Last Year" sortable field="lastYearSale" />
+            <Column header="This Year" sortable field="thisYearSale" />
+            <Column header="Last Year" sortable field="lastYearProfit" />
+            <Column header="This Year" sortable field="thisYearProfit" />
+        </Row>
+    </ColumnGroup>
+    <Column field="product" />
+    <Column field="lastYearSale">
+        <template #body="slotProps"> {{ slotProps.data.lastYearSale }}% </template>
+    </Column>
+    <Column field="thisYearSale">
+        <template #body="slotProps"> {{ slotProps.data.thisYearSale }}% </template>
+    </Column>
+    <Column field="lastYearProfit">
+        <template #body="slotProps">
+            {{ formatCurrency(slotProps.data.lastYearProfit) }}
+        </template>
+    </Column>
+    <Column field="thisYearProfit">
+        <template #body="slotProps">
+            {{ formatCurrency(slotProps.data.thisYearProfit) }}
+        </template>
+    </Column>
+    <ColumnGroup type="footer">
+        <Row>
+            <Column footer="Totals:" :colspan="3" footerStyle="text-align:right" />
+            <Column :footer="lastYearTotal" />
+            <Column :footer="thisYearTotal" />
+        </Row>
+    </ColumnGroup>
+</DataTable>
+```
+
 ## ColumnToggleDoc
 
 Column visibility based on a condition can be implemented with dynamic columns, in this sample a MultiSelect is used to manage the visible columns.
@@ -4476,6 +4107,48 @@ Column visibility based on a condition can be implemented with dynamic columns, 
     <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div>
+        <DataTable :value="products" tableStyle="min-width: 50rem">
+            <template #header>
+                <div style="text-align:left">
+                    <MultiSelect :modelValue="selectedColumns" :options="columns" optionLabel="header" @update:modelValue="onToggle"
+                        display="chip" placeholder="Select Columns" />
+                </div>
+            </template>
+            <Column field="code" header="Code" />
+            <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const columns = ref([
+    {field: 'name', header: 'Name'},
+    {field: 'category', header: 'Category'},
+    {field: 'quantity', header: 'Quantity'}
+]);
+const selectedColumns = ref(columns.value);
+const products = ref();
+const onToggle = (val) => {
+    selectedColumns.value = columns.value.filter(col => val.includes(col));
+};
+
+<\/script>
+```
+</details>
 
 ## ConditionalStyleDoc
 
@@ -4496,9 +4169,131 @@ Particular rows and cells can be styled based on conditions. The rowClass receiv
 </DataTable>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity">
+                <template #body="slotProps">
+                    <Badge :value="slotProps.data.quantity" :severity="stockSeverity(slotProps.data)" />
+                </template>
+            </Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (this.products = data));
+});
+
+const products = ref();
+
+const rowClass = (data) => {
+    return [{ '!bg-primary !text-primary-contrast': data.category === 'Fitness' }];
+};
+const rowStyle = (data) => {
+    if (data.quantity === 0) {
+        return { fontWeight: 'bold', fontStyle: 'italic' };
+    }
+};
+const stockSeverity = (data) => {
+    if (data.quantity === 0) return 'danger';
+    else if (data.quantity > 0 && data.quantity < 10) return 'warn';
+    else return 'success';
+}
+
+<\/script>
+```
+</details>
+
 ## ContextMenuDoc
 
 DataTable has exclusive integration with ContextMenu using the contextMenu event to open a menu on right click along with contextMenuSelection property and row-contextmenu event to control the selection via the menu.
+
+**Basic Usage:**
+
+```vue
+<ContextMenu ref="cm" :model="menuModel" @hide="selectedProduct = null" />
+<DataTable v-model:contextMenuSelection="selectedProduct" :value="products" contextMenu
+        @row-contextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
+    <Column field="code" header="Code"></Column>
+    <Column field="name" header="Name"></Column>
+    <Column field="category" header="Category"></Column>
+    <Column field="price" header="Price">
+        <template #body="slotProps">
+            {{ formatCurrency(slotProps.data.price) }}
+        </template>
+    </Column>
+</DataTable>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <ContextMenu ref="cm" :model="menuModel" @hide="selectedProduct = null" />
+        <DataTable :value="products" contextMenu v-model:contextMenuSelection="selectedProduct"
+                @rowContextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="price" header="Price">
+                <template #body="slotProps">
+                    {{formatCurrency(slotProps.data.price)}}
+                </template>
+                </Column>
+        </DataTable>
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const cm = ref();
+const toast = useToast();
+const products = ref();
+const selectedProduct = ref();
+const menuModel = ref([
+    {label: 'View', icon: 'pi pi-fw pi-search', command: () => viewProduct(selectedProduct)},
+    {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => deleteProduct(selectedProduct)}
+]);
+const onRowContextMenu = (event) => {
+    cm.value.show(event.originalEvent);
+};
+const viewProduct = (product) => {
+    toast.add({severity: 'info', summary: 'Product Selected', detail: product.value.name, life: 3000});
+};
+const deleteProduct = (product) => {
+    products.value = products.value.filter((p) => p.id !== product.value.id);
+    toast.add({severity: 'error', summary: 'Product Deleted', detail: product.value.name, life: 3000});
+    selectedProduct.value = null;
+};
+const formatCurrency = (value) => {
+    return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+};
+
+<\/script>
+```
+</details>
 
 ## DynamicColumnsDoc
 
@@ -4511,6 +4306,38 @@ Columns can be created programmatically.
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable :value="products" tableStyle="min-width: 50rem">
+            <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const products = ref();
+const columns = [
+    { field: 'code', header: 'Code' },
+    { field: 'name', header: 'Name' },
+    { field: 'category', header: 'Category' },
+    { field: 'quantity', header: 'Quantity' }
+];
+
+<\/script>
+```
+</details>
 
 ## ExportDoc
 
@@ -4532,6 +4359,43 @@ DataTable can export its data to CSV format.
 </DataTable>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div>
+        <DataTable :value="products" ref="dt" tableStyle="min-width: 50rem">
+            <template #header>
+                <div class="text-end pb-4">
+                    <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
+                </div>
+            </template>
+            <Column field="code" header="Code" exportHeader="Product Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const dt = ref();
+const products = ref();
+const exportCSV = () => {
+    dt.value.exportCSV();
+};
+<\/script>
+```
+</details>
+
 ## Grid Lines
 
 Enabling showGridlines displays borders between cells.
@@ -4547,16 +4411,34 @@ Enabling showGridlines displays borders between cells.
 </DataTable>
 ```
 
-## Import
-
-**Basic Usage:**
+<details>
+<summary>Composition API Example</summary>
 
 ```vue
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
-import ColumnGroup from 'primevue/columngroup';   // optional
-import Row from 'primevue/row';                   // optional
+<template>
+    <div class="card">
+        <DataTable :value="products" showGridlines tableStyle="min-width: 50rem">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const products = ref();
+
+<\/script>
 ```
+</details>
 
 ## LazyLoadDoc
 
@@ -4578,8 +4460,167 @@ Lazy mode is handy to deal with large datasets, instead of loading the entire da
     <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
         <template #body="{ data }">
             <div class="flex items-center gap-2">
-                <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+                <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
+                <span>{{ data.country.name }}</span>
+            </div>
+        </template>
+        <template #filter="{filterModel,filterCallback}">
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+        </template>
+    </Column>
+    <Column field="company" header="Company" filterMatchMode="contains" sortable>
+        <template #filter="{filterModel,filterCallback}">
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+        </template>
+    </Column>
+    <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
+        <template #body="{ data }">
+            <div class="flex items-center gap-2">
+                <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
+                <span>{{ data.representative.name }}</span>
+            </div>
+        </template>
+        <template #filter="{filterModel,filterCallback}">
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+        </template>
+    </Column>
+</DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+	<div class="card">
+        <DataTable :value="customers" lazy paginator :first="first" :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
+            :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
+            :globalFilterFields="['name','country.name', 'company', 'representative.name']"
+            v-model:selection="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect" tableStyle="min-width: 75rem">
+            <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
+            <Column field="name" header="Name" filterMatchMode="startsWith" sortable>
+                <template #filter="{filterModel,filterCallback}">
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+                </template>
+            </Column>
+            <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
+                <template #body="{ data }">
+                    <div class="flex items-center gap-2">
+                        <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
+                        <span>{{ data.country.name }}</span>
+                    </div>
+                </template>
+                <template #filter="{filterModel,filterCallback}">
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+                </template>
+            </Column>
+            <Column field="company" header="Company" filterMatchMode="contains" sortable>
+                <template #filter="{filterModel,filterCallback}">
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+                </template>
+            </Column>
+            <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
+                <template #body="{ data }">
+                    <div class="flex items-center gap-2">
+                        <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
+                        <span>{{ data.representative.name }}</span>
+                    </div>
+                </template>
+                <template #filter="{filterModel,filterCallback}">
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+                </template>
+            </Column>
+        </DataTable>
+	</div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { CustomerService } from '@/service/CustomerService';
+
+onMounted(() => {
+    loading.value = true;
+
+    lazyParams.value = {
+        first: 0,
+        rows: 10,
+        sortField: null,
+        sortOrder: null,
+        filters: filters.value
+    };
+
+    loadLazyData();
+});
+
+const dt = ref();
+const loading = ref(false);
+const totalRecords = ref(0);
+const customers = ref();
+const selectedCustomers = ref();
+const selectAll = ref(false);
+const first = ref(0);
+const filters = ref({
+    'name': {value: '', matchMode: 'contains'},
+    'country.name': {value: '', matchMode: 'contains'},
+    'company': {value: '', matchMode: 'contains'},
+    'representative.name': {value: '', matchMode: 'contains'},
+});
+const lazyParams = ref({});
+const columns = ref([
+    {field: 'name', header: 'Name'},
+    {field: 'country.name', header: 'Country'},
+    {field: 'company', header: 'Company'},
+    {field: 'representative.name', header: 'Representative'}
+]);
+
+const loadLazyData = (event) => {
+    loading.value = true;
+    lazyParams.value = { ...lazyParams.value, first: event?.first || first.value };
+
+    setTimeout(() => {
+        CustomerService.getCustomers({ lazyEvent: JSON.stringify(lazyParams.value) }).then((data) => {
+            customers.value = data.customers;
+            totalRecords.value = data.totalRecords;
+            loading.value = false;
+        });
+    }, Math.random() * 1000 + 250);
+};
+const onPage = (event) => {
+    lazyParams.value = event;
+    loadLazyData(event);
+};
+const onSort = (event) => {
+    lazyParams.value = event;
+    loadLazyData(event);
+};
+const onFilter = (event) => {
+    lazyParams.value.filters = filters.value ;
+    loadLazyData(event);
+};
+const onSelectAllChange = (event) => {
+    selectAll.value = event.checked;
+
+    if (selectAll) {
+        CustomerService.getCustomers().then(data => {
+            selectAll.value = true;
+            selectedCustomers.value = data.customers;
+        });
+    }
+    else {
+        selectAll.value = false;
+        selectedCustomers.value = [];
+    }
+};
+const onRowSelect = () => {
+    selectAll.value = selectedCustomers.value.length === totalRecords.value;
+};
+const onRowUnselect = () => {
+    selectAll.value = false;
+};
+
+<\/script>
+```
+</details>
 
 ## ReorderDoc
 
@@ -4593,6 +4634,50 @@ Order of the columns and rows can be changed using drag and drop. Column reorder
     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+	<div>
+        <DataTable :value="products" :reorderableColumns="true" @columnReorder="onColReorder" @rowReorder="onRowReorder" tableStyle="min-width: 50rem">
+            <Column rowReorder headerStyle="width: 3rem" :reorderableColumn="false" />
+            <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+        </DataTable>
+        <Toast />
+	</div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then(data => products.value = data);
+});
+
+const toast = useToast();
+const columns = ref([
+    {field: 'code', header: 'Code'},
+    {field: 'name', header: 'Name'},
+    {field: 'category', header: 'Category'},
+    {field: 'quantity', header: 'Quantity'}
+]);
+const products = ref();
+
+const onColReorder = () => {
+    toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
+};
+const onRowReorder = (event) => {
+    products.value = event.value;
+    toast.add({severity:'success', summary: 'Rows Reordered', life: 3000});
+};
+
+<\/script>
+```
+</details>
 
 ## RowExpansionDoc
 
@@ -4613,8 +4698,185 @@ Row expansion is controlled with expandedRows property. The column that has the 
     <Column field="name" header="Name"></Column>
     <Column header="Image">
         <template #body="slotProps">
-            <img :src="\
+            <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="shadow-lg" width="64" />
+        </template>
+    </Column>
+    <Column field="price" header="Price">
+        <template #body="slotProps">
+            {{ formatCurrency(slotProps.data.price) }}
+        </template>
+    </Column>
+    <Column field="category" header="Category"></Column>
+    <Column field="rating" header="Reviews">
+        <template #body="slotProps">
+            <Rating :modelValue="slotProps.data.rating" readonly />
+        </template>
+    </Column>
+    <Column header="Status">
+        <template #body="slotProps">
+            <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data)" />
+        </template>
+    </Column>
+    <template #expansion="slotProps">
+        <div class="p-4">
+            <h5>Orders for {{ slotProps.data.name }}</h5>
+            <DataTable :value="slotProps.data.orders">
+                <Column field="id" header="Id" sortable></Column>
+                <Column field="customer" header="Customer" sortable></Column>
+                <Column field="date" header="Date" sortable></Column>
+                <Column field="amount" header="Amount" sortable>
+                    <template #body="slotProps">
+                        {{ formatCurrency(slotProps.data.amount) }}
+                    </template>
+                </Column>
+                <Column field="status" header="Status" sortable>
+                    <template #body="slotProps">
+                        <Tag :value="slotProps.data.status.toLowerCase()" :severity="getOrderSeverity(slotProps.data)" />
+                    </template>
+                </Column>
+                <Column headerStyle="width:4rem">
+                    <template #body>
+                        <Button icon="pi pi-search" />
+                    </template>
+                </Column>
+            </DataTable>
+        </div>
+    </template>
+</DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id"
+                @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
+            <template #header>
+                <div class="flex flex-wrap justify-end gap-2">
+                    <Button variant="text" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+                    <Button variant="text" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                </div>
+            </template>
+            <Column expander style="width: 5rem" />
+            <Column field="name" header="Name"></Column>
+            <Column header="Image">
+                <template #body="slotProps">
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="shadow-lg" width="64" />
+                </template>
+            </Column>
+            <Column field="price" header="Price">
+                <template #body="slotProps">
+                    {{ formatCurrency(slotProps.data.price) }}
+                </template>
+            </Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="rating" header="Reviews">
+                <template #body="slotProps">
+                    <Rating :modelValue="slotProps.data.rating" readonly />
+                </template>
+            </Column>
+            <Column header="Status">
+                <template #body="slotProps">
+                    <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data)" />
+                </template>
+            </Column>
+            <template #expansion="slotProps">
+                <div class="p-4">
+                    <h5>Orders for {{ slotProps.data.name }}</h5>
+                    <DataTable :value="slotProps.data.orders">
+                        <Column field="id" header="Id" sortable></Column>
+                        <Column field="customer" header="Customer" sortable></Column>
+                        <Column field="date" header="Date" sortable></Column>
+                        <Column field="amount" header="Amount" sortable>
+                            <template #body="slotProps">
+                                {{ formatCurrency(slotProps.data.amount) }}
+                            </template>
+                        </Column>
+                        <Column field="status" header="Status" sortable>
+                            <template #body="slotProps">
+                                <Tag :value="slotProps.data.status.toLowerCase()" :severity="getOrderSeverity(slotProps.data)" />
+                            </template>
+                        </Column>
+                        <Column headerStyle="width:4rem">
+                            <template #body>
+                                <Button icon="pi pi-search" />
+                            </template>
+                        </Column>
+                    </DataTable>
+                </div>
+            </template>
+        </DataTable>
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { ProductService } from '@/service/ProductService';
+
+const products = ref();
+const expandedRows = ref({});
+const toast = useToast();
+
+onMounted(() => {
+    ProductService.getProductsWithOrdersSmall().then((data) => (products.value = data));
+});
+
+const onRowExpand = (event) => {
+    toast.add({ severity: 'info', summary: 'Product Expanded', detail: event.data.name, life: 3000 });
+};
+const onRowCollapse = (event) => {
+    toast.add({ severity: 'success', summary: 'Product Collapsed', detail: event.data.name, life: 3000 });
+};
+const expandAll = () => {
+    expandedRows.value = products.value.reduce((acc, p) => (acc[p.id] = true) && acc, {});
+};
+const collapseAll = () => {
+    expandedRows.value = null;
+};
+const formatCurrency = (value) => {
+    return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+};
+const getSeverity = (product) => {
+    switch (product.inventoryStatus) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+};
+const getOrderSeverity = (order) => {
+    switch (order.status) {
+        case 'DELIVERED':
+            return 'success';
+
+        case 'CANCELLED':
+            return 'danger';
+
+        case 'PENDING':
+            return 'warn';
+
+        case 'RETURNED':
+            return 'info';
+
+        default:
+            return null;
+    }
+};
+
+<\/script>
+```
+</details>
 
 ## Size
 
@@ -4631,6 +4893,44 @@ In addition to a regular table, alternatives with alternative sizes are availabl
     <Column field="quantity" header="Quantity"></Column>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex justify-center mb-6">
+            <SelectButton v-model="size" :options="sizeOptions" optionLabel="label" dataKey="label" />
+        </div>
+        <DataTable :value="products" :size="size.value" tableStyle="min-width: 50rem">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const products = ref();
+const size = ref({ label: 'Normal', value: 'null' });
+const sizeOptions = ref([
+    { label: 'Small', value: 'small' },
+    { label: 'Normal', value: 'null' },
+    { label: 'Large', value: 'large' }
+]);
+
+<\/script>
+```
+</details>
 
 ## StatefulDoc
 
@@ -4658,8 +4958,172 @@ Stateful table allows keeping the state such as page, sort and filtering either 
     <Column header="Country" sortable sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
         <template #body="{ data }">
             <div class="flex items-center gap-2">
-                <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+                <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
+                <span>{{ data.country.name }}</span>
+            </div>
+        </template>
+        <template #filter="{ filterModel }">
+            <InputText v-model="filterModel.value" type="text" placeholder="Search by country" />
+        </template>
+    </Column>
+    <Column header="Representative" sortable sortField="representative.name" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="width: 25%">
+        <template #body="{ data }">
+            <div class="flex items-center gap-2">
+                <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
+                <span>{{ data.representative.name }}</span>
+            </div>
+        </template>
+        <template #filter="{ filterModel }">
+            <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any">
+                <template #option="slotProps">
+                    <div class="flex items-center gap-2">
+                        <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
+                        <span>{{ slotProps.option.name }}</span>
+                    </div>
+                </template>
+            </MultiSelect>
+        </template>
+    </Column>
+    <Column field="status" header="Status" sortable filterMatchMode="equals" style="width: 25%">
+        <template #body="{ data }">
+            <Tag :value="data.status" :severity="getSeverity(data.status)" />
+        </template>
+        <template #filter="{ filterModel }">
+            <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" showClear>
+                <template #option="slotProps">
+                    <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
+                </template>
+            </Select>
+        </template>
+    </Column>
+    <template #empty> No customers found. </template>
+</DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable v-model:filters="filters" v-model:selection="selectedCustomer" :value="customers"
+                stateStorage="session" stateKey="dt-state-demo-session" paginator :rows="5" filterDisplay="menu"
+                selectionMode="single" dataKey="id" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']" tableStyle="min-width: 50rem">
+            <template #header>
+                <IconField>
+                <InputIcon>
+                    <i class="pi pi-search" />
+                </InputIcon>
+                <InputText v-model="filters['global'].value" placeholder="Global Search" />
+            </IconField>
+            </template>
+            <Column field="name" header="Name" sortable style="width: 25%">
+                <template #filter="{ filterModel }">
+                    <InputText v-model="filterModel.value" type="text" placeholder="Search by name" />
+                </template>
+            </Column>
+            <Column header="Country" sortable sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
+                <template #body="{ data }">
+                    <div class="flex items-center gap-2">
+                        <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
+                        <span>{{ data.country.name }}</span>
+                    </div>
+                </template>
+                <template #filter="{ filterModel }">
+                    <InputText v-model="filterModel.value" type="text" placeholder="Search by country" />
+                </template>
+            </Column>
+            <Column header="Representative" sortable sortField="representative.name" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="width: 25%">
+                <template #body="{ data }">
+                    <div class="flex items-center gap-2">
+                        <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
+                        <span>{{ data.representative.name }}</span>
+                    </div>
+                </template>
+                <template #filter="{ filterModel }">
+                    <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any">
+                        <template #option="slotProps">
+                            <div class="flex items-center gap-2">
+                                <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
+                                <span>{{ slotProps.option.name }}</span>
+                            </div>
+                        </template>
+                    </MultiSelect>
+                </template>
+            </Column>
+            <Column field="status" header="Status" sortable filterMatchMode="equals" style="width: 25%">
+                <template #body="{ data }">
+                    <Tag :value="data.status" :severity="getSeverity(data.status)" />
+                </template>
+                <template #filter="{ filterModel }">
+                    <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" showClear>
+                        <template #option="slotProps">
+                            <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
+                        </template>
+                    </Select>
+                </template>
+            </Column>
+            <template #empty> No customers found. </template>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { CustomerService } from '@/service/CustomerService';
+import { FilterMatchMode, FilterOperator } from '@primevue/core/api';
+
+const customers = ref();
+const selectedCustomer = ref();
+const filters = ref(
+    {
+        global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+        name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+        'country.name': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+        representative: { value: null, matchMode: FilterMatchMode.IN },
+        status: { operator: FilterOperator.OR, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] }
+    }
+);
+const representatives = ref([
+    { name: 'Amy Elsner', image: 'amyelsner.png' },
+    { name: 'Anna Fali', image: 'annafali.png' },
+    { name: 'Asiya Javayant', image: 'asiyajavayant.png' },
+    { name: 'Bernardo Dominic', image: 'bernardodominic.png' },
+    { name: 'Elwin Sharvill', image: 'elwinsharvill.png' },
+    { name: 'Ioni Bowcher', image: 'ionibowcher.png' },
+    { name: 'Ivan Magalhaes', image: 'ivanmagalhaes.png' },
+    { name: 'Onyama Limba', image: 'onyamalimba.png' },
+    { name: 'Stephen Shaw', image: 'stephenshaw.png' },
+    { name: 'XuXue Feng', image: 'xuxuefeng.png' }
+]);
+const statuses = ref(['unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal']);
+
+onMounted(() => {
+    CustomerService.getCustomersSmall().then((data) => (customers.value = data));
+});
+
+const getSeverity = (status) => {
+    switch (status) {
+        case 'unqualified':
+            return 'danger';
+
+        case 'qualified':
+            return 'success';
+
+        case 'new':
+            return 'info';
+
+        case 'negotiation':
+            return 'warn';
+
+        case 'renewal':
+            return null;
+    }
+};
+
+<\/script>
+```
+</details>
 
 ## StripedRowsDoc
 
@@ -4675,6 +5139,35 @@ Alternating rows are displayed when stripedRows property is present.
     <Column field="quantity" header="Quantity"></Column>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable :value="products" stripedRows tableStyle="min-width: 50rem">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const products = ref();
+
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -4693,8 +5186,100 @@ Custom content at header and footer sections are supported via templating.
     <Column field="name" header="Name"></Column>
     <Column header="Image">
         <template #body="slotProps">
-            <img :src="\
+            <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-24 rounded" />
+        </template>
+    </Column>
+    <Column field="price" header="Price">
+        <template #body="slotProps">
+            {{ formatCurrency(slotProps.data.price) }}
+        </template>
+    </Column>
+    <Column field="category" header="Category"></Column>
+    <Column field="rating" header="Reviews">
+        <template #body="slotProps">
+            <Rating :modelValue="slotProps.data.rating" readonly />
+        </template>
+    </Column>
+    <Column header="Status">
+        <template #body="slotProps">
+            <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data)" />
+        </template>
+    </Column>
+    <template #footer> In total there are {{ products ? products.length : 0 }} products. </template>
+</DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable :value="products" tableStyle="min-width: 50rem">
+            <template #header>
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <span class="text-xl font-bold">Products</span>
+                    <Button icon="pi pi-refresh" rounded raised />
+                </div>
+            </template>
+            <Column field="name" header="Name"></Column>
+            <Column header="Image">
+                <template #body="slotProps">
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-24 rounded" />
+                </template>
+            </Column>
+            <Column field="price" header="Price">
+                <template #body="slotProps">
+                    {{ formatCurrency(slotProps.data.price) }}
+                </template>
+            </Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="rating" header="Reviews">
+                <template #body="slotProps">
+                    <Rating :modelValue="slotProps.data.rating" readonly />
+                </template>
+            </Column>
+            <Column header="Status">
+                <template #body="slotProps">
+                    <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data)" />
+                </template>
+            </Column>
+            <template #footer> In total there are {{ products ? products.length : 0 }} products. </template>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const products = ref();
+const formatCurrency = (value) => {
+    return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+};
+const getSeverity = (product) => {
+    switch (product.inventoryStatus) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+};
+
+<\/script>
+```
+</details>
 
 ## Data Table
 
@@ -5003,15 +5588,37 @@ DataView requires a value to display along with a list slot for item content.
             <div v-for="(item, index) in slotProps.items" :key="index">
                 <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
                     <div class="md:w-40 relative">
-                        <img class="block xl:block mx-auto rounded w-full" :src="\
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import DataView from 'primevue/dataview';
+                        <img class="block xl:block mx-auto rounded w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                        <div class="absolute bg-black/70 rounded-border" style="left: 4px; top: 4px">
+                            <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+                        <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                            <div>
+                                <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
+                                <div class="text-lg font-medium mt-2">{{ item.name }}</div>
+                            </div>
+                            <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                                <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                    <span class="text-surface-900 font-medium text-sm">{{ item.rating }}</span>
+                                    <i class="pi pi-star-fill text-yellow-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:items-end gap-8">
+                            <span class="text-xl font-semibold">\${{ item.price }}</span>
+                            <div class="flex flex-row-reverse md:flex-row gap-2">
+                                <Button icon="pi pi-heart" variant="outlined"></Button>
+                                <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial whitespace-nowrap"></Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</DataView>
 ```
 
 ## Layout
@@ -5037,8 +5644,202 @@ DataView supports list and grid display modes defined with the layout property. 
             <div v-for="(item, index) in slotProps.items" :key="index">
                 <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
                     <div class="md:w-40 relative">
-                        <img class="block xl:block mx-auto rounded w-full" :src="\
+                        <img class="block xl:block mx-auto rounded w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                        <div class="absolute bg-black/70 rounded-border" style="left: 4px; top: 4px">
+                            <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+                        <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                            <div>
+                                <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
+                                <div class="text-lg font-medium mt-2">{{ item.name }}</div>
+                            </div>
+                            <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                                <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                    <span class="text-surface-900 font-medium text-sm">{{ item.rating }}</span>
+                                    <i class="pi pi-star-fill text-yellow-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:items-end gap-8">
+                            <span class="text-xl font-semibold">\${{ item.price }}</span>
+                            <div class="flex flex-row-reverse md:flex-row gap-2">
+                                <Button icon="pi pi-heart" variant="outlined"></Button>
+                                <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial whitespace-nowrap"></Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template #grid="slotProps">
+        <div class="grid grid-cols-12 gap-4">
+            <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-6 p-2">
+                <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded flex flex-col">
+                    <div class="bg-surface-50 flex justify-center rounded p-4">
+                        <div class="relative mx-auto">
+                            <img class="rounded w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" style="max-width: 300px"/>
+                            <div class="absolute bg-black/70 rounded-border" style="left: 4px; top: 4px">
+                                <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-6">
+                        <div class="flex flex-row justify-between items-start gap-2">
+                            <div>
+                                <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
+                                <div class="text-lg font-medium mt-1">{{ item.name }}</div>
+                            </div>
+                            <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                                <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                    <span class="text-surface-900 font-medium text-sm">{{ item.rating }}</span>
+                                    <i class="pi pi-star-fill text-yellow-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-6 mt-6">
+                            <span class="text-2xl font-semibold">\${{ item.price }}</span>
+                            <div class="flex gap-2">
+                                <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap"></Button>
+                                <Button icon="pi pi-heart" variant="outlined"></Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</DataView>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataView :value="products" :layout="layout">
+            <template #header>
+                <div class="flex justify-end">
+                    <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                        <template #option="{ option }">
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
+                        </template>
+                    </SelectButton>
+                </div>
+            </template>
+
+            <template #list="slotProps">
+                <div class="flex flex-col">
+                    <div v-for="(item, index) in slotProps.items" :key="index">
+                        <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
+                            <div class="md:w-40 relative">
+                                <img class="block xl:block mx-auto rounded w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                                 <div class="absolute bg-black/70 rounded-border" style="left: 4px; top: 4px">
+                                    <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+                                <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                                    <div>
+                                        <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
+                                        <div class="text-lg font-medium mt-2">{{ item.name }}</div>
+                                    </div>
+                                    <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                                        <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                            <span class="text-surface-900 font-medium text-sm">{{ item.rating }}</span>
+                                            <i class="pi pi-star-fill text-yellow-500"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col md:items-end gap-8">
+                                    <span class="text-xl font-semibold">\${{ item.price }}</span>
+                                    <div class="flex flex-row-reverse md:flex-row gap-2">
+                                        <Button icon="pi pi-heart" variant="outlined"></Button>
+                                        <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial whitespace-nowrap"></Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <template #grid="slotProps">
+                <div class="grid grid-cols-12 gap-4">
+                    <div v-for="(item, index) in slotProps.items" :key="index" class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-6 p-2">
+                        <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded flex flex-col">
+                            <div class="bg-surface-50 flex justify-center rounded p-4">
+                                <div class="relative mx-auto">
+                                    <img class="rounded w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" style="max-width: 300px"/>
+                                    <div class="absolute bg-black/70 rounded-border" style="left: 4px; top: 4px">
+                                        <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-6">
+                                <div class="flex flex-row justify-between items-start gap-2">
+                                    <div>
+                                        <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
+                                        <div class="text-lg font-medium mt-1">{{ item.name }}</div>
+                                    </div>
+                                    <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                                        <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                            <span class="text-surface-900 font-medium text-sm">{{ item.rating }}</span>
+                                            <i class="pi pi-star-fill text-yellow-500"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-6 mt-6">
+                                    <span class="text-2xl font-semibold">\${{ item.price }}</span>
+                                    <div class="flex gap-2">
+                                        <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap"></Button>
+                                        <Button icon="pi pi-heart" variant="outlined"></Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </DataView>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProducts().then((data) => (products.value = data.slice(0, 12)));
+});
+
+const products = ref();
+const layout = ref('grid');
+const options = ref(['list', 'grid']);
+
+const getSeverity = (product) => {
+    switch (product.inventoryStatus) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+}
+
+<\/script>
+```
+</details>
 
 ## Loading
 
@@ -5107,6 +5908,105 @@ While data is being loaded, Skeleton component may be used to indicate the busy 
 </DataView>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataView :value="products" :layout="layout">
+            <template #header>
+                <div class="flex justify-end">
+                    <SelectButton v-model="layout" :options="options" :allowEmpty="false">
+                        <template #option="{ option }">
+                            <i :class="[option === 'list' ? 'pi pi-bars' : 'pi pi-table']" />
+                        </template>
+                    </SelectButton>
+                </div>
+            </template>
+
+            <template #list>
+                <div class="flex flex-col">
+                    <div v-for="i in 6" :key="i">
+                        <div class="flex flex-col xl:flex-row xl:items-start p-6 gap-6" :class="{ 'border-t border-surface-200 dark:border-surface-700': i !== 0 }">
+                            <Skeleton class="!w-9/12 sm:!w-64 xl:!w-40 !h-24 mx-auto" />
+                            <div class="flex flex-col sm:flex-row justify-between items-center xl:items-start flex-1 gap-6">
+                                <div class="flex flex-col items-center sm:items-start gap-4">
+                                    <Skeleton width="8rem" height="2rem" />
+                                    <Skeleton width="6rem" height="1rem" />
+
+                                    <div class="flex items-center gap-4">
+                                        <Skeleton width="6rem" height="1rem" />
+                                        <Skeleton width="3rem" height="1rem" />
+                                    </div>
+                                </div>
+                                <div class="flex sm:flex-col items-center sm:items-end gap-4 sm:gap-2">
+                                    <Skeleton width="4rem" height="2rem" />
+                                    <Skeleton size="3rem" shape="circle" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <template #grid>
+                <div class="grid grid-cols-12 gap-4">
+                    <div v-for="i in 6" :key="i" class="col-span-12 sm:col-span-6 xl:col-span-4 p-2">
+                        <div class="p-6 border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <Skeleton width="6rem" height="2rem" />
+                                <Skeleton width="3rem" height="1rem" />
+                            </div>
+                            <div class="flex flex-col items-center gap-4 py-8">
+                                <Skeleton width="75%" height="10rem" />
+                                <Skeleton width="8rem" height="2rem" />
+                                <Skeleton width="6rem" height="1rem" />
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <Skeleton width="4rem" height="2rem" />
+                                <Skeleton width="6rem" height="1rem" shape="circle" size="3rem" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </DataView>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 6)));
+});
+
+const products = ref();
+const layout = ref('grid');
+const options = ref(['list', 'grid']);
+
+const getSeverity = (product) => {
+    switch (product.inventoryStatus) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+}
+
+<\/script>
+```
+</details>
+
 ## Pagination
 
 Pagination is enabled with the paginator and rows properties. Refer to the Paginator for more information about customizing the paginator.
@@ -5120,8 +6020,112 @@ Pagination is enabled with the paginator and rows properties. Refer to the Pagin
             <div v-for="(item, index) in slotProps.items" :key="index">
                 <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
                     <div class="md:w-40 relative">
-                        <img class="block xl:block mx-auto rounded w-full" :src="\
+                        <img class="block xl:block mx-auto rounded w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                        <div class="absolute bg-black/70 rounded-border" style="left: 4px; top: 4px">
+                            <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+                        <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                            <div>
+                                <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
+                                <div class="text-lg font-medium mt-2">{{ item.name }}</div>
+                            </div>
+                            <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                                <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                    <span class="text-surface-900 font-medium text-sm">{{ item.rating }}</span>
+                                    <i class="pi pi-star-fill text-yellow-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:items-end gap-8">
+                            <span class="text-xl font-semibold">\${{ item.price }}</span>
+                            <div class="flex flex-row-reverse md:flex-row gap-2">
+                                <Button icon="pi pi-heart" variant="outlined"></Button>
+                                <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial whitespace-nowrap"></Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</DataView>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataView :value="products" paginator :rows="5">
+            <template #list="slotProps">
+                <div class="flex flex-col">
+                    <div v-for="(item, index) in slotProps.items" :key="index">
+                        <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
+                            <div class="md:w-40 relative">
+                                <img class="block xl:block mx-auto rounded w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                                <div class="absolute bg-black/70 rounded-border" style="left: 4px; top: 4px">
+                                    <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+                                <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                                    <div>
+                                        <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
+                                        <div class="text-lg font-medium mt-2">{{ item.name }}</div>
+                                    </div>
+                                    <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                                        <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                            <span class="text-surface-900 font-medium text-sm">{{ item.rating }}</span>
+                                            <i class="pi pi-star-fill text-yellow-500"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col md:items-end gap-8">
+                                    <span class="text-xl font-semibold">\${{ item.price }}</span>
+                                    <div class="flex flex-row-reverse md:flex-row gap-2">
+                                        <Button icon="pi pi-heart" variant="outlined"></Button>
+                                        <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial whitespace-nowrap"></Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </DataView>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (products.value = data));
+});
+
+const products = ref();
+const getSeverity = (product) => {
+    switch (product.inventoryStatus) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+};
+<\/script>
+```
+</details>
 
 ## Sorting
 
@@ -5139,8 +6143,137 @@ Built-in sorting is controlled by bindings sortField and sortField properties fr
             <div v-for="(item, index) in slotProps.items" :key="index">
                 <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
                     <div class="md:w-40 relative">
-                        <img class="block xl:block mx-auto rounded w-full" :src="\
+                        <img class="block xl:block mx-auto rounded w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                        <div class="absolute bg-black/70 rounded-border" style="left: 4px; top: 4px">
+                            <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+                        <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                            <div>
+                                <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
+                                <div class="text-lg font-medium mt-2">{{ item.name }}</div>
+                            </div>
+                            <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                                <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                    <span class="text-surface-900 font-medium text-sm">{{ item.rating }}</span>
+                                    <i class="pi pi-star-fill text-yellow-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:items-end gap-8">
+                            <span class="text-xl font-semibold">\${{ item.price }}</span>
+                            <div class="flex flex-row-reverse md:flex-row gap-2">
+                                <Button icon="pi pi-heart" variant="outlined"></Button>
+                                <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial whitespace-nowrap"></Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</DataView>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataView :value="products" :sortOrder="sortOrder" :sortField="sortField">
+            <template #header>
+                <Select v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)" />
+            </template>
+            <template #list="slotProps">
+                <div class="flex flex-col">
+                    <div v-for="(item, index) in slotProps.items" :key="index">
+                        <div class="flex flex-col sm:flex-row sm:items-center p-6 gap-4" :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
+                            <div class="md:w-40 relative">
+                                <img class="block xl:block mx-auto rounded w-full" :src="\`https://primefaces.org/cdn/primevue/images/product/\${item.image}\`" :alt="item.name" />
+                                <div class="absolute bg-black/70 rounded-border" style="left: 4px; top: 4px">
+                                    <Tag :value="item.inventoryStatus" :severity="getSeverity(item)"></Tag>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
+                                <div class="flex flex-row md:flex-col justify-between items-start gap-2">
+                                    <div>
+                                        <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ item.category }}</span>
+                                        <div class="text-lg font-medium mt-2">{{ item.name }}</div>
+                                    </div>
+                                    <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                                        <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                            <span class="text-surface-900 font-medium text-sm">{{ item.rating }}</span>
+                                            <i class="pi pi-star-fill text-yellow-500"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col md:items-end gap-8">
+                                    <span class="text-xl font-semibold">\${{ item.price }}</span>
+                                    <div class="flex flex-row-reverse md:flex-row gap-2">
+                                        <Button icon="pi pi-heart" variant="outlined"></Button>
+                                        <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto md:flex-initial whitespace-nowrap"></Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </DataView>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 5)));
+});
+
+const products = ref();
+const sortKey = ref();
+const sortOrder = ref();
+const sortField = ref();
+const sortOptions = ref([
+    {label: 'Price High to Low', value: '!price'},
+    {label: 'Price Low to High', value: 'price'},
+]);
+const onSortChange = (event) => {
+    const value = event.value.value;
+    const sortValue = event.value;
+
+    if (value.indexOf('!') === 0) {
+        sortOrder.value = -1;
+        sortField.value = value.substring(1, value.length);
+        sortKey.value = sortValue;
+    }
+    else {
+        sortOrder.value = 1;
+        sortField.value = value;
+        sortKey.value = sortValue;
+    }
+};
+const getSeverity = (product) => {
+    switch (product.inventoryStatus) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+};
+<\/script>
+```
+</details>
 
 ## Data View
 
@@ -5235,18 +6368,6 @@ DatePicker is a form component for date inputs.
 
 Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete as "none", aria-haspopup as "dialog" and aria-expanded attributes. The relation between the input and the popup is created with aria-controls attribute that refers to the id of the popup. The optional datepicker button requires includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The value to read is retrieved from the chooseDate key of the aria property from the locale API. This label is also used for the aria-label of the popup as well. When there is a value selected, it is formatted and appended to the label to be able to notify users about the current value. Popup has a dialog role along with aria-modal and aria-label . The navigation buttons at the header has an aria-label retrieved from the prevYear , nextYear , prevMonth , nextMonth , prevDecade and nextDecade keys of the locale aria API. Similarly month picker button uses the chooseMonth and year picker button uses the chooseYear keys. Main date table uses grid role that contains th elements with col as the scope along with abbr tag resolving to the full name of the month. Each date cell has an aria-label referring to the full date value. Buttons at the footer utilize their readable labels as aria-label as well. Selected date also receives the aria-selected attribute. Timepicker spinner buttons get their labels for aria-label from the aria locale API using the prevHour , nextHour , prevMinute , nextMinute , prevSecond , nextSecond , am and pm keys. DatePicker also includes a hidden section that is only available to screen readers with aria-live as "polite". This element is updated when the selected date changes to instruct the user about the current date selected. Choose Date Button Keyboard Support Key Function space Opens popup and moves focus to the selected date, if there is none focuses on today. enter Opens popup and moves focus to the selected date, if there is none focuses on today. Popup Keyboard Support Key Function escape Closes the popup and moves focus to the input element. tab Moves focus to the next focusable element within the popup. shift + tab Moves focus to the next focusable element within the popup. Header Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action. Date Grid Keyboard Support Key Function enter Selects the date, closes the popup and moves focus to the input element. space Closes the popup and moves focus to the input element. up arrow Moves focus to the same day of the previous week. alt + up arrow Closes the popup and moves focus to the input element. down arrow Moves focus to the same day of the next week. right arrow Moves focus to the next day. left arrow Moves focus to the previous day. home Moves focus to the first day of the current week. end Moves focus to the last day of the current week. page up Changes the date to previous month in date picker mode. Moves to previous year in month picker mode and previous decade in year picker. shift + page up Changes the date to previous year in date picker mode. Has no effect in month or year picker. page down Changes the date to next month in date picker mode. Moves to next year in month picker mode and next decade in year picker. shift + page down Changes the date to next year in date picker mode. Has no effect in month or year picker. Footer Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action.
 
-**Basic Usage:**
-
-```vue
-<label for="date1">Date</label>
-<DatePicker inputId="date1" />
-
-<span id="date2">Date</span>
-<DatePicker aria-labelledby="date2" />
-
-<DatePicker aria-label="Date" />
-```
-
 ## Basic
 
 DatePicker is used with the v-model property for two-way value binding.
@@ -5294,6 +6415,17 @@ When showClear is enabled, a clear icon is added to reset the DatePicker.
 ## Date Template
 
 Custom content can be placed inside date cells with the date slot that takes a Date as a parameter.
+
+**Basic Usage:**
+
+```vue
+<DatePicker v-model="date">
+    <template #date="slotProps">
+        <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" style="text-decoration: line-through">{{ slotProps.date.day }}</strong>
+        <template v-else>{{ slotProps.date.day }}</template>
+    </template>
+</DatePicker>
+```
 
 ## Disabled
 
@@ -5362,6 +6494,18 @@ Default date format is mm/dd/yy which can be customized using the dateFormat pro
 
 DatePicker integrates seamlessly with the PrimeVue Forms library.
 
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <DatePicker name="date" fluid />
+        <Message v-if="$form.date?.invalid" severity="error" size="small" variant="simple">{{ $form.date.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Icon
 
 An additional icon is displayed next to the input field when showIcon is present.
@@ -5389,14 +6533,6 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <DatePicker v-model="value" inputId="date" showIcon iconDisplay="input" variant="filled" />
     <label for="date">Date</label>
 </IftaLabel>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import DatePicker from 'primevue/datepicker';
 ```
 
 ## Inline
@@ -5794,14 +6930,6 @@ DeferredContent postpones the loading the content that is initially not in the v
 
 Screen Reader DeferredContent can be utilized in many use cases as a result no role is enforced, in fact a role may not be necessary if the card is used for presentational purposes only. Any valid attribute is passed to the container element so you have full control over the roles like landmark and attributes like aria-live . Keyboard Support Component does not include any interactive elements.
 
-**Basic Usage:**
-
-```vue
-<DeferredContent role="region" aria-live="polite" aria-label="Content loaded after page scrolled down">
-    Content
-</DeferredContent>
-```
-
 ## Basic
 
 DeferredContent is used by wrapping the target.
@@ -5831,14 +6959,6 @@ A practical example that triggers a fetch when the table becomes visible in view
 </DeferredContent>
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import DeferredContent from 'primevue/deferredcontent';
-```
-
 ## Deferred Content
 
 ### Props
@@ -5866,16 +6986,6 @@ Dialog is a container to display content in an overlay window.
 ## Accessibility
 
 Screen Reader Dialog component uses dialog role along with aria-labelledby referring to the header element however any attribute is passed to the root element so you may use aria-labelledby to override this default behavior. In addition aria-modal is added since focus is kept within the popup. Trigger element also requires aria-expanded and aria-controls to be handled explicitly. Close element is a button with an aria-label that refers to the aria.close property of the locale API by default, you may use closeButtonProps to customize the element and override the default aria-label . Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the dialog if modal is true. Otherwise, the focusable element in the page tab sequence. shift + tab Moves focus to the previous the focusable element within the dialog if modal is true. Otherwise, the focusable element in the page tab sequence. escape Closes the dialog if closeOnEscape is true. Close Button Keyboard Support Key Function enter Closes the dialog. space Closes the dialog.
-
-**Basic Usage:**
-
-```vue
-<Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'dlg' : null" :aria-expanded="visible ? true : false" />
-
-<Dialog id="dlg" header="Header" v-model:visible="visible" :style="{ width: '50vw' }">
-    <p>Content</p>
-</Dialog>
-```
 
 ## Basic
 
@@ -5940,14 +7050,6 @@ Headless mode is enabled by defining a container slot that lets you implement en
         </div>
     </template>
 </Dialog>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Dialog from 'primevue/dialog';
 ```
 
 ## Long Content
@@ -6300,59 +7402,6 @@ Children are rendered within the boundaries of the divider where location of the
 </p>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <p class="m-0">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <Divider align="left" type="solid">
-            <b>Left</b>
-        </Divider>
-
-        <p class="m-0">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-        </p>
-
-        <Divider align="center" type="dotted">
-            <b>Center</b>
-        </Divider>
-
-        <p class="m-0">
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
-            deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-        </p>
-
-        <Divider align="right" type="dashed">
-            <b>Right</b>
-        </Divider>
-
-        <p class="m-0">
-            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
-            maiores alias consequatur aut perferendis doloribus asperiores repellat. Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.
-        </p>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Divider from 'primevue/divider';
-```
-
 ## Login
 
 Sample implementation of a login form using a divider with content.
@@ -6383,42 +7432,6 @@ Sample implementation of a login form using a divider with content.
     </div>
 </div>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <div class="flex flex-col md:flex-row">
-            <div class="w-full md:w-5/12 flex flex-col items-center justify-center gap-3 py-5">
-                <div class="flex flex-col gap-2">
-                    <label for="username">Username</label>
-                    <InputText id="username" type="text" />
-                </div>
-                <div class="flex flex-col gap-2">
-                    <label for="password">Password</label>
-                    <InputText id="password" type="password" />
-                </div>
-                <div class="flex">
-                    <Button label="Login" icon="pi pi-user" class="w-full max-w-[17.35rem] mx-auto"></Button>
-                </div>
-            </div>
-            <div class="w-full md:w-2/12">
-                <Divider layout="vertical" class="!hidden md:!flex"><b>OR</b></Divider>
-                <Divider layout="horizontal" class="!flex md:!hidden" align="center"><b>OR</b></Divider>
-            </div>
-            <div class="w-full md:w-5/12 flex items-center justify-center py-5">
-                <Button label="Sign Up" icon="pi pi-user-plus" severity="success" class="w-full max-w-[17.35rem] mx-auto"></Button>
-            </div>
-        </div>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Type
 
@@ -6454,45 +7467,6 @@ Style of the border is configured with the type property that can either be soli
 </p>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <p class="m-0">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <Divider type="solid" />
-
-        <p class="m-0">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-        </p>
-
-        <Divider type="dotted" />
-
-        <p class="m-0">
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
-            deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-        </p>
-
-        <Divider type="dashed" />
-
-        <p class="m-0">
-            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
-            maiores alias consequatur aut perferendis doloribus asperiores repellat. Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.
-        </p>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Vertical
 
 Vertical divider is enabled by setting the layout property as vertical .
@@ -6519,38 +7493,6 @@ Vertical divider is enabled by setting the layout property as vertical .
     deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
 </p>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex">
-        <p class="m-0">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <Divider layout="vertical" />
-
-        <p class="m-0">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-        </p>
-
-        <Divider layout="vertical" />
-
-        <p class="m-0">
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
-            deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-        </p>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Divider
 
@@ -6637,14 +7579,6 @@ Dock requires a collection of menuitems as its model and an icon template. Defau
 </Dock>
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import Dock from 'primevue/dock';
-```
-
 ---
 
 # Vue Drawer Component
@@ -6654,16 +7588,6 @@ Drawer is a container component displayed as an overlay.
 ## Accessibility
 
 Screen Reader Drawer component uses complementary role by default, since any attribute is passed to the root element aria role can be changed depending on your use case and additional attributes like aria-labelledby can be added. In addition aria-modal is added since focus is kept within the drawer when opened. Trigger element also requires aria-expanded and aria-controls to be handled explicitly. Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the drawer. shift + tab Moves focus to the previous the focusable element within the drawer. escape Closes the drawer. Close Button Keyboard Support Key Function enter Closes the drawer. space Closes the drawer.
-
-**Basic Usage:**
-
-```vue
-<Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'sbar' : null" :aria-expanded="visible"/>
-
-<Drawer id="sbar" v-model:visible="visible" role="region" >
-    <p>Content</p>
-</Drawer>
-```
 
 ## Basic
 
@@ -6883,14 +7807,6 @@ Headless mode is enabled by defining a container slot that lets you implement en
 <Button icon="pi pi-bars" @click="visible = true" />
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import Drawer from 'primevue/drawer';
-```
-
 ## Position
 
 Drawer location is configured with the position property that can take left , right , top and bottom as valid values.
@@ -7040,18 +7956,6 @@ Visit accessibility section of dialog component for more information.
 
 The close function is available through a dialogRef that is injected to the component loaded by the dialog.
 
-**Basic Usage:**
-
-```vue
-import { inject } from "vue";
-
-const dialogRef = inject('dialogRef');
-
-const closeDialog = () => {
-    dialogRef.value.close();
-}
-```
-
 ## Customization
 
 DynamicDialog uses the Dialog component internally, visit dialog for more information about the available props.
@@ -7076,13 +7980,59 @@ A sample implementation to demonstrate loading components asynchronously, nested
 <DynamicDialog />
 ```
 
-## Import
-
-**Basic Usage:**
+<details>
+<summary>Composition API Example</summary>
 
 ```vue
-import DynamicDialog from 'primevue/dynamicdialog';
+<template>
+    <div class="card flex justify-center">
+        <Button label="Select a Product" icon="pi pi-search" @click="showProducts" />
+        <Toast />
+        <DynamicDialog />
+    </div>
+</template>
+
+<script setup>
+import { markRaw, defineAsyncComponent } from 'vue';
+import { useDialog } from 'primevue/usedialog';
+import { useToast } from 'primevue/usetoast';
+import Button from 'primevue/button';
+const ProductListDemo = defineAsyncComponent(() => import('./components/ProductListDemo.vue'));
+const FooterDemo = defineAsyncComponent(() => import('./components/FooterDemo.vue'));
+
+const dialog = useDialog();
+const toast = useToast();
+
+const showProducts = () => {
+    const dialogRef = dialog.open(ProductListDemo, {
+        props: {
+            header: 'Product List',
+            style: {
+                width: '50vw',
+            },
+            breakpoints:{
+                '960px': '75vw',
+                '640px': '90vw'
+            },
+            modal: true
+        },
+        templates: {
+            footer: markRaw(FooterDemo)
+        },
+        onClose: (options) => {
+            const data = options.data;
+            if (data) {
+                const buttonType = data.buttonType;
+                const summary_and_detail = buttonType ? { summary: 'No Product Selected', detail: \`Pressed '\${buttonType}' button\` } : { summary: 'Product Selected', detail: data.name };
+
+                toast.add({ severity:'info', ...summary_and_detail, life: 3000 });
+            }
+        }
+    });
+}
+<\/script>
 ```
+</details>
 
 ## OpenDialogDoc
 
@@ -7126,23 +8076,21 @@ Editor is used with the v-model property for two-way value binding.
 
 Editor integrates seamlessly with the PrimeVue Forms library.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import Editor from 'primevue/editor';
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <Editor name="content" editorStyle="height: 320px" />
+        <Message v-if="$form.content?.invalid" severity="error" size="small" variant="simple">{{ $form.content.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
 ```
 
 ## Quill
 
 Editor uses Quill editor underneath so it needs to be installed as a dependency.
-
-**Basic Usage:**
-
-```vue
-npm install quill
-```
 
 ## ReadOnly
 
@@ -7284,14 +8232,6 @@ A simple Fieldset is created with a legend property along with the content as ch
 </Fieldset>
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import Fieldset from 'primevue/fieldset';
-```
-
 ## Template
 
 Legend section can be customized with custom content using templating.
@@ -7313,32 +8253,6 @@ Legend section can be customized with custom content using templating.
 </Fieldset>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Fieldset>
-            <template #legend>
-                <div class="flex items-center pl-2">
-                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                    <span class="font-bold p-2">Amy Elsner</span>
-                </div>
-            </template>
-            <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </Fieldset>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Toggleable
 
 Content of the fieldset can be expanded and collapsed when toggleable option is enabled.
@@ -7353,26 +8267,6 @@ Content of the fieldset can be expanded and collapsed when toggleable option is 
     </p>
 </Fieldset>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Fieldset legend="Header" :toggleable="true">
-            <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </Fieldset>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Fieldset
 
@@ -7507,17 +8401,71 @@ Uploading implementation can be overridden by enabling customUpload property. Th
 <img v-if="src" :src="src" alt="Image" class="shadow-md rounded-xl w-full sm:w-64" style="filter: grayscale(100%)" />
 ```
 
-## Import
+## Template
+
+Uploader UI can be customized with templating.
 
 **Basic Usage:**
 
 ```vue
-import FileUpload from 'primevue/fileupload';
+<FileUpload name="demo[]" url="/api/upload" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
+    <template #header="{ chooseCallback, uploadCallback, clearCallback, files }">
+        <div class="flex flex-wrap justify-between items-center flex-1 gap-4">
+            <div class="flex gap-2">
+                <Button @click="chooseCallback()" icon="pi pi-images" rounded variant="outlined" severity="secondary"></Button>
+                <Button @click="uploadEvent(uploadCallback)" icon="pi pi-cloud-upload" rounded variant="outlined" severity="success" :disabled="!files || files.length === 0"></Button>
+                <Button @click="clearCallback()" icon="pi pi-times" rounded variant="outlined" severity="danger" :disabled="!files || files.length === 0"></Button>
+            </div>
+            <ProgressBar :value="totalSizePercent" :showValue="false" class="md:w-20rem h-1 w-full md:ml-auto">
+                <span class="whitespace-nowrap">{{ totalSize }}B / 1Mb</span>
+            </ProgressBar>
+        </div>
+    </template>
+    <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback, messages }">
+        <div class="flex flex-col gap-8 pt-4">
+            <Message v-for="message of messages" :key="message" :class="{ 'mb-8': !files.length && !uploadedFiles.length}" severity="error">
+                {{ message }}
+            </Message>
+
+            <div v-if="files.length > 0">
+                <h5>Pending</h5>
+                <div class="flex flex-wrap gap-4">
+                    <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="p-8 rounded-border flex flex-col border border-surface items-center gap-4">
+                        <div>
+                            <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" height="50" />
+                        </div>
+                        <span class="font-semibold text-ellipsis max-w-60 whitespace-nowrap overflow-hidden">{{ file.name }}</span>
+                        <div>{{ formatSize(file.size) }}</div>
+                        <Badge value="Pending" severity="warn" />
+                        <Button icon="pi pi-times" @click="onRemoveTemplatingFile(file, removeFileCallback, index)" variant="outlined" rounded severity="danger" />
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="uploadedFiles.length > 0">
+                <h5>Completed</h5>
+                <div class="flex flex-wrap gap-4">
+                    <div v-for="(file, index) of uploadedFiles" :key="file.name + file.type + file.size" class="p-8 rounded-border flex flex-col border border-surface items-center gap-4">
+                        <div>
+                            <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" height="50" />
+                        </div>
+                        <span class="font-semibold text-ellipsis max-w-60 whitespace-nowrap overflow-hidden">{{ file.name }}</span>
+                        <div>{{ formatSize(file.size) }}</div>
+                        <Badge value="Completed" class="mt-4" severity="success" />
+                        <Button icon="pi pi-times" @click="removeUploadedFileCallback(index)" variant="outlined" rounded severity="danger" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template #empty>
+        <div class="flex items-center justify-center flex-col">
+            <i class="pi pi-cloud-upload !border-2 !rounded-full !p-8 !text-4xl !text-muted-color" />
+            <p class="mt-6 mb-0">Drag and drop files to here to upload.</p>
+        </div>
+    </template>
+</FileUpload>
 ```
-
-## Template
-
-Uploader UI can be customized with templating.
 
 ## File Upload
 
@@ -7656,14 +8604,6 @@ FloatLabel is used by wrapping the input and its label.
 </FloatLabel>
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import FloatLabel from 'primevue/floatlabel';
-```
-
 ## Invalid
 
 When the form element is invalid, the label is also highlighted.
@@ -7798,14 +8738,6 @@ Components with the fluid option like InputText have the ability to span the ful
 </Fluid>
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import Fluid from 'primevue/fluid';
-```
-
 ## Fluid
 
 ### Props
@@ -7875,16 +8807,6 @@ FocusTrap is enabled by attaching the directive with the v- prefix.
 </div>
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import FocusTrap from 'primevue/focustrap';
-
-app.directive('focustrap', FocusTrap);
-```
-
 ## Focustrap
 
 ---
@@ -7900,6 +8822,210 @@ Screen Reader Galleria uses region role and since any attribute is passed to the
 ## AdvancedDoc
 
 Advanced Galleria implementation with a custom UI.
+
+**Basic Usage:**
+
+```vue
+<Galleria
+    ref="galleria"
+    v-model:activeIndex="activeIndex"
+    :value="images"
+    :numVisible="5"
+    containerStyle="max-width: 640px"
+    :showThumbnails="showThumbnails"
+    :showItemNavigators="true"
+    :showItemNavigatorsOnHover="true"
+    :circular="true"
+    :autoPlay="isAutoPlay"
+    :transitionInterval="3000"
+    :responsiveOptions="responsiveOptions"
+    :pt="{
+        root: {
+            class: [{ 'flex flex-col': fullScreen }]
+        },
+        content: {
+            class: ['relative', { 'flex-1 justify-center': fullScreen }]
+        },
+        thumbnails: 'absolute w-full left-0 bottom-0'
+    }"
+>
+    <template #item="slotProps">
+        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
+    </template>
+    <template #thumbnail="slotProps">
+        <div class="grid gap-4 justify-center">
+            <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+        </div>
+    </template>
+    <template #footer>
+        <div class="flex items-stretch bg-surface-950 text-white h-10">
+            <button type="button" @click="onThumbnailButtonClick" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3">
+                <i class="pi pi-th-large"></i>
+            </button>
+            <button type="button" @click="toggleAutoSlide" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3"><i :class="slideButtonIcon"></i></button>
+            <span v-if="images" class="flex items-center gap-4 ml-3">
+                <span class="text-sm">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                <span class="font-bold text-sm">{{ images[activeIndex].title }}</span>
+                <span class="text-sm">{{ images[activeIndex].alt }}</span>
+            </span>
+            <button type="button" @click="toggleFullScreen" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3 ml-auto">
+                <i :class="fullScreenIcon"></i>
+            </button>
+        </div>
+    </template>
+</Galleria>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Galleria
+            ref="galleria"
+            v-model:activeIndex="activeIndex"
+            :value="images"
+            :numVisible="5"
+            containerStyle="max-width: 640px"
+            :showThumbnails="showThumbnails"
+            :showItemNavigators="true"
+            :showItemNavigatorsOnHover="true"
+            :circular="true"
+            :autoPlay="isAutoPlay"
+            :transitionInterval="3000"
+            :responsiveOptions="responsiveOptions"
+            :pt="{
+                root: {
+                    class: [{ 'flex flex-col': fullScreen }]
+                },
+                content: {
+                    class: ['relative', { 'flex-1 justify-center': fullScreen }]
+                },
+                thumbnails: 'absolute w-full left-0 bottom-0'
+            }"
+        >
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
+            </template>
+            <template #thumbnail="slotProps">
+                <div class="grid gap-4 justify-center">
+                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+                </div>
+            </template>
+            <template #footer>
+                <div class="flex items-stretch bg-surface-950 text-white h-10">
+                    <button type="button" @click="onThumbnailButtonClick" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3">
+                        <i class="pi pi-th-large"></i>
+                    </button>
+                    <button type="button" @click="toggleAutoSlide" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3"><i :class="slideButtonIcon"></i></button>
+                    <span v-if="images" class="flex items-center gap-4 ml-3">
+                        <span class="text-sm">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                        <span class="font-bold text-sm">{{ images[activeIndex].title }}</span>
+                        <span class="text-sm">{{ images[activeIndex].alt }}</span>
+                    </span>
+                    <button type="button" @click="toggleFullScreen" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3 ml-auto">
+                        <i :class="fullScreenIcon"></i>
+                    </button>
+                </div>
+            </template>
+        </Galleria>
+    </div>
+</template>
+
+<script setup>
+import { ref, computed, onMounted } from "vue";
+import { PhotoService } from '@/service/PhotoService';
+
+onMounted(() => {
+    PhotoService.getImages().then((data) => (images.value = data));
+    bindDocumentListeners();
+});
+
+const galleria = ref();
+const images = ref();
+const activeIndex = ref(0);
+const showThumbnails = ref(false);
+const fullScreen = ref(false);
+const isAutoPlay = ref(true);
+
+const toggleAutoSlide = () => {
+    isAutoPlay.value  = !isAutoPlay.value ;
+};
+const onThumbnailButtonClick = () => {
+    showThumbnails.value  = !showThumbnails.value ;
+};
+
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+
+const toggleFullScreen = () => {
+    if (fullScreen.value ) {
+        closeFullScreen();
+    } else {
+        openFullScreen();
+    }
+};
+const onFullScreenChange = () => {
+    fullScreen.value  = !fullScreen.value ;
+};
+const openFullScreen = () =>{
+    let elem = galleria.value.$el;
+
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+        /* Firefox */
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+        /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+        /* IE/Edge */
+        elem.msRequestFullscreen();
+    }
+};
+const closeFullScreen = () => {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    }
+};
+const bindDocumentListeners = () => {
+    document.addEventListener('fullscreenchange', onFullScreenChange);
+    document.addEventListener('mozfullscreenchange', onFullScreenChange);
+    document.addEventListener('webkitfullscreenchange', onFullScreenChange);
+    document.addEventListener('msfullscreenchange', onFullScreenChange);
+};
+const unbindDocumentListeners = () => {
+    document.removeEventListener('fullscreenchange', onFullScreenChange);
+    document.removeEventListener('mozfullscreenchange', onFullScreenChange);
+    document.removeEventListener('webkitfullscreenchange', onFullScreenChange);
+    document.removeEventListener('msfullscreenchange', onFullScreenChange);
+};
+
+const fullScreenIcon = computed(() => {
+    return \`pi \${fullScreen.value ? 'pi-window-minimize' : 'pi-window-maximize'}\`;
+});
+const slideButtonIcon = computed(() => {
+    return \`pi \${isAutoPlay.value ? 'pi-pause' : 'pi-play'}\`;
+});
+<\/script>
+```
+</details>
 
 ## AutoPlayDoc
 
@@ -7918,6 +9044,47 @@ A slideshow implementation is defined by adding circular and autoPlay properties
     </template>
 </Galleria>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+            :circular="true" :autoPlay="true" :transitionInterval="2000">
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+            </template>
+            <template #thumbnail="slotProps">
+                <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+            </template>
+        </Galleria>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { PhotoService } from '@/service/PhotoService';
+
+onMounted(() => {
+    PhotoService.getImages().then((data) => (images.value = data));
+});
+
+const images = ref();
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Basic
 
@@ -7939,6 +9106,67 @@ Galleria requires a value as a collection of images, item template for the highe
 ## CaptionDoc
 
 Description of an image is specified with the caption property that takes the displayed object and returns content.
+
+**Basic Usage:**
+
+```vue
+<Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
+    <template #item="slotProps">
+        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+    </template>
+    <template #thumbnail="slotProps">
+        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+    </template>
+    <template #caption="slotProps">
+        <div class="text-xl mb-2 font-bold">{{ slotProps.item.title }}</div>
+        <p class="text-white">{{ slotProps.item.alt }}</p>
+    </template>
+</Galleria>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+            </template>
+            <template #thumbnail="slotProps">
+                <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+            </template>
+            <template #caption="slotProps">
+                <div class="text-xl mb-2 font-bold">{{ slotProps.item.title }}</div>
+                <p class="text-white">{{ slotProps.item.alt }}</p>
+            </template>
+        </Galleria>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { PhotoService } from '@/service/PhotoService';
+
+onMounted(() => {
+    PhotoService.getImages().then((data) => (images.value = data));
+});
+
+const images = ref();
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Controlled
 
@@ -7962,13 +9190,58 @@ Galleria can be controlled programmatically using a binding to activeIndex .
 </Galleria>
 ```
 
-## Import
-
-**Basic Usage:**
+<details>
+<summary>Composition API Example</summary>
 
 ```vue
-import Galleria from 'primevue/galleria';
+<template>
+    <div class="card">
+        <div class="mb-4">
+            <Button icon="pi pi-minus" @click="prev" />
+            <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
+        </div>
+
+        <Galleria v-model:activeIndex="activeIndex" :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
+            </template>
+            <template #thumbnail="slotProps">
+                <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
+            </template>
+        </Galleria>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { PhotoService } from '@/service/PhotoService';
+
+onMounted(() => {
+    PhotoService.getImages().then((data) => (images.value = data));
+});
+
+const images = ref();
+const activeIndex = ref(2);
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+
+const next = () => {
+    activeIndex.value = activeIndex.value === images.value.length - 1 ? images.value.length - 1 : activeIndex.value + 1;
+};
+const prev = () => {
+    activeIndex.value = activeIndex.value === 0 ? 0 : activeIndex.value - 1;
+};
+<\/script>
 ```
+</details>
 
 ## ResponsiveDoc
 
@@ -7986,6 +9259,46 @@ Settings per screen size is defined via the responsiveOptions property.
     </template>
 </Galleria>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" containerStyle="max-width: 640px">
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+            </template>
+            <template #thumbnail="slotProps">
+                <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+            </template>
+        </Galleria>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { PhotoService } from '@/service/PhotoService';
+
+onMounted(() => {
+    PhotoService.getImages().then((data) => (images.value = data));
+});
+
+const images = ref();
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+<\/script>
+```
+</details>
 
 ## ThumbnailDoc
 
@@ -8005,6 +9318,73 @@ Thumbnails represent a smaller version of the actual content.
     </template>
 </Galleria>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-wrap gap-4 mb-8">
+            <div v-for="option in positionOptions" :key="option.label" class="flex items-center">
+                <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
+                <label :for="option.label" class="ml-2"> {{ option.label }} </label>
+            </div>
+        </div>
+        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="4" :thumbnailsPosition="position" containerStyle="max-width: 640px">
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+            </template>
+            <template #thumbnail="slotProps">
+                <div class="grid gap-4 justify-center">
+                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                </div>
+            </template>
+        </Galleria>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { PhotoService } from '@/service/PhotoService';
+
+const images = ref();
+const position = ref('bottom');
+const positionOptions = ref([
+    {
+        label: 'Bottom',
+        value: 'bottom'
+    },
+    {
+        label: 'Top',
+        value: 'top'
+    },
+    {
+        label: 'Left',
+        value: 'left'
+    },
+    {
+        label: 'Right',
+        value: 'right'
+    }
+]);
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+
+onMounted(() => {
+    PhotoService.getImages().then((data) => (images.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Galleria
 
@@ -8262,15 +9642,6 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
-```
-
 ## Sizes
 
 IconField is compatible with the size setting of the input field.
@@ -8367,14 +9738,6 @@ IftaLabel is used by wrapping the input and its label.
 </IftaLabel>
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import IftaLabel from 'primevue/iftalabel';
-```
-
 ## Invalid
 
 When the form element is invalid, the label is also highlighted.
@@ -8455,14 +9818,6 @@ Image is used similar to the standard img element.
 <Image src="/image.jpg" alt="Image" width="250" />
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import Image from 'primevue/image';
-```
-
 ## Preview
 
 Enabling preview mode displays a modal layer when the image is clicked to provide transformation options such as rotating and zooming.
@@ -8472,18 +9827,6 @@ Enabling preview mode displays a modal layer when the image is clicked to provid
 ```vue
 <Image src="/image.jpg" alt="Image" width="250" preview />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria10.jpg" alt="Image" width="250" preview />
-    </div>
-</template>
-```
-</details>
 
 ## Template
 
@@ -8504,28 +9847,6 @@ An eye icon is displayed by default when the image is hovered in preview mode, u
     </template>
 </Image>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Image alt="Image" preview>
-            <template #previewicon>
-                <i class="pi pi-search"></i>
-            </template>
-            <template #image>
-                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria11.jpg" alt="image" width="250" />
-            </template>
-            <template #preview="slotProps">
-                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria11.jpg" alt="preview" :style="slotProps.style" @click="slotProps.onClick" />
-            </template>
-        </Image>
-    </div>
-</template>
-```
-</details>
 
 ## Image
 
@@ -8632,19 +9953,6 @@ Compare two images side by side with a slider.
 
 Screen Reader ImageComponent component uses a native range slider internally. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Key Function tab Moves focus to the component. left arrow up arrow Decrements the value. right arrow down arrow Increments the value. home Set the minimum value. end Set the maximum value. page up Increments the value by 10 steps. page down Decrements the value by 10 steps.
 
-**Basic Usage:**
-
-```vue
-<span id="image_label">Compare Images</span>
-<ImageCompare class="shadow-lg rounded-2xl" aria-labelledby="image-label">
-    ...
-</ImageCompare>
-
-<ImageCompare class="shadow-lg rounded-2xl" aria-label="Compare Images">
-    ...
-</ImageCompare>
-```
-
 ## Basic
 
 Images are defined using templating with left and right slots. Use the style or class properties to define the size of the container.
@@ -8660,14 +9968,6 @@ Images are defined using templating with left and right slots. Use the style or 
         <img src="~/assets/images/island2.jpg" />
     </template>
 </ImageCompare>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import ImageCompare from 'primevue/imagecompare';
 ```
 
 ## Responsive
@@ -8686,25 +9986,6 @@ Apply responsive styles to the container element to optimize display per screen 
     </template>
 </ImageCompare>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <ImageCompare class="sm:!w-96 shadow-lg">
-            <template #left>
-                <img src="https://primefaces.org/cdn/primevue/images/compare/island1.jpg" />
-            </template>
-            <template #right>
-                <img src="https://primefaces.org/cdn/primevue/images/compare/island2.jpg" />
-            </template>
-        </ImageCompare>
-    </div>
-</template>
-```
-</details>
 
 ## Image Compare
 
@@ -8804,43 +10085,25 @@ Any content such as an image can be placed inside an Inplace.
 </Inplace>
 ```
 
-<details>
-<summary>Composition API Example</summary>
+## Input
 
-```vue
-<template>
-    <div class="card">
-        <Inplace>
-            <template #display>
-                <span class="inline-flex items-center gap-2">
-                    <span class="pi pi-image"></span>
-                    <span>View Photo</span>
-                </span>
-            </template>
-            <template #content>
-                <img class="w-full sm:w-80 shadow-md" alt="Nature" src="https://primefaces.org/cdn/primevue/images/nature/nature8.jpg" />
-            </template>
-        </Inplace>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
-## Import
+The closeCallback switches the state back to display mode when called from an event.
 
 **Basic Usage:**
 
 ```vue
-import Inplace from 'primevue/inplace';
+<Inplace>
+    <template #display>
+        {{ text || 'Click to Edit' }}
+    </template>
+    <template #content="{ closeCallback }">
+        <span class="inline-flex items-center gap-2">
+            <InputText v-model="text" autofocus />
+            <Button icon="pi pi-times" text severity="danger" @click="closeCallback" />
+        </span>
+    </template>
+</Inplace>
 ```
-
-## Input
-
-The closeCallback switches the state back to display mode when called from an event.
 
 ## Lazy
 
@@ -9069,15 +10332,6 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </InputGroup>
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import InputGroup from 'primevue/inputgroup';
-import InputGroupAddon from 'primevue/inputgroupaddon';
-```
-
 ## Multiple
 
 Multiple add-ons can be placed inside the same group.
@@ -9097,28 +10351,6 @@ Multiple add-ons can be placed inside the same group.
     <InputGroupAddon>.00</InputGroupAddon>
 </InputGroup>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <InputGroup class="sm:!w-96">
-            <InputGroupAddon>
-                <i class="pi pi-clock"></i>
-            </InputGroupAddon>
-            <InputGroupAddon>
-                <i class="pi pi-star-fill"></i>
-            </InputGroupAddon>
-            <InputNumber placeholder="Price" />
-            <InputGroupAddon>$</InputGroupAddon>
-            <InputGroupAddon>.00</InputGroupAddon>
-        </InputGroup>
-    </div>
-</template>
-```
-</details>
 
 ## Input Group
 
@@ -9174,18 +10406,6 @@ InputMask component is used to enter input in a certain format such as numeric, 
 ## Accessibility
 
 Screen Reader InputMask component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
-
-**Basic Usage:**
-
-```vue
-<label for="date">Date</label>
-<InputMask id="date" />
-
-<span id="phone">Phone</span>
-<InputMask aria-labelledby="phone" />
-
-<InputMask aria-label="Age" />
-```
 
 ## Basic
 
@@ -9254,6 +10474,18 @@ The fluid prop makes the component take up the full width of its container when 
 
 InputMask integrates seamlessly with the PrimeVue Forms library.
 
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <div class="flex flex-col gap-1">
+        <InputMask name="serialNumber" mask="99-999999" placeholder="99-999999" fluid />
+        <Message v-if="$form.serialNumber?.invalid" severity="error" size="small" variant="simple">{{ $form.serialNumber.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -9265,14 +10497,6 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <InputMask id="ssn" v-model="value" mask="999-99-9999" variant="filled" />
     <label for="ssn">SSN</label>
 </IftaLabel>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import InputMask from 'primevue/inputmask';
 ```
 
 ## Invalid
@@ -9402,18 +10626,6 @@ InputNumber is an input component to provide numerical input.
 
 Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element uses spinbutton role in addition to the aria-valuemin , aria-valuemax and aria-valuenow attributes. Keyboard Support Key Function tab Moves focus to the input. up arrow Increments the value. down arrow Decrements the value. home Set the minimum value if provided. end Set the maximum value if provided.
 
-**Basic Usage:**
-
-```vue
-<label for="price">Price</label>
-<InputNumber inputId="price" />
-
-<span id="label_number">Number</span>
-<InputNumber aria-labelledby="label_number" />
-
-<InputNumber aria-label="Number" />
-```
-
 ## Buttons
 
 Spinner buttons are enabled using the showButtons property and layout is defined with the buttonLayout .
@@ -9513,6 +10725,18 @@ The fluid prop makes the component take up the full width of its container when 
 
 InputNumber integrates seamlessly with the PrimeVue Forms library.
 
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <div class="flex flex-col gap-1">
+        <InputNumber name="amount" fluid />
+        <Message v-if="$form.amount?.invalid" severity="error" size="small" variant="simple">{{ $form.amount.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -9524,14 +10748,6 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <InputNumber v-model="value" inputId="price_input" mode="currency" currency="USD" locale="en-US" variant="filled" />
     <label for="price_input">Price</label>
 </IftaLabel>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import InputNumber from 'primevue/inputnumber';
 ```
 
 ## Invalid
@@ -9744,12 +10960,16 @@ Specify the variant property as filled to display the component with a higher vi
 
 InputOtp integrates seamlessly with the PrimeVue Forms library.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import InputOtp from 'primevue/inputotp';
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <InputOtp name="passcode" />
+        <Message v-if="$form.passcode?.invalid" severity="error" size="small" variant="simple">{{ $form.passcode.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
 ```
 
 ## Integer Only
@@ -9883,18 +11103,6 @@ InputText is an extension to standard input element with theming.
 
 Screen Reader InputText component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
 
-**Basic Usage:**
-
-```vue
-<label for="firstname">Firstname</label>
-<InputText id="firstname" />
-
-<span id="lastname">Lastname</span>
-<InputText aria-labelledby="lastname" />
-
-<InputText aria-label="Age"/>
-```
-
 ## Basic
 
 InputText is used with the v-model property for two-way value binding.
@@ -9962,6 +11170,22 @@ The fluid prop makes the component take up the full width of its container when 
 
 InputText integrates seamlessly with the PrimeVue Forms library.
 
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <InputText name="username" type="text" placeholder="Username" />
+        <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error?.message }}</Message>
+    </div>
+    <div class="flex flex-col gap-1">
+        <InputText name="email" type="text" placeholder="Email" />
+        <Message v-if="$form.email?.invalid" severity="error" size="small" variant="simple">{{ $form.email.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Help Text
 
 An advisory text can be defined with the Message component.
@@ -9987,14 +11211,6 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <InputText id="username" v-model="value" variant="filled" />
     <label for="username">Username</label>
 </IftaLabel>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import InputText from 'primevue/inputtext';
 ```
 
 ## Invalid
@@ -10313,16 +11529,6 @@ A keyfilter is a directive used to block individual keystrokes based on a patter
 
 KeyFilter is a directive and do not require any accessibility features.
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import KeyFilter from 'primevue/keyfilter';
-
-app.directive('keyfilter', KeyFilter);
-```
-
 ## Presets
 
 KeyFilter provides various presets configured with the v-keyfilter directive.
@@ -10371,15 +11577,6 @@ Knob is a form component to define number inputs with a dial.
 
 Screen Reader Knob element component uses slider role in addition to the aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Key Function tab Moves focus to the slider. left arrow down arrow Decrements the value. right arrow up arrow Increments the value. home Set the minimum value. end Set the maximum value. page up Increments the value by 10 steps. page down Decrements the value by 10 steps.
 
-**Basic Usage:**
-
-```vue
-<span id="label_number">Number</span>
-<Knob aria-labelledby="label_number" />
-
-<Knob aria-label="Number" />
-```
-
 ## Basic
 
 Knob is used with the v-model property for two-way value binding.
@@ -10414,12 +11611,16 @@ When disabled is present, a visual hint is applied to indicate that the Knob can
 
 Knob integrates seamlessly with the PrimeVue Forms library.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import Knob from 'primevue/knob';
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col items-center gap-1">
+        <Knob name="knob" />
+        <Message v-if="$form.knob?.invalid" severity="error" size="small" variant="simple">{{ $form.knob.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
 ```
 
 ## Min/Max
@@ -10573,15 +11774,6 @@ Listbox is used to select one or more values from a list of items.
 
 Screen Reader Value to describe the component can be provided aria-labelledby or aria-label props. The list element has a listbox role with the aria-multiselectable attribute that sets to true when multiple selection is enabled. Each list item has an option role with aria-selected and aria-disabled as their attributes. If filtering is enabled, filterInputProps can be defined to give aria-* props to the input element. Alternatively filterPlaceholder is usually utilized by the screen readers as well. Keyboard Support Key Function tab Moves focus to the first selected option, if there is none then first option receives the focus. up arrow Moves focus to the previous option. down arrow Moves focus to the next option. enter Toggles the selected state of the focused option. space Toggles the selected state of the focused option. home Moves focus to the first option. end Moves focus to the last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the last one. control + a Selects all options. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. any printable character Moves focus to the option whose label starts with the characters being typed. Filter Input Keyboard Support Key Function down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. enter Closes the popup and moves focus to the multiselect element. escape Closes the popup and moves focus to the multiselect element. tab Moves focus to the next focusable element in the component. If there is none, moves focus to next element in page.
 
-**Basic Usage:**
-
-```vue
-<span id="lb"></span>Options</span>
-<Listbox aria-labelledby="lb" />
-
-<Listbox aria-label="City" />
-```
-
 ## Basic
 
 Listbox is used with the v-model property for two-way value binding along with the options collection. Label and value of an option are defined with the optionLabel and optionValue properties respectively. Note that, when options are simple primitive values such as a string array, no optionLabel and optionValue would be necessary.
@@ -10626,6 +11818,18 @@ Listbox provides built-in filtering that is enabled by adding the filter propert
 
 Listbox integrates seamlessly with the PrimeVue Forms library.
 
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <div class="flex flex-col gap-1">
+        <Listbox name="city" :options="cities" optionLabel="name" fluid />
+        <Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Group
 
 Options can be grouped when a nested data structures is provided. To define the label of a group optionGroupLabel property is needed and also optionGroupChildren is required to define the property that refers to the children of a group.
@@ -10636,15 +11840,11 @@ Options can be grouped when a nested data structures is provided. To define the 
 <Listbox v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" class="w-full md:w-56" listStyle="max-height:250px">
     <template #optiongroup="slotProps">
         <div class="flex items-center">
-            <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Listbox from 'primevue/listbox';
+            <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+            <div>{{ slotProps.option.label }}</div>
+        </div>
+    </template>
+</Listbox>
 ```
 
 ## Invalid
@@ -10677,7 +11877,11 @@ Custom content for an option is displayed with the option slot that takes an opt
 <Listbox v-model="selectedCountry" :options="countries" optionLabel="name" class="w-full md:w-56" listStyle="max-height:250px">
     <template #option="slotProps">
         <div class="flex items-center">
-            <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+            <div>{{ slotProps.option.name }}</div>
+        </div>
+    </template>
+</Listbox>
 ```
 
 ## Virtual Scroll
@@ -10841,21 +12045,67 @@ MegaMenu requires a collection of menuitems as its model .
 
 The command property of a menuitem defines the callback to run when an item is activated by click or a key event.
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import MegaMenu from 'primevue/megamenu';
-```
-
 ## Router
 
 Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
 
+**Basic Usage:**
+
+```vue
+<MegaMenu :model="items">
+    <template #item="{ item }">
+        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+            <a v-ripple :href="href" @click="navigate">
+                <span :class="item.icon" />
+                <span class="ml-2">{{ item.label }}</span>
+            </a>
+        </router-link>
+        <a v-else v-ripple :href="item.url" :target="item.target">
+            <span :class="item.icon" />
+            <span class="ml-2">{{ item.label }}</span>
+        </a>
+    </template>
+</MegaMenu>
+```
+
 ## Template
 
 MegaMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter. Additional slots named start and end are provided to embed content before or after the menu.
+
+**Basic Usage:**
+
+```vue
+<MegaMenu :model="items" class="p-4 bg-surface-0" style="border-radius: 3rem">
+    <template #start>
+        <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
+            <path d="..." fill="var(--p-primary-color)" />
+            <path d="..." fill="var(--p-text-color)" />
+        </svg>
+    </template>
+    <template #item="{ item }">
+        <a v-if="item.root" class="flex items-center cursor-pointer px-4 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
+            <span>{{ item.label }}</span>
+        </a>
+        <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-3">
+            <span class="inline-flex items-center justify-center rounded-full bg-primary text-primary-contrast w-12 h-12">
+                <i :class="[item.icon, 'text-lg']"></i>
+            </span>
+            <span class="inline-flex flex-col gap-1">
+                <span class="font-bold text-lg">{{ item.label }}</span>
+                <span class="whitespace-nowrap">{{ item.subtext }}</span>
+            </span>
+        </a>
+        <div v-else class="flex flex-col items-start gap-4 p-2">
+            <img alt="megamenu-demo" :src="item.image" class="w-full" />
+            <span>{{ item.subtext }}</span>
+            <Button :label="item.label" variant="outlined" />
+        </div>
+    </template>
+    <template #end>
+        <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
+    </template>
+</MegaMenu>
+```
 
 ## VerticalDoc
 
@@ -10908,14 +12158,6 @@ Menu supports single level of grouping by defining children with the items prope
 <Menu :model="items" />
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import Menu from 'primevue/menu';
-```
-
 ## Popup
 
 Overlay mode is enabled by adding popup property and calling toggle function of the menu ref with an event of the target.
@@ -10931,9 +12173,64 @@ Overlay mode is enabled by adding popup property and calling toggle function of 
 
 Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
 
+**Basic Usage:**
+
+```vue
+<Menu :model="items">
+    <template #item="{ item, props }">
+        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+            <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                <span :class="item.icon" />
+                <span class="ml-2">{{ item.label }}</span>
+            </a>
+        </router-link>
+        <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+            <span :class="item.icon" />
+            <span class="ml-2">{{ item.label }}</span>
+        </a>
+    </template>
+</Menu>
+```
+
 ## Template
 
 Menu offers item customization with the item template that receives the menuitem instance from the model as a parameter. The submenu label has its own submenulabel template, additional slots named start and end are provided to embed content before or after the menu.
+
+**Basic Usage:**
+
+```vue
+<Menu :model="items" class="w-full md:w-60">
+    <template #start>
+        <span class="inline-flex items-center gap-1 px-2 py-2">
+            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
+                <path d="..." fill="var(--p-primary-color)" />
+                <path d="..." fill="var(--p-text-color)" />
+            </svg>
+            <span class="text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
+        </span>
+    </template>
+    <template #submenulabel="{ item }">
+        <span class="text-primary font-bold">{{ item.label }}</span>
+    </template>
+    <template #item="{ item, props }">
+        <a v-ripple class="flex items-center" v-bind="props.action">
+            <span :class="item.icon" />
+            <span>{{ item.label }}</span>
+            <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+            <span v-if="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+        </a>
+    </template>
+    <template #end>
+        <button v-ripple class="relative overflow-hidden w-full border-0 bg-transparent flex items-start p-2 pl-4 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-none cursor-pointer transition-colors duration-200">
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
+            <span class="inline-flex flex-col items-start">
+                <span class="font-bold">Amy Elsner</span>
+                <span class="text-sm">Admin</span>
+            </span>
+        </button>
+    </template>
+</Menu>
+```
 
 ## Menubar
 
@@ -10988,21 +12285,60 @@ The command property defines the callback to run when an item is activated by cl
 <Toast />
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import Menubar from 'primevue/menubar';
-```
-
 ## Router
 
 Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
 
+**Basic Usage:**
+
+```vue
+<Menubar :model="items">
+    <template #item="{ item, props, hasSubmenu }">
+        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+            <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                <span :class="item.icon" />
+                <span>{{ item.label }}</span>
+            </a>
+        </router-link>
+        <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+            <span :class="item.icon" />
+            <span>{{ item.label }}</span>
+            <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down" />
+        </a>
+    </template>
+</Menubar>
+```
+
 ## Template
 
 Menubar offers item customization with the item template that receives the menuitem instance from the model as a parameter. Additional slots named start and end are provided to embed content before or after the menu.
+
+**Basic Usage:**
+
+```vue
+<Menubar :model="items">
+    <template #start>
+        <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
+            <path d="..." fill="var(--p-primary-color)" />
+            <path d="..." fill="var(--p-text-color)" />
+        </svg>
+    </template>
+    <template #item="{ item, props, hasSubmenu, root }">
+        <a v-ripple class="flex items-center" v-bind="props.action">
+            <span>{{ item.label }}</span>
+            <Badge v-if="item.badge" :class="{ 'ml-auto': !root, 'ml-2': root }" :value="item.badge" />
+            <span v-if="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+            <i v-if="hasSubmenu" :class="['pi pi-angle-down ml-auto', { 'pi-angle-down': root, 'pi-angle-right': !root }]"></i>
+        </a>
+    </template>
+    <template #end>
+        <div class="flex items-center gap-2">
+            <InputText placeholder="Search" type="text" class="w-32 sm:w-auto" />
+            <Avatar image="/images/avatar/amyelsner.png" shape="circle" />
+        </div>
+    </template>
+</Menubar>
+```
 
 ---
 
@@ -11034,24 +12370,19 @@ Enable closable option to display an icon to remove a message.
 <Message closable>Closable Message</Message>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Message closable>Closable Message</Message>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Dynamic
 
 Multiple messages can be displayed using the standard v-for directive.
+
+**Basic Usage:**
+
+```vue
+<Button label="Show" @click="addMessages()" />
+<Button label="Clear" severity="secondary" class="ml-2" @click="clearMessages()" />
+<transition-group name="p-message" tag="div" class="flex flex-col">
+    <Message v-for="msg of messages" :key="msg.id" :severity="msg.severity" class="mt-4">{{ msg.content }}</Message>
+</transition-group>
+```
 
 ## Forms
 
@@ -11072,34 +12403,6 @@ Validation errors in a form are displayed with the error severity.
 </div>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="flex flex-col gap-4">
-        <Message v-if="!username || !email" severity="error" icon="pi pi-times-circle" class="mb-2">Validation error</Message>
-        <Message v-if="username && email" severity="success" icon="pi pi-times-circle" class="mb-2">Form is valid</Message>
-        <div class="flex flex-col gap-1">
-            <InputText v-model="username" placeholder="Username" aria-label="username" :invalid="!username" />
-            <Message v-if="!username" severity="error" variant="simple" size="small">Username is required</Message>
-        </div>
-        <div class="flex flex-col gap-1">
-            <InputText v-model="email" placeholder="Email" aria-label="email" :invalid="!email" />
-            <Message v-if="!email" severity="error" variant="simple" size="small">Email is not valid</Message>
-        </div>
-    </div>
-</template>
-
-<script setup>
-import { ref } from 'vue';
-
-const username = ref(null);
-const email = ref(null);
-<\/script>
-```
-</details>
-
 ## Icon
 
 Icon property and the icon slots are available to customize the icon of the message.
@@ -11114,35 +12417,6 @@ Icon property and the icon slots are available to customize the icon of the mess
     </template>
     <span class="ml-2">How may I help you?</span>
 </Message>
-```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center gap-4">
-        <Message severity="info" icon="pi pi-send">Info Message</Message>
-        <Message severity="success">
-            <template #icon>
-                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-            </template>
-            <span class="ml-2">How may I help you?</span>
-        </Message>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Message from 'primevue/message';
 ```
 
 ## Life
@@ -11171,26 +12445,6 @@ Configure the variant value as outlined for messages with borders and no backgro
 <Message severity="contrast" variant="outlined">Contrast Message</Message>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap gap-4 justify-center">
-        <Message severity="success" variant="outlined">Success Message</Message>
-        <Message severity="info" variant="outlined">Info Message</Message>
-        <Message severity="warn" variant="outlined">Warn Message</Message>
-        <Message severity="error" variant="outlined">Error Message</Message>
-        <Message severity="secondary" variant="outlined">Secondary Message</Message>
-        <Message severity="contrast" variant="outlined">Contrast Message</Message>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Severity
 
 The severity option specifies the type of the message.
@@ -11205,26 +12459,6 @@ The severity option specifies the type of the message.
 <Message severity="secondary">Secondary Message</Message>
 <Message severity="contrast">Contrast Message</Message>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap gap-4 justify-center">
-        <Message severity="success">Success Message</Message>
-        <Message severity="info">Info Message</Message>
-        <Message severity="warn">Warn Message</Message>
-        <Message severity="error">Error Message</Message>
-        <Message severity="secondary">Secondary Message</Message>
-        <Message severity="contrast">Contrast Message</Message>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Simple
 
@@ -11241,26 +12475,6 @@ Configure the variant value as simple for messages without borders, backgrounds 
 <Message severity="contrast" variant="simple">Contrast Message</Message>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap gap-8 justify-center">
-        <Message severity="success" variant="simple">Success Message</Message>
-        <Message severity="info" variant="simple">Info Message</Message>
-        <Message severity="warn" variant="simple">Warn Message</Message>
-        <Message severity="error" variant="simple">Error Message</Message>
-        <Message severity="secondary" variant="simple">Secondary Message</Message>
-        <Message severity="contrast" variant="simple">Contrast Message</Message>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Sizes
 
 Message provides small and large sizes as alternatives to the base.
@@ -11272,23 +12486,6 @@ Message provides small and large sizes as alternatives to the base.
 <Message icon="pi pi-user">Normal Message</Message>
 <Message size="large" icon="pi pi-check">Large Message</Message>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-col items-center gap-4">
-        <Message size="small" icon="pi pi-send">Small Message</Message>
-        <Message icon="pi pi-user">Normal Message</Message>
-        <Message size="large" icon="pi pi-check">Large Message</Message>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Message
 
@@ -11456,14 +12653,6 @@ Icons can be displayed next to the labels instead of the default marker.
 <MeterGroup :value="value" />
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import MeterGroup from 'primevue/metergroup';
-```
-
 ## Label
 
 The position of the labels relative to the meters is defined using the labelPosition property. The default orientation of the labels is horizontal, and the vertical alternative is available through the labelOrientation option.
@@ -11497,6 +12686,48 @@ Adding more items to the array displays the meters in a group.
 ## Template
 
 MeterGroup provides templating support for labels, meter items, and content around the meters.
+
+**Basic Usage:**
+
+```vue
+<MeterGroup :value="value" labelPosition="start">
+    <template #label="{ value }">
+        <div class="flex flex-wrap gap-4">
+            <template v-for="val of value" :key="val.label">
+                <Card class="flex-1 border border-surface shadow-none">
+                    <template #content>
+                        <div class="flex justify-between gap-8">
+                            <div class="flex flex-col gap-1">
+                                <span class="text-surface-500 dark:text-surface-400 text-sm">{{ val.label }}</span>
+                                <span class="font-bold text-lg">{{ val.value }}%</span>
+                            </div>
+                            <span class="w-8 h-8 rounded-full inline-flex justify-center items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">
+                                <i :class="val.icon" />
+                            </span>
+                        </div>
+                    </template>
+                </Card>
+            </template>
+        </div>
+    </template>
+    <template #meter="slotProps">
+        <span :class="slotProps.class" :style="{ background: \`linear-gradient(to right, \${slotProps.value.color1}, \${slotProps.value.color2})\`, width: slotProps.size }" />
+    </template>
+    <template #start="{ totalPercent }">
+        <div class="flex justify-between mt-4 mb-2 relative">
+            <span>Storage</span>
+            <span :style="{ width: totalPercent + '%' }" class="absolute text-right">{{ totalPercent }}%</span>
+            <span class="font-medium">1TB</span>
+        </div>
+    </template>
+    <template #end>
+        <div class="flex justify-between mt-4">
+            <Button label="Manage Storage" variant="outlined" size="small" />
+            <Button label="Update Plan" size="small" />
+        </div>
+    </template>
+</MeterGroup>
+```
 
 ## Vertical
 
@@ -11577,15 +12808,6 @@ MultiSelect is used to select multiple items from a collection.
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The multiselect component has a combobox role in addition to aria-haspopup and aria-expanded attributes. The relation between the combobox and the popup is created with aria-controls attribute that refers to the id of the popup listbox. The popup listbox uses listbox as the role with aria-multiselectable enabled. Each list item has an option role along with aria-label , aria-selected and aria-disabled attributes. Checkbox component at the header uses a hidden native checkbox element internally that is only visible to screen readers. Value to read is defined with the selectAll and unselectAll keys of the aria property from the locale API. If filtering is enabled, filterInputProps can be defined to give aria-* props to the input element. Close button uses close key of the aria property from the locale API as the aria-label by default, this can be overridden with the closeButtonProps . Closed State Keyboard Support Key Function tab Moves focus to the multiselect element. space Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. enter Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. up arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. any printable character Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the popup, if there is none then first focusable element receives the focus. shift + tab Moves focus to the previous focusable element in the popup, if there is none then last focusable element receives the focus. enter Toggles the selection state of the focused option, then moves focus to the multiselect element. space Toggles the selection state of the focused option, then moves focus to the multiselect element. escape Closes the popup, moves focus to the multiselect element. down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. alt + up arrow Selects the focused option and closes the popup, then moves focus to the multiselect element. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. home Moves focus to the first option. end Moves focus to the last option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the last one. control + a Selects all options. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. any printable character Moves focus to the option whose label starts with the characters being typed. Toggle All Checkbox Keyboard Support Key Function space Toggles the checked state. escape Closes the popup and moves focus to the multiselect element. Filter Input Keyboard Support Key Function down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. enter Closes the popup and moves focus to the multiselect element. escape Closes the popup and moves focus to the multiselect element. tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page.
 
-**Basic Usage:**
-
-```vue
-<span id="dd1"></span>Options</span>
-<MultiSelect aria-labelledby="dd1" />
-
-<MultiSelect aria-label="Options" />
-```
-
 ## Basic
 
 MultiSelect is used with the v-model property for two-way value binding along with the options collection. Label and value of an option are defined with the optionLabel and optionValue properties respectively. Note that, when options are simple primitive values such as a string array, no optionLabel and optionValue would be necessary.
@@ -11627,22 +12849,6 @@ When disabled is present, the element cannot be edited and focused.
 ```vue
 <MultiSelect disabled placeholder="Select Cities" class="w-full md:w-80" />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="flex justify-center">
-        <MultiSelect disabled placeholder="Select Cities" class="w-full md:w-80" />
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
 
 ## Filled
 
@@ -11689,6 +12895,20 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+## Forms
+
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <MultiSelect name="city" :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
+        <Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Group
 
 Options can be grouped when a nested data structures is provided. To define the label of a group optionGroupLabel property is needed and also optionGroupChildren is required to define the property that refers to the children of a group.
@@ -11699,7 +12919,11 @@ Options can be grouped when a nested data structures is provided. To define the 
 <MultiSelect v-model="selectedCities" :options="groupedCities" optionLabel="label" filter optionGroupLabel="label" optionGroupChildren="items" display="chip" placeholder="Select Cities" class="w-full md:w-80">
     <template #optiongroup="slotProps">
         <div class="flex items-center">
-            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+            <div>{{ slotProps.option.label }}</div>
+        </div>
+    </template>
+</MultiSelect>
 ```
 
 ## Ifta Label
@@ -11713,14 +12937,6 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" variant="filled" />
     <label for="ms_cities">Cities</label>
 </IftaLabel>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import MultiSelect from 'primevue/multiselect';
 ```
 
 ## Invalid
@@ -11746,21 +12962,6 @@ Loading state can be used loading property.
 <MultiSelect placeholder="Loading..." loading class="w-full md:w-80"></MultiSelect>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <MultiSelect placeholder="Loading..." loading class="w-full md:w-80"></MultiSelect>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Sizes
 
 MultiSelect provides small and large sizes as alternatives to the base.
@@ -11783,7 +12984,26 @@ MultiSelect offers multiple slots for customization through templating.
 <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" filter placeholder="Select Countries" display="chip" class="w-full md:w-80">
     <template #option="slotProps">
         <div class="flex items-center">
-            <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+            <div>{{ slotProps.option.name }}</div>
+        </div>
+    </template>
+    <template #dropdownicon>
+        <i class="pi pi-map" />
+    </template>
+    <template #filtericon>
+        <i class="pi pi-map-marker" />
+    </template>
+    <template #header>
+        <div class="font-medium px-3 py-2">Available Countries</div>
+    </template>
+    <template #footer>
+        <div class="p-3 flex justify-between">
+            <Button label="Add New" severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+            <Button label="Remove All" severity="danger" variant="text" size="small" icon="pi pi-times" />
+        </div>
+    </template>
+</MultiSelect>
 ```
 
 ## VirtualScroll
@@ -12001,30 +13221,74 @@ OrderList is used to sort a collection.
 
 Screen Reader Value to describe the listbox can be provided with listProps by passing aria-labelledby or aria-label props. The list element has a listbox role with the aria-multiselectable attribute. Each list item has an option role with aria-selected and aria-disabled as their attributes. Controls buttons are button elements with an aria-label that refers to the aria.moveTop , aria.moveUp , aria.moveDown and aria.moveBottom properties of the locale API by default, alternatively you may use moveTopButtonProps , moveUpButtonProps , moveDownButtonProps and moveBottomButtonProps to customize the buttons like overriding the default aria-label attributes. ListBox Keyboard Support Key Function tab Moves focus to the first selected option, if there is none then first option receives the focus. up arrow Moves focus to the previous option. down arrow Moves focus to the next option. enter Toggles the selected state of the focused option. space Toggles the selected state of the focused option. home Moves focus to the first option. end Moves focus to the last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the first one. control + a Selects all options. Buttons Keyboard Support Key Function enter Executes button action. space Executes button action.
 
-**Basic Usage:**
-
-```vue
-<span id="lb">Options</span>
-<OrderList aria-labelledby="lb" />
-
-<OrderList aria-label="City" />
-```
-
 ## Basic
 
 OrderList requires an array as its value bound with the v-model directive and option template for its content.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import OrderList from 'primevue/orderlist';
+<OrderList v-model="products" dataKey="id" breakpoint="575px" pt:pcListbox:root="w-full sm:w-56">
+    <template #option="{ option }">
+        {{ option.name }}
+    </template>
+</OrderList>
 ```
 
 ## Template
 
 For custom content support define an option template that gets the item instance as a parameter. In addition header slot is provided for further customization.
+
+**Basic Usage:**
+
+```vue
+<OrderList v-model="products" dataKey="id" breakpoint="575px" scrollHeight="20rem">
+    <template #option="{ option , selected }">
+        <div class="flex flex-wrap p-1 items-center gap-4 w-full">
+            <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + option.image" :alt="option.name" />
+            <div class="flex-1 flex flex-col">
+                <span class="font-medium text-sm">{{ option.name }}</span>
+                <span :class="['text-sm', { 'text-surface-500 dark:text-surface-400': !selected, 'text-inherit': selected }]">{{ option.category }}</span>
+            </div>
+            <span class="font-bold sm:ml-8">\${{ option.price }}</span>
+        </div>
+    </template>
+</OrderList>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card sm:flex sm:justify-center">
+        <OrderList v-model="products" dataKey="id" breakpoint="575px" scrollHeight="20rem">
+            <template #option="{ option , selected }">
+                <div class="flex flex-wrap p-1 items-center gap-4 w-full">
+                    <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + option.image" :alt="option.name" />
+                    <div class="flex-1 flex flex-col">
+                        <span class="font-medium text-sm">{{ option.name }}</span>
+                        <span :class="['text-sm', { 'text-surface-500 dark:text-surface-400': !selected, 'text-inherit': selected }]">{{ option.category }}</span>
+                    </div>
+                    <span class="font-bold sm:ml-8">\${{ option.price }}</span>
+                </div>
+            </template>
+        </OrderList>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService'
+
+const products = ref(null);
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (products.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Order List
 
@@ -12100,21 +13364,61 @@ Screen Reader Component currently uses a table based implementation and does not
 
 OrganizationChart requires a collection of TreeNode instances as a value .
 
+**Basic Usage:**
+
+```vue
+<OrganizationChart :value="data">
+    <template #default="slotProps">
+        <span>{{ slotProps.node.label }}</span>
+    </template>
+</OrganizationChart>
+```
+
 ## Colored
 
 Styling a specific node is configured with styleClass and style options of a TreeNode.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import OrganizationChart from 'primevue/organizationchart';
+<OrganizationChart :value="data" collapsible>
+    <template #person="slotProps">
+        <div class="flex flex-col">
+            <div class="flex flex-col items-center">
+                <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-4 w-12 h-12" />
+                <span class="font-bold mb-2">{{ slotProps.node.data.name }}</span>
+                <span>{{ slotProps.node.data.title }}</span>
+            </div>
+        </div>
+    </template>
+    <template #default="slotProps">
+        <span>{{ slotProps.node.label }}</span>
+    </template>
+</OrganizationChart>
 ```
 
 ## Selection
 
 Selection is enabled by defining the selectionMode to either "single" or "multiple" and specifying the selectionKeys with the v-model directive. Note that selection on a particular node can be disabled if the selectable is false on the node instance.
+
+**Basic Usage:**
+
+```vue
+<OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="multiple">
+    <template #person="slotProps">
+        <div class="flex flex-col">
+            <div class="flex flex-col items-center">
+                <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-4 w-12 h-12" />
+                <span class="font-bold mb-2">{{ slotProps.node.data.name }}</span>
+                <span>{{ slotProps.node.data.title }}</span>
+            </div>
+        </div>
+    </template>
+    <template #default="slotProps">
+        <span>{{ slotProps.node.label }}</span>
+    </template>
+</OrganizationChart>
+```
 
 ## Template
 
@@ -12126,7 +13430,14 @@ The type property of an OrganizationChartNode is used to map a template to a nod
 <OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="single">
     <template #country="slotProps">
         <div class="flex flex-col items-center">
-            <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`w-2rem flag flag-\${slotProps.node.data}\`" />
+            <div class="mt-4 font-medium text-lg">{{ slotProps.node.label }}</div>
+        </div>
+    </template>
+    <template #default="slotProps">
+        <span>{{slotProps.node.label}}</span>
+    </template>
+</OrganizationChart>
 ```
 
 ## Organization Chart
@@ -12256,16 +13567,40 @@ Current page report item in the template displays information about the paginati
 
 There are two templates available named start and end to add custom content to these locations. Both templates get a state object as a slot property to provide the current page, first index and the rows.
 
+**Basic Usage:**
+
+```vue
+<Paginator :rows="10" :totalRecords="120" :rowsPerPageOptions="[10, 20, 30]">
+    <template #start="slotProps">
+        Page: {{ slotProps.state.page }}
+        First: {{ slotProps.state.first }}
+        Rows: {{ slotProps.state.rows }}
+    </template>
+    <template #end>
+        <Button type="button" icon="pi pi-search" />
+    </template>
+</Paginator>
+```
+
 ## Headless
 
 Headless mode is enabled by defining a container slot that lets you implement entire UI instead of the default elements. The template receives the following data; first last rows page pageCount totalRecords firstPageCallback lastPageCallback prevPageCallback nextPageCallback rowChangeCallback
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import Paginator from 'primevue/paginator';
+<Paginator :rows="10" :totalRecords="120">
+    <template #container="{ first, last, page, pageCount, prevPageCallback, nextPageCallback, totalRecords }">
+        <div class="flex items-center gap-4 border border-primary bg-transparent rounded-full w-full py-1 px-2 justify-between">
+            <Button icon="pi pi-chevron-left" rounded variant="text" @click="prevPageCallback" :disabled="page === 0" />
+            <div class="text-color font-medium">
+                <span class="hidden sm:block">Showing {{ first }} to {{ last }} of {{ totalRecords }}</span>
+                <span class="block sm:hidden">Page {{ page + 1 }} of {{ pageCount }}</span>
+            </div>
+            <Button icon="pi pi-chevron-right" rounded variant="text" @click="nextPageCallback" :disabled="page === pageCount - 1" />
+        </div>
+    </template>
+</Paginator>
 ```
 
 ## Responsive
@@ -12287,30 +13622,6 @@ Paginator elements can be customized per screen size by defining a template per 
 </Paginator>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Paginator
-            :template="{
-                '640px': 'PrevPageLink CurrentPageReport NextPageLink',
-                '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-                '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
-                default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown JumpToPageInput'
-            }"
-            :rows="10"
-            :totalRecords="120">
-        </Paginator>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Template
 
 Paginator elements can be customized using the template property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that can be placed inside a paginator in any order. FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown JumpToPageDropdown JumpToPageInput CurrentPageReport
@@ -12321,7 +13632,8 @@ Paginator elements can be customized using the template property using the prede
 <Paginator v-model:first="first" :rows="1" :totalRecords="12" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink" />
 
 <div class="p-4 text-center">
-    <img :src="\
+    <img :src="\`https://primefaces.org/cdn/primevue/images/nature/nature\${first + 1}.jpg\`" :alt="first" class="rounded w-full sm:w-[30rem]" />
+</div>
 ```
 
 ## Paginator
@@ -12443,14 +13755,6 @@ A simple Panel is created with a header property along with the content as child
 </Panel>
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import Panel from 'primevue/panel';
-```
-
 ## Template
 
 Header, icons and footer sections of the panel are customizable via templating.
@@ -12499,26 +13803,6 @@ Content of the panel can be expanded and collapsed using toggleable option.
     </p>
 </Panel>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Panel header="Header" toggleable>
-            <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </Panel>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Panel
 
@@ -12628,14 +13912,6 @@ If the menuitem has a key defined, PanelMenu state can be controlled programmati
 <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" />
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import PanelMenu from 'primevue/panelmenu';
-```
-
 ## Multiple
 
 Only one root menuitem at a time can be active by default, enabling multiple property changes this behavior to allow multiple root menuitems.
@@ -12650,9 +13926,44 @@ Only one root menuitem at a time can be active by default, enabling multiple pro
 
 Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
 
+**Basic Usage:**
+
+```vue
+<PanelMenu :model="items">
+    <template #item="{ item }">
+        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+            <a v-ripple class="flex items-center cursor-pointer text-surface-700 dark:text-surface-0 px-4 py-2" :href="href" @click="navigate">
+                <span :class="item.icon" />
+                <span class="ml-2">{{ item.label }}</span>
+            </a>
+        </router-link>
+        <a v-else v-ripple class="flex items-center cursor-pointer text-surface-700 dark:text-surface-0 px-4 py-2" :href="item.url" :target="item.target">
+            <span :class="item.icon" />
+            <span class="ml-2">{{ item.label }}</span>
+            <span v-if="item.items" class="pi pi-angle-down text-primary ml-auto" />
+        </a>
+    </template>
+</PanelMenu>
+```
+
 ## Template
 
 PanelMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
+
+**Basic Usage:**
+
+```vue
+<PanelMenu :model="items">
+    <template #item="{ item }">
+        <a v-ripple class="flex items-center px-4 py-2 cursor-pointer group">
+            <span :class="[item.icon, 'text-primary group-hover:text-inherit']" />
+            <span :class="['ml-2', { 'font-semibold': item.items }]">{{ item.label }}</span>
+            <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+            <span v-if="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+        </a>
+    </template>
+</PanelMenu>
+```
 
 ---
 
@@ -12663,18 +13974,6 @@ Password displays strength indicator for password fields.
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Screen reader is notified about the changes to the strength of the password using a section that has aria-live while typing. Keyboard Support Key Function tab Moves focus to the input. escape Hides the strength meter if open.
-
-**Basic Usage:**
-
-```vue
-<label for="pwd1">Password</label>
-<Password inputId="pwd1" />
-
-<span id="pwd2">Password</span>
-<Password aria-labelledby="pwd2" />
-
-<Password aria-label="Password"/>
-```
 
 ## Basic
 
@@ -12705,21 +14004,6 @@ When disabled is present, the element cannot be edited and focused.
 ```vue
 <Password disabled placeholder="Disabled" />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Password disabled placeholder="Disabled" />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Filled
 
@@ -12768,6 +14052,20 @@ The fluid prop makes the component take up the full width of its container when 
 
 InputText is used with the v-model property.
 
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-64">
+    <div class="flex flex-col gap-1">
+        <Password name="password" placeholder="Password" :feedback="false" fluid />
+        <template v-if="$form.password?.invalid">
+            <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error" size="small" variant="simple">{{ error.message }}</Message>
+        </template>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -12779,14 +14077,6 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <Password v-model="value" inputId="password" variant="filled" />
     <label for="password">Password</label>
 </IftaLabel>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Password from 'primevue/password';
 ```
 
 ## Invalid
@@ -13190,30 +14480,74 @@ PickList is used to reorder items between different lists.
 
 Screen Reader Value to describe the source listbox and target listbox can be provided with sourceListProps and targetListProps by passing aria-labelledby or aria-label props. The list elements has a listbox role with the aria-multiselectable attribute. Each list item has an option role with aria-selected as their attributes. Controls buttons are button elements with an aria-label that refers to the aria.moveTop , aria.moveUp , aria.moveDown , aria.moveBottom , aria.moveToTarget , aria.moveAllToTarget , aria.moveToSource and aria.moveAllToSource properties of the locale API by default, alternatively you may use moveTopButtonProps , moveUpButtonProps , moveDownButtonProps , moveToButtonProps , moveAllToButtonProps , moveFromButtonProps , moveFromButtonProps moveAllFromButtonProps moveToTargetProps , moveAllToTargetProps , moveToSourceProps and moveAllToSourceProps to customize the buttons like overriding the default aria-label attributes. ListBox Keyboard Support Key Function tab Moves focus to the first selected option, if there is none then first option receives the focus. up arrow Moves focus to the previous option. down arrow Moves focus to the next option. enter Toggles the selected state of the focused option. space Toggles the selected state of the focused option. home Moves focus to the first option. end Moves focus to the last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the first one. control + a Selects all options. Buttons Keyboard Support Key Function enter Executes button action. space Executes button action.
 
-**Basic Usage:**
-
-```vue
-<span id="lb">Options</span>
-<PickList aria-labelledby="lb" />
-
-<PickList aria-label="City" />
-```
-
 ## Basic
 
 PickList requires a multidimensional array as its value bound with the v-model directive and a template for its content that gets the option instance and the index via slotProps.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import PickList from 'primevue/picklist';
+<PickList v-model="products" dataKey="id" breakpoint="1400px">
+    <template #option="{ option  }">
+        {{ option.name }}
+    </template>
+</PickList>
 ```
 
 ## Template
 
 For custom content support define an option template that gets the item instance as a parameter. In addition sourceheader and targetheader slots are provided for further customization.
+
+**Basic Usage:**
+
+```vue
+<PickList v-model="products" dataKey="id" breakpoint="1400px" scrollHeight="20rem">
+    <template #option="{ option , selected }">
+        <div class="flex flex-wrap p-1 items-center gap-4 w-full">
+            <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + option.image" :alt="option.name" />
+            <div class="flex-1 flex flex-col">
+                <span class="font-medium text-sm">{{ option.name }}</span>
+                <span :class="['text-sm', { 'text-surface-500 dark:text-surface-400': !selected, 'text-inherit': selected }]">{{ option.category }}</span>
+            </div>
+            <span class="font-bold">\${{ option.price }}</span>
+        </div>
+    </template>
+</PickList>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <PickList v-model="products" dataKey="id" breakpoint="1400px">
+            <template #option="{ option , selected }">
+                <div class="flex flex-wrap p-1 items-center gap-4 w-full">
+                    <img class="w-12 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + option.image" :alt="option.name" />
+                    <div class="flex-1 flex flex-col">
+                        <span class="font-medium text-sm">{{ option.name }}</span>
+                        <span :class="['text-sm', { 'text-surface-500 dark:text-surface-400': !selected, 'text-inherit': selected }]">{{ option.category }}</span>
+                    </div>
+                    <span class="font-bold">\${{ option.price }}</span>
+                </div>
+            </template>
+        </PickList>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService'
+
+const products = ref(null);
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (products.value = [data, []]));
+});
+<\/script>
+```
+</details>
 
 ## Pick List
 
@@ -13336,20 +14670,183 @@ Popover is accessed via its ref and visibility is controlled using toggle , show
             <span class="font-medium block mb-2">Team Members</span>
             <ul class="list-none p-0 m-0 flex flex-col gap-4">
                 <li v-for="member in members" :key="member.name" class="flex items-center gap-2">
-                    <img :src="\
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${member.image}\`" style="width: 32px" />
+                    <div>
+                        <span class="font-medium">{{ member.name }}</span>
+                        <div class="text-sm text-surface-500 dark:text-surface-400">{{ member.email }}</div>
+                    </div>
+                    <div class="flex items-center gap-2 text-surface-500 dark:text-surface-400 ml-auto text-sm">
+                        <span>{{ member.role }}</span>
+                        <i class="pi pi-angle-down"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</Popover>
 ```
 
 ## DataTable
 
 Place the Popover outside of the data iteration components to avoid rendering it multiple times.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import Popover from 'primevue/popover';
+<DataTable :value="products" :rows="5" paginator tableStyle="min-width: 50rem">
+    <Column field="id" header="Id" class="w-1/6"></Column>
+    <Column field="code" header="Code" class="w-1/6"></Column>
+    <Column field="name" header="Name" class="w-1/6" bodyClass="whitespace-nowrap"></Column>
+    <Column field="price" header="Price" sortable class="w-1/6">
+        <template #body="slotProps"> $ {{ slotProps.data.price }} </template>
+    </Column>
+    <Column header="Image" class="w-1/6">
+        <template #body="slotProps">
+            <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
+        </template>
+    </Column>
+    <Column header="Details" class="w-1/6">
+        <template #body="slotProps">
+            <Button type="button" @click="displayProduct($event, slotProps.data)" icon="pi pi-search" severity="secondary" rounded></Button>
+        </template>
+    </Column>
+</DataTable>
+
+<Popover ref="op">
+    <div v-if="selectedProduct" class="rounded flex flex-col">
+        <div class="flex justify-center rounded">
+            <div class="relative mx-auto">
+                <img class="rounded w-44 sm:w-64" :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" />
+                <Tag :value="selectedProduct.inventoryStatus" :severity="getSeverity(selectedProduct)" class="absolute dark:!bg-surface-900" style="left: 4px; top: 4px"></Tag>
+            </div>
+        </div>
+        <div class="pt-4">
+            <div class="flex flex-row justify-between items-start gap-2 mb-4">
+                <div>
+                    <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ selectedProduct.category }}</span>
+                    <div class="text-lg font-medium mt-1">{{ selectedProduct.name }}</div>
+                </div>
+                <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                    <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                        <span class="text-surface-900 font-medium text-sm">{{ selectedProduct.rating }}</span>
+                        <i class="pi pi-star-fill text-yellow-500"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <Button icon="pi pi-shopping-cart" :label="\`Buy Now | \\$\${selectedProduct.price}\`" :disabled="selectedProduct.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap" @click="hidePopover"></Button>
+                <Button icon="pi pi-heart" variant="outlined" @click="hidePopover"></Button>
+            </div>
+        </div>
+    </div>
+</Popover>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable :value="products" :rows="5" paginator tableStyle="min-width: 50rem">
+            <Column field="id" header="Id" class="w-1/6"></Column>
+            <Column field="code" header="Code" class="w-1/6"></Column>
+            <Column field="name" header="Name" class="w-1/6" bodyClass="whitespace-nowrap"></Column>
+            <Column field="price" header="Price" sortable class="w-1/6">
+                <template #body="slotProps"> $ {{ slotProps.data.price }} </template>
+            </Column>
+            <Column header="Image" class="w-1/6">
+                <template #body="slotProps">
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-16 shadow-sm" />
+                </template>
+            </Column>
+            <Column header="Details" class="w-1/6">
+                <template #body="slotProps">
+                    <Button type="button" @click="displayProduct($event, slotProps.data)" icon="pi pi-search" severity="secondary" rounded></Button>
+                </template>
+            </Column>
+        </DataTable>
+
+        <Popover ref="op">
+            <div v-if="selectedProduct" class="rounded flex flex-col">
+                <div class="flex justify-center rounded">
+                    <div class="relative mx-auto">
+                        <img class="rounded w-44 sm:w-64" :src="\`https://primefaces.org/cdn/primevue/images/product/\${selectedProduct.image}\`" :alt="selectedProduct.name" />
+                        <Tag :value="selectedProduct.inventoryStatus" :severity="getSeverity(selectedProduct)" class="absolute dark:!bg-surface-900" style="left: 4px; top: 4px"></Tag>
+                    </div>
+                </div>
+                <div class="pt-4">
+                    <div class="flex flex-row justify-between items-start gap-2 mb-4">
+                        <div>
+                            <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{ selectedProduct.category }}</span>
+                            <div class="text-lg font-medium mt-1">{{ selectedProduct.name }}</div>
+                        </div>
+                        <div class="bg-surface-100 p-1" style="border-radius: 30px">
+                            <div class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
+                                <span class="text-surface-900 font-medium text-sm">{{ selectedProduct.rating }}</span>
+                                <i class="pi pi-star-fill text-yellow-500"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <Button icon="pi pi-shopping-cart" :label="\`Buy Now | \\$\${selectedProduct.price}\`" :disabled="selectedProduct.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto whitespace-nowrap" @click="hidePopover"></Button>
+                        <Button icon="pi pi-heart" variant="outlined" @click="hidePopover"></Button>
+                    </div>
+                </div>
+            </div>
+        </Popover>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted, nextTick } from "vue";
+import { useToast } from "primevue/usetoast";
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (products.value = data));
+});
+
+const op = ref();
+const products = ref();
+const selectedProduct = ref();
+
+const displayProduct = (event, product) => {
+    op.value.hide();
+
+    if (selectedProduct.value?.id === product.id) {
+        selectedProduct.value = null;
+    } else {
+        selectedProduct.value = product;
+
+        nextTick(() => {
+            op.value.show(event);
+        });
+    }
+}
+
+const hidePopover = () => {
+    op.value.hide();
+}
+
+const getSeverity = (product) => {
+    switch (product.inventoryStatus) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+}
+<\/script>
+```
+</details>
 
 ## Select Data
 
@@ -13366,7 +14863,16 @@ In this sample, data is retrieved from the content inside the popover.
             <span class="font-medium block mb-2">Team Members</span>
             <ul class="list-none p-0 m-0 flex flex-col">
                 <li v-for="member in members" :key="member.name" class="flex items-center gap-2 px-2 py-3 hover:bg-emphasis cursor-pointer rounded-border" @click="selectMember(member)">
-                    <img :src="\
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${member.image}\`" style="width: 32px" />
+                    <div>
+                        <span class="font-medium">{{ member.name }}</span>
+                        <div class="text-sm text-surface-500 dark:text-surface-400">{{ member.email }}</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</Popover>
 ```
 
 ## Popover
@@ -13427,15 +14933,6 @@ ProgressBar is a process status indicator.
 
 Screen Reader ProgressBar components uses progressbar role along with aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Not applicable.
 
-**Basic Usage:**
-
-```vue
-<span id="label_status" />
-<ProgressBar aria-labelledby="label_status" />
-
-<ProgressBar aria-label="Status" />
-```
-
 ## Basic
 
 ProgressBar is used with the value property.
@@ -13456,14 +14953,6 @@ Value is reactive so updating it dynamically changes the bar as well.
 <ProgressBar :value="value"></ProgressBar>
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import ProgressBar from 'primevue/progressbar';
-```
-
 ## Indeterminate
 
 For progresses with no value to track, set the mode property to indeterminate .
@@ -13474,25 +14963,15 @@ For progresses with no value to track, set the mode property to indeterminate .
 <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
 ## Template
 
 Custom content inside the ProgressBar is defined with the default slot.
+
+**Basic Usage:**
+
+```vue
+<ProgressBar :value="40"> {{ value }}/100 </ProgressBar>
+```
 
 ## Progress Bar
 
@@ -13549,12 +15028,6 @@ ProgressSpinner is a process status indicator.
 
 Screen Reader ProgressSpinner components uses progressbar role. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Component does not include any interactive elements.
 
-**Basic Usage:**
-
-```vue
-<ProgressSpinner aria-label="Loading" />
-```
-
 ## Basic
 
 An infinite spin animation is displayed by default.
@@ -13574,30 +15047,6 @@ ProgressSpinner can be customized with styling property like style , strokeWidth
 ```vue
 <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="8" fill="transparent"
     animationDuration=".5s" aria-label="Custom ProgressSpinner" />
-```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="8" fill="transparent"
-            animationDuration=".5s" aria-label="Custom ProgressSpinner" />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import ProgressSpinner from 'primevue/progressspinner';
 ```
 
 ## Progress Spinner
@@ -13652,18 +15101,6 @@ RadioButton is an extension to standard radio button element with theming.
 
 Screen Reader RadioButton component uses a hidden native radio button element internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the checked radio button, if there is none within the group then first radio button receives the focus. left arrow up arrow Moves focus to the previous radio button, if there is none then last radio button receives the focus. right arrow down arrow Moves focus to the next radio button, if there is none then first radio button receives the focus. space If the focused radio button is unchecked, changes the state to checked.
 
-**Basic Usage:**
-
-```vue
-<label for="rb1">One</label>
-<RadioButton inputId="rb1" />
-
-<span id="rb2">Two</span>
-<RadioButton aria-labelledby="rb2" />
-
-<RadioButton aria-label="Three" />
-```
-
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -13679,6 +15116,15 @@ When disabled is present, the element cannot be edited and focused.
 
 RadioButtons can be generated using a list of values.
 
+**Basic Usage:**
+
+```vue
+<div v-for="category in categories" :key="category.key" class="flex items-center gap-2">
+    <RadioButton v-model="selectedCategory" :inputId="category.key" name="dynamic" :value="category.name" />
+    <label :for="category.key">{{ category.name }}</label>
+</div>
+```
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -13692,6 +15138,35 @@ Specify the variant property as filled to display the component with a higher vi
 ## Forms
 
 RadioButton integrates seamlessly with the PrimeVue Forms library.
+
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-2">
+        <RadioButtonGroup name="ingredient" class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2">
+                <RadioButton inputId="cheese" value="Cheese" />
+                <label for="cheese">Cheese</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton inputId="mushroom" value="Mushroom" />
+                <label for="mushroom">Mushroom</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton inputId="pepper" value="Pepper" />
+                <label for="pepper">Pepper</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton inputId="onion" value="Onion" />
+                <label for="onion">Onion</label>
+            </div>
+        </RadioButtonGroup>
+        <Message v-if="$form.ingredient?.invalid" severity="error" size="small" variant="simple">{{ $form.ingredient.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Group
 
@@ -13718,15 +15193,6 @@ RadioButton is used with the v-model property for two-way value binding.
         <label for="ingredient4">Onion</label>
     </div>
 </div>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import RadioButton from 'primevue/radiobutton';
-import RadioButtonGroup from 'primevue/radiobuttongroup';
 ```
 
 ## Invalid
@@ -13884,12 +15350,16 @@ When disabled is present, a visual hint is applied to indicate that the Knob can
 
 Rating integrates seamlessly with the PrimeVue Forms library.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import Rating from 'primevue/rating';
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-40">
+    <div class="flex flex-col items-center gap-2">
+        <Rating name="rating" />
+        <Message v-if="$form.rating?.invalid" severity="error" size="small" variant="simple">{{ $form.rating.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
 ```
 
 ## Number of Stars
@@ -14011,18 +15481,6 @@ mounted() {
 }
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-import { usePrimeVue } from 'primevue/config';
-
-const PrimeVue = usePrimeVue();
-
-PrimeVue.config.ripple = true;
-```
-</details>
-
 ## Custom
 
 Default styling of the animation adds a shade of white. This can easily be customized using css that changes the color of p-ink element.
@@ -14035,29 +15493,6 @@ Default styling of the animation adds a shade of white. This can easily be custo
 <div v-ripple class="box" style="border: 1px solid rgba(156, 39, 176, 0.3); --p-ripple-background: rgba(156, 39, 176, 0.3)">Purple</div>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="flex justify-center items-center gap-2">
-        <div v-ripple class="box" style="border: 1px solid rgba(75, 175, 80, 0.3); --p-ripple-background: rgba(75, 175, 80, 0.3)">Green</div>
-        <div v-ripple class="box" style="border: 1px solid rgba(255, 193, 6, 0.3); --p-ripple-background: rgba(255, 193, 6, 0.3)">Orange</div>
-        <div v-ripple class="box" style="border: 1px solid rgba(156, 39, 176, 0.3); --p-ripple-background: rgba(156, 39, 176, 0.3)">Purple</div>
-    </div>
-</template>
-
-<style scoped>
-.box {
-    padding: 2rem;
-    border-radius: 10px;
-    width: 110px;
-    text-align: center;
-}
-</style>
-```
-</details>
-
 ## Default
 
 Ripple is enabled by adding add p-ripple class to the target and attach the directive with the v- prefix.
@@ -14067,35 +15502,6 @@ Ripple is enabled by adding add p-ripple class to the target and attach the dire
 ```vue
 <div v-ripple class="ripple-box">Default</div>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-col items-center gap-4">
-        <div v-ripple class="ripple-box">Default</div>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-
-<style scoped>
-.ripple-box {
-    display: flex;
-    user-select: none;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem;
-    font-weight: bold;
-    background: var(--p-content-background);
-    border: 1px solid var(--p-content-border-color);
-    border-radius: var(--p-content-border-radius);
-}
-<\/style>
-```
-</details>
 
 ## Import
 
@@ -14152,12 +15558,19 @@ ScrollPanel is defined using dimensions for the scrollable viewport.
 
 Scrollbar visuals can be styled for a unified look across different platforms.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import ScrollPanel from 'primevue/scrollpanel';
+<ScrollPanel
+    style="width: 100%; height: 200px"
+    :dt="{
+        bar: {
+            background: '{primary.color}'
+        }
+    }"
+>
+    ...
+</ScrollPanel>
 ```
 
 ## Scroll Panel
@@ -14254,35 +15667,6 @@ Setting the target property to parent binds ScrollTop to its parent element that
 </ScrollPanel>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <ScrollPanel style="width: 250px; height: 200px">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam. Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing
-                elit ut. Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna. Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris. Semper
-                feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus. Cursus sit amet
-                dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas. Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris. Eget egestas purus viverra accumsan in nisl nisi.
-                Suscipit adipiscing bibendum est ultricies integer. Mattis aliquam faucibus purus in massa tempor nec.
-            </p>
-            <ScrollTop target="parent" :threshold="100" icon="pi pi-arrow-up" :buttonProps="{ severity: 'contrast', raised: true, rounded: true }" />
-        </ScrollPanel>
-    </div>
-</template>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import ScrollTop from 'primevue/scrolltop';
-```
-
 ## Scroll Top
 
 ### Props
@@ -14326,15 +15710,6 @@ Select is used to choose an item from a collection of options.
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The select element has a combobox role in addition to aria-haspopup and aria-expanded attributes. If the editable option is enabled aria-autocomplete is also added. The relation between the combobox and the popup is created with aria-controls and aria-activedescendant attribute is used to instruct screen reader which option to read during keyboard navigation within the popup list. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses listbox as the role. Each list item has an option role, an id to match the aria-activedescendant of the input element along with aria-label , aria-selected and aria-disabled attributes. If filtering is enabled, filterInputProps can be defined to give aria-* props to the filter input element. Closed State Keyboard Support Key Function tab Moves focus to the select element. space Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. enter Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. up arrow Opens the popup and moves visual focus to the selected option, if there is none then last option receives the focus. any printable character Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none and select is not editable then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Moves focus to the previous focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. enter Selects the focused option and closes the popup, then moves focus to the select element. space Selects the focused option and closes the popup, then moves focus to the select element. escape Closes the popup, then moves focus to the select element. down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. alt + up arrow Selects the focused option and closes the popup, then moves focus to the select element. left arrow If the select is editable, removes the visual focus from the current option and moves input cursor to one character left. right arrow If the select is editable, removes the visual focus from the current option and moves input cursor to one character right. home If the select is editable, moves input cursor at the end, if not then moves focus to the first option. end If the select is editable, moves input cursor at the beginning, if not then moves focus to the last option. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. any printable character Moves focus to the option whose label starts with the characters being typed if select is not editable. Filter Input Keyboard Support Key Function down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. enter Closes the popup and moves focus to the select element. escape Closes the popup and moves focus to the select element. tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page.
 
-**Basic Usage:**
-
-```vue
-<span id="dd1"></span>Options</span>
-<select aria-labelledby="dd1" />
-
-<select aria-label="Options" />
-```
-
 ## Basic
 
 Select is used with the v-model property for two-way value binding along with the options collection. Label and value of an option are defined with the optionLabel and optionValue properties respectively. Note that, when options are simple primitive values such as a string array, no optionLabel and optionValue would be necessary.
@@ -14375,22 +15750,6 @@ When disabled is present, the element cannot be edited and focused.
 <Select disabled placeholder="Select a City" class="w-full md:w-56" />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Select disabled placeholder="Select a City" class="w-full md:w-56" />
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
 ## Editable
 
 When editable is present, the input can also be entered with typing.
@@ -14421,7 +15780,20 @@ Select provides built-in filtering that is enabled by adding the filter property
 <Select v-model="selectedCountry" :options="countries" filter optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
     <template #value="slotProps">
         <div v-if="slotProps.value" class="flex items-center">
-            <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.value.code.toLowerCase()}\`" style="width: 18px" />
+            <div>{{ slotProps.value.name }}</div>
+        </div>
+        <span v-else>
+            {{ slotProps.placeholder }}
+        </span>
+    </template>
+    <template #option="slotProps">
+        <div class="flex items-center">
+            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+            <div>{{ slotProps.option.name }}</div>
+        </div>
+    </template>
+</Select>
 ```
 
 ## Float Label
@@ -14457,6 +15829,20 @@ The fluid prop makes the component take up the full width of its container when 
 <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
 ```
 
+## Forms
+
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-56">
+    <div class="flex flex-col gap-1">
+        <Select name="city.name" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
+        <Message v-if="$form.city?.name?.invalid" severity="error" size="small" variant="simple">{{ $form.city.name.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Group
 
 Options can be grouped when a nested data structures is provided. To define the label of a group optionGroupLabel property is needed and also optionGroupChildren is required to define the property that refers to the children of a group.
@@ -14467,7 +15853,11 @@ Options can be grouped when a nested data structures is provided. To define the 
 <Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-56">
     <template #optiongroup="slotProps">
         <div class="flex items-center">
-            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+            <div>{{ slotProps.option.label }}</div>
+        </div>
+    </template>
+</Select>
 ```
 
 ## Ifta Label
@@ -14481,14 +15871,6 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <Select v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" class="w-full" variant="filled" />
     <label for="dd-city">City</label>
 </IftaLabel>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Select from 'primevue/select';
 ```
 
 ## Invalid
@@ -14523,21 +15905,6 @@ Loading state is enabled with the loading property.
 <Select placeholder="Loading..." loading class="w-full md:w-56" />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Select placeholder="Loading..." loading class="w-full md:w-56" />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Sizes
 
 Select provides small and large sizes as alternatives to the base.
@@ -14560,7 +15927,31 @@ Select offers multiple slots for customization through templating.
 <Select v-model="selectedCountry" :options="countries" optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
     <template #value="slotProps">
         <div v-if="slotProps.value" class="flex items-center">
-            <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+            <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.value.code.toLowerCase()}\`" style="width: 18px" />
+            <div>{{ slotProps.value.name }}</div>
+        </div>
+        <span v-else>
+            {{ slotProps.placeholder }}
+        </span>
+    </template>
+    <template #option="slotProps">
+        <div class="flex items-center">
+            <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+            <div>{{ slotProps.option.name }}</div>
+        </div>
+    </template>
+    <template #dropdownicon>
+        <i class="pi pi-map" />
+    </template>
+    <template #header>
+        <div class="font-medium p-3">Available Countries</div>
+    </template>
+    <template #footer>
+        <div class="p-3">
+            <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+        </div>
+    </template>
+</Select>
 ```
 
 ## Virtual Scroll
@@ -14776,15 +16167,6 @@ SelectButton is used to choose single or multiple items from a list using button
 
 Screen Reader SelectButton component uses ToggleButton internally and has group role. Value to describe the component can be provided via aria-labelledby property. Keyboard Support Keyboard interaction is derived from the native browser handling of checkboxs in a group. Key Function tab Moves focus to the next the focusable element in the page tab sequence. shift + tab Moves focus to the previous the focusable element in the page tab sequence. space Toggles the checked state of a button.
 
-**Basic Usage:**
-
-```vue
-<span id="label_number">Number</span>
-<Slider aria-labelledby="label_number" />
-
-<Slider aria-label="Number" />
-```
-
 ## Basic
 
 SelectButton is used with the v-model property for two-way value binding along with the options collection. Label and value of an option are defined with the optionLabel and optionValue properties respectively. Note that, when options are simple primitive values such as a string array, no optionLabel and optionValue would be necessary.
@@ -14820,12 +16202,16 @@ The fluid prop makes the component take up the full width of its container when 
 
 SelectButton integrates seamlessly with the PrimeVue Forms library.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import SelectButton from 'primevue/selectbutton';
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <SelectButton name="selection" :options="options" />
+        <Message v-if="$form.selection?.invalid" severity="error">{{ $form.selection.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
 ```
 
 ## Invalid
@@ -14958,35 +16344,6 @@ Sample card implementation using different Skeleton components and Tailwind CSS 
 </div>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
-            <div class="flex mb-4">
-                <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
-                <div>
-                    <Skeleton width="10rem" class="mb-2"></Skeleton>
-                    <Skeleton width="5rem" class="mb-2"></Skeleton>
-                    <Skeleton height=".5rem"></Skeleton>
-                </div>
-            </div>
-            <Skeleton width="100%" height="150px"></Skeleton>
-            <div class="flex justify-between mt-4">
-                <Skeleton width="4rem" height="2rem"></Skeleton>
-                <Skeleton width="4rem" height="2rem"></Skeleton>
-            </div>
-        </div>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## DataTable
 
 Sample DataTable implementation using different Skeleton components and Tailwind CSS utilities.
@@ -15016,14 +16373,6 @@ Sample DataTable implementation using different Skeleton components and Tailwind
         </template>
     </Column>
 </DataTable>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Skeleton from 'primevue/skeleton';
 ```
 
 ## List
@@ -15075,58 +16424,6 @@ Sample list implementation using different Skeleton components and Tailwind CSS 
 </div>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
-        <ul class="m-0 p-0 list-none">
-            <li class="mb-4">
-                <div class="flex">
-                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
-                    <div class="self-center" style="flex: 1">
-                        <Skeleton width="100%" class="mb-2"></Skeleton>
-                        <Skeleton width="75%"></Skeleton>
-                    </div>
-                </div>
-            </li>
-            <li class="mb-4">
-                <div class="flex">
-                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
-                    <div class="self-center" style="flex: 1">
-                        <Skeleton width="100%" class="mb-2"></Skeleton>
-                        <Skeleton width="75%"></Skeleton>
-                    </div>
-                </div>
-            </li>
-            <li class="mb-4">
-                <div class="flex">
-                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
-                    <div class="self-center" style="flex: 1">
-                        <Skeleton width="100%" class="mb-2"></Skeleton>
-                        <Skeleton width="75%"></Skeleton>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="flex">
-                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
-                    <div class="self-center" style="flex: 1">
-                        <Skeleton width="100%" class="mb-2"></Skeleton>
-                        <Skeleton width="75%"></Skeleton>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Shapes
 
 Various shapes and sizes can be created using styling properties like shape , width , height , borderRadius and class .
@@ -15160,56 +16457,6 @@ Various shapes and sizes can be created using styling properties like shape , wi
 <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
 <Skeleton shape="circle" size="5rem"></Skeleton>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <div class="flex flex-wrap">
-            <div class="w-full xl:w-6/12 p-4">
-                <h5>Rectangle</h5>
-                <Skeleton class="mb-2"></Skeleton>
-                <Skeleton width="10rem" class="mb-2"></Skeleton>
-                <Skeleton width="5rem" class="mb-2"></Skeleton>
-                <Skeleton height="2rem" class="mb-2"></Skeleton>
-                <Skeleton width="10rem" height="4rem"></Skeleton>
-            </div>
-            <div class="w-full xl:w-6/12 p-4">
-                <h5>Rounded</h5>
-                <Skeleton class="mb-2" borderRadius="16px"></Skeleton>
-                <Skeleton width="10rem" class="mb-2" borderRadius="16px"></Skeleton>
-                <Skeleton width="5rem" borderRadius="16px" class="mb-2"></Skeleton>
-                <Skeleton height="2rem" class="mb-2" borderRadius="16px"></Skeleton>
-                <Skeleton width="10rem" height="4rem" borderRadius="16px"></Skeleton>
-            </div>
-            <div class="w-full xl:w-6/12 p-4">
-                <h5 class="mt-4">Square</h5>
-                <div class="flex items-end">
-                    <Skeleton size="2rem" class="mr-2"></Skeleton>
-                    <Skeleton size="3rem" class="mr-2"></Skeleton>
-                    <Skeleton size="4rem" class="mr-2"></Skeleton>
-                    <Skeleton size="5rem"></Skeleton>
-                </div>
-            </div>
-            <div class="w-full xl:w-6/12 p-4">
-                <h5 class="mt-4">Circle</h5>
-                <div class="flex items-end">
-                    <Skeleton shape="circle" size="2rem" class="mr-2"></Skeleton>
-                    <Skeleton shape="circle" size="3rem" class="mr-2"></Skeleton>
-                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
-                    <Skeleton shape="circle" size="5rem"></Skeleton>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Skeleton
 
@@ -15261,15 +16508,6 @@ Slider is a component to provide input with a drag handle.
 
 Screen Reader Slider element component uses slider role on the handle in addition to the aria-orientation , aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Key Function tab Moves focus to the slider. left arrow up arrow Decrements the value. right arrow down arrow Increments the value. home Set the minimum value. end Set the maximum value. page up Increments the value by 10 steps. page down Decrements the value by 10 steps.
 
-**Basic Usage:**
-
-```vue
-<span id="label_number">Number</span>
-<Slider aria-labelledby="label_number" />
-
-<Slider aria-label="Number" />
-```
-
 ## Basic
 
 Slider is used with the v-model property for two-way value binding.
@@ -15296,12 +16534,16 @@ Image filter implementation using multiple sliders.
 
 Slider integrates seamlessly with the PrimeVue Forms library.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import Slider from 'primevue/slider';
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <div class="flex flex-col gap-4">
+        <Slider name="slider" />
+        <Message v-if="$form.slider?.invalid" severity="error" size="small" variant="simple">{{ $form.slider.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
 ```
 
 ## Input
@@ -15427,12 +16669,6 @@ When pressed, a floating action button can display multiple primary actions that
 
 Screen Reader SpeedDial component renders a native button element that implicitly includes any passed prop. Text to describe the button can be defined with the aria-labelledby or aria-label props. Addititonally the button includes includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The popup overlay uses menu role on the list and each action item has a menuitem role with an aria-label as the menuitem label. The id of the menu refers to the aria-controls of the button. Menu Button Keyboard Support Key Function enter Toggles the visibility of the menu. space Toggles the visibility of the menu. down arrow Opens the menu and moves focus to the first item. up arrow Opens the menu and moves focus to the last item. right arrow Opens the menu and moves focus to the last item. left arrow Opens the menu and moves focus to the first item. escape Closes the menu. Menu Keyboard Support Key Function enter Actives the menuitem, closes the menu and sets focus on the menu button. space Actives the menuitem, closes the menu and sets focus on the menu button. escape Closes the menu and sets focus on the menu button. arrow keys Navigates between the menu items. home Moves focus to the first item. end Moves focus to the last item.
 
-**Basic Usage:**
-
-```vue
-<SpeedDial aria-label="Options" />
-```
-
 ## Circle
 
 Items can be displayed around the button when type is set to circle . Additional radius property defines the radius of the circle.
@@ -15441,14 +16677,6 @@ Items can be displayed around the button when type is set to circle . Additional
 
 ```vue
 <SpeedDial :model="items" :radius="80" type="circle" :style="{ position: 'absolute' }" :buttonProps="{ severity: 'warn', rounded: true }" />
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import SpeedDial from 'primevue/speeddial';
 ```
 
 ## Linear
@@ -15503,6 +16731,29 @@ When type is defined as semi-circle , items are displayed in a half-circle aroun
 ## Template
 
 SpeedDial offers item customization with the item template that receives the menuitem instance from the model as a parameter. The button has its own button template, additional slot named icon is provided to embed icon content for default button.
+
+**Basic Usage:**
+
+```vue
+<SpeedDial :model="items" direction="up" :transitionDelay="80" :style="{ position: 'absolute' }" pt:menuitem="m-2">
+    <template #button="{ toggleCallback }">
+        <Button variant="outlined" class="border" @click="toggleCallback">
+            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="..." fill="var(--p-primary-color)" />
+                <path d="..." fill="var(--p-text-color)" />
+            </svg>
+        </Button>
+    </template>
+    <template #item="{ item, toggleCallback }">
+        <div class="flex flex-col items-center justify-between gap-2 p-2 border rounded border-surface-200 dark:border-surface-700 w-20 cursor-pointer" @click="toggleCallback">
+            <span :class="item.icon" />
+            <span>
+                {{ item.label }}
+            </span>
+        </div>
+    </template>
+</SpeedDial>
+```
 
 ## Tooltip
 
@@ -15592,12 +16843,6 @@ SplitButton groups a set of commands in an overlay with a default command.
 
 Screen Reader SplitButton component renders two native button elements, main button uses the label property to define aria-label by default which can be customized with buttonProps . Dropdown button requires an explicit definition to describe it using menuButtonProps option and also includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The popup overlay uses menu role on the list and each action item has a menuitem role with an aria-label as the menuitem label. The id of the menu refers to the aria-controls of the dropdown button. Main Button Keyboard Support Key Function enter Activates the button. space Activates the button. Menu Button Keyboard Support Key Function enter space down arrow up arrow Opens the menu and moves focus to the first item. Menu Keyboard Support Key Function enter If menuitem has a submenu, opens the submenu otherwise activates the menuitem and closes all open overlays. space If menuitem has a submenu, opens the submenu otherwise activates the menuitem and closes all open overlays. escape If focus is inside a popup submenu, closes the submenu and moves focus to the root item of the closed submenu. down arrow Moves focus to the next menuitem within the submenu. up arrow Moves focus to the previous menuitem within the submenu. alt + up arrow Closes the popup, then moves focus to the target element. right arrow In nested mode if option is closed, opens the option otherwise moves focus to the first child option. left arrow In nested mode if option is open, closes the option otherwise moves focus to the parent option. home Moves focus to the first menuitem within the submenu. end Moves focus to the last menuitem within the submenu. any printable character Moves focus to the menuitem whose label starts with the characters being typed.
 
-**Basic Usage:**
-
-```vue
-<SplitButton :buttonProps="{'aria-label': 'Default Action'}" :menuButtonProps="{'aria-label': 'More Options'}" />
-```
-
 ## Basic
 
 SplitButton has a default command button and a collection of additional options defined by the model property.
@@ -15618,6 +16863,52 @@ When disabled is present, the element cannot be edited and focused.
 <SplitButton label="Save" @click="save" :model="items" disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast />
+        <SplitButton label="Save" @click="save" :model="items" disabled />
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const items = [
+    {
+        label: 'Update',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Quit',
+        command: () => {
+            window.location.href = 'https://vuejs.org/';
+        }
+    }
+];
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## Icons
 
 The buttons and menuitems have support to display icons.
@@ -15626,14 +16917,6 @@ The buttons and menuitems have support to display icons.
 
 ```vue
 <SplitButton label="Save" icon="pi pi-check" dropdownIcon="pi pi-cog" @click="save" :model="items" />
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import SplitButton from 'primevue/splitbutton';
 ```
 
 ## Nested
@@ -15856,33 +17139,6 @@ Splitter requires two SplitterPanel components as children which are displayed h
 </Splitter>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Splitter style="height: 300px">
-            <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
-            <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
-        </Splitter>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Splitter from 'primevue/splitter';
-import SplitterPanel from 'primevue/splitterpanel';
-```
-
 ## Nested
 
 Splitters can be combined to create advanced layouts.
@@ -15906,34 +17162,6 @@ Splitters can be combined to create advanced layouts.
 </Splitter>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Splitter style="height: 300px">
-            <SplitterPanel class="flex items-center justify-center" :size="20" :minSize="10"> Panel 1 </SplitterPanel>
-            <SplitterPanel :size="80">
-                <Splitter layout="vertical">
-                    <SplitterPanel class="flex items-center justify-center" :size="15"> Panel 2 </SplitterPanel>
-                    <SplitterPanel :size="85">
-                        <Splitter>
-                            <SplitterPanel class="flex items-center justify-center" :size="20"> Panel 3 </SplitterPanel>
-                            <SplitterPanel class="flex items-center justify-center" :size="80"> Panel 4 </SplitterPanel>
-                        </Splitter>
-                    </SplitterPanel>
-                </Splitter>
-            </SplitterPanel>
-        </Splitter>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Size
 
 Initial dimension of a panel is percentage based and defined using the size property. In addition, minSize is provided to set a minimum value during a resize.
@@ -15947,24 +17175,6 @@ Initial dimension of a panel is percentage based and defined using the size prop
 </Splitter>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Splitter style="height: 300px">
-            <SplitterPanel class="flex items-center justify-center" :size="25" :minSize="10"> Panel 1 </SplitterPanel>
-            <SplitterPanel class="flex items-center justify-center" :size="75"> Panel 2 </SplitterPanel>
-        </Splitter>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Vertical
 
 Panels are displayed as stacked by setting the layout to vertical .
@@ -15977,24 +17187,6 @@ Panels are displayed as stacked by setting the layout to vertical .
     <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
 </Splitter>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Splitter style="height: 300px" layout="vertical">
-            <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
-            <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
-        </Splitter>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Splitter
 
@@ -16104,64 +17296,6 @@ Stepper consists of a combination of StepList , Step , StepPanels and StepPanel 
 </Stepper>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Stepper value="1" class="basis-[50rem]">
-            <StepList>
-                <Step value="1">Header I</Step>
-                <Step value="2">Header II</Step>
-                <Step value="3">Header III</Step>
-            </StepList>
-            <StepPanels>
-                <StepPanel v-slot="{ activateCallback }" value="1">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
-                    </div>
-                    <div class="flex pt-6 justify-end">
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('2')" />
-                    </div>
-                </StepPanel>
-                <StepPanel v-slot="{ activateCallback }" value="2">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
-                    </div>
-                    <div class="flex pt-6 justify-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('1')" />
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('3')" />
-                    </div>
-                </StepPanel>
-                <StepPanel v-slot="{ activateCallback }" value="3">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
-                    </div>
-                    <div class="pt-6">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('2')" />
-                    </div>
-                </StepPanel>
-            </StepPanels>
-        </Stepper>
-    </div>
-</template>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Stepper from 'primevue/stepper';
-import StepList from 'primevue/steplist';
-import StepPanels from 'primevue/steppanels';
-import StepItem from 'primevue/stepitem';
-import Step from 'primevue/step';
-import StepPanel from 'primevue/steppanel';
-```
-
 ## Linear
 
 When linear property is present, current step must be completed in order to move to the next step.
@@ -16205,51 +17339,6 @@ When linear property is present, current step must be completed in order to move
 </Stepper>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Stepper value="1" linear class="basis-[50rem]">
-            <StepList>
-                <Step value="1">Header I</Step>
-                <Step value="2">Header II</Step>
-                <Step value="3">Header III</Step>
-            </StepList>
-            <StepPanels>
-                <StepPanel v-slot="{ activateCallback }" value="1">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
-                    </div>
-                    <div class="flex pt-6 justify-end">
-                        <Button label="Next" icon="pi pi-arrow-right" @click="activateCallback('2')" />
-                    </div>
-                </StepPanel>
-                <StepPanel v-slot="{ activateCallback }" value="2">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
-                    </div>
-                    <div class="flex pt-6 justify-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('1')" />
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('3')" />
-                    </div>
-                </StepPanel>
-                <StepPanel v-slot="{ activateCallback }" value="3">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
-                    </div>
-                    <div class="pt-6">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('2')" />
-                    </div>
-                </StepPanel>
-            </StepPanels>
-        </Stepper>
-    </div>
-</template>
-```
-</details>
-
 ## Steps Only
 
 Use Stepper with a StepList only for custom requirements where a progress indicator is needed.
@@ -16265,24 +17354,6 @@ Use Stepper with a StepList only for custom requirements where a progress indica
     </StepList>
 </Stepper>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Stepper value="1" class="basis-[50rem]">
-            <StepList>
-                <Step value="1">Design</Step>
-                <Step value="2">Development</Step>
-                <Step value="3">QA</Step>
-            </StepList>
-        </Stepper>
-    </div>
-</template>
-```
-</details>
 
 ## Template
 
@@ -16437,53 +17508,6 @@ Vertical layout requires StepItem as a wrapper of Step and StepPanel components.
 </Stepper>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Stepper value="1">
-            <StepItem value="1">
-                <Step>Header I</Step>
-                <StepPanel v-slot="{ activateCallback }">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
-                    </div>
-                    <div class="py-6">
-                        <Button label="Next" @click="activateCallback('2')" />
-                    </div>
-                </StepPanel>
-            </StepItem>
-            <StepItem value="2">
-                <Step>Header II</Step>
-                <StepPanel v-slot="{ activateCallback }">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
-                    </div>
-                    <div class="flex py-6 gap-2">
-                        <Button label="Back" severity="secondary" @click="activateCallback('1')" />
-                        <Button label="Next" @click="activateCallback('3')" />
-                    </div>
-                </StepPanel>
-            </StepItem>
-            <StepItem value="3">
-                <Step>Header III</Step>
-                <StepPanel v-slot="{ activateCallback }">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
-                    </div>
-                    <div class="py-6">
-                        <Button label="Back" severity="secondary" @click="activateCallback('2')" />
-                    </div>
-                </StepPanel>
-            </StepItem>
-        </Stepper>
-    </div>
-</template>
-```
-</details>
-
 ## Stepper
 
 ### Props
@@ -16632,67 +17656,6 @@ When hideOnResize is enabled, the leave animation is triggered automatically whe
 </div>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <div class="flex justify-center">
-            <div class="flex flex-col items-center gap-4 w-[25rem]">
-                <Button
-                    v-styleclass="{ selector: '.box', hideOnResize: true, enterFromClass: 'hidden', enterActiveClass: 'animate-fadein', leaveActiveClass: 'animate-fadeout', leaveToClass: 'hidden' }"
-                    label="Show Window Responsive Content"
-                />
-                <div class="box hidden animate-duration-300 border border-lg border-surface">
-                    <div class="p-4 flex flex-col gap-2">
-                        <h3 class="text-xl font-bold">Window Responsive Panel</h3>
-                        <p class="text-sm">This panel will hide when you resize the browser window.</p>
-                        <p class="text-sm">Try resizing your browser window to see the effect.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-col items-center gap-4 w-[25rem]">
-                <Button
-                    v-styleclass="{
-                        selector: '.resizable',
-                        resizeSelector: '.resizable',
-                        hideOnResize: true,
-                        enterFromClass: 'hidden',
-                        enterActiveClass: 'animate-fadein',
-                        leaveActiveClass: 'animate-fadeout',
-                        leaveToClass: 'hidden'
-                    }"
-                    label="Show Resizable Panel"
-                />
-                <div class="resizable hidden animate-duration-300 border border-lg border-surface w-[20rem] w-max-[25rem] w-min-[15rem] overflow-auto resize">
-                    <div class="p-4 h-full flex flex-col gap-2">
-                        <h3 class="text-xl font-bold">Resizable Panel</h3>
-                        <p class="text-sm">Drag the resize handle in the bottom-right corner to resize this panel.</p>
-                        <p class="text-sm">The panel will hide when you resize it.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import StyleClass from 'primevue/styleclass';
-
-app.directive('styleclass', StyleClass);
-```
-
 ## ToggleClassDoc
 
 StyleClass has two modes, toggleClass to simply add-remove a class and enter/leave animations.
@@ -16703,22 +17666,6 @@ StyleClass has two modes, toggleClass to simply add-remove a class and enter/lea
 <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle p-disabled" />
 <InputText />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-col items-center gap-4">
-        <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle .p-disabled" />
-        <InputText />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Styleclass
 
@@ -16847,71 +17794,66 @@ Enabling disabled property of a Tab prevents user interaction.
 </Tabs>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Tabs value="0">
-            <TabList>
-                <Tab value="0">Header I</Tab>
-                <Tab value="1">Header II</Tab>
-                <Tab value="2">Header III</Tab>
-                <Tab disabled>Header IV</Tab>
-            </TabList>
-            <TabPanels>
-                <TabPanel value="0">
-                    <p class="m-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </TabPanel>
-                <TabPanel value="1">
-                    <p class="m-0">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-                    </p>
-                </TabPanel>
-                <TabPanel value="2">
-                    <p class="m-0">
-                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
-                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-                    </p>
-                </TabPanel>
-            </TabPanels>
-        </Tabs>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
 ## Dynamic
 
 Tabs can be generated dynamically using the standard v-for directive on Tab and TabPanel.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import Tabs from 'primevue/tabs';
-import TabList from 'primevue/tablist';
-import Tab from 'primevue/tab';
-import TabPanels from 'primevue/tabpanels';
-import TabPanel from 'primevue/tabpanel';
+<Tabs value="0">
+    <TabList>
+        <Tab v-for="tab in tabs" :key="tab.title" :value="tab.value">{{ tab.title }}</Tab>
+    </TabList>
+    <TabPanels>
+        <TabPanel v-for="tab in tabs" :key="tab.content" :value="tab.value">
+            <p class="m-0">{{ tab.content }}</p>
+        </TabPanel>
+    </TabPanels>
+</Tabs>
 ```
 
 ## Scrollable
 
 Adding scrollable property displays navigational buttons at each side to scroll between tabs.
 
+**Basic Usage:**
+
+```vue
+<Tabs value="0" scrollable>
+    <TabList>
+        <Tab v-for="tab in scrollableTabs" :key="tab.title" :value="tab.value">
+            {{ tab.title }}
+        </Tab>
+    </TabList>
+    <TabPanels>
+        <TabPanel v-for="tab in scrollableTabs" :key="tab.content" :value="tab.value">
+            <p class="m-0">{{ tab.content }}</p>
+        </TabPanel>
+    </TabPanels>
+</Tabs>
+```
+
 ## Tab Menu
 
 A navigation menu is implemented using tabs without the panels where the content of a tab is provided by a route component like router-view . For the purpose of this demo, router-view is not included.
+
+**Basic Usage:**
+
+```vue
+<Tabs value="/dashboard">
+    <TabList>
+        <Tab v-for="tab in items" :key="tab.label" :value="tab.route">
+            <router-link v-if="tab.route" v-slot="{ href, navigate }" :to="tab.route" custom>
+                <a v-ripple :href="href" @click="navigate" class="flex items-center gap-2 text-inherit">
+                    <i :class="tab.icon" />
+                    <span>{{ tab.label }}</span>
+                </a>
+            </router-link>
+        </Tab>
+    </TabList>
+</Tabs>
+```
 
 ## Template
 
@@ -16958,57 +17900,6 @@ Custom content for a tab is defined with the default slot. The optional as prope
     </TabPanels>
 </Tabs>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Tabs value="0">
-            <TabList>
-                <Tab value="0" as="div" class="flex items-center gap-2">
-                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
-                    <span class="font-bold whitespace-nowrap">Amy Elsner</span>
-                </Tab>
-                <Tab value="1" as="div" class="flex items-center gap-2">
-                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
-                    <span class="font-bold whitespace-nowrap">Onyama Limba</span>
-                </Tab>
-                <Tab v-slot="slotProps" value="2" asChild>
-                    <div :class="['flex items-center gap-2', slotProps.class]" @click="slotProps.onClick" v-bind="slotProps.a11yAttrs">
-                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
-                        <span class="font-bold whitespace-nowrap">Ioni Bowcher</span>
-                        <Badge value="2" />
-                    </div>
-                </Tab>
-            </TabList>
-            <TabPanels>
-                <TabPanel value="0" as="p" class="m-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </TabPanel>
-                <TabPanel value="1" as="p" class="m-0">
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-                    ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
-                </TabPanel>
-                <TabPanel v-slot="slotProps" value="2" asChild>
-                    <div v-show="slotProps.active" :class="slotProps.class" v-bind="slotProps.a11yAttrs">
-                        <p class="m-0">
-                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
-                            culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
-                        </p>
-                    </div>
-                </TabPanel>
-            </TabPanels>
-        </Tabs>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Tabs
 
@@ -17127,36 +18018,6 @@ A font icon next to the value can be displayed with the icon property.
 <Tag icon="pi pi-cog" severity="contrast" value="Contrast"></Tag>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap justify-center gap-2">
-        <Tag icon="pi pi-user" value="Primary"></Tag>
-        <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
-        <Tag icon="pi pi-search" severity="secondary" value="Secondary"></Tag>
-        <Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
-        <Tag icon="pi pi-exclamation-triangle" severity="warn" value="Warn"></Tag>
-        <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
-        <Tag icon="pi pi-cog" severity="contrast" value="Contrast"></Tag>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Tag from 'primevue/tag';
-```
-
 ## Pill
 
 Enabling rounded , displays a tag as a pill.
@@ -17172,28 +18033,6 @@ Enabling rounded , displays a tag as a pill.
 <Tag severity="danger" value="Danger" rounded></Tag>
 <Tag severity="contrast" value="Contrast" rounded></Tag>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap justify-center gap-2">
-        <Tag value="Primary" rounded></Tag>
-        <Tag severity="success" value="Success" rounded></Tag>
-        <Tag severity="secondary" value="Secondary" rounded></Tag>
-        <Tag severity="info" value="Info" rounded></Tag>
-        <Tag severity="warn" value="Warn" rounded></Tag>
-        <Tag severity="danger" value="Danger" rounded></Tag>
-        <Tag severity="contrast" value="Contrast" rounded></Tag>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
 
 ## Severity
 
@@ -17211,28 +18050,6 @@ Severity defines the variant of a tag.
 <Tag severity="contrast" value="Contrast"></Tag>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="flex flex-wrap justify-center gap-2">
-        <Tag value="Primary"></Tag>
-        <Tag severity="secondary" value="Secondary"></Tag>
-        <Tag severity="success" value="Success"></Tag>
-        <Tag severity="info" value="Info"></Tag>
-        <Tag severity="warn" value="Warn"></Tag>
-        <Tag severity="danger" value="Danger"></Tag>
-        <Tag severity="contrast" value="Contrast"></Tag>
-    </div>
-</template>
-
-<script setup>
-
-<\/script>
-```
-</details>
-
 ## Template
 
 Children of the component are passed as the content for templating.
@@ -17247,26 +18064,6 @@ Children of the component are passed as the content for templating.
     </div>
 </Tag>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Tag style="border: 2px solid var(--border-color); background: transparent; color: var(--text-color)">
-            <div class="flex items-center gap-2 px-1">
-                <img alt="Country" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
-                <span class="text-base">Italy</span>
-            </div>
-        </Tag>
-    </div>    
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Tag
 
@@ -17352,15 +18149,6 @@ Commands are processed using an EventBus implementation called TerminalService .
 />
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import Terminal from 'primevue/terminal';
-import TerminalService from 'primevue/terminalservice'
-```
-
 ## Terminal
 
 ### Props
@@ -17429,18 +18217,6 @@ Textarea adds styling and autoResize functionality to standard textarea element.
 ## Accessibility
 
 Screen Reader Textarea component renders a native textarea element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
-
-**Basic Usage:**
-
-```vue
-<label for="address1">Address 1</label>
-<Textarea id="address1" />
-
-<span id="address2">Address 2</span>
-<Textarea aria-labelledby="address2" />
-
-<Textarea aria-label="Address Details"/>
-```
 
 ## AutoResizeDoc
 
@@ -17519,6 +18295,18 @@ The fluid prop makes the component take up the full width of its container when 
 
 Textarea integrates seamlessly with the PrimeVue Forms library.
 
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <Textarea name="address" rows="5" cols="30" style="resize: none" />
+        <Message v-if="$form.address?.invalid" severity="error" size="small" variant="simple">{{ $form.address.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -17530,14 +18318,6 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <Textarea id="description" v-model="value" rows="5" cols="30" style="resize: none" />
     <label for="description">Description</label>
 </IftaLabel>
-```
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Textarea from 'primevue/textarea';
 ```
 
 ## Invalid
@@ -17864,14 +18644,6 @@ The command property defines the callback to run when an item is activated by cl
 <Toast />
 ```
 
-## Import
-
-**Basic Usage:**
-
-```vue
-import TieredMenu from 'primevue/tieredmenu';
-```
-
 ## Popup
 
 Overlay mode is enabled by adding popup property and calling toggle function of the menu ref with an event of the target.
@@ -17887,9 +18659,45 @@ Overlay mode is enabled by adding popup property and calling toggle function of 
 
 Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
 
+**Basic Usage:**
+
+```vue
+<TieredMenu :model="items">
+    <template #item="{ item, props, hasSubmenu }">
+        <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+            <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                <span :class="item.icon" />
+                <span class="ml-2">{{ item.label }}</span>
+            </a>
+        </router-link>
+        <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+            <span :class="item.icon" />
+            <span class="ml-2">{{ item.label }}</span>
+            <span v-if="hasSubmenu" class="pi pi-angle-right ml-auto" />
+        </a>
+    </template>
+</TieredMenu>
+```
+
 ## Template
 
 TieredMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
+
+**Basic Usage:**
+
+```vue
+<TieredMenu :model="items">
+    <template #item="{ item, props, hasSubmenu }">
+        <a v-ripple class="flex items-center" v-bind="props.action">
+            <span :class="item.icon" />
+            <span class="ml-2">{{ item.label }}</span>
+            <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+            <span v-if="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+            <i v-if="hasSubmenu" class="pi pi-angle-right ml-auto"></i>
+        </a>
+    </template>
+</TieredMenu>
+```
 
 ---
 
@@ -17905,29 +18713,119 @@ Screen Reader Timeline uses a semantic ordered list element to list the events. 
 
 Content location relative the line is defined with the align property.
 
+**Basic Usage:**
+
+```vue
+<Timeline :value="events" class="w-full md:w-80">
+    <template #content="slotProps">
+        {{ slotProps.item.status }}
+    </template>
+</Timeline>
+
+<Timeline :value="events" align="right" class="w-full md:w-80">
+    <template #content="slotProps">
+        {{ slotProps.item.status }}
+    </template>
+</Timeline>
+
+<Timeline :value="events" align="alternate" class="w-full md:w-80">
+    <template #content="slotProps">
+        {{ slotProps.item.status }}
+    </template>
+</Timeline>
+```
+
 ## Basic
 
 Timeline requires a value for the collection of events and content slot that receives an object as a parameter to return content.
+
+**Basic Usage:**
+
+```vue
+<Timeline :value="events">
+    <template #content="slotProps">
+        {{ slotProps.item.status }}
+    </template>
+</Timeline>
+```
 
 ## Horizontal
 
 TimeLine orientation is controlled with the layout property, default is vertical having horizontal as the alternative.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import Timeline from 'primevue/timeline';
+<Timeline :value="events" layout="horizontal" align="top">
+    <template #content="slotProps">
+        {{ slotProps.item }}
+    </template>
+</Timeline>
+
+<Timeline :value="events" layout="horizontal" align="bottom">
+    <template #content="slotProps">
+        {{ slotProps.item }}
+    </template>
+</Timeline>
+
+<Timeline :value="events" layout="horizontal" align="alternate">
+    <template #opposite> &nbsp; </template>
+    <template #content="slotProps">
+        {{ slotProps.item }}
+    </template>
+</Timeline>
 ```
 
 ## Opposite
 
 Additional content at the other side of the line can be provided with the opposite property.
 
+**Basic Usage:**
+
+```vue
+<Timeline :value="events">
+    <template #opposite="slotProps">
+        <small class="text-surface-500 dark:text-surface-400">{{slotProps.item.date}}</small>
+    </template>
+    <template #content="slotProps">
+        {{slotProps.item.status}}
+    </template>
+</Timeline>
+```
+
 ## Template
 
 Sample implementation with custom content and styled markers.
+
+**Basic Usage:**
+
+```vue
+<Timeline :value="events" align="alternate" class="customized-timeline">
+    <template #marker="slotProps">
+        <span class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm" :style="{ backgroundColor: slotProps.item.color }">
+            <i :class="slotProps.item.icon"></i>
+        </span>
+    </template>
+    <template #content="slotProps">
+        <Card class="mt-4">
+            <template #title>
+                {{ slotProps.item.status }}
+            </template>
+            <template #subtitle>
+                {{ slotProps.item.date }}
+            </template>
+            <template #content>
+                <img v-if="slotProps.item.image" :src="\`/images/product/\${slotProps.item.image}\`" :alt="slotProps.item.name" width="200" class="shadow-sm" />
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
+                    neque quas!
+                </p>
+                <Button label="Read more" variant="text"></Button>
+            </template>
+        </Card>
+    </template>
+</Timeline>
+```
 
 ## Timeline
 
@@ -18015,12 +18913,28 @@ Ideal location of a Toast is the main application template so that it can be use
 
 Headless mode is enabled by defining a container slot that lets you implement entire toast UI instead of the default elements.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import Toast from 'primevue/toast';
+<Toast position="top-center" group="headless" @close="visible = false">
+    <template #container="{ message, closeCallback }">
+        <section class="flex flex-col p-4 gap-4 w-full bg-primary/70 rounded-xl">
+            <div class="flex items-center gap-5">
+                <i class="pi pi-cloud-upload text-white dark:text-black text-2xl"></i>
+                <span class="font-bold text-base text-white dark:text-black">{{ message.summary }}</span>
+            </div>
+            <div class="flex flex-col gap-2">
+                <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }" pt:value:class="!bg-primary-50 dark:!bg-primary-900" class="!bg-primary/80"></ProgressBar>
+                <label class="text-sm font-bold text-white dark:text-black">{{ progress }}% uploaded</label>
+            </div>
+            <div class="flex gap-4 mb-4 justify-end">
+                <Button label="Another Upload?" size="small" @click="closeCallback"></Button>
+                <Button label="Cancel" size="small" @click="closeCallback"></Button>
+            </div>
+        </section>
+    </template>
+</Toast>
+<Button @click="show" label="View" />
 ```
 
 ## Multiple
@@ -18081,6 +18995,24 @@ A message disappears after the number of milliseconds defined in the life option
 ## Template
 
 Custom content inside a message is defined with the message template.
+
+**Basic Usage:**
+
+```vue
+<Toast position="bottom-center" group="bc" @close="onClose">
+    <template #message="slotProps">
+        <div class="flex flex-col items-start flex-auto">
+            <div class="flex items-center gap-2">
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                <span class="font-bold">Amy Elsner</span>
+            </div>
+            <div class="font-medium text-lg my-4">{{ slotProps.message.summary }}</div>
+            <Button size="small" label="Reply" severity="success" @click="onReply()"></Button>
+        </div>
+    </template>
+</Toast>
+<Button @click="showTemplate" label="View" />
+```
 
 ## ToastServiceDoc
 
@@ -18230,15 +19162,6 @@ ToggleButton is used to select a boolean value using a button.
 
 Screen Reader ToggleButton component uses a native button element as the switch element internally that is only visible to screen readers. Value to describe the component can be defined with aria-labelledby or aria-label props, it is highly suggested to use either of these props as the component changes the label displayed which will result in screen readers to read different labels when the component receives focus. To prevent this, always provide an aria label that does not change related to state. Keyboard Support Keyboard interaction is derived from the native browser handling of checkboxs in a group. Key Function tab Moves focus to the button. space Toggles the checked state.
 
-**Basic Usage:**
-
-```vue
-<span id="rememberme">Remember Me</span>
-<ToggleButton aria-labelledby="rememberme" />
-
-<ToggleButton aria-label="Remember Me" />
-```
-
 ## Basic
 
 ToggleButton is used with the v-model property for two-way value binding.
@@ -18285,12 +19208,16 @@ The fluid prop makes the component take up the full width of its container when 
 
 ToggleButton integrates seamlessly with the PrimeVue Forms library.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import ToggleButton from 'primevue/togglebutton';
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col items-center gap-1">
+        <ToggleButton name="consent" class="w-48" onLabel="Accept All" offLabel="Reject All" />
+        <Message v-if="$form.consent?.invalid" severity="error" variant="simple">{{ $form.consent.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
 ```
 
 ## Invalid
@@ -18412,18 +19339,6 @@ ToggleSwitch is used to select a boolean value.
 
 Screen Reader ToggleSwitch component uses a hidden native checkbox element with switch role internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the switch. space Toggles the checked state.
 
-**Basic Usage:**
-
-```vue
-<label for="switch1">Remember Me</label>
-<ToggleSwitch inputId="switch1" />
-
-<span id="switch2">Remember Me</span>
-<ToggleSwitch aria-labelledby="switch2" />
-
-<ToggleSwitch aria-label="Remember Me" />
-```
-
 ## Basic
 
 ToggleSwitch is used with the v-model property for two-way value binding.
@@ -18448,12 +19363,16 @@ When disabled is present, the element cannot be edited and focused.
 
 ToggleSwitch integrates seamlessly with the PrimeVue Forms library.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import ToggleSwitch from 'primevue/toggleswitch';
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-48">
+    <div class="flex flex-col items-center gap-2">
+        <ToggleSwitch name="activation" />
+        <Message v-if="$form.activation?.invalid" severity="error" size="small" variant="simple">{{ $form.activation.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
 ```
 
 ## Invalid
@@ -18642,54 +19561,6 @@ A customized toolbar with navigation bar functionality.
 </Toolbar>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Toolbar style="border-radius: 3rem; padding: 1rem 1rem 1rem 1.5rem">
-            <template #start>
-                <div class="flex items-center gap-2">
-                    <svg viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 2rem; margin-right: 1rem">
-                        <path
-                            d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
-                            fill="var(--p-text-color)"
-                        />
-                        <path
-                            d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
-                            fill="transparent"
-                        />
-                    </svg>
-                    <Button label="Files" text plain />
-                    <Button label="Edit" text plain />
-                    <Button label="View" text plain />
-                </div>
-            </template>
-
-            <template #end>
-                <div class="flex items-center gap-2">
-                    <Button label="Share" severity="contrast" size="small" />
-                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" style="width: 32px; height: 32px" />
-                </div>
-            </template>
-        </Toolbar>
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Toolbar from 'primevue/toolbar';
-```
-
 ## Toolbar
 
 ### Props
@@ -18755,22 +19626,28 @@ Tooltip gets hidden when mouse leaves the target element by default, set autoHid
 <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="autoHide: true" />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap justify-center gap-2">
-        <InputText v-tooltip.bottom="{ value: 'Enter your username', autoHide: false }" type="text" placeholder="autoHide: false" />
-        <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="autoHide: true" />
-    </div>
-</template>
-```
-</details>
-
 ## Custom
 
 A tooltip sample with a custom style and content.
+
+**Basic Usage:**
+
+```vue
+<Button
+    v-tooltip.bottom="{
+        value: 'PrimeVue Rocks',
+        pt: {
+            arrow: {
+                style: {
+                    borderBottomColor: 'var(--p-primary-color)'
+                }
+            },
+            text: '!bg-primary !text-primary-contrast !font-medium'
+        }
+    }"
+    label="Button"
+/>
+```
 
 ## Delay
 
@@ -18782,18 +19659,6 @@ Delays to the enter and leave events are defined with showDelay and hideDelay op
 <Button v-tooltip="{ value: 'Confirm to proceed', showDelay: 1000, hideDelay: 300 }" label="Save" />
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap justify-center">
-        <Button v-tooltip="{ value: 'Confirm to proceed', showDelay: 1000, hideDelay: 300 }" label="Save" />
-    </div>
-</template>
-```
-</details>
-
 ## Event
 
 Event to display the tooltip is defined as a modifier, default event is hover.
@@ -18802,28 +19667,6 @@ Event to display the tooltip is defined as a modifier, default event is hover.
 
 ```vue
 <InputText v-tooltip.focus.top="'Enter your username'" type="text" placeholder="Focus" />
-```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap justify-center">
-        <InputText v-tooltip.focus.top="'Enter your username'" type="text" placeholder="Focus" />
-    </div>
-</template>
-```
-</details>
-
-## Import
-
-**Basic Usage:**
-
-```vue
-import Tooltip from 'primevue/tooltip';
-
-app.directive('tooltip', Tooltip);
 ```
 
 ## Position
@@ -18838,21 +19681,6 @@ There are four choices to position the tooltip, default value is right and alter
 <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />
 <InputText v-tooltip.left="'Enter your username'" type="text" placeholder="Left" />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex flex-wrap justify-center gap-2">
-        <InputText v-tooltip="'Enter your username'" type="text" placeholder="Right" />
-        <InputText v-tooltip.top="'Enter your username'" type="text" placeholder="Top" />
-        <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />
-        <InputText v-tooltip.left="'Enter your username'" type="text" placeholder="Left" />
-    </div>
-</template>
-```
-</details>
 
 ## Tooltip
 
@@ -18921,6 +19749,56 @@ Tree state can be controlled programmatically with the expandedKeys property tha
 <Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-[30rem]"></Tree>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-wrap gap-2 mb-6">
+            <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+            <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+        </div>
+        <Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-[30rem]"></Tree>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+const nodes = ref(null);
+const expandedKeys = ref({});
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+
+const expandAll = () => {
+    for (let node of nodes.value) {
+        expandNode(node);
+    }
+
+    expandedKeys.value = { ...expandedKeys.value };
+};
+
+const collapseAll = () => {
+    expandedKeys.value = {};
+};
+
+const expandNode = (node) => {
+    if (node.children && node.children.length) {
+        expandedKeys.value[node.key] = true;
+
+        for (let child of node.children) {
+            expandNode(child);
+        }
+    }
+};
+<\/script>
+```
+</details>
+
 ## EventsDoc
 
 An event is provided for each type of user interaction such as expand, collapse and selection.
@@ -18931,6 +19809,50 @@ An event is provided for each type of user interaction such as expand, collapse 
 <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false"
     @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect" @nodeExpand="onNodeExpand" @nodeCollapse="onNodeCollapse" class="w-full md:w-[30rem]"></Tree>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Toast />
+        <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false"
+            @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect" @nodeExpand="onNodeExpand" @nodeCollapse="onNodeCollapse" class="w-full md:w-[30rem]"></Tree>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+import { useToast } from "primevue/usetoast";
+
+const nodes = ref(null);
+const selectedKey = ref(null);
+const toast = useToast();
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+
+const onNodeSelect = (node) => {
+    toast.add({ severity: 'success', summary: 'Node Selected', detail: node.label, life: 3000 });
+};
+
+const onNodeUnselect = (node) => {
+    toast.add({ severity: 'warn', summary: 'Node Unselected', detail: node.label, life: 3000 });
+};
+
+const onNodeExpand = (node) => {
+    toast.add({ severity: 'info', summary: 'Node Expanded', detail: node.label, life: 3000 });
+};
+
+const onNodeCollapse = (node) => {
+    toast.add({ severity: 'info', summary: 'Node Collapsed', detail: node.label, life: 3000 });
+};
+<\/script>
+```
+</details>
 
 ## FilterDoc
 
@@ -18943,13 +19865,29 @@ Filtering is enabled by adding the filter property, by default label property of
 <Tree :value="nodes" :filter="true" filterMode="strict" class="w-full md:w-[30rem]"></Tree>
 ```
 
-## Import
-
-**Basic Usage:**
+<details>
+<summary>Composition API Example</summary>
 
 ```vue
-import Tree from 'primevue/tree';
+<template>
+    <div class="card flex flex-wrap justify-center gap-8">
+        <Tree :value="nodes" :filter="true" filterMode="lenient" class="w-full md:w-[30rem]"></Tree>
+        <Tree :value="nodes" :filter="true" filterMode="strict" class="w-full md:w-[30rem]"></Tree>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+const nodes = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then(data => nodes.value = data);
+});
+<\/script>
 ```
+</details>
 
 ## LazyDoc
 
@@ -18965,6 +19903,65 @@ Lazy loading is useful when dealing with huge datasets, in this example nodes ar
 ## TemplateDoc
 
 Each node can have a distinct template by matching the type property to the slot name.
+
+**Basic Usage:**
+
+```vue
+<Tree :value="nodes" class="w-full md:w-[30rem]">
+    <template #default="slotProps">
+        <b>{{ slotProps.node.label }}</b>
+    </template>
+    <template #url="slotProps">
+        <a :href="slotProps.node.data">{{ slotProps.node.label }}</a>
+    </template>
+</Tree>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Tree :value="nodes" class="w-full md:w-[30rem]">
+            <template #default="slotProps">
+                <b>{{ slotProps.node.label }}</b>
+            </template>
+            <template #url="slotProps">
+                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-surface-700 dark:text-surface-0 hover:text-primary">{{ slotProps.node.label }}</a>
+            </template>
+        </Tree>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const nodes = ref([
+    {
+        key: '0',
+        label: 'Introduction',
+        children: [
+            { key: '0-0', label: 'What is Vue.js?', data: 'https://vuejs.org/guide/introduction.html#what-is-vue', type: 'url' },
+            { key: '0-1', label: 'Quick Start', data: 'https://vuejs.org/guide/quick-start.html#quick-start', type: 'url' },
+            { key: '0-2', label: 'Creating a Vue Application', data: 'https://vuejs.org/guide/essentials/application.html#creating-a-vue-application', type: 'url' },
+                { key: '0-3', label: 'Conditional Rendering', data: 'https://vuejs.org/guide/essentials/conditional.html#conditional-rendering', type: 'url' }
+        ]
+    },
+    {
+        key: '1',
+        label: 'Components In-Depth',
+        children: [
+            { key: '1-0', label: 'Component Registration', data: 'https://vuejs.org/guide/components/registration.html#component-registration', type: 'url' },
+            { key: '1-1', label: 'Props', data: 'https://vuejs.org/guide/components/props.html#props', type: 'url' },
+            { key: '1-2', label: 'Components Events', data: 'https://vuejs.org/guide/components/events.html#component-events', type: 'url' },
+            { key: '1-3', label: 'Slots', data: 'https://vuejs.org/guide/components/slots.html#slots', type: 'url' }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Tree
 
@@ -19108,15 +20105,6 @@ TreeSelect is a form component to choose from hierarchical data.
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The treeselect element has a combobox role in addition to aria-haspopup and aria-expanded attributes. The relation between the combobox and the popup is created with aria-controls that refers to the id of the popup. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses tree as the role. Each list item has a treeitem role along with aria-label , aria-selected and aria-expanded attributes. In checkbox selection, aria-checked is used instead of aria-selected . Checkbox and toggle icons are hidden from screen readers as their parent element with treeitem role and attributes are used instead for readers and keyboard support. The container element of a treenode has the group role. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Closed State Keyboard Support Key Function tab Moves focus to the treeselect element. space Opens the popup and moves visual focus to the selected treenode, if there is none then first treenode receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the page tab sequence. shift + tab Moves focus to the previous focusable element in the page tab sequence. enter Selects the focused option, closes the popup if selection mode is single. space Selects the focused option, closes the popup if selection mode is single. escape Closes the popup, moves focus to the treeselect element. down arrow Moves focus to the next treenode. up arrow Moves focus to the previous treenode. right arrow If node is closed, opens the node otherwise moves focus to the first child node. left arrow If node is open, closes the node otherwise moves focus to the parent node.
 
-**Basic Usage:**
-
-```vue
-<span id="dd1">Options</span>
-<TreeSelect aria-labelledby="dd1" />
-
-<TreeSelect aria-label="Options" />
-```
-
 ## Basic
 
 TreeSelect is used with the v-model property for two-way value binding along with the options collection. Internally Tree component is used so the options model is based on TreeNode API. In single selection mode, value binding should be the key value of a node.
@@ -19137,6 +20125,30 @@ Selection of multiple nodes via checkboxes is enabled by configuring selectionMo
 <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-80 w-full" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
+
 ## Clear Icon
 
 When showClear is enabled, a clear icon is added to reset the TreeSelect.
@@ -19146,6 +20158,30 @@ When showClear is enabled, a clear icon is added to reset the TreeSelect.
 ```vue
 <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Disabled
 
@@ -19157,6 +20193,30 @@ When disabled is present, the element cannot be edited and focused.
 <TreeSelect v-model="selectedValue" disabled class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" disabled class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -19166,6 +20226,30 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <TreeSelect v-model="selectedValue" variant="filled" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" variant="filled" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Filter
 
@@ -19177,6 +20261,32 @@ Filtering is enabled by adding the filter property, by default label property of
 <TreeSelect v-model="selectedValue" filter filterMode="lenient" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
 <TreeSelect v-model="selectedValue" filter filterMode="strict" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <TreeSelect v-model="selectedValue" filter filterMode="lenient" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+        <TreeSelect v-model="selectedValue" filter filterMode="strict" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+const selectedValue2 = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -19201,6 +20311,45 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel class="w-full md:w-80">
+            <TreeSelect v-model="value1" inputId="over_label" :options="nodes" class="w-full" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-80" variant="in">
+            <TreeSelect v-model="value2" inputId="in_label" :options="nodes" class="w-full" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-80" variant="on">
+            <TreeSelect v-model="value3" inputId="on_label" :options="nodes" class="w-full" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -19211,9 +20360,45 @@ The fluid prop makes the component take up the full width of its container when 
 <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" fluid />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" fluid />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
+
 ## Forms
 
 TreeSelect is used with the v-model property.
+
+**Basic Usage:**
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-80">
+    <div class="flex flex-col gap-1">
+        <TreeSelect name="node" :options="nodes" placeholder="Select Item" fluid />
+        <Message v-if="$form.node?.invalid" severity="error" size="small" variant="simple">{{ $form.node.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Ifta Label
 
@@ -19228,13 +20413,32 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
-## Import
-
-**Basic Usage:**
+<details>
+<summary>Composition API Example</summary>
 
 ```vue
-import TreeSelect from 'primevue/treeselect';
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel class="w-full md:w-80">
+            <TreeSelect v-model="selectedValue" inputId="t_file" :options="nodes" class="w-full" variant="filled" />
+            <label for="t_file">File</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
 ```
+</details>
 
 ## Invalid
 
@@ -19246,6 +20450,32 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <TreeSelect v-model="selectedValue1" :invalid="Object.keys(selectedValue1).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
 <TreeSelect v-model="selectedValue2" :invalid="Object.keys(selectedValue2).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <TreeSelect v-model="selectedValue1" :invalid="Object.keys(selectedValue1).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+        <TreeSelect v-model="selectedValue2" :invalid="Object.keys(selectedValue2).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue1 = ref({});
+const selectedValue2 = ref({});
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Lazy
 
@@ -19268,6 +20498,30 @@ More than one node is selectable by setting selectionMode to multiple . By defau
 <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" display="chip" :maxSelectedLabels="3" placeholder="Select Items" class="md:w-80 w-full" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" display="chip" :maxSelectedLabels="3" placeholder="Select Items" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
+
 ## Sizes
 
 TreeSelect provides small and large sizes as alternatives to the base.
@@ -19279,6 +20533,34 @@ TreeSelect provides small and large sizes as alternatives to the base.
 <TreeSelect v-model="value2" :options="nodes" placeholder="Normal" class="md:w-80 w-full" />
 <TreeSelect v-model="value3" :options="nodes" size="large" placeholder="Large" class="md:w-80 w-full" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <TreeSelect v-model="value1" :options="nodes" size="small" placeholder="Small" class="md:w-80 w-full" />
+        <TreeSelect v-model="value2" :options="nodes" placeholder="Normal" class="md:w-80 w-full" />
+        <TreeSelect v-model="value3" :options="nodes" size="large" placeholder="Large" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const nodes = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -19302,6 +20584,43 @@ TreeSelect offers multiple slots for customization through templating.
     </template>
 </TreeSelect>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-80 w-full">
+            <template #dropdownicon>
+                <i class="pi pi-search" />
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Files</div>
+            </template>
+            <template #footer>
+                <div class="px-3 pt-1 pb-2 flex justify-between">
+                    <Button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
+                    <Button label="Remove All" severity="danger" text size="small" icon="pi pi-plus" />
+                </div>
+            </template>
+        </TreeSelect>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Tree Select
 
@@ -19478,6 +20797,45 @@ Column visibility based on a condition can be implemented with dynamic columns, 
 </TreeTable>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <TreeTable :value="nodes" tableStyle="min-width: 50rem">
+            <template #header>
+                <div style="text-align:left">
+                    <MultiSelect :modelValue="selectedColumns" @update:modelValue="onToggle" :options="columns" optionLabel="header" class="w-full sm:w-64" display="chip"/>
+                </div>
+            </template>
+            <Column field="name" header="Name" :expander="true"></Column>
+            <Column v-for="col of selectedColumns" :field="col.field" :header="col.header" :key="col.field"></Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const columns = ref([
+    {field: 'size', header: 'Size'},
+    {field: 'type', header: 'Type'}
+]);
+const nodes = ref();
+const selectedColumns = ref(columns.value);
+const onToggle = (val) => {
+    selectedColumns.value = columns.value.filter(col => val.includes(col));
+};
+<\/script>
+```
+</details>
+
 ## ContextMenuDoc
 
 TreeTable has exclusive integration with ContextMenu using the contextMenu event to open a menu on right click along with contextMenuSelection property and row-contextmenu event to control the selection via the menu.
@@ -19492,6 +20850,77 @@ TreeTable has exclusive integration with ContextMenu using the contextMenu event
     <Column field="type" header="Type" style="width: 33%"></Column>
 </TreeTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <ContextMenu ref="cm" :model="menuModel" @hide="selectedNode = null" />
+        <TreeTable v-model:contextMenuSelection="selectedNode" :value="nodes" contextMenu @row-contextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
+        </TreeTable>
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const cm = ref();
+const toast = useToast();
+const nodes = ref();
+const selectedNode = ref();
+const menuModel = ref(
+    [
+        { label: 'View', icon: 'pi pi-fw pi-search', command: () => this.viewNode(this.selectedNode) },
+        { label: 'Delete', icon: 'pi pi-fw pi-times', command: () => this.deleteNode(this.selectedNode) }
+    ]
+);
+
+const onRowContextMenu = (event) => {
+    cm.value.show(event.originalEvent);
+};
+
+const viewNode = (product) => {
+    toast.add({severity: 'info', summary: 'Node Selected', detail: node.data.name, life: 3000});
+};
+
+const deleteProduct = (node) => {
+    nodes.value = filterNodes(nodes.value, node.key);
+    toast.add({severity: 'error', summary: 'Node Deleted', detail: node.data.name, life: 3000});
+    selectedProduct.value = null;
+};
+
+const filterNodes = (nodeList, keyToRemove) => {
+    return nodes
+        .map((node) => {
+            if (node.key === keyToRemove) {
+                return null;
+            }
+
+            if (node.children) {
+                const filteredChildren = filterNodes(node.children, keyToRemove);
+
+                return { ...node, children: filteredChildren };
+            }
+
+            return node;
+        })
+        .filter((node) => node !== null);
+}
+<\/script>
+```
+</details>
 
 ## Controlled
 
@@ -19508,6 +20937,43 @@ Expansion state is controlled with expandedKeys property. The expandedKeys shoul
 </TreeTable>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Button @click="toggleApplications" label="Toggle Applications" />
+        <TreeTable v-model:expandedKeys="expandedKeys" :value="nodes" class="mt-6" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const nodes = ref();
+const expandedKeys = ref({});
+const toggleApplications = () => {
+    let _expandedKeys = { ...expandedKeys.value };
+
+    if (_expandedKeys['0']) delete _expandedKeys['0'];
+    else _expandedKeys['0'] = true;
+
+    expandedKeys.value = _expandedKeys;
+}
+<\/script>
+```
+</details>
+
 ## DynamicColumnsDoc
 
 Columns can be created programmatically.
@@ -19519,6 +20985,36 @@ Columns can be created programmatically.
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
 </TreeTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <TreeTable :value="nodes" tableStyle="min-width: 50rem">
+            <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :expander="col.expander"></Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const nodes = ref();
+const columns = ref([
+    { field: 'name', header: 'Name', expander: true },
+    { field: 'size', header: 'Size' },
+    { field: 'type', header: 'Type' }
+]);
+<\/script>
+```
+</details>
 
 ## FilterDoc
 
@@ -19555,14 +21051,61 @@ Filtering is enabled by adding the filter property to a Column. The filterMode s
 </TreeTable>
 ```
 
-## Import
-
-**Basic Usage:**
+<details>
+<summary>Composition API Example</summary>
 
 ```vue
-import TreeTable from 'primevue/treetable';
-import Column from 'primevue/column';
+<template>
+    <div class="card">
+        <div class="flex justify-center mb-6">
+            <SelectButton v-model="filterMode" optionLabel="label" dataKey="label" :options="filterOptions" />
+        </div>
+        <TreeTable :value="nodes" :filters="filters" :filterMode="filterMode.value">
+            <template #header>
+                <div class="flex justify-end">
+                    <IconField>
+                        <InputIcon class="pi pi-search" />
+                        <InputText v-model="filters['global']" placeholder="Global Search" />
+                    </IconField>
+                </div>
+            </template>
+            <Column field="name" header="Name" expander style="min-width: 12rem">
+                <template #filter>
+                    <InputText v-model="filters['name']" type="text" placeholder="Filter by name" />
+                </template>
+            </Column>
+            <Column field="size" header="Size" style="min-width: 12rem">
+                <template #filter>
+                    <InputText v-model="filters['size']" type="text" placeholder="Filter by size" />
+                </template>
+            </Column>
+            <Column field="type" header="Type" style="min-width: 12rem">
+                <template #filter>
+                    <InputText v-model="filters['type']" type="text" placeholder="Filter by type" />
+                </template>
+            </Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const nodes = ref();
+const filters = ref({});
+const filterMode = ref({ label: 'Lenient', value: 'lenient' });
+const filterOptions = ref([
+    { label: 'Lenient', value: 'lenient' },
+    { label: 'Strict', value: 'strict' }
+]);
+<\/script>
 ```
+</details>
 
 ## LazyLoadDoc
 
@@ -19593,6 +21136,39 @@ In addition to a regular table, alternatives with alternative sizes are availabl
 </TreeTable>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <TreeTable :value="nodes" :size="size.value" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const nodes = ref();
+const size = ref({ label: 'Normal', value: 'normal' });
+const sizeOptions = ref([
+    { label: 'Small', value: 'small', class: 'sm' },
+    { label: 'Normal', value: 'normal' },
+    { label: 'Large', value: 'large', class: 'lg' }
+]);
+<\/script>
+```
+</details>
+
 ## Template
 
 Custom content at header and footer slots are supported via templating.
@@ -19622,6 +21198,49 @@ Custom content at header and footer slots are supported via templating.
     </template>
 </TreeTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <TreeTable :value="nodes" tableStyle="min-width: 50rem">
+            <template #header>
+                <div class="text-xl font-bold">File Viewer</div>
+            </template>
+            <Column field="name" header="Name" expander style="width: 250px"></Column>
+            <Column field="size" header="Size" style="width: 150px"></Column>
+            <Column field="type" header="Type" style="width: 150px"></Column>
+            <Column style="width: 10rem">
+                <template #body>
+                    <div class="flex flex-wrap gap-2">
+                        <Button type="button" icon="pi pi-search" rounded/>
+                        <Button type="button" icon="pi pi-pencil" rounded severity="success" />
+                    </div>
+                </template>
+            </Column>
+            <template #footer>
+                <div class="flex justify-start">
+                    <Button icon="pi pi-refresh" label="Reload" severity="warn" />
+                </div>
+            </template>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const nodes = ref();
+<\/script>
+```
+</details>
 
 ## Tree Table
 
@@ -19819,33 +21438,112 @@ Screen Reader VirtualScroller has no specific role is enforced, still you may us
 
 VirtualScroller requires items as the data to display, itemSize for the dimensions of an item and item template are required on component. In addition, an initial array is required based on the total number of items to display. Size of the viewport is configured using scrollWidth , scrollHeight properties directly or with CSS width and height styles.
 
+**Basic Usage:**
+
+```vue
+<VirtualScroller :items="items" :itemSize="50" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+    <template v-slot:item="{ item, options }">
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+    </template>
+</VirtualScroller>
+```
+
 ## Delay
 
 The delay property adds a threshold to wait in milliseconds during scrolling for render optimization.
+
+**Basic Usage:**
+
+```vue
+<VirtualScroller :items="items" :itemSize="50" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+    <template v-slot:item="{ item, options }">
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+    </template>
+</VirtualScroller>
+
+<VirtualScroller :items="items" :itemSize="50" :delay="150" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+    <template v-slot:item="{ item, options }">
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+    </template>
+</VirtualScroller>
+
+<VirtualScroller :items="items" :itemSize="50" :delay="500" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+    <template v-slot:item="{ item, options }">
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+    </template>
+</VirtualScroller>
+```
 
 ## Grid
 
 Scrolling can be enabled vertically and horizontally when orientation is set as both . In this mode, itemSize should be an array where first value is the height of an item and second is the width.
 
+**Basic Usage:**
+
+```vue
+<VirtualScroller :items="items" :itemSize="[50, 100]" orientation="both" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+    <template v-slot:item="{ item, options }">
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">
+            <template v-for="(el, index) of item" :key="index">
+                <div style="width: 100px">{{ el }}</div>
+            </template>
+        </div>
+    </template>
+</VirtualScroller>
+```
+
 ## Horizontal
 
 Setting orientation to horizontal enables scrolling horizontally. In this case, the itemSize should refer to the width of an item.
 
-## Import
-
 **Basic Usage:**
 
 ```vue
-import VirtualScroller from 'primevue/virtualscroller';
+<VirtualScroller :items="items" :itemSize="50" orientation="horizontal" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px" :pt="{ content: 'flex flex-row' }">
+    <template v-slot:item="{ item, options }">
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="width: 50px; writing-mode: vertical-lr;">{{ item }}</div>
+    </template>
+</VirtualScroller>
 ```
 
 ## Lazy
 
 Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded on demand. To implement lazy loading, enable the lazy property and implement onLazyLoad callback to return data.
 
+**Basic Usage:**
+
+```vue
+<VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" lazy @lazy-load="onLazyLoad" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+    <template v-slot:item="{ item, options }">
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+    </template>
+</VirtualScroller>
+```
+
 ## Loading
 
 Busy state is enabled by adding showLoader property which blocks the UI with a modal by default. Alternatively, loader template can be used to customize items e.g. with Skeleton .
+
+**Basic Usage:**
+
+```vue
+<VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+    <template v-slot:item="{ item, options }">
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+    </template>
+</VirtualScroller>
+
+<VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+    <template v-slot:item="{ item, options }">
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+    </template>
+    <template v-slot:loader="{ options }">
+        <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">
+            <Skeleton :width="options.even ? '60%' : '50%'" height="1.3rem" />
+        </div>
+    </template>
+</VirtualScroller>
+```
 
 ## Virtual Scroller
 

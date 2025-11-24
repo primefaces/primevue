@@ -2,12 +2,6 @@
 
 Toast is used to display messages in an overlay.
 
-## Import
-
-```javascript
-import Toast from 'primevue/toast';
-```
-
 ## Accessibility
 
 Screen Reader Toast component use alert role that implicitly defines aria-live as "assertive" and aria-atomic as "true". Close element is a button with an aria-label that refers to the aria.close property of the locale API by default, you may use closeButtonProps to customize the element and override the default aria-label . Close Button Keyboard Support Key Function enter Closes the message. space Closes the message.
@@ -24,6 +18,28 @@ Ideal location of a Toast is the main application template so that it can be use
 ## Headless
 
 Headless mode is enabled by defining a container slot that lets you implement entire toast UI instead of the default elements.
+
+```vue
+<Toast position="top-center" group="headless" @close="visible = false">
+    <template #container="{ message, closeCallback }">
+        <section class="flex flex-col p-4 gap-4 w-full bg-primary/70 rounded-xl">
+            <div class="flex items-center gap-5">
+                <i class="pi pi-cloud-upload text-white dark:text-black text-2xl"></i>
+                <span class="font-bold text-base text-white dark:text-black">{{ message.summary }}</span>
+            </div>
+            <div class="flex flex-col gap-2">
+                <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }" pt:value:class="!bg-primary-50 dark:!bg-primary-900" class="!bg-primary/80"></ProgressBar>
+                <label class="text-sm font-bold text-white dark:text-black">{{ progress }}% uploaded</label>
+            </div>
+            <div class="flex gap-4 mb-4 justify-end">
+                <Button label="Another Upload?" size="small" @click="closeCallback"></Button>
+                <Button label="Cancel" size="small" @click="closeCallback"></Button>
+            </div>
+        </section>
+    </template>
+</Toast>
+<Button @click="show" label="View" />
+```
 
 ## Multiple
 
@@ -75,6 +91,22 @@ A message disappears after the number of milliseconds defined in the life option
 ## Template
 
 Custom content inside a message is defined with the message template.
+
+```vue
+<Toast position="bottom-center" group="bc" @close="onClose">
+    <template #message="slotProps">
+        <div class="flex flex-col items-start flex-auto">
+            <div class="flex items-center gap-2">
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                <span class="font-bold">Amy Elsner</span>
+            </div>
+            <div class="font-medium text-lg my-4">{{ slotProps.message.summary }}</div>
+            <Button size="small" label="Reply" severity="success" @click="onReply()"></Button>
+        </div>
+    </template>
+</Toast>
+<Button @click="showTemplate" label="View" />
+```
 
 ## ToastServiceDoc
 

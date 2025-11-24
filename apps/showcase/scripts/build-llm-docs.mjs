@@ -74,28 +74,82 @@ function extractTextFromTemplate(template) {
 
 /**
  * Extract code examples from Vue file
+ * Handles escaped backticks properly to avoid cutting off code
  */
 function extractCodeExamples(content) {
     const scriptMatch = content.match(/<script>([\s\S]*?)<\/script>/i);
     if (!scriptMatch) return null;
 
     const scriptContent = scriptMatch[1];
-    const codeMatch = scriptContent.match(/code:\s*{([\s\S]*?)}\s*[,}]/);
 
-    if (!codeMatch) return null;
+    // Find the code object with proper brace matching
+    const codeStartMatch = scriptContent.match(/code:\s*{/);
+    if (!codeStartMatch) return null;
 
-    const codeContent = codeMatch[1];
+    const startIndex = codeStartMatch.index + codeStartMatch[0].length;
+    let braceDepth = 1;
+    let endIndex = -1;
+
+    // Find the matching closing brace for the code object
+    for (let i = startIndex; i < scriptContent.length; i++) {
+        if (scriptContent[i] === '{') {
+            braceDepth++;
+        } else if (scriptContent[i] === '}') {
+            braceDepth--;
+            if (braceDepth === 0) {
+                endIndex = i;
+                break;
+            }
+        }
+    }
+
+    if (endIndex === -1) return null;
+
+    const codeContent = scriptContent.substring(startIndex, endIndex);
     const examples = {};
 
-    const basicMatch = codeContent.match(/basic:\s*`([\s\S]*?)`/);
-    const optionsMatch = codeContent.match(/options:\s*`([\s\S]*?)`/);
-    const compositionMatch = codeContent.match(/composition:\s*`([\s\S]*?)`/);
-    const dataMatch = codeContent.match(/data:\s*`([\s\S]*?)`/);
+    // Helper function to extract content between backticks, handling escaped backticks
+    function extractBetweenBackticks(text, prefix) {
+        const startPattern = prefix + '\\s*`';
+        const startMatch = text.match(new RegExp(startPattern));
 
-    if (basicMatch) examples.basic = basicMatch[1].trim();
-    if (optionsMatch) examples.options = optionsMatch[1].trim();
-    if (compositionMatch) examples.composition = compositionMatch[1].trim();
-    if (dataMatch) examples.data = dataMatch[1].trim();
+        if (!startMatch) return null;
+
+        const startIndex = startMatch.index + startMatch[0].length;
+        let endIndex = -1;
+
+        // Find the matching closing backtick, counting escaped backticks
+        for (let i = startIndex; i < text.length; i++) {
+            if (text[i] === '\\' && text[i + 1] === '`') {
+                // Skip escaped backtick
+                i++;
+                continue;
+            }
+
+            if (text[i] === '`') {
+                // Check if this is followed by comma or closing brace (can be on next line)
+                const after = text.substring(i + 1).match(/^[\s\n]*[,}]/);
+                if (after) {
+                    endIndex = i;
+                    break;
+                }
+            }
+        }
+
+        if (endIndex === -1) return null;
+
+        return text.substring(startIndex, endIndex).trim();
+    }
+
+    const basic = extractBetweenBackticks(codeContent, 'basic:');
+    const options = extractBetweenBackticks(codeContent, 'options:');
+    const composition = extractBetweenBackticks(codeContent, 'composition:');
+    const data = extractBetweenBackticks(codeContent, 'data:');
+
+    if (basic) examples.basic = basic;
+    if (options) examples.options = options;
+    if (composition) examples.composition = composition;
+    if (data) examples.data = data;
 
     return Object.keys(examples).length > 0 ? examples : null;
 }

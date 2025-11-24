@@ -2,22 +2,9 @@
 
 Knob is a form component to define number inputs with a dial.
 
-## Import
-
-```javascript
-import Knob from 'primevue/knob';
-```
-
 ## Accessibility
 
 Screen Reader Knob element component uses slider role in addition to the aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Key Function tab Moves focus to the slider. left arrow down arrow Decrements the value. right arrow up arrow Increments the value. home Set the minimum value. end Set the maximum value. page up Increments the value by 10 steps. page down Decrements the value by 10 steps.
-
-```vue
-<span id="label_number">Number</span>
-<Knob aria-labelledby="label_number" />
-
-<Knob aria-label="Number" />
-```
 
 ## Basic
 
@@ -46,6 +33,16 @@ When disabled is present, a visual hint is applied to indicate that the Knob can
 ## Forms
 
 Knob integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col items-center gap-1">
+        <Knob name="knob" />
+        <Message v-if="$form.knob?.invalid" severity="error" size="small" variant="simple">{{ $form.knob.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Min/Max
 

@@ -2,12 +2,6 @@
 
 ColorPicker is an input component to select a color.
 
-## Import
-
-```javascript
-import ColorPicker from 'primevue/colorpicker';
-```
-
 ## Accessibility
 
 Screen Reader Specification does not cover a color picker yet and using a semantic native color picker is not consistent across browsers so currently component is not compatible with screen readers. In the upcoming versions, text fields will be introduced below the slider section to be able to pick a color using accessible text boxes in hsl, rgba and hex formats. Closed State Keyboard Support of Popup ColorPicker Key Function tab Moves focus to the color picker button. space Opens the popup and moves focus to the color slider. Popup Keyboard Support Key Function enter Selects the color and closes the popup. space Selects the color and closes the popup. escape Closes the popup, moves focus to the input. Color Picker Slider Key Function arrow keys Changes color. Hue Slider Key Function up arrow down arrow Changes hue.
@@ -41,6 +35,16 @@ Default color format to use in value binding is hex and other possible values ca
 ## Forms
 
 ColorPicker integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col items-center gap-2">
+        <ColorPicker name="color" />
+        <Message v-if="$form.color?.invalid" severity="error" size="small" variant="simple">{{ $form.color.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Inline
 

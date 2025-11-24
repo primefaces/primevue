@@ -2,12 +2,6 @@
 
 Input Otp is used to enter one time passwords.
 
-## Import
-
-```javascript
-import InputOtp from 'primevue/inputotp';
-```
-
 ## Accessibility
 
 Screen Reader Input OTP uses a set of InputText components, refer to the InputText component for more information about the screen reader support. Keyboard Support Key Function tab Moves focus to the input otp. right arrow Moves focus to the next input element. left arrow Moves focus to the previous input element. backspace Deletes the input and moves focus to the previous input element.
@@ -31,6 +25,16 @@ Specify the variant property as filled to display the component with a higher vi
 ## Forms
 
 InputOtp integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <InputOtp name="passcode" />
+        <Message v-if="$form.passcode?.invalid" severity="error" size="small" variant="simple">{{ $form.passcode.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Integer Only
 

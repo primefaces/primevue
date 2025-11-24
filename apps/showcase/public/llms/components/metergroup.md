@@ -2,12 +2,6 @@
 
 MeterGroup displays scalar measurements within a known range.
 
-## Import
-
-```javascript
-import MeterGroup from 'primevue/metergroup';
-```
-
 ## Accessibility
 
 Screen Reader MeterGroup component uses meter role in addition to the aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby prop. Keyboard Support Component does not include any interactive elements.
@@ -55,6 +49,46 @@ Adding more items to the array displays the meters in a group.
 ## Template
 
 MeterGroup provides templating support for labels, meter items, and content around the meters.
+
+```vue
+<MeterGroup :value="value" labelPosition="start">
+    <template #label="{ value }">
+        <div class="flex flex-wrap gap-4">
+            <template v-for="val of value" :key="val.label">
+                <Card class="flex-1 border border-surface shadow-none">
+                    <template #content>
+                        <div class="flex justify-between gap-8">
+                            <div class="flex flex-col gap-1">
+                                <span class="text-surface-500 dark:text-surface-400 text-sm">{{ val.label }}</span>
+                                <span class="font-bold text-lg">{{ val.value }}%</span>
+                            </div>
+                            <span class="w-8 h-8 rounded-full inline-flex justify-center items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">
+                                <i :class="val.icon" />
+                            </span>
+                        </div>
+                    </template>
+                </Card>
+            </template>
+        </div>
+    </template>
+    <template #meter="slotProps">
+        <span :class="slotProps.class" :style="{ background: \`linear-gradient(to right, \${slotProps.value.color1}, \${slotProps.value.color2})\`, width: slotProps.size }" />
+    </template>
+    <template #start="{ totalPercent }">
+        <div class="flex justify-between mt-4 mb-2 relative">
+            <span>Storage</span>
+            <span :style="{ width: totalPercent + '%' }" class="absolute text-right">{{ totalPercent }}%</span>
+            <span class="font-medium">1TB</span>
+        </div>
+    </template>
+    <template #end>
+        <div class="flex justify-between mt-4">
+            <Button label="Manage Storage" variant="outlined" size="small" />
+            <Button label="Update Plan" size="small" />
+        </div>
+    </template>
+</MeterGroup>
+```
 
 ## Vertical
 

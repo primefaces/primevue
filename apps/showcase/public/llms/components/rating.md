@@ -2,12 +2,6 @@
 
 Rating component is a star based selection input.
 
-## Import
-
-```javascript
-import Rating from 'primevue/rating';
-```
-
 ## Accessibility
 
 Screen Reader Rating component internally uses radio buttons that are only visible to screen readers. The value to read for item is retrieved from the locale API via star and stars of the aria property. Keyboard Support Keyboard interaction is derived from the native browser handling of radio buttons in a group. Key Function tab Moves focus to the star representing the value, if there is none then first star receives the focus. left arrow up arrow Moves focus to the previous star, if there is none then last radio button receives the focus. right arrow down arrow Moves focus to the next star, if there is none then first star receives the focus. space If the focused star does not represent the value, changes the value to the star value.
@@ -31,6 +25,16 @@ When disabled is present, a visual hint is applied to indicate that the Knob can
 ## Forms
 
 Rating integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-40">
+    <div class="flex flex-col items-center gap-2">
+        <Rating name="rating" />
+        <Message v-if="$form.rating?.invalid" severity="error" size="small" variant="simple">{{ $form.rating.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Number of Stars
 

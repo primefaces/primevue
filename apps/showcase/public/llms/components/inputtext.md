@@ -2,25 +2,9 @@
 
 InputText is an extension to standard input element with theming.
 
-## Import
-
-```javascript
-import InputText from 'primevue/inputtext';
-```
-
 ## Accessibility
 
 Screen Reader InputText component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
-
-```vue
-<label for="firstname">Firstname</label>
-<InputText id="firstname" />
-
-<span id="lastname">Lastname</span>
-<InputText aria-labelledby="lastname" />
-
-<InputText aria-label="Age"/>
-```
 
 ## Basic
 
@@ -78,6 +62,20 @@ The fluid prop makes the component take up the full width of its container when 
 ## Forms
 
 InputText integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <InputText name="username" type="text" placeholder="Username" />
+        <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error?.message }}</Message>
+    </div>
+    <div class="flex flex-col gap-1">
+        <InputText name="email" type="text" placeholder="Email" />
+        <Message v-if="$form.email?.invalid" severity="error" size="small" variant="simple">{{ $form.email.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Help Text
 

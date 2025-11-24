@@ -2,23 +2,9 @@
 
 Drawer is a container component displayed as an overlay.
 
-## Import
-
-```javascript
-import Drawer from 'primevue/drawer';
-```
-
 ## Accessibility
 
 Screen Reader Drawer component uses complementary role by default, since any attribute is passed to the root element aria role can be changed depending on your use case and additional attributes like aria-labelledby can be added. In addition aria-modal is added since focus is kept within the drawer when opened. Trigger element also requires aria-expanded and aria-controls to be handled explicitly. Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the drawer. shift + tab Moves focus to the previous the focusable element within the drawer. escape Closes the drawer. Close Button Keyboard Support Key Function enter Closes the drawer. space Closes the drawer.
-
-```vue
-<Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'sbar' : null" :aria-expanded="visible"/>
-
-<Drawer id="sbar" v-model:visible="visible" role="region" >
-    <p>Content</p>
-</Drawer>
-```
 
 ## Basic
 

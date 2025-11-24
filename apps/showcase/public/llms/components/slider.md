@@ -2,22 +2,9 @@
 
 Slider is a component to provide input with a drag handle.
 
-## Import
-
-```javascript
-import Slider from 'primevue/slider';
-```
-
 ## Accessibility
 
 Screen Reader Slider element component uses slider role on the handle in addition to the aria-orientation , aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Key Function tab Moves focus to the slider. left arrow up arrow Decrements the value. right arrow down arrow Increments the value. home Set the minimum value. end Set the maximum value. page up Increments the value by 10 steps. page down Decrements the value by 10 steps.
-
-```vue
-<span id="label_number">Number</span>
-<Slider aria-labelledby="label_number" />
-
-<Slider aria-label="Number" />
-```
 
 ## Basic
 
@@ -40,6 +27,16 @@ Image filter implementation using multiple sliders.
 ## Forms
 
 Slider integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <div class="flex flex-col gap-4">
+        <Slider name="slider" />
+        <Message v-if="$form.slider?.invalid" severity="error" size="small" variant="simple">{{ $form.slider.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Input
 

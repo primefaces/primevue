@@ -2,25 +2,9 @@
 
 InputNumber is an input component to provide numerical input.
 
-## Import
-
-```javascript
-import InputNumber from 'primevue/inputnumber';
-```
-
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element uses spinbutton role in addition to the aria-valuemin , aria-valuemax and aria-valuenow attributes. Keyboard Support Key Function tab Moves focus to the input. up arrow Increments the value. down arrow Decrements the value. home Set the minimum value if provided. end Set the maximum value if provided.
-
-```vue
-<label for="price">Price</label>
-<InputNumber inputId="price" />
-
-<span id="label_number">Number</span>
-<InputNumber aria-labelledby="label_number" />
-
-<InputNumber aria-label="Number" />
-```
 
 ## Buttons
 
@@ -106,6 +90,16 @@ The fluid prop makes the component take up the full width of its container when 
 ## Forms
 
 InputNumber integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <div class="flex flex-col gap-1">
+        <InputNumber name="amount" fluid />
+        <Message v-if="$form.amount?.invalid" severity="error" size="small" variant="simple">{{ $form.amount.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Ifta Label
 

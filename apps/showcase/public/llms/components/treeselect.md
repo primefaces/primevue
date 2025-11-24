@@ -2,22 +2,9 @@
 
 TreeSelect is a form component to choose from hierarchical data.
 
-## Import
-
-```javascript
-import TreeSelect from 'primevue/treeselect';
-```
-
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The treeselect element has a combobox role in addition to aria-haspopup and aria-expanded attributes. The relation between the combobox and the popup is created with aria-controls that refers to the id of the popup. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses tree as the role. Each list item has a treeitem role along with aria-label , aria-selected and aria-expanded attributes. In checkbox selection, aria-checked is used instead of aria-selected . Checkbox and toggle icons are hidden from screen readers as their parent element with treeitem role and attributes are used instead for readers and keyboard support. The container element of a treenode has the group role. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Closed State Keyboard Support Key Function tab Moves focus to the treeselect element. space Opens the popup and moves visual focus to the selected treenode, if there is none then first treenode receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the page tab sequence. shift + tab Moves focus to the previous focusable element in the page tab sequence. enter Selects the focused option, closes the popup if selection mode is single. space Selects the focused option, closes the popup if selection mode is single. escape Closes the popup, moves focus to the treeselect element. down arrow Moves focus to the next treenode. up arrow Moves focus to the previous treenode. right arrow If node is closed, opens the node otherwise moves focus to the first child node. left arrow If node is open, closes the node otherwise moves focus to the parent node.
-
-```vue
-<span id="dd1">Options</span>
-<TreeSelect aria-labelledby="dd1" />
-
-<TreeSelect aria-label="Options" />
-```
 
 ## Basic
 
@@ -35,6 +22,30 @@ Selection of multiple nodes via checkboxes is enabled by configuring selectionMo
 <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-80 w-full" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="checkbox" placeholder="Select Item" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
+
 ## Clear Icon
 
 When showClear is enabled, a clear icon is added to reset the TreeSelect.
@@ -42,6 +53,30 @@ When showClear is enabled, a clear icon is added to reset the TreeSelect.
 ```vue
 <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Disabled
 
@@ -51,6 +86,30 @@ When disabled is present, the element cannot be edited and focused.
 <TreeSelect v-model="selectedValue" disabled class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" disabled class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -58,6 +117,30 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <TreeSelect v-model="selectedValue" variant="filled" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" variant="filled" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Filter
 
@@ -67,6 +150,32 @@ Filtering is enabled by adding the filter property, by default label property of
 <TreeSelect v-model="selectedValue" filter filterMode="lenient" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
 <TreeSelect v-model="selectedValue" filter filterMode="strict" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <TreeSelect v-model="selectedValue" filter filterMode="lenient" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+        <TreeSelect v-model="selectedValue" filter filterMode="strict" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+const selectedValue2 = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -89,6 +198,45 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel class="w-full md:w-80">
+            <TreeSelect v-model="value1" inputId="over_label" :options="nodes" class="w-full" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-80" variant="in">
+            <TreeSelect v-model="value2" inputId="in_label" :options="nodes" class="w-full" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-80" variant="on">
+            <TreeSelect v-model="value3" inputId="on_label" :options="nodes" class="w-full" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -97,9 +245,43 @@ The fluid prop makes the component take up the full width of its container when 
 <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" fluid />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" fluid />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
+
 ## Forms
 
 TreeSelect is used with the v-model property.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-80">
+    <div class="flex flex-col gap-1">
+        <TreeSelect name="node" :options="nodes" placeholder="Select Item" fluid />
+        <Message v-if="$form.node?.invalid" severity="error" size="small" variant="simple">{{ $form.node.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Ifta Label
 
@@ -112,6 +294,33 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel class="w-full md:w-80">
+            <TreeSelect v-model="selectedValue" inputId="t_file" :options="nodes" class="w-full" variant="filled" />
+            <label for="t_file">File</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -120,6 +329,32 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <TreeSelect v-model="selectedValue1" :invalid="Object.keys(selectedValue1).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
 <TreeSelect v-model="selectedValue2" :invalid="Object.keys(selectedValue2).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <TreeSelect v-model="selectedValue1" :invalid="Object.keys(selectedValue1).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" />
+        <TreeSelect v-model="selectedValue2" :invalid="Object.keys(selectedValue2).length === 0" class="md:w-80 w-full" :options="nodes" placeholder="TreeSelect" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue1 = ref({});
+const selectedValue2 = ref({});
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Lazy
 
@@ -138,6 +373,30 @@ More than one node is selectable by setting selectionMode to multiple . By defau
 <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" display="chip" :maxSelectedLabels="3" placeholder="Select Items" class="md:w-80 w-full" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" selectionMode="multiple" display="chip" :maxSelectedLabels="3" placeholder="Select Items" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
+
 ## Sizes
 
 TreeSelect provides small and large sizes as alternatives to the base.
@@ -147,6 +406,34 @@ TreeSelect provides small and large sizes as alternatives to the base.
 <TreeSelect v-model="value2" :options="nodes" placeholder="Normal" class="md:w-80 w-full" />
 <TreeSelect v-model="value3" :options="nodes" size="large" placeholder="Large" class="md:w-80 w-full" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <TreeSelect v-model="value1" :options="nodes" size="small" placeholder="Small" class="md:w-80 w-full" />
+        <TreeSelect v-model="value2" :options="nodes" placeholder="Normal" class="md:w-80 w-full" />
+        <TreeSelect v-model="value3" :options="nodes" size="large" placeholder="Large" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const nodes = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -168,6 +455,43 @@ TreeSelect offers multiple slots for customization through templating.
     </template>
 </TreeSelect>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-80 w-full">
+            <template #dropdownicon>
+                <i class="pi pi-search" />
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Files</div>
+            </template>
+            <template #footer>
+                <div class="px-3 pt-1 pb-2 flex justify-between">
+                    <Button label="Add New" severity="secondary" text size="small" icon="pi pi-plus" />
+                    <Button label="Remove All" severity="danger" text size="small" icon="pi pi-plus" />
+                </div>
+            </template>
+        </TreeSelect>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from './service/NodeService';
+
+const nodes = ref(null);
+const selectedValue = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Tree Select
 

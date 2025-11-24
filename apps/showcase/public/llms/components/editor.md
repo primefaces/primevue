@@ -2,12 +2,6 @@
 
 Editor is rich text editor component based on Quill.
 
-## Import
-
-```javascript
-import Editor from 'primevue/editor';
-```
-
 ## Accessibility
 
 Screen Reader Quill performs generally well in terms of accessibility. The elements in the toolbar can be tabbed and have the necessary ARIA roles/attributes for screen readers. One known limitation is the lack of arrow key support for dropdowns in the toolbar that may be overcome with a custom toolbar.
@@ -24,13 +18,19 @@ Editor is used with the v-model property for two-way value binding.
 
 Editor integrates seamlessly with the PrimeVue Forms library.
 
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <Editor name="content" editorStyle="height: 320px" />
+        <Message v-if="$form.content?.invalid" severity="error" size="small" variant="simple">{{ $form.content.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
 ## Quill
 
 Editor uses Quill editor underneath so it needs to be installed as a dependency.
-
-```vue
-npm install quill
-```
 
 ## ReadOnly
 

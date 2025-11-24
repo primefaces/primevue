@@ -2,19 +2,9 @@
 
 When pressed, a floating action button can display multiple primary actions that can be performed on a page.
 
-## Import
-
-```javascript
-import SpeedDial from 'primevue/speeddial';
-```
-
 ## Accessibility
 
 Screen Reader SpeedDial component renders a native button element that implicitly includes any passed prop. Text to describe the button can be defined with the aria-labelledby or aria-label props. Addititonally the button includes includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The popup overlay uses menu role on the list and each action item has a menuitem role with an aria-label as the menuitem label. The id of the menu refers to the aria-controls of the button. Menu Button Keyboard Support Key Function enter Toggles the visibility of the menu. space Toggles the visibility of the menu. down arrow Opens the menu and moves focus to the first item. up arrow Opens the menu and moves focus to the last item. right arrow Opens the menu and moves focus to the last item. left arrow Opens the menu and moves focus to the first item. escape Closes the menu. Menu Keyboard Support Key Function enter Actives the menuitem, closes the menu and sets focus on the menu button. space Actives the menuitem, closes the menu and sets focus on the menu button. escape Closes the menu and sets focus on the menu button. arrow keys Navigates between the menu items. home Moves focus to the first item. end Moves focus to the last item.
-
-```vue
-<SpeedDial aria-label="Options" />
-```
 
 ## Circle
 
@@ -68,6 +58,27 @@ When type is defined as semi-circle , items are displayed in a half-circle aroun
 ## Template
 
 SpeedDial offers item customization with the item template that receives the menuitem instance from the model as a parameter. The button has its own button template, additional slot named icon is provided to embed icon content for default button.
+
+```vue
+<SpeedDial :model="items" direction="up" :transitionDelay="80" :style="{ position: 'absolute' }" pt:menuitem="m-2">
+    <template #button="{ toggleCallback }">
+        <Button variant="outlined" class="border" @click="toggleCallback">
+            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="..." fill="var(--p-primary-color)" />
+                <path d="..." fill="var(--p-text-color)" />
+            </svg>
+        </Button>
+    </template>
+    <template #item="{ item, toggleCallback }">
+        <div class="flex flex-col items-center justify-between gap-2 p-2 border rounded border-surface-200 dark:border-surface-700 w-20 cursor-pointer" @click="toggleCallback">
+            <span :class="item.icon" />
+            <span>
+                {{ item.label }}
+            </span>
+        </div>
+    </template>
+</SpeedDial>
+```
 
 ## Tooltip
 

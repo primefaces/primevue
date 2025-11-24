@@ -2,26 +2,9 @@
 
 Checkbox is an extension to standard checkbox element with theming.
 
-## Import
-
-```javascript
-import Checkbox from 'primevue/checkbox';
-import CheckboxGroup from 'primevue/checkboxgroup';
-```
-
 ## Accessibility
 
 Screen Reader Checkbox component uses a hidden native checkbox element internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the checkbox. space Toggles the checked state.
-
-```vue
-<label for="chkbox1">Remember Me</label>
-<Checkbox inputId="chkbox1" />
-
-<span id="chkbox2">Remember Me</span>
-<Checkbox aria-labelledby="chkbox2" />
-
-<Checkbox aria-label="Remember Me" />
-```
 
 ## Basic
 
@@ -44,6 +27,13 @@ When disabled is present, the element cannot be edited and focused.
 
 Checkboxes can be generated using a list of values.
 
+```vue
+<div v-for="category of categories" :key="category.key" class="flex items-center gap-2">
+    <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
+    <label :for="category.key">{{ category.name }}</label>
+</div>
+```
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -55,6 +45,33 @@ Specify the variant property as filled to display the component with a higher vi
 ## Forms
 
 Checkbox integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+    <div class="flex flex-col gap-2">
+        <CheckboxGroup name="ingredient" class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2">
+                <Checkbox inputId="cheese" value="Cheese" />
+                <label for="cheese"> Cheese </label>
+            </div>
+            <div class="flex items-center gap-2">
+                <Checkbox inputId="mushroom" value="Mushroom" />
+                <label for="mushroom"> Mushroom </label>
+            </div>
+            <div class="flex items-center gap-2">
+                <Checkbox inputId="pepper" value="Pepper" />
+                <label for="pepper"> Pepper </label>
+            </div>
+            <div class="flex items-center gap-2">
+                <Checkbox inputId="onion" value="Onion" />
+                <label for="onion"> Onion </label>
+            </div>
+        </CheckboxGroup>
+        <Message v-if="$form.ingredient?.invalid" severity="error" size="small" variant="simple">{{ $form.ingredient.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Group
 

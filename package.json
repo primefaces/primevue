@@ -32,6 +32,7 @@
         "build:icons": "pnpm --filter icons build",
         "build:forms": "pnpm --filter forms build",
         "build:showcase": "pnpm --filter showcase build",
+        "build:llm": "pnpm --filter showcase build:llmdocs",
         "build:volt": "pnpm --filter volt build",
         "build:apidoc": "pnpm --filter themes build:tokens && pnpm --filter showcase build:apidoc",
         "dev": "pnpm --filter showcase dev",

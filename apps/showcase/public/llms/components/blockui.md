@@ -2,12 +2,6 @@
 
 BlockUI can either block other components or the whole page.
 
-## Import
-
-```javascript
-import BlockUI from 'primevue/blockui';
-```
-
 ## Accessibility
 
 Screen Reader BlockUI manages aria-busy state attribute when the UI gets blocked and unblocked. Any valid attribute is passed to the root element so additional attributes like role and aria-live can be used to define live regions. Keyboard Support Component does not include any interactive elements.

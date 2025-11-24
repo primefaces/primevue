@@ -2,12 +2,6 @@
 
 IftaLabel is used to create infield top aligned labels
 
-## Import
-
-```javascript
-import IftaLabel from 'primevue/iftalabel';
-```
-
 ## Accessibility
 
 Screen Reader IftaLabel does not require any roles and attributes. Keyboard Support Component does not include any interactive elements.

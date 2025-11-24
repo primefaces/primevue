@@ -2,25 +2,9 @@
 
 Password displays strength indicator for password fields.
 
-## Import
-
-```javascript
-import Password from 'primevue/password';
-```
-
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Screen reader is notified about the changes to the strength of the password using a section that has aria-live while typing. Keyboard Support Key Function tab Moves focus to the input. escape Hides the strength meter if open.
-
-```vue
-<label for="pwd1">Password</label>
-<Password inputId="pwd1" />
-
-<span id="pwd2">Password</span>
-<Password aria-labelledby="pwd2" />
-
-<Password aria-label="Password"/>
-```
 
 ## Basic
 
@@ -45,21 +29,6 @@ When disabled is present, the element cannot be edited and focused.
 ```vue
 <Password disabled placeholder="Disabled" />
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Password disabled placeholder="Disabled" />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
 
 ## Filled
 
@@ -101,6 +70,18 @@ The fluid prop makes the component take up the full width of its container when 
 ## Forms
 
 InputText is used with the v-model property.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-64">
+    <div class="flex flex-col gap-1">
+        <Password name="password" placeholder="Password" :feedback="false" fluid />
+        <template v-if="$form.password?.invalid">
+            <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error" size="small" variant="simple">{{ error.message }}</Message>
+        </template>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Ifta Label
 

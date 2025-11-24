@@ -2,23 +2,9 @@
 
 Dialog is a container to display content in an overlay window.
 
-## Import
-
-```javascript
-import Dialog from 'primevue/dialog';
-```
-
 ## Accessibility
 
 Screen Reader Dialog component uses dialog role along with aria-labelledby referring to the header element however any attribute is passed to the root element so you may use aria-labelledby to override this default behavior. In addition aria-modal is added since focus is kept within the popup. Trigger element also requires aria-expanded and aria-controls to be handled explicitly. Close element is a button with an aria-label that refers to the aria.close property of the locale API by default, you may use closeButtonProps to customize the element and override the default aria-label . Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the dialog if modal is true. Otherwise, the focusable element in the page tab sequence. shift + tab Moves focus to the previous the focusable element within the dialog if modal is true. Otherwise, the focusable element in the page tab sequence. escape Closes the dialog if closeOnEscape is true. Close Button Keyboard Support Key Function enter Closes the dialog. space Closes the dialog.
-
-```vue
-<Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'dlg' : null" :aria-expanded="visible ? true : false" />
-
-<Dialog id="dlg" header="Header" v-model:visible="visible" :style="{ width: '50vw' }">
-    <p>Content</p>
-</Dialog>
-```
 
 ## Basic
 

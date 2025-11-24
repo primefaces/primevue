@@ -2,17 +2,6 @@
 
 The Stepper component displays a wizard-like workflow by guiding users through the multi-step progression.
 
-## Import
-
-```javascript
-import Stepper from 'primevue/stepper';
-import StepList from 'primevue/steplist';
-import StepPanels from 'primevue/steppanels';
-import StepItem from 'primevue/stepitem';
-import Step from 'primevue/step';
-import StepPanel from 'primevue/steppanel';
-```
-
 ## Accessibility
 
 Screen Reader Stepper container is defined with the tablist role, as any attribute is passed to the container element aria-labelledby can be optionally used to specify an element to describe the Stepper. Each stepper header has a tab role and aria-controls to refer to the corresponding stepper content element. The content element of each stepper has tabpanel role, an id to match the aria-controls of the header and aria-labelledby reference to the header as the accessible name. Tab Header Keyboard Support Key Function tab Moves focus through the header. enter Activates the focused stepper header. space Activates the focused stepper header.
@@ -58,51 +47,6 @@ Stepper consists of a combination of StepList , Step , StepPanels and StepPanel 
 </Stepper>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Stepper value="1" class="basis-[50rem]">
-            <StepList>
-                <Step value="1">Header I</Step>
-                <Step value="2">Header II</Step>
-                <Step value="3">Header III</Step>
-            </StepList>
-            <StepPanels>
-                <StepPanel v-slot="{ activateCallback }" value="1">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
-                    </div>
-                    <div class="flex pt-6 justify-end">
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('2')" />
-                    </div>
-                </StepPanel>
-                <StepPanel v-slot="{ activateCallback }" value="2">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
-                    </div>
-                    <div class="flex pt-6 justify-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('1')" />
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('3')" />
-                    </div>
-                </StepPanel>
-                <StepPanel v-slot="{ activateCallback }" value="3">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
-                    </div>
-                    <div class="pt-6">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('2')" />
-                    </div>
-                </StepPanel>
-            </StepPanels>
-        </Stepper>
-    </div>
-</template>
-```
-</details>
-
 ## Linear
 
 When linear property is present, current step must be completed in order to move to the next step.
@@ -144,51 +88,6 @@ When linear property is present, current step must be completed in order to move
 </Stepper>
 ```
 
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Stepper value="1" linear class="basis-[50rem]">
-            <StepList>
-                <Step value="1">Header I</Step>
-                <Step value="2">Header II</Step>
-                <Step value="3">Header III</Step>
-            </StepList>
-            <StepPanels>
-                <StepPanel v-slot="{ activateCallback }" value="1">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
-                    </div>
-                    <div class="flex pt-6 justify-end">
-                        <Button label="Next" icon="pi pi-arrow-right" @click="activateCallback('2')" />
-                    </div>
-                </StepPanel>
-                <StepPanel v-slot="{ activateCallback }" value="2">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
-                    </div>
-                    <div class="flex pt-6 justify-between">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('1')" />
-                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('3')" />
-                    </div>
-                </StepPanel>
-                <StepPanel v-slot="{ activateCallback }" value="3">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
-                    </div>
-                    <div class="pt-6">
-                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('2')" />
-                    </div>
-                </StepPanel>
-            </StepPanels>
-        </Stepper>
-    </div>
-</template>
-```
-</details>
-
 ## Steps Only
 
 Use Stepper with a StepList only for custom requirements where a progress indicator is needed.
@@ -202,24 +101,6 @@ Use Stepper with a StepList only for custom requirements where a progress indica
     </StepList>
 </Stepper>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Stepper value="1" class="basis-[50rem]">
-            <StepList>
-                <Step value="1">Design</Step>
-                <Step value="2">Development</Step>
-                <Step value="3">QA</Step>
-            </StepList>
-        </Stepper>
-    </div>
-</template>
-```
-</details>
 
 ## Template
 
@@ -369,53 +250,6 @@ Vertical layout requires StepItem as a wrapper of Step and StepPanel components.
     </StepItem>
 </Stepper>
 ```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card">
-        <Stepper value="1">
-            <StepItem value="1">
-                <Step>Header I</Step>
-                <StepPanel v-slot="{ activateCallback }">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
-                    </div>
-                    <div class="py-6">
-                        <Button label="Next" @click="activateCallback('2')" />
-                    </div>
-                </StepPanel>
-            </StepItem>
-            <StepItem value="2">
-                <Step>Header II</Step>
-                <StepPanel v-slot="{ activateCallback }">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
-                    </div>
-                    <div class="flex py-6 gap-2">
-                        <Button label="Back" severity="secondary" @click="activateCallback('1')" />
-                        <Button label="Next" @click="activateCallback('3')" />
-                    </div>
-                </StepPanel>
-            </StepItem>
-            <StepItem value="3">
-                <Step>Header III</Step>
-                <StepPanel v-slot="{ activateCallback }">
-                    <div class="flex flex-col h-48">
-                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
-                    </div>
-                    <div class="py-6">
-                        <Button label="Back" severity="secondary" @click="activateCallback('2')" />
-                    </div>
-                </StepPanel>
-            </StepItem>
-        </Stepper>
-    </div>
-</template>
-```
-</details>
 
 ## Stepper
 

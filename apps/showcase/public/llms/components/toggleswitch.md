@@ -2,25 +2,9 @@
 
 ToggleSwitch is used to select a boolean value.
 
-## Import
-
-```javascript
-import ToggleSwitch from 'primevue/toggleswitch';
-```
-
 ## Accessibility
 
 Screen Reader ToggleSwitch component uses a hidden native checkbox element with switch role internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the switch. space Toggles the checked state.
-
-```vue
-<label for="switch1">Remember Me</label>
-<ToggleSwitch inputId="switch1" />
-
-<span id="switch2">Remember Me</span>
-<ToggleSwitch aria-labelledby="switch2" />
-
-<ToggleSwitch aria-label="Remember Me" />
-```
 
 ## Basic
 
@@ -41,6 +25,16 @@ When disabled is present, the element cannot be edited and focused.
 ## Forms
 
 ToggleSwitch integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-48">
+    <div class="flex flex-col items-center gap-2">
+        <ToggleSwitch name="activation" />
+        <Message v-if="$form.activation?.invalid" severity="error" size="small" variant="simple">{{ $form.activation.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Invalid
 

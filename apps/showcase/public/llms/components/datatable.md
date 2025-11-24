@@ -2,15 +2,6 @@
 
 DataTable displays data in tabular format.
 
-## Import
-
-```javascript
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
-import ColumnGroup from 'primevue/columngroup';   // optional
-import Row from 'primevue/row';                   // optional
-```
-
 ## AccessibilityDoc
 
 Screen Reader DataTable uses a table element whose attributes can be extended with the tableProps option. This property allows passing aria roles and attributes like aria-label and aria-describedby to define the table for readers. Default role of the table is table . Header, body and footer elements use rowgroup , rows use row role, header cells have columnheader and body cells use cell roles. Sortable headers utilizer aria-sort attribute either set to "ascending" or "descending". Built-in checkbox and radiobutton components for row selection use checkbox and radiobutton . The label to describe them is retrieved from the aria.selectRow and aria.unselectRow properties of the locale API. Similarly header checkbox uses selectAll and unselectAll keys. When a row is selected, aria-selected is set to true on a row. The element to expand or collapse a row is a button with aria-expanded and aria-controls properties. Value to describe the buttons is derived from aria.expandRow and aria.collapseRow properties of the locale API. The filter menu button use aria.showFilterMenu and aria.hideFilterMenu properties as aria-label in addition to the aria-haspopup , aria-expanded and aria-controls to define the relation between the button and the overlay. Popop menu has dialog role with aria-modal as focus is kept within the overlay. The operator dropdown use aria.filterOperator and filter constraints dropdown use aria.filterConstraint properties. Buttons to add rules on the other hand utilize aria.addRule and aria.removeRule properties. The footer buttons similarly use aria.clear and aria.apply properties. filterInputProps of the Column component can be used to define aria labels for the built-in filter components, if a custom component is used with templating you also may define your own aria labels as well. Editable cells use custom templating so you need to manage aria roles and attributes manually if required. The row editor controls are button elements with aria.editRow , aria.cancelEdit and aria.saveEdit used for the aria-label . Paginator is a standalone component used inside the DataTable, refer to the paginator for more information about the accessibility features. Keyboard Support Any button element inside the DataTable used for cases like filter, row expansion, edit are tabbable and can be used with space and enter keys. Sortable Headers Keyboard Support Key Function tab Moves through the headers. enter Sorts the column. space Sorts the column. Filter Menu Keyboard Support Key Function tab Moves through the elements inside the popup. escape Hides the popup. Selection Keyboard Support Key Function tab Moves focus to the first selected row, if there is none then first row receives the focus. up arrow Moves focus to the previous row. down arrow Moves focus to the next row. enter Toggles the selected state of the focused row depending on the metaKeySelection setting. space Toggles the selected state of the focused row depending on the metaKeySelection setting. home Moves focus to the first row. end Moves focus to the last row. shift + down arrow Moves focus to the next row and toggles the selection state. shift + up arrow Moves focus to the previous row and toggles the selection state. shift + space Selects the rows between the most recently selected row and the focused row. control + shift + home Selects the focused rows and all the options up to the first one. control + shift + end Selects the focused rows and all the options down to the last one. control + a Selects all rows.
@@ -32,6 +23,51 @@ DataTable requires a value as data to display and Column components as children 
 
 Columns can be grouped within a Row component and groups can be displayed within a ColumnGroup component. These groups can be displayed using type property that can be header or footer . Number of cells and rows to span are defined with the colspan and rowspan properties of a Column.
 
+```vue
+<DataTable :value="sales" tableStyle="min-width: 50rem">
+    <ColumnGroup type="header">
+        <Row>
+            <Column header="Product" :rowspan="3" />
+            <Column header="Sale Rate" :colspan="4" />
+        </Row>
+        <Row>
+            <Column header="Sales" :colspan="2" />
+            <Column header="Profits" :colspan="2" />
+        </Row>
+        <Row>
+            <Column header="Last Year" sortable field="lastYearSale" />
+            <Column header="This Year" sortable field="thisYearSale" />
+            <Column header="Last Year" sortable field="lastYearProfit" />
+            <Column header="This Year" sortable field="thisYearProfit" />
+        </Row>
+    </ColumnGroup>
+    <Column field="product" />
+    <Column field="lastYearSale">
+        <template #body="slotProps"> {{ slotProps.data.lastYearSale }}% </template>
+    </Column>
+    <Column field="thisYearSale">
+        <template #body="slotProps"> {{ slotProps.data.thisYearSale }}% </template>
+    </Column>
+    <Column field="lastYearProfit">
+        <template #body="slotProps">
+            {{ formatCurrency(slotProps.data.lastYearProfit) }}
+        </template>
+    </Column>
+    <Column field="thisYearProfit">
+        <template #body="slotProps">
+            {{ formatCurrency(slotProps.data.thisYearProfit) }}
+        </template>
+    </Column>
+    <ColumnGroup type="footer">
+        <Row>
+            <Column footer="Totals:" :colspan="3" footerStyle="text-align:right" />
+            <Column :footer="lastYearTotal" />
+            <Column :footer="thisYearTotal" />
+        </Row>
+    </ColumnGroup>
+</DataTable>
+```
+
 ## ColumnToggleDoc
 
 Column visibility based on a condition can be implemented with dynamic columns, in this sample a MultiSelect is used to manage the visible columns.
@@ -48,6 +84,48 @@ Column visibility based on a condition can be implemented with dynamic columns, 
     <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div>
+        <DataTable :value="products" tableStyle="min-width: 50rem">
+            <template #header>
+                <div style="text-align:left">
+                    <MultiSelect :modelValue="selectedColumns" :options="columns" optionLabel="header" @update:modelValue="onToggle"
+                        display="chip" placeholder="Select Columns" />
+                </div>
+            </template>
+            <Column field="code" header="Code" />
+            <Column v-for="(col, index) of selectedColumns" :field="col.field" :header="col.header" :key="col.field + '_' + index"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const columns = ref([
+    {field: 'name', header: 'Name'},
+    {field: 'category', header: 'Category'},
+    {field: 'quantity', header: 'Quantity'}
+]);
+const selectedColumns = ref(columns.value);
+const products = ref();
+const onToggle = (val) => {
+    selectedColumns.value = columns.value.filter(col => val.includes(col));
+};
+
+<\/script>
+```
+</details>
 
 ## ConditionalStyleDoc
 
@@ -66,9 +144,129 @@ Particular rows and cells can be styled based on conditions. The rowClass receiv
 </DataTable>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable :value="products" :rowClass="rowClass" :rowStyle="rowStyle" tableStyle="min-width: 50rem">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity">
+                <template #body="slotProps">
+                    <Badge :value="slotProps.data.quantity" :severity="stockSeverity(slotProps.data)" />
+                </template>
+            </Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (this.products = data));
+});
+
+const products = ref();
+
+const rowClass = (data) => {
+    return [{ '!bg-primary !text-primary-contrast': data.category === 'Fitness' }];
+};
+const rowStyle = (data) => {
+    if (data.quantity === 0) {
+        return { fontWeight: 'bold', fontStyle: 'italic' };
+    }
+};
+const stockSeverity = (data) => {
+    if (data.quantity === 0) return 'danger';
+    else if (data.quantity > 0 && data.quantity < 10) return 'warn';
+    else return 'success';
+}
+
+<\/script>
+```
+</details>
+
 ## ContextMenuDoc
 
 DataTable has exclusive integration with ContextMenu using the contextMenu event to open a menu on right click along with contextMenuSelection property and row-contextmenu event to control the selection via the menu.
+
+```vue
+<ContextMenu ref="cm" :model="menuModel" @hide="selectedProduct = null" />
+<DataTable v-model:contextMenuSelection="selectedProduct" :value="products" contextMenu
+        @row-contextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
+    <Column field="code" header="Code"></Column>
+    <Column field="name" header="Name"></Column>
+    <Column field="category" header="Category"></Column>
+    <Column field="price" header="Price">
+        <template #body="slotProps">
+            {{ formatCurrency(slotProps.data.price) }}
+        </template>
+    </Column>
+</DataTable>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <ContextMenu ref="cm" :model="menuModel" @hide="selectedProduct = null" />
+        <DataTable :value="products" contextMenu v-model:contextMenuSelection="selectedProduct"
+                @rowContextmenu="onRowContextMenu" tableStyle="min-width: 50rem">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="price" header="Price">
+                <template #body="slotProps">
+                    {{formatCurrency(slotProps.data.price)}}
+                </template>
+                </Column>
+        </DataTable>
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const cm = ref();
+const toast = useToast();
+const products = ref();
+const selectedProduct = ref();
+const menuModel = ref([
+    {label: 'View', icon: 'pi pi-fw pi-search', command: () => viewProduct(selectedProduct)},
+    {label: 'Delete', icon: 'pi pi-fw pi-times', command: () => deleteProduct(selectedProduct)}
+]);
+const onRowContextMenu = (event) => {
+    cm.value.show(event.originalEvent);
+};
+const viewProduct = (product) => {
+    toast.add({severity: 'info', summary: 'Product Selected', detail: product.value.name, life: 3000});
+};
+const deleteProduct = (product) => {
+    products.value = products.value.filter((p) => p.id !== product.value.id);
+    toast.add({severity: 'error', summary: 'Product Deleted', detail: product.value.name, life: 3000});
+    selectedProduct.value = null;
+};
+const formatCurrency = (value) => {
+    return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+};
+
+<\/script>
+```
+</details>
 
 ## DynamicColumnsDoc
 
@@ -79,6 +277,38 @@ Columns can be created programmatically.
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable :value="products" tableStyle="min-width: 50rem">
+            <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const products = ref();
+const columns = [
+    { field: 'code', header: 'Code' },
+    { field: 'name', header: 'Name' },
+    { field: 'category', header: 'Category' },
+    { field: 'quantity', header: 'Quantity' }
+];
+
+<\/script>
+```
+</details>
 
 ## ExportDoc
 
@@ -98,6 +328,43 @@ DataTable can export its data to CSV format.
 </DataTable>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div>
+        <DataTable :value="products" ref="dt" tableStyle="min-width: 50rem">
+            <template #header>
+                <div class="text-end pb-4">
+                    <Button icon="pi pi-external-link" label="Export" @click="exportCSV($event)" />
+                </div>
+            </template>
+            <Column field="code" header="Code" exportHeader="Product Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const dt = ref();
+const products = ref();
+const exportCSV = () => {
+    dt.value.exportCSV();
+};
+<\/script>
+```
+</details>
+
 ## Grid Lines
 
 Enabling showGridlines displays borders between cells.
@@ -110,6 +377,35 @@ Enabling showGridlines displays borders between cells.
     <Column field="quantity" header="Quantity"></Column>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable :value="products" showGridlines tableStyle="min-width: 50rem">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const products = ref();
+
+<\/script>
+```
+</details>
 
 ## LazyLoadDoc
 
@@ -129,8 +425,167 @@ Lazy mode is handy to deal with large datasets, instead of loading the entire da
     <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
         <template #body="{ data }">
             <div class="flex items-center gap-2">
-                <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+                <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
+                <span>{{ data.country.name }}</span>
+            </div>
+        </template>
+        <template #filter="{filterModel,filterCallback}">
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+        </template>
+    </Column>
+    <Column field="company" header="Company" filterMatchMode="contains" sortable>
+        <template #filter="{filterModel,filterCallback}">
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+        </template>
+    </Column>
+    <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
+        <template #body="{ data }">
+            <div class="flex items-center gap-2">
+                <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
+                <span>{{ data.representative.name }}</span>
+            </div>
+        </template>
+        <template #filter="{filterModel,filterCallback}">
+            <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+        </template>
+    </Column>
+</DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+	<div class="card">
+        <DataTable :value="customers" lazy paginator :first="first" :rows="10" v-model:filters="filters" ref="dt" dataKey="id"
+            :totalRecords="totalRecords" :loading="loading" @page="onPage($event)" @sort="onSort($event)" @filter="onFilter($event)" filterDisplay="row"
+            :globalFilterFields="['name','country.name', 'company', 'representative.name']"
+            v-model:selection="selectedCustomers" :selectAll="selectAll" @select-all-change="onSelectAllChange" @row-select="onRowSelect" @row-unselect="onRowUnselect" tableStyle="min-width: 75rem">
+            <Column selectionMode="multiple" headerStyle="width: 3rem"></Column>
+            <Column field="name" header="Name" filterMatchMode="startsWith" sortable>
+                <template #filter="{filterModel,filterCallback}">
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+                </template>
+            </Column>
+            <Column field="country.name" header="Country" filterField="country.name" filterMatchMode="contains" sortable>
+                <template #body="{ data }">
+                    <div class="flex items-center gap-2">
+                        <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
+                        <span>{{ data.country.name }}</span>
+                    </div>
+                </template>
+                <template #filter="{filterModel,filterCallback}">
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+                </template>
+            </Column>
+            <Column field="company" header="Company" filterMatchMode="contains" sortable>
+                <template #filter="{filterModel,filterCallback}">
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+                </template>
+            </Column>
+            <Column field="representative.name" header="Representative" filterField="representative.name" sortable>
+                <template #body="{ data }">
+                    <div class="flex items-center gap-2">
+                        <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
+                        <span>{{ data.representative.name }}</span>
+                    </div>
+                </template>
+                <template #filter="{filterModel,filterCallback}">
+                    <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" placeholder="Search" fluid/>
+                </template>
+            </Column>
+        </DataTable>
+	</div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { CustomerService } from '@/service/CustomerService';
+
+onMounted(() => {
+    loading.value = true;
+
+    lazyParams.value = {
+        first: 0,
+        rows: 10,
+        sortField: null,
+        sortOrder: null,
+        filters: filters.value
+    };
+
+    loadLazyData();
+});
+
+const dt = ref();
+const loading = ref(false);
+const totalRecords = ref(0);
+const customers = ref();
+const selectedCustomers = ref();
+const selectAll = ref(false);
+const first = ref(0);
+const filters = ref({
+    'name': {value: '', matchMode: 'contains'},
+    'country.name': {value: '', matchMode: 'contains'},
+    'company': {value: '', matchMode: 'contains'},
+    'representative.name': {value: '', matchMode: 'contains'},
+});
+const lazyParams = ref({});
+const columns = ref([
+    {field: 'name', header: 'Name'},
+    {field: 'country.name', header: 'Country'},
+    {field: 'company', header: 'Company'},
+    {field: 'representative.name', header: 'Representative'}
+]);
+
+const loadLazyData = (event) => {
+    loading.value = true;
+    lazyParams.value = { ...lazyParams.value, first: event?.first || first.value };
+
+    setTimeout(() => {
+        CustomerService.getCustomers({ lazyEvent: JSON.stringify(lazyParams.value) }).then((data) => {
+            customers.value = data.customers;
+            totalRecords.value = data.totalRecords;
+            loading.value = false;
+        });
+    }, Math.random() * 1000 + 250);
+};
+const onPage = (event) => {
+    lazyParams.value = event;
+    loadLazyData(event);
+};
+const onSort = (event) => {
+    lazyParams.value = event;
+    loadLazyData(event);
+};
+const onFilter = (event) => {
+    lazyParams.value.filters = filters.value ;
+    loadLazyData(event);
+};
+const onSelectAllChange = (event) => {
+    selectAll.value = event.checked;
+
+    if (selectAll) {
+        CustomerService.getCustomers().then(data => {
+            selectAll.value = true;
+            selectedCustomers.value = data.customers;
+        });
+    }
+    else {
+        selectAll.value = false;
+        selectedCustomers.value = [];
+    }
+};
+const onRowSelect = () => {
+    selectAll.value = selectedCustomers.value.length === totalRecords.value;
+};
+const onRowUnselect = () => {
+    selectAll.value = false;
+};
+
+<\/script>
+```
+</details>
 
 ## ReorderDoc
 
@@ -142,6 +597,50 @@ Order of the columns and rows can be changed using drag and drop. Column reorder
     <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+	<div>
+        <DataTable :value="products" :reorderableColumns="true" @columnReorder="onColReorder" @rowReorder="onRowReorder" tableStyle="min-width: 50rem">
+            <Column rowReorder headerStyle="width: 3rem" :reorderableColumn="false" />
+            <Column v-for="col of columns" :field="col.field" :header="col.header" :key="col.field"></Column>
+        </DataTable>
+        <Toast />
+	</div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then(data => products.value = data);
+});
+
+const toast = useToast();
+const columns = ref([
+    {field: 'code', header: 'Code'},
+    {field: 'name', header: 'Name'},
+    {field: 'category', header: 'Category'},
+    {field: 'quantity', header: 'Quantity'}
+]);
+const products = ref();
+
+const onColReorder = () => {
+    toast.add({severity:'success', summary: 'Column Reordered', life: 3000});
+};
+const onRowReorder = (event) => {
+    products.value = event.value;
+    toast.add({severity:'success', summary: 'Rows Reordered', life: 3000});
+};
+
+<\/script>
+```
+</details>
 
 ## RowExpansionDoc
 
@@ -160,8 +659,185 @@ Row expansion is controlled with expandedRows property. The column that has the 
     <Column field="name" header="Name"></Column>
     <Column header="Image">
         <template #body="slotProps">
-            <img :src="\
+            <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="shadow-lg" width="64" />
+        </template>
+    </Column>
+    <Column field="price" header="Price">
+        <template #body="slotProps">
+            {{ formatCurrency(slotProps.data.price) }}
+        </template>
+    </Column>
+    <Column field="category" header="Category"></Column>
+    <Column field="rating" header="Reviews">
+        <template #body="slotProps">
+            <Rating :modelValue="slotProps.data.rating" readonly />
+        </template>
+    </Column>
+    <Column header="Status">
+        <template #body="slotProps">
+            <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data)" />
+        </template>
+    </Column>
+    <template #expansion="slotProps">
+        <div class="p-4">
+            <h5>Orders for {{ slotProps.data.name }}</h5>
+            <DataTable :value="slotProps.data.orders">
+                <Column field="id" header="Id" sortable></Column>
+                <Column field="customer" header="Customer" sortable></Column>
+                <Column field="date" header="Date" sortable></Column>
+                <Column field="amount" header="Amount" sortable>
+                    <template #body="slotProps">
+                        {{ formatCurrency(slotProps.data.amount) }}
+                    </template>
+                </Column>
+                <Column field="status" header="Status" sortable>
+                    <template #body="slotProps">
+                        <Tag :value="slotProps.data.status.toLowerCase()" :severity="getOrderSeverity(slotProps.data)" />
+                    </template>
+                </Column>
+                <Column headerStyle="width:4rem">
+                    <template #body>
+                        <Button icon="pi pi-search" />
+                    </template>
+                </Column>
+            </DataTable>
+        </div>
+    </template>
+</DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id"
+                @rowExpand="onRowExpand" @rowCollapse="onRowCollapse" tableStyle="min-width: 60rem">
+            <template #header>
+                <div class="flex flex-wrap justify-end gap-2">
+                    <Button variant="text" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+                    <Button variant="text" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+                </div>
+            </template>
+            <Column expander style="width: 5rem" />
+            <Column field="name" header="Name"></Column>
+            <Column header="Image">
+                <template #body="slotProps">
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="shadow-lg" width="64" />
+                </template>
+            </Column>
+            <Column field="price" header="Price">
+                <template #body="slotProps">
+                    {{ formatCurrency(slotProps.data.price) }}
+                </template>
+            </Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="rating" header="Reviews">
+                <template #body="slotProps">
+                    <Rating :modelValue="slotProps.data.rating" readonly />
+                </template>
+            </Column>
+            <Column header="Status">
+                <template #body="slotProps">
+                    <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data)" />
+                </template>
+            </Column>
+            <template #expansion="slotProps">
+                <div class="p-4">
+                    <h5>Orders for {{ slotProps.data.name }}</h5>
+                    <DataTable :value="slotProps.data.orders">
+                        <Column field="id" header="Id" sortable></Column>
+                        <Column field="customer" header="Customer" sortable></Column>
+                        <Column field="date" header="Date" sortable></Column>
+                        <Column field="amount" header="Amount" sortable>
+                            <template #body="slotProps">
+                                {{ formatCurrency(slotProps.data.amount) }}
+                            </template>
+                        </Column>
+                        <Column field="status" header="Status" sortable>
+                            <template #body="slotProps">
+                                <Tag :value="slotProps.data.status.toLowerCase()" :severity="getOrderSeverity(slotProps.data)" />
+                            </template>
+                        </Column>
+                        <Column headerStyle="width:4rem">
+                            <template #body>
+                                <Button icon="pi pi-search" />
+                            </template>
+                        </Column>
+                    </DataTable>
+                </div>
+            </template>
+        </DataTable>
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { ProductService } from '@/service/ProductService';
+
+const products = ref();
+const expandedRows = ref({});
+const toast = useToast();
+
+onMounted(() => {
+    ProductService.getProductsWithOrdersSmall().then((data) => (products.value = data));
+});
+
+const onRowExpand = (event) => {
+    toast.add({ severity: 'info', summary: 'Product Expanded', detail: event.data.name, life: 3000 });
+};
+const onRowCollapse = (event) => {
+    toast.add({ severity: 'success', summary: 'Product Collapsed', detail: event.data.name, life: 3000 });
+};
+const expandAll = () => {
+    expandedRows.value = products.value.reduce((acc, p) => (acc[p.id] = true) && acc, {});
+};
+const collapseAll = () => {
+    expandedRows.value = null;
+};
+const formatCurrency = (value) => {
+    return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+};
+const getSeverity = (product) => {
+    switch (product.inventoryStatus) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+};
+const getOrderSeverity = (order) => {
+    switch (order.status) {
+        case 'DELIVERED':
+            return 'success';
+
+        case 'CANCELLED':
+            return 'danger';
+
+        case 'PENDING':
+            return 'warn';
+
+        case 'RETURNED':
+            return 'info';
+
+        default:
+            return null;
+    }
+};
+
+<\/script>
+```
+</details>
 
 ## Size
 
@@ -176,6 +852,44 @@ In addition to a regular table, alternatives with alternative sizes are availabl
     <Column field="quantity" header="Quantity"></Column>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex justify-center mb-6">
+            <SelectButton v-model="size" :options="sizeOptions" optionLabel="label" dataKey="label" />
+        </div>
+        <DataTable :value="products" :size="size.value" tableStyle="min-width: 50rem">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const products = ref();
+const size = ref({ label: 'Normal', value: 'null' });
+const sizeOptions = ref([
+    { label: 'Small', value: 'small' },
+    { label: 'Normal', value: 'null' },
+    { label: 'Large', value: 'large' }
+]);
+
+<\/script>
+```
+</details>
 
 ## StatefulDoc
 
@@ -201,8 +915,172 @@ Stateful table allows keeping the state such as page, sort and filtering either 
     <Column header="Country" sortable sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
         <template #body="{ data }">
             <div class="flex items-center gap-2">
-                <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
+                <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
+                <span>{{ data.country.name }}</span>
+            </div>
+        </template>
+        <template #filter="{ filterModel }">
+            <InputText v-model="filterModel.value" type="text" placeholder="Search by country" />
+        </template>
+    </Column>
+    <Column header="Representative" sortable sortField="representative.name" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="width: 25%">
+        <template #body="{ data }">
+            <div class="flex items-center gap-2">
+                <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
+                <span>{{ data.representative.name }}</span>
+            </div>
+        </template>
+        <template #filter="{ filterModel }">
+            <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any">
+                <template #option="slotProps">
+                    <div class="flex items-center gap-2">
+                        <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
+                        <span>{{ slotProps.option.name }}</span>
+                    </div>
+                </template>
+            </MultiSelect>
+        </template>
+    </Column>
+    <Column field="status" header="Status" sortable filterMatchMode="equals" style="width: 25%">
+        <template #body="{ data }">
+            <Tag :value="data.status" :severity="getSeverity(data.status)" />
+        </template>
+        <template #filter="{ filterModel }">
+            <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" showClear>
+                <template #option="slotProps">
+                    <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
+                </template>
+            </Select>
+        </template>
+    </Column>
+    <template #empty> No customers found. </template>
+</DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable v-model:filters="filters" v-model:selection="selectedCustomer" :value="customers"
+                stateStorage="session" stateKey="dt-state-demo-session" paginator :rows="5" filterDisplay="menu"
+                selectionMode="single" dataKey="id" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']" tableStyle="min-width: 50rem">
+            <template #header>
+                <IconField>
+                <InputIcon>
+                    <i class="pi pi-search" />
+                </InputIcon>
+                <InputText v-model="filters['global'].value" placeholder="Global Search" />
+            </IconField>
+            </template>
+            <Column field="name" header="Name" sortable style="width: 25%">
+                <template #filter="{ filterModel }">
+                    <InputText v-model="filterModel.value" type="text" placeholder="Search by name" />
+                </template>
+            </Column>
+            <Column header="Country" sortable sortField="country.name" filterField="country.name" filterMatchMode="contains" style="width: 25%">
+                <template #body="{ data }">
+                    <div class="flex items-center gap-2">
+                        <img alt="flag" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${data.country.code}\`" style="width: 24px" />
+                        <span>{{ data.country.name }}</span>
+                    </div>
+                </template>
+                <template #filter="{ filterModel }">
+                    <InputText v-model="filterModel.value" type="text" placeholder="Search by country" />
+                </template>
+            </Column>
+            <Column header="Representative" sortable sortField="representative.name" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="width: 25%">
+                <template #body="{ data }">
+                    <div class="flex items-center gap-2">
+                        <img :alt="data.representative.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${data.representative.image}\`" style="width: 32px" />
+                        <span>{{ data.representative.name }}</span>
+                    </div>
+                </template>
+                <template #filter="{ filterModel }">
+                    <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any">
+                        <template #option="slotProps">
+                            <div class="flex items-center gap-2">
+                                <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
+                                <span>{{ slotProps.option.name }}</span>
+                            </div>
+                        </template>
+                    </MultiSelect>
+                </template>
+            </Column>
+            <Column field="status" header="Status" sortable filterMatchMode="equals" style="width: 25%">
+                <template #body="{ data }">
+                    <Tag :value="data.status" :severity="getSeverity(data.status)" />
+                </template>
+                <template #filter="{ filterModel }">
+                    <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" showClear>
+                        <template #option="slotProps">
+                            <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
+                        </template>
+                    </Select>
+                </template>
+            </Column>
+            <template #empty> No customers found. </template>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { CustomerService } from '@/service/CustomerService';
+import { FilterMatchMode, FilterOperator } from '@primevue/core/api';
+
+const customers = ref();
+const selectedCustomer = ref();
+const filters = ref(
+    {
+        global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+        name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+        'country.name': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+        representative: { value: null, matchMode: FilterMatchMode.IN },
+        status: { operator: FilterOperator.OR, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] }
+    }
+);
+const representatives = ref([
+    { name: 'Amy Elsner', image: 'amyelsner.png' },
+    { name: 'Anna Fali', image: 'annafali.png' },
+    { name: 'Asiya Javayant', image: 'asiyajavayant.png' },
+    { name: 'Bernardo Dominic', image: 'bernardodominic.png' },
+    { name: 'Elwin Sharvill', image: 'elwinsharvill.png' },
+    { name: 'Ioni Bowcher', image: 'ionibowcher.png' },
+    { name: 'Ivan Magalhaes', image: 'ivanmagalhaes.png' },
+    { name: 'Onyama Limba', image: 'onyamalimba.png' },
+    { name: 'Stephen Shaw', image: 'stephenshaw.png' },
+    { name: 'XuXue Feng', image: 'xuxuefeng.png' }
+]);
+const statuses = ref(['unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal']);
+
+onMounted(() => {
+    CustomerService.getCustomersSmall().then((data) => (customers.value = data));
+});
+
+const getSeverity = (status) => {
+    switch (status) {
+        case 'unqualified':
+            return 'danger';
+
+        case 'qualified':
+            return 'success';
+
+        case 'new':
+            return 'info';
+
+        case 'negotiation':
+            return 'warn';
+
+        case 'renewal':
+            return null;
+    }
+};
+
+<\/script>
+```
+</details>
 
 ## StripedRowsDoc
 
@@ -216,6 +1094,35 @@ Alternating rows are displayed when stripedRows property is present.
     <Column field="quantity" header="Quantity"></Column>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable :value="products" stripedRows tableStyle="min-width: 50rem">
+            <Column field="code" header="Code"></Column>
+            <Column field="name" header="Name"></Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="quantity" header="Quantity"></Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const products = ref();
+
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -232,8 +1139,100 @@ Custom content at header and footer sections are supported via templating.
     <Column field="name" header="Name"></Column>
     <Column header="Image">
         <template #body="slotProps">
-            <img :src="\
+            <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-24 rounded" />
+        </template>
+    </Column>
+    <Column field="price" header="Price">
+        <template #body="slotProps">
+            {{ formatCurrency(slotProps.data.price) }}
+        </template>
+    </Column>
+    <Column field="category" header="Category"></Column>
+    <Column field="rating" header="Reviews">
+        <template #body="slotProps">
+            <Rating :modelValue="slotProps.data.rating" readonly />
+        </template>
+    </Column>
+    <Column header="Status">
+        <template #body="slotProps">
+            <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data)" />
+        </template>
+    </Column>
+    <template #footer> In total there are {{ products ? products.length : 0 }} products. </template>
+</DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable :value="products" tableStyle="min-width: 50rem">
+            <template #header>
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <span class="text-xl font-bold">Products</span>
+                    <Button icon="pi pi-refresh" rounded raised />
+                </div>
+            </template>
+            <Column field="name" header="Name"></Column>
+            <Column header="Image">
+                <template #body="slotProps">
+                    <img :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.data.image}\`" :alt="slotProps.data.image" class="w-24 rounded" />
+                </template>
+            </Column>
+            <Column field="price" header="Price">
+                <template #body="slotProps">
+                    {{ formatCurrency(slotProps.data.price) }}
+                </template>
+            </Column>
+            <Column field="category" header="Category"></Column>
+            <Column field="rating" header="Reviews">
+                <template #body="slotProps">
+                    <Rating :modelValue="slotProps.data.rating" readonly />
+                </template>
+            </Column>
+            <Column header="Status">
+                <template #body="slotProps">
+                    <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data)" />
+                </template>
+            </Column>
+            <template #footer> In total there are {{ products ? products.length : 0 }} products. </template>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+onMounted(() => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+});
+
+const products = ref();
+const formatCurrency = (value) => {
+    return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+};
+const getSeverity = (product) => {
+    switch (product.inventoryStatus) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warn';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+};
+
+<\/script>
+```
+</details>
 
 ## Data Table
 

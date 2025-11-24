@@ -2,26 +2,9 @@
 
 RadioButton is an extension to standard radio button element with theming.
 
-## Import
-
-```javascript
-import RadioButton from 'primevue/radiobutton';
-import RadioButtonGroup from 'primevue/radiobuttongroup';
-```
-
 ## Accessibility
 
 Screen Reader RadioButton component uses a hidden native radio button element internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the checked radio button, if there is none within the group then first radio button receives the focus. left arrow up arrow Moves focus to the previous radio button, if there is none then last radio button receives the focus. right arrow down arrow Moves focus to the next radio button, if there is none then first radio button receives the focus. space If the focused radio button is unchecked, changes the state to checked.
-
-```vue
-<label for="rb1">One</label>
-<RadioButton inputId="rb1" />
-
-<span id="rb2">Two</span>
-<RadioButton aria-labelledby="rb2" />
-
-<RadioButton aria-label="Three" />
-```
 
 ## Disabled
 
@@ -36,6 +19,13 @@ When disabled is present, the element cannot be edited and focused.
 
 RadioButtons can be generated using a list of values.
 
+```vue
+<div v-for="category in categories" :key="category.key" class="flex items-center gap-2">
+    <RadioButton v-model="selectedCategory" :inputId="category.key" name="dynamic" :value="category.name" />
+    <label :for="category.key">{{ category.name }}</label>
+</div>
+```
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -47,6 +37,33 @@ Specify the variant property as filled to display the component with a higher vi
 ## Forms
 
 RadioButton integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-2">
+        <RadioButtonGroup name="ingredient" class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2">
+                <RadioButton inputId="cheese" value="Cheese" />
+                <label for="cheese">Cheese</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton inputId="mushroom" value="Mushroom" />
+                <label for="mushroom">Mushroom</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton inputId="pepper" value="Pepper" />
+                <label for="pepper">Pepper</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton inputId="onion" value="Onion" />
+                <label for="onion">Onion</label>
+            </div>
+        </RadioButtonGroup>
+        <Message v-if="$form.ingredient?.invalid" severity="error" size="small" variant="simple">{{ $form.ingredient.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Group
 

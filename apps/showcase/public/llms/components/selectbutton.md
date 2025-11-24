@@ -2,22 +2,9 @@
 
 SelectButton is used to choose single or multiple items from a list using buttons.
 
-## Import
-
-```javascript
-import SelectButton from 'primevue/selectbutton';
-```
-
 ## Accessibility
 
 Screen Reader SelectButton component uses ToggleButton internally and has group role. Value to describe the component can be provided via aria-labelledby property. Keyboard Support Keyboard interaction is derived from the native browser handling of checkboxs in a group. Key Function tab Moves focus to the next the focusable element in the page tab sequence. shift + tab Moves focus to the previous the focusable element in the page tab sequence. space Toggles the checked state of a button.
-
-```vue
-<span id="label_number">Number</span>
-<Slider aria-labelledby="label_number" />
-
-<Slider aria-label="Number" />
-```
 
 ## Basic
 
@@ -47,6 +34,16 @@ The fluid prop makes the component take up the full width of its container when 
 ## Forms
 
 SelectButton integrates seamlessly with the PrimeVue Forms library.
+
+```vue
+<Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-1">
+        <SelectButton name="selection" :options="options" />
+        <Message v-if="$form.selection?.invalid" severity="error">{{ $form.selection.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
 
 ## Invalid
 

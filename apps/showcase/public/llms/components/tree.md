@@ -2,12 +2,6 @@
 
 Tree is used to display hierarchical data.
 
-## Import
-
-```javascript
-import Tree from 'primevue/tree';
-```
-
 ## AccessibilityDoc
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The root list element has a tree role whereas each list item has a treeitem role along with aria-label , aria-selected and aria-expanded attributes. In checkbox selection, aria-checked is used instead of aria-selected . The container element of a treenode has the group role. Checkbox and toggle icons are hidden from screen readers as their parent element with treeitem role and attributes are used instead for readers and keyboard support. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Keyboard Support Key Function tab Moves focus to the first selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the next focusable element in the page tab sequence. shift + tab Moves focus to the last selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the previous focusable element in the page tab sequence. enter Selects the focused treenode. space Selects the focused treenode. down arrow Moves focus to the next treenode. up arrow Moves focus to the previous treenode. right arrow If node is closed, opens the node otherwise moves focus to the first child node. left arrow If node is open, closes the node otherwise moves focus to the parent node.
@@ -32,6 +26,56 @@ Tree state can be controlled programmatically with the expandedKeys property tha
 <Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-[30rem]"></Tree>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-wrap gap-2 mb-6">
+            <Button type="button" icon="pi pi-plus" label="Expand All" @click="expandAll" />
+            <Button type="button" icon="pi pi-minus" label="Collapse All" @click="collapseAll" />
+        </div>
+        <Tree v-model:expandedKeys="expandedKeys" :value="nodes" class="w-full md:w-[30rem]"></Tree>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+const nodes = ref(null);
+const expandedKeys = ref({});
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+
+const expandAll = () => {
+    for (let node of nodes.value) {
+        expandNode(node);
+    }
+
+    expandedKeys.value = { ...expandedKeys.value };
+};
+
+const collapseAll = () => {
+    expandedKeys.value = {};
+};
+
+const expandNode = (node) => {
+    if (node.children && node.children.length) {
+        expandedKeys.value[node.key] = true;
+
+        for (let child of node.children) {
+            expandNode(child);
+        }
+    }
+};
+<\/script>
+```
+</details>
+
 ## EventsDoc
 
 An event is provided for each type of user interaction such as expand, collapse and selection.
@@ -41,6 +85,50 @@ An event is provided for each type of user interaction such as expand, collapse 
     @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect" @nodeExpand="onNodeExpand" @nodeCollapse="onNodeCollapse" class="w-full md:w-[30rem]"></Tree>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Toast />
+        <Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false"
+            @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect" @nodeExpand="onNodeExpand" @nodeCollapse="onNodeCollapse" class="w-full md:w-[30rem]"></Tree>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+import { useToast } from "primevue/usetoast";
+
+const nodes = ref(null);
+const selectedKey = ref(null);
+const toast = useToast();
+
+onMounted(() => {
+    NodeService.getTreeNodes().then((data) => (nodes.value = data));
+});
+
+const onNodeSelect = (node) => {
+    toast.add({ severity: 'success', summary: 'Node Selected', detail: node.label, life: 3000 });
+};
+
+const onNodeUnselect = (node) => {
+    toast.add({ severity: 'warn', summary: 'Node Unselected', detail: node.label, life: 3000 });
+};
+
+const onNodeExpand = (node) => {
+    toast.add({ severity: 'info', summary: 'Node Expanded', detail: node.label, life: 3000 });
+};
+
+const onNodeCollapse = (node) => {
+    toast.add({ severity: 'info', summary: 'Node Collapsed', detail: node.label, life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## FilterDoc
 
 Filtering is enabled by adding the filter property, by default label property of a node is used to compare against the value in the text field, in order to customize which field(s) should be used during search define filterBy property. In addition filterMode specifies the filtering strategy. In lenient mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, in strict mode when the query matches a node, filtering continues on all descendants.
@@ -49,6 +137,30 @@ Filtering is enabled by adding the filter property, by default label property of
 <Tree :value="nodes" :filter="true" filterMode="lenient" class="w-full md:w-[30rem]"></Tree>
 <Tree :value="nodes" :filter="true" filterMode="strict" class="w-full md:w-[30rem]"></Tree>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-8">
+        <Tree :value="nodes" :filter="true" filterMode="lenient" class="w-full md:w-[30rem]"></Tree>
+        <Tree :value="nodes" :filter="true" filterMode="strict" class="w-full md:w-[30rem]"></Tree>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+const nodes = ref(null);
+
+onMounted(() => {
+    NodeService.getTreeNodes().then(data => nodes.value = data);
+});
+<\/script>
+```
+</details>
 
 ## LazyDoc
 
@@ -62,6 +174,63 @@ Lazy loading is useful when dealing with huge datasets, in this example nodes ar
 ## TemplateDoc
 
 Each node can have a distinct template by matching the type property to the slot name.
+
+```vue
+<Tree :value="nodes" class="w-full md:w-[30rem]">
+    <template #default="slotProps">
+        <b>{{ slotProps.node.label }}</b>
+    </template>
+    <template #url="slotProps">
+        <a :href="slotProps.node.data">{{ slotProps.node.label }}</a>
+    </template>
+</Tree>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Tree :value="nodes" class="w-full md:w-[30rem]">
+            <template #default="slotProps">
+                <b>{{ slotProps.node.label }}</b>
+            </template>
+            <template #url="slotProps">
+                <a :href="slotProps.node.data" target="_blank" rel="noopener noreferrer" class="text-surface-700 dark:text-surface-0 hover:text-primary">{{ slotProps.node.label }}</a>
+            </template>
+        </Tree>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const nodes = ref([
+    {
+        key: '0',
+        label: 'Introduction',
+        children: [
+            { key: '0-0', label: 'What is Vue.js?', data: 'https://vuejs.org/guide/introduction.html#what-is-vue', type: 'url' },
+            { key: '0-1', label: 'Quick Start', data: 'https://vuejs.org/guide/quick-start.html#quick-start', type: 'url' },
+            { key: '0-2', label: 'Creating a Vue Application', data: 'https://vuejs.org/guide/essentials/application.html#creating-a-vue-application', type: 'url' },
+                { key: '0-3', label: 'Conditional Rendering', data: 'https://vuejs.org/guide/essentials/conditional.html#conditional-rendering', type: 'url' }
+        ]
+    },
+    {
+        key: '1',
+        label: 'Components In-Depth',
+        children: [
+            { key: '1-0', label: 'Component Registration', data: 'https://vuejs.org/guide/components/registration.html#component-registration', type: 'url' },
+            { key: '1-1', label: 'Props', data: 'https://vuejs.org/guide/components/props.html#props', type: 'url' },
+            { key: '1-2', label: 'Components Events', data: 'https://vuejs.org/guide/components/events.html#component-events', type: 'url' },
+            { key: '1-3', label: 'Slots', data: 'https://vuejs.org/guide/components/slots.html#slots', type: 'url' }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Tree
 

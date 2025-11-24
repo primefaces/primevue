@@ -2,12 +2,6 @@
 
 Dock is a navigation component consisting of menuitems.
 
-## Import
-
-```javascript
-import Dock from 'primevue/dock';
-```
-
 ## Accessibility
 
 Screen Reader Dock component uses the menu role with the aria-orientation and the value to describe the menu can either be provided with aria-labelledby or aria-label props. Each list item has a menuitem role with aria-label referring to the label of the item and aria-disabled defined if the item is disabled. Keyboard Support Key Function tab Moves focus to the first menuitem. enter Activates the focused menuitem. space Activates the focused menuitem. down arrow Moves focus to the next menuitem in vertical layout. up arrow Moves focus to the previous menuitem in vertical layout. right arrow Moves focus to the next menuitem in horizontal layout. left arrow Moves focus to the previous menuitem in horizontal layout. home Moves focus to the first menuitem. end Moves focus to the last menuitem.

@@ -2,12 +2,6 @@
 
 FloatLabel visually integrates a label with its form element.
 
-## Import
-
-```javascript
-import FloatLabel from 'primevue/floatlabel';
-```
-
 ## Accessibility
 
 Screen Reader FloatLabel does not require any roles and attributes. Keyboard Support Component does not include any interactive elements.

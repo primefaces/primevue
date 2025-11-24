@@ -2,12 +2,6 @@
 
 Galleria is a content gallery component.
 
-## Import
-
-```javascript
-import Galleria from 'primevue/galleria';
-```
-
 ## AccessibilityDoc
 
 Screen Reader Galleria uses region role and since any attribute is passed to the main container element, attributes such as aria-label and aria-roledescription can be used as well. The slides container has aria-live attribute set as "polite" if galleria is not in autoplay mode, otherwise "off" would be the value in autoplay. A slide has a group role with an aria-label that refers to the aria.slideNumber property of the locale API. Similarly aria.slide is used as the aria-roledescription of the item. Inactive slides are hidden from the readers with aria-hidden . Next and Previous navigators are button elements with aria-label attributes referring to the aria.prevPageLabel and aria.nextPageLabel properties of the locale API by default respectively, you may still use your own aria roles and attributes as any valid attribute is passed to the button elements implicitly by using nextButtonProps and prevButtonProps . Quick navigation elements and thumnbails follow the tab pattern. They are placed inside an element with a tablist role whereas each item has a tab role with aria-selected and aria-controls attributes. The aria-label attribute of a quick navigation item refers to the aria.pageLabel of the locale API. Current page is marked with aria-current . In full screen mode, modal element uses dialog role with aria-modal enabled. The close button retrieves aria-label from the aria.close property of the locale API. Next/Prev Keyboard Support Key Function tab Moves focus through interactive elements in the carousel. enter Activates navigation. space Activates navigation. Quick Navigation Keyboard Support Key Function tab Moves focus through the active slide link. enter Activates the focused slide link. space Activates the focused slide link. right arrow Moves focus to the next slide link. left arrow Moves focus to the previous slide link. home Moves focus to the first slide link. end Moves focus to the last slide link.
@@ -15,6 +9,208 @@ Screen Reader Galleria uses region role and since any attribute is passed to the
 ## AdvancedDoc
 
 Advanced Galleria implementation with a custom UI.
+
+```vue
+<Galleria
+    ref="galleria"
+    v-model:activeIndex="activeIndex"
+    :value="images"
+    :numVisible="5"
+    containerStyle="max-width: 640px"
+    :showThumbnails="showThumbnails"
+    :showItemNavigators="true"
+    :showItemNavigatorsOnHover="true"
+    :circular="true"
+    :autoPlay="isAutoPlay"
+    :transitionInterval="3000"
+    :responsiveOptions="responsiveOptions"
+    :pt="{
+        root: {
+            class: [{ 'flex flex-col': fullScreen }]
+        },
+        content: {
+            class: ['relative', { 'flex-1 justify-center': fullScreen }]
+        },
+        thumbnails: 'absolute w-full left-0 bottom-0'
+    }"
+>
+    <template #item="slotProps">
+        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
+    </template>
+    <template #thumbnail="slotProps">
+        <div class="grid gap-4 justify-center">
+            <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+        </div>
+    </template>
+    <template #footer>
+        <div class="flex items-stretch bg-surface-950 text-white h-10">
+            <button type="button" @click="onThumbnailButtonClick" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3">
+                <i class="pi pi-th-large"></i>
+            </button>
+            <button type="button" @click="toggleAutoSlide" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3"><i :class="slideButtonIcon"></i></button>
+            <span v-if="images" class="flex items-center gap-4 ml-3">
+                <span class="text-sm">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                <span class="font-bold text-sm">{{ images[activeIndex].title }}</span>
+                <span class="text-sm">{{ images[activeIndex].alt }}</span>
+            </span>
+            <button type="button" @click="toggleFullScreen" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3 ml-auto">
+                <i :class="fullScreenIcon"></i>
+            </button>
+        </div>
+    </template>
+</Galleria>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Galleria
+            ref="galleria"
+            v-model:activeIndex="activeIndex"
+            :value="images"
+            :numVisible="5"
+            containerStyle="max-width: 640px"
+            :showThumbnails="showThumbnails"
+            :showItemNavigators="true"
+            :showItemNavigatorsOnHover="true"
+            :circular="true"
+            :autoPlay="isAutoPlay"
+            :transitionInterval="3000"
+            :responsiveOptions="responsiveOptions"
+            :pt="{
+                root: {
+                    class: [{ 'flex flex-col': fullScreen }]
+                },
+                content: {
+                    class: ['relative', { 'flex-1 justify-center': fullScreen }]
+                },
+                thumbnails: 'absolute w-full left-0 bottom-0'
+            }"
+        >
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" :style="[{ width: !fullScreen ? '100%' : '', display: !fullScreen ? 'block' : '' }]" />
+            </template>
+            <template #thumbnail="slotProps">
+                <div class="grid gap-4 justify-center">
+                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+                </div>
+            </template>
+            <template #footer>
+                <div class="flex items-stretch bg-surface-950 text-white h-10">
+                    <button type="button" @click="onThumbnailButtonClick" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3">
+                        <i class="pi pi-th-large"></i>
+                    </button>
+                    <button type="button" @click="toggleAutoSlide" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3"><i :class="slideButtonIcon"></i></button>
+                    <span v-if="images" class="flex items-center gap-4 ml-3">
+                        <span class="text-sm">{{ activeIndex + 1 }}/{{ images.length }}</span>
+                        <span class="font-bold text-sm">{{ images[activeIndex].title }}</span>
+                        <span class="text-sm">{{ images[activeIndex].alt }}</span>
+                    </span>
+                    <button type="button" @click="toggleFullScreen" class="bg-transparent border-none rounded-none hover:bg-white/10 text-white inline-flex justify-center items-center cursor-pointer px-3 ml-auto">
+                        <i :class="fullScreenIcon"></i>
+                    </button>
+                </div>
+            </template>
+        </Galleria>
+    </div>
+</template>
+
+<script setup>
+import { ref, computed, onMounted } from "vue";
+import { PhotoService } from '@/service/PhotoService';
+
+onMounted(() => {
+    PhotoService.getImages().then((data) => (images.value = data));
+    bindDocumentListeners();
+});
+
+const galleria = ref();
+const images = ref();
+const activeIndex = ref(0);
+const showThumbnails = ref(false);
+const fullScreen = ref(false);
+const isAutoPlay = ref(true);
+
+const toggleAutoSlide = () => {
+    isAutoPlay.value  = !isAutoPlay.value ;
+};
+const onThumbnailButtonClick = () => {
+    showThumbnails.value  = !showThumbnails.value ;
+};
+
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+
+const toggleFullScreen = () => {
+    if (fullScreen.value ) {
+        closeFullScreen();
+    } else {
+        openFullScreen();
+    }
+};
+const onFullScreenChange = () => {
+    fullScreen.value  = !fullScreen.value ;
+};
+const openFullScreen = () =>{
+    let elem = galleria.value.$el;
+
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+        /* Firefox */
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+        /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+        /* IE/Edge */
+        elem.msRequestFullscreen();
+    }
+};
+const closeFullScreen = () => {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+    }
+};
+const bindDocumentListeners = () => {
+    document.addEventListener('fullscreenchange', onFullScreenChange);
+    document.addEventListener('mozfullscreenchange', onFullScreenChange);
+    document.addEventListener('webkitfullscreenchange', onFullScreenChange);
+    document.addEventListener('msfullscreenchange', onFullScreenChange);
+};
+const unbindDocumentListeners = () => {
+    document.removeEventListener('fullscreenchange', onFullScreenChange);
+    document.removeEventListener('mozfullscreenchange', onFullScreenChange);
+    document.removeEventListener('webkitfullscreenchange', onFullScreenChange);
+    document.removeEventListener('msfullscreenchange', onFullScreenChange);
+};
+
+const fullScreenIcon = computed(() => {
+    return \`pi \${fullScreen.value ? 'pi-window-minimize' : 'pi-window-maximize'}\`;
+});
+const slideButtonIcon = computed(() => {
+    return \`pi \${isAutoPlay.value ? 'pi-pause' : 'pi-play'}\`;
+});
+<\/script>
+```
+</details>
 
 ## AutoPlayDoc
 
@@ -31,6 +227,47 @@ A slideshow implementation is defined by adding circular and autoPlay properties
     </template>
 </Galleria>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px"
+            :circular="true" :autoPlay="true" :transitionInterval="2000">
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+            </template>
+            <template #thumbnail="slotProps">
+                <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+            </template>
+        </Galleria>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { PhotoService } from '@/service/PhotoService';
+
+onMounted(() => {
+    PhotoService.getImages().then((data) => (images.value = data));
+});
+
+const images = ref();
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Basic
 
@@ -50,6 +287,65 @@ Galleria requires a value as a collection of images, item template for the highe
 ## CaptionDoc
 
 Description of an image is specified with the caption property that takes the displayed object and returns content.
+
+```vue
+<Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
+    <template #item="slotProps">
+        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+    </template>
+    <template #thumbnail="slotProps">
+        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+    </template>
+    <template #caption="slotProps">
+        <div class="text-xl mb-2 font-bold">{{ slotProps.item.title }}</div>
+        <p class="text-white">{{ slotProps.item.alt }}</p>
+    </template>
+</Galleria>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+            </template>
+            <template #thumbnail="slotProps">
+                <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+            </template>
+            <template #caption="slotProps">
+                <div class="text-xl mb-2 font-bold">{{ slotProps.item.title }}</div>
+                <p class="text-white">{{ slotProps.item.alt }}</p>
+            </template>
+        </Galleria>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { PhotoService } from '@/service/PhotoService';
+
+onMounted(() => {
+    PhotoService.getImages().then((data) => (images.value = data));
+});
+
+const images = ref();
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Controlled
 
@@ -71,6 +367,59 @@ Galleria can be controlled programmatically using a binding to activeIndex .
 </Galleria>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="mb-4">
+            <Button icon="pi pi-minus" @click="prev" />
+            <Button icon="pi pi-plus" @click="next" severity="secondary" class="ml-2" />
+        </div>
+
+        <Galleria v-model:activeIndex="activeIndex" :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" containerStyle="max-width: 640px">
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
+            </template>
+            <template #thumbnail="slotProps">
+                <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
+            </template>
+        </Galleria>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { PhotoService } from '@/service/PhotoService';
+
+onMounted(() => {
+    PhotoService.getImages().then((data) => (images.value = data));
+});
+
+const images = ref();
+const activeIndex = ref(2);
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+
+const next = () => {
+    activeIndex.value = activeIndex.value === images.value.length - 1 ? images.value.length - 1 : activeIndex.value + 1;
+};
+const prev = () => {
+    activeIndex.value = activeIndex.value === 0 ? 0 : activeIndex.value - 1;
+};
+<\/script>
+```
+</details>
+
 ## ResponsiveDoc
 
 Settings per screen size is defined via the responsiveOptions property.
@@ -85,6 +434,46 @@ Settings per screen size is defined via the responsiveOptions property.
     </template>
 </Galleria>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5" :circular="true" containerStyle="max-width: 640px">
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+            </template>
+            <template #thumbnail="slotProps">
+                <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+            </template>
+        </Galleria>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { PhotoService } from '@/service/PhotoService';
+
+onMounted(() => {
+    PhotoService.getImages().then((data) => (images.value = data));
+});
+
+const images = ref();
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+<\/script>
+```
+</details>
 
 ## ThumbnailDoc
 
@@ -102,6 +491,73 @@ Thumbnails represent a smaller version of the actual content.
     </template>
 </Galleria>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-wrap gap-4 mb-8">
+            <div v-for="option in positionOptions" :key="option.label" class="flex items-center">
+                <RadioButton v-model="position" :inputId="option.label" name="option" :value="option.value" />
+                <label :for="option.label" class="ml-2"> {{ option.label }} </label>
+            </div>
+        </div>
+        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="4" :thumbnailsPosition="position" containerStyle="max-width: 640px">
+            <template #item="slotProps">
+                <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+            </template>
+            <template #thumbnail="slotProps">
+                <div class="grid gap-4 justify-center">
+                    <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block;" />
+                </div>
+            </template>
+        </Galleria>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { PhotoService } from '@/service/PhotoService';
+
+const images = ref();
+const position = ref('bottom');
+const positionOptions = ref([
+    {
+        label: 'Bottom',
+        value: 'bottom'
+    },
+    {
+        label: 'Top',
+        value: 'top'
+    },
+    {
+        label: 'Left',
+        value: 'left'
+    },
+    {
+        label: 'Right',
+        value: 'right'
+    }
+]);
+const responsiveOptions = ref([
+    {
+        breakpoint: '1300px',
+        numVisible: 4
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1
+    }
+]);
+
+onMounted(() => {
+    PhotoService.getImages().then((data) => (images.value = data));
+});
+<\/script>
+```
+</details>
 
 ## Galleria
 

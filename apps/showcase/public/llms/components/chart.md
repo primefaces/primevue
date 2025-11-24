@@ -2,19 +2,9 @@
 
 Chart components are based on Chart.js, an open source HTML5 based charting library.
 
-## Import
-
-```javascript
-import Chart from 'primevue/chart';
-```
-
 ## Accessibility
 
 Screen Reader Chart components internally use canvas element, refer to the Chart.js accessibility guide for more information. The canvas element can be customized with canvasProps property to define aria roles and properties, in addition any content inside the component is directly passed as a child of the canvas to be able to provide fallback content like a table.
-
-```vue
-<Chart type="line" :data="data" :canvasProps="{'role': 'img', 'aria-label': 'Data'}" />
-```
 
 ## Basic
 
@@ -27,10 +17,6 @@ A chart is configured with 3 properties; type , data and options . Chart type is
 ## Chart.js
 
 Chart component uses Chart.JS underneath so it needs to be installed as a dependency.
-
-```vue
-npm install chart.js
-```
 
 ## Combo
 
