@@ -78,5 +78,70 @@ Items display a tooltip on hover when a standalone Tooltip is present with a tar
 <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 0, bottom: 0 }" :buttonProps="{ severity: 'danger', rounded: true }" :tooltipOptions="{ position: 'right' }" />
 ```
 
-## Speeddial
+## Speed Dial
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| model | MenuItem[] | - | MenuModel instance to define the action items. |
+| visible | boolean | false | Specifies the visibility of the overlay. |
+| direction | HintedString<"left" \| "right" \| "up" \| "down" \| "up-left" \| "up-right" \| "down-left" \| "down-right"> | up | Specifies the opening direction of actions. |
+| transitionDelay | number | 30 | Transition delay step for each action item. |
+| type | HintedString<"circle" \| "linear" \| "semi-circle" \| "quarter-circle"> | linear | Specifies the opening type of actions. |
+| radius | number | 0 | Radius for *circle types. |
+| mask | boolean | false | Whether to show a mask element behind the speeddial. |
+| disabled | boolean | false | Whether the component is disabled. |
+| hideOnClickOutside | boolean | true | Whether the actions close when clicked outside. |
+| buttonClass | any | - | Style class of the button element. |
+| maskStyle | any | - | Inline style of the mask element. |
+| maskClass | string | - | Style class of the mask element. |
+| showIcon | string | - | Show icon of the button element. |
+| hideIcon | string | - | Hide icon of the button element. |
+| rotateAnimation | boolean | true | Defined to rotate showIcon when hideIcon is not present. |
+| class | any | - | Style class of the element. |
+| style | any | - | Inline style of the element. |
+| tooltipOptions | SpeedDialTooltipOptions | - | Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'. |
+| buttonProps | object | - | Used to pass all properties of the ButtonProps to the button component. |
+| actionButtonProps | object | - | Used to pass all properties of the ButtonProps to the item component. |
+| ariaLabel | string | - | Defines a string value that labels an interactive list element. |
+| ariaLabelledby | string | - | Identifier of the underlying list element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SpeedDialPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | SpeedDialPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| pcButton | any | Used to pass attributes to the Button component. |
+| list | SpeedDialPassThroughOptionType | Used to pass attributes to the list's DOM element. |
+| item | SpeedDialPassThroughOptionType | Used to pass attributes to the item's DOM element. |
+| pcAction | any | Used to pass attributes to the action's Button component. |
+| actionIcon | SpeedDialPassThroughOptionType | Used to pass attributes to the action icon's DOM element. |
+| mask | SpeedDialPassThroughOptionType | Used to pass attributes to the mask's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-speeddial | Class name of the root element |
+| p-speeddial-button | Class name of the button element |
+| p-speeddial-list | Class name of the list element |
+| p-speeddial-item | Class name of the item element |
+| p-speeddial-action | Class name of the action element |
+| p-speeddial-action-icon | Class name of the action icon element |
+| p-speeddial-mask | Class name of the mask element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| speeddial.gap | --p-speeddial-gap | Gap of root |
+| speeddial.transition.duration | --p-speeddial-transition-duration | Transition duration of root |
 

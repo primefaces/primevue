@@ -56,5 +56,11 @@ The open function of the DialogService is used to open a Dialog. First parameter
 
 Use the data property to pass parameters when opening a Dialog, the internal component can later access this data using dialogRef . Similarly when hiding a Dialog, any parameter passed to the close function is received from the onClose callback.
 
-## Dynamicdialog
+## Dynamic Dialog
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 

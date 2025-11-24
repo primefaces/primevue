@@ -115,3 +115,9 @@ Ripple is enabled by adding add p-ripple class to the target and attach the dire
 |-------|-------------|
 | p-ink | Class name of the root element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| ripple.background | --p-ripple-background | Background of root |
+

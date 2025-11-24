@@ -213,3 +213,73 @@ Thumbnails represent a smaller version of the actual content.
 | p-galleria-thumbnail-next-button | Class name of the next thumbnail button element |
 | p-galleria-thumbnail-next-icon | Class name of the next thumbnail icon element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| galleria.border.width | --p-galleria-border-width | Border width of root |
+| galleria.border.color | --p-galleria-border-color | Border color of root |
+| galleria.border.radius | --p-galleria-border-radius | Border radius of root |
+| galleria.transition.duration | --p-galleria-transition-duration | Transition duration of root |
+| galleria.nav.button.background | --p-galleria-nav-button-background | Background of nav button |
+| galleria.nav.button.hover.background | --p-galleria-nav-button-hover-background | Hover background of nav button |
+| galleria.nav.button.color | --p-galleria-nav-button-color | Color of nav button |
+| galleria.nav.button.hover.color | --p-galleria-nav-button-hover-color | Hover color of nav button |
+| galleria.nav.button.size | --p-galleria-nav-button-size | Size of nav button |
+| galleria.nav.button.gutter | --p-galleria-nav-button-gutter | Gutter of nav button |
+| galleria.nav.button.prev.border.radius | --p-galleria-nav-button-prev-border-radius | Prev border radius of nav button |
+| galleria.nav.button.next.border.radius | --p-galleria-nav-button-next-border-radius | Next border radius of nav button |
+| galleria.nav.button.focus.ring.width | --p-galleria-nav-button-focus-ring-width | Focus ring width of nav button |
+| galleria.nav.button.focus.ring.style | --p-galleria-nav-button-focus-ring-style | Focus ring style of nav button |
+| galleria.nav.button.focus.ring.color | --p-galleria-nav-button-focus-ring-color | Focus ring color of nav button |
+| galleria.nav.button.focus.ring.offset | --p-galleria-nav-button-focus-ring-offset | Focus ring offset of nav button |
+| galleria.nav.button.focus.ring.shadow | --p-galleria-nav-button-focus-ring-shadow | Focus ring shadow of nav button |
+| galleria.nav.icon.size | --p-galleria-nav-icon-size | Size of nav icon |
+| galleria.thumbnails.content.background | --p-galleria-thumbnails-content-background | Background of thumbnails content |
+| galleria.thumbnails.content.padding | --p-galleria-thumbnails-content-padding | Padding of thumbnails content |
+| galleria.thumbnail.nav.button.size | --p-galleria-thumbnail-nav-button-size | Size of thumbnail nav button |
+| galleria.thumbnail.nav.button.border.radius | --p-galleria-thumbnail-nav-button-border-radius | Border radius of thumbnail nav button |
+| galleria.thumbnail.nav.button.gutter | --p-galleria-thumbnail-nav-button-gutter | Gutter of thumbnail nav button |
+| galleria.thumbnail.nav.button.focus.ring.width | --p-galleria-thumbnail-nav-button-focus-ring-width | Focus ring width of thumbnail nav button |
+| galleria.thumbnail.nav.button.focus.ring.style | --p-galleria-thumbnail-nav-button-focus-ring-style | Focus ring style of thumbnail nav button |
+| galleria.thumbnail.nav.button.focus.ring.color | --p-galleria-thumbnail-nav-button-focus-ring-color | Focus ring color of thumbnail nav button |
+| galleria.thumbnail.nav.button.focus.ring.offset | --p-galleria-thumbnail-nav-button-focus-ring-offset | Focus ring offset of thumbnail nav button |
+| galleria.thumbnail.nav.button.focus.ring.shadow | --p-galleria-thumbnail-nav-button-focus-ring-shadow | Focus ring shadow of thumbnail nav button |
+| galleria.thumbnail.nav.button.hover.background | --p-galleria-thumbnail-nav-button-hover-background | Hover background of thumbnail nav button |
+| galleria.thumbnail.nav.button.color | --p-galleria-thumbnail-nav-button-color | Color of thumbnail nav button |
+| galleria.thumbnail.nav.button.hover.color | --p-galleria-thumbnail-nav-button-hover-color | Hover color of thumbnail nav button |
+| galleria.thumbnail.nav.button.icon.size | --p-galleria-thumbnail-nav-button-icon-size | Size of thumbnail nav button icon |
+| galleria.caption.background | --p-galleria-caption-background | Background of caption |
+| galleria.caption.color | --p-galleria-caption-color | Color of caption |
+| galleria.caption.padding | --p-galleria-caption-padding | Padding of caption |
+| galleria.indicator.list.gap | --p-galleria-indicator-list-gap | Gap of indicator list |
+| galleria.indicator.list.padding | --p-galleria-indicator-list-padding | Padding of indicator list |
+| galleria.indicator.button.width | --p-galleria-indicator-button-width | Width of indicator button |
+| galleria.indicator.button.height | --p-galleria-indicator-button-height | Height of indicator button |
+| galleria.indicator.button.active.background | --p-galleria-indicator-button-active-background | Active background of indicator button |
+| galleria.indicator.button.border.radius | --p-galleria-indicator-button-border-radius | Border radius of indicator button |
+| galleria.indicator.button.focus.ring.width | --p-galleria-indicator-button-focus-ring-width | Focus ring width of indicator button |
+| galleria.indicator.button.focus.ring.style | --p-galleria-indicator-button-focus-ring-style | Focus ring style of indicator button |
+| galleria.indicator.button.focus.ring.color | --p-galleria-indicator-button-focus-ring-color | Focus ring color of indicator button |
+| galleria.indicator.button.focus.ring.offset | --p-galleria-indicator-button-focus-ring-offset | Focus ring offset of indicator button |
+| galleria.indicator.button.focus.ring.shadow | --p-galleria-indicator-button-focus-ring-shadow | Focus ring shadow of indicator button |
+| galleria.indicator.button.background | --p-galleria-indicator-button-background | Background of indicator button |
+| galleria.indicator.button.hover.background | --p-galleria-indicator-button-hover-background | Hover background of indicator button |
+| galleria.inset.indicator.list.background | --p-galleria-inset-indicator-list-background | Background of inset indicator list |
+| galleria.inset.indicator.button.background | --p-galleria-inset-indicator-button-background | Background of inset indicator button |
+| galleria.inset.indicator.button.hover.background | --p-galleria-inset-indicator-button-hover-background | Hover background of inset indicator button |
+| galleria.inset.indicator.button.active.background | --p-galleria-inset-indicator-button-active-background | Active background of inset indicator button |
+| galleria.close.button.size | --p-galleria-close-button-size | Size of close button |
+| galleria.close.button.gutter | --p-galleria-close-button-gutter | Gutter of close button |
+| galleria.close.button.background | --p-galleria-close-button-background | Background of close button |
+| galleria.close.button.hover.background | --p-galleria-close-button-hover-background | Hover background of close button |
+| galleria.close.button.color | --p-galleria-close-button-color | Color of close button |
+| galleria.close.button.hover.color | --p-galleria-close-button-hover-color | Hover color of close button |
+| galleria.close.button.border.radius | --p-galleria-close-button-border-radius | Border radius of close button |
+| galleria.close.button.focus.ring.width | --p-galleria-close-button-focus-ring-width | Focus ring width of close button |
+| galleria.close.button.focus.ring.style | --p-galleria-close-button-focus-ring-style | Focus ring style of close button |
+| galleria.close.button.focus.ring.color | --p-galleria-close-button-focus-ring-color | Focus ring color of close button |
+| galleria.close.button.focus.ring.offset | --p-galleria-close-button-focus-ring-offset | Focus ring offset of close button |
+| galleria.close.button.focus.ring.shadow | --p-galleria-close-button-focus-ring-shadow | Focus ring shadow of close button |
+| galleria.close.button.icon.size | --p-galleria-close-button-icon-size | Size of close button icon |
+

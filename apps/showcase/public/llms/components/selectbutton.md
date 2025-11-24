@@ -86,5 +86,53 @@ Label of an option is used as the display text of an item by default, for custom
 </SelectButton>
 ```
 
-## Selectbutton
+## Select Button
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| options | any[] | - | An array of selectitems to display as the available options. |
+| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
+| optionValue | string \| Function | - | Property name or getter function to use as the value of an option, defaults to the option itself when not defined. |
+| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
+| multiple | boolean | false | When specified, allows selecting multiple values. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the element should be disabled. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| dataKey | string | - | A property to uniquely identify an option. |
+| allowEmpty | boolean | true | Whether selection can be cleared. |
+| ariaLabelledby | string | - | Identifier of the underlying element. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SelectButtonPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | SelectButtonPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| pcToggleButton | SelectButtonPassThroughOptionType | Used to pass attributes to the ToggleButton component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-selectbutton | Class name of the root element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| selectbutton.border.radius | --p-selectbutton-border-radius | Border radius of root |
+| selectbutton.invalid.border.color | --p-selectbutton-invalid-border-color | Invalid border color of root |
 

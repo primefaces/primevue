@@ -137,3 +137,14 @@ A customized toolbar with navigation bar functionality.
 | p-toolbar-center | Class name of the center element |
 | p-toolbar-end | Class name of the end element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| toolbar.background | --p-toolbar-background | Background of root |
+| toolbar.border.color | --p-toolbar-border-color | Border color of root |
+| toolbar.border.radius | --p-toolbar-border-radius | Border radius of root |
+| toolbar.color | --p-toolbar-color | Color of root |
+| toolbar.gap | --p-toolbar-gap | Gap of root |
+| toolbar.padding | --p-toolbar-padding | Padding of root |
+

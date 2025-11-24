@@ -50,5 +50,80 @@ ColorPicker is displayed as a popup by default, add inline property to customize
 <ColorPicker v-model="color" inline />
 ```
 
-## Colorpicker
+## Color Picker
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultColor | any | ff0000 | Initial color to display when value is not defined. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| inline | boolean | false | Whether to display as an overlay or not. |
+| format | HintedString<"hex" \| "rgb" \| "hsb"> | hex | Format to use in value binding, supported formats are 'hex', 'rgb' and 'hsb'. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| tabindex | string | - | Index of the element in tabbing order. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| inputId | string | - | Identifier of the focus input to match a label defined for the dropdown. |
+| panelClass | any | - | Style class of the overlay panel. |
+| overlayClass | any | - | Style class of the overlay panel. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ColorPickerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ColorPickerPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| preview | ColorPickerPassThroughOptionType | Used to pass attributes to the preview's DOM element. |
+| overlay | ColorPickerPassThroughOptionType | Used to pass attributes to the panel's DOM element. |
+| content | ColorPickerPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| colorSelector | ColorPickerPassThroughOptionType | Used to pass attributes to the color selector's DOM element. |
+| colorBackground | ColorPickerPassThroughOptionType | Used to pass attributes to the color background's DOM element. |
+| colorHandle | ColorPickerPassThroughOptionType | Used to pass attributes to the color handler's DOM element. |
+| hue | ColorPickerPassThroughOptionType | Used to pass attributes to the hue's DOM element. |
+| hueHandle | ColorPickerPassThroughOptionType | Used to pass attributes to the hue handler's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | ColorPickerPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-colorpicker | Class name of the root element |
+| p-colorpicker-preview | Class name of the preview element |
+| p-colorpicker-panel | Class name of the panel element |
+| p-colorpicker-color-selector | Class name of the color selector element |
+| p-colorpicker-color-background | Class name of the color background element |
+| p-colorpicker-color-handle | Class name of the color handle element |
+| p-colorpicker-hue | Class name of the hue element |
+| p-colorpicker-hue-handle | Class name of the hue handle element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| colorpicker.transition.duration | --p-colorpicker-transition-duration | Transition duration of root |
+| colorpicker.preview.width | --p-colorpicker-preview-width | Width of preview |
+| colorpicker.preview.height | --p-colorpicker-preview-height | Height of preview |
+| colorpicker.preview.border.radius | --p-colorpicker-preview-border-radius | Border radius of preview |
+| colorpicker.preview.focus.ring.width | --p-colorpicker-preview-focus-ring-width | Focus ring width of preview |
+| colorpicker.preview.focus.ring.style | --p-colorpicker-preview-focus-ring-style | Focus ring style of preview |
+| colorpicker.preview.focus.ring.color | --p-colorpicker-preview-focus-ring-color | Focus ring color of preview |
+| colorpicker.preview.focus.ring.offset | --p-colorpicker-preview-focus-ring-offset | Focus ring offset of preview |
+| colorpicker.preview.focus.ring.shadow | --p-colorpicker-preview-focus-ring-shadow | Focus ring shadow of preview |
+| colorpicker.panel.shadow | --p-colorpicker-panel-shadow | Shadow of panel |
+| colorpicker.panel.border.radius | --p-colorpicker-panel-border-radius | Border radius of panel |
+| colorpicker.panel.background | --p-colorpicker-panel-background | Background of panel |
+| colorpicker.panel.border.color | --p-colorpicker-panel-border-color | Border color of panel |
+| colorpicker.handle.color | --p-colorpicker-handle-color | Color of handle |
 

@@ -316,3 +316,20 @@ Mask layer behind the Dialog is configured with the modal property. By default, 
 | p-dialog-content | Class name of the content element |
 | p-dialog-footer | Class name of the footer element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| dialog.background | --p-dialog-background | Background of root |
+| dialog.border.color | --p-dialog-border-color | Border color of root |
+| dialog.color | --p-dialog-color | Color of root |
+| dialog.border.radius | --p-dialog-border-radius | Border radius of root |
+| dialog.shadow | --p-dialog-shadow | Shadow of root |
+| dialog.header.padding | --p-dialog-header-padding | Padding of header |
+| dialog.header.gap | --p-dialog-header-gap | Gap of header |
+| dialog.title.font.size | --p-dialog-title-font-size | Font size of title |
+| dialog.title.font.weight | --p-dialog-title-font-weight | Font weight of title |
+| dialog.content.padding | --p-dialog-content-padding | Padding of content |
+| dialog.footer.padding | --p-dialog-footer-padding | Padding of footer |
+| dialog.footer.gap | --p-dialog-footer-gap | Gap of footer |
+

@@ -305,3 +305,11 @@ Various shapes and sizes can be created using styling properties like shape , wi
 |-------|-------------|
 | p-skeleton | Class name of the root element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| skeleton.border.radius | --p-skeleton-border-radius | Border radius of root |
+| skeleton.background | --p-skeleton-background | Background of root |
+| skeleton.animation.background | --p-skeleton-animation-background | Animation background of root |
+

@@ -131,3 +131,18 @@ A simple Card is created with a title property along with the content as childre
 | p-card-content | Class name of the content element |
 | p-card-footer | Class name of the footer element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| card.background | --p-card-background | Background of root |
+| card.border.radius | --p-card-border-radius | Border radius of root |
+| card.color | --p-card-color | Color of root |
+| card.shadow | --p-card-shadow | Shadow of root |
+| card.body.padding | --p-card-body-padding | Padding of body |
+| card.body.gap | --p-card-body-gap | Gap of body |
+| card.caption.gap | --p-card-caption-gap | Gap of caption |
+| card.title.font.size | --p-card-title-font-size | Font size of title |
+| card.title.font.weight | --p-card-title-font-weight | Font weight of title |
+| card.subtitle.color | --p-card-subtitle-color | Color of subtitle |
+

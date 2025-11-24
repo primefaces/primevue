@@ -1,6 +1,6 @@
 # PrimeVue Components Documentation
 
-Generated: 2025-11-20T23:38:47.375Z
+Generated: 2025-11-24T10:52:20.437Z
 
 ---
 
@@ -436,6 +436,45 @@ Custom content for a header is defined with the default slot. The optional as pr
 |-------|-------------|
 | p-accordion | Class name of the root element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| accordion.transition.duration | --p-accordion-transition-duration | Transition duration of root |
+| accordion.panel.border.width | --p-accordion-panel-border-width | Border width of panel |
+| accordion.panel.border.color | --p-accordion-panel-border-color | Border color of panel |
+| accordion.header.color | --p-accordion-header-color | Color of header |
+| accordion.header.hover.color | --p-accordion-header-hover-color | Hover color of header |
+| accordion.header.active.color | --p-accordion-header-active-color | Active color of header |
+| accordion.header.active.hover.color | --p-accordion-header-active-hover-color | Active hover color of header |
+| accordion.header.padding | --p-accordion-header-padding | Padding of header |
+| accordion.header.font.weight | --p-accordion-header-font-weight | Font weight of header |
+| accordion.header.border.radius | --p-accordion-header-border-radius | Border radius of header |
+| accordion.header.border.width | --p-accordion-header-border-width | Border width of header |
+| accordion.header.border.color | --p-accordion-header-border-color | Border color of header |
+| accordion.header.background | --p-accordion-header-background | Background of header |
+| accordion.header.hover.background | --p-accordion-header-hover-background | Hover background of header |
+| accordion.header.active.background | --p-accordion-header-active-background | Active background of header |
+| accordion.header.active.hover.background | --p-accordion-header-active-hover-background | Active hover background of header |
+| accordion.header.focus.ring.width | --p-accordion-header-focus-ring-width | Focus ring width of header |
+| accordion.header.focus.ring.style | --p-accordion-header-focus-ring-style | Focus ring style of header |
+| accordion.header.focus.ring.color | --p-accordion-header-focus-ring-color | Focus ring color of header |
+| accordion.header.focus.ring.offset | --p-accordion-header-focus-ring-offset | Focus ring offset of header |
+| accordion.header.focus.ring.shadow | --p-accordion-header-focus-ring-shadow | Focus ring shadow of header |
+| accordion.header.toggle.icon.color | --p-accordion-header-toggle-icon-color | Toggle icon color of header |
+| accordion.header.toggle.icon.hover.color | --p-accordion-header-toggle-icon-hover-color | Toggle icon hover color of header |
+| accordion.header.toggle.icon.active.color | --p-accordion-header-toggle-icon-active-color | Toggle icon active color of header |
+| accordion.header.toggle.icon.active.hover.color | --p-accordion-header-toggle-icon-active-hover-color | Toggle icon active hover color of header |
+| accordion.header.first.top.border.radius | --p-accordion-header-first-top-border-radius | First top border radius of header |
+| accordion.header.first.border.width | --p-accordion-header-first-border-width | First border width of header |
+| accordion.header.last.bottom.border.radius | --p-accordion-header-last-bottom-border-radius | Last bottom border radius of header |
+| accordion.header.last.active.bottom.border.radius | --p-accordion-header-last-active-bottom-border-radius | Last active bottom border radius of header |
+| accordion.content.border.width | --p-accordion-content-border-width | Border width of content |
+| accordion.content.border.color | --p-accordion-content-border-color | Border color of content |
+| accordion.content.background | --p-accordion-content-background | Background of content |
+| accordion.content.color | --p-accordion-content-color | Color of content |
+| accordion.content.padding | --p-accordion-content-padding | Padding of content |
+
 ---
 
 # Vue AnimateOnScroll Directive
@@ -808,40 +847,191 @@ Virtual Scrolling is a performant way to render large lists. Configuration of th
     :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
 ```
 
-## Autocomplete
+## Auto Complete
 
----
+### Props
 
-# autoimport
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| suggestions | any[] | - | An array of suggestions to display. |
+| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
+| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
+| optionGroupLabel | string \| Function | - | Property name or getter function to use as the label of an option group. |
+| optionGroupChildren | string \| Function | - | Property name or getter function that refers to the children options of option group. |
+| typeahead | boolean | true | whether typeahead is active or not. |
+| scrollHeight | string | 14rem | Maximum height of the suggestions overlay. |
+| dropdown | boolean | false | Displays a button next to the input field when enabled. |
+| dropdownMode | HintedString<"blank" \| "current"> | blank | Specifies the behavior dropdown button. Default 'blank' mode sends an empty string and 'current' mode sends the input value. |
+| multiple | boolean | false | Specifies if multiple values can be selected. |
+| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
+| placeholder | string | - | Default text to display when no option is selected. |
+| loading | boolean | false | Whether the autocomplete is in loading state. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| dataKey | string | - | A property to uniquely identify an option. |
+| minLength | number | 1 | Minimum number of characters to initiate a search. |
+| delay | number | 300 | Delay between keystrokes to wait before sending a query. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself. |
+| forceSelection | boolean | false | When present, autocomplete clears the manual input if it does not match of the suggestions to force only accepting values from the suggestions. |
+| completeOnFocus | boolean | false | Whether to run a query when input receives focus. |
+| inputId | string | - | Identifier of the underlying input element. |
+| inputStyle | object | - | Inline style of the input field. |
+| inputClass | string \| object | - | Style class of the input field. |
+| panelStyle | object | - | Inline style of the overlay. |
+| panelClass | string \| object | - | Style class of the overlay. |
+| overlayStyle | object | - | Inline style of the overlay overlay. |
+| overlayClass | string \| object | - | Style class of the overlay overlay. |
+| dropdownIcon | string | - | Icon to display in the dropdown. |
+| dropdownClass | string \| object | - | Style class of the dropdown button. |
+| loadingIcon | string | - | Icon to display in loading state. |
+| loader | string | - | Icon to display in loading state. |
+| removeTokenIcon | string | - | Icon to display in chip remove action. |
+| chipIcon | string | - | Icon to display in chip remove action. |
+| virtualScrollerOptions | any | - | Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. |
+| autoOptionFocus | boolean | false | Whether to focus on the first visible or selected element when the overlay is shown. |
+| selectOnFocus | boolean | false | When enabled, the focused option is selected. |
+| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
+| searchLocale | string | - | Locale to use in searching. The default locale is the host environment's current locale. |
+| searchMessage | string | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration. |
+| selectionMessage | string | '{0} items selected' | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration. |
+| emptySelectionMessage | string | No selected item | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration. |
+| emptySearchMessage | string | No results found | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration. |
+| showEmptyMessage | boolean | true | When enabled, empty search message will be visible. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<AutoCompletePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
+## Pass Through Options
 
+| Name | Type | Description |
+|------|------|-------------|
+| root | AutoCompletePassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| pcInputText | any | Used to pass attributes to the InputText component. |
+| inputMultiple | AutoCompletePassThroughOptionType | Used to pass attributes to the input multiple's DOM element. |
+| chipItem | AutoCompletePassThroughOptionType | Used to pass attributes to the chip's DOM element. |
+| pcChip | any | Used to pass attributes to the Chip. |
+| chipIcon | AutoCompletePassThroughOptionType | Used to pass attributes to the chip icon's DOM element. |
+| input | AutoCompletePassThroughOptionType | Used to pass attributes to the input chip's DOM element. |
+| inputChip | AutoCompletePassThroughOptionType | Used to pass attributes to the input chip's DOM element. |
+| loader | AutoCompletePassThroughOptionType | Used to pass attributes to the loader's DOM element. |
+| clearIcon | AutoCompletePassThroughOptionType | Used to pass attributes to the clear icon's DOM element. |
+| dropdown | AutoCompletePassThroughOptionType | Used to pass attributes to the dropdown's DOM element. |
+| dropdownIcon | AutoCompletePassThroughOptionType | Used to pass attributes to the dropdown icon's DOM element. |
+| overlay | AutoCompletePassThroughOptionType | Used to pass attributes to the overlay's DOM element. |
+| virtualScroller | any | Used to pass attributes to the VirtualScroller component. |
+| listContainer | AutoCompletePassThroughOptionType | Used to pass attributes to the list container's DOM element. |
+| list | AutoCompletePassThroughOptionType | Used to pass attributes to the list's DOM element. |
+| optionGroup | AutoCompletePassThroughOptionType | Used to pass attributes to the option group's DOM element. |
+| option | AutoCompletePassThroughOptionType | Used to pass attributes to the option's DOM element. |
+| emptyMessage | AutoCompletePassThroughOptionType | Used to pass attributes to the empty message's DOM element. |
+| searchResultMessage | AutoCompletePassThroughOptionType | Used to pass attributes to the search result message's DOM element. |
+| selectedMessage | AutoCompletePassThroughOptionType | Used to pass attributes to the selected message's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | AutoCompletePassThroughTransitionType | Used to control Vue Transition API. |
 
-## Example
+## Theming
 
-A complete example using PrimeVue with auto imports is available at the playground .
+### CSS Classes
 
-## Overview
+| Class | Description |
+|-------|-------------|
+| p-autocomplete | Class name of the root element |
+| p-autocomplete-input | Class name of the input element |
+| p-autocomplete-input-multiple | Class name of the input multiple element |
+| p-autocomplete-clear-icon | Class name of the clear icon element |
+| p-autocomplete-chip-item | Class name of the chip item element |
+| p-autocomplete-chip | Class name of the chip element |
+| p-autocomplete-chip-icon | Class name of the chip icon element |
+| p-autocomplete-input-chip | Class name of the input chip element |
+| p-autocomplete-loader | Class name of the loader element |
+| p-autocomplete-dropdown | Class name of the dropdown element |
+| p-autocomplete-overlay | Class name of the panel element |
+| p-autocomplete-list | Class name of the list element |
+| p-autocomplete-list-container | Class name of the list container element |
+| p-autocomplete-option-group | Class name of the option group element |
+| p-autocomplete-option | Class name of the option element |
+| p-autocomplete-empty-message | Class name of the empty message element |
 
-PrimeVue components need to be imported and configured individually. In the next section, we'll cleanup the code using auto imports.
+### Design Tokens
 
-**Basic Usage:**
-
-```vue
-import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-import InputText from 'primevue/inputtext';
-import Button from 'primevue/button';
-import App from './App.vue'
-const app = createApp(App);
-
-app.use(PrimeVue);
-app.component('InputText', InputText);
-app.component('Button', Button);
-```
-
-## Unplugin
-
-The unplugin-vue-components library can automatically import and register PrimeVue components with the help of @primevue/auto-import-resolver . Begin with installing the packages as dev dependencies. Next step would be adding the PrimeVueResolver at vite.config using the Components plugin. That's it, now the initialization code can be refactored as the following. For configuration like namespacing, visit the official documentation .
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| autocomplete.background | --p-autocomplete-background | Background of root |
+| autocomplete.disabled.background | --p-autocomplete-disabled-background | Disabled background of root |
+| autocomplete.filled.background | --p-autocomplete-filled-background | Filled background of root |
+| autocomplete.filled.hover.background | --p-autocomplete-filled-hover-background | Filled hover background of root |
+| autocomplete.filled.focus.background | --p-autocomplete-filled-focus-background | Filled focus background of root |
+| autocomplete.border.color | --p-autocomplete-border-color | Border color of root |
+| autocomplete.hover.border.color | --p-autocomplete-hover-border-color | Hover border color of root |
+| autocomplete.focus.border.color | --p-autocomplete-focus-border-color | Focus border color of root |
+| autocomplete.invalid.border.color | --p-autocomplete-invalid-border-color | Invalid border color of root |
+| autocomplete.color | --p-autocomplete-color | Color of root |
+| autocomplete.disabled.color | --p-autocomplete-disabled-color | Disabled color of root |
+| autocomplete.placeholder.color | --p-autocomplete-placeholder-color | Placeholder color of root |
+| autocomplete.invalid.placeholder.color | --p-autocomplete-invalid-placeholder-color | Invalid placeholder color of root |
+| autocomplete.shadow | --p-autocomplete-shadow | Shadow of root |
+| autocomplete.padding.x | --p-autocomplete-padding-x | Padding x of root |
+| autocomplete.padding.y | --p-autocomplete-padding-y | Padding y of root |
+| autocomplete.border.radius | --p-autocomplete-border-radius | Border radius of root |
+| autocomplete.focus.ring.width | --p-autocomplete-focus-ring-width | Focus ring width of root |
+| autocomplete.focus.ring.style | --p-autocomplete-focus-ring-style | Focus ring style of root |
+| autocomplete.focus.ring.color | --p-autocomplete-focus-ring-color | Focus ring color of root |
+| autocomplete.focus.ring.offset | --p-autocomplete-focus-ring-offset | Focus ring offset of root |
+| autocomplete.focus.ring.shadow | --p-autocomplete-focus-ring-shadow | Focus ring shadow of root |
+| autocomplete.transition.duration | --p-autocomplete-transition-duration | Transition duration of root |
+| autocomplete.overlay.background | --p-autocomplete-overlay-background | Background of overlay |
+| autocomplete.overlay.border.color | --p-autocomplete-overlay-border-color | Border color of overlay |
+| autocomplete.overlay.border.radius | --p-autocomplete-overlay-border-radius | Border radius of overlay |
+| autocomplete.overlay.color | --p-autocomplete-overlay-color | Color of overlay |
+| autocomplete.overlay.shadow | --p-autocomplete-overlay-shadow | Shadow of overlay |
+| autocomplete.list.padding | --p-autocomplete-list-padding | Padding of list |
+| autocomplete.list.gap | --p-autocomplete-list-gap | Gap of list |
+| autocomplete.option.focus.background | --p-autocomplete-option-focus-background | Focus background of option |
+| autocomplete.option.selected.background | --p-autocomplete-option-selected-background | Selected background of option |
+| autocomplete.option.selected.focus.background | --p-autocomplete-option-selected-focus-background | Selected focus background of option |
+| autocomplete.option.color | --p-autocomplete-option-color | Color of option |
+| autocomplete.option.focus.color | --p-autocomplete-option-focus-color | Focus color of option |
+| autocomplete.option.selected.color | --p-autocomplete-option-selected-color | Selected color of option |
+| autocomplete.option.selected.focus.color | --p-autocomplete-option-selected-focus-color | Selected focus color of option |
+| autocomplete.option.padding | --p-autocomplete-option-padding | Padding of option |
+| autocomplete.option.border.radius | --p-autocomplete-option-border-radius | Border radius of option |
+| autocomplete.option.group.background | --p-autocomplete-option-group-background | Background of option group |
+| autocomplete.option.group.color | --p-autocomplete-option-group-color | Color of option group |
+| autocomplete.option.group.font.weight | --p-autocomplete-option-group-font-weight | Font weight of option group |
+| autocomplete.option.group.padding | --p-autocomplete-option-group-padding | Padding of option group |
+| autocomplete.dropdown.width | --p-autocomplete-dropdown-width | Width of dropdown |
+| autocomplete.dropdown.sm.width | --p-autocomplete-dropdown-sm-width | Sm width of dropdown |
+| autocomplete.dropdown.lg.width | --p-autocomplete-dropdown-lg-width | Lg width of dropdown |
+| autocomplete.dropdown.border.color | --p-autocomplete-dropdown-border-color | Border color of dropdown |
+| autocomplete.dropdown.hover.border.color | --p-autocomplete-dropdown-hover-border-color | Hover border color of dropdown |
+| autocomplete.dropdown.active.border.color | --p-autocomplete-dropdown-active-border-color | Active border color of dropdown |
+| autocomplete.dropdown.border.radius | --p-autocomplete-dropdown-border-radius | Border radius of dropdown |
+| autocomplete.dropdown.focus.ring.width | --p-autocomplete-dropdown-focus-ring-width | Focus ring width of dropdown |
+| autocomplete.dropdown.focus.ring.style | --p-autocomplete-dropdown-focus-ring-style | Focus ring style of dropdown |
+| autocomplete.dropdown.focus.ring.color | --p-autocomplete-dropdown-focus-ring-color | Focus ring color of dropdown |
+| autocomplete.dropdown.focus.ring.offset | --p-autocomplete-dropdown-focus-ring-offset | Focus ring offset of dropdown |
+| autocomplete.dropdown.focus.ring.shadow | --p-autocomplete-dropdown-focus-ring-shadow | Focus ring shadow of dropdown |
+| autocomplete.dropdown.background | --p-autocomplete-dropdown-background | Background of dropdown |
+| autocomplete.dropdown.hover.background | --p-autocomplete-dropdown-hover-background | Hover background of dropdown |
+| autocomplete.dropdown.active.background | --p-autocomplete-dropdown-active-background | Active background of dropdown |
+| autocomplete.dropdown.color | --p-autocomplete-dropdown-color | Color of dropdown |
+| autocomplete.dropdown.hover.color | --p-autocomplete-dropdown-hover-color | Hover color of dropdown |
+| autocomplete.dropdown.active.color | --p-autocomplete-dropdown-active-color | Active color of dropdown |
+| autocomplete.chip.border.radius | --p-autocomplete-chip-border-radius | Border radius of chip |
+| autocomplete.chip.focus.background | --p-autocomplete-chip-focus-background | Focus background of chip |
+| autocomplete.chip.focus.color | --p-autocomplete-chip-focus-color | Focus color of chip |
+| autocomplete.empty.message.padding | --p-autocomplete-empty-message-padding | Padding of empty message |
 
 ---
 
@@ -1107,6 +1297,30 @@ A letter Avatar is defined with the label property.
 | p-avatar-label | Class name of the label element |
 | p-avatar-icon | Class name of the icon element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| avatar.width | --p-avatar-width | Width of root |
+| avatar.height | --p-avatar-height | Height of root |
+| avatar.font.size | --p-avatar-font-size | Font size of root |
+| avatar.background | --p-avatar-background | Background of root |
+| avatar.color | --p-avatar-color | Color of root |
+| avatar.border.radius | --p-avatar-border-radius | Border radius of root |
+| avatar.icon.size | --p-avatar-icon-size | Size of icon |
+| avatar.group.border.color | --p-avatar-group-border-color | Border color of group |
+| avatar.group.offset | --p-avatar-group-offset | Offset of group |
+| avatar.lg.width | --p-avatar-lg-width | Width of lg |
+| avatar.lg.height | --p-avatar-lg-height | Height of lg |
+| avatar.lg.font.size | --p-avatar-lg-font-size | Font size of lg |
+| avatar.lg.icon.size | --p-avatar-lg-icon-size | Icon size of lg |
+| avatar.lg.group.offset | --p-avatar-lg-group-offset | Group offset of lg |
+| avatar.xl.width | --p-avatar-xl-width | Width of xl |
+| avatar.xl.height | --p-avatar-xl-height | Height of xl |
+| avatar.xl.font.size | --p-avatar-xl-font-size | Font size of xl |
+| avatar.xl.icon.size | --p-avatar-xl-icon-size | Icon size of xl |
+| avatar.xl.group.offset | --p-avatar-xl-group-offset | Group offset of xl |
+
 ---
 
 # Vue Badge Component
@@ -1307,6 +1521,41 @@ Use the size property to customize the dimensions of a Badge.
 |-------|-------------|
 | p-badge | Class name of the root element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| badge.border.radius | --p-badge-border-radius | Border radius of root |
+| badge.padding | --p-badge-padding | Padding of root |
+| badge.font.size | --p-badge-font-size | Font size of root |
+| badge.font.weight | --p-badge-font-weight | Font weight of root |
+| badge.min.width | --p-badge-min-width | Min width of root |
+| badge.height | --p-badge-height | Height of root |
+| badge.dot.size | --p-badge-dot-size | Size of dot |
+| badge.sm.font.size | --p-badge-sm-font-size | Font size of sm |
+| badge.sm.min.width | --p-badge-sm-min-width | Min width of sm |
+| badge.sm.height | --p-badge-sm-height | Height of sm |
+| badge.lg.font.size | --p-badge-lg-font-size | Font size of lg |
+| badge.lg.min.width | --p-badge-lg-min-width | Min width of lg |
+| badge.lg.height | --p-badge-lg-height | Height of lg |
+| badge.xl.font.size | --p-badge-xl-font-size | Font size of xl |
+| badge.xl.min.width | --p-badge-xl-min-width | Min width of xl |
+| badge.xl.height | --p-badge-xl-height | Height of xl |
+| badge.primary.background | --p-badge-primary-background | Background of primary |
+| badge.primary.color | --p-badge-primary-color | Color of primary |
+| badge.secondary.background | --p-badge-secondary-background | Background of secondary |
+| badge.secondary.color | --p-badge-secondary-color | Color of secondary |
+| badge.success.background | --p-badge-success-background | Background of success |
+| badge.success.color | --p-badge-success-color | Color of success |
+| badge.info.background | --p-badge-info-background | Background of info |
+| badge.info.color | --p-badge-info-color | Color of info |
+| badge.warn.background | --p-badge-warn-background | Background of warn |
+| badge.warn.color | --p-badge-warn-color | Color of warn |
+| badge.danger.background | --p-badge-danger-background | Background of danger |
+| badge.danger.color | --p-badge-danger-color | Color of danger |
+| badge.contrast.background | --p-badge-contrast-background | Background of contrast |
+| badge.contrast.color | --p-badge-contrast-color | Color of contrast |
+
 ---
 
 # Vue BlockUI Component
@@ -1357,7 +1606,42 @@ Enabling fullScreen property controls the document.
 import BlockUI from 'primevue/blockui';
 ```
 
-## Blockui
+## Block U I
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| blocked | boolean | false | Controls the blocked state. |
+| fullScreen | boolean | false | When enabled, the whole document gets blocked. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<BlockUIPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | BlockUIPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| mask | BlockUIPassThroughOptionType | Used to pass attributes to the mask's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-blockui | Class name of the root element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| blockui.border.radius | --p-blockui-border-radius | Border radius of root |
 
 ---
 
@@ -1407,51 +1691,6 @@ Custom content can be placed inside the items using the item template. The divid
     <template #separator> / </template>
 </Breadcrumb>
 ```
-
-## Breadcrumb
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | An array of menuitems. |
-| home | any | - | Configuration for the home icon. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying menu element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<BreadcrumbPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Pass Through Options
-
-| Name | Type | Description |
-|------|------|-------------|
-| root | BreadcrumbPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| list | BreadcrumbPassThroughOptionType | Used to pass attributes to the list's DOM element. |
-| item | BreadcrumbPassThroughOptionType | Used to pass attributes to the  item's DOM element. |
-| itemLink | BreadcrumbPassThroughOptionType | Used to pass attributes to the item link's DOM element. |
-| itemIcon | BreadcrumbPassThroughOptionType | Used to pass attributes to the item icon's DOM element. |
-| itemLabel | BreadcrumbPassThroughOptionType | Used to pass attributes to the item label's DOM element. |
-| separator | BreadcrumbPassThroughOptionType | Used to pass attributes to the separator's DOM element. |
-| separatorIcon | BreadcrumbPassThroughOptionType | Used to pass attributes to the separator icon's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
-
-## Theming
-
-### CSS Classes
-
-| Class | Description |
-|-------|-------------|
-| p-breadcrumb | Class name of the root element |
-| p-breadcrumb-list | Class name of the list element |
-| p-breadcrumb-home-item | Class name of the home item element |
-| p-breadcrumb-separator | Class name of the separator element |
-| p-breadcrumb-separator-icon | Class name of the separator icon element |
-| p-breadcrumb-item | Class name of the item element |
-| p-breadcrumb-item-link | Class name of the item link element |
-| p-breadcrumb-item-icon | Class name of the item icon element |
-| p-breadcrumb-item-label | Class name of the item label element |
 
 ---
 
@@ -2305,6 +2544,186 @@ Text buttons are displayed as textual elements.
 | p-button-icon | Class name of the icon element |
 | p-button-label | Class name of the label element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| button.border.radius | --p-button-border-radius | Border radius of root |
+| button.rounded.border.radius | --p-button-rounded-border-radius | Rounded border radius of root |
+| button.gap | --p-button-gap | Gap of root |
+| button.padding.x | --p-button-padding-x | Padding x of root |
+| button.padding.y | --p-button-padding-y | Padding y of root |
+| button.icon.only.width | --p-button-icon-only-width | Icon only width of root |
+| button.sm.font.size | --p-button-sm-font-size | Sm font size of root |
+| button.sm.padding.x | --p-button-sm-padding-x | Sm padding x of root |
+| button.sm.padding.y | --p-button-sm-padding-y | Sm padding y of root |
+| button.sm.icon.only.width | --p-button-sm-icon-only-width | Sm icon only width of root |
+| button.lg.font.size | --p-button-lg-font-size | Lg font size of root |
+| button.lg.padding.x | --p-button-lg-padding-x | Lg padding x of root |
+| button.lg.padding.y | --p-button-lg-padding-y | Lg padding y of root |
+| button.lg.icon.only.width | --p-button-lg-icon-only-width | Lg icon only width of root |
+| button.label.font.weight | --p-button-label-font-weight | Label font weight of root |
+| button.raised.shadow | --p-button-raised-shadow | Raised shadow of root |
+| button.focus.ring.width | --p-button-focus-ring-width | Focus ring width of root |
+| button.focus.ring.style | --p-button-focus-ring-style | Focus ring style of root |
+| button.focus.ring.offset | --p-button-focus-ring-offset | Focus ring offset of root |
+| button.badge.size | --p-button-badge-size | Badge size of root |
+| button.transition.duration | --p-button-transition-duration | Transition duration of root |
+| button.primary.background | --p-button-primary-background | Primary background of root |
+| button.primary.hover.background | --p-button-primary-hover-background | Primary hover background of root |
+| button.primary.active.background | --p-button-primary-active-background | Primary active background of root |
+| button.primary.border.color | --p-button-primary-border-color | Primary border color of root |
+| button.primary.hover.border.color | --p-button-primary-hover-border-color | Primary hover border color of root |
+| button.primary.active.border.color | --p-button-primary-active-border-color | Primary active border color of root |
+| button.primary.color | --p-button-primary-color | Primary color of root |
+| button.primary.hover.color | --p-button-primary-hover-color | Primary hover color of root |
+| button.primary.active.color | --p-button-primary-active-color | Primary active color of root |
+| button.primary.focus.ring.color | --p-button-primary-focus-ring-color | Primary focus ring color of root |
+| button.primary.focus.ring.shadow | --p-button-primary-focus-ring-shadow | Primary focus ring shadow of root |
+| button.secondary.background | --p-button-secondary-background | Secondary background of root |
+| button.secondary.hover.background | --p-button-secondary-hover-background | Secondary hover background of root |
+| button.secondary.active.background | --p-button-secondary-active-background | Secondary active background of root |
+| button.secondary.border.color | --p-button-secondary-border-color | Secondary border color of root |
+| button.secondary.hover.border.color | --p-button-secondary-hover-border-color | Secondary hover border color of root |
+| button.secondary.active.border.color | --p-button-secondary-active-border-color | Secondary active border color of root |
+| button.secondary.color | --p-button-secondary-color | Secondary color of root |
+| button.secondary.hover.color | --p-button-secondary-hover-color | Secondary hover color of root |
+| button.secondary.active.color | --p-button-secondary-active-color | Secondary active color of root |
+| button.secondary.focus.ring.color | --p-button-secondary-focus-ring-color | Secondary focus ring color of root |
+| button.secondary.focus.ring.shadow | --p-button-secondary-focus-ring-shadow | Secondary focus ring shadow of root |
+| button.info.background | --p-button-info-background | Info background of root |
+| button.info.hover.background | --p-button-info-hover-background | Info hover background of root |
+| button.info.active.background | --p-button-info-active-background | Info active background of root |
+| button.info.border.color | --p-button-info-border-color | Info border color of root |
+| button.info.hover.border.color | --p-button-info-hover-border-color | Info hover border color of root |
+| button.info.active.border.color | --p-button-info-active-border-color | Info active border color of root |
+| button.info.color | --p-button-info-color | Info color of root |
+| button.info.hover.color | --p-button-info-hover-color | Info hover color of root |
+| button.info.active.color | --p-button-info-active-color | Info active color of root |
+| button.info.focus.ring.color | --p-button-info-focus-ring-color | Info focus ring color of root |
+| button.info.focus.ring.shadow | --p-button-info-focus-ring-shadow | Info focus ring shadow of root |
+| button.success.background | --p-button-success-background | Success background of root |
+| button.success.hover.background | --p-button-success-hover-background | Success hover background of root |
+| button.success.active.background | --p-button-success-active-background | Success active background of root |
+| button.success.border.color | --p-button-success-border-color | Success border color of root |
+| button.success.hover.border.color | --p-button-success-hover-border-color | Success hover border color of root |
+| button.success.active.border.color | --p-button-success-active-border-color | Success active border color of root |
+| button.success.color | --p-button-success-color | Success color of root |
+| button.success.hover.color | --p-button-success-hover-color | Success hover color of root |
+| button.success.active.color | --p-button-success-active-color | Success active color of root |
+| button.success.focus.ring.color | --p-button-success-focus-ring-color | Success focus ring color of root |
+| button.success.focus.ring.shadow | --p-button-success-focus-ring-shadow | Success focus ring shadow of root |
+| button.warn.background | --p-button-warn-background | Warn background of root |
+| button.warn.hover.background | --p-button-warn-hover-background | Warn hover background of root |
+| button.warn.active.background | --p-button-warn-active-background | Warn active background of root |
+| button.warn.border.color | --p-button-warn-border-color | Warn border color of root |
+| button.warn.hover.border.color | --p-button-warn-hover-border-color | Warn hover border color of root |
+| button.warn.active.border.color | --p-button-warn-active-border-color | Warn active border color of root |
+| button.warn.color | --p-button-warn-color | Warn color of root |
+| button.warn.hover.color | --p-button-warn-hover-color | Warn hover color of root |
+| button.warn.active.color | --p-button-warn-active-color | Warn active color of root |
+| button.warn.focus.ring.color | --p-button-warn-focus-ring-color | Warn focus ring color of root |
+| button.warn.focus.ring.shadow | --p-button-warn-focus-ring-shadow | Warn focus ring shadow of root |
+| button.help.background | --p-button-help-background | Help background of root |
+| button.help.hover.background | --p-button-help-hover-background | Help hover background of root |
+| button.help.active.background | --p-button-help-active-background | Help active background of root |
+| button.help.border.color | --p-button-help-border-color | Help border color of root |
+| button.help.hover.border.color | --p-button-help-hover-border-color | Help hover border color of root |
+| button.help.active.border.color | --p-button-help-active-border-color | Help active border color of root |
+| button.help.color | --p-button-help-color | Help color of root |
+| button.help.hover.color | --p-button-help-hover-color | Help hover color of root |
+| button.help.active.color | --p-button-help-active-color | Help active color of root |
+| button.help.focus.ring.color | --p-button-help-focus-ring-color | Help focus ring color of root |
+| button.help.focus.ring.shadow | --p-button-help-focus-ring-shadow | Help focus ring shadow of root |
+| button.danger.background | --p-button-danger-background | Danger background of root |
+| button.danger.hover.background | --p-button-danger-hover-background | Danger hover background of root |
+| button.danger.active.background | --p-button-danger-active-background | Danger active background of root |
+| button.danger.border.color | --p-button-danger-border-color | Danger border color of root |
+| button.danger.hover.border.color | --p-button-danger-hover-border-color | Danger hover border color of root |
+| button.danger.active.border.color | --p-button-danger-active-border-color | Danger active border color of root |
+| button.danger.color | --p-button-danger-color | Danger color of root |
+| button.danger.hover.color | --p-button-danger-hover-color | Danger hover color of root |
+| button.danger.active.color | --p-button-danger-active-color | Danger active color of root |
+| button.danger.focus.ring.color | --p-button-danger-focus-ring-color | Danger focus ring color of root |
+| button.danger.focus.ring.shadow | --p-button-danger-focus-ring-shadow | Danger focus ring shadow of root |
+| button.contrast.background | --p-button-contrast-background | Contrast background of root |
+| button.contrast.hover.background | --p-button-contrast-hover-background | Contrast hover background of root |
+| button.contrast.active.background | --p-button-contrast-active-background | Contrast active background of root |
+| button.contrast.border.color | --p-button-contrast-border-color | Contrast border color of root |
+| button.contrast.hover.border.color | --p-button-contrast-hover-border-color | Contrast hover border color of root |
+| button.contrast.active.border.color | --p-button-contrast-active-border-color | Contrast active border color of root |
+| button.contrast.color | --p-button-contrast-color | Contrast color of root |
+| button.contrast.hover.color | --p-button-contrast-hover-color | Contrast hover color of root |
+| button.contrast.active.color | --p-button-contrast-active-color | Contrast active color of root |
+| button.contrast.focus.ring.color | --p-button-contrast-focus-ring-color | Contrast focus ring color of root |
+| button.contrast.focus.ring.shadow | --p-button-contrast-focus-ring-shadow | Contrast focus ring shadow of root |
+| button.outlined.primary.hover.background | --p-button-outlined-primary-hover-background | Primary hover background of outlined |
+| button.outlined.primary.active.background | --p-button-outlined-primary-active-background | Primary active background of outlined |
+| button.outlined.primary.border.color | --p-button-outlined-primary-border-color | Primary border color of outlined |
+| button.outlined.primary.color | --p-button-outlined-primary-color | Primary color of outlined |
+| button.outlined.secondary.hover.background | --p-button-outlined-secondary-hover-background | Secondary hover background of outlined |
+| button.outlined.secondary.active.background | --p-button-outlined-secondary-active-background | Secondary active background of outlined |
+| button.outlined.secondary.border.color | --p-button-outlined-secondary-border-color | Secondary border color of outlined |
+| button.outlined.secondary.color | --p-button-outlined-secondary-color | Secondary color of outlined |
+| button.outlined.success.hover.background | --p-button-outlined-success-hover-background | Success hover background of outlined |
+| button.outlined.success.active.background | --p-button-outlined-success-active-background | Success active background of outlined |
+| button.outlined.success.border.color | --p-button-outlined-success-border-color | Success border color of outlined |
+| button.outlined.success.color | --p-button-outlined-success-color | Success color of outlined |
+| button.outlined.info.hover.background | --p-button-outlined-info-hover-background | Info hover background of outlined |
+| button.outlined.info.active.background | --p-button-outlined-info-active-background | Info active background of outlined |
+| button.outlined.info.border.color | --p-button-outlined-info-border-color | Info border color of outlined |
+| button.outlined.info.color | --p-button-outlined-info-color | Info color of outlined |
+| button.outlined.warn.hover.background | --p-button-outlined-warn-hover-background | Warn hover background of outlined |
+| button.outlined.warn.active.background | --p-button-outlined-warn-active-background | Warn active background of outlined |
+| button.outlined.warn.border.color | --p-button-outlined-warn-border-color | Warn border color of outlined |
+| button.outlined.warn.color | --p-button-outlined-warn-color | Warn color of outlined |
+| button.outlined.help.hover.background | --p-button-outlined-help-hover-background | Help hover background of outlined |
+| button.outlined.help.active.background | --p-button-outlined-help-active-background | Help active background of outlined |
+| button.outlined.help.border.color | --p-button-outlined-help-border-color | Help border color of outlined |
+| button.outlined.help.color | --p-button-outlined-help-color | Help color of outlined |
+| button.outlined.danger.hover.background | --p-button-outlined-danger-hover-background | Danger hover background of outlined |
+| button.outlined.danger.active.background | --p-button-outlined-danger-active-background | Danger active background of outlined |
+| button.outlined.danger.border.color | --p-button-outlined-danger-border-color | Danger border color of outlined |
+| button.outlined.danger.color | --p-button-outlined-danger-color | Danger color of outlined |
+| button.outlined.contrast.hover.background | --p-button-outlined-contrast-hover-background | Contrast hover background of outlined |
+| button.outlined.contrast.active.background | --p-button-outlined-contrast-active-background | Contrast active background of outlined |
+| button.outlined.contrast.border.color | --p-button-outlined-contrast-border-color | Contrast border color of outlined |
+| button.outlined.contrast.color | --p-button-outlined-contrast-color | Contrast color of outlined |
+| button.outlined.plain.hover.background | --p-button-outlined-plain-hover-background | Plain hover background of outlined |
+| button.outlined.plain.active.background | --p-button-outlined-plain-active-background | Plain active background of outlined |
+| button.outlined.plain.border.color | --p-button-outlined-plain-border-color | Plain border color of outlined |
+| button.outlined.plain.color | --p-button-outlined-plain-color | Plain color of outlined |
+| button.text.primary.hover.background | --p-button-text-primary-hover-background | Primary hover background of text |
+| button.text.primary.active.background | --p-button-text-primary-active-background | Primary active background of text |
+| button.text.primary.color | --p-button-text-primary-color | Primary color of text |
+| button.text.secondary.hover.background | --p-button-text-secondary-hover-background | Secondary hover background of text |
+| button.text.secondary.active.background | --p-button-text-secondary-active-background | Secondary active background of text |
+| button.text.secondary.color | --p-button-text-secondary-color | Secondary color of text |
+| button.text.success.hover.background | --p-button-text-success-hover-background | Success hover background of text |
+| button.text.success.active.background | --p-button-text-success-active-background | Success active background of text |
+| button.text.success.color | --p-button-text-success-color | Success color of text |
+| button.text.info.hover.background | --p-button-text-info-hover-background | Info hover background of text |
+| button.text.info.active.background | --p-button-text-info-active-background | Info active background of text |
+| button.text.info.color | --p-button-text-info-color | Info color of text |
+| button.text.warn.hover.background | --p-button-text-warn-hover-background | Warn hover background of text |
+| button.text.warn.active.background | --p-button-text-warn-active-background | Warn active background of text |
+| button.text.warn.color | --p-button-text-warn-color | Warn color of text |
+| button.text.help.hover.background | --p-button-text-help-hover-background | Help hover background of text |
+| button.text.help.active.background | --p-button-text-help-active-background | Help active background of text |
+| button.text.help.color | --p-button-text-help-color | Help color of text |
+| button.text.danger.hover.background | --p-button-text-danger-hover-background | Danger hover background of text |
+| button.text.danger.active.background | --p-button-text-danger-active-background | Danger active background of text |
+| button.text.danger.color | --p-button-text-danger-color | Danger color of text |
+| button.text.contrast.hover.background | --p-button-text-contrast-hover-background | Contrast hover background of text |
+| button.text.contrast.active.background | --p-button-text-contrast-active-background | Contrast active background of text |
+| button.text.contrast.color | --p-button-text-contrast-color | Contrast color of text |
+| button.text.plain.hover.background | --p-button-text-plain-hover-background | Plain hover background of text |
+| button.text.plain.active.background | --p-button-text-plain-active-background | Plain active background of text |
+| button.text.plain.color | --p-button-text-plain-color | Plain color of text |
+| button.link.color | --p-button-link-color | Color of link |
+| button.link.hover.color | --p-button-link-hover-color | Hover color of link |
+| button.link.active.color | --p-button-link-active-color | Active color of link |
+
 ---
 
 # Vue Card Component
@@ -2448,6 +2867,21 @@ import Card from 'primevue/card';
 | p-card-content | Class name of the content element |
 | p-card-footer | Class name of the footer element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| card.background | --p-card-background | Background of root |
+| card.border.radius | --p-card-border-radius | Border radius of root |
+| card.color | --p-card-color | Color of root |
+| card.shadow | --p-card-shadow | Shadow of root |
+| card.body.padding | --p-card-body-padding | Padding of body |
+| card.body.gap | --p-card-body-gap | Gap of body |
+| card.caption.gap | --p-card-caption-gap | Gap of caption |
+| card.title.font.size | --p-card-title-font-size | Font size of title |
+| card.title.font.weight | --p-card-title-font-weight | Font weight of title |
+| card.subtitle.color | --p-card-subtitle-color | Color of subtitle |
+
 ---
 
 # Vue Carousel Component
@@ -2549,6 +2983,26 @@ To create a vertical Carousel, orientation needs to be set to vertical along wit
 | p-carousel-indicator | Class name of the indicator element |
 | p-carousel-indicator-button | Class name of the indicator button element |
 | p-carousel-footer | Class name of the footer element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| carousel.transition.duration | --p-carousel-transition-duration | Transition duration of root |
+| carousel.content.gap | --p-carousel-content-gap | Gap of content |
+| carousel.indicator.list.padding | --p-carousel-indicator-list-padding | Padding of indicator list |
+| carousel.indicator.list.gap | --p-carousel-indicator-list-gap | Gap of indicator list |
+| carousel.indicator.width | --p-carousel-indicator-width | Width of indicator |
+| carousel.indicator.height | --p-carousel-indicator-height | Height of indicator |
+| carousel.indicator.border.radius | --p-carousel-indicator-border-radius | Border radius of indicator |
+| carousel.indicator.focus.ring.width | --p-carousel-indicator-focus-ring-width | Focus ring width of indicator |
+| carousel.indicator.focus.ring.style | --p-carousel-indicator-focus-ring-style | Focus ring style of indicator |
+| carousel.indicator.focus.ring.color | --p-carousel-indicator-focus-ring-color | Focus ring color of indicator |
+| carousel.indicator.focus.ring.offset | --p-carousel-indicator-focus-ring-offset | Focus ring offset of indicator |
+| carousel.indicator.focus.ring.shadow | --p-carousel-indicator-focus-ring-shadow | Focus ring shadow of indicator |
+| carousel.indicator.background | --p-carousel-indicator-background | Background of indicator |
+| carousel.indicator.hover.background | --p-carousel-indicator-hover-background | Hover background of indicator |
+| carousel.indicator.active.background | --p-carousel-indicator-active-background | Active background of indicator |
 
 ---
 
@@ -2757,58 +3211,168 @@ CascadeSelect offers multiple slots for customization through templating.
             <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
 ```
 
-## Cascadeselect
+## Cascade Select
 
----
+### Props
 
-# cdn
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| options | any[] | - | An array of selectitems to display as the available options. |
+| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
+| optionValue | string \| Function | - | Property name or getter function to use as the value of an option, defaults to the option itself when not defined. |
+| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
+| optionGroupLabel | string \| Function | - | Property name or getter function to use as the label of an option group. |
+| optionGroupChildren | string \| string[] \| Function | - | Property name or getter function to retrieve the items of a group. |
+| placeholder | string | - | Default text to display when no option is selected. |
+| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| dataKey | string | - | A property to uniquely identify an option. |
+| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
+| clearIcon | string | - | Icon to display in clear button. |
+| inputId | string | - | Identifier of the underlying input element. |
+| inputStyle | object | - | Inline style of the input field. |
+| inputClass | string \| object | - | Style class of the input field. |
+| inputProps | InputHTMLAttributes | - | Used to pass all properties of the HTMLInputElement to the focusable input element inside the component. |
+| panelStyle | object | - |  |
+| panelClass | string \| object | - |  |
+| panelProps | HTMLAttributes | - |  |
+| overlayStyle | object | - | Inline style of the overlay overlay. |
+| overlayClass | string \| object | - | Style class of the overlay overlay. |
+| overlayProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the overlay overlay inside the component. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself. |
+| loading | boolean | false | Whether the dropdown is in loading state. |
+| dropdownIcon | string | - | Icon to display in the dropdown. |
+| loadingIcon | string | - | Icon to display in loading state. |
+| optionGroupIcon | string | - | Icon to display in the option group. |
+| autoOptionFocus | boolean | false | Whether to focus on the first visible or selected element when the overlay panel is shown. |
+| selectOnFocus | boolean | false | When enabled, the focused option is selected/opened. |
+| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
+| searchLocale | string | - | Locale to use in searching. The default locale is the host environment's current locale. |
+| searchMessage | string | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration. |
+| selectionMessage | string | '{0} items selected' | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration. |
+| emptySelectionMessage | string | No selected item | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration. |
+| emptySearchMessage | string | No results found | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration. |
+| emptyMessage | string | No available options | Text to be displayed when there are no options available. Defaults to value from PrimeVue locale configuration. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<CascadeSelectPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
+## Pass Through Options
 
-
-## CreateApp
-
-Create an app container element and setup the application using createApp .
-
-## Example
-
-A complete example using a PrimeVue DatePicker. You can also view this sample live at Stackblitz .
-
-## Plugin
-
-PrimeVue plugin is required to be installed as an application plugin to set up the default configuration .
-
-**Basic Usage:**
-
-```vue
-app.use(PrimeVue.Config);
-```
-
-## Script
-
-You can use PrimeVue and Vue.js from a CDN with a script tag. This approach does not involve any build step, and is suitable for enhancing static HTML. This guide uses unpkg however other providers such as jsdeliver and cdnjs can also be used.
-
-**Basic Usage:**
-
-```vue
-https://unpkg.com/vue@3/dist/vue.global.js
-https://unpkg.com/primevue/umd/primevue.min.js
-https://unpkg.com/@primeuix/themes/umd/aura.js  // see theming for alternatives
-```
+| Name | Type | Description |
+|------|------|-------------|
+| root | CascadeSelectPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| input | CascadeSelectPassThroughOptionType | Used to pass attributes to the input's DOM element. |
+| label | CascadeSelectPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+| clearIcon | CascadeSelectPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+| dropdown | CascadeSelectPassThroughOptionType | Used to pass attributes to the dropdown button's DOM element. |
+| dropdownIcon | CascadeSelectPassThroughOptionType | Used to pass attributes to the dropdown icon's DOM element. |
+| loadingIcon | CascadeSelectPassThroughOptionType | Used to pass attributes to the loading icon's DOM element. |
+| overlay | CascadeSelectPassThroughOptionType | Used to pass attributes to the overlay's DOM element. |
+| listContainer | CascadeSelectPassThroughOptionType | Used to pass attributes to the list container's DOM element. |
+| list | CascadeSelectPassThroughOptionType | Used to pass attributes to the list's DOM element. |
+| option | CascadeSelectPassThroughOptionType | Used to pass attributes to the option's DOM element. |
+| optionContent | CascadeSelectPassThroughOptionType | Used to pass attributes to the option content's DOM element. |
+| optionText | CascadeSelectPassThroughOptionType | Used to pass attributes to the option text's DOM element. |
+| optionList | CascadeSelectPassThroughOptionType | Used to pass attributes to the option list's DOM element. |
+| groupIconContainer | CascadeSelectPassThroughOptionType | Used to pass attributes to the group icon container's DOM element. |
+| groupIcon | CascadeSelectPassThroughOptionType | Used to pass attributes to the group icon's DOM element. |
+| hiddenInputContainer | CascadeSelectPassThroughOptionType | Used to pass attributes to the hidden input container's DOM element. |
+| hiddenInput | CascadeSelectPassThroughOptionType | Used to pass attributes to the hidden input's DOM element. |
+| hiddenSelectedMessage | CascadeSelectPassThroughOptionType | Used to pass attributes to the hidden selected message's DOM element. |
+| hiddenSearchResult | CascadeSelectPassThroughOptionType | Used to pass attributes to the search result message text aria's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | CascadeSelectPassThroughTransitionType | Used to control Vue Transition API. |
 
 ## Theming
 
-Include the theme preset via a script element after adding PrimeVue, valid options are Aura, Lara, Nora and Material.
+### CSS Classes
 
-**Basic Usage:**
+| Class | Description |
+|-------|-------------|
+| p-cascadeselect | Class name of the root element |
+| p-cascadeselect-label | Class name of the label element |
+| p-cascadeselect-dropdown | Class name of the dropdown element |
+| p-cascadeselect-loading-icon | Class name of the loading icon element |
+| p-cascadeselect-clear-icon | Class name of the dropdown icon element |
+| p-cascadeselect-dropdown-icon | Class name of the dropdown icon element |
+| p-cascadeselect-overlay | Class name of the overlay element |
+| p-cascadeselect-list-container | Class name of the list container element |
+| p-cascadeselect-list | Class name of the list element |
+| p-cascadeselect-item | Class name of the item element |
+| p-cascadeselect-item-content | Class name of the item content element |
+| p-cascadeselect-item-text | Class name of the item text element |
+| p-cascadeselect-group-icon | Class name of the group icon element |
+| p-cascadeselect-item-list | Class name of the item list element |
 
-```vue
-<!-- <script src="https://unpkg.com/@primeuix/themes/umd/{preset}.js"><\/script> -->
+### Design Tokens
 
-<script src="https://unpkg.com/@primeuix/themes/umd/aura.js"><\/script>
-<script src="https://unpkg.com/@primeuix/themes/umd/lara.js"><\/script>
-<script src="https://unpkg.com/@primeuix/themes/umd/nora.js"><\/script>
-<script src="https://unpkg.com/@primeuix/themes/umd/material.js"><\/script>
-```
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| cascadeselect.background | --p-cascadeselect-background | Background of root |
+| cascadeselect.disabled.background | --p-cascadeselect-disabled-background | Disabled background of root |
+| cascadeselect.filled.background | --p-cascadeselect-filled-background | Filled background of root |
+| cascadeselect.filled.hover.background | --p-cascadeselect-filled-hover-background | Filled hover background of root |
+| cascadeselect.filled.focus.background | --p-cascadeselect-filled-focus-background | Filled focus background of root |
+| cascadeselect.border.color | --p-cascadeselect-border-color | Border color of root |
+| cascadeselect.hover.border.color | --p-cascadeselect-hover-border-color | Hover border color of root |
+| cascadeselect.focus.border.color | --p-cascadeselect-focus-border-color | Focus border color of root |
+| cascadeselect.invalid.border.color | --p-cascadeselect-invalid-border-color | Invalid border color of root |
+| cascadeselect.color | --p-cascadeselect-color | Color of root |
+| cascadeselect.disabled.color | --p-cascadeselect-disabled-color | Disabled color of root |
+| cascadeselect.placeholder.color | --p-cascadeselect-placeholder-color | Placeholder color of root |
+| cascadeselect.invalid.placeholder.color | --p-cascadeselect-invalid-placeholder-color | Invalid placeholder color of root |
+| cascadeselect.shadow | --p-cascadeselect-shadow | Shadow of root |
+| cascadeselect.padding.x | --p-cascadeselect-padding-x | Padding x of root |
+| cascadeselect.padding.y | --p-cascadeselect-padding-y | Padding y of root |
+| cascadeselect.border.radius | --p-cascadeselect-border-radius | Border radius of root |
+| cascadeselect.focus.ring.width | --p-cascadeselect-focus-ring-width | Focus ring width of root |
+| cascadeselect.focus.ring.style | --p-cascadeselect-focus-ring-style | Focus ring style of root |
+| cascadeselect.focus.ring.color | --p-cascadeselect-focus-ring-color | Focus ring color of root |
+| cascadeselect.focus.ring.offset | --p-cascadeselect-focus-ring-offset | Focus ring offset of root |
+| cascadeselect.focus.ring.shadow | --p-cascadeselect-focus-ring-shadow | Focus ring shadow of root |
+| cascadeselect.transition.duration | --p-cascadeselect-transition-duration | Transition duration of root |
+| cascadeselect.sm.font.size | --p-cascadeselect-sm-font-size | Sm font size of root |
+| cascadeselect.sm.padding.x | --p-cascadeselect-sm-padding-x | Sm padding x of root |
+| cascadeselect.sm.padding.y | --p-cascadeselect-sm-padding-y | Sm padding y of root |
+| cascadeselect.lg.font.size | --p-cascadeselect-lg-font-size | Lg font size of root |
+| cascadeselect.lg.padding.x | --p-cascadeselect-lg-padding-x | Lg padding x of root |
+| cascadeselect.lg.padding.y | --p-cascadeselect-lg-padding-y | Lg padding y of root |
+| cascadeselect.dropdown.width | --p-cascadeselect-dropdown-width | Width of dropdown |
+| cascadeselect.dropdown.color | --p-cascadeselect-dropdown-color | Color of dropdown |
+| cascadeselect.overlay.background | --p-cascadeselect-overlay-background | Background of overlay |
+| cascadeselect.overlay.border.color | --p-cascadeselect-overlay-border-color | Border color of overlay |
+| cascadeselect.overlay.border.radius | --p-cascadeselect-overlay-border-radius | Border radius of overlay |
+| cascadeselect.overlay.color | --p-cascadeselect-overlay-color | Color of overlay |
+| cascadeselect.overlay.shadow | --p-cascadeselect-overlay-shadow | Shadow of overlay |
+| cascadeselect.list.padding | --p-cascadeselect-list-padding | Padding of list |
+| cascadeselect.list.gap | --p-cascadeselect-list-gap | Gap of list |
+| cascadeselect.list.mobile.indent | --p-cascadeselect-list-mobile-indent | Mobile indent of list |
+| cascadeselect.option.focus.background | --p-cascadeselect-option-focus-background | Focus background of option |
+| cascadeselect.option.selected.background | --p-cascadeselect-option-selected-background | Selected background of option |
+| cascadeselect.option.selected.focus.background | --p-cascadeselect-option-selected-focus-background | Selected focus background of option |
+| cascadeselect.option.color | --p-cascadeselect-option-color | Color of option |
+| cascadeselect.option.focus.color | --p-cascadeselect-option-focus-color | Focus color of option |
+| cascadeselect.option.selected.color | --p-cascadeselect-option-selected-color | Selected color of option |
+| cascadeselect.option.selected.focus.color | --p-cascadeselect-option-selected-focus-color | Selected focus color of option |
+| cascadeselect.option.padding | --p-cascadeselect-option-padding | Padding of option |
+| cascadeselect.option.border.radius | --p-cascadeselect-option-border-radius | Border radius of option |
+| cascadeselect.option.icon.color | --p-cascadeselect-option-icon-color | Icon color of option |
+| cascadeselect.option.icon.focus.color | --p-cascadeselect-option-icon-focus-color | Icon focus color of option |
+| cascadeselect.option.icon.size | --p-cascadeselect-option-icon-size | Icon size of option |
+| cascadeselect.clear.icon.color | --p-cascadeselect-clear-icon-color | Color of clear icon |
 
 ---
 
@@ -3193,6 +3757,45 @@ Checkbox provides small and large sizes as alternatives to the base.
 | p-checkbox-input | Class name of the input element |
 | p-checkbox-icon | Class name of the icon element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| checkbox.border.radius | --p-checkbox-border-radius | Border radius of root |
+| checkbox.width | --p-checkbox-width | Width of root |
+| checkbox.height | --p-checkbox-height | Height of root |
+| checkbox.background | --p-checkbox-background | Background of root |
+| checkbox.checked.background | --p-checkbox-checked-background | Checked background of root |
+| checkbox.checked.hover.background | --p-checkbox-checked-hover-background | Checked hover background of root |
+| checkbox.disabled.background | --p-checkbox-disabled-background | Disabled background of root |
+| checkbox.filled.background | --p-checkbox-filled-background | Filled background of root |
+| checkbox.border.color | --p-checkbox-border-color | Border color of root |
+| checkbox.hover.border.color | --p-checkbox-hover-border-color | Hover border color of root |
+| checkbox.focus.border.color | --p-checkbox-focus-border-color | Focus border color of root |
+| checkbox.checked.border.color | --p-checkbox-checked-border-color | Checked border color of root |
+| checkbox.checked.hover.border.color | --p-checkbox-checked-hover-border-color | Checked hover border color of root |
+| checkbox.checked.focus.border.color | --p-checkbox-checked-focus-border-color | Checked focus border color of root |
+| checkbox.checked.disabled.border.color | --p-checkbox-checked-disabled-border-color | Checked disabled border color of root |
+| checkbox.invalid.border.color | --p-checkbox-invalid-border-color | Invalid border color of root |
+| checkbox.shadow | --p-checkbox-shadow | Shadow of root |
+| checkbox.focus.ring.width | --p-checkbox-focus-ring-width | Focus ring width of root |
+| checkbox.focus.ring.style | --p-checkbox-focus-ring-style | Focus ring style of root |
+| checkbox.focus.ring.color | --p-checkbox-focus-ring-color | Focus ring color of root |
+| checkbox.focus.ring.offset | --p-checkbox-focus-ring-offset | Focus ring offset of root |
+| checkbox.focus.ring.shadow | --p-checkbox-focus-ring-shadow | Focus ring shadow of root |
+| checkbox.transition.duration | --p-checkbox-transition-duration | Transition duration of root |
+| checkbox.sm.width | --p-checkbox-sm-width | Sm width of root |
+| checkbox.sm.height | --p-checkbox-sm-height | Sm height of root |
+| checkbox.lg.width | --p-checkbox-lg-width | Lg width of root |
+| checkbox.lg.height | --p-checkbox-lg-height | Lg height of root |
+| checkbox.icon.size | --p-checkbox-icon-size | Size of icon |
+| checkbox.icon.color | --p-checkbox-icon-color | Color of icon |
+| checkbox.icon.checked.color | --p-checkbox-icon-checked-color | Checked color of icon |
+| checkbox.icon.checked.hover.color | --p-checkbox-icon-checked-hover-color | Checked hover color of icon |
+| checkbox.icon.disabled.color | --p-checkbox-icon-disabled-color | Disabled color of icon |
+| checkbox.icon.sm.size | --p-checkbox-icon-sm-size | Sm size of icon |
+| checkbox.icon.lg.size | --p-checkbox-icon-lg-size | Lg size of icon |
+
 ---
 
 # Vue Chip Component
@@ -3374,6 +3977,29 @@ The default slot allows displaying custom content inside a chip.
 | p-chip-label | Class name of the label element |
 | p-chip-remove-icon | Class name of the remove icon element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| chip.border.radius | --p-chip-border-radius | Border radius of root |
+| chip.padding.x | --p-chip-padding-x | Padding x of root |
+| chip.padding.y | --p-chip-padding-y | Padding y of root |
+| chip.gap | --p-chip-gap | Gap of root |
+| chip.transition.duration | --p-chip-transition-duration | Transition duration of root |
+| chip.background | --p-chip-background | Background of root |
+| chip.color | --p-chip-color | Color of root |
+| chip.image.width | --p-chip-image-width | Width of image |
+| chip.image.height | --p-chip-image-height | Height of image |
+| chip.icon.size | --p-chip-icon-size | Size of icon |
+| chip.icon.color | --p-chip-icon-color | Color of icon |
+| chip.remove.icon.size | --p-chip-remove-icon-size | Size of remove icon |
+| chip.remove.icon.focus.ring.width | --p-chip-remove-icon-focus-ring-width | Focus ring width of remove icon |
+| chip.remove.icon.focus.ring.style | --p-chip-remove-icon-focus-ring-style | Focus ring style of remove icon |
+| chip.remove.icon.focus.ring.color | --p-chip-remove-icon-focus-ring-color | Focus ring color of remove icon |
+| chip.remove.icon.focus.ring.offset | --p-chip-remove-icon-focus-ring-offset | Focus ring offset of remove icon |
+| chip.remove.icon.focus.ring.shadow | --p-chip-remove-icon-focus-ring-shadow | Focus ring shadow of remove icon |
+| chip.remove.icon.color | --p-chip-remove-icon-color | Color of remove icon |
+
 ---
 
 # Vue ColorPicker Component
@@ -3438,84 +4064,82 @@ ColorPicker is displayed as a popup by default, add inline property to customize
 <ColorPicker v-model="color" inline />
 ```
 
-## Colorpicker
+## Color Picker
 
----
+### Props
 
-# configuration
-
-
-
-## Import
-
-Configuration is managed by the PrimeVue instance imported from primevue/config .
-
-**Basic Usage:**
-
-```vue
-import PrimeVue from 'primevue/config';
-const app = createApp(App);
-
-app.use(PrimeVue, { /* options */ });
-```
-
-## InputVariant
-
-Input fields come in two styles, default is outlined with borders around the field whereas filled alternative adds a background color to the field. Applying p-variant-filled to an ancestor of an input enables the filled style. If you prefer to use filled inputs in the entire application, use a global container such as the document body or the application element to apply the style class. Note that in case you add it to the application element, components that are teleported to the document body such as Dialog will not be able to display filled inputs as they are not a descendant of the application root element in the DOM tree, to resolve this case set inputVariant to filled at PrimeVue configuration as well.
-
-**Basic Usage:**
-
-```vue
-import {createApp} from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
-
-app.use(PrimeVue, { inputVariant: "filled" });
-```
-
-## Pass Through
-
-Defines the shared pass through properties per component type. Visit the Pass Through Props documentation for more information.
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultColor | any | ff0000 | Initial color to display when value is not defined. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| inline | boolean | false | Whether to display as an overlay or not. |
+| format | HintedString<"hex" \| "rgb" \| "hsb"> | hex | Format to use in value binding, supported formats are 'hex', 'rgb' and 'hsb'. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| tabindex | string | - | Index of the element in tabbing order. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| inputId | string | - | Identifier of the focus input to match a label defined for the dropdown. |
+| panelClass | any | - | Style class of the overlay panel. |
+| overlayClass | any | - | Style class of the overlay panel. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ColorPickerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Pass Through Options
 
-Used to configure the ptOptions properties of components and the usePassThrough method. The mergeSections defines whether the sections from the main configuration gets added and the mergeProps controls whether to override or merge the defined props. Defaults are true for mergeSections and false for mergeProps .
+| Name | Type | Description |
+|------|------|-------------|
+| root | ColorPickerPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| preview | ColorPickerPassThroughOptionType | Used to pass attributes to the preview's DOM element. |
+| overlay | ColorPickerPassThroughOptionType | Used to pass attributes to the panel's DOM element. |
+| content | ColorPickerPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| colorSelector | ColorPickerPassThroughOptionType | Used to pass attributes to the color selector's DOM element. |
+| colorBackground | ColorPickerPassThroughOptionType | Used to pass attributes to the color background's DOM element. |
+| colorHandle | ColorPickerPassThroughOptionType | Used to pass attributes to the color handler's DOM element. |
+| hue | ColorPickerPassThroughOptionType | Used to pass attributes to the hue's DOM element. |
+| hueHandle | ColorPickerPassThroughOptionType | Used to pass attributes to the hue handler's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | ColorPickerPassThroughTransitionType | Used to control Vue Transition API. |
 
-## Ripple
+## Theming
 
-Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at your app's entry file (e.g. main.js) during the PrimeVue setup.
+### CSS Classes
 
-**Basic Usage:**
+| Class | Description |
+|-------|-------------|
+| p-colorpicker | Class name of the root element |
+| p-colorpicker-preview | Class name of the preview element |
+| p-colorpicker-panel | Class name of the panel element |
+| p-colorpicker-color-selector | Class name of the color selector element |
+| p-colorpicker-color-background | Class name of the color background element |
+| p-colorpicker-color-handle | Class name of the color handle element |
+| p-colorpicker-hue | Class name of the hue element |
+| p-colorpicker-hue-handle | Class name of the hue handle element |
 
-```vue
-import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
+### Design Tokens
 
-app.use(PrimeVue, { ripple: true });
-```
-
-## Theme
-
-Style mode offers theming based on a design token based architecture. See the styled mode documentation for details such as building your own theme.
-
-## Unstyled
-
-Unstyled mode instructs the components not to add any built-in style classes so that they can be styled using custom css or libraries like Tailwind and Bootstrap. Visit Unstyled mode documentation for more information.
-
-**Basic Usage:**
-
-```vue
-import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
-
-app.use(PrimeVue, { unstyled: true });
-```
-
-## ZIndex
-
-ZIndexes are managed automatically to make sure layering of overlay components work seamlessly when combining multiple components. Still there may be cases where you'd like to configure the configure default values such as a custom layout where header section is fixed. In a case like this, dropdown needs to be displayed below the application header but a modal dialog should be displayed above. PrimeVue configuration offers the zIndex property to customize the default values for components categories. Default values are described below and can be customized when setting up PrimeVue.
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| colorpicker.transition.duration | --p-colorpicker-transition-duration | Transition duration of root |
+| colorpicker.preview.width | --p-colorpicker-preview-width | Width of preview |
+| colorpicker.preview.height | --p-colorpicker-preview-height | Height of preview |
+| colorpicker.preview.border.radius | --p-colorpicker-preview-border-radius | Border radius of preview |
+| colorpicker.preview.focus.ring.width | --p-colorpicker-preview-focus-ring-width | Focus ring width of preview |
+| colorpicker.preview.focus.ring.style | --p-colorpicker-preview-focus-ring-style | Focus ring style of preview |
+| colorpicker.preview.focus.ring.color | --p-colorpicker-preview-focus-ring-color | Focus ring color of preview |
+| colorpicker.preview.focus.ring.offset | --p-colorpicker-preview-focus-ring-offset | Focus ring offset of preview |
+| colorpicker.preview.focus.ring.shadow | --p-colorpicker-preview-focus-ring-shadow | Focus ring shadow of preview |
+| colorpicker.panel.shadow | --p-colorpicker-panel-shadow | Shadow of panel |
+| colorpicker.panel.border.radius | --p-colorpicker-panel-border-radius | Border radius of panel |
+| colorpicker.panel.background | --p-colorpicker-panel-background | Background of panel |
+| colorpicker.panel.border.color | --p-colorpicker-panel-border-color | Border color of panel |
+| colorpicker.handle.color | --p-colorpicker-handle-color | Color of handle |
 
 ---
 
@@ -3583,7 +4207,58 @@ The position property of the confirm options specifies the location of the Dialo
 
 Templating allows customizing the message content.
 
-## Confirmdialog
+## Confirm Dialog
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| group | string | - | Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance. |
+| breakpoints | ConfirmDialogBreakpoints | - | Object literal to define widths per screen size. |
+| draggable | boolean | true | Enables dragging to change the position using header. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ConfirmDialogPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ConfirmDialogPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| header | ConfirmDialogPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| title | ConfirmDialogPassThroughOptionType | Used to pass attributes to the header title's DOM element. |
+| headerActions | ConfirmDialogPassThroughOptionType | Used to pass attributes to the header actions' DOM element. |
+| pcCloseButton | ConfirmDialogPassThroughOptionType | Used to pass attributes to the close button's component. |
+| content | ConfirmDialogPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| icon | ConfirmDialogPassThroughOptionType | Used to pass attributes to the icon's DOM element. |
+| message | ConfirmDialogPassThroughOptionType | Used to pass attributes to the message's DOM element. |
+| footer | ConfirmDialogPassThroughOptionType | Used to pass attributes to the footer's DOM element. |
+| mask | ConfirmDialogPassThroughOptionType | Used to pass attributes to the mask's DOM element. |
+| pcRejectButton | any | Used to pass attributes to the Button component. |
+| pcAcceptButton | any | Used to pass attributes to the Button component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | ConfirmDialogPassThroughOptionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-confirmdialog | Class name of the root element |
+| p-confirmdialog-icon | Class name of the icon element |
+| p-confirmdialog-message | Class name of the message element |
+| p-confirmdialog-reject-button | Class name of the reject button element |
+| p-confirmdialog-accept-button | Class name of the accept button element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| confirmdialog.icon.size | --p-confirmdialog-icon-size | Size of icon |
+| confirmdialog.icon.color | --p-confirmdialog-icon-color | Color of icon |
+| confirmdialog.content.gap | --p-confirmdialog-content-gap | Gap of content |
 
 ---
 
@@ -3627,7 +4302,63 @@ import ConfirmPopup from 'primevue/confirmpopup';
 
 Templating allows customizing the message content.
 
-## Confirmpopup
+## Confirm Popup
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| group | string | - | Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ConfirmPopupPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ConfirmPopupPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| content | ConfirmPopupPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| icon | ConfirmPopupPassThroughOptionType | Used to pass attributes to the icon's DOM element. |
+| message | ConfirmPopupPassThroughOptionType | Used to pass attributes to the message's DOM element. |
+| footer | ConfirmPopupPassThroughOptionType | Used to pass attributes to the footer's DOM element. |
+| pcRejectButton | any | Used to pass attributes to the Button component. |
+| pcAcceptButton | any | Used to pass attributes to the Button component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | ConfirmPopupPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-confirmpopup | Class name of the root element |
+| p-confirmpopup-content | Class name of the content element |
+| p-confirmpopup-icon | Class name of the icon element |
+| p-confirmpopup-message | Class name of the message element |
+| p-confirmpopup-footer | Class name of the footer element |
+| p-confirmpopup-reject-button | Class name of the reject button element |
+| p-confirmpopup-accept-button | Class name of the accept button element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| confirmpopup.background | --p-confirmpopup-background | Background of root |
+| confirmpopup.border.color | --p-confirmpopup-border-color | Border color of root |
+| confirmpopup.color | --p-confirmpopup-color | Color of root |
+| confirmpopup.border.radius | --p-confirmpopup-border-radius | Border radius of root |
+| confirmpopup.shadow | --p-confirmpopup-shadow | Shadow of root |
+| confirmpopup.gutter | --p-confirmpopup-gutter | Gutter of root |
+| confirmpopup.arrow.offset | --p-confirmpopup-arrow-offset | Arrow offset of root |
+| confirmpopup.content.padding | --p-confirmpopup-content-padding | Padding of content |
+| confirmpopup.content.gap | --p-confirmpopup-content-gap | Gap of content |
+| confirmpopup.icon.size | --p-confirmpopup-icon-size | Size of icon |
+| confirmpopup.icon.color | --p-confirmpopup-icon-color | Color of icon |
+| confirmpopup.footer.gap | --p-confirmpopup-footer-gap | Gap of footer |
+| confirmpopup.footer.padding | --p-confirmpopup-footer-padding | Padding of footer |
 
 ---
 
@@ -3697,112 +4428,6 @@ Items with navigation are defined with templating to be able to use a router lin
 ## Template
 
 ContextMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
-
-## Contextmenu
-
----
-
-# contribution
-
-
-
-## Benefits
-
-Contributing to PrimeVue comes with several benefits. Being part of an open-source project will enhance your career and open up exciting opportunities. Contributors and Committers will be listed on our team page . You'll gain significant visibility in the developer community while improving yourself as a professional. You'll be invited to a private communication channel at Discord to get in touch with PrimeTek. In addition, contributors have access to all PrimeVue add-ons like Premium Templates, Blocks, and UI Kit free of charge.
-
-## CLA
-
-When a community member is offered the Contributor role, they are expected to sign a Contributor License Agreement (CLA) for legal purposes. This helps protect both the contributor and PrimeTek.
-
-## Communication
-
-Join the Contributors channel on the PrimeLand Discord server to connect with PrimeVue staff and fellow contributors. In this channel, you can discuss the areas you want to contribute to and receive feedback. This channel is open to everyone who'd like to contribute.
-
-## Help Needed
-
-PrimeVue is a community-driven project backed by the expertise and sponsorship of PrimeTek, and we appreciate any help you can provide. Here are some areas where you can contribute: Issue Triage Help us manage issues by; Reproducing reported bugs Clarifying issue descriptions Tagging issues with appropriate labels Sending Pull Requests We encourage you to send pull requests, especially for issues tagged with the help-needed label. Community Support Assist other users by participating in the issue tracker, GitHub discussions , and the PrimeLand Discord server. Your expertise can help others solve problems and improve their experience with PrimeVue.
-
-## Introduction
-
-PrimeVue is a popular Vue UI library maintained by PrimeTek, a company renowned for its comprehensive set of UI components for various frameworks. PrimeTek is dedicated to providing high-quality, versatile, and accessible UI components that help developers build better applications faster. Development Setup To begin with, clone the PrimeVue repository from GitHub: Then run the showcase in your local environment at http://localhost:3000/ . Project Structure PrimeVue utilizes a monorepo architecture, the libraries are located at packages folder and the website is at apps/showcase .
-
-## Key Points
-
-PrimeVue has several add-ons such as UI Kit, Premium Templates, and Blocks that rely on design tokens and styling. Any core structural changes, such as adding new props, events, or updating design tokens, should be communicated with the core team to ensure consistency and compatibility.
-
-## Pathway
-
-PrimeTek offers an organization structure involving contributors and the core team: Contributor Role After a certain period of frequent contributions, a community member is offered the Contributor role. On average, it may take about three months, but the exact duration can vary depending on the individual commitment. Committer Role If a contributor actively participates in the codebase and PRs, their role may be upgraded to a Committer level, providing direct commit access to the PrimeVue codebase. Employment PrimeTek prefers to hire team members from open source committers, so you may be offered a full-time position when a position becomes available.
-
----
-
-# customicons
-
-
-
-## FontAwesome
-
-Font Awesome is a popular icon library with a wide range of icons.
-
-**Basic Usage:**
-
-```vue
-<Select>
-    <template #dropdownicon>
-        <i class="fa-light fa-chevron-down"></i>
-    </template>
-</Select>
-```
-
-## Image
-
-Any type of image can be used as an icon.
-
-**Basic Usage:**
-
-```vue
-<Select>
-    <template #dropdownicon>
-        <img alt="dropdown icon" src="/assets/icons/arrow_down.png">
-    </template>
-</Select>
-```
-
-## Material
-
-Material icons is the official icon library based on Google Material Design.
-
-**Basic Usage:**
-
-```vue
-<Select>
-    <template #dropdownicon>
-        <span class="material-icons">arrow_drop_down</span>
-    </template>
-</Select>
-```
-
-## SVG
-
-Inline SVGs are embedded inside the dom.
-
-**Basic Usage:**
-
-```vue
-<Select>
-    <template #dropdownicon>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <g id="chevron-down">
-                <path d="M12,15.25a.74.74,0,0,1-.53-.22l-5-5A.75.75,0,0,1,7.53,9L12,13.44,16.47,9A.75.75,0,0,1,17.53,10l-5,5A.74.74,0,0,1,12,15.25Z"/>
-            </g>
-        </svg>
-    </template>
-</Select>
-```
-
-## Video Tutorial
-
-A video tutorial to demonstrate how to customize icons.
 
 ---
 
@@ -4243,6 +4868,118 @@ Custom content at header and footer sections are supported via templating.
 | p-datatable-row-reorder-indicator-up | Class name of the row reorder indicator up element |
 | p-datatable-row-reorder-indicator-down | Class name of the row reorder indicator down element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| datatable.transition.duration | --p-datatable-transition-duration | Transition duration of root |
+| datatable.border.color | --p-datatable-border-color | Border color of root |
+| datatable.header.background | --p-datatable-header-background | Background of header |
+| datatable.header.border.color | --p-datatable-header-border-color | Border color of header |
+| datatable.header.color | --p-datatable-header-color | Color of header |
+| datatable.header.border.width | --p-datatable-header-border-width | Border width of header |
+| datatable.header.padding | --p-datatable-header-padding | Padding of header |
+| datatable.header.sm.padding | --p-datatable-header-sm-padding | Sm padding of header |
+| datatable.header.lg.padding | --p-datatable-header-lg-padding | Lg padding of header |
+| datatable.header.cell.background | --p-datatable-header-cell-background | Background of header cell |
+| datatable.header.cell.hover.background | --p-datatable-header-cell-hover-background | Hover background of header cell |
+| datatable.header.cell.selected.background | --p-datatable-header-cell-selected-background | Selected background of header cell |
+| datatable.header.cell.border.color | --p-datatable-header-cell-border-color | Border color of header cell |
+| datatable.header.cell.color | --p-datatable-header-cell-color | Color of header cell |
+| datatable.header.cell.hover.color | --p-datatable-header-cell-hover-color | Hover color of header cell |
+| datatable.header.cell.selected.color | --p-datatable-header-cell-selected-color | Selected color of header cell |
+| datatable.header.cell.gap | --p-datatable-header-cell-gap | Gap of header cell |
+| datatable.header.cell.padding | --p-datatable-header-cell-padding | Padding of header cell |
+| datatable.header.cell.focus.ring.width | --p-datatable-header-cell-focus-ring-width | Focus ring width of header cell |
+| datatable.header.cell.focus.ring.style | --p-datatable-header-cell-focus-ring-style | Focus ring style of header cell |
+| datatable.header.cell.focus.ring.color | --p-datatable-header-cell-focus-ring-color | Focus ring color of header cell |
+| datatable.header.cell.focus.ring.offset | --p-datatable-header-cell-focus-ring-offset | Focus ring offset of header cell |
+| datatable.header.cell.focus.ring.shadow | --p-datatable-header-cell-focus-ring-shadow | Focus ring shadow of header cell |
+| datatable.header.cell.sm.padding | --p-datatable-header-cell-sm-padding | Sm padding of header cell |
+| datatable.header.cell.lg.padding | --p-datatable-header-cell-lg-padding | Lg padding of header cell |
+| datatable.column.title.font.weight | --p-datatable-column-title-font-weight | Font weight of column title |
+| datatable.row.background | --p-datatable-row-background | Background of row |
+| datatable.row.hover.background | --p-datatable-row-hover-background | Hover background of row |
+| datatable.row.selected.background | --p-datatable-row-selected-background | Selected background of row |
+| datatable.row.color | --p-datatable-row-color | Color of row |
+| datatable.row.hover.color | --p-datatable-row-hover-color | Hover color of row |
+| datatable.row.selected.color | --p-datatable-row-selected-color | Selected color of row |
+| datatable.row.focus.ring.width | --p-datatable-row-focus-ring-width | Focus ring width of row |
+| datatable.row.focus.ring.style | --p-datatable-row-focus-ring-style | Focus ring style of row |
+| datatable.row.focus.ring.color | --p-datatable-row-focus-ring-color | Focus ring color of row |
+| datatable.row.focus.ring.offset | --p-datatable-row-focus-ring-offset | Focus ring offset of row |
+| datatable.row.focus.ring.shadow | --p-datatable-row-focus-ring-shadow | Focus ring shadow of row |
+| datatable.row.striped.background | --p-datatable-row-striped-background | Striped background of row |
+| datatable.body.cell.border.color | --p-datatable-body-cell-border-color | Border color of body cell |
+| datatable.body.cell.padding | --p-datatable-body-cell-padding | Padding of body cell |
+| datatable.body.cell.sm.padding | --p-datatable-body-cell-sm-padding | Sm padding of body cell |
+| datatable.body.cell.lg.padding | --p-datatable-body-cell-lg-padding | Lg padding of body cell |
+| datatable.body.cell.selected.border.color | --p-datatable-body-cell-selected-border-color | Selected border color of body cell |
+| datatable.footer.cell.background | --p-datatable-footer-cell-background | Background of footer cell |
+| datatable.footer.cell.border.color | --p-datatable-footer-cell-border-color | Border color of footer cell |
+| datatable.footer.cell.color | --p-datatable-footer-cell-color | Color of footer cell |
+| datatable.footer.cell.padding | --p-datatable-footer-cell-padding | Padding of footer cell |
+| datatable.footer.cell.sm.padding | --p-datatable-footer-cell-sm-padding | Sm padding of footer cell |
+| datatable.footer.cell.lg.padding | --p-datatable-footer-cell-lg-padding | Lg padding of footer cell |
+| datatable.column.footer.font.weight | --p-datatable-column-footer-font-weight | Font weight of column footer |
+| datatable.footer.background | --p-datatable-footer-background | Background of footer |
+| datatable.footer.border.color | --p-datatable-footer-border-color | Border color of footer |
+| datatable.footer.color | --p-datatable-footer-color | Color of footer |
+| datatable.footer.border.width | --p-datatable-footer-border-width | Border width of footer |
+| datatable.footer.padding | --p-datatable-footer-padding | Padding of footer |
+| datatable.footer.sm.padding | --p-datatable-footer-sm-padding | Sm padding of footer |
+| datatable.footer.lg.padding | --p-datatable-footer-lg-padding | Lg padding of footer |
+| datatable.drop.point.color | --p-datatable-drop-point-color | Color of drop point |
+| datatable.column.resizer.width | --p-datatable-column-resizer-width | Width of column resizer |
+| datatable.resize.indicator.width | --p-datatable-resize-indicator-width | Width of resize indicator |
+| datatable.resize.indicator.color | --p-datatable-resize-indicator-color | Color of resize indicator |
+| datatable.sort.icon.color | --p-datatable-sort-icon-color | Color of sort icon |
+| datatable.sort.icon.hover.color | --p-datatable-sort-icon-hover-color | Hover color of sort icon |
+| datatable.sort.icon.size | --p-datatable-sort-icon-size | Size of sort icon |
+| datatable.loading.icon.size | --p-datatable-loading-icon-size | Size of loading icon |
+| datatable.row.toggle.button.hover.background | --p-datatable-row-toggle-button-hover-background | Hover background of row toggle button |
+| datatable.row.toggle.button.selected.hover.background | --p-datatable-row-toggle-button-selected-hover-background | Selected hover background of row toggle button |
+| datatable.row.toggle.button.color | --p-datatable-row-toggle-button-color | Color of row toggle button |
+| datatable.row.toggle.button.hover.color | --p-datatable-row-toggle-button-hover-color | Hover color of row toggle button |
+| datatable.row.toggle.button.selected.hover.color | --p-datatable-row-toggle-button-selected-hover-color | Selected hover color of row toggle button |
+| datatable.row.toggle.button.size | --p-datatable-row-toggle-button-size | Size of row toggle button |
+| datatable.row.toggle.button.border.radius | --p-datatable-row-toggle-button-border-radius | Border radius of row toggle button |
+| datatable.row.toggle.button.focus.ring.width | --p-datatable-row-toggle-button-focus-ring-width | Focus ring width of row toggle button |
+| datatable.row.toggle.button.focus.ring.style | --p-datatable-row-toggle-button-focus-ring-style | Focus ring style of row toggle button |
+| datatable.row.toggle.button.focus.ring.color | --p-datatable-row-toggle-button-focus-ring-color | Focus ring color of row toggle button |
+| datatable.row.toggle.button.focus.ring.offset | --p-datatable-row-toggle-button-focus-ring-offset | Focus ring offset of row toggle button |
+| datatable.row.toggle.button.focus.ring.shadow | --p-datatable-row-toggle-button-focus-ring-shadow | Focus ring shadow of row toggle button |
+| datatable.filter.inline.gap | --p-datatable-filter-inline-gap | Inline gap of filter |
+| datatable.filter.overlay.select.background | --p-datatable-filter-overlay-select-background | Overlay select background of filter |
+| datatable.filter.overlay.select.border.color | --p-datatable-filter-overlay-select-border-color | Overlay select border color of filter |
+| datatable.filter.overlay.select.border.radius | --p-datatable-filter-overlay-select-border-radius | Overlay select border radius of filter |
+| datatable.filter.overlay.select.color | --p-datatable-filter-overlay-select-color | Overlay select color of filter |
+| datatable.filter.overlay.select.shadow | --p-datatable-filter-overlay-select-shadow | Overlay select shadow of filter |
+| datatable.filter.overlay.popover.background | --p-datatable-filter-overlay-popover-background | Overlay popover background of filter |
+| datatable.filter.overlay.popover.border.color | --p-datatable-filter-overlay-popover-border-color | Overlay popover border color of filter |
+| datatable.filter.overlay.popover.border.radius | --p-datatable-filter-overlay-popover-border-radius | Overlay popover border radius of filter |
+| datatable.filter.overlay.popover.color | --p-datatable-filter-overlay-popover-color | Overlay popover color of filter |
+| datatable.filter.overlay.popover.shadow | --p-datatable-filter-overlay-popover-shadow | Overlay popover shadow of filter |
+| datatable.filter.overlay.popover.padding | --p-datatable-filter-overlay-popover-padding | Overlay popover padding of filter |
+| datatable.filter.overlay.popover.gap | --p-datatable-filter-overlay-popover-gap | Overlay popover gap of filter |
+| datatable.filter.rule.border.color | --p-datatable-filter-rule-border-color | Rule border color of filter |
+| datatable.filter.constraint.list.padding | --p-datatable-filter-constraint-list-padding | Constraint list padding of filter |
+| datatable.filter.constraint.list.gap | --p-datatable-filter-constraint-list-gap | Constraint list gap of filter |
+| datatable.filter.constraint.focus.background | --p-datatable-filter-constraint-focus-background | Constraint focus background of filter |
+| datatable.filter.constraint.selected.background | --p-datatable-filter-constraint-selected-background | Constraint selected background of filter |
+| datatable.filter.constraint.selected.focus.background | --p-datatable-filter-constraint-selected-focus-background | Constraint selected focus background of filter |
+| datatable.filter.constraint.color | --p-datatable-filter-constraint-color | Constraint color of filter |
+| datatable.filter.constraint.focus.color | --p-datatable-filter-constraint-focus-color | Constraint focus color of filter |
+| datatable.filter.constraint.selected.color | --p-datatable-filter-constraint-selected-color | Constraint selected color of filter |
+| datatable.filter.constraint.selected.focus.color | --p-datatable-filter-constraint-selected-focus-color | Constraint selected focus color of filter |
+| datatable.filter.constraint.separator.border.color | --p-datatable-filter-constraint-separator-border-color | Constraint separator border color of filter |
+| datatable.filter.constraint.padding | --p-datatable-filter-constraint-padding | Constraint padding of filter |
+| datatable.filter.constraint.border.radius | --p-datatable-filter-constraint-border-radius | Constraint border radius of filter |
+| datatable.paginator.top.border.color | --p-datatable-paginator-top-border-color | Border color of paginator top |
+| datatable.paginator.top.border.width | --p-datatable-paginator-top-border-width | Border width of paginator top |
+| datatable.paginator.bottom.border.color | --p-datatable-paginator-bottom-border-color | Border color of paginator bottom |
+| datatable.paginator.bottom.border.width | --p-datatable-paginator-bottom-border-width | Border width of paginator bottom |
+
 ---
 
 # Vue DataView Component
@@ -4456,6 +5193,37 @@ Built-in sorting is controlled by bindings sortField and sortField properties fr
 | p-dataview-content | Class name of the content element |
 | p-dataview-empty-message | Class name of the empty message element |
 | p-dataview-footer | Class name of the footer element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| dataview.border.color | --p-dataview-border-color | Border color of root |
+| dataview.border.width | --p-dataview-border-width | Border width of root |
+| dataview.border.radius | --p-dataview-border-radius | Border radius of root |
+| dataview.padding | --p-dataview-padding | Padding of root |
+| dataview.header.background | --p-dataview-header-background | Background of header |
+| dataview.header.color | --p-dataview-header-color | Color of header |
+| dataview.header.border.color | --p-dataview-header-border-color | Border color of header |
+| dataview.header.border.width | --p-dataview-header-border-width | Border width of header |
+| dataview.header.padding | --p-dataview-header-padding | Padding of header |
+| dataview.header.border.radius | --p-dataview-header-border-radius | Border radius of header |
+| dataview.content.background | --p-dataview-content-background | Background of content |
+| dataview.content.color | --p-dataview-content-color | Color of content |
+| dataview.content.border.color | --p-dataview-content-border-color | Border color of content |
+| dataview.content.border.width | --p-dataview-content-border-width | Border width of content |
+| dataview.content.padding | --p-dataview-content-padding | Padding of content |
+| dataview.content.border.radius | --p-dataview-content-border-radius | Border radius of content |
+| dataview.footer.background | --p-dataview-footer-background | Background of footer |
+| dataview.footer.color | --p-dataview-footer-color | Color of footer |
+| dataview.footer.border.color | --p-dataview-footer-border-color | Border color of footer |
+| dataview.footer.border.width | --p-dataview-footer-border-width | Border width of footer |
+| dataview.footer.padding | --p-dataview-footer-padding | Padding of footer |
+| dataview.footer.border.radius | --p-dataview-footer-border-radius | Border radius of footer |
+| dataview.paginator.top.border.color | --p-dataview-paginator-top-border-color | Border color of paginator top |
+| dataview.paginator.top.border.width | --p-dataview-paginator-top-border-width | Border width of paginator top |
+| dataview.paginator.bottom.border.color | --p-dataview-paginator-bottom-border-color | Border color of paginator bottom |
+| dataview.paginator.bottom.border.width | --p-dataview-paginator-bottom-border-width | Border width of paginator bottom |
 
 ---
 
@@ -4933,6 +5701,89 @@ Specifying view as year in addition to a suitable dateFormat enables the year pi
 | p-datepicker-today-button | Class name of the today button element |
 | p-datepicker-clear-button | Class name of the clear button element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| datepicker.transition.duration | --p-datepicker-transition-duration | Transition duration of root |
+| datepicker.panel.background | --p-datepicker-panel-background | Background of panel |
+| datepicker.panel.border.color | --p-datepicker-panel-border-color | Border color of panel |
+| datepicker.panel.color | --p-datepicker-panel-color | Color of panel |
+| datepicker.panel.border.radius | --p-datepicker-panel-border-radius | Border radius of panel |
+| datepicker.panel.shadow | --p-datepicker-panel-shadow | Shadow of panel |
+| datepicker.panel.padding | --p-datepicker-panel-padding | Padding of panel |
+| datepicker.header.background | --p-datepicker-header-background | Background of header |
+| datepicker.header.border.color | --p-datepicker-header-border-color | Border color of header |
+| datepicker.header.color | --p-datepicker-header-color | Color of header |
+| datepicker.header.padding | --p-datepicker-header-padding | Padding of header |
+| datepicker.title.gap | --p-datepicker-title-gap | Gap of title |
+| datepicker.title.font.weight | --p-datepicker-title-font-weight | Font weight of title |
+| datepicker.dropdown.width | --p-datepicker-dropdown-width | Width of dropdown |
+| datepicker.dropdown.sm.width | --p-datepicker-dropdown-sm-width | Sm width of dropdown |
+| datepicker.dropdown.lg.width | --p-datepicker-dropdown-lg-width | Lg width of dropdown |
+| datepicker.dropdown.border.color | --p-datepicker-dropdown-border-color | Border color of dropdown |
+| datepicker.dropdown.hover.border.color | --p-datepicker-dropdown-hover-border-color | Hover border color of dropdown |
+| datepicker.dropdown.active.border.color | --p-datepicker-dropdown-active-border-color | Active border color of dropdown |
+| datepicker.dropdown.border.radius | --p-datepicker-dropdown-border-radius | Border radius of dropdown |
+| datepicker.dropdown.focus.ring.width | --p-datepicker-dropdown-focus-ring-width | Focus ring width of dropdown |
+| datepicker.dropdown.focus.ring.style | --p-datepicker-dropdown-focus-ring-style | Focus ring style of dropdown |
+| datepicker.dropdown.focus.ring.color | --p-datepicker-dropdown-focus-ring-color | Focus ring color of dropdown |
+| datepicker.dropdown.focus.ring.offset | --p-datepicker-dropdown-focus-ring-offset | Focus ring offset of dropdown |
+| datepicker.dropdown.focus.ring.shadow | --p-datepicker-dropdown-focus-ring-shadow | Focus ring shadow of dropdown |
+| datepicker.dropdown.background | --p-datepicker-dropdown-background | Background of dropdown |
+| datepicker.dropdown.hover.background | --p-datepicker-dropdown-hover-background | Hover background of dropdown |
+| datepicker.dropdown.active.background | --p-datepicker-dropdown-active-background | Active background of dropdown |
+| datepicker.dropdown.color | --p-datepicker-dropdown-color | Color of dropdown |
+| datepicker.dropdown.hover.color | --p-datepicker-dropdown-hover-color | Hover color of dropdown |
+| datepicker.dropdown.active.color | --p-datepicker-dropdown-active-color | Active color of dropdown |
+| datepicker.input.icon.color | --p-datepicker-input-icon-color | Color of input icon |
+| datepicker.select.month.hover.background | --p-datepicker-select-month-hover-background | Hover background of select month |
+| datepicker.select.month.color | --p-datepicker-select-month-color | Color of select month |
+| datepicker.select.month.hover.color | --p-datepicker-select-month-hover-color | Hover color of select month |
+| datepicker.select.month.padding | --p-datepicker-select-month-padding | Padding of select month |
+| datepicker.select.month.border.radius | --p-datepicker-select-month-border-radius | Border radius of select month |
+| datepicker.select.year.hover.background | --p-datepicker-select-year-hover-background | Hover background of select year |
+| datepicker.select.year.color | --p-datepicker-select-year-color | Color of select year |
+| datepicker.select.year.hover.color | --p-datepicker-select-year-hover-color | Hover color of select year |
+| datepicker.select.year.padding | --p-datepicker-select-year-padding | Padding of select year |
+| datepicker.select.year.border.radius | --p-datepicker-select-year-border-radius | Border radius of select year |
+| datepicker.group.border.color | --p-datepicker-group-border-color | Border color of group |
+| datepicker.group.gap | --p-datepicker-group-gap | Gap of group |
+| datepicker.day.view.margin | --p-datepicker-day-view-margin | Margin of day view |
+| datepicker.week.day.padding | --p-datepicker-week-day-padding | Padding of week day |
+| datepicker.week.day.font.weight | --p-datepicker-week-day-font-weight | Font weight of week day |
+| datepicker.week.day.color | --p-datepicker-week-day-color | Color of week day |
+| datepicker.date.hover.background | --p-datepicker-date-hover-background | Hover background of date |
+| datepicker.date.selected.background | --p-datepicker-date-selected-background | Selected background of date |
+| datepicker.date.range.selected.background | --p-datepicker-date-range-selected-background | Range selected background of date |
+| datepicker.date.color | --p-datepicker-date-color | Color of date |
+| datepicker.date.hover.color | --p-datepicker-date-hover-color | Hover color of date |
+| datepicker.date.selected.color | --p-datepicker-date-selected-color | Selected color of date |
+| datepicker.date.range.selected.color | --p-datepicker-date-range-selected-color | Range selected color of date |
+| datepicker.date.width | --p-datepicker-date-width | Width of date |
+| datepicker.date.height | --p-datepicker-date-height | Height of date |
+| datepicker.date.border.radius | --p-datepicker-date-border-radius | Border radius of date |
+| datepicker.date.padding | --p-datepicker-date-padding | Padding of date |
+| datepicker.date.focus.ring.width | --p-datepicker-date-focus-ring-width | Focus ring width of date |
+| datepicker.date.focus.ring.style | --p-datepicker-date-focus-ring-style | Focus ring style of date |
+| datepicker.date.focus.ring.color | --p-datepicker-date-focus-ring-color | Focus ring color of date |
+| datepicker.date.focus.ring.offset | --p-datepicker-date-focus-ring-offset | Focus ring offset of date |
+| datepicker.date.focus.ring.shadow | --p-datepicker-date-focus-ring-shadow | Focus ring shadow of date |
+| datepicker.month.view.margin | --p-datepicker-month-view-margin | Margin of month view |
+| datepicker.month.padding | --p-datepicker-month-padding | Padding of month |
+| datepicker.month.border.radius | --p-datepicker-month-border-radius | Border radius of month |
+| datepicker.year.view.margin | --p-datepicker-year-view-margin | Margin of year view |
+| datepicker.year.padding | --p-datepicker-year-padding | Padding of year |
+| datepicker.year.border.radius | --p-datepicker-year-border-radius | Border radius of year |
+| datepicker.buttonbar.padding | --p-datepicker-buttonbar-padding | Padding of buttonbar |
+| datepicker.buttonbar.border.color | --p-datepicker-buttonbar-border-color | Border color of buttonbar |
+| datepicker.time.picker.padding | --p-datepicker-time-picker-padding | Padding of time picker |
+| datepicker.time.picker.border.color | --p-datepicker-time-picker-border-color | Border color of time picker |
+| datepicker.time.picker.gap | --p-datepicker-time-picker-gap | Gap of time picker |
+| datepicker.time.picker.button.gap | --p-datepicker-time-picker-button-gap | Button gap of time picker |
+| datepicker.today.background | --p-datepicker-today-background | Background of today |
+| datepicker.today.color | --p-datepicker-today-color | Color of today |
+
 ---
 
 # Vue Deferred Content Component
@@ -4988,33 +5839,23 @@ A practical example that triggers a fetch when the table becomes visible in view
 import DeferredContent from 'primevue/deferredcontent';
 ```
 
-## Deferredcontent
+## Deferred Content
 
----
+### Props
 
-# designer
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DeferredContentPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
+## Pass Through Options
 
-
-## DashboardDoc
-
-Dashboard is the entry point of the designer. The license key can be configured at this view before getting started with the full set of features. In the My Themes section, you're able to create a theme, and manage existing themes. A theme can be renamed, duplicated and downloaded using the button.
-
-## LicenseDoc
-
-A license key is required to be able to use all the services provided by the designer. Without a license, the visual editor is still available for trial purposes with various options such as downloads, and cloud storage disabled. The license key can be purchased at PrimeStore , it is valid for 1 year and needs to be renewed manually after a year.
-
-## LimitationsDoc
-
-Current known technical limitations are listed at this section. The border width token in Figma does not support multiple values, related issue .
-
-## MigrationAssistantDoc
-
-Prime UI libraries continue to evolve with each version. New tokens are likely to be added with each major release, in order to keep your themes up to date the migration assistant is available featuring automated migration. The Check for Updates option initially scans a theme for any missing tokens. This tool does not override the values of existing tokens, and only adds missing tokens if necessary. Still, it is recommended to duplicate your theme as a backup and run a preview before the migration. Depending on the result, you may choose to proceed with the migration process. In case there are missing tokens, your theme would receive them with placeholder values so it is recommended to take a note of them before migration and then visit the components to replace the placeholder values with actual values of your choice. These types of newly added tokens would be highlighed in Editor.
-
-## OverviewDoc
-
-The theming api is open and source freely available with an extensive documentation. Theme Designer is a tool build on top of this theming api with important features to make theming easier. Designer consists of 4 key features; The visual editor provides a UI to edit the complete set of tokens. The figma to theme code generator is extremely useful to automate the design to code process and integrates seamlessly with the Figma UI Kit. The themes are saved in the cloud storage to be accessible from anywhere and any device and finally the migration assistant automatically updates your themes to the latest library version.
+| Name | Type | Description |
+|------|------|-------------|
+| root | DeferredContentPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
 
 ---
 
@@ -5357,6 +6198,23 @@ Mask layer behind the Dialog is configured with the modal property. By default, 
 | p-dialog-close-button | Class name of the close button element |
 | p-dialog-content | Class name of the content element |
 | p-dialog-footer | Class name of the footer element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| dialog.background | --p-dialog-background | Background of root |
+| dialog.border.color | --p-dialog-border-color | Border color of root |
+| dialog.color | --p-dialog-color | Color of root |
+| dialog.border.radius | --p-dialog-border-radius | Border radius of root |
+| dialog.shadow | --p-dialog-shadow | Shadow of root |
+| dialog.header.padding | --p-dialog-header-padding | Padding of header |
+| dialog.header.gap | --p-dialog-header-gap | Gap of header |
+| dialog.title.font.size | --p-dialog-title-font-size | Font size of title |
+| dialog.title.font.weight | --p-dialog-title-font-weight | Font weight of title |
+| dialog.content.padding | --p-dialog-content-padding | Padding of content |
+| dialog.footer.padding | --p-dialog-footer-padding | Padding of footer |
+| dialog.footer.gap | --p-dialog-footer-gap | Gap of footer |
 
 ---
 
@@ -5725,6 +6583,20 @@ Vertical divider is enabled by setting the layout property as vertical .
 | p-divider | Class name of the root element |
 | p-divider-content | Class name of the content element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| divider.border.color | --p-divider-border-color | Border color of root |
+| divider.content.background | --p-divider-content-background | Background of content |
+| divider.content.color | --p-divider-content-color | Color of content |
+| divider.horizontal.margin | --p-divider-horizontal-margin | Margin of horizontal |
+| divider.horizontal.padding | --p-divider-horizontal-padding | Padding of horizontal |
+| divider.horizontal.content.padding | --p-divider-horizontal-content-padding | Content padding of horizontal |
+| divider.vertical.margin | --p-divider-vertical-margin | Margin of vertical |
+| divider.vertical.padding | --p-divider-vertical-padding | Padding of vertical |
+| divider.vertical.content.padding | --p-divider-vertical-content-padding | Content padding of vertical |
+
 ---
 
 # Vue Dock Component
@@ -5772,54 +6644,6 @@ Dock requires a collection of menuitems as its model and an icon template. Defau
 ```vue
 import Dock from 'primevue/dock';
 ```
-
-## Dock
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | MenuModel instance to define the action items. |
-| position | HintedString<"left" \| "right" \| "top" \| "bottom"> | bottom | Position of element. |
-| class | any | - | Style class of the element. |
-| style | any | - | Inline style of the element. |
-| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
-| tooltipOptions | DockTooltipOptions | - | Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'. |
-| menuId | string | - | Unique identifier of the menu. |
-| tabindex | string \| number | - | Index of the element in tabbing order. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| ariaLabel | string | - | Establishes a string value that labels the component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<DockPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Pass Through Options
-
-| Name | Type | Description |
-|------|------|-------------|
-| root | DockPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| listContainer | DockPassThroughOptionType | Used to pass attributes to the list container's DOM element. |
-| list | DockPassThroughOptionType | Used to pass attributes to the list's DOM element. |
-| item | DockPassThroughOptionType | Used to pass attributes to the  item's DOM element. |
-| itemContent | DockPassThroughOptionType | Used to pass attributes to the item content's DOM element. |
-| itemLink | DockPassThroughOptionType | Used to pass attributes to the item link's DOM element. |
-| itemIcon | DockPassThroughOptionType | Used to pass attributes to the item icon's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
-
-## Theming
-
-### CSS Classes
-
-| Class | Description |
-|-------|-------------|
-| p-dock | Class name of the root element |
-| p-dock-list-container | Class name of the list container element |
-| p-dock-list | Class name of the list element |
-| p-dock-item | Class name of the item element |
-| p-dock-item-content | Class name of the item content element |
-| p-dock-item-link | Class name of the item link element |
-| p-dock-item-icon | Class name of the item icon element |
 
 ---
 
@@ -6188,6 +7012,20 @@ Custom content at the header and footer sections is displayed with templating.
 | p-drawer-close-button | Class name of the close button element |
 | p-drawer-content | Class name of the content element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| drawer.background | --p-drawer-background | Background of root |
+| drawer.border.color | --p-drawer-border-color | Border color of root |
+| drawer.color | --p-drawer-color | Color of root |
+| drawer.shadow | --p-drawer-shadow | Shadow of root |
+| drawer.header.padding | --p-drawer-header-padding | Padding of header |
+| drawer.title.font.size | --p-drawer-title-font-size | Font size of title |
+| drawer.title.font.weight | --p-drawer-title-font-weight | Font weight of title |
+| drawer.content.padding | --p-drawer-content-padding | Padding of content |
+| drawer.footer.padding | --p-drawer-footer-padding | Padding of footer |
+
 ---
 
 # Vue Dynamic Dialog Component
@@ -6254,7 +7092,13 @@ The open function of the DialogService is used to open a Dialog. First parameter
 
 Use the data property to pass parameters when opening a Dialog, the internal component can later access this data using dialogRef . Similarly when hiding a Dialog, any parameter passed to the close function is received from the onClose callback.
 
-## Dynamicdialog
+## Dynamic Dialog
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Dynamicdialogoptions
 
@@ -6387,6 +7231,33 @@ Editor provides a default toolbar with common options, to customize it define yo
 | p-editor | Class name of the root element |
 | p-editor-toolbar | Class name of the toolbar element |
 | p-editor-content | Class name of the content element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| editor.toolbar.background | --p-editor-toolbar-background | Background of toolbar |
+| editor.toolbar.border.color | --p-editor-toolbar-border-color | Border color of toolbar |
+| editor.toolbar.border.radius | --p-editor-toolbar-border-radius | Border radius of toolbar |
+| editor.toolbar.item.color | --p-editor-toolbar-item-color | Color of toolbar item |
+| editor.toolbar.item.hover.color | --p-editor-toolbar-item-hover-color | Hover color of toolbar item |
+| editor.toolbar.item.active.color | --p-editor-toolbar-item-active-color | Active color of toolbar item |
+| editor.toolbar.item.padding | --p-editor-toolbar-item-padding | Padding of toolbar item |
+| editor.overlay.background | --p-editor-overlay-background | Background of overlay |
+| editor.overlay.border.color | --p-editor-overlay-border-color | Border color of overlay |
+| editor.overlay.border.radius | --p-editor-overlay-border-radius | Border radius of overlay |
+| editor.overlay.color | --p-editor-overlay-color | Color of overlay |
+| editor.overlay.shadow | --p-editor-overlay-shadow | Shadow of overlay |
+| editor.overlay.padding | --p-editor-overlay-padding | Padding of overlay |
+| editor.overlay.option.focus.background | --p-editor-overlay-option-focus-background | Focus background of overlay option |
+| editor.overlay.option.color | --p-editor-overlay-option-color | Color of overlay option |
+| editor.overlay.option.focus.color | --p-editor-overlay-option-focus-color | Focus color of overlay option |
+| editor.overlay.option.padding | --p-editor-overlay-option-padding | Padding of overlay option |
+| editor.overlay.option.border.radius | --p-editor-overlay-option-border-radius | Border radius of overlay option |
+| editor.content.background | --p-editor-content-background | Background of content |
+| editor.content.border.color | --p-editor-content-border-color | Border color of content |
+| editor.content.color | --p-editor-content-color | Color of content |
+| editor.content.border.radius | --p-editor-content-border-radius | Border radius of content |
 
 ---
 
@@ -6551,6 +7422,35 @@ Content of the fieldset can be expanded and collapsed when toggleable option is 
 | p-fieldset-content-container | Class name of the content container element |
 | p-fieldset-content | Class name of the content element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| fieldset.background | --p-fieldset-background | Background of root |
+| fieldset.border.color | --p-fieldset-border-color | Border color of root |
+| fieldset.border.radius | --p-fieldset-border-radius | Border radius of root |
+| fieldset.color | --p-fieldset-color | Color of root |
+| fieldset.padding | --p-fieldset-padding | Padding of root |
+| fieldset.transition.duration | --p-fieldset-transition-duration | Transition duration of root |
+| fieldset.legend.background | --p-fieldset-legend-background | Background of legend |
+| fieldset.legend.hover.background | --p-fieldset-legend-hover-background | Hover background of legend |
+| fieldset.legend.color | --p-fieldset-legend-color | Color of legend |
+| fieldset.legend.hover.color | --p-fieldset-legend-hover-color | Hover color of legend |
+| fieldset.legend.border.radius | --p-fieldset-legend-border-radius | Border radius of legend |
+| fieldset.legend.border.width | --p-fieldset-legend-border-width | Border width of legend |
+| fieldset.legend.border.color | --p-fieldset-legend-border-color | Border color of legend |
+| fieldset.legend.padding | --p-fieldset-legend-padding | Padding of legend |
+| fieldset.legend.gap | --p-fieldset-legend-gap | Gap of legend |
+| fieldset.legend.font.weight | --p-fieldset-legend-font-weight | Font weight of legend |
+| fieldset.legend.focus.ring.width | --p-fieldset-legend-focus-ring-width | Focus ring width of legend |
+| fieldset.legend.focus.ring.style | --p-fieldset-legend-focus-ring-style | Focus ring style of legend |
+| fieldset.legend.focus.ring.color | --p-fieldset-legend-focus-ring-color | Focus ring color of legend |
+| fieldset.legend.focus.ring.offset | --p-fieldset-legend-focus-ring-offset | Focus ring offset of legend |
+| fieldset.legend.focus.ring.shadow | --p-fieldset-legend-focus-ring-shadow | Focus ring shadow of legend |
+| fieldset.toggle.icon.color | --p-fieldset-toggle-icon-color | Color of toggle icon |
+| fieldset.toggle.icon.hover.color | --p-fieldset-toggle-icon-hover-color | Hover color of toggle icon |
+| fieldset.content.padding | --p-fieldset-content-padding | Padding of content |
+
 ---
 
 # Vue File Upload Component
@@ -6619,7 +7519,119 @@ import FileUpload from 'primevue/fileupload';
 
 Uploader UI can be customized with templating.
 
-## Fileupload
+## File Upload
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| name | string | - | Name of the request parameter to identify the files at backend. |
+| url | string | - | Remote url to upload the files. |
+| mode | HintedString<"advanced" \| "basic"> | advanced | Defines the UI of the component, possible values are 'advanced' and 'basic'. |
+| multiple | boolean | false | Used to select multiple files at once from file dialog. |
+| accept | string | - | Pattern to restrict the allowed file types such as 'image/*'. |
+| disabled | boolean | false | Disables the upload functionality. |
+| auto | boolean | false | When enabled, upload begins automatically after selection is completed. |
+| maxFileSize | number | - | Maximum file size allowed in bytes. |
+| invalidFileSizeMessage | string | : Invalid file size, file size should be smaller than {1.} | Message of the invalid fize size. |
+| invalidFileLimitMessage | string | Maximum number of files to be uploaded is {0.} | Message to display when number of files to be uploaded exceeeds the limit. |
+| invalidFileTypeMessage | string | '{0}: Invalid file type.' | Message of the invalid fize type. |
+| fileLimit | number | - | Maximum number of files that can be uploaded. |
+| withCredentials | boolean | false | Cross-site Access-Control requests should be made using credentials such as cookies, authorization headers or TLS client certificates. |
+| previewWidth | number | 50 | Width of the image thumbnail in pixels. |
+| chooseLabel | string | - | Label of the choose button. Defaults to PrimeVue Locale configuration. |
+| uploadLabel | string | - | Label of the upload button. Defaults to PrimeVue Locale configuration. |
+| cancelLabel | string | Cancel | Label of the cancel button. Defaults to PrimeVue Locale configuration. |
+| customUpload | boolean | - | Whether to use the default upload or a manual implementation defined in uploadHandler callback. Defaults to PrimeVue Locale configuration. |
+| showUploadButton | boolean | true | Whether to show the upload button. |
+| showCancelButton | boolean | true | Whether to show the cancel button. |
+| chooseIcon | string | - | Icon of the choose button. |
+| uploadIcon | string | - | Icon of the upload button. |
+| cancelIcon | string | - | Icon of the cancel button. |
+| style | any | - | Inline style of the component. |
+| class | any | - | Style class of the component. |
+| chooseButtonProps | object | null | Used to pass all properties of the ButtonProps to the choose button inside the component. |
+| uploadButtonProps | object | - | Used to pass all properties of the ButtonProps to the upload button inside the component. |
+| cancelButtonProps | object | - | Used to pass all properties of the ButtonProps to the cancel button inside the component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<FileUploadPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | FileUploadPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| input | FileUploadPassThroughOptionType | Used to pass attributes to the input's DOM element. |
+| header | FileUploadPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| pcChooseButton | any | Used to pass attributes to the choose Button component. |
+| pcUploadButton | any | Used to pass attributes to the upload Button component. |
+| pcCancelButton | any | Used to pass attributes to the cancel Button component. |
+| content | FileUploadPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| pcProgressBar | any | Used to pass attributes to the ProgressBar component. |
+| pcMessage | any | Used to pass attributes to the message's DOM element. |
+| file | FileUploadPassThroughOptionType | Used to pass attributes to the file's DOM element. |
+| fileThumbnail | FileUploadPassThroughOptionType | Used to pass attributes to the file thumbnail's DOM element. |
+| fileInfo | FileUploadPassThroughOptionType | Used to pass attributes to the file info's DOM element. |
+| fileName | FileUploadPassThroughOptionType | Used to pass attributes to the fileName's DOM element. |
+| fileSize | FileUploadPassThroughOptionType | Used to pass attributes to the fileSize's DOM element. |
+| pcFileBadge | any | Used to pass attributes to the Badge component. |
+| fileActions | FileUploadPassThroughOptionType | Used to pass attributes to the file actions' DOM element. |
+| pcFileRemoveButton | any | Used to pass attributes to the file remove button's DOM element. |
+| empty | FileUploadPassThroughOptionType | Used to pass attributes to the empty's DOM element. |
+| basicContent | any | Used to pass attributes to the content in basic mode. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-fileupload | Class name of the root element |
+| p-fileupload-header | Class name of the header element |
+| p-fileupload-choose-button | Class name of the choose button element |
+| p-fileupload-upload-button | Class name of the upload button element |
+| p-fileupload-cancel-button | Class name of the cancel button element |
+| p-fileupload-content | Class name of the content element |
+| p-fileupload-file-list | Class name of the file list element |
+| p-fileupload-file | Class name of the file element |
+| p-fileupload-file-thumbnail | Class name of the file thumbnail element |
+| p-fileupload-file-info | Class name of the file info element |
+| p-fileupload-file-name | Class name of the file name element |
+| p-fileupload-file-size | Class name of the file size element |
+| p-fileupload-file-badge | Class name of the file badge element |
+| p-fileupload-file-actions | Class name of the file actions element |
+| p-fileupload-file-remove-button | Class name of the file remove button element |
+| p-fileupload-basic-content | Class name of the content element in basic mode |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| fileupload.background | --p-fileupload-background | Background of root |
+| fileupload.border.color | --p-fileupload-border-color | Border color of root |
+| fileupload.color | --p-fileupload-color | Color of root |
+| fileupload.border.radius | --p-fileupload-border-radius | Border radius of root |
+| fileupload.transition.duration | --p-fileupload-transition-duration | Transition duration of root |
+| fileupload.header.background | --p-fileupload-header-background | Background of header |
+| fileupload.header.color | --p-fileupload-header-color | Color of header |
+| fileupload.header.padding | --p-fileupload-header-padding | Padding of header |
+| fileupload.header.border.color | --p-fileupload-header-border-color | Border color of header |
+| fileupload.header.border.width | --p-fileupload-header-border-width | Border width of header |
+| fileupload.header.border.radius | --p-fileupload-header-border-radius | Border radius of header |
+| fileupload.header.gap | --p-fileupload-header-gap | Gap of header |
+| fileupload.content.highlight.border.color | --p-fileupload-content-highlight-border-color | Highlight border color of content |
+| fileupload.content.padding | --p-fileupload-content-padding | Padding of content |
+| fileupload.content.gap | --p-fileupload-content-gap | Gap of content |
+| fileupload.file.padding | --p-fileupload-file-padding | Padding of file |
+| fileupload.file.gap | --p-fileupload-file-gap | Gap of file |
+| fileupload.file.border.color | --p-fileupload-file-border-color | Border color of file |
+| fileupload.file.info.gap | --p-fileupload-file-info-gap | Info gap of file |
+| fileupload.file.list.gap | --p-fileupload-file-list-gap | Gap of file list |
+| fileupload.progressbar.height | --p-fileupload-progressbar-height | Height of progressbar |
+| fileupload.basic.gap | --p-fileupload-basic-gap | Gap of basic |
 
 ---
 
@@ -6693,7 +7705,60 @@ The variant property defines the position of the label. Default value is over , 
 </FloatLabel>
 ```
 
-## Floatlabel
+## Float Label
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<FloatLabelPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| variant | HintedString<"on" \| "in" \| "over"> | over | Defines the positioning of the label relative to the input. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| default | Function |  |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | FloatLabelPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-floatlabel | Class name of the root element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| floatlabel.color | --p-floatlabel-color | Color of root |
+| floatlabel.focus.color | --p-floatlabel-focus-color | Focus color of root |
+| floatlabel.active.color | --p-floatlabel-active-color | Active color of root |
+| floatlabel.invalid.color | --p-floatlabel-invalid-color | Invalid color of root |
+| floatlabel.transition.duration | --p-floatlabel-transition-duration | Transition duration of root |
+| floatlabel.position.x | --p-floatlabel-position-x | Position x of root |
+| floatlabel.position.y | --p-floatlabel-position-y | Position y of root |
+| floatlabel.font.weight | --p-floatlabel-font-weight | Font weight of root |
+| floatlabel.active.font.size | --p-floatlabel-active-font-size | Active font size of root |
+| floatlabel.active.font.weight | --p-floatlabel-active-font-weight | Active font weight of root |
+| floatlabel.over.active.top | --p-floatlabel-over-active-top | Active top of over |
+| floatlabel.in.input.padding.top | --p-floatlabel-in-input-padding-top | Input padding top of in |
+| floatlabel.in.input.padding.bottom | --p-floatlabel-in-input-padding-bottom | Input padding bottom of in |
+| floatlabel.in.active.top | --p-floatlabel-in-active-top | Active top of in |
+| floatlabel.on.border.radius | --p-floatlabel-on-border-radius | Border radius of on |
+| floatlabel.on.active.background | --p-floatlabel-on-active-background | Active background of on |
+| floatlabel.on.active.padding | --p-floatlabel-on-active-padding | Active padding of on |
 
 ---
 
@@ -6821,111 +7886,6 @@ app.directive('focustrap', FocusTrap);
 ```
 
 ## Focustrap
-
----
-
-# Vue Form Library
-
-The PrimeVue Forms library provides comprehensive form state management with built-in validation support.
-
-## AccessibilityDoc
-
-Screen Reader Form does not require any roles and attributes. Keyboard Support Component does not include any interactive elements.
-
-## Basic
-
-All PrimeVue form components are designed for seamless integration with the forms library. Instead of using the standard v-model , the name property is used to link a state object that tracks values, errors, and actions. The form component provides four key properties for state management.
-
-## Download
-
-Forms add-on is available for download on npm registry.
-
-**Basic Usage:**
-
-```vue
-# Using npm
-npm install @primevue/forms
-
-# Using yarn
-yarn add @primevue/forms
-
-# Using pnpm
-pnpm add @primevue/forms
-```
-
-## DynamicDoc
-
-This section demonstrates how to create a dynamic form using a custom Form component. It showcases an example where form fields are generated dynamically based on the provided configuration, allowing for flexible form structures. The components named Dynamic* shown in this example are not built-in, and only available for sampling purposes. First form uses a declarative approach whereas second form goes for a programmatic approach. We suggest running this sample in StackBlitz to view the comprehensive implementation.
-
-**Basic Usage:**
-
-```vue
-<Fieldset legend="Form 1" pt:content:class="flex justify-center">
-    <DynamicForm @submit="onFormSubmit('Form 1', $event)">
-        <DynamicFormField groupId="userId_1" name="username">
-            <DynamicFormLabel>Username</DynamicFormLabel>
-            <DynamicFormControl defaultValue="PrimeVue" fluid :schema="userNameSchema" />
-            <DynamicFormMessage />
-        </DynamicFormField>
-        <DynamicFormField groupId="passId_1" name="password">
-            <DynamicFormLabel>Password</DynamicFormLabel>
-            <DynamicFormControl as="Password" :feedback="false" toggleMask fluid :schema="passwordSchema" />
-            <DynamicFormMessage errorType="minimum" />
-            <DynamicFormMessage errorType="maximum" />
-            <DynamicFormMessage errorType="uppercase" severity="warn" />
-            <DynamicFormMessage errorType="lowercase" severity="warn" />
-            <DynamicFormMessage errorType="number" severity="secondary" />
-        </DynamicFormField>
-        <DynamicFormSubmit />
-    </DynamicForm>
-</Fieldset>
-
-<Fieldset legend="Form 2" pt:content:class="flex justify-center">
-    <DynamicForm :fields @submit="onFormSubmit('Form 2', $event)" />
-</Fieldset>
-```
-
-## Import
-
-The form component is responsible for managing the form state and must encapsulate the form fields.
-
-**Basic Usage:**
-
-```vue
-import { Form } from '@primevue/forms';
-```
-
-## Resolvers
-
-Validations are implemented with the resolver property. A custom resolver is responsible for handling the validation and returning an errors object with key-value pairs where key is the form field name and value is an array of error object data. For productivity, we recommend using a schema validation library instead of building your own custom validation logic. The forms library provide built-in resolvers for popular options including Zod , Yup , Joi , Valibot , and Superstruct that can be imported from @primevue/forms/resolvers path.
-
-## States
-
-The $form object tracks the state management of the fields. Each field is linked with the name property. View the FormFieldState type in the API documentation for details about each property.
-
-## SubmitDoc
-
-The submit callback returns an object that encapsulates the form's validity, any existing errors, and its current state. This enables access to the form values, validation status, and any errors present at the time of submission. View the FormSubmitEvent in the API documentation for more information about the available event data.
-
-## ValidateOn
-
-Form component supports flexible validation triggers, allowing validation on value updates, blur events, form mount, or submission. These behaviors can be configured at form level or on specific fields via the validateOnValueUpdate , validateOnBlur , validateOnMount , and validateOnSubmit options of the formControl property. In this example, form disables validateOnValueUpdate and enables validateOnBlur at form level, and validates firstName on mount. The firstName field, overrides the form level setting locally.
-
-## Forms/src
-
-## Forms/src/resolvers/joi
-
-## Forms/src/resolvers/superstruct
-
-## Forms/src/resolvers/valibot
-
-## Forms/src/resolvers/yup
-
-## Forms/src/resolvers/zod
-
-## Forms/src/types
-
-## Forms/src/useform
 
 ---
 
@@ -7156,6 +8116,76 @@ Thumbnails represent a smaller version of the actual content.
 | p-galleria-thumbnail-next-button | Class name of the next thumbnail button element |
 | p-galleria-thumbnail-next-icon | Class name of the next thumbnail icon element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| galleria.border.width | --p-galleria-border-width | Border width of root |
+| galleria.border.color | --p-galleria-border-color | Border color of root |
+| galleria.border.radius | --p-galleria-border-radius | Border radius of root |
+| galleria.transition.duration | --p-galleria-transition-duration | Transition duration of root |
+| galleria.nav.button.background | --p-galleria-nav-button-background | Background of nav button |
+| galleria.nav.button.hover.background | --p-galleria-nav-button-hover-background | Hover background of nav button |
+| galleria.nav.button.color | --p-galleria-nav-button-color | Color of nav button |
+| galleria.nav.button.hover.color | --p-galleria-nav-button-hover-color | Hover color of nav button |
+| galleria.nav.button.size | --p-galleria-nav-button-size | Size of nav button |
+| galleria.nav.button.gutter | --p-galleria-nav-button-gutter | Gutter of nav button |
+| galleria.nav.button.prev.border.radius | --p-galleria-nav-button-prev-border-radius | Prev border radius of nav button |
+| galleria.nav.button.next.border.radius | --p-galleria-nav-button-next-border-radius | Next border radius of nav button |
+| galleria.nav.button.focus.ring.width | --p-galleria-nav-button-focus-ring-width | Focus ring width of nav button |
+| galleria.nav.button.focus.ring.style | --p-galleria-nav-button-focus-ring-style | Focus ring style of nav button |
+| galleria.nav.button.focus.ring.color | --p-galleria-nav-button-focus-ring-color | Focus ring color of nav button |
+| galleria.nav.button.focus.ring.offset | --p-galleria-nav-button-focus-ring-offset | Focus ring offset of nav button |
+| galleria.nav.button.focus.ring.shadow | --p-galleria-nav-button-focus-ring-shadow | Focus ring shadow of nav button |
+| galleria.nav.icon.size | --p-galleria-nav-icon-size | Size of nav icon |
+| galleria.thumbnails.content.background | --p-galleria-thumbnails-content-background | Background of thumbnails content |
+| galleria.thumbnails.content.padding | --p-galleria-thumbnails-content-padding | Padding of thumbnails content |
+| galleria.thumbnail.nav.button.size | --p-galleria-thumbnail-nav-button-size | Size of thumbnail nav button |
+| galleria.thumbnail.nav.button.border.radius | --p-galleria-thumbnail-nav-button-border-radius | Border radius of thumbnail nav button |
+| galleria.thumbnail.nav.button.gutter | --p-galleria-thumbnail-nav-button-gutter | Gutter of thumbnail nav button |
+| galleria.thumbnail.nav.button.focus.ring.width | --p-galleria-thumbnail-nav-button-focus-ring-width | Focus ring width of thumbnail nav button |
+| galleria.thumbnail.nav.button.focus.ring.style | --p-galleria-thumbnail-nav-button-focus-ring-style | Focus ring style of thumbnail nav button |
+| galleria.thumbnail.nav.button.focus.ring.color | --p-galleria-thumbnail-nav-button-focus-ring-color | Focus ring color of thumbnail nav button |
+| galleria.thumbnail.nav.button.focus.ring.offset | --p-galleria-thumbnail-nav-button-focus-ring-offset | Focus ring offset of thumbnail nav button |
+| galleria.thumbnail.nav.button.focus.ring.shadow | --p-galleria-thumbnail-nav-button-focus-ring-shadow | Focus ring shadow of thumbnail nav button |
+| galleria.thumbnail.nav.button.hover.background | --p-galleria-thumbnail-nav-button-hover-background | Hover background of thumbnail nav button |
+| galleria.thumbnail.nav.button.color | --p-galleria-thumbnail-nav-button-color | Color of thumbnail nav button |
+| galleria.thumbnail.nav.button.hover.color | --p-galleria-thumbnail-nav-button-hover-color | Hover color of thumbnail nav button |
+| galleria.thumbnail.nav.button.icon.size | --p-galleria-thumbnail-nav-button-icon-size | Size of thumbnail nav button icon |
+| galleria.caption.background | --p-galleria-caption-background | Background of caption |
+| galleria.caption.color | --p-galleria-caption-color | Color of caption |
+| galleria.caption.padding | --p-galleria-caption-padding | Padding of caption |
+| galleria.indicator.list.gap | --p-galleria-indicator-list-gap | Gap of indicator list |
+| galleria.indicator.list.padding | --p-galleria-indicator-list-padding | Padding of indicator list |
+| galleria.indicator.button.width | --p-galleria-indicator-button-width | Width of indicator button |
+| galleria.indicator.button.height | --p-galleria-indicator-button-height | Height of indicator button |
+| galleria.indicator.button.active.background | --p-galleria-indicator-button-active-background | Active background of indicator button |
+| galleria.indicator.button.border.radius | --p-galleria-indicator-button-border-radius | Border radius of indicator button |
+| galleria.indicator.button.focus.ring.width | --p-galleria-indicator-button-focus-ring-width | Focus ring width of indicator button |
+| galleria.indicator.button.focus.ring.style | --p-galleria-indicator-button-focus-ring-style | Focus ring style of indicator button |
+| galleria.indicator.button.focus.ring.color | --p-galleria-indicator-button-focus-ring-color | Focus ring color of indicator button |
+| galleria.indicator.button.focus.ring.offset | --p-galleria-indicator-button-focus-ring-offset | Focus ring offset of indicator button |
+| galleria.indicator.button.focus.ring.shadow | --p-galleria-indicator-button-focus-ring-shadow | Focus ring shadow of indicator button |
+| galleria.indicator.button.background | --p-galleria-indicator-button-background | Background of indicator button |
+| galleria.indicator.button.hover.background | --p-galleria-indicator-button-hover-background | Hover background of indicator button |
+| galleria.inset.indicator.list.background | --p-galleria-inset-indicator-list-background | Background of inset indicator list |
+| galleria.inset.indicator.button.background | --p-galleria-inset-indicator-button-background | Background of inset indicator button |
+| galleria.inset.indicator.button.hover.background | --p-galleria-inset-indicator-button-hover-background | Hover background of inset indicator button |
+| galleria.inset.indicator.button.active.background | --p-galleria-inset-indicator-button-active-background | Active background of inset indicator button |
+| galleria.close.button.size | --p-galleria-close-button-size | Size of close button |
+| galleria.close.button.gutter | --p-galleria-close-button-gutter | Gutter of close button |
+| galleria.close.button.background | --p-galleria-close-button-background | Background of close button |
+| galleria.close.button.hover.background | --p-galleria-close-button-hover-background | Hover background of close button |
+| galleria.close.button.color | --p-galleria-close-button-color | Color of close button |
+| galleria.close.button.hover.color | --p-galleria-close-button-hover-color | Hover color of close button |
+| galleria.close.button.border.radius | --p-galleria-close-button-border-radius | Border radius of close button |
+| galleria.close.button.focus.ring.width | --p-galleria-close-button-focus-ring-width | Focus ring width of close button |
+| galleria.close.button.focus.ring.style | --p-galleria-close-button-focus-ring-style | Focus ring style of close button |
+| galleria.close.button.focus.ring.color | --p-galleria-close-button-focus-ring-color | Focus ring color of close button |
+| galleria.close.button.focus.ring.offset | --p-galleria-close-button-focus-ring-offset | Focus ring offset of close button |
+| galleria.close.button.focus.ring.shadow | --p-galleria-close-button-focus-ring-shadow | Focus ring shadow of close button |
+| galleria.close.button.icon.size | --p-galleria-close-button-icon-size | Size of close button icon |
+
 ---
 
 # Vue IconField
@@ -7282,89 +8312,37 @@ Custom content inside an InputIcon is defined as children.
 </IconField>
 ```
 
-## Iconfield
+## Icon Field
 
----
+### Props
 
-# icons
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<IconFieldPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
+## Pass Through Options
 
+| Name | Type | Description |
+|------|------|-------------|
+| root | IconFieldPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
 
-## Basic
+## Theming
 
-PrimeIcons use the pi pi-&#123;icon&#125; syntax such as pi pi-check . A standalone icon can be displayed using an element such as i or span
+### CSS Classes
 
-**Basic Usage:**
+| Class | Description |
+|-------|-------------|
+| p-iconfield | Class name of the root element |
 
-```vue
-<i class="pi pi-check"></i>
-<i class="pi pi-times"></i>
-<span class="pi pi-search"></span>
-<span class="pi pi-user"></span>
-```
+### Design Tokens
 
-## Color
-
-Icon color is defined with the color property which is inherited from parent by default.
-
-**Basic Usage:**
-
-```vue
-<i class="pi pi-check" style="color: slateblue"></i>
-<i class="pi pi-times" style="color: green"></i>
-<i class="pi pi-search" style="color: 'var(--p-primary-color)'"></i>
-<i class="pi pi-user" style="color: #708090"></i>
-```
-
-## Constants
-
-Constants API is available to reference icons easily when used programmatically.
-
-## Download
-
-PrimeIcons is available at npm, run the following command to download it to your project.
-
-**Basic Usage:**
-
-```vue
-npm install primeicons
-```
-
-## Figma
-
-PrimeIcons library is now available on Figma Community . By adding them as a library, you can easily use these icons in your designs.
-
-## Import
-
-CSS file of the icon library needs to be imported in styles.scss of your application.
-
-## List
-
-Here is the full list of PrimeIcons. More icons will be added periodically and you may also request new icons at the issue tracker.
-
-## Size
-
-Size of an icon is controlled with the font-size property of the element.
-
-**Basic Usage:**
-
-```vue
-<i class="pi pi-check" style="font-size: 1rem"></i>
-<i class="pi pi-times" style="font-size: 1.5rem"></i>
-<i class="pi pi-search" style="font-size: 2rem"></i>
-<i class="pi pi-user" style="font-size: 2.5rem"></i>
-```
-
-## Spin
-
-Special pi-spin class applies infinite rotation to an icon.
-
-**Basic Usage:**
-
-```vue
-<i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
-<i class="pi pi-spin pi-cog" style="font-size: 2rem"></i>
-```
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| iconfield.icon.color | --p-iconfield-icon-color | Color of icon |
 
 ---
 
@@ -7410,7 +8388,52 @@ When the form element is invalid, the label is also highlighted.
 </IftaLabel>
 ```
 
-## Iftalabel
+## Ifta Label
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<IftaLabelPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| default | Function |  |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | IftaLabelPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-iftalabel | Class name of the root element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| iftalabel.color | --p-iftalabel-color | Color of root |
+| iftalabel.focus.color | --p-iftalabel-focus-color | Focus color of root |
+| iftalabel.invalid.color | --p-iftalabel-invalid-color | Invalid color of root |
+| iftalabel.transition.duration | --p-iftalabel-transition-duration | Transition duration of root |
+| iftalabel.position.x | --p-iftalabel-position-x | Position x of root |
+| iftalabel.top | --p-iftalabel-top | Top of root |
+| iftalabel.font.size | --p-iftalabel-font-size | Font size of root |
+| iftalabel.font.weight | --p-iftalabel-font-weight | Font weight of root |
+| iftalabel.input.padding.top | --p-iftalabel-input-padding-top | Padding top of input |
+| iftalabel.input.padding.bottom | --p-iftalabel-input-padding-bottom | Padding bottom of input |
 
 ---
 
@@ -7568,6 +8591,37 @@ An eye icon is displayed by default when the image is hovered in preview mode, u
 | p-image-close-button | Class name of the close button element |
 | p-image-original | Class name of the original element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| image.transition.duration | --p-image-transition-duration | Transition duration of root |
+| image.preview.icon.size | --p-image-preview-icon-size | Icon size of preview |
+| image.preview.mask.background | --p-image-preview-mask-background | Mask background of preview |
+| image.preview.mask.color | --p-image-preview-mask-color | Mask color of preview |
+| image.toolbar.position.left | --p-image-toolbar-position-left | Position left of toolbar |
+| image.toolbar.position.right | --p-image-toolbar-position-right | Position right of toolbar |
+| image.toolbar.position.top | --p-image-toolbar-position-top | Position top of toolbar |
+| image.toolbar.position.bottom | --p-image-toolbar-position-bottom | Position bottom of toolbar |
+| image.toolbar.blur | --p-image-toolbar-blur | Blur of toolbar |
+| image.toolbar.background | --p-image-toolbar-background | Background of toolbar |
+| image.toolbar.border.color | --p-image-toolbar-border-color | Border color of toolbar |
+| image.toolbar.border.width | --p-image-toolbar-border-width | Border width of toolbar |
+| image.toolbar.border.radius | --p-image-toolbar-border-radius | Border radius of toolbar |
+| image.toolbar.padding | --p-image-toolbar-padding | Padding of toolbar |
+| image.toolbar.gap | --p-image-toolbar-gap | Gap of toolbar |
+| image.action.hover.background | --p-image-action-hover-background | Hover background of action |
+| image.action.color | --p-image-action-color | Color of action |
+| image.action.hover.color | --p-image-action-hover-color | Hover color of action |
+| image.action.size | --p-image-action-size | Size of action |
+| image.action.icon.size | --p-image-action-icon-size | Icon size of action |
+| image.action.border.radius | --p-image-action-border-radius | Border radius of action |
+| image.action.focus.ring.width | --p-image-action-focus-ring-width | Focus ring width of action |
+| image.action.focus.ring.style | --p-image-action-focus-ring-style | Focus ring style of action |
+| image.action.focus.ring.color | --p-image-action-focus-ring-color | Focus ring color of action |
+| image.action.focus.ring.offset | --p-image-action-focus-ring-offset | Focus ring offset of action |
+| image.action.focus.ring.shadow | --p-image-action-focus-ring-shadow | Focus ring shadow of action |
+
 ---
 
 # Vue ImageCompare Component
@@ -7652,7 +8706,55 @@ Apply responsive styles to the container element to optimize display per screen 
 ```
 </details>
 
-## Imagecompare
+## Image Compare
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| tabindex | number | 0 | Index of the element in tabbing order. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ImageComparePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ImageComparePassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| slider | ImageComparePassThroughOptionType | Used to pass attributes to the slider's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-imagecompare | Class name of the root element |
+| p-imagecompare-slider | Class name of the slider element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| imagecompare.handle.size | --p-imagecompare-handle-size | Size of handle |
+| imagecompare.handle.hover.size | --p-imagecompare-handle-hover-size | Hover size of handle |
+| imagecompare.handle.background | --p-imagecompare-handle-background | Background of handle |
+| imagecompare.handle.hover.background | --p-imagecompare-handle-hover-background | Hover background of handle |
+| imagecompare.handle.border.color | --p-imagecompare-handle-border-color | Border color of handle |
+| imagecompare.handle.hover.border.color | --p-imagecompare-handle-hover-border-color | Hover border color of handle |
+| imagecompare.handle.border.width | --p-imagecompare-handle-border-width | Border width of handle |
+| imagecompare.handle.border.radius | --p-imagecompare-handle-border-radius | Border radius of handle |
+| imagecompare.handle.transition.duration | --p-imagecompare-handle-transition-duration | Transition duration of handle |
+| imagecompare.handle.focus.ring.width | --p-imagecompare-handle-focus-ring-width | Focus ring width of handle |
+| imagecompare.handle.focus.ring.style | --p-imagecompare-handle-focus-ring-style | Focus ring style of handle |
+| imagecompare.handle.focus.ring.color | --p-imagecompare-handle-focus-ring-color | Focus ring color of handle |
+| imagecompare.handle.focus.ring.offset | --p-imagecompare-handle-focus-ring-offset | Focus ring offset of handle |
+| imagecompare.handle.focus.ring.shadow | --p-imagecompare-handle-focus-ring-shadow | Focus ring shadow of handle |
 
 ---
 
@@ -7792,6 +8894,21 @@ The open event is used to initialize the content such as loading data in a lazy 
 | p-inplace | Class name of the root element |
 | p-inplace-display | Class name of the display element |
 | p-inplace-content | Class name of the content element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| inplace.padding | --p-inplace-padding | Padding of root |
+| inplace.border.radius | --p-inplace-border-radius | Border radius of root |
+| inplace.focus.ring.width | --p-inplace-focus-ring-width | Focus ring width of root |
+| inplace.focus.ring.style | --p-inplace-focus-ring-style | Focus ring style of root |
+| inplace.focus.ring.color | --p-inplace-focus-ring-color | Focus ring color of root |
+| inplace.focus.ring.offset | --p-inplace-focus-ring-offset | Focus ring offset of root |
+| inplace.focus.ring.shadow | --p-inplace-focus-ring-shadow | Focus ring shadow of root |
+| inplace.transition.duration | --p-inplace-transition-duration | Transition duration of root |
+| inplace.display.hover.background | --p-inplace-display-hover-background | Hover background of display |
+| inplace.display.hover.color | --p-inplace-display-hover-color | Hover color of display |
 
 ---
 
@@ -8003,9 +9120,50 @@ Multiple add-ons can be placed inside the same group.
 ```
 </details>
 
-## Inputgroup
+## Input Group
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<InputGroupPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| [key: string] | Function |  |
 
 ## Inputgroupaddon
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | InputGroupPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-inputgroup | Class name of the root element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| inputgroup.addon.background | --p-inputgroup-addon-background | Background of addon |
+| inputgroup.addon.border.color | --p-inputgroup-addon-border-color | Border color of addon |
+| inputgroup.addon.color | --p-inputgroup-addon-color | Color of addon |
+| inputgroup.addon.border.radius | --p-inputgroup-addon-border-radius | Border radius of addon |
+| inputgroup.addon.padding | --p-inputgroup-addon-padding | Padding of addon |
+| inputgroup.addon.min.width | --p-inputgroup-addon-min-width | Min width of addon |
 
 ---
 
@@ -8183,7 +9341,56 @@ Default placeholder for a mask is underscore that can be customized using slotCh
 <InputMask id="basic" v-model="value" placeholder="99/99/9999" mask="99/99/9999" slotChar="mm/dd/yyyy" />
 ```
 
-## Inputmask
+## Input Mask
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | null \| string | - | Value of the component. |
+| defaultValue | null \| string | - | The default value for the input when not controlled by  `modelValue` . |
+| slotChar | string | _ | Placeholder character in mask, default is underscore. |
+| mask | string | - | Mask pattern. |
+| id | string | - | Identifier of the element. |
+| class | string \| object | - | Style class of the input field. |
+| placeholder | string | - | Placeholder text for the input. |
+| autoClear | boolean | true | Clears the incomplete value on blur. |
+| unmask | boolean | false | Defines if model sets the raw unmasked value to bound value or the formatted mask value. |
+| readonly | boolean | false | Whether the items are clickable or not. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| name | string | - | Name of the input element. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<InputMaskPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Emits
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| keypress | Function |  |
+| paste | Function |  |
+| complete | Function |  |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | InputMaskPassThroughOptionType | Used to pass attributes to the InputText component. |
+| pcInputText | any | Used to pass attributes to the InputText component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-inputmask | Class name of the root element |
 
 ---
 
@@ -8406,7 +9613,102 @@ Buttons can also placed vertically by setting buttonLayout as vertical .
 </InputNumber>
 ```
 
-## Inputnumber
+## Input Number
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | Nullable<number> | - | Value of the component. |
+| defaultValue | Nullable<number> | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| format | boolean | true | Whether to format the value. |
+| showButtons | boolean | false | Displays spinner buttons. |
+| buttonLayout | HintedString<"horizontal" \| "vertical" \| "stacked"> | stacked | Layout of the buttons. |
+| incrementButtonClass | string | - | Style class of the increment button. |
+| decrementButtonClass | string | - | Style class of the decrement button. |
+| incrementButtonIcon | string | - | Style class of the increment icon. |
+| incrementIcon | string | - | Style class of the increment icon. |
+| decrementButtonIcon | string | - | Style class of the decrement icon. |
+| decrementIcon | string | - | Style class of the decrement icon. |
+| locale | string | - | Locale to be used in formatting. |
+| localeMatcher | HintedString<"lookup" \| "best fit"> | best fit | The locale matching algorithm to use. Possible values are 'lookup' and 'best fit'; the default is 'best fit'. See [Locale Negotation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_negotiation) for details. |
+| mode | HintedString<"decimal" \| "currency"> | decimal | Defines the behavior of the component. |
+| prefix | string | - | Text to display before the value. |
+| suffix | string | - | Text to display after the value. |
+| currency | string | - | The currency to use in currency formatting. Possible values are the [ISO 4217 currency codes](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency), such as 'USD' for the US dollar, 'EUR' for the euro, or 'CNY' for the Chinese RMB. There is no default value; if the style is 'currency', the currency property must be provided. |
+| currencyDisplay | string | symbol | How to display the currency in currency formatting. Possible values are 'symbol' to use a localized currency symbol such as €, 'code' to use the ISO currency code, 'name' to use a localized currency name such as 'dollar'. |
+| useGrouping | boolean | true | Whether to use grouping separators, such as thousands separators or thousand/lakh/crore separators. |
+| minFractionDigits | number | - | The minimum number of fraction digits to use. Possible values are from 0 to 20; the default for plain number and percent formatting is 0; the default for currency formatting is the number of minor unit digits provided by the [ISO 4217 currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency) list (2 if the list doesn't provide that information). |
+| maxFractionDigits | number | - | The maximum number of fraction digits to use. Possible values are from 0 to 20; the default for plain number formatting is the larger of minimumFractionDigits and 3; the default for currency formatting is the larger of minimumFractionDigits and the number of minor unit digits provided by the [ISO 4217 currency code](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=maintenance-agency) list (2 if the list doesn't provide that information). |
+| roundingMode | RoundingMode | - | How decimals should be rounded. The default value is  `"halfExpand"` , [further information](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#roundingmode). |
+| min | number | - | Minimum boundary value. |
+| max | number | - | Maximum boundary value. |
+| step | number | 1 | Step factor to increment/decrement the value. |
+| allowEmpty | boolean | true | Determines whether the input field is empty. |
+| highlightOnFocus | boolean | false | Highlights automatically the input value. |
+| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| readonly | boolean | false | When present, it specifies that an input field is read-only. |
+| placeholder | string | - | Placeholder text for the input. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| inputId | string | - | Identifier of the focus input to match a label defined for the chips. |
+| inputClass | string \| object | - | Style class of the input field. |
+| inputStyle | object | - | Inline style of the input field. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<InputNumberPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | InputNumberPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| pcInputText | any | Used to pass attributes to the InputText component. |
+| clearIcon | InputNumberPassThroughOptionType<T> | Used to pass attributes to the label's DOM element. |
+| buttonGroup | InputNumberPassThroughOptionType<T> | Used to pass attributes to the button group's DOM element. |
+| incrementButton | InputNumberPassThroughOptionType<T> | Used to pass attributes to the increment button's DOM element. |
+| incrementIcon | InputNumberPassThroughOptionType<T> | Used to pass attributes to the increment icon's DOM element. |
+| decrementButton | InputNumberPassThroughOptionType<T> | Used to pass attributes to the decrement button's DOM element. |
+| decrementIcon | InputNumberPassThroughOptionType<T> | Used to pass attributes to the decrement icon's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-inputnumber | Class name of the root element |
+| p-inputnumber-input | Class name of the input element |
+| p-inputnumber-button-group | Class name of the button group element |
+| p-inputnumber-increment-button | Class name of the increment button element |
+| p-inputnumber-decrement-button | Class name of the decrement button element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| inputnumber.transition.duration | --p-inputnumber-transition-duration | Transition duration of root |
+| inputnumber.button.width | --p-inputnumber-button-width | Width of button |
+| inputnumber.button.border.radius | --p-inputnumber-button-border-radius | Border radius of button |
+| inputnumber.button.vertical.padding | --p-inputnumber-button-vertical-padding | Vertical padding of button |
+| inputnumber.button.background | --p-inputnumber-button-background | Background of button |
+| inputnumber.button.hover.background | --p-inputnumber-button-hover-background | Hover background of button |
+| inputnumber.button.active.background | --p-inputnumber-button-active-background | Active background of button |
+| inputnumber.button.border.color | --p-inputnumber-button-border-color | Border color of button |
+| inputnumber.button.hover.border.color | --p-inputnumber-button-hover-border-color | Hover border color of button |
+| inputnumber.button.active.border.color | --p-inputnumber-button-active-border-color | Active border color of button |
+| inputnumber.button.color | --p-inputnumber-button-color | Color of button |
+| inputnumber.button.hover.color | --p-inputnumber-button-hover-color | Hover color of button |
+| inputnumber.button.active.color | --p-inputnumber-button-active-color | Active color of button |
 
 ---
 
@@ -8521,7 +9823,55 @@ Define a template with your own UI elements with bindings to the provided events
 </InputOtp>
 ```
 
-## Inputotp
+## Input Otp
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | string \| boolean | null | Specifies whether a inputotp should be checked or not. |
+| defaultValue | string \| boolean | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| readonly | boolean | false | When present, it specifies that an input field is read-only. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| tabindex | number | - | Index of the element in tabbing order. |
+| length | number | 4 | Number of characters to initiate. |
+| mask | boolean | false | Mask pattern. |
+| integerOnly | boolean | false | When present, it specifies that an input field is integer-only. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<InputOtpPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | InputOtpPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| pcInputText | any | Used to pass attributes to the InputText component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-inputotp | Class name of the root element |
+| p-inputotp-input | Class name of the input element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| inputotp.gap | --p-inputotp-gap | Gap of root |
+| inputotp.input.width | --p-inputotp-input-width | Width of input |
+| inputotp.input.sm.width | --p-inputotp-input-sm-width | Width of input in small screens |
+| inputotp.input.lg.width | --p-inputotp-input-lg-width | Width of input in large screens |
 
 ---
 
@@ -8670,33 +10020,288 @@ InputText provides small and large sizes as alternatives to the base.
 <InputText v-model="value3" type="text" size="large" placeholder="Large" />
 ```
 
-## Inputtext
+## Input Text
 
----
+### Props
 
-# introduction
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| aria-activedescendant | string | - | Identifies the currently active element when DOM focus is on a composite widget, textbox, group, or application. |
+| aria-atomic | Booleanish | - | Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute. |
+| aria-autocomplete | "none" \| "inline" \| "list" \| "both" | - | Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be presented if they are made. |
+| aria-busy | Booleanish | - | Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user. |
+| aria-checked | Booleanish \| "mixed" | - | Indicates the current "checked" state of checkboxes, radio buttons, and other widgets. |
+| aria-colcount | Numberish | - | Defines the total number of columns in a table, grid, or treegrid. |
+| aria-colindex | Numberish | - | Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid. |
+| aria-colspan | Numberish | - | Defines the number of columns spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-controls | string | - | Identifies the element (or elements) whose contents or presence are controlled by the current element. |
+| aria-current | Booleanish \| "page" \| "step" \| "location" \| "date" \| "time" | - | Indicates the element that represents the current item within a container or set of related elements. |
+| aria-describedby | string | - | Identifies the element (or elements) that describes the object. |
+| aria-details | string | - | Identifies the element that provides a detailed, extended description for the object. |
+| aria-disabled | Booleanish | - | Indicates that the element is perceivable but disabled, so it is not editable or otherwise operable. |
+| aria-dropeffect | "link" \| "none" \| "copy" \| "execute" \| "move" \| "popup" | - | Indicates what functions can be performed when a dragged object is released on the drop target. |
+| aria-errormessage | string | - | Identifies the element that provides an error message for the object. |
+| aria-expanded | Booleanish | - | Indicates whether the element, or another grouping element it controls, is currently expanded or collapsed. |
+| aria-flowto | string | - | Identifies the next element (or elements) in an alternate reading order of content which, at the user's discretion, allows assistive technology to override the general default of reading in document source order. |
+| aria-grabbed | Booleanish | - | Indicates an element's "grabbed" state in a drag-and-drop operation. |
+| aria-haspopup | Booleanish \| "menu" \| "listbox" \| "tree" \| "grid" \| "dialog" | - | Indicates the availability and type of interactive popup element, such as menu or dialog, that can be triggered by an element. |
+| aria-hidden | Booleanish | - | Indicates whether the element is exposed to an accessibility API. |
+| aria-invalid | Booleanish \| "grammar" \| "spelling" | - | Indicates the entered value does not conform to the format expected by the application. |
+| aria-keyshortcuts | string | - | Indicates keyboard shortcuts that an author has implemented to activate or give focus to an element. |
+| aria-label | string | - | Defines a string value that labels the current element. |
+| aria-labelledby | string | - | Identifies the element (or elements) that labels the current element. |
+| aria-level | Numberish | - | Defines the hierarchical level of an element within a structure. |
+| aria-live | "off" \| "assertive" \| "polite" | - | Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user can expect from the live region. |
+| aria-modal | Booleanish | - | Indicates whether an element is modal when displayed. |
+| aria-multiline | Booleanish | - | Indicates whether a text box accepts multiple lines of input or only a single line. |
+| aria-multiselectable | Booleanish | - | Indicates that the user may select more than one item from the current selectable descendants. |
+| aria-orientation | "horizontal" \| "vertical" | - | Indicates whether the element's orientation is horizontal, vertical, or unknown/ambiguous. |
+| aria-owns | string | - | Identifies an element (or elements) in order to define a visual, functional, or contextual parent/child relationship between DOM elements where the DOM hierarchy cannot be used to represent the relationship. |
+| aria-placeholder | string | - | Defines a short hint (a word or short phrase) intended to aid the user with data entry when the control has no value. A hint could be a sample value or a brief description of the expected format. |
+| aria-posinset | Numberish | - | Defines an element's number or position in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-pressed | Booleanish \| "mixed" | - | Indicates the current "pressed" state of toggle buttons. |
+| aria-readonly | Booleanish | - | Indicates that the element is not editable, but is otherwise operable. |
+| aria-relevant | "text" \| "additions" \| "additions removals" \| "additions text" \| "all" \| "removals" \| "removals additions" \| "removals text" \| "text additions" \| "text removals" | - | Indicates what notifications the user agent will trigger when the accessibility tree within a live region is modified. |
+| aria-required | Booleanish | - | Indicates that user input is required on the element before a form may be submitted. |
+| aria-roledescription | string | - | Defines a human-readable, author-localized description for the role of an element. |
+| aria-rowcount | Numberish | - | Defines the total number of rows in a table, grid, or treegrid. |
+| aria-rowindex | Numberish | - | Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid. |
+| aria-rowspan | Numberish | - | Defines the number of rows spanned by a cell or gridcell within a table, grid, or treegrid. |
+| aria-selected | Booleanish | - | Indicates the current "selected" state of various widgets. |
+| aria-setsize | Numberish | - | Defines the number of items in the current set of listitems or treeitems. Not required if all elements in the set are present in the DOM. |
+| aria-sort | "none" \| "ascending" \| "descending" \| "other" | - | Indicates if items in a table or grid are sorted in ascending or descending order. |
+| aria-valuemax | Numberish | - | Defines the maximum allowed value for a range widget. |
+| aria-valuemin | Numberish | - | Defines the minimum allowed value for a range widget. |
+| aria-valuenow | Numberish | - | Defines the current value for a range widget. |
+| aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
+| innerHTML | string | - |  |
+| class | any | - |  |
+| style | StyleValue | - |  |
+| accesskey | string | - |  |
+| contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |
+| contextmenu | string | - |  |
+| dir | string | - |  |
+| draggable | Booleanish | - |  |
+| hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
+| id | string | - |  |
+| inert | Booleanish | - |  |
+| lang | string | - |  |
+| spellcheck | Booleanish | - |  |
+| tabindex | Numberish | - |  |
+| title | string | - |  |
+| translate | "yes" \| "no" | - |  |
+| radiogroup | string | - |  |
+| role | string | - |  |
+| about | string | - |  |
+| datatype | string | - |  |
+| inlist | any | - |  |
+| prefix | string | - |  |
+| property | string | - |  |
+| resource | string | - |  |
+| typeof | string | - |  |
+| vocab | string | - |  |
+| autocapitalize | string | - |  |
+| autocorrect | string | - |  |
+| autosave | string | - |  |
+| color | string | - |  |
+| itemprop | string | - |  |
+| itemscope | Booleanish | - |  |
+| itemtype | string | - |  |
+| itemid | string | - |  |
+| itemref | string | - |  |
+| results | Numberish | - |  |
+| security | string | - |  |
+| unselectable | "on" \| "off" | - |  |
+| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| accept | string | - |  |
+| alt | string | - |  |
+| autocomplete | string | - |  |
+| autofocus | Booleanish | - |  |
+| capture | boolean \| "user" \| "environment" | - |  |
+| checked | any[] \| Set<any> \| Booleanish | - |  |
+| crossorigin | string | - |  |
+| disabled | Booleanish | - |  |
+| enterKeyHint | "search" \| "enter" \| "done" \| "go" \| "next" \| "previous" \| "send" | - |  |
+| form | string | - |  |
+| formaction | string | - |  |
+| formenctype | string | - |  |
+| formmethod | string | - |  |
+| formnovalidate | Booleanish | - |  |
+| formtarget | string | - |  |
+| height | Numberish | - |  |
+| indeterminate | boolean | - |  |
+| list | string | - |  |
+| max | Numberish | - |  |
+| maxlength | Numberish | - |  |
+| min | Numberish | - |  |
+| minlength | Numberish | - |  |
+| multiple | Booleanish | - |  |
+| pattern | string | - |  |
+| placeholder | string | - |  |
+| readonly | Booleanish | - |  |
+| required | Booleanish | - |  |
+| src | string | - |  |
+| step | Numberish | - |  |
+| type | InputTypeHTMLAttribute | - |  |
+| value | any | - |  |
+| width | Numberish | - |  |
+| onCancel | Function | - |  |
+| onCopy | Function | - |  |
+| onCut | Function | - |  |
+| onPaste | Function | - |  |
+| onCompositionend | Function | - |  |
+| onCompositionstart | Function | - |  |
+| onCompositionupdate | Function | - |  |
+| onDrag | Function | - |  |
+| onDragend | Function | - |  |
+| onDragenter | Function | - |  |
+| onDragexit | Function | - |  |
+| onDragleave | Function | - |  |
+| onDragover | Function | - |  |
+| onDragstart | Function | - |  |
+| onDrop | Function | - |  |
+| onFocus | Function | - |  |
+| onFocusin | Function | - |  |
+| onFocusout | Function | - |  |
+| onBlur | Function | - |  |
+| onChange | Function | - |  |
+| onBeforeinput | Function | - |  |
+| onFormdata | Function | - |  |
+| onInput | Function | - |  |
+| onReset | Function | - |  |
+| onSubmit | Function | - |  |
+| onInvalid | Function | - |  |
+| onFullscreenchange | Function | - |  |
+| onFullscreenerror | Function | - |  |
+| onLoad | Function | - |  |
+| onError | Function | - |  |
+| onKeydown | Function | - |  |
+| onKeypress | Function | - |  |
+| onKeyup | Function | - |  |
+| onDblclick | Function | - |  |
+| onMousedown | Function | - |  |
+| onMouseenter | Function | - |  |
+| onMouseleave | Function | - |  |
+| onMousemove | Function | - |  |
+| onMouseout | Function | - |  |
+| onMouseover | Function | - |  |
+| onMouseup | Function | - |  |
+| onAbort | Function | - |  |
+| onCanplay | Function | - |  |
+| onCanplaythrough | Function | - |  |
+| onDurationchange | Function | - |  |
+| onEmptied | Function | - |  |
+| onEncrypted | Function | - |  |
+| onEnded | Function | - |  |
+| onLoadeddata | Function | - |  |
+| onLoadedmetadata | Function | - |  |
+| onLoadstart | Function | - |  |
+| onPause | Function | - |  |
+| onPlay | Function | - |  |
+| onPlaying | Function | - |  |
+| onProgress | Function | - |  |
+| onRatechange | Function | - |  |
+| onSeeked | Function | - |  |
+| onSeeking | Function | - |  |
+| onStalled | Function | - |  |
+| onSuspend | Function | - |  |
+| onTimeupdate | Function | - |  |
+| onVolumechange | Function | - |  |
+| onWaiting | Function | - |  |
+| onSelect | Function | - |  |
+| onScroll | Function | - |  |
+| onScrollend | Function | - |  |
+| onTouchcancel | Function | - |  |
+| onTouchend | Function | - |  |
+| onTouchmove | Function | - |  |
+| onTouchstart | Function | - |  |
+| onAuxclick | Function | - |  |
+| onClick | Function | - |  |
+| onContextmenu | Function | - |  |
+| onGotpointercapture | Function | - |  |
+| onLostpointercapture | Function | - |  |
+| onPointerdown | Function | - |  |
+| onPointermove | Function | - |  |
+| onPointerup | Function | - |  |
+| onPointercancel | Function | - |  |
+| onPointerenter | Function | - |  |
+| onPointerleave | Function | - |  |
+| onPointerover | Function | - |  |
+| onPointerout | Function | - |  |
+| onBeforetoggle | Function | - |  |
+| onToggle | Function | - |  |
+| onWheel | Function | - |  |
+| onAnimationcancel | Function | - |  |
+| onAnimationstart | Function | - |  |
+| onAnimationend | Function | - |  |
+| onAnimationiteration | Function | - |  |
+| onSecuritypolicyviolation | Function | - |  |
+| onTransitioncancel | Function | - |  |
+| onTransitionend | Function | - |  |
+| onTransitionrun | Function | - |  |
+| onTransitionstart | Function | - |  |
+| modelValue | Nullable<string> | - | Value of the component. |
+| defaultValue | Nullable<string> | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| size | null \| HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | null \| boolean | false | When present, it specifies that the component should have invalid state style. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| fluid | null \| boolean | null | Spans 100% width of the container when enabled. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<InputTextPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
+## Pass Through Options
 
-
-## Accessibility
-
-PrimeVue has WCAG 2.1 AA level compliance; each component has a dedicated accessibility section to document several aspects, including keyboard and screen reader support. Through communication channels such as GitHub or Discord, numerous accessibility experts worldwide continue to provide constant feedback to improve the accessibility features further. View the accessibility guide to learn more.
-
-## AddOnsDoc
-
-PrimeVue does not require financial sponsorships from its community; instead, to be backed by a solid financial foundation, optional add-ons are offered. These include a Figma UI Kit, premium application templates, and reusable UI blocks called PrimeBlocks. The add-ons are optional and there is no paywall when using PrimeVue.
-
-## Overview
-
-PrimeVue is a complete UI suite for Vue.js consisting of a rich set of UI components, icons, blocks, and application templates. The project's primary goal is to boost developer productivity by offering reusable solutions that are easy to tune and customize as an in-house library. The project has been created by PrimeTek a world-renowned vendor of popular UI Component suites, including PrimeFaces , PrimeNG , and PrimeReact. All the members in our team are full time employees of PrimeTek who share the same passion and vision for open source to create awesome UI libraries. Depending on a 3rd party library may introduce risks if the library maintainers decide not to work on the project, however, this is not the case with PrimeVue as the track record of PrimeTek shows. For example, PrimeFaces has been maintained actively since 2008.
-
-## Pass Through
-
-PassThrough is an innovative API to provide access to the internal DOM elements to add arbitrary attributes. In general, traditional UI component libraries encapsulate UI and logic with limited APIs that makes the developers dependant on the library maintainer to extend this API by adding new props or events. With Pass Through this limitation has been eliminated since, you'll be able to access the internal of the components to add events and attributes. Some common use-cases are adding test attributes, additional aria attributes, custom events and styling.
+| Name | Type | Description |
+|------|------|-------------|
+| root | InputTextPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
 
 ## Theming
 
-PrimeVue can be styled in two modes; styled or unstyled. Styled mode is based on pre-skinned components with opinionated theme variants of PrimeOne design like Aura, Lara or Nora presets. Unstyled mode on the other hand, leaves the styling to you while implementing the functionality and accessibility. Unstyled mode provides full control over the styling with no boundaries by implementing a pluggable architecture to utilize CSS libraries like Tailwind CSS, Bootstrap, Bulma or your own custom CSS. We've even further built the Volt UI library that styles the components with utility classes of Tailwind. This design is future proof as PrimeVue can be styled with any CSS library without actually depending on it in its core.
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-inputtext | The class of root element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| inputtext.background | --p-inputtext-background | Background of root |
+| inputtext.disabled.background | --p-inputtext-disabled-background | Disabled background of root |
+| inputtext.filled.background | --p-inputtext-filled-background | Filled background of root |
+| inputtext.filled.hover.background | --p-inputtext-filled-hover-background | Filled hover background of root |
+| inputtext.filled.focus.background | --p-inputtext-filled-focus-background | Filled focus background of root |
+| inputtext.border.color | --p-inputtext-border-color | Border color of root |
+| inputtext.hover.border.color | --p-inputtext-hover-border-color | Hover border color of root |
+| inputtext.focus.border.color | --p-inputtext-focus-border-color | Focus border color of root |
+| inputtext.invalid.border.color | --p-inputtext-invalid-border-color | Invalid border color of root |
+| inputtext.color | --p-inputtext-color | Color of root |
+| inputtext.disabled.color | --p-inputtext-disabled-color | Disabled color of root |
+| inputtext.placeholder.color | --p-inputtext-placeholder-color | Placeholder color of root |
+| inputtext.invalid.placeholder.color | --p-inputtext-invalid-placeholder-color | Invalid placeholder color of root |
+| inputtext.shadow | --p-inputtext-shadow | Shadow of root |
+| inputtext.padding.x | --p-inputtext-padding-x | Padding x of root |
+| inputtext.padding.y | --p-inputtext-padding-y | Padding y of root |
+| inputtext.border.radius | --p-inputtext-border-radius | Border radius of root |
+| inputtext.focus.ring.width | --p-inputtext-focus-ring-width | Focus ring width of root |
+| inputtext.focus.ring.style | --p-inputtext-focus-ring-style | Focus ring style of root |
+| inputtext.focus.ring.color | --p-inputtext-focus-ring-color | Focus ring color of root |
+| inputtext.focus.ring.offset | --p-inputtext-focus-ring-offset | Focus ring offset of root |
+| inputtext.focus.ring.shadow | --p-inputtext-focus-ring-shadow | Focus ring shadow of root |
+| inputtext.transition.duration | --p-inputtext-transition-duration | Transition duration of root |
+| inputtext.sm.font.size | --p-inputtext-sm-font-size | Sm font size of root |
+| inputtext.sm.padding.x | --p-inputtext-sm-padding-x | Sm padding x of root |
+| inputtext.sm.padding.y | --p-inputtext-sm-padding-y | Sm padding y of root |
+| inputtext.lg.font.size | --p-inputtext-lg-font-size | Lg font size of root |
+| inputtext.lg.padding.x | --p-inputtext-lg-padding-x | Lg padding x of root |
+| inputtext.lg.padding.y | --p-inputtext-lg-padding-y | Lg padding y of root |
 
 ---
 
@@ -8944,82 +10549,19 @@ The label can be customized with the valueTemplate property using either a templ
 | p-knob-value | Class name of the value element |
 | p-knob-text | Class name of the text element |
 
----
+### Design Tokens
 
-# laravel
-
-
-
-## Download
-
-PrimeVue is available for download on npm registry .
-
-**Basic Usage:**
-
-```vue
-# Using npm
-npm install primevue @primeuix/themes
-
-# Using yarn
-yarn add primevue @primeuix/themes
-
-# Using pnpm
-pnpm add primevue @primeuix/themes
-```
-
-## Examples
-
-We've created various samples for the popular options in the Vue ecosystem. Visit the primevue-examples repository for more samples including laravel-quickstart and inertia-quickstart .
-
-## Next Steps
-
-Welcome to the Prime UI Ecosystem! Once you have PrimeVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes Getting support
-
-## PluginDoc
-
-PrimeVue plugin is required to be installed as an application plugin to set up the default configuration . The plugin is lightweight, and only utilized for configuration purposes.
-
-**Basic Usage:**
-
-```vue
-import { createApp } from 'vue';
-import PrimeVue from 'primevue/config';
-
-const app = createApp(App);
-app.use(PrimeVue);
-```
-
-## Plugin
-
-Configure PrimeVue to use a theme like Aura.
-
-## Verify
-
-Verify your setup by adding a component such as Button . Each component can be imported and registered individually so that you only include what you use for bundle optimization. Import path is available in the documentation of the corresponding component.
-
-**Basic Usage:**
-
-```vue
-import Button from "primevue/button"
-
-const app = createApp(App);
-app.component('Button', Button);
-```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Button label="Verify" />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| knob.transition.duration | --p-knob-transition-duration | Transition duration of root |
+| knob.focus.ring.width | --p-knob-focus-ring-width | Focus ring width of root |
+| knob.focus.ring.style | --p-knob-focus-ring-style | Focus ring style of root |
+| knob.focus.ring.color | --p-knob-focus-ring-color | Focus ring color of root |
+| knob.focus.ring.offset | --p-knob-focus-ring-offset | Focus ring offset of root |
+| knob.focus.ring.shadow | --p-knob-focus-ring-shadow | Focus ring shadow of root |
+| knob.value.background | --p-knob-value-background | Background of value |
+| knob.range.background | --p-knob-range-background | Background of range |
+| knob.text.color | --p-knob-text-color | Color of text |
 
 ---
 
@@ -9240,31 +10782,40 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 | p-listbox-option-blank-icon | Class name of the option blank icon element |
 | p-listbox-empty-message | Class name of the empty message element |
 
----
+### Design Tokens
 
-# LLMs.txt - PrimeVue
-
-PrimeVue provides LLM-friendly documentation formats to help AI models better understand and navigate the component library.
-
-## /llms-full.txt
-
-The /llms-full.txt file contains the complete documentation for all PrimeVue components in a single text file. This comprehensive resource includes all component examples, API documentation, theming information, and usage patterns. This file is ideal for: AI Model Training : Complete context about PrimeVue components Comprehensive Queries : When AI assistants need full documentation access Offline Reference : Single file containing all component information Search Indexing : Building search engines or documentation tools Note: This file is large (~800KB) and includes complete documentation for {{ componentCount }}+ components with Props, Slots, Emits, Pass Through Options, and Theming information.
-
-## /llms.txt
-
-The /llms.txt file provides a curated index of key PrimeVue documentation pages in a structured format. This file follows the llms.txt industry standard and serves as an entry point for AI models to discover and navigate the documentation. Each entry in the file includes: Component Name : The display name of the component URL : Direct link to the component's documentation page Description : Brief explanation of the component's purpose
-
-## MarkdownExtensionDoc
-
-Add a .md extension to any component's documentation URL to view or retrieve a Markdown-formatted version of that page. This feature enables direct access to machine-readable documentation for any specific component. Example URLs: Each Markdown file includes: Component Overview : Description and use cases Import Statement : How to import the component Usage Examples : Code examples with Options API and Composition API Props Table : Complete list of properties with types and defaults Events/Emits : Available events and their parameters Slots : Template slot definitions Pass Through Options : PT configuration for unstyled mode Theming : CSS classes and design tokens
-
-## Overview
-
-PrimeVue implements the llms.txt standard , an industry convention designed to help AI models better understand and navigate documentation. This implementation provides multiple formats optimized for different use cases, from quick reference to comprehensive documentation.
-
-## UsageExamplesDoc
-
-The Copy Markdown dropdown menu appears on every component documentation page, providing quick access to LLM-friendly formats. Integration Examples Here are some ways to use the LLM documentation formats:
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| listbox.background | --p-listbox-background | Background of root |
+| listbox.disabled.background | --p-listbox-disabled-background | Disabled background of root |
+| listbox.border.color | --p-listbox-border-color | Border color of root |
+| listbox.invalid.border.color | --p-listbox-invalid-border-color | Invalid border color of root |
+| listbox.color | --p-listbox-color | Color of root |
+| listbox.disabled.color | --p-listbox-disabled-color | Disabled color of root |
+| listbox.shadow | --p-listbox-shadow | Shadow of root |
+| listbox.border.radius | --p-listbox-border-radius | Border radius of root |
+| listbox.transition.duration | --p-listbox-transition-duration | Transition duration of root |
+| listbox.list.padding | --p-listbox-list-padding | Padding of list |
+| listbox.list.gap | --p-listbox-list-gap | Gap of list |
+| listbox.list.header.padding | --p-listbox-list-header-padding | Header padding of list |
+| listbox.option.focus.background | --p-listbox-option-focus-background | Focus background of option |
+| listbox.option.selected.background | --p-listbox-option-selected-background | Selected background of option |
+| listbox.option.selected.focus.background | --p-listbox-option-selected-focus-background | Selected focus background of option |
+| listbox.option.color | --p-listbox-option-color | Color of option |
+| listbox.option.focus.color | --p-listbox-option-focus-color | Focus color of option |
+| listbox.option.selected.color | --p-listbox-option-selected-color | Selected color of option |
+| listbox.option.selected.focus.color | --p-listbox-option-selected-focus-color | Selected focus color of option |
+| listbox.option.padding | --p-listbox-option-padding | Padding of option |
+| listbox.option.border.radius | --p-listbox-option-border-radius | Border radius of option |
+| listbox.option.striped.background | --p-listbox-option-striped-background | Striped background of option |
+| listbox.option.group.background | --p-listbox-option-group-background | Background of option group |
+| listbox.option.group.color | --p-listbox-option-group-color | Color of option group |
+| listbox.option.group.font.weight | --p-listbox-option-group-font-weight | Font weight of option group |
+| listbox.option.group.padding | --p-listbox-option-group-padding | Padding of option group |
+| listbox.checkmark.color | --p-listbox-checkmark-color | Color of checkmark |
+| listbox.checkmark.gutter.start | --p-listbox-checkmark-gutter-start | Gutter start of checkmark |
+| listbox.checkmark.gutter.end | --p-listbox-checkmark-gutter-end | Gutter end of checkmark |
+| listbox.empty.message.padding | --p-listbox-empty-message-padding | Padding of empty message |
 
 ---
 
@@ -9315,8 +10866,6 @@ Layout of the MegaMenu is configured with the orientation property that accepts 
 ```vue
 <MegaMenu :model="items" orientation="vertical" />
 ```
-
-## Megamenu
 
 ---
 
@@ -9386,25 +10935,6 @@ Items with navigation are defined with templating to be able to use a router lin
 
 Menu offers item customization with the item template that receives the menuitem instance from the model as a parameter. The submenu label has its own submenulabel template, additional slots named start and end are provided to embed content before or after the menu.
 
-## Menu
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | An array of menuitems. |
-| popup | boolean | false | Defines if menu would displayed as a popup. |
-| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| tabindex | string \| number | - | Index of the element in tabbing order. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying input element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<MenuPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
 ## Menubar
 
 ### Props
@@ -9422,42 +10952,6 @@ Menu offers item customization with the item template that receives the menuitem
 | unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Menuitem
-
-## Pass Through Options
-
-| Name | Type | Description |
-|------|------|-------------|
-| root | MenuPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| list | MenuPassThroughOptionType | Used to pass attributes to the list's DOM element. |
-| submenuLabel | MenuPassThroughOptionType | Used to pass attributes to the submenu item's DOM element. |
-| item | MenuPassThroughOptionType | Used to pass attributes to the item's DOM element. |
-| itemContent | MenuPassThroughOptionType | Used to pass attributes to the item content's DOM element. |
-| itemLink | MenuPassThroughOptionType | Used to pass attributes to the item link's DOM element. |
-| itemIcon | MenuPassThroughOptionType | Used to pass attributes to the item icon's DOM element. |
-| itemLabel | MenuPassThroughOptionType | Used to pass attributes to the item label's DOM element. |
-| separator | MenuPassThroughOptionType | Used to pass attributes to the separator's DOM element. |
-| start | MenuPassThroughOptionType | Used to pass attributes to the start of the component. |
-| end | MenuPassThroughOptionType | Used to pass attributes to the end of the component. |
-| hooks | any | Used to manage all lifecycle hooks. |
-| transition | MenuPassThroughTransitionType | Used to control Vue Transition API. |
-
-## Theming
-
-### CSS Classes
-
-| Class | Description |
-|-------|-------------|
-| p-menu | Class name of the root element |
-| p-menu-start | Class name of the start element |
-| p-menu-list | Class name of the list element |
-| p-menu-submenu-item | Class name of the submenu item element |
-| p-menu-separator | Class name of the separator element |
-| p-menu-end | Class name of the end element |
-| p-menu-item | Class name of the item element |
-| p-menu-item-content | Class name of the item content element |
-| p-menu-item-link | Class name of the item link element |
-| p-menu-item-icon | Class name of the item icon element |
-| p-menu-item-label | Class name of the item label element |
 
 ---
 
@@ -9509,62 +11003,6 @@ Items with navigation are defined with templating to be able to use a router lin
 ## Template
 
 Menubar offers item customization with the item template that receives the menuitem instance from the model as a parameter. Additional slots named start and end are provided to embed content before or after the menu.
-
-## Menubar
-
-### Props
-
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| model | MenuItem[] | - | An array of menuitems. |
-| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
-| buttonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the menu button. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying input element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<MenubarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-
-## Pass Through Options
-
-| Name | Type | Description |
-|------|------|-------------|
-| root | MenubarPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| rootList | MenubarPassThroughOptionType | Used to pass attributes to the root list's DOM element. |
-| item | MenubarPassThroughOptionType | Used to pass attributes to the item's DOM element. |
-| itemContent | MenubarPassThroughOptionType | Used to pass attributes to the item content's DOM element. |
-| itemLink | MenubarPassThroughOptionType | Used to pass attributes to the item link's DOM element. |
-| itemIcon | MenubarPassThroughOptionType | Used to pass attributes to the item icon's DOM element. |
-| itemLabel | MenubarPassThroughOptionType | Used to pass attributes to the item label's DOM element. |
-| submenuIcon | MenubarPassThroughOptionType | Used to pass attributes to the submenu icon's DOM element. |
-| separator | MenubarPassThroughOptionType | Used to pass attributes to the separator's DOM element. |
-| button | MenubarPassThroughOptionType | Used to pass attributes to the mobile menu button's DOM element. |
-| buttonIcon | MenubarPassThroughOptionType | Used to pass attributes to the mobile menu button icon's DOM element. |
-| submenu | MenubarPassThroughOptionType | Used to pass attributes to the submenu's DOM element. |
-| start | MenubarPassThroughOptionType | Used to pass attributes to the start of the component. |
-| end | MenubarPassThroughOptionType | Used to pass attributes to the end of the component. |
-| hooks | any | Used to manage all lifecycle hooks. |
-
-## Theming
-
-### CSS Classes
-
-| Class | Description |
-|-------|-------------|
-| p-menubar | Class name of the root element |
-| p-menubar-start | Class name of the start element |
-| p-menubar-button | Class name of the button element |
-| p-menubar-root-list | Class name of the root list element |
-| p-menubar-item | Class name of the item element |
-| p-menubar-item-content | Class name of the item content element |
-| p-menubar-item-link | Class name of the item link element |
-| p-menubar-item-icon | Class name of the item icon element |
-| p-menubar-item-label | Class name of the item label element |
-| p-menubar-submenu-icon | Class name of the submenu icon element |
-| p-menubar-submenu | Class name of the submenu element |
-| p-menubar-separator | Class name of the separator element |
-| p-menubar-end | Class name of the end element |
 
 ---
 
@@ -9898,6 +11336,96 @@ Message provides small and large sizes as alternatives to the base.
 | p-message-close-button | Class name of the close button element |
 | p-message-close-icon | Class name of the close icon element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| message.border.radius | --p-message-border-radius | Border radius of root |
+| message.border.width | --p-message-border-width | Border width of root |
+| message.transition.duration | --p-message-transition-duration | Transition duration of root |
+| message.content.padding | --p-message-content-padding | Padding of content |
+| message.content.gap | --p-message-content-gap | Gap of content |
+| message.content.sm.padding | --p-message-content-sm-padding | Sm padding of content |
+| message.content.lg.padding | --p-message-content-lg-padding | Lg padding of content |
+| message.text.font.size | --p-message-text-font-size | Font size of text |
+| message.text.font.weight | --p-message-text-font-weight | Font weight of text |
+| message.text.sm.font.size | --p-message-text-sm-font-size | Sm font size of text |
+| message.text.lg.font.size | --p-message-text-lg-font-size | Lg font size of text |
+| message.icon.size | --p-message-icon-size | Size of icon |
+| message.icon.sm.size | --p-message-icon-sm-size | Sm size of icon |
+| message.icon.lg.size | --p-message-icon-lg-size | Lg size of icon |
+| message.close.button.width | --p-message-close-button-width | Width of close button |
+| message.close.button.height | --p-message-close-button-height | Height of close button |
+| message.close.button.border.radius | --p-message-close-button-border-radius | Border radius of close button |
+| message.close.button.focus.ring.width | --p-message-close-button-focus-ring-width | Focus ring width of close button |
+| message.close.button.focus.ring.style | --p-message-close-button-focus-ring-style | Focus ring style of close button |
+| message.close.button.focus.ring.offset | --p-message-close-button-focus-ring-offset | Focus ring offset of close button |
+| message.close.icon.size | --p-message-close-icon-size | Size of close icon |
+| message.close.icon.sm.size | --p-message-close-icon-sm-size | Sm size of close icon |
+| message.close.icon.lg.size | --p-message-close-icon-lg-size | Lg size of close icon |
+| message.outlined.border.width | --p-message-outlined-border-width | Root border width of outlined |
+| message.simple.content.padding | --p-message-simple-content-padding | Content padding of simple |
+| message.info.background | --p-message-info-background | Background of info |
+| message.info.border.color | --p-message-info-border-color | Border color of info |
+| message.info.color | --p-message-info-color | Color of info |
+| message.info.shadow | --p-message-info-shadow | Shadow of info |
+| message.info.close.button.hover.background | --p-message-info-close-button-hover-background | Close button hover background of info |
+| message.info.close.button.focus.ring.color | --p-message-info-close-button-focus-ring-color | Close button focus ring color of info |
+| message.info.close.button.focus.ring.shadow | --p-message-info-close-button-focus-ring-shadow | Close button focus ring shadow of info |
+| message.info.outlined.color | --p-message-info-outlined-color | Outlined color of info |
+| message.info.outlined.border.color | --p-message-info-outlined-border-color | Outlined border color of info |
+| message.info.simple.color | --p-message-info-simple-color | Simple color of info |
+| message.success.background | --p-message-success-background | Background of success |
+| message.success.border.color | --p-message-success-border-color | Border color of success |
+| message.success.color | --p-message-success-color | Color of success |
+| message.success.shadow | --p-message-success-shadow | Shadow of success |
+| message.success.close.button.hover.background | --p-message-success-close-button-hover-background | Close button hover background of success |
+| message.success.close.button.focus.ring.color | --p-message-success-close-button-focus-ring-color | Close button focus ring color of success |
+| message.success.close.button.focus.ring.shadow | --p-message-success-close-button-focus-ring-shadow | Close button focus ring shadow of success |
+| message.success.outlined.color | --p-message-success-outlined-color | Outlined color of success |
+| message.success.outlined.border.color | --p-message-success-outlined-border-color | Outlined border color of success |
+| message.success.simple.color | --p-message-success-simple-color | Simple color of success |
+| message.warn.background | --p-message-warn-background | Background of warn |
+| message.warn.border.color | --p-message-warn-border-color | Border color of warn |
+| message.warn.color | --p-message-warn-color | Color of warn |
+| message.warn.shadow | --p-message-warn-shadow | Shadow of warn |
+| message.warn.close.button.hover.background | --p-message-warn-close-button-hover-background | Close button hover background of warn |
+| message.warn.close.button.focus.ring.color | --p-message-warn-close-button-focus-ring-color | Close button focus ring color of warn |
+| message.warn.close.button.focus.ring.shadow | --p-message-warn-close-button-focus-ring-shadow | Close button focus ring shadow of warn |
+| message.warn.outlined.color | --p-message-warn-outlined-color | Outlined color of warn |
+| message.warn.outlined.border.color | --p-message-warn-outlined-border-color | Outlined border color of warn |
+| message.warn.simple.color | --p-message-warn-simple-color | Simple color of warn |
+| message.error.background | --p-message-error-background | Background of error |
+| message.error.border.color | --p-message-error-border-color | Border color of error |
+| message.error.color | --p-message-error-color | Color of error |
+| message.error.shadow | --p-message-error-shadow | Shadow of error |
+| message.error.close.button.hover.background | --p-message-error-close-button-hover-background | Close button hover background of error |
+| message.error.close.button.focus.ring.color | --p-message-error-close-button-focus-ring-color | Close button focus ring color of error |
+| message.error.close.button.focus.ring.shadow | --p-message-error-close-button-focus-ring-shadow | Close button focus ring shadow of error |
+| message.error.outlined.color | --p-message-error-outlined-color | Outlined color of error |
+| message.error.outlined.border.color | --p-message-error-outlined-border-color | Outlined border color of error |
+| message.error.simple.color | --p-message-error-simple-color | Simple color of error |
+| message.secondary.background | --p-message-secondary-background | Background of secondary |
+| message.secondary.border.color | --p-message-secondary-border-color | Border color of secondary |
+| message.secondary.color | --p-message-secondary-color | Color of secondary |
+| message.secondary.shadow | --p-message-secondary-shadow | Shadow of secondary |
+| message.secondary.close.button.hover.background | --p-message-secondary-close-button-hover-background | Close button hover background of secondary |
+| message.secondary.close.button.focus.ring.color | --p-message-secondary-close-button-focus-ring-color | Close button focus ring color of secondary |
+| message.secondary.close.button.focus.ring.shadow | --p-message-secondary-close-button-focus-ring-shadow | Close button focus ring shadow of secondary |
+| message.secondary.outlined.color | --p-message-secondary-outlined-color | Outlined color of secondary |
+| message.secondary.outlined.border.color | --p-message-secondary-outlined-border-color | Outlined border color of secondary |
+| message.secondary.simple.color | --p-message-secondary-simple-color | Simple color of secondary |
+| message.contrast.background | --p-message-contrast-background | Background of contrast |
+| message.contrast.border.color | --p-message-contrast-border-color | Border color of contrast |
+| message.contrast.color | --p-message-contrast-color | Color of contrast |
+| message.contrast.shadow | --p-message-contrast-shadow | Shadow of contrast |
+| message.contrast.close.button.hover.background | --p-message-contrast-close-button-hover-background | Close button hover background of contrast |
+| message.contrast.close.button.focus.ring.color | --p-message-contrast-close-button-focus-ring-color | Close button focus ring color of contrast |
+| message.contrast.close.button.focus.ring.shadow | --p-message-contrast-close-button-focus-ring-shadow | Close button focus ring shadow of contrast |
+| message.contrast.outlined.color | --p-message-contrast-outlined-color | Outlined color of contrast |
+| message.contrast.outlined.border.color | --p-message-contrast-outlined-border-color | Outlined border color of contrast |
+| message.contrast.simple.color | --p-message-contrast-simple-color | Simple color of contrast |
+
 ---
 
 # Vue MeterGroup Component
@@ -9980,7 +11508,64 @@ Layout of the MeterGroup is configured with the orientation property that accept
 <MeterGroup :value="value" orientation="vertical" labelOrientation="vertical" />
 ```
 
-## Metergroup
+## Meter Group
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | MeterItem[] | - | Current value of the metergroup. |
+| min | number | 0 | Mininum boundary value. |
+| max | number | 100 | Maximum boundary value. |
+| orientation | "horizontal" \| "vertical" | horizontal | Specifies the layout of the component, valid values are 'horizontal' and 'vertical'. |
+| labelPosition | "start" \| "end" | end | Specifies the label position of the component, valid values are 'start' and 'end'. |
+| labelOrientation | "horizontal" \| "vertical" | horizontal | Specifies the label orientation of the component, valid values are 'horizontal' and 'vertical'. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<MeterGroupPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | MeterGroupPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| meters | MeterGroupPassThroughOptionType | Used to pass attributes to the meter container's DOM element. |
+| meter | MeterGroupPassThroughOptionType | Used to pass attributes to the meter's DOM element. |
+| labelList | MeterGroupPassThroughOptionType | Used to pass attributes to the label list's DOM element. |
+| label | MeterGroupPassThroughOptionType | Used to pass attributes to the label list item's DOM element. |
+| labelIcon | MeterGroupPassThroughOptionType | Used to pass attributes to the label icon type's DOM element. |
+| labelMarker | MeterGroupPassThroughOptionType | Used to pass attributes to the label list type's DOM element. |
+| labelText | MeterGroupPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-metergroup | Class name of the root element |
+| p-metergroup-meters | Class name of the meters element |
+| p-metergroup-meter | Class name of the meter element |
+| p-metergroup-label-list | Class name of the label list element |
+| p-metergroup-label | Class name of the label element |
+| p-metergroup-label-icon | Class name of the label icon element |
+| p-metergroup-label-marker | Class name of the label marker element |
+| p-metergroup-label-text | Class name of the label text element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| metergroup.border.radius | --p-metergroup-border-radius | Border radius of root |
+| metergroup.gap | --p-metergroup-gap | Gap of root |
+| metergroup.meters.background | --p-metergroup-meters-background | Background of meters |
+| metergroup.meters.size | --p-metergroup-meters-size | Size of meters |
+| metergroup.label.gap | --p-metergroup-label-gap | Gap of label |
+| metergroup.label.marker.size | --p-metergroup-label-marker-size | Size of label marker |
+| metergroup.label.icon.size | --p-metergroup-label-icon-size | Size of label icon |
+| metergroup.label.list.vertical.gap | --p-metergroup-label-list-vertical-gap | Vertical gap of label list |
+| metergroup.label.list.horizontal.gap | --p-metergroup-label-list-horizontal-gap | Horizontal gap of label list |
 
 ---
 
@@ -10212,75 +11797,199 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
     @selectall-change="onSelectAllChange($event)" @change="onChange($event)" :virtualScrollerOptions="{ itemSize: 44 }" filter placeholder="Select Item" class="w-full md:w-80" />
 ```
 
-## Multiselect
+## Multi Select
 
----
+### Props
 
-# nuxt
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| options | any[] | - | An array of select items to display as the available options. |
+| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
+| optionValue | string \| Function | - | Property name or getter function to use as the value of an option, defaults to the option itself when not defined. |
+| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
+| optionGroupLabel | string \| Function | - | Property name or getter function to use as the label of an option group. |
+| optionGroupChildren | string \| Function | - | Property name or getter function that refers to the children options of option group. |
+| scrollHeight | string | 14rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
+| placeholder | string | - | Label to display when there are no selections. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| inputId | string | - | Identifier of the underlying input element. |
+| panelStyle | any | - |  |
+| panelClass | any | - |  |
+| overlayStyle | any | - | Inline style of the overlay. |
+| overlayClass | any | - | Style class of the overlay. |
+| dataKey | string | - | A property to uniquely identify an option. |
+| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
+| clearIcon | string | - | Icon to display in clear button. |
+| resetFilterOnClear | boolean | false | Clears the filter value when clicking on the clear icon. |
+| filter | boolean | false | When specified, displays a filter input at header. |
+| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
+| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
+| filterMatchMode | HintedString<"startsWith" \| "contains" \| "endsWith"> | contains | Defines the filtering algorithm to use when searching the options. |
+| filterFields | string[] | - | Fields used when filtering the options, defaults to optionLabel. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself. |
+| display | HintedString<"comma" \| "chip"> | comma | Defines how the selected items are displayed. |
+| selectedItemsLabel | string | null | Label to display after exceeding max selected labels. |
+| maxSelectedLabels | number | - | Decides how many selected item labels to show at most. |
+| selectionLimit | number | - | Maximum number of selectable items. |
+| showToggleAll | boolean | true | Whether to show the header checkbox to toggle the selection of all items at once. |
+| loading | boolean | false | Whether the multiselect is in loading state. |
+| checkboxIcon | string | - | Icon to display in the checkboxes. |
+| dropdownIcon | string | - | Icon to display in the dropdown. |
+| filterIcon | string | - | Icon to display in filter input. |
+| loadingIcon | string | - | Icon to display in loading state. |
+| removeTokenIcon | string | - | Icon to display in chip remove action. |
+| chipIcon | string | - | Icon to display in chip remove action. |
+| selectAll | boolean | false | Whether all data is selected. |
+| resetFilterOnHide | boolean | false | Clears the filter value when hiding the dropdown. |
+| virtualScrollerOptions | any | - | Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. |
+| autoOptionFocus | boolean | false | Whether to focus on the first visible or selected element when the overlay panel is shown. |
+| autoFilterFocus | boolean | false | Whether to focus on the filter element when the overlay panel is shown. |
+| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
+| highlightOnSelect | boolean | false | Highlights automatically the first item. |
+| filterMessage | string | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration. |
+| selectionMessage | string | null | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration. |
+| emptySelectionMessage | string | No selected item | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration. |
+| emptyFilterMessage | string | No results found | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration. |
+| emptyMessage | string | No available options' | Text to display when there are no options available. Defaults to value from PrimeVue locale configuration. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| ariaLabel | string | - | Defines a string value that labels an interactive element. |
+| ariaLabelledby | string | - | Identifier of the underlying input element. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<MultiSelectPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
+## Pass Through Options
 
+| Name | Type | Description |
+|------|------|-------------|
+| root | MultiSelectPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| labelContainer | MultiSelectPassThroughOptionType | Used to pass attributes to the label container's DOM element. |
+| label | MultiSelectPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+| clearIcon | MultiSelectPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+| chipItem | MultiSelectPassThroughOptionType | Used to pass attributes to the chip's DOM element. |
+| pcChip | any | Used to pass attributes to the Chip. |
+| dropdown | MultiSelectPassThroughOptionType | Used to pass attributes to the dropdown's DOM element. |
+| loadingIcon | MultiSelectPassThroughOptionType | Used to pass attributes to the loading icon's DOM element. |
+| dropdownIcon | MultiSelectPassThroughOptionType | Used to pass attributes to the dropdown icon's DOM element. |
+| overlay | MultiSelectPassThroughOptionType | Used to pass attributes to the overlay's DOM element. |
+| header | MultiSelectPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| pcHeaderCheckbox | MultiSelectPassThroughOptionType | Used to pass attributes to the header checkbox's DOM element. |
+| pcFilterContainer | any | Used to pass attributes to the IconField component. |
+| pcFilter | any | Used to pass attributes to the InputText component. |
+| pcFilterIconContainer | any | Used to pass attributes to the InputIcon component. |
+| filterIcon | MultiSelectPassThroughOptionType | Used to pass attributes to the filter icon's DOM element. |
+| listContainer | MultiSelectPassThroughOptionType | Used to pass attributes to the list container's DOM element. |
+| virtualScroller | any | Used to pass attributes to the VirtualScroller component. |
+| list | MultiSelectPassThroughOptionType | Used to pass attributes to the list's DOM element. |
+| optionGroup | MultiSelectPassThroughOptionType | Used to pass attributes to the option group's DOM element. |
+| option | MultiSelectPassThroughOptionType | Used to pass attributes to the option's DOM element. |
+| optionLabel | MultiSelectPassThroughOptionType | Used to pass attributes to the option label's DOM element. |
+| pcOptionCheckbox | MultiSelectPassThroughOptionType | Used to pass attributes to the option checkbox's DOM element. |
+| emptyMessage | MultiSelectPassThroughOptionType | Used to pass attributes to the emptyMessage's DOM element. |
+| hiddenInputContainer | MultiSelectPassThroughOptionType | Used to pass attributes to the hidden input container's DOM element. |
+| hiddenInput | MultiSelectPassThroughOptionType | Used to pass attributes to the hidden input's DOM element. |
+| hiddenFirstFocusableEl | MultiSelectPassThroughOptionType | Used to pass attributes to the hidden first focusable element's DOM element. |
+| hiddenFilterResult | MultiSelectPassThroughOptionType | Used to pass attributes to the hidden filter result's DOM element. |
+| hiddenSelectedMessage | MultiSelectPassThroughOptionType | Used to pass attributes to the hidden selected message's DOM element. |
+| hiddenLastFocusableEl | MultiSelectPassThroughOptionType | Used to pass attributes to the hidden last focusable element's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | MultiSelectPassThroughTransitionType | Used to control Vue Transition API. |
 
-## autoImport
+## Theming
 
-The auto import feature registers components automatically with tree shaking support. Defaults to true , when disabled use include/exclude options of components and directives for manual registration. Use the prefix in components and directives to add a prefix for registration.
+### CSS Classes
 
-## Download
+| Class | Description |
+|-------|-------------|
+| p-multiselect | Class name of the root element |
+| p-multiselect-label-container | Class name of the label container element |
+| p-multiselect-label | Class name of the label element |
+| p-multiselect-clear-icon | Class name of the clear icon element |
+| p-multiselect-chip-item | Class name of the chip item element |
+| p-multiselect-chip | Class name of the chip element |
+| p-multiselect-chip-icon | Class name of the chip icon element |
+| p-multiselect-dropdown | Class name of the dropdown element |
+| p-multiselect-loading-icon | Class name of the loading icon element |
+| p-multiselect-dropdown-icon | Class name of the dropdown icon element |
+| p-multiselect-overlay | Class name of the overlay element |
+| p-multiselect-header | Class name of the header element |
+| p-multiselect-filter-container | Class name of the filter container element |
+| p-multiselect-filter | Class name of the filter element |
+| p-multiselect-list-container | Class name of the list container element |
+| p-multiselect-list | Class name of the list element |
+| p-multiselect-option-group | Class name of the option group element |
+| p-multiselect-option | Class name of the option element |
+| p-multiselect-empty-message | Class name of the empty message element |
 
-PrimeVue is available for download on npm registry along with the official @primevue/nuxt-module .
+### Design Tokens
 
-**Basic Usage:**
-
-```vue
-# Using npm
-npm install primevue @primeuix/themes
-npm install --save-dev @primevue/nuxt-module
-
-# Using yarn
-yarn add primevue @primeuix/themes
-yarn add --dev @primevue/nuxt-module
-
-# Using pnpm
-pnpm add primevue @primeuix/themes
-pnpm add -D @primevue/nuxt-module
-```
-
-## ExamplesDoc
-
-Nuxt based samples with different options are available at PrimeVue examples repository.
-
-## Module
-
-In nuxt.config file, add the @primevue/nuxt-module to the modules section and define primevue object for the configuration of the module.
-
-## NextStepsDoc
-
-Welcome to the Prime UI Ecosystem! Once you have PrimeVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Customization of styles Pass through attributes Getting support
-
-## StyledModeDoc
-
-Styled mode provides pre-skinned components, default theme is Aura with emerald as the primary color. See the styled mode documentation for details. Install the @primeuix/themes add-on package as the themes are not included in PrimeVue by default. Configure the module to use a theme like Aura.
-
-## Theme
-
-Configure the module to use a theme like Aura.
-
-## UnstyledModeDoc
-
-In unstyled mode, the components do not include any CSS so you'd need to style the components on your end, this is especially useful when building your own UI library on top of PrimeVue. Visit the Unstyled mode documentation for more information and examples.
-
-## Verify
-
-The nuxt-primevue module registers the components automatically with tree-shaking support so you may start using them instantly.
-
-**Basic Usage:**
-
-```vue
-<Button label="Verify" />
-```
-
-## VideoDoc
-
-A video tutorial that goes through steps of setting up PrimeVue with the nuxt-primevue module.
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| multiselect.background | --p-multiselect-background | Background of root |
+| multiselect.disabled.background | --p-multiselect-disabled-background | Disabled background of root |
+| multiselect.filled.background | --p-multiselect-filled-background | Filled background of root |
+| multiselect.filled.hover.background | --p-multiselect-filled-hover-background | Filled hover background of root |
+| multiselect.filled.focus.background | --p-multiselect-filled-focus-background | Filled focus background of root |
+| multiselect.border.color | --p-multiselect-border-color | Border color of root |
+| multiselect.hover.border.color | --p-multiselect-hover-border-color | Hover border color of root |
+| multiselect.focus.border.color | --p-multiselect-focus-border-color | Focus border color of root |
+| multiselect.invalid.border.color | --p-multiselect-invalid-border-color | Invalid border color of root |
+| multiselect.color | --p-multiselect-color | Color of root |
+| multiselect.disabled.color | --p-multiselect-disabled-color | Disabled color of root |
+| multiselect.placeholder.color | --p-multiselect-placeholder-color | Placeholder color of root |
+| multiselect.invalid.placeholder.color | --p-multiselect-invalid-placeholder-color | Invalid placeholder color of root |
+| multiselect.shadow | --p-multiselect-shadow | Shadow of root |
+| multiselect.padding.x | --p-multiselect-padding-x | Padding x of root |
+| multiselect.padding.y | --p-multiselect-padding-y | Padding y of root |
+| multiselect.border.radius | --p-multiselect-border-radius | Border radius of root |
+| multiselect.focus.ring.width | --p-multiselect-focus-ring-width | Focus ring width of root |
+| multiselect.focus.ring.style | --p-multiselect-focus-ring-style | Focus ring style of root |
+| multiselect.focus.ring.color | --p-multiselect-focus-ring-color | Focus ring color of root |
+| multiselect.focus.ring.offset | --p-multiselect-focus-ring-offset | Focus ring offset of root |
+| multiselect.focus.ring.shadow | --p-multiselect-focus-ring-shadow | Focus ring shadow of root |
+| multiselect.transition.duration | --p-multiselect-transition-duration | Transition duration of root |
+| multiselect.sm.font.size | --p-multiselect-sm-font-size | Sm font size of root |
+| multiselect.sm.padding.x | --p-multiselect-sm-padding-x | Sm padding x of root |
+| multiselect.sm.padding.y | --p-multiselect-sm-padding-y | Sm padding y of root |
+| multiselect.lg.font.size | --p-multiselect-lg-font-size | Lg font size of root |
+| multiselect.lg.padding.x | --p-multiselect-lg-padding-x | Lg padding x of root |
+| multiselect.lg.padding.y | --p-multiselect-lg-padding-y | Lg padding y of root |
+| multiselect.dropdown.width | --p-multiselect-dropdown-width | Width of dropdown |
+| multiselect.dropdown.color | --p-multiselect-dropdown-color | Color of dropdown |
+| multiselect.overlay.background | --p-multiselect-overlay-background | Background of overlay |
+| multiselect.overlay.border.color | --p-multiselect-overlay-border-color | Border color of overlay |
+| multiselect.overlay.border.radius | --p-multiselect-overlay-border-radius | Border radius of overlay |
+| multiselect.overlay.color | --p-multiselect-overlay-color | Color of overlay |
+| multiselect.overlay.shadow | --p-multiselect-overlay-shadow | Shadow of overlay |
+| multiselect.list.padding | --p-multiselect-list-padding | Padding of list |
+| multiselect.list.gap | --p-multiselect-list-gap | Gap of list |
+| multiselect.list.header.padding | --p-multiselect-list-header-padding | Header padding of list |
+| multiselect.option.focus.background | --p-multiselect-option-focus-background | Focus background of option |
+| multiselect.option.selected.background | --p-multiselect-option-selected-background | Selected background of option |
+| multiselect.option.selected.focus.background | --p-multiselect-option-selected-focus-background | Selected focus background of option |
+| multiselect.option.color | --p-multiselect-option-color | Color of option |
+| multiselect.option.focus.color | --p-multiselect-option-focus-color | Focus color of option |
+| multiselect.option.selected.color | --p-multiselect-option-selected-color | Selected color of option |
+| multiselect.option.selected.focus.color | --p-multiselect-option-selected-focus-color | Selected focus color of option |
+| multiselect.option.padding | --p-multiselect-option-padding | Padding of option |
+| multiselect.option.border.radius | --p-multiselect-option-border-radius | Border radius of option |
+| multiselect.option.gap | --p-multiselect-option-gap | Gap of option |
+| multiselect.option.group.background | --p-multiselect-option-group-background | Background of option group |
+| multiselect.option.group.color | --p-multiselect-option-group-color | Color of option group |
+| multiselect.option.group.font.weight | --p-multiselect-option-group-font-weight | Font weight of option group |
+| multiselect.option.group.padding | --p-multiselect-option-group-padding | Padding of option group |
+| multiselect.clear.icon.color | --p-multiselect-clear-icon-color | Color of clear icon |
+| multiselect.chip.border.radius | --p-multiselect-chip-border-radius | Border radius of chip |
+| multiselect.empty.message.padding | --p-multiselect-empty-message-padding | Padding of empty message |
 
 ---
 
@@ -10317,7 +12026,65 @@ import OrderList from 'primevue/orderlist';
 
 For custom content support define an option template that gets the item instance as a parameter. In addition header slot is provided for further customization.
 
-## Orderlist
+## Order List
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any[] | - | Value of the component. |
+| dataKey | string | - | Name of the field that uniquely identifies the a record in the data. |
+| selection | any[] | - | Selected items in the list. |
+| metaKeySelection | boolean | false | Defines whether metaKey is required or not for the selection. When true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
+| autoOptionFocus | boolean | true | Whether to focus on the first visible or selected element. |
+| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
+| listStyle | any | - | Inline style of the the list element. |
+| responsive | boolean | true | Whether the list optimizes layout based on screen size. |
+| breakpoint | string | 960px | The breakpoint to define the maximum width boundary when responsiveness is enabled. |
+| striped | boolean | false | Whether to displays rows with alternating colors. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| scrollHeight | string | 14rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
+| buttonProps | object | - | Used to pass all properties of the ButtonProps to the button inside the component. |
+| moveUpButtonProps | object | - | Used to pass all properties of the ButtonProps to the move up button inside the component. |
+| moveTopButtonProps | object | - | Used to pass all properties of the ButtonProps to the move top button inside the component. |
+| moveDownButtonProps | object | - | Used to pass all properties of the ButtonProps to the move down button inside the component. |
+| moveBottomButtonProps | object | - | Used to pass all properties of the ButtonProps to the move bottom button inside the component. |
+| ariaLabel | string | - | Defines a string value that labels an interactive list element. |
+| ariaLabelledby | string | - | Identifier of the underlying list element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<OrderListPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | OrderListPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| controls | OrderListPassThroughOptionType | Used to pass attributes to the controls' DOM element. |
+| pcMoveUpButton | any | Used to pass attributes to the Button component. |
+| pcMoveTopButton | any | Used to pass attributes to the Button component. |
+| pcMoveDownButton | any | Used to pass attributes to the Button component. |
+| pcMoveBottomButton | any | Used to pass attributes to the Button component. |
+| pcListbox | any | Used to pass attributes to the Listbox component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | OrderListPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-orderlist | Class name of the root element |
+| p-orderlist-controls | Class name of the controls element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| orderlist.gap | --p-orderlist-gap | Gap of root |
+| orderlist.controls.gap | --p-orderlist-controls-gap | Gap of controls |
 
 ---
 
@@ -10362,7 +12129,97 @@ The type property of an OrganizationChartNode is used to map a template to a nod
             <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
 ```
 
-## Organizationchart
+## Organization Chart
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | OrganizationChartNode | - | Value of the component. |
+| selectionKeys | OrganizationChartSelectionKeys | - | A map instance of key-value pairs to represented the selected nodes. |
+| selectionMode | HintedString<"single" \| "multiple"> | - | Type of the selection. |
+| collapsedKeys | OrganizationChartCollapsedKeys | - | A map instance of key-value pairs to represented the collapsed nodes. |
+| collapsible | boolean | false | Whether the nodes can be expanded or toggled. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<OrganizationChartPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| [key: string] | Function |  |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | OrganizationChartPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| table | OrganizationChartPassThroughOptionType | Used to pass attributes to the table's DOM element. |
+| body | OrganizationChartPassThroughOptionType | Used to pass attributes to the body's DOM element. |
+| row | OrganizationChartPassThroughOptionType | Used to pass attributes to the row' DOM element. |
+| cell | OrganizationChartPassThroughOptionType | Used to pass attributes to the cell's DOM element. |
+| node | OrganizationChartPassThroughOptionType | Used to pass attributes to the node's DOM element. |
+| nodeToggleButton | OrganizationChartPassThroughOptionType | Used to pass attributes to the node toggle button's DOM element. |
+| nodeToggleButtonIcon | OrganizationChartPassThroughOptionType | Used to pass attributes to the node toggle button icon's DOM element. |
+| connectors | OrganizationChartPassThroughOptionType | Used to pass attributes to the connectors's DOM element. |
+| lineCell | OrganizationChartPassThroughOptionType | Used to pass attributes to the lineCell's DOM element. |
+| connectorDown | OrganizationChartPassThroughOptionType | Used to pass attributes to the connector down's DOM element. |
+| connectorLeft | OrganizationChartPassThroughOptionType | Used to pass attributes to the connector left's DOM element. |
+| connectorRight | OrganizationChartPassThroughOptionType | Used to pass attributes to the connector right's DOM element. |
+| nodeChildren | OrganizationChartPassThroughOptionType | Used to pass attributes to the node children's DOM element. |
+| nodeCell | OrganizationChartPassThroughOptionType | Used to pass attributes to the nodeCell's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-organizationchart | Class name of the root element |
+| p-organizationchart-table | Class name of the table element |
+| p-organizationchart-node | Class name of the node element |
+| p-organizationchart-node-toggle-button | Class name of the node toggle button element |
+| p-organizationchart-node-toggle-button-icon | Class name of the node toggle button icon element |
+| p-organizationchart-connectors | Class name of the connectors element |
+| p-organizationchart-connector-down | Class name of the connector down element |
+| p-organizationchart-connector-left | Class name of the connector left element |
+| p-organizationchart-connector-right | Class name of the connector right element |
+| p-organizationchart-node-children | Class name of the node children element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| organizationchart.gutter | --p-organizationchart-gutter | Gutter of root |
+| organizationchart.transition.duration | --p-organizationchart-transition-duration | Transition duration of root |
+| organizationchart.node.background | --p-organizationchart-node-background | Background of node |
+| organizationchart.node.hover.background | --p-organizationchart-node-hover-background | Hover background of node |
+| organizationchart.node.selected.background | --p-organizationchart-node-selected-background | Selected background of node |
+| organizationchart.node.border.color | --p-organizationchart-node-border-color | Border color of node |
+| organizationchart.node.color | --p-organizationchart-node-color | Color of node |
+| organizationchart.node.selected.color | --p-organizationchart-node-selected-color | Selected color of node |
+| organizationchart.node.hover.color | --p-organizationchart-node-hover-color | Hover color of node |
+| organizationchart.node.padding | --p-organizationchart-node-padding | Padding of node |
+| organizationchart.node.toggleable.padding | --p-organizationchart-node-toggleable-padding | Toggleable padding of node |
+| organizationchart.node.border.radius | --p-organizationchart-node-border-radius | Border radius of node |
+| organizationchart.node.toggle.button.background | --p-organizationchart-node-toggle-button-background | Background of node toggle button |
+| organizationchart.node.toggle.button.hover.background | --p-organizationchart-node-toggle-button-hover-background | Hover background of node toggle button |
+| organizationchart.node.toggle.button.border.color | --p-organizationchart-node-toggle-button-border-color | Border color of node toggle button |
+| organizationchart.node.toggle.button.color | --p-organizationchart-node-toggle-button-color | Color of node toggle button |
+| organizationchart.node.toggle.button.hover.color | --p-organizationchart-node-toggle-button-hover-color | Hover color of node toggle button |
+| organizationchart.node.toggle.button.size | --p-organizationchart-node-toggle-button-size | Size of node toggle button |
+| organizationchart.node.toggle.button.border.radius | --p-organizationchart-node-toggle-button-border-radius | Border radius of node toggle button |
+| organizationchart.node.toggle.button.focus.ring.width | --p-organizationchart-node-toggle-button-focus-ring-width | Focus ring width of node toggle button |
+| organizationchart.node.toggle.button.focus.ring.style | --p-organizationchart-node-toggle-button-focus-ring-style | Focus ring style of node toggle button |
+| organizationchart.node.toggle.button.focus.ring.color | --p-organizationchart-node-toggle-button-focus-ring-color | Focus ring color of node toggle button |
+| organizationchart.node.toggle.button.focus.ring.offset | --p-organizationchart-node-toggle-button-focus-ring-offset | Focus ring offset of node toggle button |
+| organizationchart.node.toggle.button.focus.ring.shadow | --p-organizationchart-node-toggle-button-focus-ring-shadow | Focus ring shadow of node toggle button |
+| organizationchart.connector.color | --p-organizationchart-connector-color | Color of connector |
+| organizationchart.connector.border.radius | --p-organizationchart-connector-border-radius | Border radius of connector |
+| organizationchart.connector.height | --p-organizationchart-connector-height | Height of connector |
 
 ---
 
@@ -10534,6 +12391,33 @@ Paginator elements can be customized using the template property using the prede
 | p-paginator-jtp-dropdown | Class name of the jump to page dropdown element |
 | p-paginator-jtp-input | Class name of the jump to page input element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| paginator.padding | --p-paginator-padding | Padding of root |
+| paginator.gap | --p-paginator-gap | Gap of root |
+| paginator.border.radius | --p-paginator-border-radius | Border radius of root |
+| paginator.background | --p-paginator-background | Background of root |
+| paginator.color | --p-paginator-color | Color of root |
+| paginator.transition.duration | --p-paginator-transition-duration | Transition duration of root |
+| paginator.nav.button.background | --p-paginator-nav-button-background | Background of nav button |
+| paginator.nav.button.hover.background | --p-paginator-nav-button-hover-background | Hover background of nav button |
+| paginator.nav.button.selected.background | --p-paginator-nav-button-selected-background | Selected background of nav button |
+| paginator.nav.button.color | --p-paginator-nav-button-color | Color of nav button |
+| paginator.nav.button.hover.color | --p-paginator-nav-button-hover-color | Hover color of nav button |
+| paginator.nav.button.selected.color | --p-paginator-nav-button-selected-color | Selected color of nav button |
+| paginator.nav.button.width | --p-paginator-nav-button-width | Width of nav button |
+| paginator.nav.button.height | --p-paginator-nav-button-height | Height of nav button |
+| paginator.nav.button.border.radius | --p-paginator-nav-button-border-radius | Border radius of nav button |
+| paginator.nav.button.focus.ring.width | --p-paginator-nav-button-focus-ring-width | Focus ring width of nav button |
+| paginator.nav.button.focus.ring.style | --p-paginator-nav-button-focus-ring-style | Focus ring style of nav button |
+| paginator.nav.button.focus.ring.color | --p-paginator-nav-button-focus-ring-color | Focus ring color of nav button |
+| paginator.nav.button.focus.ring.offset | --p-paginator-nav-button-focus-ring-offset | Focus ring offset of nav button |
+| paginator.nav.button.focus.ring.shadow | --p-paginator-nav-button-focus-ring-shadow | Focus ring shadow of nav button |
+| paginator.current.page.report.color | --p-paginator-current-page-report-color | Color of current page report |
+| paginator.jump.to.page.input.max.width | --p-paginator-jump-to-page-input-max-width | Max width of jump to page input |
+
 ---
 
 # Vue Panel Component
@@ -10683,6 +12567,25 @@ Content of the panel can be expanded and collapsed using toggleable option.
 | p-panel-content | Class name of the content element |
 | p-panel-footer | Class name of the footer element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| panel.background | --p-panel-background | Background of root |
+| panel.border.color | --p-panel-border-color | Border color of root |
+| panel.color | --p-panel-color | Color of root |
+| panel.border.radius | --p-panel-border-radius | Border radius of root |
+| panel.header.background | --p-panel-header-background | Background of header |
+| panel.header.color | --p-panel-header-color | Color of header |
+| panel.header.padding | --p-panel-header-padding | Padding of header |
+| panel.header.border.color | --p-panel-header-border-color | Border color of header |
+| panel.header.border.width | --p-panel-header-border-width | Border width of header |
+| panel.header.border.radius | --p-panel-header-border-radius | Border radius of header |
+| panel.toggleable.header.padding | --p-panel-toggleable-header-padding | Padding of toggleable header |
+| panel.title.font.weight | --p-panel-title-font-weight | Font weight of title |
+| panel.content.padding | --p-panel-content-padding | Padding of content |
+| panel.footer.padding | --p-panel-footer-padding | Padding of footer |
+
 ---
 
 # Vue PanelMenu Component
@@ -10750,67 +12653,6 @@ Items with navigation are defined with templating to be able to use a router lin
 ## Template
 
 PanelMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
-
-## Panelmenu
-
----
-
-# passthrough
-
-
-
-## Basic
-
-Each component has a special pt property to define an object with keys corresponding to the available DOM elements. Each value can either be a string, an object or a function that returns a string or an object to define the arbitrary properties to apply to the element such as styling, aria, data-* or custom attributes. If the value is a string or a function that returns a string, it is considered as a class definition and added to the class attribute of the element. Every component documentation has a dedicated section to document the available section names exposed via PT. Most common usage of pt is styling and customization. The class and style properties support the exact syntax of the corresponding Vue bindings like arrays, objects and conditionals. Example below styles an unstyled Panel component with Tailwind CSS library.
-
-## Custom CSS
-
-The global property has a css option to define custom css that belongs to a global pt configuration. Common use case of this feature is defining global styles and animations related to the pass through configuration.
-
-**Basic Usage:**
-
-```vue
-import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
-
-app.use(PrimeVue, {
-    pt: {
-        global: {
-            css: \
-```
-
-## Declarative
-
-The declarative syntax provides an alternative to the programmatic syntax. The attributes that start with pt are interpreted differently by the component based on the format below. An IDE extension is also being planned to autocomplete the values for better developer experience in the future. Here is another example using both syntax alternatives for the same options.
-
-## Global
-
-Defines the shared pass through properties per component type. For example, with the configuration below all panel headers have the bg-primary style class and all autocomplete components have a fixed width. These settings can be overridden by a particular component as components pt property has higher precedence over global pt .
-
-## Introduction
-
-In traditional 3rd party UI libraries, users are limited to the API provided by component author. This API commonly consists of props, events and slots. Whenever a requirement emerges for a new customization option in the API, the component author needs to develop and publish it with a new release. Vision of PrimeTek is Your components, not ours . The pass through feature is a key element to implement this vision by exposing the component internals in order to apply arbitrary attributes and listeners to the DOM elements. The primary advantage of this approach is that it frees you from being restricted by the main component API. We recommend considering the pass-through feature whenever you need to tailor a component that lacks a built-in feature for your specific requirement. Two videos are available at PrimeTV youtube channel, first one is an introduction and second one covers a unique case that is solved by the pass-through.
-
-## Lifecycle
-
-Lifecycle hooks of components are exposed as pass through using the hooks property so that callback functions can be registered. Available callbacks are onBeforeCreate , onCreated , onBeforeUpdate , onUpdated , onBeforeMount , onMounted , onBeforeUnmount and onUnmounted . Refer to the Vue.js documentation for detailed information about lifecycle hooks.
-
-**Basic Usage:**
-
-```vue
-<Panel header="Header" :pt="panelPT">
-    Content
-</Panel>
-```
-
-## PC Prefix
-
-Section names prefixed with pc denote PrimeVue components, distinguishing them from standard DOM elements and indicating the necessity for a nested structure. For example, the "badge" section is identified as pcBadge because the button component incorporates the badge component internally.
-
-## UsePassThrough
-
-An existing pass through configuration is customized with the usePassThrough utility. The first parameter is the object to customize, the second parameter is the customizations and the final parameter is the merge strategy. The mergeSections defines whether the sections from the main configuration gets added and the mergeProps controls whether to override or merge the defined props. Defaults are true for mergeSections and false for mergeProps .
 
 ---
 
@@ -11319,6 +13161,25 @@ When toggleMask is present, an icon is displayed to show the value as plain text
 | p-password-meter-label | Class name of the meter label element |
 | p-password-meter-text | Class name of the meter text element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| password.meter.background | --p-password-meter-background | Background of meter |
+| password.meter.border.radius | --p-password-meter-border-radius | Border radius of meter |
+| password.meter.height | --p-password-meter-height | Height of meter |
+| password.icon.color | --p-password-icon-color | Color of icon |
+| password.overlay.background | --p-password-overlay-background | Background of overlay |
+| password.overlay.border.color | --p-password-overlay-border-color | Border color of overlay |
+| password.overlay.border.radius | --p-password-overlay-border-radius | Border radius of overlay |
+| password.overlay.color | --p-password-overlay-color | Color of overlay |
+| password.overlay.padding | --p-password-overlay-padding | Padding of overlay |
+| password.overlay.shadow | --p-password-overlay-shadow | Shadow of overlay |
+| password.content.gap | --p-password-content-gap | Gap of content |
+| password.strength.weak.background | --p-password-strength-weak-background | Weak background of strength |
+| password.strength.medium.background | --p-password-strength-medium-background | Medium background of strength |
+| password.strength.strong.background | --p-password-strength-strong-background | Strong background of strength |
+
 ---
 
 # Vue PickList Component
@@ -11354,7 +13215,85 @@ import PickList from 'primevue/picklist';
 
 For custom content support define an option template that gets the item instance as a parameter. In addition sourceheader and targetheader slots are provided for further customization.
 
-## Picklist
+## Pick List
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any[][] | - | Value of the component as a multidimensional array. |
+| selection | any[][] | - | Selected items in the list as a multidimensional array. |
+| dataKey | string | - | Name of the field that uniquely identifies the a record in the data. |
+| metaKeySelection | boolean | false | Defines whether metaKey is requred or not for the selection. When true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
+| autoOptionFocus | boolean | true | Whether to focus on the first visible or selected element. |
+| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
+| listStyle | any | - | Inline style of the the list element. |
+| responsive | boolean | true | Whether the list optimizes layout based on screen size. |
+| breakpoint | string | 960px | The breakpoint to define the maximum width boundary when responsiveness is enabled. |
+| scrollHeight | string | 14rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
+| striped | boolean | false | Whether to displays rows with alternating colors. |
+| showSourceControls | boolean | true | Whether to show buttons of source list. |
+| showTargetControls | boolean | true | Whether to show buttons of target list. |
+| buttonProps | object | - | Used to pass all properties of the ButtonProps to the move up button inside the component. |
+| moveUpButtonProps | object | - | Used to pass all properties of the ButtonProps to the move up button inside the component. |
+| moveTopButtonProps | object | - | Used to pass all properties of the ButtonProps to the move top button inside the component. |
+| moveDownButtonProps | object | - | Used to pass all properties of the ButtonProps to the move down button inside the component. |
+| moveBottomButtonProps | object | - | Used to pass all properties of the ButtonProps to the move bottom button inside the component. |
+| moveToTargetProps | object | - | Used to pass all properties of the ButtonProps to the move to target button inside the component. |
+| moveAllToTargetProps | object | - | Used to pass all properties of the ButtonProps to the move all to target button inside the component. |
+| moveToSourceProps | object | - | Used to pass all properties of the ButtonProps to the move to source button inside the component. |
+| moveAllToSourceProps | object | - | Used to pass all properties of the ButtonProps to the move all to source button inside the component. |
+| tabindex | string \| number | - | Index of the list element in tabbing order. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<PickListPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | PickListPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| sourceControls | PickListPassThroughOptionType | Used to pass attributes to the source controls' DOM element. |
+| pcSourceMoveUpButton | any | Used to pass attributes to the Button component. |
+| pcSourceMoveTopButton | any | Used to pass attributes to the Button component. |
+| pcSourceMoveDownButton | any | Used to pass attributes to the Button component. |
+| pcSourceMoveBottomButton | any | Used to pass attributes to the Button component. |
+| pcListbox | any | Used to pass attributes to the Listbox component. |
+| sourceListContainer | PickListPassThroughOptionType | Used to pass attributes to the source list containerr's DOM element. |
+| transferControls | PickListPassThroughOptionType | Used to pass attributes to the transfer controls' DOM element. |
+| pcMoveToTargetButton | any | Used to pass attributes to the Button component. |
+| pcMoveAllToTargetButton | any | Used to pass attributes to the Button component. |
+| pcMoveToSourceButton | any | Used to pass attributes to the Button component. |
+| pcMoveAllToSourceButton | any | Used to pass attributes to the Button component. |
+| targetListContainer | PickListPassThroughOptionType | Used to pass attributes to the target list container's DOM element. |
+| targetControls | PickListPassThroughOptionType | Used to pass attributes to the target controls' DOM element. |
+| pcTargetMoveUpButton | any | Used to pass attributes to the Button component. |
+| pcTargetMoveTopButton | any | Used to pass attributes to the Button component. |
+| pcTargetMoveDownButton | any | Used to pass attributes to the Button component. |
+| pcTargetMoveBottomButton | any | Used to pass attributes to the Button component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | PickListPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-picklist | Class name of the root element |
+| p-picklist-source-controls | Class name of the source controls element |
+| p-picklist-source-list-container | Class name of the source list container element |
+| p-picklist-transfer-controls | Class name of the transfer controls element |
+| p-picklist-target-list-container | Class name of the target list container element |
+| p-picklist-target-controls | Class name of the target controls element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| picklist.gap | --p-picklist-gap | Gap of root |
+| picklist.controls.gap | --p-picklist-controls-gap | Gap of controls |
 
 ---
 
@@ -11465,6 +13404,19 @@ In this sample, data is retrieved from the content inside the popover.
 | p-popover | Class name of the root element |
 | p-popover-content | Class name of the content element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| popover.background | --p-popover-background | Background of root |
+| popover.border.color | --p-popover-border-color | Border color of root |
+| popover.color | --p-popover-color | Color of root |
+| popover.border.radius | --p-popover-border-radius | Border radius of root |
+| popover.shadow | --p-popover-shadow | Shadow of root |
+| popover.gutter | --p-popover-gutter | Gutter of root |
+| popover.arrow.offset | --p-popover-arrow-offset | Arrow offset of root |
+| popover.content.padding | --p-popover-content-padding | Padding of content |
+
 ---
 
 # Vue ProgressBar Component
@@ -11542,7 +13494,50 @@ For progresses with no value to track, set the mode property to indeterminate .
 
 Custom content inside the ProgressBar is defined with the default slot.
 
-## Progressbar
+## Progress Bar
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | number | - | Current value of the progress. |
+| mode | "indeterminate" \| "determinate" | determinate | Defines the mode of the progress |
+| showValue | boolean | true | Whether to display the progress bar value. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ProgressBarPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ProgressBarPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| value | ProgressBarPassThroughOptionType<T> | Used to pass attributes to the value's DOM element. |
+| label | ProgressBarPassThroughOptionType<T> | Used to pass attributes to the label's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-progressbar | Class name of the root element |
+| p-progressbar-value | Class name of the value element |
+| p-progressbar-label | Class name of the label element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| progressbar.background | --p-progressbar-background | Background of root |
+| progressbar.border.radius | --p-progressbar-border-radius | Border radius of root |
+| progressbar.height | --p-progressbar-height | Height of root |
+| progressbar.value.background | --p-progressbar-value-background | Background of value |
+| progressbar.label.color | --p-progressbar-label-color | Color of label |
+| progressbar.label.font.size | --p-progressbar-label-font-size | Font size of label |
+| progressbar.label.font.weight | --p-progressbar-label-font-weight | Font weight of label |
 
 ---
 
@@ -11605,7 +13600,47 @@ ProgressSpinner can be customized with styling property like style , strokeWidth
 import ProgressSpinner from 'primevue/progressspinner';
 ```
 
-## Progressspinner
+## Progress Spinner
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| strokeWidth | string | 2 | Width of the circle stroke. |
+| fill | string | - | Color for the background of the circle. |
+| animationDuration | string | 2s | Duration of the rotate animation. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ProgressSpinnerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ProgressSpinnerPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| spin | ProgressSpinnerPassThroughOptionType | Used to pass attributes to the spinner's DOM element. |
+| circle | ProgressSpinnerPassThroughOptionType | Used to pass attributes to the circle's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-progressspinner | Class name of the root element |
+| p-progressspinner-spin | Class name of the spin element |
+| p-progressspinner-circle | Class name of the circle element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| progressspinner.color.one | --p-progressspinner-color-one | Color one of root |
+| progressspinner.color.two | --p-progressspinner-color-two | Color two of root |
+| progressspinner.color.three | --p-progressspinner-color-three | Color three of root |
+| progressspinner.color.four | --p-progressspinner-color-four | Color four of root |
 
 ---
 
@@ -11727,9 +13762,93 @@ RadioButton provides small and large sizes as alternatives to the base.
 </div>
 ```
 
-## Radiobutton
+## Radio Button
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | any | - | Value of the checkbox. |
+| modelValue | any | - | Value binding of the checkbox. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | Name of the input element. |
+| binary | boolean | - | Allows to select a boolean value. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| readonly | boolean | - | When present, it specifies that an input field is read-only. |
+| tabindex | number | - | Index of the element in tabbing order. |
+| inputId | string | - | Identifier of the underlying input element. |
+| inputStyle | object | - | Inline style of the input field. |
+| inputClass | string \| object | - | Style class of the input field. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<RadioButtonPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
 ## Radiobuttongroup
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | RadioButtonPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| input | RadioButtonPassThroughOptionType | Used to pass attributes to the input's DOM element. |
+| box | RadioButtonPassThroughOptionType | Used to pass attributes to the box's DOM element. |
+| icon | RadioButtonPassThroughOptionType | Used to pass attributes to the icon's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-radiobutton | Class name of the root element |
+| p-radiobutton-box | Class name of the box element |
+| p-radiobutton-input | Class name of the input element |
+| p-radiobutton-icon | Class name of the icon element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| radiobutton.width | --p-radiobutton-width | Width of root |
+| radiobutton.height | --p-radiobutton-height | Height of root |
+| radiobutton.background | --p-radiobutton-background | Background of root |
+| radiobutton.checked.background | --p-radiobutton-checked-background | Checked background of root |
+| radiobutton.checked.hover.background | --p-radiobutton-checked-hover-background | Checked hover background of root |
+| radiobutton.disabled.background | --p-radiobutton-disabled-background | Disabled background of root |
+| radiobutton.filled.background | --p-radiobutton-filled-background | Filled background of root |
+| radiobutton.border.color | --p-radiobutton-border-color | Border color of root |
+| radiobutton.hover.border.color | --p-radiobutton-hover-border-color | Hover border color of root |
+| radiobutton.focus.border.color | --p-radiobutton-focus-border-color | Focus border color of root |
+| radiobutton.checked.border.color | --p-radiobutton-checked-border-color | Checked border color of root |
+| radiobutton.checked.hover.border.color | --p-radiobutton-checked-hover-border-color | Checked hover border color of root |
+| radiobutton.checked.focus.border.color | --p-radiobutton-checked-focus-border-color | Checked focus border color of root |
+| radiobutton.checked.disabled.border.color | --p-radiobutton-checked-disabled-border-color | Checked disabled border color of root |
+| radiobutton.invalid.border.color | --p-radiobutton-invalid-border-color | Invalid border color of root |
+| radiobutton.shadow | --p-radiobutton-shadow | Shadow of root |
+| radiobutton.focus.ring.width | --p-radiobutton-focus-ring-width | Focus ring width of root |
+| radiobutton.focus.ring.style | --p-radiobutton-focus-ring-style | Focus ring style of root |
+| radiobutton.focus.ring.color | --p-radiobutton-focus-ring-color | Focus ring color of root |
+| radiobutton.focus.ring.offset | --p-radiobutton-focus-ring-offset | Focus ring offset of root |
+| radiobutton.focus.ring.shadow | --p-radiobutton-focus-ring-shadow | Focus ring shadow of root |
+| radiobutton.transition.duration | --p-radiobutton-transition-duration | Transition duration of root |
+| radiobutton.sm.width | --p-radiobutton-sm-width | Sm width of root |
+| radiobutton.sm.height | --p-radiobutton-sm-height | Sm height of root |
+| radiobutton.lg.width | --p-radiobutton-lg-width | Lg width of root |
+| radiobutton.lg.height | --p-radiobutton-lg-height | Lg height of root |
+| radiobutton.icon.size | --p-radiobutton-icon-size | Size of icon |
+| radiobutton.icon.checked.color | --p-radiobutton-icon-checked-color | Checked color of icon |
+| radiobutton.icon.checked.hover.color | --p-radiobutton-icon-checked-hover-color | Checked hover color of icon |
+| radiobutton.icon.disabled.color | --p-radiobutton-icon-disabled-color | Disabled color of icon |
+| radiobutton.icon.sm.size | --p-radiobutton-icon-sm-size | Sm size of icon |
+| radiobutton.icon.lg.size | --p-radiobutton-icon-lg-size | Lg size of icon |
 
 ---
 
@@ -11853,6 +13972,22 @@ Custom icons are used to override the default icons with onicon , officon and ca
 | p-rating-option | Class name of the option element |
 | p-rating-on-icon | Class name of the on icon element |
 | p-rating-off-icon | Class name of the off icon element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| rating.gap | --p-rating-gap | Gap of root |
+| rating.transition.duration | --p-rating-transition-duration | Transition duration of root |
+| rating.focus.ring.width | --p-rating-focus-ring-width | Focus ring width of root |
+| rating.focus.ring.style | --p-rating-focus-ring-style | Focus ring style of root |
+| rating.focus.ring.color | --p-rating-focus-ring-color | Focus ring color of root |
+| rating.focus.ring.offset | --p-rating-focus-ring-offset | Focus ring offset of root |
+| rating.focus.ring.shadow | --p-rating-focus-ring-shadow | Focus ring shadow of root |
+| rating.icon.size | --p-rating-icon-size | Size of icon |
+| rating.icon.color | --p-rating-icon-color | Color of icon |
+| rating.icon.hover.color | --p-rating-icon-hover-color | Hover color of icon |
+| rating.icon.active.color | --p-rating-icon-active-color | Active color of icon |
 
 ---
 
@@ -11983,6 +14118,12 @@ Ripple is an optional animation for the supported components such as buttons. It
 |-------|-------------|
 | p-ink | Class name of the root element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| ripple.background | --p-ripple-background | Background of root |
+
 ---
 
 # Vue ScrollPanel Component
@@ -12019,7 +14160,60 @@ Scrollbar visuals can be styled for a unified look across different platforms.
 import ScrollPanel from 'primevue/scrollpanel';
 ```
 
-## Scrollpanel
+## Scroll Panel
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| step | number | 5 | Step factor to scroll the content while pressing the arrow keys. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ScrollPanelPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Slots
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| default | Function |  |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ScrollPanelPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| contentContainer | ScrollPanelPassThroughOptionType | Used to pass attributes to the content container's DOM element. |
+| content | ScrollPanelPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| barX | ScrollPanelPassThroughOptionType | Used to pass attributes to the horizontal panel's DOM element. |
+| barY | ScrollPanelPassThroughOptionType | Used to pass attributes to the vertical panel's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-scrollpanel | Class name of the root element |
+| p-scrollpanel-content-container | Class name of the content container element |
+| p-scrollpanel-content | Class name of the content element |
+| p-scrollpanel-bar-x | Class name of the bar x element |
+| p-scrollpanel-bar-y | Class name of the bar y element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| scrollpanel.transition.duration | --p-scrollpanel-transition-duration | Transition duration of root |
+| scrollpanel.bar.size | --p-scrollpanel-bar-size | Size of bar |
+| scrollpanel.bar.border.radius | --p-scrollpanel-bar-border-radius | Border radius of bar |
+| scrollpanel.bar.focus.ring.width | --p-scrollpanel-bar-focus-ring-width | Focus ring width of bar |
+| scrollpanel.bar.focus.ring.style | --p-scrollpanel-bar-focus-ring-style | Focus ring style of bar |
+| scrollpanel.bar.focus.ring.color | --p-scrollpanel-bar-focus-ring-color | Focus ring color of bar |
+| scrollpanel.bar.focus.ring.offset | --p-scrollpanel-bar-focus-ring-offset | Focus ring offset of bar |
+| scrollpanel.bar.focus.ring.shadow | --p-scrollpanel-bar-focus-ring-shadow | Focus ring shadow of bar |
+| scrollpanel.bar.background | --p-scrollpanel-bar-background | Background of bar |
 
 ---
 
@@ -12089,7 +14283,38 @@ Setting the target property to parent binds ScrollTop to its parent element that
 import ScrollTop from 'primevue/scrolltop';
 ```
 
-## Scrolltop
+## Scroll Top
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| target | HintedString<"window" \| "parent"> | window | Target of the ScrollTop. |
+| threshold | number | 400 | Defines the threshold value of the vertical scroll position of the target to toggle the visibility. |
+| icon | string | - | Icon to display. |
+| behavior | string | smooth | Defines the scrolling behaviour, 'smooth' adds an animation and 'auto' scrolls with a jump. |
+| buttonProps | object | - | Used to pass all properties of the ButtonProps to the Button component. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ScrollTopPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | any | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | ScrollTopPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-scrolltop | Class name of the root element |
+| p-scrolltop-icon | Class name of the icon element |
 
 ---
 
@@ -12479,6 +14704,68 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 | p-select-option-blank-icon | Class name of the option blank icon element |
 | p-select-empty-message | Class name of the empty message element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| select.background | --p-select-background | Background of root |
+| select.disabled.background | --p-select-disabled-background | Disabled background of root |
+| select.filled.background | --p-select-filled-background | Filled background of root |
+| select.filled.hover.background | --p-select-filled-hover-background | Filled hover background of root |
+| select.filled.focus.background | --p-select-filled-focus-background | Filled focus background of root |
+| select.border.color | --p-select-border-color | Border color of root |
+| select.hover.border.color | --p-select-hover-border-color | Hover border color of root |
+| select.focus.border.color | --p-select-focus-border-color | Focus border color of root |
+| select.invalid.border.color | --p-select-invalid-border-color | Invalid border color of root |
+| select.color | --p-select-color | Color of root |
+| select.disabled.color | --p-select-disabled-color | Disabled color of root |
+| select.placeholder.color | --p-select-placeholder-color | Placeholder color of root |
+| select.invalid.placeholder.color | --p-select-invalid-placeholder-color | Invalid placeholder color of root |
+| select.shadow | --p-select-shadow | Shadow of root |
+| select.padding.x | --p-select-padding-x | Padding x of root |
+| select.padding.y | --p-select-padding-y | Padding y of root |
+| select.border.radius | --p-select-border-radius | Border radius of root |
+| select.focus.ring.width | --p-select-focus-ring-width | Focus ring width of root |
+| select.focus.ring.style | --p-select-focus-ring-style | Focus ring style of root |
+| select.focus.ring.color | --p-select-focus-ring-color | Focus ring color of root |
+| select.focus.ring.offset | --p-select-focus-ring-offset | Focus ring offset of root |
+| select.focus.ring.shadow | --p-select-focus-ring-shadow | Focus ring shadow of root |
+| select.transition.duration | --p-select-transition-duration | Transition duration of root |
+| select.sm.font.size | --p-select-sm-font-size | Sm font size of root |
+| select.sm.padding.x | --p-select-sm-padding-x | Sm padding x of root |
+| select.sm.padding.y | --p-select-sm-padding-y | Sm padding y of root |
+| select.lg.font.size | --p-select-lg-font-size | Lg font size of root |
+| select.lg.padding.x | --p-select-lg-padding-x | Lg padding x of root |
+| select.lg.padding.y | --p-select-lg-padding-y | Lg padding y of root |
+| select.dropdown.width | --p-select-dropdown-width | Width of dropdown |
+| select.dropdown.color | --p-select-dropdown-color | Color of dropdown |
+| select.overlay.background | --p-select-overlay-background | Background of overlay |
+| select.overlay.border.color | --p-select-overlay-border-color | Border color of overlay |
+| select.overlay.border.radius | --p-select-overlay-border-radius | Border radius of overlay |
+| select.overlay.color | --p-select-overlay-color | Color of overlay |
+| select.overlay.shadow | --p-select-overlay-shadow | Shadow of overlay |
+| select.list.padding | --p-select-list-padding | Padding of list |
+| select.list.gap | --p-select-list-gap | Gap of list |
+| select.list.header.padding | --p-select-list-header-padding | Header padding of list |
+| select.option.focus.background | --p-select-option-focus-background | Focus background of option |
+| select.option.selected.background | --p-select-option-selected-background | Selected background of option |
+| select.option.selected.focus.background | --p-select-option-selected-focus-background | Selected focus background of option |
+| select.option.color | --p-select-option-color | Color of option |
+| select.option.focus.color | --p-select-option-focus-color | Focus color of option |
+| select.option.selected.color | --p-select-option-selected-color | Selected color of option |
+| select.option.selected.focus.color | --p-select-option-selected-focus-color | Selected focus color of option |
+| select.option.padding | --p-select-option-padding | Padding of option |
+| select.option.border.radius | --p-select-option-border-radius | Border radius of option |
+| select.option.group.background | --p-select-option-group-background | Background of option group |
+| select.option.group.color | --p-select-option-group-color | Color of option group |
+| select.option.group.font.weight | --p-select-option-group-font-weight | Font weight of option group |
+| select.option.group.padding | --p-select-option-group-padding | Padding of option group |
+| select.clear.icon.color | --p-select-clear-icon-color | Color of clear icon |
+| select.checkmark.color | --p-select-checkmark-color | Color of checkmark |
+| select.checkmark.gutter.start | --p-select-checkmark-gutter-start | Gutter start of checkmark |
+| select.checkmark.gutter.end | --p-select-checkmark-gutter-end | Gutter end of checkmark |
+| select.empty.message.padding | --p-select-empty-message-padding | Padding of empty message |
+
 ---
 
 # Vue SelectButton Component
@@ -12587,13 +14874,55 @@ Label of an option is used as the display text of an item by default, for custom
 </SelectButton>
 ```
 
-## Selectbutton
+## Select Button
 
----
+### Props
 
-# setup
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| options | any[] | - | An array of selectitems to display as the available options. |
+| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
+| optionValue | string \| Function | - | Property name or getter function to use as the value of an option, defaults to the option itself when not defined. |
+| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
+| multiple | boolean | false | When specified, allows selecting multiple values. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the element should be disabled. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| dataKey | string | - | A property to uniquely identify an option. |
+| allowEmpty | boolean | true | Whether selection can be cleared. |
+| ariaLabelledby | string | - | Identifier of the underlying element. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SelectButtonPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
+## Pass Through Options
 
+| Name | Type | Description |
+|------|------|-------------|
+| root | SelectButtonPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| pcToggleButton | SelectButtonPassThroughOptionType | Used to pass attributes to the ToggleButton component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-selectbutton | Class name of the root element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| selectbutton.border.radius | --p-selectbutton-border-radius | Border radius of root |
+| selectbutton.invalid.border.color | --p-selectbutton-invalid-border-color | Invalid border color of root |
 
 ---
 
@@ -12914,6 +15243,14 @@ Various shapes and sizes can be created using styling properties like shape , wi
 |-------|-------------|
 | p-skeleton | Class name of the root element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| skeleton.border.radius | --p-skeleton-border-radius | Border radius of root |
+| skeleton.background | --p-skeleton-background | Background of root |
+| skeleton.animation.background | --p-skeleton-animation-background | Animation background of root |
+
 ---
 
 # Vue Slider Component
@@ -13054,6 +15391,32 @@ Default layout of slider is horizontal , use orientation property for the altern
 | p-slider-range | Class name of the range element |
 | p-slider-handle | Class name of the handle element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| slider.transition.duration | --p-slider-transition-duration | Transition duration of root |
+| slider.track.background | --p-slider-track-background | Background of track |
+| slider.track.border.radius | --p-slider-track-border-radius | Border radius of track |
+| slider.track.size | --p-slider-track-size | Size of track |
+| slider.range.background | --p-slider-range-background | Background of range |
+| slider.handle.width | --p-slider-handle-width | Width of handle |
+| slider.handle.height | --p-slider-handle-height | Height of handle |
+| slider.handle.border.radius | --p-slider-handle-border-radius | Border radius of handle |
+| slider.handle.background | --p-slider-handle-background | Background of handle |
+| slider.handle.hover.background | --p-slider-handle-hover-background | Hover background of handle |
+| slider.handle.content.border.radius | --p-slider-handle-content-border-radius | Content border radius of handle |
+| slider.handle.content.background | --p-slider-handle-content-background | Background of handle |
+| slider.handle.content.hover.background | --p-slider-handle-content-hover-background | Content hover background of handle |
+| slider.handle.content.width | --p-slider-handle-content-width | Content width of handle |
+| slider.handle.content.height | --p-slider-handle-content-height | Content height of handle |
+| slider.handle.content.shadow | --p-slider-handle-content-shadow | Content shadow of handle |
+| slider.handle.focus.ring.width | --p-slider-handle-focus-ring-width | Focus ring width of handle |
+| slider.handle.focus.ring.style | --p-slider-handle-focus-ring-style | Focus ring style of handle |
+| slider.handle.focus.ring.color | --p-slider-handle-focus-ring-color | Focus ring color of handle |
+| slider.handle.focus.ring.offset | --p-slider-handle-focus-ring-offset | Focus ring offset of handle |
+| slider.handle.focus.ring.shadow | --p-slider-handle-focus-ring-shadow | Focus ring shadow of handle |
+
 ---
 
 # Vue Speed Dial Component
@@ -13152,7 +15515,72 @@ Items display a tooltip on hover when a standalone Tooltip is present with a tar
 <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 0, bottom: 0 }" :buttonProps="{ severity: 'danger', rounded: true }" :tooltipOptions="{ position: 'right' }" />
 ```
 
-## Speeddial
+## Speed Dial
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| model | MenuItem[] | - | MenuModel instance to define the action items. |
+| visible | boolean | false | Specifies the visibility of the overlay. |
+| direction | HintedString<"left" \| "right" \| "up" \| "down" \| "up-left" \| "up-right" \| "down-left" \| "down-right"> | up | Specifies the opening direction of actions. |
+| transitionDelay | number | 30 | Transition delay step for each action item. |
+| type | HintedString<"circle" \| "linear" \| "semi-circle" \| "quarter-circle"> | linear | Specifies the opening type of actions. |
+| radius | number | 0 | Radius for *circle types. |
+| mask | boolean | false | Whether to show a mask element behind the speeddial. |
+| disabled | boolean | false | Whether the component is disabled. |
+| hideOnClickOutside | boolean | true | Whether the actions close when clicked outside. |
+| buttonClass | any | - | Style class of the button element. |
+| maskStyle | any | - | Inline style of the mask element. |
+| maskClass | string | - | Style class of the mask element. |
+| showIcon | string | - | Show icon of the button element. |
+| hideIcon | string | - | Hide icon of the button element. |
+| rotateAnimation | boolean | true | Defined to rotate showIcon when hideIcon is not present. |
+| class | any | - | Style class of the element. |
+| style | any | - | Inline style of the element. |
+| tooltipOptions | SpeedDialTooltipOptions | - | Whether to display the tooltip on items. The modifiers of Tooltip can be used like an object in it. Valid keys are 'event' and 'position'. |
+| buttonProps | object | - | Used to pass all properties of the ButtonProps to the button component. |
+| actionButtonProps | object | - | Used to pass all properties of the ButtonProps to the item component. |
+| ariaLabel | string | - | Defines a string value that labels an interactive list element. |
+| ariaLabelledby | string | - | Identifier of the underlying list element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SpeedDialPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | SpeedDialPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| pcButton | any | Used to pass attributes to the Button component. |
+| list | SpeedDialPassThroughOptionType | Used to pass attributes to the list's DOM element. |
+| item | SpeedDialPassThroughOptionType | Used to pass attributes to the item's DOM element. |
+| pcAction | any | Used to pass attributes to the action's Button component. |
+| actionIcon | SpeedDialPassThroughOptionType | Used to pass attributes to the action icon's DOM element. |
+| mask | SpeedDialPassThroughOptionType | Used to pass attributes to the mask's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-speeddial | Class name of the root element |
+| p-speeddial-button | Class name of the button element |
+| p-speeddial-list | Class name of the list element |
+| p-speeddial-item | Class name of the item element |
+| p-speeddial-action | Class name of the action element |
+| p-speeddial-action-icon | Class name of the action icon element |
+| p-speeddial-mask | Class name of the mask element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| speeddial.gap | --p-speeddial-gap | Gap of root |
+| speeddial.transition.duration | --p-speeddial-transition-duration | Transition duration of root |
 
 ---
 
@@ -13345,7 +15773,65 @@ Text buttons are displayed as textual elements.
 <SplitButton label="Save" :model="items" @click="save" text severity="danger"></SplitButton>
 ```
 
-## Splitbutton
+## Split Button
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| label | string | - | Text of the button. |
+| icon | string | - | Name of the icon. |
+| model | MenuItem[] | - | MenuModel instance to define the overlay items. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself. |
+| disabled | boolean | false | When present, it specifies that the element should be disabled. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| class | any | - | Style class of the component. |
+| style | any | - | Inline style of the component. |
+| buttonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the default button. |
+| menuButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the menu button. |
+| menuButtonIcon | string | - | Name of the menu button icon. |
+| dropdownIcon | string | - | Name of the menu button icon. |
+| severity | HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast" \| "help"> | - | Defines the style of the button. |
+| raised | boolean | false | Add a shadow to indicate elevation. |
+| rounded | boolean | false | Add a circular border radius to the button. |
+| text | boolean | false | Add a textual class to the button without a background initially. |
+| outlined | boolean | false | Add a border class without a background initially. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the button. |
+| plain | boolean | false | Add a plain textual class to the button without a background initially. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SplitButtonPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | SplitButtonPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| pcButton | any | Used to pass attributes to the Button component. |
+| pcDropdown | any | Used to pass attributes to the Button component. |
+| pcMenu | any | Used to pass attributes to the TieredMenu component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-splitbutton | Class name of the root element |
+| p-splitbutton-button | Class name of the button element |
+| p-splitbutton-dropdown | Class name of the dropdown element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| splitbutton.border.radius | --p-splitbutton-border-radius | Border radius of root |
+| splitbutton.rounded.border.radius | --p-splitbutton-rounded-border-radius | Rounded border radius of root |
+| splitbutton.raised.shadow | --p-splitbutton-raised-shadow | Raised shadow of root |
 
 ---
 
@@ -13546,6 +16032,24 @@ Panels are displayed as stacked by setting the layout to vertical .
 | p-splitter | Class name of the root element |
 | p-splitter-gutter | Class name of the gutter element |
 | p-splitter-gutter-handle | Class name of the gutter handle element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| splitter.background | --p-splitter-background | Background of root |
+| splitter.border.color | --p-splitter-border-color | Border color of root |
+| splitter.color | --p-splitter-color | Color of root |
+| splitter.transition.duration | --p-splitter-transition-duration | Transition duration of root |
+| splitter.gutter.background | --p-splitter-gutter-background | Background of gutter |
+| splitter.handle.size | --p-splitter-handle-size | Size of handle |
+| splitter.handle.background | --p-splitter-handle-background | Background of handle |
+| splitter.handle.border.radius | --p-splitter-handle-border-radius | Border radius of handle |
+| splitter.handle.focus.ring.width | --p-splitter-handle-focus-ring-width | Focus ring width of handle |
+| splitter.handle.focus.ring.style | --p-splitter-handle-focus-ring-style | Focus ring style of handle |
+| splitter.handle.focus.ring.color | --p-splitter-handle-focus-ring-color | Focus ring color of handle |
+| splitter.handle.focus.ring.offset | --p-splitter-handle-focus-ring-offset | Focus ring offset of handle |
+| splitter.handle.focus.ring.shadow | --p-splitter-handle-focus-ring-shadow | Focus ring shadow of handle |
 
 ---
 
@@ -14009,6 +16513,45 @@ Vertical layout requires StepItem as a wrapper of Step and StepPanel components.
 |-------|-------------|
 | p-stepper | Class name of the root element |
 | p-stepper-separator | Class name of the separator element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| stepper.transition.duration | --p-stepper-transition-duration | Transition duration of root |
+| stepper.separator.background | --p-stepper-separator-background | Background of separator |
+| stepper.separator.active.background | --p-stepper-separator-active-background | Active background of separator |
+| stepper.separator.margin | --p-stepper-separator-margin | Margin of separator |
+| stepper.separator.size | --p-stepper-separator-size | Size of separator |
+| stepper.step.padding | --p-stepper-step-padding | Padding of step |
+| stepper.step.gap | --p-stepper-step-gap | Gap of step |
+| stepper.step.header.padding | --p-stepper-step-header-padding | Padding of step header |
+| stepper.step.header.border.radius | --p-stepper-step-header-border-radius | Border radius of step header |
+| stepper.step.header.focus.ring.width | --p-stepper-step-header-focus-ring-width | Focus ring width of step header |
+| stepper.step.header.focus.ring.style | --p-stepper-step-header-focus-ring-style | Focus ring style of step header |
+| stepper.step.header.focus.ring.color | --p-stepper-step-header-focus-ring-color | Focus ring color of step header |
+| stepper.step.header.focus.ring.offset | --p-stepper-step-header-focus-ring-offset | Focus ring offset of step header |
+| stepper.step.header.focus.ring.shadow | --p-stepper-step-header-focus-ring-shadow | Focus ring shadow of step header |
+| stepper.step.header.gap | --p-stepper-step-header-gap | Gap of step header |
+| stepper.step.title.color | --p-stepper-step-title-color | Color of step title |
+| stepper.step.title.active.color | --p-stepper-step-title-active-color | Active color of step title |
+| stepper.step.title.font.weight | --p-stepper-step-title-font-weight | Font weight of step title |
+| stepper.step.number.background | --p-stepper-step-number-background | Background of step number |
+| stepper.step.number.active.background | --p-stepper-step-number-active-background | Active background of step number |
+| stepper.step.number.border.color | --p-stepper-step-number-border-color | Border color of step number |
+| stepper.step.number.active.border.color | --p-stepper-step-number-active-border-color | Active border color of step number |
+| stepper.step.number.color | --p-stepper-step-number-color | Color of step number |
+| stepper.step.number.active.color | --p-stepper-step-number-active-color | Active color of step number |
+| stepper.step.number.size | --p-stepper-step-number-size | Size of step number |
+| stepper.step.number.font.size | --p-stepper-step-number-font-size | Font size of step number |
+| stepper.step.number.font.weight | --p-stepper-step-number-font-weight | Font weight of step number |
+| stepper.step.number.border.radius | --p-stepper-step-number-border-radius | Border radius of step number |
+| stepper.step.number.shadow | --p-stepper-step-number-shadow | Shadow of step number |
+| stepper.steppanels.padding | --p-stepper-steppanels-padding | Padding of steppanels |
+| stepper.steppanel.background | --p-stepper-steppanel-background | Background of steppanel |
+| stepper.steppanel.color | --p-stepper-steppanel-color | Color of steppanel |
+| stepper.steppanel.padding | --p-stepper-steppanel-padding | Padding of steppanel |
+| stepper.steppanel.indent | --p-stepper-steppanel-indent | Indent of steppanel |
 
 ---
 
@@ -14499,6 +17042,55 @@ Custom content for a tab is defined with the default slot. The optional as prope
 |-------|-------------|
 | p-tabs | Class name of the root element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| tabs.transition.duration | --p-tabs-transition-duration | Transition duration of root |
+| tabs.tablist.border.width | --p-tabs-tablist-border-width | Border width of tablist |
+| tabs.tablist.background | --p-tabs-tablist-background | Background of tablist |
+| tabs.tablist.border.color | --p-tabs-tablist-border-color | Border color of tablist |
+| tabs.tab.background | --p-tabs-tab-background | Background of tab |
+| tabs.tab.hover.background | --p-tabs-tab-hover-background | Hover background of tab |
+| tabs.tab.active.background | --p-tabs-tab-active-background | Active background of tab |
+| tabs.tab.border.width | --p-tabs-tab-border-width | Border width of tab |
+| tabs.tab.border.color | --p-tabs-tab-border-color | Border color of tab |
+| tabs.tab.hover.border.color | --p-tabs-tab-hover-border-color | Hover border color of tab |
+| tabs.tab.active.border.color | --p-tabs-tab-active-border-color | Active border color of tab |
+| tabs.tab.color | --p-tabs-tab-color | Color of tab |
+| tabs.tab.hover.color | --p-tabs-tab-hover-color | Hover color of tab |
+| tabs.tab.active.color | --p-tabs-tab-active-color | Active color of tab |
+| tabs.tab.padding | --p-tabs-tab-padding | Padding of tab |
+| tabs.tab.font.weight | --p-tabs-tab-font-weight | Font weight of tab |
+| tabs.tab.margin | --p-tabs-tab-margin | Margin of tab |
+| tabs.tab.gap | --p-tabs-tab-gap | Gap of tab |
+| tabs.tab.focus.ring.width | --p-tabs-tab-focus-ring-width | Focus ring width of tab |
+| tabs.tab.focus.ring.style | --p-tabs-tab-focus-ring-style | Focus ring style of tab |
+| tabs.tab.focus.ring.color | --p-tabs-tab-focus-ring-color | Focus ring color of tab |
+| tabs.tab.focus.ring.offset | --p-tabs-tab-focus-ring-offset | Focus ring offset of tab |
+| tabs.tab.focus.ring.shadow | --p-tabs-tab-focus-ring-shadow | Focus ring shadow of tab |
+| tabs.tabpanel.background | --p-tabs-tabpanel-background | Background of tabpanel |
+| tabs.tabpanel.color | --p-tabs-tabpanel-color | Color of tabpanel |
+| tabs.tabpanel.padding | --p-tabs-tabpanel-padding | Padding of tabpanel |
+| tabs.tabpanel.focus.ring.width | --p-tabs-tabpanel-focus-ring-width | Focus ring width of tabpanel |
+| tabs.tabpanel.focus.ring.style | --p-tabs-tabpanel-focus-ring-style | Focus ring style of tabpanel |
+| tabs.tabpanel.focus.ring.color | --p-tabs-tabpanel-focus-ring-color | Focus ring color of tabpanel |
+| tabs.tabpanel.focus.ring.offset | --p-tabs-tabpanel-focus-ring-offset | Focus ring offset of tabpanel |
+| tabs.tabpanel.focus.ring.shadow | --p-tabs-tabpanel-focus-ring-shadow | Focus ring shadow of tabpanel |
+| tabs.nav.button.background | --p-tabs-nav-button-background | Background of nav button |
+| tabs.nav.button.color | --p-tabs-nav-button-color | Color of nav button |
+| tabs.nav.button.hover.color | --p-tabs-nav-button-hover-color | Hover color of nav button |
+| tabs.nav.button.width | --p-tabs-nav-button-width | Width of nav button |
+| tabs.nav.button.focus.ring.width | --p-tabs-nav-button-focus-ring-width | Focus ring width of nav button |
+| tabs.nav.button.focus.ring.style | --p-tabs-nav-button-focus-ring-style | Focus ring style of nav button |
+| tabs.nav.button.focus.ring.color | --p-tabs-nav-button-focus-ring-color | Focus ring color of nav button |
+| tabs.nav.button.focus.ring.offset | --p-tabs-nav-button-focus-ring-offset | Focus ring offset of nav button |
+| tabs.nav.button.focus.ring.shadow | --p-tabs-nav-button-focus-ring-shadow | Focus ring shadow of nav button |
+| tabs.nav.button.shadow | --p-tabs-nav-button-shadow | Shadow of nav button |
+| tabs.active.bar.height | --p-tabs-active-bar-height | Height of active bar |
+| tabs.active.bar.bottom | --p-tabs-active-bar-bottom | Bottom of active bar |
+| tabs.active.bar.background | --p-tabs-active-bar-background | Background of active bar |
+
 ---
 
 # Vue Tag Component
@@ -14710,47 +17302,31 @@ Children of the component are passed as the content for templating.
 | p-tag-icon | Class name of the icon element |
 | p-tag-label | Class name of the label element |
 
----
+### Design Tokens
 
-# tailwind
-
-
-
-## AnimationsDoc
-
-The plugin also adds extended animation utilities that can be used with the styleclass and animateonscroll directives. Enter and Leave In addition to the prebuilt animations, you may also build your own declaratively using the animate-enter and animate-leave along with the opacity, rotate, scale and translate parameters. These animations work perfectly with the AnimateOnScroll directive, visit this directive for various examples. Animations Class Property animate-enter animation-name: enter; --p-enter-opacity: initial; --p-enter-scale: initial; --p-enter-rotate: initial; --p-enter-translate-x: initial; --p-enter-translate-y: initial; animate-leave animation-name: leave; --p-leave-opacity: initial; --p-leave-scale: initial; --p-leave-rotate: initial; --p-leave-translate-x: initial; --p-leave-translate-y: initial; animate-leave fadein 0.15s linear animate-fadein fadein 0.15s linear animate-fadeout fadeout 0.15s linear animate-slidedown slidedown 0.45s ease-in-out animate-slideup slideup 0.45s cubic-bezier(0, 1, 0, 1) animate-scalein scalein 0.15s linear animate-fadeinleft fadeinleft 0.15s linear animate-fadeoutleft fadeoutleft 0.15s linear animate-fadeinright fadeinright 0.15s linear animate-fadeoutright fadeoutright 0.15s linear animate-fadeinup fadeinup 0.15s linear animate-fadeoutup fadeoutup 0.15s linear animate-fadeindown fadeindown 0.15s linear animate-fadeoutup fadeoutup 0.15s linear animate-width width 0.15s linear animate-flip flip 0.15s linear animate-flipup flipup 0.15s linear animate-flipleft fadein 0.15s linear animate-flipright flipright 0.15s linear animate-zoomin zoomin 0.15s linear animate-zoomindown zoomindown 0.15s linear animate-zoominleft zoominleft 0.15s linear animate-zoominright zoominright 0.15s linear animate-zoominup zoominup 0.15s linear Animation Duration Class Property animate-duration-0 animation-duration: 0s animate-duration-75 animation-duration: 75ms animate-duration-100 animation-duration: 100ms animate-duration-200 animation-duration: 200ms animate-duration-300 animation-duration: 300ms animate-duration-400 animation-duration: 400ms animate-duration-500 animation-duration: 500ms animate-duration-700 animation-duration: 700ms animate-duration-1000 animation-duration: 1000ms animate-duration-2000 animation-duration: 2000ms animate-duration-3000 animation-duration: 300ms animate-duration-[value] animation-duration: value Animation Delay Class Property animate-delay-none animation-duration: 0s animate-delay-75 animation-delay: 75ms animate-delay-100 animation-delay: 100ms animate-delay-150 animation-delay: 150ms animate-delay-200 animation-delay: 200ms animate-delay-300 animation-delay: 300ms animate-delay-400 animation-delay: 400ms animate-delay-500 animation-delay: 500ms animate-delay-700 animation-delay: 700ms animate-delay-1000 animation-delay: 1000ms Iteration Count Class Property animate-infinite animation-iteration-count: infinite animate-once animation-iteration-count: 1 animate-twice animation-iteration-count: 2 Direction Class Property animate-normal animation-direction: normal animate-reverse animation-direction: reverse animate-alternate animation-direction: alternate animate-alternate-reverse animation-direction: alternate-reverse Timing Function Class Property animate-ease-linear animation-timing-function: linear animate-ease-in animation-timing-function: cubic-bezier(0.4, 0, 1, 1) animate-ease-out animation-timing-function: cubic-bezier(0, 0, 0.2, 1) animate-ease-in-out animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1) Fill Mode Class Property animate-fill-none animation-fill-mode: normal animate-fill-forwards animation-fill-mode: forwards animate-fill-backwards animation-fill-mode: backwards animate-fill-both animation-fill-mode: both Play State Class Property animate-running animation-play-state: running animate-paused animation-play-state: paused Backface Visibility State Class Property backface-visible backface-visibility: visible backface-hidden backface-visibility: hidden Fade In and Out Values are derived from the Tailwind CSS opacity e.g. fade-in-50 and fade-out-20 . Arbitrary values such as fade-in-[15] are also supported. Class Property fade-in-{value} --p-enter-opacity: {value} fade-out-{value} --p-leave-opacity: {value} Zoom In and Out Values are derived from the Tailwind CSS scale e.g. zoom-in-50 and zoom-out-75 . Arbitrary values such as zoom-in-[0.8] are also supported. Class Property zoom-in-{value} --p-enter-scale: {value} zoom-out-{value} --p-leave-scale: {value} Spin In and Out Values are derived from the Tailwind CSS rotate e.g. spin-in-45 and spin-out-90 . Arbitrary values such as spin-in-[60deg] are also supported. Class Property spin-in-{value} --p-enter-rotate: {value} spin-out-{value} --p-leave-rotate: {value} Slide In and Out Values are derived from the Tailwind CSS translate e.g. slide-in-from-t-50 and slide-out-to-l-8 . Arbitrary values such as slide-in-from-b-[8px] are also supported. Class Property slide-in-from-t-{value} --p-enter-translate-y: -{value} slide-in-from-b-{value} --p-enter-translate-y: {value} slide-in-from-l-{value} --p-enter-translate-x: -{value} slide-in-from-r-{value} --p-enter-translate-x: {value} slide-out-to-t-{value} --p-leave-translate-y: -{value} slide-out-to-b-{value} --p-leave-translate-y: {value} slide-out-to-l-{value} --p-leave-translate-x: -{value} slide-out-to-r-{value} --p-leave-translate-x: {value}
-
-**Basic Usage:**
-
-```vue
-<Select v-model="animation" :options="animations" placeholder="Select One" class="w-full sm:w-44" />
-<div class="py-8 overflow-hidden">
-    <div :class="\
-```
-
-## Dark Mode
-
-In styled mode, PrimeVue uses the system as the default darkModeSelector in theme configuration. If you have a dark mode switch in your application, ensure that darkModeSelector is aligned with the Tailwind dark variant for seamless integration. Note that, this particular configuration isn't required if you're utilizing the default system color scheme. Suppose that, the darkModeSelector is set as my-app-dark in PrimeVue. Tailwind v4 Add a custom variant for dark with a custom selector. Tailwind v3 Use the plugins option in your Tailwind config file to configure the plugin.
-
-## Extensions
-
-The plugin extends the default configuration with a new set of utilities whose values are derived from the PrimeVue theme in use. All variants and breakpoints are supported e.g. dark:sm:hover:bg-primary . Color Palette Class Property primary-[50-950] Primary color palette. surface-[0-950] Surface color palette. primary Default primary color. primary-contrast Default primary contrast color. primary-emphasis Default primary emphasis color. border-surface Content border color. bg-emphasis Emphasis background e.g. hovered element. bg-highlight Highlight background. bg-highlight-emphasis Highlight background with emphasis. rounded-border Border radius. text-color Text color with emphasis. text-color-emphasis Default primary emphasis color. text-muted-color Secondary text color. text-muted-color-emphasis Secondary text color with emphasis.
-
-## Override
-
-Tailwind utilities may not be able to override the default styling of components due to css specificity, there are two possible solutions; Important and CSS Layer. Important Use the ! as a prefix to enforce the styling. This is not the recommend approach, and should be used as last resort to avoid adding unnecessary style classes to your bundle. Tailwind v4 Tailwind v3 CSS Layer CSS Layer provides control over the css specificity so that Tailwind utilities can safely override components. Tailwind v4 Ensure primevue layer is after theme and base , but before the other Tailwind layers such as utilities . No change in the CSS configuration is required. Tailwind v3 The primevue layer should be between base and utilities. Tailwind v3 does not use native layer so needs to be defined with CSS.
-
-## Overview
-
-Tailwind CSS is a popular CSS framework based on a utility-first design. The core provides flexible CSS classes with predefined CSS rules to build your own UI elements. For example, instead of an opinionated btn class as in Bootstrap, Tailwind offers primitive classes like bg-blue-500 , rounded and p-4 to apply a button. Tailwind is an outstanding CSS library, however it lacks a true comprehensive UI suite when combined with Vue.js, this is where PrimeVue comes in by providing a wide range of highly accessible and feature rich UI component library. The core of PrimeVue does not depend on Tailwind CSS, instead we provide the necessary integration points such as the primeui tailwind plugin or a spin-off UI library called Volt based on unstyled PrimeVue. Tailwind CSS and PrimeVue can be used together via two main approaches to choose from. First approach is using Tailwind CSS around the styled PrimeVue components as demonstrated in the samples section below. The second alternative approach takes the integration a step further by replacing the default design token based styled mode with the unstyled mode and utilizing Tailwind CSS within the component internals via pass-through feature. A spin-off library from the PrimeTek UI ecosystem has been created based on this advanced integration called VOLT .
-
-## Plugin
-
-The tailwindcss-primeui is an official plugin by PrimeTek to provide first class integration between a Prime UI library like PrimeVue and Tailwind CSS. It is designed to work both in styled and unstyled modes. In styled mode, for instance the semantic colors such as primary and surfaces are provided as Tailwind utilities e.g. bg-primary , text-surface-500 , text-muted-color . If you haven't already done so, start by integrating Tailwind into your project. Detailed steps for this process can be found in the Tailwind documentation . After successfully installing Tailwind, proceed with the installation of the PrimeUI plugin. This single npm package comes with two libraries: the CSS version is compatible with Tailwind v4, while the JS version is designed for Tailwind v3. Tailwind v4 In the CSS file that contains the tailwindcss import, add the tailwindcss-primeui import as well. Tailwind v3 Use the plugins option in your Tailwind config file to configure the plugin.
-
-## Volt UI
-
-Volt is ideal for developers who prefer customizing component styles using Tailwind CSS rather than the default design token-based styling. If you do not have this use case and prefer the default styled mode for PrimeVue, while using Tailwind CSS only for other requirements such as layout, you can proceed to the next section. Volt is an open source UI component library implemented with the Unstyled PrimeVue components and Tailwind CSS. Volt follows the Code Ownership model where the components live in your application code base as your own UI library rather than imported from node_modules as a 3rd party. Main benefit of this approach is full control over styling and ease of customization. Internally a Volt component wraps its PrimeVue counterpart, removes the default design token based theming and applies Tailwind utility classes via the pass through attributes feature. Volt components are designed to be customized with Tailwind CSS and do not require separate updates. They serve as wrappers around PrimeVue components, so maintenance is handled simply by updating the PrimeVue version.
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| tag.font.size | --p-tag-font-size | Font size of root |
+| tag.font.weight | --p-tag-font-weight | Font weight of root |
+| tag.padding | --p-tag-padding | Padding of root |
+| tag.gap | --p-tag-gap | Gap of root |
+| tag.border.radius | --p-tag-border-radius | Border radius of root |
+| tag.rounded.border.radius | --p-tag-rounded-border-radius | Rounded border radius of root |
+| tag.icon.size | --p-tag-icon-size | Size of icon |
+| tag.primary.background | --p-tag-primary-background | Background of primary |
+| tag.primary.color | --p-tag-primary-color | Color of primary |
+| tag.secondary.background | --p-tag-secondary-background | Background of secondary |
+| tag.secondary.color | --p-tag-secondary-color | Color of secondary |
+| tag.success.background | --p-tag-success-background | Background of success |
+| tag.success.color | --p-tag-success-color | Color of success |
+| tag.info.background | --p-tag-info-background | Background of info |
+| tag.info.color | --p-tag-info-color | Color of info |
+| tag.warn.background | --p-tag-warn-background | Background of warn |
+| tag.warn.color | --p-tag-warn-color | Color of warn |
+| tag.danger.background | --p-tag-danger-background | Background of danger |
+| tag.danger.color | --p-tag-danger-color | Color of danger |
+| tag.contrast.background | --p-tag-contrast-background | Background of contrast |
+| tag.contrast.color | --p-tag-contrast-color | Color of contrast |
 
 ---
 
@@ -14830,6 +17406,19 @@ import TerminalService from 'primevue/terminalservice'
 | p-terminal-prompt | Class name of the prompt element |
 | p-terminal-prompt-label | Class name of the prompt label element |
 | p-terminal-prompt-value | Class name of the prompt value element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| terminal.background | --p-terminal-background | Background of root |
+| terminal.border.color | --p-terminal-border-color | Border color of root |
+| terminal.color | --p-terminal-color | Color of root |
+| terminal.height | --p-terminal-height | Height of root |
+| terminal.padding | --p-terminal-padding | Padding of root |
+| terminal.border.radius | --p-terminal-border-radius | Border radius of root |
+| terminal.prompt.gap | --p-terminal-prompt-gap | Gap of prompt |
+| terminal.command.response.margin | --p-terminal-command-response-margin | Margin of command response |
 
 ---
 
@@ -15210,6 +17799,40 @@ Textarea provides small and large sizes as alternatives to the base.
 |-------|-------------|
 | p-textarea | Class name of the root element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| textarea.background | --p-textarea-background | Background of root |
+| textarea.disabled.background | --p-textarea-disabled-background | Disabled background of root |
+| textarea.filled.background | --p-textarea-filled-background | Filled background of root |
+| textarea.filled.hover.background | --p-textarea-filled-hover-background | Filled hover background of root |
+| textarea.filled.focus.background | --p-textarea-filled-focus-background | Filled focus background of root |
+| textarea.border.color | --p-textarea-border-color | Border color of root |
+| textarea.hover.border.color | --p-textarea-hover-border-color | Hover border color of root |
+| textarea.focus.border.color | --p-textarea-focus-border-color | Focus border color of root |
+| textarea.invalid.border.color | --p-textarea-invalid-border-color | Invalid border color of root |
+| textarea.color | --p-textarea-color | Color of root |
+| textarea.disabled.color | --p-textarea-disabled-color | Disabled color of root |
+| textarea.placeholder.color | --p-textarea-placeholder-color | Placeholder color of root |
+| textarea.invalid.placeholder.color | --p-textarea-invalid-placeholder-color | Invalid placeholder color of root |
+| textarea.shadow | --p-textarea-shadow | Shadow of root |
+| textarea.padding.x | --p-textarea-padding-x | Padding x of root |
+| textarea.padding.y | --p-textarea-padding-y | Padding y of root |
+| textarea.border.radius | --p-textarea-border-radius | Border radius of root |
+| textarea.focus.ring.width | --p-textarea-focus-ring-width | Focus ring width of root |
+| textarea.focus.ring.style | --p-textarea-focus-ring-style | Focus ring style of root |
+| textarea.focus.ring.color | --p-textarea-focus-ring-color | Focus ring color of root |
+| textarea.focus.ring.offset | --p-textarea-focus-ring-offset | Focus ring offset of root |
+| textarea.focus.ring.shadow | --p-textarea-focus-ring-shadow | Focus ring shadow of root |
+| textarea.transition.duration | --p-textarea-transition-duration | Transition duration of root |
+| textarea.sm.font.size | --p-textarea-sm-font-size | Sm font size of root |
+| textarea.sm.padding.x | --p-textarea-sm-padding-x | Sm padding x of root |
+| textarea.sm.padding.y | --p-textarea-sm-padding-y | Sm padding y of root |
+| textarea.lg.font.size | --p-textarea-lg-font-size | Lg font size of root |
+| textarea.lg.padding.x | --p-textarea-lg-padding-x | Lg padding x of root |
+| textarea.lg.padding.y | --p-textarea-lg-padding-y | Lg padding y of root |
+
 ---
 
 # Vue TieredMenu Component
@@ -15267,8 +17890,6 @@ Items with navigation are defined with templating to be able to use a router lin
 ## Template
 
 TieredMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
-
-## Tieredmenu
 
 ---
 
@@ -15349,6 +17970,25 @@ Sample implementation with custom content and styled markers.
 | p-timeline-event-marker | Class name of the event marker element |
 | p-timeline-event-connector | Class name of the event connector element |
 | p-timeline-event-content | Class name of the event content element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| timeline.event.min.height | --p-timeline-event-min-height | Min height of event |
+| timeline.horizontal.event.content.padding | --p-timeline-horizontal-event-content-padding | Event content padding of horizontal |
+| timeline.vertical.event.content.padding | --p-timeline-vertical-event-content-padding | Event content padding of vertical |
+| timeline.event.marker.size | --p-timeline-event-marker-size | Size of event marker |
+| timeline.event.marker.border.radius | --p-timeline-event-marker-border-radius | Border radius of event marker |
+| timeline.event.marker.border.width | --p-timeline-event-marker-border-width | Border width of event marker |
+| timeline.event.marker.background | --p-timeline-event-marker-background | Background of event marker |
+| timeline.event.marker.border.color | --p-timeline-event-marker-border-color | Border color of event marker |
+| timeline.event.marker.content.border.radius | --p-timeline-event-marker-content-border-radius | Content border radius of event marker |
+| timeline.event.marker.content.size | --p-timeline-event-marker-content-size | Content size of event marker |
+| timeline.event.marker.content.background | --p-timeline-event-marker-content-background | Content background of event marker |
+| timeline.event.marker.content.inset.shadow | --p-timeline-event-marker-content-inset-shadow | Content inset shadow of event marker |
+| timeline.event.connector.color | --p-timeline-event-connector-color | Color of event connector |
+| timeline.event.connector.size | --p-timeline-event-connector-size | Size of event connector |
 
 ---
 
@@ -15507,6 +18147,79 @@ Toast component is controlled via the ToastService that needs to be installed as
 | p-toast-close-button | Class name of the close button element |
 | p-toast-close-icon | Class name of the close icon element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| toast.width | --p-toast-width | Width of root |
+| toast.border.radius | --p-toast-border-radius | Border radius of root |
+| toast.border.width | --p-toast-border-width | Border width of root |
+| toast.transition.duration | --p-toast-transition-duration | Transition duration of root |
+| toast.blur | --p-toast-blur | Used to pass tokens of the blur section |
+| toast.icon.size | --p-toast-icon-size | Size of icon |
+| toast.content.padding | --p-toast-content-padding | Padding of content |
+| toast.content.gap | --p-toast-content-gap | Gap of content |
+| toast.text.gap | --p-toast-text-gap | Gap of text |
+| toast.summary.font.weight | --p-toast-summary-font-weight | Font weight of summary |
+| toast.summary.font.size | --p-toast-summary-font-size | Font size of summary |
+| toast.detail.font.weight | --p-toast-detail-font-weight | Font weight of detail |
+| toast.detail.font.size | --p-toast-detail-font-size | Font size of detail |
+| toast.close.button.width | --p-toast-close-button-width | Width of close button |
+| toast.close.button.height | --p-toast-close-button-height | Height of close button |
+| toast.close.button.border.radius | --p-toast-close-button-border-radius | Border radius of close button |
+| toast.close.button.focus.ring.width | --p-toast-close-button-focus-ring-width | Focus ring width of close button |
+| toast.close.button.focus.ring.style | --p-toast-close-button-focus-ring-style | Focus ring style of close button |
+| toast.close.button.focus.ring.offset | --p-toast-close-button-focus-ring-offset | Focus ring offset of close button |
+| toast.close.icon.size | --p-toast-close-icon-size | Size of close icon |
+| toast.info.background | --p-toast-info-background | Background of info |
+| toast.info.border.color | --p-toast-info-border-color | Border color of info |
+| toast.info.color | --p-toast-info-color | Color of info |
+| toast.info.detail.color | --p-toast-info-detail-color | Detail color of info |
+| toast.info.shadow | --p-toast-info-shadow | Shadow of info |
+| toast.info.close.button.hover.background | --p-toast-info-close-button-hover-background | Close button hover background of info |
+| toast.info.close.button.focus.ring.color | --p-toast-info-close-button-focus-ring-color | Close button focus ring color of info |
+| toast.info.close.button.focus.ring.shadow | --p-toast-info-close-button-focus-ring-shadow | Close button focus ring shadow of info |
+| toast.success.background | --p-toast-success-background | Background of success |
+| toast.success.border.color | --p-toast-success-border-color | Border color of success |
+| toast.success.color | --p-toast-success-color | Color of success |
+| toast.success.detail.color | --p-toast-success-detail-color | Detail color of success |
+| toast.success.shadow | --p-toast-success-shadow | Shadow of success |
+| toast.success.close.button.hover.background | --p-toast-success-close-button-hover-background | Close button hover background of success |
+| toast.success.close.button.focus.ring.color | --p-toast-success-close-button-focus-ring-color | Close button focus ring color of success |
+| toast.success.close.button.focus.ring.shadow | --p-toast-success-close-button-focus-ring-shadow | Close button focus ring shadow of success |
+| toast.warn.background | --p-toast-warn-background | Background of warn |
+| toast.warn.border.color | --p-toast-warn-border-color | Border color of warn |
+| toast.warn.color | --p-toast-warn-color | Color of warn |
+| toast.warn.detail.color | --p-toast-warn-detail-color | Detail color of warn |
+| toast.warn.shadow | --p-toast-warn-shadow | Shadow of warn |
+| toast.warn.close.button.hover.background | --p-toast-warn-close-button-hover-background | Close button hover background of warn |
+| toast.warn.close.button.focus.ring.color | --p-toast-warn-close-button-focus-ring-color | Close button focus ring color of warn |
+| toast.warn.close.button.focus.ring.shadow | --p-toast-warn-close-button-focus-ring-shadow | Close button focus ring shadow of warn |
+| toast.error.background | --p-toast-error-background | Background of error |
+| toast.error.border.color | --p-toast-error-border-color | Border color of error |
+| toast.error.color | --p-toast-error-color | Color of error |
+| toast.error.detail.color | --p-toast-error-detail-color | Detail color of error |
+| toast.error.shadow | --p-toast-error-shadow | Shadow of error |
+| toast.error.close.button.hover.background | --p-toast-error-close-button-hover-background | Close button hover background of error |
+| toast.error.close.button.focus.ring.color | --p-toast-error-close-button-focus-ring-color | Close button focus ring color of error |
+| toast.error.close.button.focus.ring.shadow | --p-toast-error-close-button-focus-ring-shadow | Close button focus ring shadow of error |
+| toast.secondary.background | --p-toast-secondary-background | Background of secondary |
+| toast.secondary.border.color | --p-toast-secondary-border-color | Border color of secondary |
+| toast.secondary.color | --p-toast-secondary-color | Color of secondary |
+| toast.secondary.detail.color | --p-toast-secondary-detail-color | Detail color of secondary |
+| toast.secondary.shadow | --p-toast-secondary-shadow | Shadow of secondary |
+| toast.secondary.close.button.hover.background | --p-toast-secondary-close-button-hover-background | Close button hover background of secondary |
+| toast.secondary.close.button.focus.ring.color | --p-toast-secondary-close-button-focus-ring-color | Close button focus ring color of secondary |
+| toast.secondary.close.button.focus.ring.shadow | --p-toast-secondary-close-button-focus-ring-shadow | Close button focus ring shadow of secondary |
+| toast.contrast.background | --p-toast-contrast-background | Background of contrast |
+| toast.contrast.border.color | --p-toast-contrast-border-color | Border color of contrast |
+| toast.contrast.color | --p-toast-contrast-color | Color of contrast |
+| toast.contrast.detail.color | --p-toast-contrast-detail-color | Detail color of contrast |
+| toast.contrast.shadow | --p-toast-contrast-shadow | Shadow of contrast |
+| toast.contrast.close.button.hover.background | --p-toast-contrast-close-button-hover-background | Close button hover background of contrast |
+| toast.contrast.close.button.focus.ring.color | --p-toast-contrast-close-button-focus-ring-color | Close button focus ring color of contrast |
+| toast.contrast.close.button.focus.ring.shadow | --p-toast-contrast-close-button-focus-ring-shadow | Close button focus ring shadow of contrast |
+
 ---
 
 # Vue ToggleButton Component
@@ -15602,7 +18315,92 @@ ToggleButton provides small and large sizes as alternatives to the base.
 <ToggleButton v-model="value3" onLabel="On" offLabel="Off" size="large" class="min-w-24" />
 ```
 
-## Togglebutton
+## Toggle Button
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | boolean | false | Value of the component. |
+| defaultValue | boolean | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| onIcon | string | - | Icon for the on state. |
+| offIcon | string | - | Icon for the off state. |
+| onLabel | string | yes | Label for the on state. |
+| offLabel | string | no | Label for the off state. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the element should be disabled. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| readonly | boolean | - | When present, it specifies that an input field is read-only. |
+| tabindex | string | - | Index of the element in tabbing order. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ToggleButtonPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ToggleButtonPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| content | ToggleButtonPassThroughOptionType<T> | Used to pass attributes to the content's DOM element. |
+| icon | ToggleButtonPassThroughOptionType<T> | Used to pass attributes to the icon's DOM element. |
+| label | ToggleButtonPassThroughOptionType<T> | Used to pass attributes to the label's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-togglebutton | Class name of the root element |
+| p-togglebutton-icon | Class name of the icon element |
+| p-togglebutton-label | Class name of the label element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| togglebutton.padding | --p-togglebutton-padding | Padding of root |
+| togglebutton.border.radius | --p-togglebutton-border-radius | Border radius of root |
+| togglebutton.gap | --p-togglebutton-gap | Gap of root |
+| togglebutton.font.weight | --p-togglebutton-font-weight | Font weight of root |
+| togglebutton.disabled.background | --p-togglebutton-disabled-background | Disabled background of root |
+| togglebutton.disabled.border.color | --p-togglebutton-disabled-border-color | Disabled border color of root |
+| togglebutton.disabled.color | --p-togglebutton-disabled-color | Disabled color of root |
+| togglebutton.invalid.border.color | --p-togglebutton-invalid-border-color | Invalid border color of root |
+| togglebutton.focus.ring.width | --p-togglebutton-focus-ring-width | Focus ring width of root |
+| togglebutton.focus.ring.style | --p-togglebutton-focus-ring-style | Focus ring style of root |
+| togglebutton.focus.ring.color | --p-togglebutton-focus-ring-color | Focus ring color of root |
+| togglebutton.focus.ring.offset | --p-togglebutton-focus-ring-offset | Focus ring offset of root |
+| togglebutton.focus.ring.shadow | --p-togglebutton-focus-ring-shadow | Focus ring shadow of root |
+| togglebutton.transition.duration | --p-togglebutton-transition-duration | Transition duration of root |
+| togglebutton.sm.font.size | --p-togglebutton-sm-font-size | Sm font size of root |
+| togglebutton.sm.padding | --p-togglebutton-sm-padding | Sm padding of root |
+| togglebutton.lg.font.size | --p-togglebutton-lg-font-size | Lg font size of root |
+| togglebutton.lg.padding | --p-togglebutton-lg-padding | Lg padding of root |
+| togglebutton.background | --p-togglebutton-background | Background of root |
+| togglebutton.checked.background | --p-togglebutton-checked-background | Checked background of root |
+| togglebutton.hover.background | --p-togglebutton-hover-background | Hover background of root |
+| togglebutton.border.color | --p-togglebutton-border-color | Border color of root |
+| togglebutton.color | --p-togglebutton-color | Color of root |
+| togglebutton.hover.color | --p-togglebutton-hover-color | Hover color of root |
+| togglebutton.checked.color | --p-togglebutton-checked-color | Checked color of root |
+| togglebutton.checked.border.color | --p-togglebutton-checked-border-color | Checked border color of root |
+| togglebutton.icon.disabled.color | --p-togglebutton-icon-disabled-color | Disabled color of icon |
+| togglebutton.icon.color | --p-togglebutton-icon-color | Color of icon |
+| togglebutton.icon.hover.color | --p-togglebutton-icon-hover-color | Hover color of icon |
+| togglebutton.icon.checked.color | --p-togglebutton-icon-checked-color | Checked color of icon |
+| togglebutton.content.padding | --p-togglebutton-content-padding | Padding of content |
+| togglebutton.content.border.radius | --p-togglebutton-content-border-radius | Border radius of content |
+| togglebutton.content.checked.shadow | --p-togglebutton-content-checked-shadow | Checked shadow of content |
+| togglebutton.content.sm.padding | --p-togglebutton-content-sm-padding | Sm padding of content |
+| togglebutton.content.lg.padding | --p-togglebutton-content-lg-padding | Lg padding of content |
+| togglebutton.content.checked.background | --p-togglebutton-content-checked-background | Checked background of content |
 
 ---
 
@@ -15692,7 +18490,91 @@ The handle slot is available to display custom content.
 </ToggleSwitch>
 ```
 
-## Toggleswitch
+## Toggle Switch
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | string \| boolean | false | Specifies whether a toggleswitch should be checked or not. |
+| defaultValue | string \| boolean | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| trueValue | any | true | Value in checked state. |
+| falseValue | any | false | Value in unchecked state. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| readonly | boolean | - | When present, it specifies that an input field is read-only. |
+| tabindex | number | - | Index of the element in tabbing order. |
+| inputId | string | - | Identifier of the underlying input element. |
+| inputClass | string \| object | - | Style class of the input field. |
+| inputStyle | object | - | Inline style of the input field. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ToggleSwitchPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ToggleSwitchPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| input | ToggleSwitchPassThroughOptionType | Used to pass attributes to the input's DOM element. |
+| slider | ToggleSwitchPassThroughOptionType | Used to pass attributes to the slider's DOM element. |
+| handle | ToggleSwitchPassThroughOptionType | Used to pass attributes to the handle's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-toggleswitch | Class name of the root element |
+| p-toggleswitch-input | Class name of the input element |
+| p-toggleswitch-slider | Class name of the slider element |
+| p-toggleswitch-handle | Class name of the handle element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| toggleswitch.width | --p-toggleswitch-width | Width of root |
+| toggleswitch.height | --p-toggleswitch-height | Height of root |
+| toggleswitch.border.radius | --p-toggleswitch-border-radius | Border radius of root |
+| toggleswitch.gap | --p-toggleswitch-gap | Gap of root |
+| toggleswitch.shadow | --p-toggleswitch-shadow | Shadow of root |
+| toggleswitch.focus.ring.width | --p-toggleswitch-focus-ring-width | Focus ring width of root |
+| toggleswitch.focus.ring.style | --p-toggleswitch-focus-ring-style | Focus ring style of root |
+| toggleswitch.focus.ring.color | --p-toggleswitch-focus-ring-color | Focus ring color of root |
+| toggleswitch.focus.ring.offset | --p-toggleswitch-focus-ring-offset | Focus ring offset of root |
+| toggleswitch.focus.ring.shadow | --p-toggleswitch-focus-ring-shadow | Focus ring shadow of root |
+| toggleswitch.border.width | --p-toggleswitch-border-width | Border width of root |
+| toggleswitch.border.color | --p-toggleswitch-border-color | Border color of root |
+| toggleswitch.hover.border.color | --p-toggleswitch-hover-border-color | Hover border color of root |
+| toggleswitch.checked.border.color | --p-toggleswitch-checked-border-color | Checked border color of root |
+| toggleswitch.checked.hover.border.color | --p-toggleswitch-checked-hover-border-color | Checked hover border color of root |
+| toggleswitch.invalid.border.color | --p-toggleswitch-invalid-border-color | Invalid border color of root |
+| toggleswitch.transition.duration | --p-toggleswitch-transition-duration | Transition duration of root |
+| toggleswitch.slide.duration | --p-toggleswitch-slide-duration | Slide duration of root |
+| toggleswitch.background | --p-toggleswitch-background | Background of root |
+| toggleswitch.disabled.background | --p-toggleswitch-disabled-background | Disabled background of root |
+| toggleswitch.hover.background | --p-toggleswitch-hover-background | Hover background of root |
+| toggleswitch.checked.background | --p-toggleswitch-checked-background | Checked background of root |
+| toggleswitch.checked.hover.background | --p-toggleswitch-checked-hover-background | Checked hover background of root |
+| toggleswitch.handle.border.radius | --p-toggleswitch-handle-border-radius | Border radius of handle |
+| toggleswitch.handle.size | --p-toggleswitch-handle-size | Size of handle |
+| toggleswitch.handle.background | --p-toggleswitch-handle-background | Background of handle |
+| toggleswitch.handle.disabled.background | --p-toggleswitch-handle-disabled-background | Disabled background of handle |
+| toggleswitch.handle.hover.background | --p-toggleswitch-handle-hover-background | Hover background of handle |
+| toggleswitch.handle.checked.background | --p-toggleswitch-handle-checked-background | Checked background of handle |
+| toggleswitch.handle.checked.hover.background | --p-toggleswitch-handle-checked-hover-background | Checked hover background of handle |
+| toggleswitch.handle.color | --p-toggleswitch-handle-color | Color of handle |
+| toggleswitch.handle.hover.color | --p-toggleswitch-handle-hover-color | Hover color of handle |
+| toggleswitch.handle.checked.color | --p-toggleswitch-handle-checked-color | Checked color of handle |
+| toggleswitch.handle.checked.hover.color | --p-toggleswitch-handle-checked-hover-color | Checked hover color of handle |
 
 ---
 
@@ -15841,6 +18723,17 @@ import Toolbar from 'primevue/toolbar';
 | p-toolbar-center | Class name of the center element |
 | p-toolbar-end | Class name of the end element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| toolbar.background | --p-toolbar-background | Background of root |
+| toolbar.border.color | --p-toolbar-border-color | Border color of root |
+| toolbar.border.radius | --p-toolbar-border-radius | Border radius of root |
+| toolbar.color | --p-toolbar-color | Color of root |
+| toolbar.gap | --p-toolbar-gap | Gap of root |
+| toolbar.padding | --p-toolbar-padding | Padding of root |
+
 ---
 
 # Vue Tooltip Directive
@@ -15981,6 +18874,18 @@ There are four choices to position the tooltip, default value is right and alter
 | p-tooltip | Class name of the root element |
 | p-tooltip-arrow | Class name of the arrow element |
 | p-tooltip-text | Class name of the text element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| tooltip.max.width | --p-tooltip-max-width | Max width of root |
+| tooltip.gutter | --p-tooltip-gutter | Gutter of root |
+| tooltip.shadow | --p-tooltip-shadow | Shadow of root |
+| tooltip.padding | --p-tooltip-padding | Padding of root |
+| tooltip.border.radius | --p-tooltip-border-radius | Border radius of root |
+| tooltip.background | --p-tooltip-background | Background of root |
+| tooltip.color | --p-tooltip-color | Color of root |
 
 ---
 
@@ -16151,6 +19056,47 @@ Each node can have a distinct template by matching the type property to the slot
 | p-tree-node-icon | Class name of the node icon element |
 | p-tree-node-label | Class name of the node label element |
 | p-tree-node-children | Class name of the node children element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| tree.background | --p-tree-background | Background of root |
+| tree.color | --p-tree-color | Color of root |
+| tree.padding | --p-tree-padding | Padding of root |
+| tree.gap | --p-tree-gap | Gap of root |
+| tree.indent | --p-tree-indent | Indent of root |
+| tree.transition.duration | --p-tree-transition-duration | Transition duration of root |
+| tree.node.padding | --p-tree-node-padding | Padding of node |
+| tree.node.border.radius | --p-tree-node-border-radius | Border radius of node |
+| tree.node.hover.background | --p-tree-node-hover-background | Hover background of node |
+| tree.node.selected.background | --p-tree-node-selected-background | Selected background of node |
+| tree.node.color | --p-tree-node-color | Color of node |
+| tree.node.hover.color | --p-tree-node-hover-color | Hover color of node |
+| tree.node.selected.color | --p-tree-node-selected-color | Selected color of node |
+| tree.node.focus.ring.width | --p-tree-node-focus-ring-width | Focus ring width of node |
+| tree.node.focus.ring.style | --p-tree-node-focus-ring-style | Focus ring style of node |
+| tree.node.focus.ring.color | --p-tree-node-focus-ring-color | Focus ring color of node |
+| tree.node.focus.ring.offset | --p-tree-node-focus-ring-offset | Focus ring offset of node |
+| tree.node.focus.ring.shadow | --p-tree-node-focus-ring-shadow | Focus ring shadow of node |
+| tree.node.gap | --p-tree-node-gap | Gap of node |
+| tree.node.icon.color | --p-tree-node-icon-color | Color of node icon |
+| tree.node.icon.hover.color | --p-tree-node-icon-hover-color | Hover color of node icon |
+| tree.node.icon.selected.color | --p-tree-node-icon-selected-color | Selected color of node icon |
+| tree.node.toggle.button.border.radius | --p-tree-node-toggle-button-border-radius | Border radius of node toggle button |
+| tree.node.toggle.button.size | --p-tree-node-toggle-button-size | Size of node toggle button |
+| tree.node.toggle.button.hover.background | --p-tree-node-toggle-button-hover-background | Hover background of node toggle button |
+| tree.node.toggle.button.selected.hover.background | --p-tree-node-toggle-button-selected-hover-background | Selected hover background of node toggle button |
+| tree.node.toggle.button.color | --p-tree-node-toggle-button-color | Color of node toggle button |
+| tree.node.toggle.button.hover.color | --p-tree-node-toggle-button-hover-color | Hover color of node toggle button |
+| tree.node.toggle.button.selected.hover.color | --p-tree-node-toggle-button-selected-hover-color | Selected hover color of node toggle button |
+| tree.node.toggle.button.focus.ring.width | --p-tree-node-toggle-button-focus-ring-width | Focus ring width of node toggle button |
+| tree.node.toggle.button.focus.ring.style | --p-tree-node-toggle-button-focus-ring-style | Focus ring style of node toggle button |
+| tree.node.toggle.button.focus.ring.color | --p-tree-node-toggle-button-focus-ring-color | Focus ring color of node toggle button |
+| tree.node.toggle.button.focus.ring.offset | --p-tree-node-toggle-button-focus-ring-offset | Focus ring offset of node toggle button |
+| tree.node.toggle.button.focus.ring.shadow | --p-tree-node-toggle-button-focus-ring-shadow | Focus ring shadow of node toggle button |
+| tree.loading.icon.size | --p-tree-loading-icon-size | Size of loading icon |
+| tree.filter.margin | --p-tree-filter-margin | Margin of filter |
 
 ---
 
@@ -16357,7 +19303,138 @@ TreeSelect offers multiple slots for customization through templating.
 </TreeSelect>
 ```
 
-## Treeselect
+## Tree Select
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| options | TreeNode[] | - | An array of treenodes. |
+| expandedKeys | any | - | A map of keys to represent the expansion state in controlled mode. |
+| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
+| clearIcon | string | - | Icon to display in clear button. |
+| scrollHeight | string | 20rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
+| selectionMode | HintedString<"single" \| "multiple" \| "checkbox"> | - | Defines the selection mode. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
+| display | HintedString<"comma" \| "chip"> | comma | Defines how the selected items are displayed. |
+| selectedItemsLabel | string | null | Label to display after exceeding max selected labels. |
+| maxSelectedLabels | number | - | Decides how many selected item labels to show at most. |
+| metaKeySelection | boolean | false | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
+| loading | boolean | false | Whether to display loading indicator. |
+| loadingIcon | string | - | Icon to display when tree is loading. |
+| loadingMode | HintedString<"mask" \| "icon"> | mask | Loading mode display. |
+| filter | boolean | false | When specified, displays an input field to filter the items. |
+| filterBy | string \| Function | label | When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names. |
+| filterMode | HintedString<"lenient" \| "strict"> | lenient | Mode for filtering. |
+| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
+| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
+| emptyMessage | string | No available options | Text to display when there are no options available. Defaults to value from PrimeVue locale configuration. |
+| placeholder | string | - | Label to display when there are no selections. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| tabindex | string | - | Index of the element in tabbing order. |
+| inputId | string | - | Identifier of the underlying input element. |
+| inputClass | string \| object | - | Style class of the input field. |
+| inputStyle | object | - | Inline style of the input field. |
+| inputProps | InputHTMLAttributes | - | Used to pass all properties of the HTMLInputElement to the focusable input element inside the component. |
+| panelClass | any | - | Style class of the overlay panel. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TreeSelectPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | TreeSelectPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| labelContainer | TreeSelectPassThroughOptionType | Used to pass attributes to the label container's DOM element. |
+| label | TreeSelectPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+| clearIcon | TreeSelectPassThroughOptionType | Used to pass attributes to the clear icon's DOM element. |
+| chipItem | TreeSelectPassThroughOptionType | Used to pass attributes to the chip's DOM element. |
+| pcChip | any | Used to pass attributes to the Chip. |
+| dropdown | TreeSelectPassThroughOptionType | Used to pass attributes to the dropdown's DOM element. |
+| dropdownIcon | TreeSelectPassThroughOptionType | Used to pass attributes to the dropdown icon's DOM element. |
+| panel | TreeSelectPassThroughOptionType | Used to pass attributes to the panel's DOM element. |
+| treeContainer | TreeSelectPassThroughOptionType | Used to pass attributes to the tree container's DOM element. |
+| pcTree | any | Used to pass attributes to Tree component. |
+| emptyMessage | TreeSelectPassThroughOptionType | Used to pass attributes to the empty message's DOM element. |
+| hiddenInputContainer | TreeSelectPassThroughOptionType | Used to pass attributes to the hidden input container's DOM element. |
+| hiddenInput | TreeSelectPassThroughOptionType | Used to pass attributes to the hidden input's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | TreeSelectPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-treeselect | Class name of the root element |
+| p-treeselect-label-container | Class name of the label container element |
+| p-treeselect-label | Class name of the label element |
+| p-select-clear-icon | Class name of the clear icon element |
+| p-treeselect-chip-item | Class name of the chip item element |
+| p-treeselect-chip | Class name of the chip element |
+| p-treeselect-dropdown | Class name of the dropdown element |
+| p-treeselect-dropdown-icon | Class name of the dropdown icon element |
+| p-treeselect-overlay | Class name of the panel element |
+| p-treeselect-tree-container | Class name of the tree container element |
+| p-treeselect-empty-message | Class name of the empty message element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| treeselect.background | --p-treeselect-background | Background of root |
+| treeselect.disabled.background | --p-treeselect-disabled-background | Disabled background of root |
+| treeselect.filled.background | --p-treeselect-filled-background | Filled background of root |
+| treeselect.filled.hover.background | --p-treeselect-filled-hover-background | Filled hover background of root |
+| treeselect.filled.focus.background | --p-treeselect-filled-focus-background | Filled focus background of root |
+| treeselect.border.color | --p-treeselect-border-color | Border color of root |
+| treeselect.hover.border.color | --p-treeselect-hover-border-color | Hover border color of root |
+| treeselect.focus.border.color | --p-treeselect-focus-border-color | Focus border color of root |
+| treeselect.invalid.border.color | --p-treeselect-invalid-border-color | Invalid border color of root |
+| treeselect.color | --p-treeselect-color | Color of root |
+| treeselect.disabled.color | --p-treeselect-disabled-color | Disabled color of root |
+| treeselect.placeholder.color | --p-treeselect-placeholder-color | Placeholder color of root |
+| treeselect.invalid.placeholder.color | --p-treeselect-invalid-placeholder-color | Invalid placeholder color of root |
+| treeselect.shadow | --p-treeselect-shadow | Shadow of root |
+| treeselect.padding.x | --p-treeselect-padding-x | Padding x of root |
+| treeselect.padding.y | --p-treeselect-padding-y | Padding y of root |
+| treeselect.border.radius | --p-treeselect-border-radius | Border radius of root |
+| treeselect.focus.ring.width | --p-treeselect-focus-ring-width | Focus ring width of root |
+| treeselect.focus.ring.style | --p-treeselect-focus-ring-style | Focus ring style of root |
+| treeselect.focus.ring.color | --p-treeselect-focus-ring-color | Focus ring color of root |
+| treeselect.focus.ring.offset | --p-treeselect-focus-ring-offset | Focus ring offset of root |
+| treeselect.focus.ring.shadow | --p-treeselect-focus-ring-shadow | Focus ring shadow of root |
+| treeselect.transition.duration | --p-treeselect-transition-duration | Transition duration of root |
+| treeselect.sm.font.size | --p-treeselect-sm-font-size | Sm font size of root |
+| treeselect.sm.padding.x | --p-treeselect-sm-padding-x | Sm padding x of root |
+| treeselect.sm.padding.y | --p-treeselect-sm-padding-y | Sm padding y of root |
+| treeselect.lg.font.size | --p-treeselect-lg-font-size | Lg font size of root |
+| treeselect.lg.padding.x | --p-treeselect-lg-padding-x | Lg padding x of root |
+| treeselect.lg.padding.y | --p-treeselect-lg-padding-y | Lg padding y of root |
+| treeselect.dropdown.width | --p-treeselect-dropdown-width | Width of dropdown |
+| treeselect.dropdown.color | --p-treeselect-dropdown-color | Color of dropdown |
+| treeselect.overlay.background | --p-treeselect-overlay-background | Background of overlay |
+| treeselect.overlay.border.color | --p-treeselect-overlay-border-color | Border color of overlay |
+| treeselect.overlay.border.radius | --p-treeselect-overlay-border-radius | Border radius of overlay |
+| treeselect.overlay.color | --p-treeselect-overlay-color | Color of overlay |
+| treeselect.overlay.shadow | --p-treeselect-overlay-shadow | Shadow of overlay |
+| treeselect.tree.padding | --p-treeselect-tree-padding | Padding of tree |
+| treeselect.clear.icon.color | --p-treeselect-clear-icon-color | Color of clear icon |
+| treeselect.empty.message.padding | --p-treeselect-empty-message-padding | Padding of empty message |
+| treeselect.chip.border.radius | --p-treeselect-chip-border-radius | Border radius of chip |
 
 ---
 
@@ -16546,37 +19623,187 @@ Custom content at header and footer slots are supported via templating.
 </TreeTable>
 ```
 
-## Treetable
+## Tree Table
 
----
+### Props
 
-# uikit
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| value | TreeNode[] | - | An array of treenodes. |
+| dataKey | string \| Function | "key" | Name of the field that uniquely identifies the a record in the data. |
+| expandedKeys | TreeTableExpandedKeys | - | A map of keys to represent the state of the tree expansion state in controlled mode. |
+| selectionKeys | TreeTableSelectionKeys | - | A map of keys to control the selection state. |
+| selectionMode | HintedString<"single" \| "multiple" \| "checkbox"> | - | Defines the selection mode. |
+| metaKeySelection | boolean | false | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
+| contextMenu | boolean | false | Enables context menu integration. |
+| contextMenuSelection | any | - | Selected row instance with the ContextMenu. |
+| rows | number | - | Number of rows to display per page. |
+| first | number | 0 | Index of the first row to be displayed. |
+| totalRecords | number | - | Number of total records, defaults to length of value when not defined. |
+| paginator | boolean | false | When specified as true, enables the pagination. |
+| paginatorPosition | HintedString<"top" \| "bottom" \| "both"> | bottom | Position of the paginator, options are 'top','bottom' or 'both'. |
+| alwaysShowPaginator | boolean | true | Whether to show it even there is only one page. |
+| paginatorTemplate | string | FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown | Template of the paginator. It can be customized using the template property using the predefined keys. Here are the available elements that can be placed inside a paginator in any order.  - FirstPageLink - PrevPageLink - PageLinks - NextPageLink - LastPageLink - RowsPerPageDropdown - JumpToPageDropdown - JumpToPageInput - CurrentPageReport |
+| pageLinkSize | number | 5 | Number of page links to display. |
+| rowsPerPageOptions | number[] | - | Array of integer values to display inside rows per page dropdown. |
+| currentPageReportTemplate | string | '({currentPage} of {totalPages})' | Template of the current page report element. It displays information about the pagination state.  - {currentPage} - {totalPages} - {rows} - {first} - {last} - {totalRecords} |
+| lazy | boolean | false | Defines if data is loaded and interacted with in lazy manner. |
+| loading | boolean | false | Displays a loader to indicate data load is in progress. |
+| loadingIcon | string | - | The icon to show while indicating data load is in progress. |
+| loadingMode | HintedString<"mask" \| "icon"> | mask | Loading mode display. |
+| rowHover | boolean | false | When enabled, background of the rows change on hover. |
+| autoLayout | boolean | false | Whether the cell widths scale according to their content or not. |
+| sortField | string \| Function | - | Property name or a getter function of a row data used for sorting by default. |
+| sortOrder | number | - | Order to sort the data by default. |
+| defaultSortOrder | number | 1 | Default sort order of an unsorted column. |
+| multiSortMeta | null \| TreeTableSortMeta[] | - | An array of SortMeta objects to sort the data by default in multiple sort mode. |
+| sortMode | HintedString<"single" \| "multiple"> | single | Defines whether sorting works on single column or on multiple columns. |
+| removableSort | boolean | false | When enabled, columns can have an un-sorted state. |
+| filters | TreeTableFilterMeta | - | Filters object with key-value pairs to define the filters. |
+| filterMode | HintedString<"lenient" \| "strict"> | lenient | Mode for filtering. |
+| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
+| resizableColumns | boolean | false | When enabled, columns can be resized using drag and drop. |
+| columnResizeMode | HintedString<"fit" \| "expand"> | fit | Defines whether the overall table width should change on column resize. |
+| indentation | number | 1 | Indentation factor as rem value for children nodes. |
+| showGridlines | boolean | false | Whether to show grid lines between cells. |
+| scrollable | boolean | false | When specified, enables horizontal and/or vertical scrolling. |
+| scrollHeight | HintedString<"flex"> | - | Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the table. |
+| tableStyle | string \| object | - | Inline style of the table element. |
+| tableClass | string \| object | - | Style class of the table element. |
+| tableProps | any | - | Props to pass to the table element. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<TreeTablePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
+## Pass Through Options
 
+| Name | Type | Description |
+|------|------|-------------|
+| root | TreeTablePassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| loading | TreeTablePassThroughOptionType | Used to pass attributes to the loading wrapper's DOM element. |
+| mask | TreeTablePassThroughOptionType | Used to pass attributes to the mask's DOM element. |
+| loadingIcon | TreeTablePassThroughOptionType | Used to pass attributes to the loading icon's DOM element. |
+| header | TreeTablePassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| pcPaginator | any | Used to pass attributes to the Paginator component. |
+| tableContainer | TreeTablePassThroughOptionType | Used to pass attributes to the table container's DOM element. |
+| table | TreeTablePassThroughOptionType | Used to pass attributes to the table's DOM element. |
+| thead | TreeTablePassThroughOptionType | Used to pass attributes to the thead's DOM element. |
+| headerRow | TreeTablePassThroughOptionType | Used to pass attributes to the header row's DOM element. |
+| tbody | TreeTablePassThroughOptionType | Used to pass attributes to the tbody's DOM element. |
+| row | TreeTablePassThroughOptionType | Used to pass attributes to the row's DOM element. |
+| emptyMessage | TreeTablePassThroughOptionType | Used to pass attributes to the empty message's DOM element. |
+| emptyMessageCell | TreeTablePassThroughOptionType | Used to pass attributes to the empty message cell's DOM element. |
+| tfoot | TreeTablePassThroughOptionType | Used to pass attributes to the tfoot's DOM element. |
+| footerRow | TreeTablePassThroughOptionType | Used to pass attributes to the footer row's DOM element. |
+| footer | TreeTablePassThroughOptionType | Used to pass attributes to the footer's DOM element. |
+| columnResizeIndicator | TreeTablePassThroughOptionType | Used to pass attributes to the column resize indicator's DOM element. |
+| column | any | Used to pass attributes to the Column helper components. |
+| hooks | any | Used to manage all lifecycle hooks. |
 
-## AddingPrimeIconsDoc
+## Theming
 
-PrimeOne uses PrimeIcons, the official icon library by PrimeTek. To use it effectively within your design system, you need to add PrimeIcons to your Figma environment by following these steps: Open the PrimeIcons file in Figma and move it to your team project. Publish the PrimeIcons file and enable it for all team files in your Team Settings. Return to your PrimeOne file. In the Libraries panel, click on the banner that says “Includes X missing libraries.” From the dropdown, select “ PrimeIcons (Community) ” and click the Swap Library button.
+### CSS Classes
 
-## OverviewDoc
+| Class | Description |
+|-------|-------------|
+| p-treetable | Class name of the root element |
+| p-treetable-loading | Class name of the loading element |
+| p-treetable-mask | Class name of the mask element |
+| p-treetable-loading-icon | Class name of the loading icon element |
+| p-treetable-header | Class name of the header element |
+| p-treetable-paginator-[position] | Class name of the paginator element |
+| p-treetable-table-container | Class name of the table container element |
+| p-treetable-table | Class name of the table element |
+| p-treetable-thead | Class name of the thead element |
+| p-treetable-column-resizer | Class name of the column resizer element |
+| p-treetable-column-title | Class name of the column title element |
+| p-treetable-sort-icon | Class name of the sort icon element |
+| p-treetable-sort-badge | Class name of the sort badge element |
+| p-treetable-tbody | Class name of the tbody element |
+| p-treetable-node-toggle-button | Class name of the node toggle button element |
+| p-treetable-node-toggle-icon | Class name of the node toggle icon element |
+| p-treetable-node-checkbox | Class name of the node checkbox element |
+| p-treetable-empty-message | Class name of the empty message element |
+| p-treetable-tfoot | Class name of the tfoot element |
+| p-treetable-footer | Class name of the footer element |
+| p-treetable-column-resize-indicator | Class name of the column resize indicator element |
 
-PrimeOne is the official Figma library of UI components designed to match the implementations in the Prime UI Suites. The current iteration of PrimeOne is structured around the Aura Light and Aura Dark themes.
+### Design Tokens
 
-## ResourcesDoc
-
-PrimeOne for Figma takes full advantage of powerful Figma features such as components, variants, auto layout, styles, interactivity, and design tokens via Tokens Studio. If you're new to Figma or want to get the most out of PrimeOne, we recommend exploring the following resources: Tokens Studio Documentation - PrimeOne uses Tokens Studio for design token management. Visit the official docs to understand how it works and how to use it effectively. Figma's Best Practice Guides - Learn how to work efficiently with components, variants, and layouts. Figma's Official YouTube Channel - Tutorials and feature walkthroughs from the Figma team. Figmalion Newsletter - Stay updated with curated insights from the Figma community.
-
-## SupportDoc
-
-The community gathers on GitHub Discussions and Discord to ask questions, share ideas, and discuss the technology. For direct inquiries or suggestions, feel free to contact us at contact@primetek.com.tr .
-
-## TokenSetsDoc
-
-Primitive This set contains the most foundational tokens, such as base colors and border radius, elements that are considered “primitive” by nature. Semantic Includes essential system-wide tokens like primary, surface, and other shared design values It also defines tokens used across multiple component groups. For example, tokens under {form.field.*} are referenced by component-level tokens in InputText, MultiSelect, Checkbox, and other form components, enabling consistent styling across the board. Component These tokens are defined specifically for each component to allow deep customization While we've aimed to create dedicated tokens for every component state, many of them still reference the semantic or primitive tokens, allowing you to make global updates from a single place when needed. App Tokens in this set are not part of the PrimeUIX system. They are intended for values defined in your own application. The same applies to tokens used in our UI library showcases. For example, there is no dedicated font size token in PrimeUIX because font styles are not part of the design system. UI components inherit their font settings from the application. Custom If you're using the Figma to Theme feature and want your newly created custom tokens to appear in your Theme Designer themes, place them in this set. Even if you're not using the Theme Designer, we still recommend creating a separate set — or using the existing “Custom” set — for your own tokens. Making changes to the default sets, especially deleting tokens or altering reference values, can lead to inconsistencies with the library tokens and cause additional work during development.
-
-## UpdatePrimeOneDoc
-
-When a new version of PrimeOne is released, follow the steps below to update your files: Download the latest version of PrimeOne from PrimeStore. Unzip the file and upload it to your Figma workspace. Publish the newly uploaded file as a library. In all consumer files, use Swap Library to point to the new version. Once the transition is complete, you can safely unpublish the old PrimeOne library Before each update, it's a good idea to review the Changelog on the Get Started page of the PrimeOne Figma file. Keep in mind that while Swap Library will update most components, any customized components may require manual review and adjustment.
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| treetable.transition.duration | --p-treetable-transition-duration | Transition duration of root |
+| treetable.border.color | --p-treetable-border-color | Border color of root |
+| treetable.header.background | --p-treetable-header-background | Background of header |
+| treetable.header.border.color | --p-treetable-header-border-color | Border color of header |
+| treetable.header.color | --p-treetable-header-color | Color of header |
+| treetable.header.border.width | --p-treetable-header-border-width | Border width of header |
+| treetable.header.padding | --p-treetable-header-padding | Padding of header |
+| treetable.header.cell.background | --p-treetable-header-cell-background | Background of header cell |
+| treetable.header.cell.hover.background | --p-treetable-header-cell-hover-background | Hover background of header cell |
+| treetable.header.cell.selected.background | --p-treetable-header-cell-selected-background | Selected background of header cell |
+| treetable.header.cell.border.color | --p-treetable-header-cell-border-color | Border color of header cell |
+| treetable.header.cell.color | --p-treetable-header-cell-color | Color of header cell |
+| treetable.header.cell.hover.color | --p-treetable-header-cell-hover-color | Hover color of header cell |
+| treetable.header.cell.selected.color | --p-treetable-header-cell-selected-color | Selected color of header cell |
+| treetable.header.cell.gap | --p-treetable-header-cell-gap | Gap of header cell |
+| treetable.header.cell.padding | --p-treetable-header-cell-padding | Padding of header cell |
+| treetable.header.cell.focus.ring.width | --p-treetable-header-cell-focus-ring-width | Focus ring width of header cell |
+| treetable.header.cell.focus.ring.style | --p-treetable-header-cell-focus-ring-style | Focus ring style of header cell |
+| treetable.header.cell.focus.ring.color | --p-treetable-header-cell-focus-ring-color | Focus ring color of header cell |
+| treetable.header.cell.focus.ring.offset | --p-treetable-header-cell-focus-ring-offset | Focus ring offset of header cell |
+| treetable.header.cell.focus.ring.shadow | --p-treetable-header-cell-focus-ring-shadow | Focus ring shadow of header cell |
+| treetable.column.title.font.weight | --p-treetable-column-title-font-weight | Font weight of column title |
+| treetable.row.background | --p-treetable-row-background | Background of row |
+| treetable.row.hover.background | --p-treetable-row-hover-background | Hover background of row |
+| treetable.row.selected.background | --p-treetable-row-selected-background | Selected background of row |
+| treetable.row.color | --p-treetable-row-color | Color of row |
+| treetable.row.hover.color | --p-treetable-row-hover-color | Hover color of row |
+| treetable.row.selected.color | --p-treetable-row-selected-color | Selected color of row |
+| treetable.row.focus.ring.width | --p-treetable-row-focus-ring-width | Focus ring width of row |
+| treetable.row.focus.ring.style | --p-treetable-row-focus-ring-style | Focus ring style of row |
+| treetable.row.focus.ring.color | --p-treetable-row-focus-ring-color | Focus ring color of row |
+| treetable.row.focus.ring.offset | --p-treetable-row-focus-ring-offset | Focus ring offset of row |
+| treetable.row.focus.ring.shadow | --p-treetable-row-focus-ring-shadow | Focus ring shadow of row |
+| treetable.body.cell.border.color | --p-treetable-body-cell-border-color | Border color of body cell |
+| treetable.body.cell.padding | --p-treetable-body-cell-padding | Padding of body cell |
+| treetable.body.cell.gap | --p-treetable-body-cell-gap | Gap of body cell |
+| treetable.body.cell.selected.border.color | --p-treetable-body-cell-selected-border-color | Selected border color of body cell |
+| treetable.footer.cell.background | --p-treetable-footer-cell-background | Background of footer cell |
+| treetable.footer.cell.border.color | --p-treetable-footer-cell-border-color | Border color of footer cell |
+| treetable.footer.cell.color | --p-treetable-footer-cell-color | Color of footer cell |
+| treetable.footer.cell.padding | --p-treetable-footer-cell-padding | Padding of footer cell |
+| treetable.column.footer.font.weight | --p-treetable-column-footer-font-weight | Font weight of column footer |
+| treetable.footer.background | --p-treetable-footer-background | Background of footer |
+| treetable.footer.border.color | --p-treetable-footer-border-color | Border color of footer |
+| treetable.footer.color | --p-treetable-footer-color | Color of footer |
+| treetable.footer.border.width | --p-treetable-footer-border-width | Border width of footer |
+| treetable.footer.padding | --p-treetable-footer-padding | Padding of footer |
+| treetable.column.resizer.width | --p-treetable-column-resizer-width | Width of column resizer |
+| treetable.resize.indicator.width | --p-treetable-resize-indicator-width | Width of resize indicator |
+| treetable.resize.indicator.color | --p-treetable-resize-indicator-color | Color of resize indicator |
+| treetable.sort.icon.color | --p-treetable-sort-icon-color | Color of sort icon |
+| treetable.sort.icon.hover.color | --p-treetable-sort-icon-hover-color | Hover color of sort icon |
+| treetable.sort.icon.size | --p-treetable-sort-icon-size | Size of sort icon |
+| treetable.loading.icon.size | --p-treetable-loading-icon-size | Size of loading icon |
+| treetable.node.toggle.button.hover.background | --p-treetable-node-toggle-button-hover-background | Hover background of node toggle button |
+| treetable.node.toggle.button.selected.hover.background | --p-treetable-node-toggle-button-selected-hover-background | Selected hover background of node toggle button |
+| treetable.node.toggle.button.color | --p-treetable-node-toggle-button-color | Color of node toggle button |
+| treetable.node.toggle.button.hover.color | --p-treetable-node-toggle-button-hover-color | Hover color of node toggle button |
+| treetable.node.toggle.button.selected.hover.color | --p-treetable-node-toggle-button-selected-hover-color | Selected hover color of node toggle button |
+| treetable.node.toggle.button.size | --p-treetable-node-toggle-button-size | Size of node toggle button |
+| treetable.node.toggle.button.border.radius | --p-treetable-node-toggle-button-border-radius | Border radius of node toggle button |
+| treetable.node.toggle.button.focus.ring.width | --p-treetable-node-toggle-button-focus-ring-width | Focus ring width of node toggle button |
+| treetable.node.toggle.button.focus.ring.style | --p-treetable-node-toggle-button-focus-ring-style | Focus ring style of node toggle button |
+| treetable.node.toggle.button.focus.ring.color | --p-treetable-node-toggle-button-focus-ring-color | Focus ring color of node toggle button |
+| treetable.node.toggle.button.focus.ring.offset | --p-treetable-node-toggle-button-focus-ring-offset | Focus ring offset of node toggle button |
+| treetable.node.toggle.button.focus.ring.shadow | --p-treetable-node-toggle-button-focus-ring-shadow | Focus ring shadow of node toggle button |
+| treetable.paginator.top.border.color | --p-treetable-paginator-top-border-color | Border color of paginator top |
+| treetable.paginator.top.border.width | --p-treetable-paginator-top-border-width | Border width of paginator top |
+| treetable.paginator.bottom.border.color | --p-treetable-paginator-bottom-border-color | Border color of paginator bottom |
+| treetable.paginator.bottom.border.width | --p-treetable-paginator-bottom-border-width | Border width of paginator bottom |
 
 ---
 
@@ -16620,88 +19847,69 @@ Lazy mode is handy to deal with large datasets, instead of loading the entire da
 
 Busy state is enabled by adding showLoader property which blocks the UI with a modal by default. Alternatively, loader template can be used to customize items e.g. with Skeleton .
 
-## Virtualscroller
+## Virtual Scroller
 
----
+### Props
 
-# vite
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| id | string | - | Unique identifier of the element. |
+| style | any | - | Inline style of the component. |
+| class | any | - | Style class of the component. |
+| items | null \| any[] \| any[][] | - | An array of objects to display. |
+| itemSize | number \| number[] | - | The height/width of item according to orientation. |
+| scrollHeight | string | - | Height of the scroll viewport. |
+| scrollWidth | string | - | Width of the scroll viewport. |
+| orientation | HintedString<"both" \| "horizontal" \| "vertical"> | vertical | The orientation of scrollbar. |
+| numToleratedItems | number | half the number of items shown in the view. | Determines how many additional elements to add to the DOM outside of the view. According to the scrolls made up and down, extra items are added in a certain algorithm in the form of multiples of this number. |
+| delay | number | 0 | Delay in scroll before new data is loaded. |
+| resizeDelay | number | 10 | Delay after window's resize finishes. |
+| lazy | boolean | false | Defines if data is loaded and interacted with in lazy manner. |
+| disabled | boolean | false | If disabled, the VirtualScroller feature is eliminated and the content is displayed directly. |
+| loaderDisabled | boolean | false | Used to implement a custom loader instead of using the loader feature in the VirtualScroller. |
+| showLoader | boolean | false | Whether to show loader. |
+| showSpacer | boolean | true | Used to implement a custom spacer instead of using the spacer feature in the VirtualScroller. |
+| loading | boolean | false | Whether to load items. |
+| tabindex | string \| number | 0 | Index of the element in tabbing order. |
+| inline | boolean | false | When enabled, positions the content as inline. |
+| step | number | 0 | Used to specify how many items to load in each load method in lazy mode. |
+| appendOnly | boolean | false | Used to append each loaded item to top without removing any items from the DOM. Using very large data may cause the browser to crash. |
+| autoSize | boolean | false | Whether to dynamically change the height or width of scrollable container. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<VirtualScrollerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
 
+## Pass Through Options
 
+| Name | Type | Description |
+|------|------|-------------|
+| root | VirtualScrollerPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| content | VirtualScrollerPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| loader | VirtualScrollerPassThroughOptionType | Used to pass attributes to the loader's DOM element. |
+| loadingIcon | VirtualScrollerPassThroughOptionType | Used to pass attributes to the loading icon's DOM element. |
+| spacer | VirtualScrollerPassThroughOptionType | Used to pass attributes to the spacer's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
 
-## Download
+## Theming
 
-PrimeVue is available for download on npm registry .
+### CSS Classes
 
-**Basic Usage:**
+| Class | Description |
+|-------|-------------|
+| p-virtualscroller | Class name of the root element |
+| p-virtualscroller-content | Class name of the content element |
+| p-virtualscroller-spacer | Class name of the spacer element |
+| p-virtualscroller-loader | Class name of the loader element |
+| p-virtualscroller-loading-icon | Class name of the loading icon element |
 
-```vue
-# Using npm
-npm install primevue @primeuix/themes
+### Design Tokens
 
-# Using yarn
-yarn add primevue @primeuix/themes
-
-# Using pnpm
-pnpm add primevue @primeuix/themes
-```
-
-## Examples
-
-We've created various samples for the popular options in the Vue ecosystem. Visit the primevue-examples repository for more samples including vite-quickstart and vite-ts-quickstart .
-
-## Next Steps
-
-Welcome to the Prime UI Ecosystem! Once you have PrimeVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes Getting support
-
-## PluginDoc
-
-PrimeVue plugin is required to be installed as an application plugin to set up the default configuration . The plugin is lightweight, and only utilized for configuration purposes.
-
-**Basic Usage:**
-
-```vue
-import { createApp } from 'vue';
-import PrimeVue from 'primevue/config';
-
-const app = createApp(App);
-app.use(PrimeVue);
-```
-
-## Plugin
-
-Configure PrimeVue to use a theme like Aura.
-
-## Verify
-
-Verify your setup by adding a component such as Button . Each component can be imported and registered individually so that you only include what you use for bundle optimization. Import path is available in the documentation of the corresponding component.
-
-**Basic Usage:**
-
-```vue
-import Button from "primevue/button"
-
-const app = createApp(App);
-app.component('Button', Button);
-```
-
-<details>
-<summary>Composition API Example</summary>
-
-```vue
-<template>
-    <div class="card flex justify-center">
-        <Button label="Verify" />
-    </div>
-</template>
-
-<script setup>
-<\/script>
-```
-</details>
-
-## Video
-
-Watch the short video tutorial from Çağatay Çivici to setup PrimeVue in styled mode with Create-Vue .
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| virtualscroller.loader.mask.background | --p-virtualscroller-loader-mask-background | Background of loader mask |
+| virtualscroller.loader.mask.color | --p-virtualscroller-loader-mask-color | Color of loader mask |
+| virtualscroller.loader.icon.size | --p-virtualscroller-loader-icon-size | Size of the loader icon |
 
 ---
 

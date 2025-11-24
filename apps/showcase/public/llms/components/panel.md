@@ -135,3 +135,22 @@ Content of the panel can be expanded and collapsed using toggleable option.
 | p-panel-content | Class name of the content element |
 | p-panel-footer | Class name of the footer element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| panel.background | --p-panel-background | Background of root |
+| panel.border.color | --p-panel-border-color | Border color of root |
+| panel.color | --p-panel-color | Color of root |
+| panel.border.radius | --p-panel-border-radius | Border radius of root |
+| panel.header.background | --p-panel-header-background | Background of header |
+| panel.header.color | --p-panel-header-color | Color of header |
+| panel.header.padding | --p-panel-header-padding | Padding of header |
+| panel.header.border.color | --p-panel-header-border-color | Border color of header |
+| panel.header.border.width | --p-panel-header-border-width | Border width of header |
+| panel.header.border.radius | --p-panel-header-border-radius | Border radius of header |
+| panel.toggleable.header.padding | --p-panel-toggleable-header-padding | Padding of toggleable header |
+| panel.title.font.weight | --p-panel-title-font-weight | Font weight of title |
+| panel.content.padding | --p-panel-content-padding | Padding of content |
+| panel.footer.padding | --p-panel-footer-padding | Padding of footer |
+

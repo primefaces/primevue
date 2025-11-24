@@ -127,3 +127,18 @@ The open event is used to initialize the content such as loading data in a lazy 
 | p-inplace-display | Class name of the display element |
 | p-inplace-content | Class name of the content element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| inplace.padding | --p-inplace-padding | Padding of root |
+| inplace.border.radius | --p-inplace-border-radius | Border radius of root |
+| inplace.focus.ring.width | --p-inplace-focus-ring-width | Focus ring width of root |
+| inplace.focus.ring.style | --p-inplace-focus-ring-style | Focus ring style of root |
+| inplace.focus.ring.color | --p-inplace-focus-ring-color | Focus ring color of root |
+| inplace.focus.ring.offset | --p-inplace-focus-ring-offset | Focus ring offset of root |
+| inplace.focus.ring.shadow | --p-inplace-focus-ring-shadow | Focus ring shadow of root |
+| inplace.transition.duration | --p-inplace-transition-duration | Transition duration of root |
+| inplace.display.hover.background | --p-inplace-display-hover-background | Hover background of display |
+| inplace.display.hover.color | --p-inplace-display-hover-color | Hover color of display |
+

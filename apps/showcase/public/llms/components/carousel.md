@@ -96,3 +96,23 @@ To create a vertical Carousel, orientation needs to be set to vertical along wit
 | p-carousel-indicator-button | Class name of the indicator button element |
 | p-carousel-footer | Class name of the footer element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| carousel.transition.duration | --p-carousel-transition-duration | Transition duration of root |
+| carousel.content.gap | --p-carousel-content-gap | Gap of content |
+| carousel.indicator.list.padding | --p-carousel-indicator-list-padding | Padding of indicator list |
+| carousel.indicator.list.gap | --p-carousel-indicator-list-gap | Gap of indicator list |
+| carousel.indicator.width | --p-carousel-indicator-width | Width of indicator |
+| carousel.indicator.height | --p-carousel-indicator-height | Height of indicator |
+| carousel.indicator.border.radius | --p-carousel-indicator-border-radius | Border radius of indicator |
+| carousel.indicator.focus.ring.width | --p-carousel-indicator-focus-ring-width | Focus ring width of indicator |
+| carousel.indicator.focus.ring.style | --p-carousel-indicator-focus-ring-style | Focus ring style of indicator |
+| carousel.indicator.focus.ring.color | --p-carousel-indicator-focus-ring-color | Focus ring color of indicator |
+| carousel.indicator.focus.ring.offset | --p-carousel-indicator-focus-ring-offset | Focus ring offset of indicator |
+| carousel.indicator.focus.ring.shadow | --p-carousel-indicator-focus-ring-shadow | Focus ring shadow of indicator |
+| carousel.indicator.background | --p-carousel-indicator-background | Background of indicator |
+| carousel.indicator.hover.background | --p-carousel-indicator-hover-background | Hover background of indicator |
+| carousel.indicator.active.background | --p-carousel-indicator-active-background | Active background of indicator |
+

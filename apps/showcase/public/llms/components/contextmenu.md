@@ -57,5 +57,3 @@ Items with navigation are defined with templating to be able to use a router lin
 
 ContextMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
 
-## Contextmenu
-

@@ -43,5 +43,21 @@ A practical example that triggers a fetch when the table becomes visible in view
 </DeferredContent>
 ```
 
-## Deferredcontent
+## Deferred Content
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<DeferredContentPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | DeferredContentPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
 

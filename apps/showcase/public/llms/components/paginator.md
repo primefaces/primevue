@@ -156,3 +156,30 @@ Paginator elements can be customized using the template property using the prede
 | p-paginator-jtp-dropdown | Class name of the jump to page dropdown element |
 | p-paginator-jtp-input | Class name of the jump to page input element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| paginator.padding | --p-paginator-padding | Padding of root |
+| paginator.gap | --p-paginator-gap | Gap of root |
+| paginator.border.radius | --p-paginator-border-radius | Border radius of root |
+| paginator.background | --p-paginator-background | Background of root |
+| paginator.color | --p-paginator-color | Color of root |
+| paginator.transition.duration | --p-paginator-transition-duration | Transition duration of root |
+| paginator.nav.button.background | --p-paginator-nav-button-background | Background of nav button |
+| paginator.nav.button.hover.background | --p-paginator-nav-button-hover-background | Hover background of nav button |
+| paginator.nav.button.selected.background | --p-paginator-nav-button-selected-background | Selected background of nav button |
+| paginator.nav.button.color | --p-paginator-nav-button-color | Color of nav button |
+| paginator.nav.button.hover.color | --p-paginator-nav-button-hover-color | Hover color of nav button |
+| paginator.nav.button.selected.color | --p-paginator-nav-button-selected-color | Selected color of nav button |
+| paginator.nav.button.width | --p-paginator-nav-button-width | Width of nav button |
+| paginator.nav.button.height | --p-paginator-nav-button-height | Height of nav button |
+| paginator.nav.button.border.radius | --p-paginator-nav-button-border-radius | Border radius of nav button |
+| paginator.nav.button.focus.ring.width | --p-paginator-nav-button-focus-ring-width | Focus ring width of nav button |
+| paginator.nav.button.focus.ring.style | --p-paginator-nav-button-focus-ring-style | Focus ring style of nav button |
+| paginator.nav.button.focus.ring.color | --p-paginator-nav-button-focus-ring-color | Focus ring color of nav button |
+| paginator.nav.button.focus.ring.offset | --p-paginator-nav-button-focus-ring-offset | Focus ring offset of nav button |
+| paginator.nav.button.focus.ring.shadow | --p-paginator-nav-button-focus-ring-shadow | Focus ring shadow of nav button |
+| paginator.current.page.report.color | --p-paginator-current-page-report-color | Color of current page report |
+| paginator.jump.to.page.input.max.width | --p-paginator-jump-to-page-input-max-width | Max width of jump to page input |
+

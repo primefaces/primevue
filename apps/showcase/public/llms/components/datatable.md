@@ -407,3 +407,115 @@ Custom content at header and footer sections are supported via templating.
 | p-datatable-row-reorder-indicator-up | Class name of the row reorder indicator up element |
 | p-datatable-row-reorder-indicator-down | Class name of the row reorder indicator down element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| datatable.transition.duration | --p-datatable-transition-duration | Transition duration of root |
+| datatable.border.color | --p-datatable-border-color | Border color of root |
+| datatable.header.background | --p-datatable-header-background | Background of header |
+| datatable.header.border.color | --p-datatable-header-border-color | Border color of header |
+| datatable.header.color | --p-datatable-header-color | Color of header |
+| datatable.header.border.width | --p-datatable-header-border-width | Border width of header |
+| datatable.header.padding | --p-datatable-header-padding | Padding of header |
+| datatable.header.sm.padding | --p-datatable-header-sm-padding | Sm padding of header |
+| datatable.header.lg.padding | --p-datatable-header-lg-padding | Lg padding of header |
+| datatable.header.cell.background | --p-datatable-header-cell-background | Background of header cell |
+| datatable.header.cell.hover.background | --p-datatable-header-cell-hover-background | Hover background of header cell |
+| datatable.header.cell.selected.background | --p-datatable-header-cell-selected-background | Selected background of header cell |
+| datatable.header.cell.border.color | --p-datatable-header-cell-border-color | Border color of header cell |
+| datatable.header.cell.color | --p-datatable-header-cell-color | Color of header cell |
+| datatable.header.cell.hover.color | --p-datatable-header-cell-hover-color | Hover color of header cell |
+| datatable.header.cell.selected.color | --p-datatable-header-cell-selected-color | Selected color of header cell |
+| datatable.header.cell.gap | --p-datatable-header-cell-gap | Gap of header cell |
+| datatable.header.cell.padding | --p-datatable-header-cell-padding | Padding of header cell |
+| datatable.header.cell.focus.ring.width | --p-datatable-header-cell-focus-ring-width | Focus ring width of header cell |
+| datatable.header.cell.focus.ring.style | --p-datatable-header-cell-focus-ring-style | Focus ring style of header cell |
+| datatable.header.cell.focus.ring.color | --p-datatable-header-cell-focus-ring-color | Focus ring color of header cell |
+| datatable.header.cell.focus.ring.offset | --p-datatable-header-cell-focus-ring-offset | Focus ring offset of header cell |
+| datatable.header.cell.focus.ring.shadow | --p-datatable-header-cell-focus-ring-shadow | Focus ring shadow of header cell |
+| datatable.header.cell.sm.padding | --p-datatable-header-cell-sm-padding | Sm padding of header cell |
+| datatable.header.cell.lg.padding | --p-datatable-header-cell-lg-padding | Lg padding of header cell |
+| datatable.column.title.font.weight | --p-datatable-column-title-font-weight | Font weight of column title |
+| datatable.row.background | --p-datatable-row-background | Background of row |
+| datatable.row.hover.background | --p-datatable-row-hover-background | Hover background of row |
+| datatable.row.selected.background | --p-datatable-row-selected-background | Selected background of row |
+| datatable.row.color | --p-datatable-row-color | Color of row |
+| datatable.row.hover.color | --p-datatable-row-hover-color | Hover color of row |
+| datatable.row.selected.color | --p-datatable-row-selected-color | Selected color of row |
+| datatable.row.focus.ring.width | --p-datatable-row-focus-ring-width | Focus ring width of row |
+| datatable.row.focus.ring.style | --p-datatable-row-focus-ring-style | Focus ring style of row |
+| datatable.row.focus.ring.color | --p-datatable-row-focus-ring-color | Focus ring color of row |
+| datatable.row.focus.ring.offset | --p-datatable-row-focus-ring-offset | Focus ring offset of row |
+| datatable.row.focus.ring.shadow | --p-datatable-row-focus-ring-shadow | Focus ring shadow of row |
+| datatable.row.striped.background | --p-datatable-row-striped-background | Striped background of row |
+| datatable.body.cell.border.color | --p-datatable-body-cell-border-color | Border color of body cell |
+| datatable.body.cell.padding | --p-datatable-body-cell-padding | Padding of body cell |
+| datatable.body.cell.sm.padding | --p-datatable-body-cell-sm-padding | Sm padding of body cell |
+| datatable.body.cell.lg.padding | --p-datatable-body-cell-lg-padding | Lg padding of body cell |
+| datatable.body.cell.selected.border.color | --p-datatable-body-cell-selected-border-color | Selected border color of body cell |
+| datatable.footer.cell.background | --p-datatable-footer-cell-background | Background of footer cell |
+| datatable.footer.cell.border.color | --p-datatable-footer-cell-border-color | Border color of footer cell |
+| datatable.footer.cell.color | --p-datatable-footer-cell-color | Color of footer cell |
+| datatable.footer.cell.padding | --p-datatable-footer-cell-padding | Padding of footer cell |
+| datatable.footer.cell.sm.padding | --p-datatable-footer-cell-sm-padding | Sm padding of footer cell |
+| datatable.footer.cell.lg.padding | --p-datatable-footer-cell-lg-padding | Lg padding of footer cell |
+| datatable.column.footer.font.weight | --p-datatable-column-footer-font-weight | Font weight of column footer |
+| datatable.footer.background | --p-datatable-footer-background | Background of footer |
+| datatable.footer.border.color | --p-datatable-footer-border-color | Border color of footer |
+| datatable.footer.color | --p-datatable-footer-color | Color of footer |
+| datatable.footer.border.width | --p-datatable-footer-border-width | Border width of footer |
+| datatable.footer.padding | --p-datatable-footer-padding | Padding of footer |
+| datatable.footer.sm.padding | --p-datatable-footer-sm-padding | Sm padding of footer |
+| datatable.footer.lg.padding | --p-datatable-footer-lg-padding | Lg padding of footer |
+| datatable.drop.point.color | --p-datatable-drop-point-color | Color of drop point |
+| datatable.column.resizer.width | --p-datatable-column-resizer-width | Width of column resizer |
+| datatable.resize.indicator.width | --p-datatable-resize-indicator-width | Width of resize indicator |
+| datatable.resize.indicator.color | --p-datatable-resize-indicator-color | Color of resize indicator |
+| datatable.sort.icon.color | --p-datatable-sort-icon-color | Color of sort icon |
+| datatable.sort.icon.hover.color | --p-datatable-sort-icon-hover-color | Hover color of sort icon |
+| datatable.sort.icon.size | --p-datatable-sort-icon-size | Size of sort icon |
+| datatable.loading.icon.size | --p-datatable-loading-icon-size | Size of loading icon |
+| datatable.row.toggle.button.hover.background | --p-datatable-row-toggle-button-hover-background | Hover background of row toggle button |
+| datatable.row.toggle.button.selected.hover.background | --p-datatable-row-toggle-button-selected-hover-background | Selected hover background of row toggle button |
+| datatable.row.toggle.button.color | --p-datatable-row-toggle-button-color | Color of row toggle button |
+| datatable.row.toggle.button.hover.color | --p-datatable-row-toggle-button-hover-color | Hover color of row toggle button |
+| datatable.row.toggle.button.selected.hover.color | --p-datatable-row-toggle-button-selected-hover-color | Selected hover color of row toggle button |
+| datatable.row.toggle.button.size | --p-datatable-row-toggle-button-size | Size of row toggle button |
+| datatable.row.toggle.button.border.radius | --p-datatable-row-toggle-button-border-radius | Border radius of row toggle button |
+| datatable.row.toggle.button.focus.ring.width | --p-datatable-row-toggle-button-focus-ring-width | Focus ring width of row toggle button |
+| datatable.row.toggle.button.focus.ring.style | --p-datatable-row-toggle-button-focus-ring-style | Focus ring style of row toggle button |
+| datatable.row.toggle.button.focus.ring.color | --p-datatable-row-toggle-button-focus-ring-color | Focus ring color of row toggle button |
+| datatable.row.toggle.button.focus.ring.offset | --p-datatable-row-toggle-button-focus-ring-offset | Focus ring offset of row toggle button |
+| datatable.row.toggle.button.focus.ring.shadow | --p-datatable-row-toggle-button-focus-ring-shadow | Focus ring shadow of row toggle button |
+| datatable.filter.inline.gap | --p-datatable-filter-inline-gap | Inline gap of filter |
+| datatable.filter.overlay.select.background | --p-datatable-filter-overlay-select-background | Overlay select background of filter |
+| datatable.filter.overlay.select.border.color | --p-datatable-filter-overlay-select-border-color | Overlay select border color of filter |
+| datatable.filter.overlay.select.border.radius | --p-datatable-filter-overlay-select-border-radius | Overlay select border radius of filter |
+| datatable.filter.overlay.select.color | --p-datatable-filter-overlay-select-color | Overlay select color of filter |
+| datatable.filter.overlay.select.shadow | --p-datatable-filter-overlay-select-shadow | Overlay select shadow of filter |
+| datatable.filter.overlay.popover.background | --p-datatable-filter-overlay-popover-background | Overlay popover background of filter |
+| datatable.filter.overlay.popover.border.color | --p-datatable-filter-overlay-popover-border-color | Overlay popover border color of filter |
+| datatable.filter.overlay.popover.border.radius | --p-datatable-filter-overlay-popover-border-radius | Overlay popover border radius of filter |
+| datatable.filter.overlay.popover.color | --p-datatable-filter-overlay-popover-color | Overlay popover color of filter |
+| datatable.filter.overlay.popover.shadow | --p-datatable-filter-overlay-popover-shadow | Overlay popover shadow of filter |
+| datatable.filter.overlay.popover.padding | --p-datatable-filter-overlay-popover-padding | Overlay popover padding of filter |
+| datatable.filter.overlay.popover.gap | --p-datatable-filter-overlay-popover-gap | Overlay popover gap of filter |
+| datatable.filter.rule.border.color | --p-datatable-filter-rule-border-color | Rule border color of filter |
+| datatable.filter.constraint.list.padding | --p-datatable-filter-constraint-list-padding | Constraint list padding of filter |
+| datatable.filter.constraint.list.gap | --p-datatable-filter-constraint-list-gap | Constraint list gap of filter |
+| datatable.filter.constraint.focus.background | --p-datatable-filter-constraint-focus-background | Constraint focus background of filter |
+| datatable.filter.constraint.selected.background | --p-datatable-filter-constraint-selected-background | Constraint selected background of filter |
+| datatable.filter.constraint.selected.focus.background | --p-datatable-filter-constraint-selected-focus-background | Constraint selected focus background of filter |
+| datatable.filter.constraint.color | --p-datatable-filter-constraint-color | Constraint color of filter |
+| datatable.filter.constraint.focus.color | --p-datatable-filter-constraint-focus-color | Constraint focus color of filter |
+| datatable.filter.constraint.selected.color | --p-datatable-filter-constraint-selected-color | Constraint selected color of filter |
+| datatable.filter.constraint.selected.focus.color | --p-datatable-filter-constraint-selected-focus-color | Constraint selected focus color of filter |
+| datatable.filter.constraint.separator.border.color | --p-datatable-filter-constraint-separator-border-color | Constraint separator border color of filter |
+| datatable.filter.constraint.padding | --p-datatable-filter-constraint-padding | Constraint padding of filter |
+| datatable.filter.constraint.border.radius | --p-datatable-filter-constraint-border-radius | Constraint border radius of filter |
+| datatable.paginator.top.border.color | --p-datatable-paginator-top-border-color | Border color of paginator top |
+| datatable.paginator.top.border.width | --p-datatable-paginator-top-border-width | Border width of paginator top |
+| datatable.paginator.bottom.border.color | --p-datatable-paginator-bottom-border-color | Border color of paginator bottom |
+| datatable.paginator.bottom.border.width | --p-datatable-paginator-bottom-border-width | Border width of paginator bottom |
+

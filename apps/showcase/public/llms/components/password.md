@@ -473,3 +473,22 @@ When toggleMask is present, an icon is displayed to show the value as plain text
 | p-password-meter-label | Class name of the meter label element |
 | p-password-meter-text | Class name of the meter text element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| password.meter.background | --p-password-meter-background | Background of meter |
+| password.meter.border.radius | --p-password-meter-border-radius | Border radius of meter |
+| password.meter.height | --p-password-meter-height | Height of meter |
+| password.icon.color | --p-password-icon-color | Color of icon |
+| password.overlay.background | --p-password-overlay-background | Background of overlay |
+| password.overlay.border.color | --p-password-overlay-border-color | Border color of overlay |
+| password.overlay.border.radius | --p-password-overlay-border-radius | Border radius of overlay |
+| password.overlay.color | --p-password-overlay-color | Color of overlay |
+| password.overlay.padding | --p-password-overlay-padding | Padding of overlay |
+| password.overlay.shadow | --p-password-overlay-shadow | Shadow of overlay |
+| password.content.gap | --p-password-content-gap | Gap of content |
+| password.strength.weak.background | --p-password-strength-weak-background | Weak background of strength |
+| password.strength.medium.background | --p-password-strength-medium-background | Medium background of strength |
+| password.strength.strong.background | --p-password-strength-strong-background | Strong background of strength |
+

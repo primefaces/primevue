@@ -160,3 +160,17 @@ The label can be customized with the valueTemplate property using either a templ
 | p-knob-value | Class name of the value element |
 | p-knob-text | Class name of the text element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| knob.transition.duration | --p-knob-transition-duration | Transition duration of root |
+| knob.focus.ring.width | --p-knob-focus-ring-width | Focus ring width of root |
+| knob.focus.ring.style | --p-knob-focus-ring-style | Focus ring style of root |
+| knob.focus.ring.color | --p-knob-focus-ring-color | Focus ring color of root |
+| knob.focus.ring.offset | --p-knob-focus-ring-offset | Focus ring offset of root |
+| knob.focus.ring.shadow | --p-knob-focus-ring-shadow | Focus ring shadow of root |
+| knob.value.background | --p-knob-value-background | Background of value |
+| knob.range.background | --p-knob-range-background | Background of range |
+| knob.text.color | --p-knob-text-color | Color of text |
+

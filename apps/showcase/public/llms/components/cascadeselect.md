@@ -177,5 +177,166 @@ CascadeSelect offers multiple slots for customization through templating.
             <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\
 ```
 
-## Cascadeselect
+## Cascade Select
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | any | - | Value of the component. |
+| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| options | any[] | - | An array of selectitems to display as the available options. |
+| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
+| optionValue | string \| Function | - | Property name or getter function to use as the value of an option, defaults to the option itself when not defined. |
+| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
+| optionGroupLabel | string \| Function | - | Property name or getter function to use as the label of an option group. |
+| optionGroupChildren | string \| string[] \| Function | - | Property name or getter function to retrieve the items of a group. |
+| placeholder | string | - | Default text to display when no option is selected. |
+| breakpoint | string | 960px | The breakpoint to define the maximum width boundary. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| dataKey | string | - | A property to uniquely identify an option. |
+| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
+| clearIcon | string | - | Icon to display in clear button. |
+| inputId | string | - | Identifier of the underlying input element. |
+| inputStyle | object | - | Inline style of the input field. |
+| inputClass | string \| object | - | Style class of the input field. |
+| inputProps | InputHTMLAttributes | - | Used to pass all properties of the HTMLInputElement to the focusable input element inside the component. |
+| panelStyle | object | - |  |
+| panelClass | string \| object | - |  |
+| panelProps | HTMLAttributes | - |  |
+| overlayStyle | object | - | Inline style of the overlay overlay. |
+| overlayClass | string \| object | - | Style class of the overlay overlay. |
+| overlayProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to the overlay overlay inside the component. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself. |
+| loading | boolean | false | Whether the dropdown is in loading state. |
+| dropdownIcon | string | - | Icon to display in the dropdown. |
+| loadingIcon | string | - | Icon to display in loading state. |
+| optionGroupIcon | string | - | Icon to display in the option group. |
+| autoOptionFocus | boolean | false | Whether to focus on the first visible or selected element when the overlay panel is shown. |
+| selectOnFocus | boolean | false | When enabled, the focused option is selected/opened. |
+| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
+| searchLocale | string | - | Locale to use in searching. The default locale is the host environment's current locale. |
+| searchMessage | string | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration. |
+| selectionMessage | string | '{0} items selected' | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration. |
+| emptySelectionMessage | string | No selected item | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration. |
+| emptySearchMessage | string | No results found | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration. |
+| emptyMessage | string | No available options | Text to be displayed when there are no options available. Defaults to value from PrimeVue locale configuration. |
+| tabindex | string \| number | - | Index of the element in tabbing order. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel | string | - | Establishes a string value that labels the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<CascadeSelectPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | CascadeSelectPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| input | CascadeSelectPassThroughOptionType | Used to pass attributes to the input's DOM element. |
+| label | CascadeSelectPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+| clearIcon | CascadeSelectPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+| dropdown | CascadeSelectPassThroughOptionType | Used to pass attributes to the dropdown button's DOM element. |
+| dropdownIcon | CascadeSelectPassThroughOptionType | Used to pass attributes to the dropdown icon's DOM element. |
+| loadingIcon | CascadeSelectPassThroughOptionType | Used to pass attributes to the loading icon's DOM element. |
+| overlay | CascadeSelectPassThroughOptionType | Used to pass attributes to the overlay's DOM element. |
+| listContainer | CascadeSelectPassThroughOptionType | Used to pass attributes to the list container's DOM element. |
+| list | CascadeSelectPassThroughOptionType | Used to pass attributes to the list's DOM element. |
+| option | CascadeSelectPassThroughOptionType | Used to pass attributes to the option's DOM element. |
+| optionContent | CascadeSelectPassThroughOptionType | Used to pass attributes to the option content's DOM element. |
+| optionText | CascadeSelectPassThroughOptionType | Used to pass attributes to the option text's DOM element. |
+| optionList | CascadeSelectPassThroughOptionType | Used to pass attributes to the option list's DOM element. |
+| groupIconContainer | CascadeSelectPassThroughOptionType | Used to pass attributes to the group icon container's DOM element. |
+| groupIcon | CascadeSelectPassThroughOptionType | Used to pass attributes to the group icon's DOM element. |
+| hiddenInputContainer | CascadeSelectPassThroughOptionType | Used to pass attributes to the hidden input container's DOM element. |
+| hiddenInput | CascadeSelectPassThroughOptionType | Used to pass attributes to the hidden input's DOM element. |
+| hiddenSelectedMessage | CascadeSelectPassThroughOptionType | Used to pass attributes to the hidden selected message's DOM element. |
+| hiddenSearchResult | CascadeSelectPassThroughOptionType | Used to pass attributes to the search result message text aria's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | CascadeSelectPassThroughTransitionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-cascadeselect | Class name of the root element |
+| p-cascadeselect-label | Class name of the label element |
+| p-cascadeselect-dropdown | Class name of the dropdown element |
+| p-cascadeselect-loading-icon | Class name of the loading icon element |
+| p-cascadeselect-clear-icon | Class name of the dropdown icon element |
+| p-cascadeselect-dropdown-icon | Class name of the dropdown icon element |
+| p-cascadeselect-overlay | Class name of the overlay element |
+| p-cascadeselect-list-container | Class name of the list container element |
+| p-cascadeselect-list | Class name of the list element |
+| p-cascadeselect-item | Class name of the item element |
+| p-cascadeselect-item-content | Class name of the item content element |
+| p-cascadeselect-item-text | Class name of the item text element |
+| p-cascadeselect-group-icon | Class name of the group icon element |
+| p-cascadeselect-item-list | Class name of the item list element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| cascadeselect.background | --p-cascadeselect-background | Background of root |
+| cascadeselect.disabled.background | --p-cascadeselect-disabled-background | Disabled background of root |
+| cascadeselect.filled.background | --p-cascadeselect-filled-background | Filled background of root |
+| cascadeselect.filled.hover.background | --p-cascadeselect-filled-hover-background | Filled hover background of root |
+| cascadeselect.filled.focus.background | --p-cascadeselect-filled-focus-background | Filled focus background of root |
+| cascadeselect.border.color | --p-cascadeselect-border-color | Border color of root |
+| cascadeselect.hover.border.color | --p-cascadeselect-hover-border-color | Hover border color of root |
+| cascadeselect.focus.border.color | --p-cascadeselect-focus-border-color | Focus border color of root |
+| cascadeselect.invalid.border.color | --p-cascadeselect-invalid-border-color | Invalid border color of root |
+| cascadeselect.color | --p-cascadeselect-color | Color of root |
+| cascadeselect.disabled.color | --p-cascadeselect-disabled-color | Disabled color of root |
+| cascadeselect.placeholder.color | --p-cascadeselect-placeholder-color | Placeholder color of root |
+| cascadeselect.invalid.placeholder.color | --p-cascadeselect-invalid-placeholder-color | Invalid placeholder color of root |
+| cascadeselect.shadow | --p-cascadeselect-shadow | Shadow of root |
+| cascadeselect.padding.x | --p-cascadeselect-padding-x | Padding x of root |
+| cascadeselect.padding.y | --p-cascadeselect-padding-y | Padding y of root |
+| cascadeselect.border.radius | --p-cascadeselect-border-radius | Border radius of root |
+| cascadeselect.focus.ring.width | --p-cascadeselect-focus-ring-width | Focus ring width of root |
+| cascadeselect.focus.ring.style | --p-cascadeselect-focus-ring-style | Focus ring style of root |
+| cascadeselect.focus.ring.color | --p-cascadeselect-focus-ring-color | Focus ring color of root |
+| cascadeselect.focus.ring.offset | --p-cascadeselect-focus-ring-offset | Focus ring offset of root |
+| cascadeselect.focus.ring.shadow | --p-cascadeselect-focus-ring-shadow | Focus ring shadow of root |
+| cascadeselect.transition.duration | --p-cascadeselect-transition-duration | Transition duration of root |
+| cascadeselect.sm.font.size | --p-cascadeselect-sm-font-size | Sm font size of root |
+| cascadeselect.sm.padding.x | --p-cascadeselect-sm-padding-x | Sm padding x of root |
+| cascadeselect.sm.padding.y | --p-cascadeselect-sm-padding-y | Sm padding y of root |
+| cascadeselect.lg.font.size | --p-cascadeselect-lg-font-size | Lg font size of root |
+| cascadeselect.lg.padding.x | --p-cascadeselect-lg-padding-x | Lg padding x of root |
+| cascadeselect.lg.padding.y | --p-cascadeselect-lg-padding-y | Lg padding y of root |
+| cascadeselect.dropdown.width | --p-cascadeselect-dropdown-width | Width of dropdown |
+| cascadeselect.dropdown.color | --p-cascadeselect-dropdown-color | Color of dropdown |
+| cascadeselect.overlay.background | --p-cascadeselect-overlay-background | Background of overlay |
+| cascadeselect.overlay.border.color | --p-cascadeselect-overlay-border-color | Border color of overlay |
+| cascadeselect.overlay.border.radius | --p-cascadeselect-overlay-border-radius | Border radius of overlay |
+| cascadeselect.overlay.color | --p-cascadeselect-overlay-color | Color of overlay |
+| cascadeselect.overlay.shadow | --p-cascadeselect-overlay-shadow | Shadow of overlay |
+| cascadeselect.list.padding | --p-cascadeselect-list-padding | Padding of list |
+| cascadeselect.list.gap | --p-cascadeselect-list-gap | Gap of list |
+| cascadeselect.list.mobile.indent | --p-cascadeselect-list-mobile-indent | Mobile indent of list |
+| cascadeselect.option.focus.background | --p-cascadeselect-option-focus-background | Focus background of option |
+| cascadeselect.option.selected.background | --p-cascadeselect-option-selected-background | Selected background of option |
+| cascadeselect.option.selected.focus.background | --p-cascadeselect-option-selected-focus-background | Selected focus background of option |
+| cascadeselect.option.color | --p-cascadeselect-option-color | Color of option |
+| cascadeselect.option.focus.color | --p-cascadeselect-option-focus-color | Focus color of option |
+| cascadeselect.option.selected.color | --p-cascadeselect-option-selected-color | Selected color of option |
+| cascadeselect.option.selected.focus.color | --p-cascadeselect-option-selected-focus-color | Selected focus color of option |
+| cascadeselect.option.padding | --p-cascadeselect-option-padding | Padding of option |
+| cascadeselect.option.border.radius | --p-cascadeselect-option-border-radius | Border radius of option |
+| cascadeselect.option.icon.color | --p-cascadeselect-option-icon-color | Icon color of option |
+| cascadeselect.option.icon.focus.color | --p-cascadeselect-option-icon-focus-color | Icon focus color of option |
+| cascadeselect.option.icon.size | --p-cascadeselect-option-icon-size | Icon size of option |
+| cascadeselect.clear.icon.color | --p-cascadeselect-clear-icon-color | Color of clear icon |
 

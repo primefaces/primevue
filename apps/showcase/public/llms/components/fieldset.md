@@ -151,3 +151,32 @@ Content of the fieldset can be expanded and collapsed when toggleable option is 
 | p-fieldset-content-container | Class name of the content container element |
 | p-fieldset-content | Class name of the content element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| fieldset.background | --p-fieldset-background | Background of root |
+| fieldset.border.color | --p-fieldset-border-color | Border color of root |
+| fieldset.border.radius | --p-fieldset-border-radius | Border radius of root |
+| fieldset.color | --p-fieldset-color | Color of root |
+| fieldset.padding | --p-fieldset-padding | Padding of root |
+| fieldset.transition.duration | --p-fieldset-transition-duration | Transition duration of root |
+| fieldset.legend.background | --p-fieldset-legend-background | Background of legend |
+| fieldset.legend.hover.background | --p-fieldset-legend-hover-background | Hover background of legend |
+| fieldset.legend.color | --p-fieldset-legend-color | Color of legend |
+| fieldset.legend.hover.color | --p-fieldset-legend-hover-color | Hover color of legend |
+| fieldset.legend.border.radius | --p-fieldset-legend-border-radius | Border radius of legend |
+| fieldset.legend.border.width | --p-fieldset-legend-border-width | Border width of legend |
+| fieldset.legend.border.color | --p-fieldset-legend-border-color | Border color of legend |
+| fieldset.legend.padding | --p-fieldset-legend-padding | Padding of legend |
+| fieldset.legend.gap | --p-fieldset-legend-gap | Gap of legend |
+| fieldset.legend.font.weight | --p-fieldset-legend-font-weight | Font weight of legend |
+| fieldset.legend.focus.ring.width | --p-fieldset-legend-focus-ring-width | Focus ring width of legend |
+| fieldset.legend.focus.ring.style | --p-fieldset-legend-focus-ring-style | Focus ring style of legend |
+| fieldset.legend.focus.ring.color | --p-fieldset-legend-focus-ring-color | Focus ring color of legend |
+| fieldset.legend.focus.ring.offset | --p-fieldset-legend-focus-ring-offset | Focus ring offset of legend |
+| fieldset.legend.focus.ring.shadow | --p-fieldset-legend-focus-ring-shadow | Focus ring shadow of legend |
+| fieldset.toggle.icon.color | --p-fieldset-toggle-icon-color | Color of toggle icon |
+| fieldset.toggle.icon.hover.color | --p-fieldset-toggle-icon-hover-color | Hover color of toggle icon |
+| fieldset.content.padding | --p-fieldset-content-padding | Padding of content |
+

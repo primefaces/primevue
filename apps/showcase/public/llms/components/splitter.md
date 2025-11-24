@@ -184,3 +184,21 @@ Panels are displayed as stacked by setting the layout to vertical .
 | p-splitter-gutter | Class name of the gutter element |
 | p-splitter-gutter-handle | Class name of the gutter handle element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| splitter.background | --p-splitter-background | Background of root |
+| splitter.border.color | --p-splitter-border-color | Border color of root |
+| splitter.color | --p-splitter-color | Color of root |
+| splitter.transition.duration | --p-splitter-transition-duration | Transition duration of root |
+| splitter.gutter.background | --p-splitter-gutter-background | Background of gutter |
+| splitter.handle.size | --p-splitter-handle-size | Size of handle |
+| splitter.handle.background | --p-splitter-handle-background | Background of handle |
+| splitter.handle.border.radius | --p-splitter-handle-border-radius | Border radius of handle |
+| splitter.handle.focus.ring.width | --p-splitter-handle-focus-ring-width | Focus ring width of handle |
+| splitter.handle.focus.ring.style | --p-splitter-handle-focus-ring-style | Focus ring style of handle |
+| splitter.handle.focus.ring.color | --p-splitter-handle-focus-ring-color | Focus ring color of handle |
+| splitter.handle.focus.ring.offset | --p-splitter-handle-focus-ring-offset | Focus ring offset of handle |
+| splitter.handle.focus.ring.shadow | --p-splitter-handle-focus-ring-shadow | Focus ring shadow of handle |
+

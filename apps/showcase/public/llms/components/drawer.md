@@ -347,3 +347,17 @@ Custom content at the header and footer sections is displayed with templating.
 | p-drawer-close-button | Class name of the close button element |
 | p-drawer-content | Class name of the content element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| drawer.background | --p-drawer-background | Background of root |
+| drawer.border.color | --p-drawer-border-color | Border color of root |
+| drawer.color | --p-drawer-color | Color of root |
+| drawer.shadow | --p-drawer-shadow | Shadow of root |
+| drawer.header.padding | --p-drawer-header-padding | Padding of header |
+| drawer.title.font.size | --p-drawer-title-font-size | Font size of title |
+| drawer.title.font.weight | --p-drawer-title-font-weight | Font weight of title |
+| drawer.content.padding | --p-drawer-content-padding | Padding of content |
+| drawer.footer.padding | --p-drawer-footer-padding | Padding of footer |
+

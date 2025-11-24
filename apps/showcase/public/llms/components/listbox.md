@@ -193,3 +193,38 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 | p-listbox-option-blank-icon | Class name of the option blank icon element |
 | p-listbox-empty-message | Class name of the empty message element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| listbox.background | --p-listbox-background | Background of root |
+| listbox.disabled.background | --p-listbox-disabled-background | Disabled background of root |
+| listbox.border.color | --p-listbox-border-color | Border color of root |
+| listbox.invalid.border.color | --p-listbox-invalid-border-color | Invalid border color of root |
+| listbox.color | --p-listbox-color | Color of root |
+| listbox.disabled.color | --p-listbox-disabled-color | Disabled color of root |
+| listbox.shadow | --p-listbox-shadow | Shadow of root |
+| listbox.border.radius | --p-listbox-border-radius | Border radius of root |
+| listbox.transition.duration | --p-listbox-transition-duration | Transition duration of root |
+| listbox.list.padding | --p-listbox-list-padding | Padding of list |
+| listbox.list.gap | --p-listbox-list-gap | Gap of list |
+| listbox.list.header.padding | --p-listbox-list-header-padding | Header padding of list |
+| listbox.option.focus.background | --p-listbox-option-focus-background | Focus background of option |
+| listbox.option.selected.background | --p-listbox-option-selected-background | Selected background of option |
+| listbox.option.selected.focus.background | --p-listbox-option-selected-focus-background | Selected focus background of option |
+| listbox.option.color | --p-listbox-option-color | Color of option |
+| listbox.option.focus.color | --p-listbox-option-focus-color | Focus color of option |
+| listbox.option.selected.color | --p-listbox-option-selected-color | Selected color of option |
+| listbox.option.selected.focus.color | --p-listbox-option-selected-focus-color | Selected focus color of option |
+| listbox.option.padding | --p-listbox-option-padding | Padding of option |
+| listbox.option.border.radius | --p-listbox-option-border-radius | Border radius of option |
+| listbox.option.striped.background | --p-listbox-option-striped-background | Striped background of option |
+| listbox.option.group.background | --p-listbox-option-group-background | Background of option group |
+| listbox.option.group.color | --p-listbox-option-group-color | Color of option group |
+| listbox.option.group.font.weight | --p-listbox-option-group-font-weight | Font weight of option group |
+| listbox.option.group.padding | --p-listbox-option-group-padding | Padding of option group |
+| listbox.checkmark.color | --p-listbox-checkmark-color | Color of checkmark |
+| listbox.checkmark.gutter.start | --p-listbox-checkmark-gutter-start | Gutter start of checkmark |
+| listbox.checkmark.gutter.end | --p-listbox-checkmark-gutter-end | Gutter end of checkmark |
+| listbox.empty.message.padding | --p-listbox-empty-message-padding | Padding of empty message |
+

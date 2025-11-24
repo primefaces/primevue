@@ -142,3 +142,34 @@ An eye icon is displayed by default when the image is hovered in preview mode, u
 | p-image-close-button | Class name of the close button element |
 | p-image-original | Class name of the original element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| image.transition.duration | --p-image-transition-duration | Transition duration of root |
+| image.preview.icon.size | --p-image-preview-icon-size | Icon size of preview |
+| image.preview.mask.background | --p-image-preview-mask-background | Mask background of preview |
+| image.preview.mask.color | --p-image-preview-mask-color | Mask color of preview |
+| image.toolbar.position.left | --p-image-toolbar-position-left | Position left of toolbar |
+| image.toolbar.position.right | --p-image-toolbar-position-right | Position right of toolbar |
+| image.toolbar.position.top | --p-image-toolbar-position-top | Position top of toolbar |
+| image.toolbar.position.bottom | --p-image-toolbar-position-bottom | Position bottom of toolbar |
+| image.toolbar.blur | --p-image-toolbar-blur | Blur of toolbar |
+| image.toolbar.background | --p-image-toolbar-background | Background of toolbar |
+| image.toolbar.border.color | --p-image-toolbar-border-color | Border color of toolbar |
+| image.toolbar.border.width | --p-image-toolbar-border-width | Border width of toolbar |
+| image.toolbar.border.radius | --p-image-toolbar-border-radius | Border radius of toolbar |
+| image.toolbar.padding | --p-image-toolbar-padding | Padding of toolbar |
+| image.toolbar.gap | --p-image-toolbar-gap | Gap of toolbar |
+| image.action.hover.background | --p-image-action-hover-background | Hover background of action |
+| image.action.color | --p-image-action-color | Color of action |
+| image.action.hover.color | --p-image-action-hover-color | Hover color of action |
+| image.action.size | --p-image-action-size | Size of action |
+| image.action.icon.size | --p-image-action-icon-size | Icon size of action |
+| image.action.border.radius | --p-image-action-border-radius | Border radius of action |
+| image.action.focus.ring.width | --p-image-action-focus-ring-width | Focus ring width of action |
+| image.action.focus.ring.style | --p-image-action-focus-ring-style | Focus ring style of action |
+| image.action.focus.ring.color | --p-image-action-focus-ring-color | Focus ring color of action |
+| image.action.focus.ring.offset | --p-image-action-focus-ring-offset | Focus ring offset of action |
+| image.action.focus.ring.shadow | --p-image-action-focus-ring-shadow | Focus ring shadow of action |
+

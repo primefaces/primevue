@@ -116,3 +116,30 @@ Editor provides a default toolbar with common options, to customize it define yo
 | p-editor-toolbar | Class name of the toolbar element |
 | p-editor-content | Class name of the content element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| editor.toolbar.background | --p-editor-toolbar-background | Background of toolbar |
+| editor.toolbar.border.color | --p-editor-toolbar-border-color | Border color of toolbar |
+| editor.toolbar.border.radius | --p-editor-toolbar-border-radius | Border radius of toolbar |
+| editor.toolbar.item.color | --p-editor-toolbar-item-color | Color of toolbar item |
+| editor.toolbar.item.hover.color | --p-editor-toolbar-item-hover-color | Hover color of toolbar item |
+| editor.toolbar.item.active.color | --p-editor-toolbar-item-active-color | Active color of toolbar item |
+| editor.toolbar.item.padding | --p-editor-toolbar-item-padding | Padding of toolbar item |
+| editor.overlay.background | --p-editor-overlay-background | Background of overlay |
+| editor.overlay.border.color | --p-editor-overlay-border-color | Border color of overlay |
+| editor.overlay.border.radius | --p-editor-overlay-border-radius | Border radius of overlay |
+| editor.overlay.color | --p-editor-overlay-color | Color of overlay |
+| editor.overlay.shadow | --p-editor-overlay-shadow | Shadow of overlay |
+| editor.overlay.padding | --p-editor-overlay-padding | Padding of overlay |
+| editor.overlay.option.focus.background | --p-editor-overlay-option-focus-background | Focus background of overlay option |
+| editor.overlay.option.color | --p-editor-overlay-option-color | Color of overlay option |
+| editor.overlay.option.focus.color | --p-editor-overlay-option-focus-color | Focus color of overlay option |
+| editor.overlay.option.padding | --p-editor-overlay-option-padding | Padding of overlay option |
+| editor.overlay.option.border.radius | --p-editor-overlay-option-border-radius | Border radius of overlay option |
+| editor.content.background | --p-editor-content-background | Background of content |
+| editor.content.border.color | --p-editor-content-border-color | Border color of content |
+| editor.content.color | --p-editor-content-color | Color of content |
+| editor.content.border.radius | --p-editor-content-border-radius | Border radius of content |
+

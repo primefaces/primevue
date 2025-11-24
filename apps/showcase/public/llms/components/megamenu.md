@@ -40,5 +40,3 @@ Layout of the MegaMenu is configured with the orientation property that accepts 
 <MegaMenu :model="items" orientation="vertical" />
 ```
 
-## Megamenu
-

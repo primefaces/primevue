@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import ComponentTokens from '@primeuix/themes/tokens';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -8,7 +9,6 @@ const __dirname = path.dirname(__filename);
 const DOCS_DIR = path.resolve(__dirname, '../doc');
 const PAGES_DIR = path.resolve(__dirname, '../pages');
 const API_DOC_PATH = path.resolve(__dirname, '../doc/common/apidoc/index.json');
-const THEMES_PATH = path.resolve(__dirname, '../node_modules/@primeuix/themes/tokens/index.mjs');
 const OUTPUT_DIR = path.resolve(__dirname, '../public/llms');
 
 // Mapping for components where route name doesn't match API interface name
@@ -19,13 +19,26 @@ const COMPONENT_NAME_MAP = {
 };
 
 /**
- * Get the correct component name for API lookups
+ * Get the correct component name for API lookups by finding the actual Props interface
  */
-function getApiComponentName(componentName) {
+function getApiComponentName(apiDoc, componentName) {
+    // First check the manual mapping
     const lowerName = componentName.toLowerCase();
     if (COMPONENT_NAME_MAP[lowerName]) {
         return COMPONENT_NAME_MAP[lowerName];
     }
+
+    // If we have the API doc, find the actual Props interface name
+    if (apiDoc && apiDoc.interfaces && apiDoc.interfaces.values) {
+        const propsInterfaceKey = Object.keys(apiDoc.interfaces.values).find(key =>
+            key.endsWith('Props') && !key.includes('PassThrough') && !key.includes('Event')
+        );
+        if (propsInterfaceKey) {
+            // Remove 'Props' suffix to get component name
+            return propsInterfaceKey.replace(/Props$/, '');
+        }
+    }
+
     // Default: capitalize first letter
     return componentName.charAt(0).toUpperCase() + componentName.slice(1);
 }
@@ -192,11 +205,20 @@ function getAllComponents() {
     const entries = fs.readdirSync(DOCS_DIR);
     const components = [];
 
+    // Directories to exclude (non-component documentation)
+    const excludeDirs = [
+        'common', 'guides', 'theming', 'clt', 'forms',
+        'autoimport', 'cdn', 'configuration', 'contribution',
+        'customicons', 'designer', 'icons', 'introduction',
+        'laravel', 'llms', 'nuxt', 'passthrough',
+        'setup', 'tailwind', 'uikit', 'vite'
+    ];
+
     for (const entry of entries) {
         const componentDir = path.join(DOCS_DIR, entry);
         const stat = fs.statSync(componentDir);
 
-        if (!stat.isDirectory() || entry === 'common') continue;
+        if (!stat.isDirectory() || excludeDirs.includes(entry)) continue;
 
         const component = processComponent(entry, componentDir);
         if (component) {
@@ -303,12 +325,24 @@ function getStyleOptionsFromApi(apiDocs, componentName) {
 }
 
 /**
- * Get Design Tokens (placeholder - would need to import from @primeuix/themes)
+ * Get Design Tokens from @primeuix/themes
  */
 function getTokenOptionsFromApi(componentName) {
-    // This would require importing the ComponentTokens from @primeuix/themes
-    // For now, returning null - can be enhanced later
-    return null;
+    const tokens = [];
+
+    if (ComponentTokens[componentName.toLowerCase()]) {
+        const componentTokens = ComponentTokens[componentName.toLowerCase()].tokens;
+
+        for (const [_, value] of Object.entries(componentTokens)) {
+            tokens.push({
+                token: value.token,
+                variable: value.variable,
+                description: value.description || ''
+            });
+        }
+    }
+
+    return tokens.length > 0 ? tokens : null;
 }
 
 /**
@@ -316,10 +350,10 @@ function getTokenOptionsFromApi(componentName) {
  */
 function generateApiSection(apiDocs, componentName, includeRelated = true) {
     let markdown = '';
-    const mainComponentName = getApiComponentName(componentName);
 
     // Get API data for main component
     const apiDoc = apiDocs[componentName.toLowerCase()];
+    const mainComponentName = getApiComponentName(apiDoc, componentName);
 
     // Build list of components to process
     const components = [mainComponentName];
@@ -418,8 +452,8 @@ function generateApiSection(apiDocs, componentName, includeRelated = true) {
  */
 function generatePTSection(apiDocs, componentName) {
     let markdown = '';
-    const mainComponentName = getApiComponentName(componentName);
     const apiDoc = apiDocs[componentName.toLowerCase()];
+    const mainComponentName = getApiComponentName(apiDoc, componentName);
 
     const ptOptions = getPTOptionsFromApi(apiDoc, mainComponentName);
     if (ptOptions && ptOptions.length > 0) {
@@ -446,7 +480,8 @@ function generatePTSection(apiDocs, componentName) {
  */
 function generateThemingSection(apiDocs, componentName) {
     let markdown = '';
-    const mainComponentName = getApiComponentName(componentName);
+    const apiDoc = apiDocs[componentName.toLowerCase()];
+    const mainComponentName = getApiComponentName(apiDoc, componentName);
 
     // CSS Classes
     const styleOptions = getStyleOptionsFromApi(apiDocs, mainComponentName);
@@ -492,7 +527,7 @@ function generateJsonOutput(components, apiDocs) {
         generatedAt: new Date().toISOString(),
         components: components.map(comp => {
             const apiDoc = apiDocs[comp.name.toLowerCase()];
-            const mainComponentName = getApiComponentName(comp.name);
+            const mainComponentName = getApiComponentName(apiDoc, comp.name);
 
             return {
                 name: comp.name,
@@ -509,7 +544,8 @@ function generateJsonOutput(components, apiDocs) {
                     slots: getSlotsFromApi(apiDoc, mainComponentName),
                     emits: getEmitsFromApi(apiDoc, mainComponentName),
                     pt: getPTOptionsFromApi(apiDoc, mainComponentName),
-                    styles: getStyleOptionsFromApi(apiDocs, mainComponentName)
+                    styles: getStyleOptionsFromApi(apiDocs, mainComponentName),
+                    tokens: getTokenOptionsFromApi(mainComponentName)
                 }
             };
         })

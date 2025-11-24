@@ -146,5 +146,54 @@ Default placeholder for a mask is underscore that can be customized using slotCh
 <InputMask id="basic" v-model="value" placeholder="99/99/9999" mask="99/99/9999" slotChar="mm/dd/yyyy" />
 ```
 
-## Inputmask
+## Input Mask
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | null \| string | - | Value of the component. |
+| defaultValue | null \| string | - | The default value for the input when not controlled by  `modelValue` . |
+| slotChar | string | _ | Placeholder character in mask, default is underscore. |
+| mask | string | - | Mask pattern. |
+| id | string | - | Identifier of the element. |
+| class | string \| object | - | Style class of the input field. |
+| placeholder | string | - | Placeholder text for the input. |
+| autoClear | boolean | true | Clears the incomplete value on blur. |
+| unmask | boolean | false | Defines if model sets the raw unmasked value to bound value or the formatted mask value. |
+| readonly | boolean | false | Whether the items are clickable or not. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| name | string | - | Name of the input element. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| disabled | boolean | false | When present, it specifies that the component should be disabled. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<InputMaskPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+### Emits
+
+| Name | Parameters | Description |
+|------|------------|-------------|
+| keypress | Function |  |
+| paste | Function |  |
+| complete | Function |  |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | InputMaskPassThroughOptionType | Used to pass attributes to the InputText component. |
+| pcInputText | any | Used to pass attributes to the InputText component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-inputmask | Class name of the root element |
 

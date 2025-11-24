@@ -75,5 +75,90 @@ ToggleButton provides small and large sizes as alternatives to the base.
 <ToggleButton v-model="value3" onLabel="On" offLabel="Off" size="large" class="min-w-24" />
 ```
 
-## Togglebutton
+## Toggle Button
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| modelValue | boolean | false | Value of the component. |
+| defaultValue | boolean | - | The default value for the input when not controlled by  `modelValue` . |
+| name | string | - | The name attribute for the element, typically used in form submissions. |
+| onIcon | string | - | Icon for the on state. |
+| offIcon | string | - | Icon for the off state. |
+| onLabel | string | yes | Label for the on state. |
+| offLabel | string | no | Label for the off state. |
+| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
+| disabled | boolean | false | When present, it specifies that the element should be disabled. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| readonly | boolean | - | When present, it specifies that an input field is read-only. |
+| tabindex | string | - | Index of the element in tabbing order. |
+| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
+| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ToggleButtonPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ToggleButtonPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| content | ToggleButtonPassThroughOptionType<T> | Used to pass attributes to the content's DOM element. |
+| icon | ToggleButtonPassThroughOptionType<T> | Used to pass attributes to the icon's DOM element. |
+| label | ToggleButtonPassThroughOptionType<T> | Used to pass attributes to the label's DOM element. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-togglebutton | Class name of the root element |
+| p-togglebutton-icon | Class name of the icon element |
+| p-togglebutton-label | Class name of the label element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| togglebutton.padding | --p-togglebutton-padding | Padding of root |
+| togglebutton.border.radius | --p-togglebutton-border-radius | Border radius of root |
+| togglebutton.gap | --p-togglebutton-gap | Gap of root |
+| togglebutton.font.weight | --p-togglebutton-font-weight | Font weight of root |
+| togglebutton.disabled.background | --p-togglebutton-disabled-background | Disabled background of root |
+| togglebutton.disabled.border.color | --p-togglebutton-disabled-border-color | Disabled border color of root |
+| togglebutton.disabled.color | --p-togglebutton-disabled-color | Disabled color of root |
+| togglebutton.invalid.border.color | --p-togglebutton-invalid-border-color | Invalid border color of root |
+| togglebutton.focus.ring.width | --p-togglebutton-focus-ring-width | Focus ring width of root |
+| togglebutton.focus.ring.style | --p-togglebutton-focus-ring-style | Focus ring style of root |
+| togglebutton.focus.ring.color | --p-togglebutton-focus-ring-color | Focus ring color of root |
+| togglebutton.focus.ring.offset | --p-togglebutton-focus-ring-offset | Focus ring offset of root |
+| togglebutton.focus.ring.shadow | --p-togglebutton-focus-ring-shadow | Focus ring shadow of root |
+| togglebutton.transition.duration | --p-togglebutton-transition-duration | Transition duration of root |
+| togglebutton.sm.font.size | --p-togglebutton-sm-font-size | Sm font size of root |
+| togglebutton.sm.padding | --p-togglebutton-sm-padding | Sm padding of root |
+| togglebutton.lg.font.size | --p-togglebutton-lg-font-size | Lg font size of root |
+| togglebutton.lg.padding | --p-togglebutton-lg-padding | Lg padding of root |
+| togglebutton.background | --p-togglebutton-background | Background of root |
+| togglebutton.checked.background | --p-togglebutton-checked-background | Checked background of root |
+| togglebutton.hover.background | --p-togglebutton-hover-background | Hover background of root |
+| togglebutton.border.color | --p-togglebutton-border-color | Border color of root |
+| togglebutton.color | --p-togglebutton-color | Color of root |
+| togglebutton.hover.color | --p-togglebutton-hover-color | Hover color of root |
+| togglebutton.checked.color | --p-togglebutton-checked-color | Checked color of root |
+| togglebutton.checked.border.color | --p-togglebutton-checked-border-color | Checked border color of root |
+| togglebutton.icon.disabled.color | --p-togglebutton-icon-disabled-color | Disabled color of icon |
+| togglebutton.icon.color | --p-togglebutton-icon-color | Color of icon |
+| togglebutton.icon.hover.color | --p-togglebutton-icon-hover-color | Hover color of icon |
+| togglebutton.icon.checked.color | --p-togglebutton-icon-checked-color | Checked color of icon |
+| togglebutton.content.padding | --p-togglebutton-content-padding | Padding of content |
+| togglebutton.content.border.radius | --p-togglebutton-content-border-radius | Border radius of content |
+| togglebutton.content.checked.shadow | --p-togglebutton-content-checked-shadow | Checked shadow of content |
+| togglebutton.content.sm.padding | --p-togglebutton-content-sm-padding | Sm padding of content |
+| togglebutton.content.lg.padding | --p-togglebutton-content-lg-padding | Lg padding of content |
+| togglebutton.content.checked.background | --p-togglebutton-content-checked-background | Checked background of content |
 

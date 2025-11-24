@@ -127,3 +127,15 @@ There are four choices to position the tooltip, default value is right and alter
 | p-tooltip-arrow | Class name of the arrow element |
 | p-tooltip-text | Class name of the text element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| tooltip.max.width | --p-tooltip-max-width | Max width of root |
+| tooltip.gutter | --p-tooltip-gutter | Gutter of root |
+| tooltip.shadow | --p-tooltip-shadow | Shadow of root |
+| tooltip.padding | --p-tooltip-padding | Padding of root |
+| tooltip.border.radius | --p-tooltip-border-radius | Border radius of root |
+| tooltip.background | --p-tooltip-background | Background of root |
+| tooltip.color | --p-tooltip-color | Color of root |
+

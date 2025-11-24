@@ -2,28 +2,21 @@
     <DocComponent
         title="LLMs.txt - PrimeVue"
         header="LLMs.txt"
-        description="PrimeVue provides LLM-friendly documentation formats to help AI models better understand and navigate the component library."
+        description="LLMs.txt is a file that contains the LLMs for the PrimeVue documentation."
         :componentDocs="docs"
         :apiDocs="[]"
     />
 </template>
 
 <script>
-import OverviewDoc from '@/doc/llms/OverviewDoc.vue';
 import LlmsTxtDoc from '@/doc/llms/LlmsTxtDoc.vue';
 import LlmsFullTxtDoc from '@/doc/llms/LlmsFullTxtDoc.vue';
 import MarkdownExtensionDoc from '@/doc/llms/MarkdownExtensionDoc.vue';
-import UsageExamplesDoc from '@/doc/llms/UsageExamplesDoc.vue';
 
 export default {
     data() {
         return {
             docs: [
-                {
-                    id: 'overview',
-                    label: 'Overview',
-                    component: OverviewDoc
-                },
                 {
                     id: 'llmstxt',
                     label: '/llms.txt',
@@ -36,13 +29,8 @@ export default {
                 },
                 {
                     id: 'markdown',
-                    label: '.md Extension',
+                    label: '.md extension',
                     component: MarkdownExtensionDoc
-                },
-                {
-                    id: 'examples',
-                    label: 'Usage Examples',
-                    component: UsageExamplesDoc
                 }
             ]
         };

@@ -426,3 +426,86 @@ Specifying view as year in addition to a suitable dateFormat enables the year pi
 | p-datepicker-today-button | Class name of the today button element |
 | p-datepicker-clear-button | Class name of the clear button element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| datepicker.transition.duration | --p-datepicker-transition-duration | Transition duration of root |
+| datepicker.panel.background | --p-datepicker-panel-background | Background of panel |
+| datepicker.panel.border.color | --p-datepicker-panel-border-color | Border color of panel |
+| datepicker.panel.color | --p-datepicker-panel-color | Color of panel |
+| datepicker.panel.border.radius | --p-datepicker-panel-border-radius | Border radius of panel |
+| datepicker.panel.shadow | --p-datepicker-panel-shadow | Shadow of panel |
+| datepicker.panel.padding | --p-datepicker-panel-padding | Padding of panel |
+| datepicker.header.background | --p-datepicker-header-background | Background of header |
+| datepicker.header.border.color | --p-datepicker-header-border-color | Border color of header |
+| datepicker.header.color | --p-datepicker-header-color | Color of header |
+| datepicker.header.padding | --p-datepicker-header-padding | Padding of header |
+| datepicker.title.gap | --p-datepicker-title-gap | Gap of title |
+| datepicker.title.font.weight | --p-datepicker-title-font-weight | Font weight of title |
+| datepicker.dropdown.width | --p-datepicker-dropdown-width | Width of dropdown |
+| datepicker.dropdown.sm.width | --p-datepicker-dropdown-sm-width | Sm width of dropdown |
+| datepicker.dropdown.lg.width | --p-datepicker-dropdown-lg-width | Lg width of dropdown |
+| datepicker.dropdown.border.color | --p-datepicker-dropdown-border-color | Border color of dropdown |
+| datepicker.dropdown.hover.border.color | --p-datepicker-dropdown-hover-border-color | Hover border color of dropdown |
+| datepicker.dropdown.active.border.color | --p-datepicker-dropdown-active-border-color | Active border color of dropdown |
+| datepicker.dropdown.border.radius | --p-datepicker-dropdown-border-radius | Border radius of dropdown |
+| datepicker.dropdown.focus.ring.width | --p-datepicker-dropdown-focus-ring-width | Focus ring width of dropdown |
+| datepicker.dropdown.focus.ring.style | --p-datepicker-dropdown-focus-ring-style | Focus ring style of dropdown |
+| datepicker.dropdown.focus.ring.color | --p-datepicker-dropdown-focus-ring-color | Focus ring color of dropdown |
+| datepicker.dropdown.focus.ring.offset | --p-datepicker-dropdown-focus-ring-offset | Focus ring offset of dropdown |
+| datepicker.dropdown.focus.ring.shadow | --p-datepicker-dropdown-focus-ring-shadow | Focus ring shadow of dropdown |
+| datepicker.dropdown.background | --p-datepicker-dropdown-background | Background of dropdown |
+| datepicker.dropdown.hover.background | --p-datepicker-dropdown-hover-background | Hover background of dropdown |
+| datepicker.dropdown.active.background | --p-datepicker-dropdown-active-background | Active background of dropdown |
+| datepicker.dropdown.color | --p-datepicker-dropdown-color | Color of dropdown |
+| datepicker.dropdown.hover.color | --p-datepicker-dropdown-hover-color | Hover color of dropdown |
+| datepicker.dropdown.active.color | --p-datepicker-dropdown-active-color | Active color of dropdown |
+| datepicker.input.icon.color | --p-datepicker-input-icon-color | Color of input icon |
+| datepicker.select.month.hover.background | --p-datepicker-select-month-hover-background | Hover background of select month |
+| datepicker.select.month.color | --p-datepicker-select-month-color | Color of select month |
+| datepicker.select.month.hover.color | --p-datepicker-select-month-hover-color | Hover color of select month |
+| datepicker.select.month.padding | --p-datepicker-select-month-padding | Padding of select month |
+| datepicker.select.month.border.radius | --p-datepicker-select-month-border-radius | Border radius of select month |
+| datepicker.select.year.hover.background | --p-datepicker-select-year-hover-background | Hover background of select year |
+| datepicker.select.year.color | --p-datepicker-select-year-color | Color of select year |
+| datepicker.select.year.hover.color | --p-datepicker-select-year-hover-color | Hover color of select year |
+| datepicker.select.year.padding | --p-datepicker-select-year-padding | Padding of select year |
+| datepicker.select.year.border.radius | --p-datepicker-select-year-border-radius | Border radius of select year |
+| datepicker.group.border.color | --p-datepicker-group-border-color | Border color of group |
+| datepicker.group.gap | --p-datepicker-group-gap | Gap of group |
+| datepicker.day.view.margin | --p-datepicker-day-view-margin | Margin of day view |
+| datepicker.week.day.padding | --p-datepicker-week-day-padding | Padding of week day |
+| datepicker.week.day.font.weight | --p-datepicker-week-day-font-weight | Font weight of week day |
+| datepicker.week.day.color | --p-datepicker-week-day-color | Color of week day |
+| datepicker.date.hover.background | --p-datepicker-date-hover-background | Hover background of date |
+| datepicker.date.selected.background | --p-datepicker-date-selected-background | Selected background of date |
+| datepicker.date.range.selected.background | --p-datepicker-date-range-selected-background | Range selected background of date |
+| datepicker.date.color | --p-datepicker-date-color | Color of date |
+| datepicker.date.hover.color | --p-datepicker-date-hover-color | Hover color of date |
+| datepicker.date.selected.color | --p-datepicker-date-selected-color | Selected color of date |
+| datepicker.date.range.selected.color | --p-datepicker-date-range-selected-color | Range selected color of date |
+| datepicker.date.width | --p-datepicker-date-width | Width of date |
+| datepicker.date.height | --p-datepicker-date-height | Height of date |
+| datepicker.date.border.radius | --p-datepicker-date-border-radius | Border radius of date |
+| datepicker.date.padding | --p-datepicker-date-padding | Padding of date |
+| datepicker.date.focus.ring.width | --p-datepicker-date-focus-ring-width | Focus ring width of date |
+| datepicker.date.focus.ring.style | --p-datepicker-date-focus-ring-style | Focus ring style of date |
+| datepicker.date.focus.ring.color | --p-datepicker-date-focus-ring-color | Focus ring color of date |
+| datepicker.date.focus.ring.offset | --p-datepicker-date-focus-ring-offset | Focus ring offset of date |
+| datepicker.date.focus.ring.shadow | --p-datepicker-date-focus-ring-shadow | Focus ring shadow of date |
+| datepicker.month.view.margin | --p-datepicker-month-view-margin | Margin of month view |
+| datepicker.month.padding | --p-datepicker-month-padding | Padding of month |
+| datepicker.month.border.radius | --p-datepicker-month-border-radius | Border radius of month |
+| datepicker.year.view.margin | --p-datepicker-year-view-margin | Margin of year view |
+| datepicker.year.padding | --p-datepicker-year-padding | Padding of year |
+| datepicker.year.border.radius | --p-datepicker-year-border-radius | Border radius of year |
+| datepicker.buttonbar.padding | --p-datepicker-buttonbar-padding | Padding of buttonbar |
+| datepicker.buttonbar.border.color | --p-datepicker-buttonbar-border-color | Border color of buttonbar |
+| datepicker.time.picker.padding | --p-datepicker-time-picker-padding | Padding of time picker |
+| datepicker.time.picker.border.color | --p-datepicker-time-picker-border-color | Border color of time picker |
+| datepicker.time.picker.gap | --p-datepicker-time-picker-gap | Gap of time picker |
+| datepicker.time.picker.button.gap | --p-datepicker-time-picker-button-gap | Button gap of time picker |
+| datepicker.today.background | --p-datepicker-today-background | Background of today |
+| datepicker.today.color | --p-datepicker-today-color | Color of today |
+

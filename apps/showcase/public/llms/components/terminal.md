@@ -69,3 +69,16 @@ Commands are processed using an EventBus implementation called TerminalService .
 | p-terminal-prompt-label | Class name of the prompt label element |
 | p-terminal-prompt-value | Class name of the prompt value element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| terminal.background | --p-terminal-background | Background of root |
+| terminal.border.color | --p-terminal-border-color | Border color of root |
+| terminal.color | --p-terminal-color | Color of root |
+| terminal.height | --p-terminal-height | Height of root |
+| terminal.padding | --p-terminal-padding | Padding of root |
+| terminal.border.radius | --p-terminal-border-radius | Border radius of root |
+| terminal.prompt.gap | --p-terminal-prompt-gap | Gap of prompt |
+| terminal.command.response.margin | --p-terminal-command-response-margin | Margin of command response |
+

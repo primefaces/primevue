@@ -56,5 +56,56 @@ The position property of the confirm options specifies the location of the Dialo
 
 Templating allows customizing the message content.
 
-## Confirmdialog
+## Confirm Dialog
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| group | string | - | Optional key to match the key of the confirmation, useful to target a specific confirm dialog instance. |
+| breakpoints | ConfirmDialogBreakpoints | - | Object literal to define widths per screen size. |
+| draggable | boolean | true | Enables dragging to change the position using header. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<ConfirmDialogPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | ConfirmDialogPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| header | ConfirmDialogPassThroughOptionType | Used to pass attributes to the header's DOM element. |
+| title | ConfirmDialogPassThroughOptionType | Used to pass attributes to the header title's DOM element. |
+| headerActions | ConfirmDialogPassThroughOptionType | Used to pass attributes to the header actions' DOM element. |
+| pcCloseButton | ConfirmDialogPassThroughOptionType | Used to pass attributes to the close button's component. |
+| content | ConfirmDialogPassThroughOptionType | Used to pass attributes to the content's DOM element. |
+| icon | ConfirmDialogPassThroughOptionType | Used to pass attributes to the icon's DOM element. |
+| message | ConfirmDialogPassThroughOptionType | Used to pass attributes to the message's DOM element. |
+| footer | ConfirmDialogPassThroughOptionType | Used to pass attributes to the footer's DOM element. |
+| mask | ConfirmDialogPassThroughOptionType | Used to pass attributes to the mask's DOM element. |
+| pcRejectButton | any | Used to pass attributes to the Button component. |
+| pcAcceptButton | any | Used to pass attributes to the Button component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+| transition | ConfirmDialogPassThroughOptionType | Used to control Vue Transition API. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-confirmdialog | Class name of the root element |
+| p-confirmdialog-icon | Class name of the icon element |
+| p-confirmdialog-message | Class name of the message element |
+| p-confirmdialog-reject-button | Class name of the reject button element |
+| p-confirmdialog-accept-button | Class name of the accept button element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| confirmdialog.icon.size | --p-confirmdialog-icon-size | Size of icon |
+| confirmdialog.icon.color | --p-confirmdialog-icon-color | Color of icon |
+| confirmdialog.content.gap | --p-confirmdialog-content-gap | Gap of content |
 

@@ -2,22 +2,6 @@
 
 ## Components
 
-- [autoimport](https://primevue.org/autoimport): 
-- [cdn](https://primevue.org/cdn): 
-- [configuration](https://primevue.org/configuration): 
-- [contribution](https://primevue.org/contribution): 
-- [customicons](https://primevue.org/customicons): 
-- [designer](https://primevue.org/designer): 
-- [icons](https://primevue.org/icons): 
-- [introduction](https://primevue.org/introduction): 
-- [laravel](https://primevue.org/laravel): 
-- [LLMs.txt - PrimeVue](https://primevue.org/llms): PrimeVue provides LLM-friendly documentation formats to help AI models better understand and navigate the component library.
-- [nuxt](https://primevue.org/nuxt): 
-- [passthrough](https://primevue.org/passthrough): 
-- [setup](https://primevue.org/setup): 
-- [tailwind](https://primevue.org/tailwind): 
-- [uikit](https://primevue.org/uikit): 
-- [vite](https://primevue.org/vite): 
 - [Vue Accordion Component](https://primevue.org/accordion): Accordion groups a collection of contents in panels.
 - [Vue AnimateOnScroll Directive](https://primevue.org/animateonscroll): AnimateOnScroll is used to apply animations to elements when entering or leaving the viewport during scrolling.
 - [Vue AutoComplete Component](https://primevue.org/autocomplete): AutoComplete is an input component that provides real-time suggestions when being typed.
@@ -50,7 +34,6 @@
 - [Vue Float Label](https://primevue.org/floatlabel): FloatLabel visually integrates a label with its form element.
 - [Vue Fluid Component](https://primevue.org/fluid): Fluid is a layout component to make descendant components span full width of their container.
 - [Vue FocusTrap Directive](https://primevue.org/focustrap): Focus Trap keeps focus within a certain DOM element while tabbing.
-- [Vue Form Library](https://primevue.org/forms): The PrimeVue Forms library provides comprehensive form state management with built-in validation support.
 - [Vue Gallery Component](https://primevue.org/galleria): Galleria is a content gallery component.
 - [Vue IconField](https://primevue.org/iconfield): IconField wraps an input and an icon.
 - [Vue Ifta Label](https://primevue.org/iftalabel): IftaLabel is used to create infield top aligned labels

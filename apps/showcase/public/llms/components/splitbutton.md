@@ -159,5 +159,63 @@ Text buttons are displayed as textual elements.
 <SplitButton label="Save" :model="items" @click="save" text severity="danger"></SplitButton>
 ```
 
-## Splitbutton
+## Split Button
+
+### Props
+
+| Name | Type | Default | Description |
+|------|------|---------|-------------|
+| label | string | - | Text of the button. |
+| icon | string | - | Name of the icon. |
+| model | MenuItem[] | - | MenuModel instance to define the overlay items. |
+| autoZIndex | boolean | true | Whether to automatically manage layering. |
+| baseZIndex | number | 0 | Base zIndex value to use in layering. |
+| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself. |
+| disabled | boolean | false | When present, it specifies that the element should be disabled. |
+| fluid | boolean | null | Spans 100% width of the container when enabled. |
+| class | any | - | Style class of the component. |
+| style | any | - | Inline style of the component. |
+| buttonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the default button. |
+| menuButtonProps | ButtonHTMLAttributes | - | Used to pass all properties of the HTMLButtonElement to the menu button. |
+| menuButtonIcon | string | - | Name of the menu button icon. |
+| dropdownIcon | string | - | Name of the menu button icon. |
+| severity | HintedString<"secondary" \| "info" \| "success" \| "warn" \| "danger" \| "contrast" \| "help"> | - | Defines the style of the button. |
+| raised | boolean | false | Add a shadow to indicate elevation. |
+| rounded | boolean | false | Add a circular border radius to the button. |
+| text | boolean | false | Add a textual class to the button without a background initially. |
+| outlined | boolean | false | Add a border class without a background initially. |
+| size | HintedString<"small" \| "large"> | - | Defines the size of the button. |
+| plain | boolean | false | Add a plain textual class to the button without a background initially. |
+| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
+| pt | PassThrough<SplitButtonPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
+| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
+| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+
+## Pass Through Options
+
+| Name | Type | Description |
+|------|------|-------------|
+| root | SplitButtonPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| pcButton | any | Used to pass attributes to the Button component. |
+| pcDropdown | any | Used to pass attributes to the Button component. |
+| pcMenu | any | Used to pass attributes to the TieredMenu component. |
+| hooks | any | Used to manage all lifecycle hooks. |
+
+## Theming
+
+### CSS Classes
+
+| Class | Description |
+|-------|-------------|
+| p-splitbutton | Class name of the root element |
+| p-splitbutton-button | Class name of the button element |
+| p-splitbutton-dropdown | Class name of the dropdown element |
+
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| splitbutton.border.radius | --p-splitbutton-border-radius | Border radius of root |
+| splitbutton.rounded.border.radius | --p-splitbutton-rounded-border-radius | Rounded border radius of root |
+| splitbutton.raised.shadow | --p-splitbutton-raised-shadow | Raised shadow of root |
 

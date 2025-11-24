@@ -99,3 +99,16 @@ In this sample, data is retrieved from the content inside the popover.
 | p-popover | Class name of the root element |
 | p-popover-content | Class name of the content element |
 
+### Design Tokens
+
+| Token | CSS Variable | Description |
+|-------|--------------|-------------|
+| popover.background | --p-popover-background | Background of root |
+| popover.border.color | --p-popover-border-color | Border color of root |
+| popover.color | --p-popover-color | Color of root |
+| popover.border.radius | --p-popover-border-radius | Border radius of root |
+| popover.shadow | --p-popover-shadow | Shadow of root |
+| popover.gutter | --p-popover-gutter | Gutter of root |
+| popover.arrow.offset | --p-popover-arrow-offset | Arrow offset of root |
+| popover.content.padding | --p-popover-content-padding | Padding of content |
+
