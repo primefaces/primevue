@@ -2,14 +2,19 @@ import fs from 'fs';
 import path from 'path';
 
 export default defineEventHandler((event) => {
-    const component = getRouterParam(event, 'component');
+    // Extract component name from the URL path
+    // URL will be like /button.md, we need to extract 'button'
+    const url = event.node.req.url || '';
+    const match = url.match(/^\/([^\/]+)\.md$/);
 
-    if (!component) {
+    if (!match) {
         throw createError({
             statusCode: 400,
-            statusMessage: 'Component name is required'
+            statusMessage: 'Invalid request format. Use /{component}.md'
         });
     }
+
+    const component = match[1];
 
     const filePath = path.resolve(`./public/llms/components/${component}.md`);
 
@@ -24,8 +29,9 @@ export default defineEventHandler((event) => {
 
     return new Response(content, {
         headers: {
-            'Content-Type': 'text/plain; charset=utf-8',
-            'Cache-Control': 'public, max-age=3600'
+            'Content-Type': 'text/markdown; charset=utf-8',
+            // Cache for 5 minutes in production, no cache in development
+            'Cache-Control': process.env.NODE_ENV === 'production' ? 'public, max-age=300' : 'no-cache'
         }
     });
 });
