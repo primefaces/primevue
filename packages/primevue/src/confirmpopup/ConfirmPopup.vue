@@ -1,6 +1,6 @@
 <template>
     <Portal>
-        <transition name="p-confirmpopup" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
+        <transition name="p-anchored-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
             <div v-if="visible" :ref="containerRef" v-focustrap role="alertdialog" :class="cx('root')" :aria-modal="visible" @click="onOverlayClick" @keydown="onOverlayKeydown" v-bind="ptmi('root')">
                 <slot v-if="$slots.container" name="container" :message="confirmation" :acceptCallback="accept" :rejectCallback="reject"></slot>
                 <template v-else>

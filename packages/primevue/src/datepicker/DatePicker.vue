@@ -64,7 +64,7 @@
             </span>
         </template>
         <Portal :appendTo="appendTo" :disabled="inline">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave" v-bind="ptm('transition')">
+            <transition name="p-anchored-overlay" @enter="onOverlayEnter($event)" @after-enter="onOverlayEnterComplete" @after-leave="onOverlayAfterLeave" @leave="onOverlayLeave" v-bind="ptm('transition')">
                 <div
                     v-if="inline || overlayVisible"
                     :ref="overlayRef"

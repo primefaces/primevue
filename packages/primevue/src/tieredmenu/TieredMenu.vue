@@ -1,6 +1,6 @@
 <template>
     <Portal :appendTo="appendTo" :disabled="!popup">
-        <transition name="p-connected-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
+        <transition name="p-anchored-overlay" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
             <div v-if="visible" :ref="containerRef" :id="$id" :class="cx('root')" @click="onOverlayClick" v-bind="ptmi('root')">
                 <div v-if="$slots.start" :class="cx('start')" v-bind="ptm('start')">
                     <slot name="start"></slot>

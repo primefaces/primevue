@@ -45,7 +45,7 @@
             {{ infoText }}
         </span>
         <Portal :appendTo="appendTo">
-            <transition name="p-connected-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
+            <transition name="p-anchored-overlay" @enter="onOverlayEnter" @leave="onOverlayLeave" @after-leave="onOverlayAfterLeave" v-bind="ptm('transition')">
                 <div
                     v-if="overlayVisible"
                     :ref="overlayRef"
