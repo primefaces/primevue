@@ -2,7 +2,9 @@
     <div :class="containerClass" :data-p-theme="$appState.theme">
         <AppNews />
         <AppTopBar @menubutton-click="onMenuButtonClick" />
-        <div :class="['layout-mask', { 'layout-mask-active': sidebarActive }]" @click="onMaskClick"></div>
+        <Transition name="px-modal">
+            <div v-if="sidebarActive" class="layout-mask" @click="onMaskClick"></div>
+        </Transition>
         <div class="layout-content">
             <app-menu :active="sidebarActive" />
             <div class="layout-content-slot">

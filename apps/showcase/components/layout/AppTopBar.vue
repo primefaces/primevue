@@ -86,7 +86,7 @@
                 </li>
                 <li>
                     <button
-                        v-styleclass="{ selector: '@next', enterFromClass: 'hidden', enterActiveClass: 'animate-scalein', leaveToClass: 'hidden', leaveActiveClass: 'animate-fadeout', hideOnOutsideClick: true }"
+                        v-styleclass="{ selector: '@next', enterFromClass: 'hidden', enterActiveClass: 'px-overlay-enter-active', leaveToClass: 'hidden', leaveActiveClass: 'px-overlay-leave-active', hideOnOutsideClick: true }"
                         type="button"
                         class="topbar-item config-item"
                     >
@@ -106,7 +106,7 @@
                 </li>
                 <li>
                     <button
-                        v-styleclass="{ selector: '@next', enterFromClass: 'hidden', enterActiveClass: 'animate-scalein', leaveToClass: 'hidden', leaveActiveClass: 'animate-fadeout', hideOnOutsideClick: true }"
+                        v-styleclass="{ selector: '@next', enterFromClass: 'hidden', enterActiveClass: 'px-overlay-enter-active', leaveToClass: 'hidden', leaveActiveClass: 'px-overlay-leave-active', hideOnOutsideClick: true }"
                         type="button"
                         style="max-width: 8rem"
                         class="topbar-item version-item"

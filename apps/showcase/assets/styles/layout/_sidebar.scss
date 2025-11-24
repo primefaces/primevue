@@ -4,7 +4,7 @@
     top: 6rem;
     height: calc(100vh - 9rem);
     user-select: none;
-    transition: transform .4s cubic-bezier(.05, .74, .2, .99), opacity .3s;
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
     display: flex;
     flex-direction: column;
     padding: 0;
