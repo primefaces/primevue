@@ -24,10 +24,12 @@
                 </button>
             </slot>
         </legend>
-        <transition name="p-toggleable-content" v-bind="ptm('transition')">
+        <transition name="p-collapsible" v-bind="ptm('transition')">
             <div v-show="!d_collapsed" :id="$id + '_content'" :class="cx('contentContainer')" role="region" :aria-labelledby="$id + '_header'" v-bind="ptm('contentContainer')">
-                <div :class="cx('content')" v-bind="ptm('content')">
-                    <slot></slot>
+                <div :class="cx('contentWrapper')" v-bind="ptm('contentWrapper')">
+                    <div :class="cx('content')" v-bind="ptm('content')">
+                        <slot></slot>
+                    </div>
                 </div>
             </div>
         </transition>

@@ -91,6 +91,10 @@ export interface FieldsetPassThroughOptions {
      */
     contentContainer?: FieldsetPassThroughOptionType;
     /**
+     * Used to pass attributes to the content wrapper DOM element.
+     */
+    contentWrapper?: FieldsetPassThroughOptionType;
+    /**
      * Used to pass attributes to the content's DOM element.
      */
     content?: FieldsetPassThroughOptionType;

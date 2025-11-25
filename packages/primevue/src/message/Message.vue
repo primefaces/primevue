@@ -1,21 +1,23 @@
 <template>
     <transition name="p-message" appear v-bind="ptmi('transition')">
         <div v-if="visible" :class="cx('root')" role="alert" aria-live="assertive" aria-atomic="true" :data-p="dataP" v-bind="ptm('root')">
-            <slot v-if="$slots.container" name="container" :closeCallback="close"></slot>
-            <div v-else :class="cx('content')" :data-p="dataP" v-bind="ptm('content')">
-                <slot name="icon" :class="cx('icon')">
-                    <component :is="icon ? 'span' : null" :class="[cx('icon'), icon]" :data-p="dataP" v-bind="ptm('icon')"></component>
-                </slot>
-                <div v-if="$slots.default" :class="cx('text')" :data-p="dataP" v-bind="ptm('text')">
-                    <slot></slot>
-                </div>
-                <button v-if="closable" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" @click="close($event)" :data-p="dataP"
-                    v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">
-                    <slot name="closeicon">
-                        <i v-if="closeIcon" :class="[cx('closeIcon'), closeIcon]" :data-p="dataP" v-bind="ptm('closeIcon')" />
-                        <TimesIcon v-else :class="[cx('closeIcon'), closeIcon]" :data-p="dataP" v-bind="ptm('closeIcon')" />
+            <div :class="cx('contentWrapper')" v-bind="ptm('contentWrapper')">
+                <slot v-if="$slots.container" name="container" :closeCallback="close"></slot>
+                <div v-else :class="cx('content')" :data-p="dataP" v-bind="ptm('content')">
+                    <slot name="icon" :class="cx('icon')">
+                        <component :is="icon ? 'span' : null" :class="[cx('icon'), icon]" :data-p="dataP" v-bind="ptm('icon')"></component>
                     </slot>
-                </button>
+                    <div v-if="$slots.default" :class="cx('text')" :data-p="dataP" v-bind="ptm('text')">
+                        <slot></slot>
+                    </div>
+                    <button v-if="closable" v-ripple :class="cx('closeButton')" :aria-label="closeAriaLabel" type="button" @click="close($event)" :data-p="dataP"
+                        v-bind="{ ...closeButtonProps, ...ptm('closeButton') }">
+                        <slot name="closeicon">
+                            <i v-if="closeIcon" :class="[cx('closeIcon'), closeIcon]" :data-p="dataP" v-bind="ptm('closeIcon')" />
+                            <TimesIcon v-else :class="[cx('closeIcon'), closeIcon]" :data-p="dataP" v-bind="ptm('closeIcon')" />
+                        </slot>
+                    </button>
+                </div>
             </div>
         </div>
     </transition>

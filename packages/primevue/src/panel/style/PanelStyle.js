@@ -13,6 +13,7 @@ const classes = {
     headerActions: 'p-panel-header-actions',
     pcToggleButton: 'p-panel-toggle-button',
     contentContainer: 'p-panel-content-container',
+    contentWrapper: 'p-panel-content-wrapper',
     content: 'p-panel-content',
     footer: 'p-panel-footer'
 };

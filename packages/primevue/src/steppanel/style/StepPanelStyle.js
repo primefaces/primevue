@@ -7,6 +7,7 @@ const classes = {
             'p-steppanel-active': instance.isVertical && instance.active
         }
     ],
+    contentWrapper: 'p-steppanel-content-wrapper',
     content: 'p-steppanel-content'
 };
 

@@ -52,6 +52,10 @@ export interface MessagePassThroughOptions<T = any> {
      */
     root?: MessagePassThroughOptionType<T>;
     /**
+     * Used to pass attributes to the content wrapper DOM element.
+     */
+    contentWrapper?: MessagePassThroughOptionType<T>;
+    /**
      * Used to pass attributes to the content's DOM element.
      */
     content?: MessagePassThroughOptionType<T>;

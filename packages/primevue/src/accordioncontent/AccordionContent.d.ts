@@ -58,6 +58,10 @@ export interface AccordionContentPassThroughOptions {
      */
     transition?: AccordionContentPassThroughOptionType;
     /**
+     * Used to pass attributes to the content's wrapper DOM element.
+     */
+    contentWrapper?: AccordionContentPassThroughOptionType;
+    /**
      * Used to pass attributes to the content's DOM element.
      */
     content?: AccordionContentPassThroughOptionType;

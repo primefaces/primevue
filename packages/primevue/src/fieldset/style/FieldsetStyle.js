@@ -13,6 +13,7 @@ const classes = {
     toggleButton: 'p-fieldset-toggle-button',
     toggleIcon: 'p-fieldset-toggle-icon',
     contentContainer: 'p-fieldset-content-container',
+    contentWrapper: 'p-fieldset-content-wrapper',
     content: 'p-fieldset-content'
 };
 

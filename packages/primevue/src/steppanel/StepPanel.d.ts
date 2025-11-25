@@ -50,6 +50,10 @@ export interface StepPanelPassThroughOptions {
      */
     root?: StepPanelPassThroughOptionType;
     /**
+     * Used to pass attributes to the content's wrapper DOM element.
+     */
+    contentWrapper?: StepPanelPassThroughOptionType;
+    /**
      * Used to pass attributes to the content DOM element.
      */
     content?: StepPanelPassThroughOptionType;

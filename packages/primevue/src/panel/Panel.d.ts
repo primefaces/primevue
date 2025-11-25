@@ -107,6 +107,10 @@ export interface PanelPassThroughOptions {
      */
     contentContainer?: PanelPassThroughOptionType;
     /**
+     * Used to pass attributes to the content wrapper DOM element.
+     */
+    contentWrapper?: PanelPassThroughOptionType;
+    /**
      * Used to pass attributes to the content's DOM element.
      */
     content?: PanelPassThroughOptionType;

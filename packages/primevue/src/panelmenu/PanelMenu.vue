@@ -31,19 +31,21 @@
                         <component v-else :is="$slots.item" :item="item" :root="true" :active="isItemActive(item)" :hasSubmenu="isItemGroup(item)" :label="getItemLabel(item)" :props="getMenuItemProps(item, index)"></component>
                     </div>
                 </div>
-                <transition name="p-toggleable-content" v-bind="ptm('transition')">
+                <transition name="p-collapsible" v-bind="ptm('transition')">
                     <div v-show="isItemActive(item)" :id="getContentId(index)" :class="cx('contentContainer')" role="region" :aria-labelledby="getHeaderId(index)" v-bind="ptm('contentContainer')">
-                        <div v-if="getItemProp(item, 'items')" :class="cx('content')" v-bind="ptm('content')">
-                            <PanelMenuList
-                                :panelId="getPanelId(index)"
-                                :items="getItemProp(item, 'items')"
-                                :templates="$slots"
-                                :expandedKeys="expandedKeys"
-                                @item-toggle="changeExpandedKeys"
-                                @header-focus="updateFocusedHeader"
-                                :pt="pt"
-                                :unstyled="unstyled"
-                            />
+                        <div :class="cx('contentWrapper')" v-bind="ptm('contentWrapper')">
+                            <div v-if="getItemProp(item, 'items')" :class="cx('content')" v-bind="ptm('content')">
+                                <PanelMenuList
+                                    :panelId="getPanelId(index)"
+                                    :items="getItemProp(item, 'items')"
+                                    :templates="$slots"
+                                    :expandedKeys="expandedKeys"
+                                    @item-toggle="changeExpandedKeys"
+                                    @header-focus="updateFocusedHeader"
+                                    :pt="pt"
+                                    :unstyled="unstyled"
+                                />
+                            </div>
                         </div>
                     </div>
                 </transition>

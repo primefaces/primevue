@@ -11,6 +11,7 @@ const classes = {
             'p-message-lg': props.size === 'large'
         }
     ],
+    contentWrapper: 'p-message-content-wrapper',
     content: 'p-message-content',
     icon: 'p-message-icon',
     text: 'p-message-text',

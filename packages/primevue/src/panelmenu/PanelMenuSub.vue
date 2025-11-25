@@ -39,24 +39,26 @@
                         :props="getMenuItemProps(processedItem, index)"
                     ></component>
                 </div>
-                <transition name="p-toggleable-content" v-bind="ptm('transition')">
+                <transition name="p-collapsible" v-bind="ptm('transition')">
                     <div v-show="isItemActive(processedItem)" :class="cx('contentContainer')" v-bind="ptm('contentContainer')">
-                        <PanelMenuSub
-                            v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
-                            :id="getItemId(processedItem) + '_list'"
-                            role="group"
-                            :panelId="panelId"
-                            :focusedItemId="focusedItemId"
-                            :items="processedItem.items"
-                            :level="level + 1"
-                            :templates="templates"
-                            :activeItemPath="activeItemPath"
-                            @item-toggle="onItemToggle"
-                            @item-mousemove="$emit('item-mousemove', $event)"
-                            :pt="pt"
-                            :unstyled="unstyled"
-                            v-bind="ptm('submenu')"
-                        />
+                        <div :class="cx('contentWrapper')" v-bind="ptm('contentWrapper')">
+                            <PanelMenuSub
+                                v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
+                                :id="getItemId(processedItem) + '_list'"
+                                role="group"
+                                :panelId="panelId"
+                                :focusedItemId="focusedItemId"
+                                :items="processedItem.items"
+                                :level="level + 1"
+                                :templates="templates"
+                                :activeItemPath="activeItemPath"
+                                @item-toggle="onItemToggle"
+                                @item-mousemove="$emit('item-mousemove', $event)"
+                                :pt="pt"
+                                :unstyled="unstyled"
+                                v-bind="ptm('submenu')"
+                            />
+                        </div>
                     </div>
                 </transition>
             </li>
