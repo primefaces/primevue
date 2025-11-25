@@ -1964,6 +1964,14 @@
                             "description": "Used to pass attributes to the transition's DOM element."
                         },
                         {
+                            "name": "contentWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "AccordionContentPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the content's wrapper DOM element."
+                        },
+                        {
                             "name": "content",
                             "optional": true,
                             "readonly": false,
@@ -7543,6 +7551,22 @@
                             "default": ""
                         },
                         {
+                            "name": "enterkeyhint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"enter\" | \"done\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+                            "default": ""
+                        },
+                        {
+                            "name": "enterKeyHint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"enter\" | \"done\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+                            "default": "",
+                            "description": "",
+                            "deprecated": "Use "
+                        },
+                        {
                             "name": "hidden",
                             "optional": true,
                             "readonly": false,
@@ -7763,7 +7787,7 @@
                             "name": "inputmode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"text\" | \"none\" | \"tel\" | \"url\" | \"email\" | \"numeric\" | \"decimal\" | \"search\"",
+                            "type": "\"text\" | \"search\" | \"none\" | \"tel\" | \"url\" | \"email\" | \"numeric\" | \"decimal\"",
                             "default": "",
                             "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
                         },
@@ -7774,6 +7798,22 @@
                             "type": "string",
                             "default": "",
                             "description": "Specify that a standard HTML element should behave like a defined custom built-in element"
+                        },
+                        {
+                            "name": "exportparts",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "part",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": ""
                         },
                         {
                             "name": "autofocus",
@@ -29780,6 +29820,14 @@
                             "description": "Used to pass attributes to the content container's DOM element."
                         },
                         {
+                            "name": "contentWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "FieldsetPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the content wrapper DOM element."
+                        },
+                        {
                             "name": "content",
                             "optional": true,
                             "readonly": false,
@@ -39535,6 +39583,22 @@
                             "default": ""
                         },
                         {
+                            "name": "enterkeyhint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"enter\" | \"done\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+                            "default": ""
+                        },
+                        {
+                            "name": "enterKeyHint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"enter\" | \"done\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+                            "default": "",
+                            "description": "",
+                            "deprecated": "Use "
+                        },
+                        {
                             "name": "hidden",
                             "optional": true,
                             "readonly": false,
@@ -39748,7 +39812,7 @@
                             "name": "inputmode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"text\" | \"none\" | \"tel\" | \"url\" | \"email\" | \"numeric\" | \"decimal\" | \"search\"",
+                            "type": "\"text\" | \"search\" | \"none\" | \"tel\" | \"url\" | \"email\" | \"numeric\" | \"decimal\"",
                             "default": "",
                             "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
                         },
@@ -39759,6 +39823,22 @@
                             "type": "string",
                             "default": "",
                             "description": "Specify that a standard HTML element should behave like a defined custom built-in element"
+                        },
+                        {
+                            "name": "exportparts",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "part",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": ""
                         },
                         {
                             "name": "accept",
@@ -39814,13 +39894,6 @@
                             "optional": true,
                             "readonly": false,
                             "type": "Booleanish",
-                            "default": ""
-                        },
-                        {
-                            "name": "enterKeyHint",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "\"search\" | \"enter\" | \"done\" | \"go\" | \"next\" | \"previous\" | \"send\"",
                             "default": ""
                         },
                         {
@@ -45460,6 +45533,14 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
+                            "name": "contentWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "MessagePassThroughOptionType<T>",
+                            "default": "",
+                            "description": "Used to pass attributes to the content wrapper DOM element."
+                        },
+                        {
                             "name": "content",
                             "optional": true,
                             "readonly": false,
@@ -51074,6 +51155,14 @@
                             "description": "Used to pass attributes to the content container's DOM element."
                         },
                         {
+                            "name": "contentWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "PanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the content wrapper DOM element."
+                        },
+                        {
                             "name": "content",
                             "optional": true,
                             "readonly": false,
@@ -53119,6 +53208,22 @@
                             "default": ""
                         },
                         {
+                            "name": "enterkeyhint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"enter\" | \"done\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+                            "default": ""
+                        },
+                        {
+                            "name": "enterKeyHint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"enter\" | \"done\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+                            "default": "",
+                            "description": "",
+                            "deprecated": "Use "
+                        },
+                        {
                             "name": "hidden",
                             "optional": true,
                             "readonly": false,
@@ -53332,7 +53437,7 @@
                             "name": "inputmode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"text\" | \"none\" | \"tel\" | \"url\" | \"email\" | \"numeric\" | \"decimal\" | \"search\"",
+                            "type": "\"text\" | \"search\" | \"none\" | \"tel\" | \"url\" | \"email\" | \"numeric\" | \"decimal\"",
                             "default": "",
                             "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
                         },
@@ -53343,6 +53448,22 @@
                             "type": "string",
                             "default": "",
                             "description": "Specify that a standard HTML element should behave like a defined custom built-in element"
+                        },
+                        {
+                            "name": "exportparts",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "part",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": ""
                         },
                         {
                             "name": "accept",
@@ -53384,13 +53505,6 @@
                             "optional": true,
                             "readonly": false,
                             "type": "string",
-                            "default": ""
-                        },
-                        {
-                            "name": "enterKeyHint",
-                            "optional": true,
-                            "readonly": false,
-                            "type": "\"search\" | \"enter\" | \"done\" | \"go\" | \"next\" | \"previous\" | \"send\"",
                             "default": ""
                         },
                         {
@@ -65673,6 +65787,14 @@
                             "description": "Used to pass attributes to the root's DOM element."
                         },
                         {
+                            "name": "contentWrapper",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "StepPanelPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the content's wrapper DOM element."
+                        },
+                        {
                             "name": "content",
                             "optional": true,
                             "readonly": false,
@@ -70779,6 +70901,22 @@
                             "default": ""
                         },
                         {
+                            "name": "enterkeyhint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"enter\" | \"done\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+                            "default": ""
+                        },
+                        {
+                            "name": "enterKeyHint",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "\"enter\" | \"done\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\"",
+                            "default": "",
+                            "description": "",
+                            "deprecated": "Use "
+                        },
+                        {
                             "name": "hidden",
                             "optional": true,
                             "readonly": false,
@@ -70992,7 +71130,7 @@
                             "name": "inputmode",
                             "optional": true,
                             "readonly": false,
-                            "type": "\"text\" | \"none\" | \"tel\" | \"url\" | \"email\" | \"numeric\" | \"decimal\" | \"search\"",
+                            "type": "\"text\" | \"search\" | \"none\" | \"tel\" | \"url\" | \"email\" | \"numeric\" | \"decimal\"",
                             "default": "",
                             "description": "Hints at the type of data that might be entered by the user while editing the element or its contents"
                         },
@@ -71003,6 +71141,22 @@
                             "type": "string",
                             "default": "",
                             "description": "Specify that a standard HTML element should behave like a defined custom built-in element"
+                        },
+                        {
+                            "name": "exportparts",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "part",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "string",
+                            "default": "",
+                            "description": ""
                         },
                         {
                             "name": "autocomplete",
