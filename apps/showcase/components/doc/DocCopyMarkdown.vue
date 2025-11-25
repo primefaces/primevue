@@ -7,6 +7,7 @@
             size="small"
             @click="copyMarkdown"
             :model="menuItems"
+            :pt="{ pcbutton: { root: 'w-[10rem] justify-start' } }"
         />
     </div>
 </template>
