@@ -1,13 +1,12 @@
 <template>
     <div class="doc-copy-markdown">
         <SplitButton
-            :label="copyLabel"
+            label="Copy Markdown"
             icon="pi pi-copy"
             severity="secondary"
             size="small"
             @click="copyMarkdown"
             :model="menuItems"
-            :pt="{ pcbutton: { root: 'w-40 justify-start' } }"
         />
     </div>
 </template>
@@ -23,7 +22,6 @@ export default {
     },
     data() {
         return {
-            copyLabel: 'Copy Markdown',
             markdownContent: '',
             menuItems: [
                 {
@@ -130,10 +128,8 @@ export default {
 
             try {
                 await navigator.clipboard.writeText(this.markdownContent);
-                this.copyLabel = 'Copied!';
                 console.log('Markdown copied successfully');
 
-                // Show toast if available
                 if (this.$toast) {
                     this.$toast.add({
                         severity: 'success',
@@ -142,10 +138,6 @@ export default {
                         life: 2000
                     });
                 }
-
-                setTimeout(() => {
-                    this.copyLabel = 'Copy Markdown';
-                }, 2000);
             } catch (error) {
                 console.error('Failed to copy markdown:', error);
                 alert('Failed to copy: ' + error.message);
