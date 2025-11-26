@@ -80,55 +80,43 @@ export default {
         }
     },
     mounted() {
-        console.log('DocCopyMarkdown mounted');
-        console.log('Markdown link:', this.markdownLink);
-
-        // Wait a bit for the page to fully load, then load markdown
-        setTimeout(() => {
-            this.loadMarkdownContent();
-        }, 500);
+        // Markdown content is loaded on-demand when user clicks "Copy Markdown"
     },
     methods: {
         async loadMarkdownContent() {
-            console.log('Loading markdown from:', this.markdownLink);
-
             // Try with $fetch first (Nuxt's fetch wrapper)
             try {
                 this.markdownContent = await $fetch(this.markdownLink, {
                     responseType: 'text'
                 });
-                console.log('Markdown loaded via $fetch, length:', this.markdownContent.length);
                 return;
             } catch (error) {
-                console.warn('$fetch failed, trying regular fetch:', error);
+                // Fallback to regular fetch
             }
 
-            // Fallback to regular fetch
             try {
                 const response = await fetch(this.markdownLink);
-                console.log('Fetch response status:', response.status);
                 if (response.ok) {
                     this.markdownContent = await response.text();
-                    console.log('Markdown loaded via fetch, length:', this.markdownContent.length);
-                } else {
-                    console.warn(`Markdown not found: ${this.markdownLink}`, response.status);
                 }
             } catch (error) {
                 console.error('Failed to load markdown content:', error);
             }
         },
         async copyMarkdown() {
-            console.log('copyMarkdown called, content length:', this.markdownContent?.length);
-
-            if (!this.markdownContent) {
-                console.warn('No markdown content to copy');
-                alert('Markdown content is still loading. Please try again.');
-                return;
-            }
-
             try {
+                // Load markdown content on-demand if not already loaded
+                if (!this.markdownContent) {
+                    await this.loadMarkdownContent();
+                }
+
+                if (!this.markdownContent) {
+                    console.warn('No markdown content to copy');
+                    alert('Failed to load markdown content. Please try again.');
+                    return;
+                }
+
                 await navigator.clipboard.writeText(this.markdownContent);
-                console.log('Markdown copied successfully');
 
                 if (this.$toast) {
                     this.$toast.add({
@@ -144,7 +132,6 @@ export default {
             }
         },
         async copyMarkdownLink() {
-            console.log('copyMarkdownLink called');
             try {
                 await navigator.clipboard.writeText(this.markdownLink);
                 if (this.$toast) {
@@ -163,15 +150,12 @@ export default {
             }
         },
         openGithub() {
-            console.log('Opening GitHub:', this.githubLink);
             window.open(this.githubLink, '_blank', 'noopener,noreferrer');
         },
         openChatGPT() {
-            console.log('Opening ChatGPT:', this.chatGPTLink);
             window.open(this.chatGPTLink, '_blank', 'noopener,noreferrer');
         },
         openClaude() {
-            console.log('Opening Claude:', this.claudeLink);
             window.open(this.claudeLink, '_blank', 'noopener,noreferrer');
         }
     }
