@@ -1,13 +1,6 @@
 <template>
     <div class="doc-copy-markdown">
-        <SplitButton
-            label="Copy Markdown"
-            icon="pi pi-copy"
-            severity="secondary"
-            size="small"
-            @click="copyMarkdown"
-            :model="menuItems"
-        />
+        <SplitButton label="Copy Markdown" icon="pi pi-copy" severity="secondary" outlined @click="copyMarkdown" :model="menuItems" />
     </div>
 </template>
 
