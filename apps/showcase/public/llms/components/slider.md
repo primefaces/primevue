@@ -2,9 +2,22 @@
 
 Slider is a component to provide input with a drag handle.
 
+## Import
+
+```javascript
+import Slider from 'primevue/slider';
+```
+
 ## Accessibility
 
 Screen Reader Slider element component uses slider role on the handle in addition to the aria-orientation , aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Key Function tab Moves focus to the slider. left arrow up arrow Decrements the value. right arrow down arrow Increments the value. home Set the minimum value. end Set the maximum value. page up Increments the value by 10 steps. page down Decrements the value by 10 steps.
+
+```vue
+<span id="label_number">Number</span>
+<Slider aria-labelledby="label_number" />
+
+<Slider aria-label="Number" />
+```
 
 ## Basic
 
@@ -24,6 +37,37 @@ Image filter implementation using multiple sliders.
 <Slider v-model="filterValues[filter]" class="w-56" :min="0" :max="200" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center justify-center">
+        <img alt="user header" class="w-full md:w-80 rounded mb-6" src="https://primefaces.org/cdn/primevue/images/card-vue.jpg" :style="filterStyle" />
+        <SelectButton v-model="filter" :options="filterOptions" optionLabel="label" optionValue="value" class="mb-4" />
+        <Slider v-model="filterValues[filter]" class="w-56" :min="0" :max="200" />
+    </div>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue';
+
+const filter = ref(0);
+const filterValues = ref([100, 100, 0]);
+const filterOptions = ref([
+    { label: 'Contrast', value: 0 },
+    { label: 'Brightness', value: 1 },
+    { label: 'Sepia', value: 2 }
+]);
+const filterStyle = computed(() => {
+    return {
+        filter: \`contrast(\${filterValues.value[0]}%) brightness(\${filterValues.value[1]}%) sepia(\${filterValues.value[2]}%)\`
+    };
+})
+<\/script>
+```
+</details>
+
 ## Forms
 
 Slider integrates seamlessly with the PrimeVue Forms library.
@@ -38,6 +82,47 @@ Slider integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-4">
+                <Slider name="slider" />
+                <Message v-if="$form.slider?.invalid" severity="error" size="small" variant="simple">{{ $form.slider.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    slider: 0
+});
+const resolver = ref(zodResolver(
+    z.object({
+        slider: z.number().gt(25, { message: 'Must be greater than 25.' }).lt(75, { message: 'Must be less than 75.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Input
 
 Slider is connected to an input field using two-way binding.
@@ -47,6 +132,27 @@ Slider is connected to an input field using two-way binding.
 <Slider v-model="value" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="w-56">
+            <InputText v-model.number="value" class="w-full mb-4" />
+            <Slider v-model="value" class="w-full" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(50);
+<\/script>
+```
+</details>
+
 ## Range
 
 When range property is present, slider provides two handles to define two values. In range mode, value should be an array instead of a single value.
@@ -54,6 +160,24 @@ When range property is present, slider provides two handles to define two values
 ```vue
 <Slider v-model="value" range class="w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Slider v-model="value" range class="w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref([20, 80]);
+<\/script>
+```
+</details>
 
 ## Step
 
@@ -63,6 +187,24 @@ Size of each movement is defined with the step property.
 <Slider v-model="value" :step="20" class="w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Slider v-model="value" :step="20" class="w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(20);
+<\/script>
+```
+</details>
+
 ## Vertical
 
 Default layout of slider is horizontal , use orientation property for the alternative vertical mode.
@@ -70,6 +212,24 @@ Default layout of slider is horizontal , use orientation property for the altern
 ```vue
 <Slider v-model="value" orientation="vertical" class="h-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Slider v-model="value" orientation="vertical" class="h-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(50);
+<\/script>
+```
+</details>
 
 ## Slider
 

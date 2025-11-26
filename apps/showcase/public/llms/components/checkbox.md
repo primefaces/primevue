@@ -2,9 +2,26 @@
 
 Checkbox is an extension to standard checkbox element with theming.
 
+## Import
+
+```javascript
+import Checkbox from 'primevue/checkbox';
+import CheckboxGroup from 'primevue/checkboxgroup';
+```
+
 ## Accessibility
 
 Screen Reader Checkbox component uses a hidden native checkbox element internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the checkbox. space Toggles the checked state.
+
+```vue
+<label for="chkbox1">Remember Me</label>
+<Checkbox inputId="chkbox1" />
+
+<span id="chkbox2">Remember Me</span>
+<Checkbox aria-labelledby="chkbox2" />
+
+<Checkbox aria-label="Remember Me" />
+```
 
 ## Basic
 
@@ -23,6 +40,26 @@ When disabled is present, the element cannot be edited and focused.
 <Checkbox v-model="checked2" binary disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center gap-2">
+        <Checkbox v-model="checked1" binary disabled />
+        <Checkbox v-model="checked2" binary disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const checked1 = ref(false);
+const checked2 = ref(true);
+<\/script>
+```
+</details>
+
 ## Dynamic
 
 Checkboxes can be generated using a list of values.
@@ -34,6 +71,35 @@ Checkboxes can be generated using a list of values.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="flex flex-col gap-4">
+            <div v-for="category of categories" :key="category.key" class="flex items-center gap-2">
+                <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
+                <label :for="category.key">{{ category.name }}</label>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const categories = ref([
+    {name: "Accounting", key: "A"},
+    {name: "Marketing", key: "M"},
+    {name: "Production", key: "P"},
+    {name: "Research", key: "R"}
+]);
+const selectedCategories = ref(['Marketing']);
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -41,6 +107,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <Checkbox v-model="checked" binary variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Checkbox v-model="checked" binary variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const checked = ref(false);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -73,6 +157,65 @@ Checkbox integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+            <div class="flex flex-col gap-2">
+                <CheckboxGroup name="ingredient" class="flex flex-wrap gap-4">
+                    <div class="flex items-center gap-2">
+                        <Checkbox inputId="cheese" value="Cheese" />
+                        <label for="cheese"> Cheese </label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <Checkbox inputId="mushroom" value="Mushroom" />
+                        <label for="mushroom"> Mushroom </label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <Checkbox inputId="pepper" value="Pepper" />
+                        <label for="pepper"> Pepper </label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <Checkbox inputId="onion" value="Onion" />
+                        <label for="onion"> Onion </label>
+                    </div>
+                </CheckboxGroup>
+                <Message v-if="$form.ingredient?.invalid" severity="error" size="small" variant="simple">{{ $form.ingredient.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+    <Toast />
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    ingredient: []
+});
+const resolver = ref(zodResolver(
+    z.object({
+        ingredient: z.array(z.string()).min(1, { message: 'At least one ingredient must be selected.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Group
 
 Multiple checkboxes can be grouped together.
@@ -98,6 +241,39 @@ Multiple checkboxes can be grouped together.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="pizza" inputId="ingredient1" name="pizza" value="Cheese" />
+            <label for="ingredient1"> Cheese </label>
+        </div>
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="pizza" inputId="ingredient2" name="pizza" value="Mushroom" />
+            <label for="ingredient2"> Mushroom </label>
+        </div>
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="pizza" inputId="ingredient3" name="pizza" value="Pepper" />
+            <label for="ingredient3"> Pepper </label>
+        </div>
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="pizza" inputId="ingredient4" name="pizza" value="Onion" />
+            <label for="ingredient4"> Onion </label>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const pizza = ref();
+<\/script>
+```
+</details>
+
 ## Indeterminate
 
 When indeterminate is present, the checkbox masks the actual value visually.
@@ -106,6 +282,24 @@ When indeterminate is present, the checkbox masks the actual value visually.
 <Checkbox v-model="checked" indeterminate binary />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Checkbox v-model="checked" indeterminate binary />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const checked = ref(false);
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -113,6 +307,24 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 ```vue
 <Checkbox v-model="checked" :invalid="!checked"  binary />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Checkbox v-model="checked" :invalid="!checked"  binary />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const checked = ref(false);
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -134,6 +346,35 @@ Checkbox provides small and large sizes as alternatives to the base.
     </div>
 </div>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="size" inputId="size_small" name="size" value="Small" size="small" />
+            <label for="size_small" class="text-sm">Small</label>
+        </div>
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="size" inputId="size_normal" name="size" value="Normal" />
+            <label for="size_normal">Normal</label>
+        </div>
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="size" inputId="size_large" name="size" value="Large" size="large" />
+            <label for="size_large" class="text-lg">Large</label>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const size = ref();
+<\/script>
+```
+</details>
 
 ## Checkbox
 

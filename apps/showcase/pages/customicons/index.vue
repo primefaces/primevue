@@ -8,8 +8,13 @@
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
-                    <h1>Custom Icons</h1>
-                    <p>PrimeVue components can be used with any icon library using the templating features.</p>
+                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                        <div class="flex-1">
+                            <h1>Custom Icons</h1>
+                            <p>PrimeVue components can be used with any icon library using the templating features.</p>
+                        </div>
+                        <DocCopyMarkdown docType="page" class="flex-shrink-0" />
+                    </div>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -19,6 +24,7 @@
 </template>
 
 <script>
+import DocCopyMarkdown from '@/components/doc/DocCopyMarkdown.vue';
 import FontAwesomeDoc from '@/doc/customicons/FontAwesomeDoc.vue';
 import ImageDoc from '@/doc/customicons/ImageDoc.vue';
 import MaterialDoc from '@/doc/customicons/MaterialDoc.vue';
@@ -26,6 +32,7 @@ import SVGDoc from '@/doc/customicons/SVGDoc.vue';
 import VideoDoc from '@/doc/customicons/VideoDoc.vue';
 
 export default {
+    components: { DocCopyMarkdown },
     data() {
         return {
             docs: [

@@ -1,5 +1,26 @@
 # PrimeVue
 
+## Guides
+
+- [Introduction](https://primevue.org/introduction): Next-generation UI Component suite for Vue.
+- [Configuration](https://primevue.org/configuration): Application wide configuration for PrimeVue.
+- [Styled Mode](https://primevue.org/styled): Choose from a variety of pre-styled themes or develop your own.
+- [Unstyled](https://primevue.org/unstyled): Theming PrimeVue with alternative styling approaches.
+- [PrimeVue - Pass Through](https://primevue.org/passthrough): The Pass Through attributes is an API to access the internal DOM Structure of the components.
+- [Vue Icon Library](https://primevue.org/icons): PrimeIcons is the default icon library of PrimeVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as PrimeVue components can use any icon with templating.
+- [Vue Icon Library](https://primevue.org/customicons): PrimeVue components can be used with any icon library using the templating features.
+- [Vue Form Library](https://primevue.org/forms): The PrimeVue Forms library provides comprehensive form state management with built-in validation support.
+- [Auto Import](https://primevue.org/autoimport): On-demand PrimeVue components with auto imports and tree-shaking.
+- [Install PrimeVue with CDN](https://primevue.org/cdn): Setting up PrimeVue in a project using CDN
+- [Install PrimeVue with Nuxt](https://primevue.org/nuxt): Setting up PrimeVue in a Nuxt project
+- [Install PrimeVue with Vite](https://primevue.org/vite): Setting up PrimeVue in a Vite project
+- [Theme Designer](https://primevue.org/designer): Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to theme code, cloud storage, and migration assistant.
+- [Tailwind CSS](https://primevue.org/tailwind): Integration between PrimeVue and Tailwind CSS both in styled and unstyled modes
+- [UI Kit](https://primevue.org/uikit): Design files for PrimeVue Components.
+- [Contribution](https://primevue.org/contribution): Accessible Vue UI Components.
+- [Setup](https://primevue.org/setup): Setup guides for popular development environments.
+- [LLMs.txt](https://primevue.org/llms): LLM-optimized documentation endpoints for PrimeVue components.
+
 ## Components
 
 - [Vue Accordion Component](https://primevue.org/accordion): Accordion groups a collection of contents in panels.

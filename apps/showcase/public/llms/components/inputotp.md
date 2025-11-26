@@ -2,6 +2,12 @@
 
 Input Otp is used to enter one time passwords.
 
+## Import
+
+```javascript
+import InputOtp from 'primevue/inputotp';
+```
+
 ## Accessibility
 
 Screen Reader Input OTP uses a set of InputText components, refer to the InputText component for more information about the screen reader support. Keyboard Support Key Function tab Moves focus to the input otp. right arrow Moves focus to the next input element. left arrow Moves focus to the previous input element. backspace Deletes the input and moves focus to the previous input element.
@@ -22,6 +28,24 @@ Specify the variant property as filled to display the component with a higher vi
 <InputOtp v-model="value" variant="filled" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputOtp v-model="value" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Forms
 
 InputOtp integrates seamlessly with the PrimeVue Forms library.
@@ -36,6 +60,47 @@ InputOtp integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <InputOtp name="passcode" />
+                <Message v-if="$form.passcode?.invalid" severity="error" size="small" variant="simple">{{ $form.passcode.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    passcode: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        passcode: z.string().min(1, { message: 'Passcode is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Integer Only
 
 When integerOnly is present, only integers can be accepted as input.
@@ -44,6 +109,24 @@ When integerOnly is present, only integers can be accepted as input.
 <InputOtp v-model="value" integerOnly />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputOtp v-model="value" integerOnly />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Mask
 
 Enable the mask option to hide the values in the input fields.
@@ -51,6 +134,24 @@ Enable the mask option to hide the values in the input fields.
 ```vue
 <InputOtp v-model="value" mask />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputOtp v-model="value" mask />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Sample
 
@@ -75,6 +176,77 @@ A sample UI implementation with templating and additional elements.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="flex flex-col items-center">
+            <div class="font-bold text-xl mb-2">Authenticate Your Account</div>
+            <p class="text-surface-500 dark:text-surface-400 block mb-8">Please enter the code sent to your phone.</p>
+            <InputOtp v-model="value" :length="6" style="gap: 0">
+                <template #default="{ attrs, events, index }">
+                    <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+                    <div v-if="index === 3" class="px-4">
+                        <i class="pi pi-minus" />
+                    </div>
+                </template>
+            </InputOtp>
+            <div class="flex justify-between mt-8 self-stretch">
+                <Button label="Resend Code" link class="p-0"></Button>
+                <Button label="Submit Code"></Button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+
+<style scoped>
+.custom-otp-input {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    appearance: none;
+    text-align: center;
+    transition: all 0.2s;
+    border-radius: 0;
+    border: 1px solid var(--p-inputtext-border-color);
+    background: transparent;
+    outline-offset: -2px;
+    outline-color: transparent;
+    border-right: 0 none;
+    transition: outline-color 0.3s;
+    color: var(--p-inputtext-color);
+}
+
+.custom-otp-input:focus {
+    outline: 2px solid var(--p-focus-ring-color);
+}
+
+.custom-otp-input:first-child,
+.custom-otp-input:nth-child(5) {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.custom-otp-input:nth-child(3),
+.custom-otp-input:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-color: var(--p-inputtext-border-color);
+}
+<\/style>
+```
+</details>
+
 ## Sizes
 
 InputOtp provides small and large sizes as alternatives to the base.
@@ -84,6 +256,28 @@ InputOtp provides small and large sizes as alternatives to the base.
 <InputOtp v-model="value2" />
 <InputOtp v-model="value3" size="large" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <InputOtp v-model="value1" size="small" />
+        <InputOtp v-model="value2" />
+        <InputOtp v-model="value3" size="large" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -96,6 +290,46 @@ Define a template with your own UI elements with bindings to the provided events
     </template>
 </InputOtp>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputOtp v-model="value">
+            <template #default="{ attrs, events }">
+                <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+            </template>
+        </InputOtp>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+
+<style scoped>
+.custom-otp-input {
+    width: 40px;
+    font-size: 36px;
+    border: 0 none;
+    appearance: none;
+    text-align: center;
+    transition: all 0.2s;
+    background: transparent;
+    border-bottom: 2px solid var(--p-inputtext-border-color);
+}
+
+.custom-otp-input:focus {
+    outline: 0 none;
+    border-bottom-color: var(--p-primary-color);
+}
+<\/style>
+```
+</details>
 
 ## Input Otp
 

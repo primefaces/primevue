@@ -2,9 +2,22 @@
 
 CascadeSelect is a form component to select a value from a nested structure of options.
 
+## Import
+
+```javascript
+import CascadeSelect from 'primevue/cascadeselect';
+```
+
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The cascadeselect element has a combobox role in addition to aria-haspopup and aria-expanded attributes. The relation between the combobox and the popup is created with aria-controls that refers to the id of the popup. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses tree as the role. Each list item has a treeitem role along with aria-label , aria-selected and aria-expanded attributes. The container element of a treenode has the group role. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Closed State Keyboard Support Key Function tab Moves focus to the cascadeselect element. space Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. enter Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. up arrow Opens the popup and moves visual focus to the selected option, if there is none then last option receives the focus. any printable character Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none then first option receives the focus. Popup Keyboard Support Key Function tab Hides the popup and moves focus to the next tabbable element. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Hides the popup and moves focus to the previous tabbable element. enter Selects the focused option and closes the popup. space Selects the focused option and closes the popup. escape Closes the popup, moves focus to the cascadeselect element. down arrow Moves focus to the next option. up arrow Moves focus to the previous option. alt + up arrow Selects the focused option and closes the popup, then moves focus to the cascadeselect element. right arrow If option is closed, opens the option otherwise moves focus to the first child option. left arrow If option is open, closes the option otherwise moves focus to the parent option. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. any printable character Moves focus to the option whose label starts with the characters being typed.
+
+```vue
+<span id="dd1"></span>Options</span>
+<CascadeSelect aria-labelledby="dd1" />
+
+<CascadeSelect aria-label="Options" />
+```
 
 ## Basic
 
@@ -24,6 +37,99 @@ When showClear is enabled, a clear icon is added to reset the CascadeSelect.
     :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
+            :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -31,6 +137,22 @@ When disabled is present, the element cannot be edited and focused.
 ```vue
 <CascadeSelect disabled placeholder="Disabled" class="w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <CascadeSelect disabled placeholder="Disabled" class="w-56" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## Filled
 
@@ -40,6 +162,99 @@ Specify the variant property as filled to display the component with a higher vi
 <CascadeSelect v-model="selectedCity" variant="filled" :options="countries" optionLabel="cname" optionGroupLabel="name"
     :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <CascadeSelect v-model="selectedCity" variant="filled" :options="countries" optionLabel="cname" optionGroupLabel="name"
+            :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -62,6 +277,113 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value1" inputId="over_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value3" inputId="on_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -70,6 +392,99 @@ The fluid prop makes the component take up the full width of its container when 
 <CascadeSelect v-model="selectedCity" fluid :options="countries" optionLabel="cname" optionGroupLabel="name"
     :optionGroupChildren="['states', 'cities']" placeholder="Select a City" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <CascadeSelect v-model="selectedCity" fluid :options="countries" optionLabel="cname" optionGroupLabel="name"
+            :optionGroupChildren="['states', 'cities']" placeholder="Select a City" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -85,6 +500,129 @@ CascadeSelect integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <CascadeSelect name="city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+                <Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    city: null
+});
+
+const resolver = ref(zodResolver(
+    z.object({
+        city: z.union([
+            z.object({
+                cname: z.string().min(1, 'City is required.')
+            }),
+            z.any().refine((val) => false, { message: 'City is required.' })
+        ])
+    })
+));
+
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -95,6 +633,101 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <label for="cs_city">City</label>
 </IftaLabel>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel class="w-full md:w-56">
+            <CascadeSelect v-model="selectedCity" inputId="cs_city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" variant="filled" />
+            <label for="cs_city">City</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Invalid
 
@@ -109,6 +742,102 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <CascadeSelect v-model="selectedCity1" :invalid="!selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+            :optionGroupChildren="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City" />
+        <CascadeSelect v-model="selectedCity2" :invalid="!selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+            :optionGroupChildren="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity1 = ref(null);
+const selectedCity2 = ref(null);
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Loading State
 
 Loading state can be used loading property.
@@ -116,6 +845,22 @@ Loading state can be used loading property.
 ```vue
 <CascadeSelect loading placeholder="Loading..." class="w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <CascadeSelect loading placeholder="Loading..." class="w-56" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -129,6 +874,105 @@ CascadeSelect provides small and large sizes as alternatives to the base.
 <CascadeSelect v-model="value3" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" 
     class="w-56" size="large" placeholder="Large" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <CascadeSelect v-model="value1" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" 
+            class="w-56" size="small" placeholder="Small" />
+        <CascadeSelect v-model="value2" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" 
+            class="w-56" placeholder="Normal" />
+        <CascadeSelect v-model="value3" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" 
+            class="w-56" size="large" placeholder="Large" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -158,6 +1002,119 @@ CascadeSelect offers multiple slots for customization through templating.
     </template>
 </CascadeSelect>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
+            :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
+            <template #option="slotProps">
+                <div class="flex items-center">
+                    <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px"  />
+                    <i v-if="slotProps.option.cities" class="pi pi-compass mr-2"></i>
+                    <i v-if="slotProps.option.cname" class="pi pi-map-marker mr-2"></i>
+                    <span>{{ slotProps.option.cname || slotProps.option.name }}</span>
+                </div>
+            </template>
+            <template #dropdownicon>
+                <i class="pi pi-map" />
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="px-3 py-1">
+                    <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+                </div>
+            </template>
+        </CascadeSelect>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Cascade Select
 

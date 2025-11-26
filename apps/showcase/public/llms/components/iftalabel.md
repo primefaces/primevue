@@ -2,6 +2,12 @@
 
 IftaLabel is used to create infield top aligned labels
 
+## Import
+
+```javascript
+import IftaLabel from 'primevue/iftalabel';
+```
+
 ## Accessibility
 
 Screen Reader IftaLabel does not require any roles and attributes. Keyboard Support Component does not include any interactive elements.
@@ -27,6 +33,27 @@ When the form element is invalid, the label is also highlighted.
     <label for="username">Username</label>
 </IftaLabel>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <InputText id="username" v-model="value" :invalid="!value" />
+            <label for="username">Username</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
 
 ## Ifta Label
 

@@ -6,8 +6,13 @@
     <div class="doc">
         <div class="doc-main">
             <div class="doc-intro">
-                <h1>Configuration</h1>
-                <p>Application wide configuration for PrimeVue.</p>
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                    <div class="flex-1">
+                        <h1>Configuration</h1>
+                        <p>Application wide configuration for PrimeVue.</p>
+                    </div>
+                    <DocCopyMarkdown docType="page" class="flex-shrink-0" />
+                </div>
             </div>
             <DocSections :docs="docs" />
         </div>
@@ -16,6 +21,7 @@
 </template>
 
 <script>
+import DocCopyMarkdown from '@/components/doc/DocCopyMarkdown.vue';
 import ImportDoc from '@/doc/configuration/ImportDoc.vue';
 import InputVariantDoc from '@/doc/configuration/InputVariantDoc.vue';
 import PTDoc from '@/doc/configuration/PTDoc.vue';
@@ -30,6 +36,7 @@ import RepositoryDoc from '@/doc/configuration/locale/RepositoryDoc.vue';
 import SetLocaleDoc from '@/doc/configuration/locale/SetLocaleDoc.vue';
 
 export default {
+    components: { DocCopyMarkdown },
     data() {
         return {
             docs: [

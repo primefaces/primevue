@@ -2,6 +2,13 @@
 
 Splitter is utilized to separate and resize panels.
 
+## Import
+
+```javascript
+import Splitter from 'primevue/splitter';
+import SplitterPanel from 'primevue/splitterpanel';
+```
+
 ## Accessibility
 
 Screen Reader Splitter bar defines separator as the role with aria-orientation set to either horizontal or vertical. Keyboard Support Key Function tab Moves focus through the splitter bar. down arrow Moves a vertical splitter down. up arrow Moves a vertical splitter up. left arrow Moves a horizontal splitter to the left. right arrow Moves a horizontal splitter to the right.
@@ -16,6 +23,24 @@ Splitter requires two SplitterPanel components as children which are displayed h
     <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
 </Splitter>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Splitter style="height: 300px">
+            <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
+        </Splitter>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Nested
 
@@ -38,6 +63,34 @@ Splitters can be combined to create advanced layouts.
 </Splitter>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Splitter style="height: 300px">
+            <SplitterPanel class="flex items-center justify-center" :size="20" :minSize="10"> Panel 1 </SplitterPanel>
+            <SplitterPanel :size="80">
+                <Splitter layout="vertical">
+                    <SplitterPanel class="flex items-center justify-center" :size="15"> Panel 2 </SplitterPanel>
+                    <SplitterPanel :size="85">
+                        <Splitter>
+                            <SplitterPanel class="flex items-center justify-center" :size="20"> Panel 3 </SplitterPanel>
+                            <SplitterPanel class="flex items-center justify-center" :size="80"> Panel 4 </SplitterPanel>
+                        </Splitter>
+                    </SplitterPanel>
+                </Splitter>
+            </SplitterPanel>
+        </Splitter>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Size
 
 Initial dimension of a panel is percentage based and defined using the size property. In addition, minSize is provided to set a minimum value during a resize.
@@ -49,6 +102,24 @@ Initial dimension of a panel is percentage based and defined using the size prop
 </Splitter>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Splitter style="height: 300px">
+            <SplitterPanel class="flex items-center justify-center" :size="25" :minSize="10"> Panel 1 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center" :size="75"> Panel 2 </SplitterPanel>
+        </Splitter>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Vertical
 
 Panels are displayed as stacked by setting the layout to vertical .
@@ -59,6 +130,24 @@ Panels are displayed as stacked by setting the layout to vertical .
     <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
 </Splitter>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Splitter style="height: 300px" layout="vertical">
+            <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
+        </Splitter>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Splitter
 

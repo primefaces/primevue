@@ -2,6 +2,13 @@
 
 TreeTable is used to display hierarchical data in tabular format.
 
+## Import
+
+```javascript
+import TreeTable from 'primevue/treetable';
+import Column from 'primevue/column';
+```
+
 ## AccessibilityDoc
 
 Screen Reader DataTable uses a treegrid element whose attributes can be extended with the tableProps option. This property allows passing aria roles and attributes like aria-label and aria-describedby to define the table for readers. Default role of the table is table . Header, body and footer elements use rowgroup , rows use row role, header cells have columnheader and body cells use cell roles. Sortable headers utilizer aria-sort attribute either set to "ascending" or "descending". Row elements manage aria-expanded for state along with aria-posinset , aria-setsize and aria-level attribute to define the hierachy. When selection is enabled, aria-selected is set to true on a row. In checkbox mode, TreeTable component uses a hidden native checkbox element. Editable cells use custom templating so you need to manage aria roles and attributes manually if required. Paginator is a standalone component used inside the DataTable, refer to the paginator for more information about the accessibility features. Sortable Headers Keyboard Support Key Function tab Moves through the headers. enter Sorts the column. space Sorts the column. Keyboard Support Key Function tab Moves focus to the first selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the next focusable element in the page tab sequence. shift + tab Moves focus to the last selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the previous focusable element in the page tab sequence. enter Selects the focused treenode. space Selects the focused treenode. down arrow Moves focus to the next treenode. up arrow Moves focus to the previous treenode. right arrow If node is closed, opens the node otherwise moves focus to the first child node. left arrow If node is open, closes the node otherwise moves focus to the parent node. home Moves focus to the first same-level node. end Moves focus to the last same-level node.
@@ -348,6 +355,107 @@ Lazy mode is handy to deal with large datasets, instead of loading the entire da
     <Column field="type" header="Type"></Column>
 </TreeTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div>
+        <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
+            @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" :expander="true"></Column>
+            <Column field="size" header="Size"></Column>
+            <Column field="type" header="Type"></Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+
+onMounted(() => {
+    loading.value = true;
+
+    setTimeout(() => {
+        loading.value = false;
+        nodes.value = loadNodes(0, rows.value);
+        totalRecords.value = 1000;
+    }, 1000);
+});
+
+const nodes = ref();
+const rows = ref(10);
+const loading = ref(false);
+const totalRecords = ref(0);
+const onExpand = (node) => {
+    if (!node.children) {
+        loading.value = true;
+
+        setTimeout(() => {
+            let lazyNode = {...node};
+
+            lazyNode.children = [
+                {
+                    data: {
+                        name: lazyNode.data.name + ' - 0',
+                        size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                        type: 'File'
+                    },
+                },
+                {
+                    data: {
+                        name: lazyNode.data.name + ' - 1',
+                        size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                        type: 'File'
+                    }
+                }
+            ];
+
+            let newNodes = nodes.value.map(n => {
+                if (n.key === node.key) {
+                    n = lazyNode;
+                }
+
+                return n;
+            });
+
+            loading.value = false;
+            nodes.value = newNodes;
+        }, 250);
+    }
+};
+const onPage = (event) => {
+    loading.value = true;
+
+    //imitate delay of a backend call
+    setTimeout(() => {
+        loading.value = false;
+        nodes.value = loadNodes(event.first, rows.value);
+    }, 1000);
+};
+const loadNodes = (first, rows) => {
+    let nodes = [];
+
+    for(let i = 0; i < rows; i++) {
+        let node = {
+            key: (first + i),
+            data: {
+                name: 'Item ' + (first + i),
+                size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                type: 'Type ' + (first + i)
+            },
+            leaf: false
+        };
+
+        nodes.push(node);
+    }
+
+    return nodes;
+};
+<\/script>
+```
+</details>
 
 ## Size
 

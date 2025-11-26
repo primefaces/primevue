@@ -2,9 +2,26 @@
 
 RadioButton is an extension to standard radio button element with theming.
 
+## Import
+
+```javascript
+import RadioButton from 'primevue/radiobutton';
+import RadioButtonGroup from 'primevue/radiobuttongroup';
+```
+
 ## Accessibility
 
 Screen Reader RadioButton component uses a hidden native radio button element internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the checked radio button, if there is none within the group then first radio button receives the focus. left arrow up arrow Moves focus to the previous radio button, if there is none then last radio button receives the focus. right arrow down arrow Moves focus to the next radio button, if there is none then first radio button receives the focus. space If the focused radio button is unchecked, changes the state to checked.
+
+```vue
+<label for="rb1">One</label>
+<RadioButton inputId="rb1" />
+
+<span id="rb2">Two</span>
+<RadioButton aria-labelledby="rb2" />
+
+<RadioButton aria-label="Three" />
+```
 
 ## Disabled
 
@@ -14,6 +31,25 @@ When disabled is present, the element cannot be edited and focused.
 <RadioButton v-model="value" :value="1" disabled />
 <RadioButton v-model="value" :value="2" disabled />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center gap-2">
+        <RadioButton v-model="value" :value="1" disabled />
+        <RadioButton v-model="value" :value="2" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(2);
+<\/script>
+```
+</details>
 
 ## Dynamic
 
@@ -26,6 +62,35 @@ RadioButtons can be generated using a list of values.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="flex flex-col gap-4">
+            <div v-for="category in categories" :key="category.key" class="flex items-center gap-2">
+                <RadioButton v-model="selectedCategory" :inputId="category.key" name="dynamic" :value="category.name" />
+                <label :for="category.key">{{ category.name }}</label>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const selectedCategory = ref('Production');
+const categories = ref([
+    { name: 'Accounting', key: 'A' },
+    { name: 'Marketing', key: 'M' },
+    { name: 'Production', key: 'P' },
+    { name: 'Research', key: 'R' }
+]);
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -33,6 +98,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <RadioButton v-model="value" value="1" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <RadioButton v-model="value" value="1" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -65,6 +148,64 @@ RadioButton integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+                <RadioButtonGroup name="ingredient" class="flex flex-wrap gap-4">
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="cheese" value="Cheese" />
+                        <label for="cheese">Cheese</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="mushroom" value="Mushroom" />
+                        <label for="mushroom">Mushroom</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="pepper" value="Pepper" />
+                        <label for="pepper">Pepper</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="onion" value="Onion" />
+                        <label for="onion">Onion</label>
+                    </div>
+                </RadioButtonGroup>
+                <Message v-if="$form.ingredient?.invalid" severity="error" size="small" variant="simple">{{ $form.ingredient.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    ingredient: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        ingredient: z.string().min(1, { message: 'Ingredient is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Group
 
 RadioButton is used with the v-model property for two-way value binding.
@@ -90,6 +231,41 @@ RadioButton is used with the v-model property for two-way value binding.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="ingredient" inputId="ingredient1" name="pizza" value="Cheese" />
+                <label for="ingredient1">Cheese</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="ingredient" inputId="ingredient2" name="pizza" value="Mushroom" />
+                <label for="ingredient2">Mushroom</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="ingredient" inputId="ingredient3" name="pizza" value="Pepper" />
+                <label for="ingredient3">Pepper</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="ingredient" inputId="ingredient4" name="pizza" value="Onion" />
+                <label for="ingredient4">Onion</label>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const ingredient = ref('');
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -97,6 +273,24 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 ```vue
 <RadioButton v-model="value" value="1" :invalid="value === null" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <RadioButton v-model="value" value="1" :invalid="value === null" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -118,6 +312,37 @@ RadioButton provides small and large sizes as alternatives to the base.
     </div>
 </div>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="size" inputId="size_small" name="size" value="Small" size="small" />
+                <label for="size_small" class="text-sm">Small</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="size" inputId="size_normal" name="size" value="Normal" />
+                <label for="size_normal">Normal</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="size" inputId="size_large" name="size" value="Large" size="large" />
+                <label for="size_large" class="text-lg">Large</label>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const size = ref(null);
+<\/script>
+```
+</details>
 
 ## Radio Button
 

@@ -2,9 +2,22 @@
 
 TreeSelect is a form component to choose from hierarchical data.
 
+## Import
+
+```javascript
+import TreeSelect from 'primevue/treeselect';
+```
+
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The treeselect element has a combobox role in addition to aria-haspopup and aria-expanded attributes. The relation between the combobox and the popup is created with aria-controls that refers to the id of the popup. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses tree as the role. Each list item has a treeitem role along with aria-label , aria-selected and aria-expanded attributes. In checkbox selection, aria-checked is used instead of aria-selected . Checkbox and toggle icons are hidden from screen readers as their parent element with treeitem role and attributes are used instead for readers and keyboard support. The container element of a treenode has the group role. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Closed State Keyboard Support Key Function tab Moves focus to the treeselect element. space Opens the popup and moves visual focus to the selected treenode, if there is none then first treenode receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the page tab sequence. shift + tab Moves focus to the previous focusable element in the page tab sequence. enter Selects the focused option, closes the popup if selection mode is single. space Selects the focused option, closes the popup if selection mode is single. escape Closes the popup, moves focus to the treeselect element. down arrow Moves focus to the next treenode. up arrow Moves focus to the previous treenode. right arrow If node is closed, opens the node otherwise moves focus to the first child node. left arrow If node is open, closes the node otherwise moves focus to the parent node.
+
+```vue
+<span id="dd1">Options</span>
+<TreeSelect aria-labelledby="dd1" />
+
+<TreeSelect aria-label="Options" />
+```
 
 ## Basic
 
@@ -283,6 +296,48 @@ TreeSelect is used with the v-model property.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-80">
+            <div class="flex flex-col gap-1">
+                <TreeSelect name="node" :options="nodes" placeholder="Select Item" fluid />
+                <Message v-if="$form.node?.invalid" severity="error" size="small" variant="simple">{{ $form.node.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+import { NodeService } from '/service/NodeService';
+
+const toast = useToast();
+const initialValues = ref({
+    node: null
+});
+const resolver = ref(zodResolver(
+    z.object({
+        node: z.union([z.record(z.boolean()), z.literal(null)]).refine((obj) => obj !== null && Object.keys(obj).length > 0, { message: 'Selection is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -364,6 +419,126 @@ Lazy loading is useful when dealing with huge datasets, in this example nodes ar
 <TreeSelect v-model="selectedValue" :loading="loading" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
 <TreeSelect v-model="selectedValue2" loadingMode="icon" :options="nodes2" @node-expand="onNodeExpand2" placeholder="Select Item" class="md:w-80 w-full" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <TreeSelect v-model="selectedValue" :loading="loading" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
+        <TreeSelect v-model="selectedValue2" loadingMode="icon" :options="nodes2" @node-expand="onNodeExpand2" placeholder="Select Item" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const nodes = ref(null);
+const nodes2 = ref(null);
+const selectedValue = ref(null);
+const selectedValue2 = ref(null);
+const loading = ref(false);
+
+onMounted(() => {
+    loading.value = true;
+    nodes2.value = initiateNodes2();
+
+    setTimeout(() => {
+        nodes.value = initiateNodes();
+        loading.value = false;
+        nodes2.value.map((node) => (node.loading = false));
+    }, 2000);
+});
+
+const onNodeExpand = (node) => {
+    if (!node.children) {
+        loading.value = true;
+
+        setTimeout(() => {
+            let _node = { ...node };
+
+            _node.children = [];
+
+            for (let i = 0; i < 3; i++) {
+                _node.children.push({
+                    key: node.key + '-' + i,
+                    label: 'Lazy ' + node.label + '-' + i
+                });
+            }
+
+            nodes.value[parseInt(node.key, 10)] = _node;
+            loading.value = false;
+        }, 500);
+    }
+};
+
+const onNodeExpand2 = (node) => {
+    if (!node.children) {
+        node.loading = true;
+
+        setTimeout(() => {
+            let _node = { ...node };
+
+            _node.children = [];
+
+            for (let i = 0; i < 3; i++) {
+                _node.children.push({
+                    key: node.key + '-' + i,
+                    label: 'Lazy ' + node.label + '-' + i
+                });
+            }
+
+            nodes2.value[parseInt(node.key, 10)] = { ..._node, loading: false };
+        }, 500);
+    }
+};
+
+const initiateNodes = () => {
+    return [
+        {
+            key: '0',
+            label: 'Node 0',
+            leaf: false
+        },
+        {
+            key: '1',
+            label: 'Node 1',
+            leaf: false
+        },
+        {
+            key: '2',
+            label: 'Node 2',
+            leaf: false
+        }
+    ];
+};
+
+const initiateNodes2 = () => {
+    return [
+        {
+            key: '0',
+            label: 'Node 0',
+            leaf: false,
+            loading: true
+        },
+        {
+            key: '1',
+            label: 'Node 1',
+            leaf: false,
+            loading: true
+        },
+        {
+            key: '2',
+            label: 'Node 2',
+            leaf: false,
+            loading: true
+        }
+    ];
+};
+<\/script>
+```
+</details>
 
 ## Multiple
 

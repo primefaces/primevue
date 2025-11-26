@@ -2,9 +2,22 @@
 
 SelectButton is used to choose single or multiple items from a list using buttons.
 
+## Import
+
+```javascript
+import SelectButton from 'primevue/selectbutton';
+```
+
 ## Accessibility
 
 Screen Reader SelectButton component uses ToggleButton internally and has group role. Value to describe the component can be provided via aria-labelledby property. Keyboard Support Keyboard interaction is derived from the native browser handling of checkboxs in a group. Key Function tab Moves focus to the next the focusable element in the page tab sequence. shift + tab Moves focus to the previous the focusable element in the page tab sequence. space Toggles the checked state of a button.
+
+```vue
+<span id="label_number">Number</span>
+<Slider aria-labelledby="label_number" />
+
+<Slider aria-label="Number" />
+```
 
 ## Basic
 
@@ -23,6 +36,31 @@ When disabled is present, the element cannot be edited and focused entirely. Cer
 <SelectButton v-model="value" :options="options2" optionDisabled="constant" optionLabel="name" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center flex-wrap gap-4">
+        <SelectButton v-model="value" :options="options" disabled />
+        <SelectButton v-model="value" :options="options2" optionDisabled="constant" optionLabel="name" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref('Off');
+const value2 = ref();
+const options1 = ref(['Off', 'On']);
+const options2 = ref([
+    { name: 'Option 1', value: 1, constant: false },
+    { name: 'Option 2', value: 2, constant: true }
+]);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -30,6 +68,25 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <SelectButton v-model="value" :options="options" fluid />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <SelectButton v-model="value" :options="options" fluid />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('One-Way');
+const options = ref(['One-Way', 'Return']);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -45,6 +102,47 @@ SelectButton integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <SelectButton name="selection" :options="options" />
+                <Message v-if="$form.selection?.invalid" severity="error">{{ $form.selection.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    selection: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        selection: z.preprocess((val) => (val === null ? '' : val), z.string().min(1, { message: 'Selection is required' }))
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -53,6 +151,25 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <SelectButton v-model="value" :options="options" aria-labelledby="basic" allowEmpty :invalid="value === null"  />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <SelectButton v-model="value" :options="options" aria-labelledby="basic" allowEmpty :invalid="value === null"  />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+const options = ref(['One-Way', 'Return']);
+<\/script>
+```
+</details>
+
 ## Multiple
 
 SelectButton allows selecting only one item by default and setting multiple option enables choosing more than one item. In multiple case, model property should be an array.
@@ -60,6 +177,29 @@ SelectButton allows selecting only one item by default and setting multiple opti
 ```vue
 <SelectButton v-model="value" :options="options" optionLabel="name" multiple aria-labelledby="multiple" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <SelectButton v-model="value" :options="options" optionLabel="name" multiple aria-labelledby="multiple" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+const options = ref([
+    { name: 'Option 1', value: 1 },
+    { name: 'Option 2', value: 2 },
+    { name: 'Option 3', value: 3 }
+]);
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -70,6 +210,29 @@ SelectButton provides small and large sizes as alternatives to the base.
 <SelectButton v-model="value2" :options="options" />
 <SelectButton v-model="value3" :options="options" size="large" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <SelectButton v-model="value1" :options="options" size="small" />
+        <SelectButton v-model="value2" :options="options" />
+        <SelectButton v-model="value3" :options="options" size="large" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref('Beginner');
+const value3 = ref('Expert');
+const options = ref(['Beginner', 'Expert']);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -82,6 +245,34 @@ Label of an option is used as the display text of an item by default, for custom
     </template>
 </SelectButton>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <SelectButton v-model="value" :options="options" optionLabel="value" dataKey="value" aria-labelledby="custom">
+            <template #option="slotProps">
+                <i :class="slotProps.option.icon"></i>
+            </template>
+        </SelectButton>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+const options = ref([
+    { icon: 'pi pi-align-left', value: 'Left' },
+    { icon: 'pi pi-align-right', value: 'Right' },
+    { icon: 'pi pi-align-center', value: 'Center' },
+    { icon: 'pi pi-align-justify', value: 'Justify' }
+]);
+<\/script>
+```
+</details>
 
 ## Select Button
 

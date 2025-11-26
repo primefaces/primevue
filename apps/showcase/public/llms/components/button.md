@@ -2,9 +2,26 @@
 
 Button is an extension to standard input element with icons and theming.
 
+## Import
+
+```javascript
+import Button from 'primevue/button';
+```
+
 ## Accessibility
 
 Screen Reader Button component renders a native button element that implicitly includes any passed prop. Text to describe the button is defined with the aria-label prop, if not present label prop is used as the value. If the button is icon only or custom templating is used, it is recommended to use aria-label so that screen readers would be able to read the element properly. Keyboard Support Key Function tab Moves focus to the button. enter Activates the button. space Activates the button.
+
+```vue
+<Button icon="pi pi-check" aria-label="Submit" />
+
+<Button icon="pi pi-check" label="Submit" />
+
+<Button class="youtube p-0" aria-label="Youtube">
+    <i class="pi pi-youtube px-2"></i>
+    <span class="px-4">Youtube</span>
+</Button>
+```
 
 ## Badge
 
@@ -14,6 +31,22 @@ Buttons have built-in badge support with badge and badgeSeverity properties.
 <Button type="button" label="Emails" badge="2" />
 <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" variant="outlined"  />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button type="button" label="Emails" badge="2" />
+        <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" variant="outlined"  />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Basic
 
@@ -35,6 +68,25 @@ Multiple buttons are grouped when wrapped inside an element with ButtonGroup com
 </ButtonGroup>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ButtonGroup>
+            <Button label="Save" icon="pi pi-check" />
+            <Button label="Delete" icon="pi pi-trash" />
+            <Button label="Cancel" icon="pi pi-times" />
+        </ButtonGroup>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be used.
@@ -42,6 +94,21 @@ When disabled is present, the element cannot be used.
 ```vue
 <Button label="Submit" disabled />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button label="Submit" disabled />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Headless
 
@@ -57,6 +124,28 @@ Headless mode is enabled by adding the asChild property and defining your own UI
     </button>
 </Button>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button v-slot="slotProps" asChild>
+            <button
+                v-bind="slotProps.a11yAttrs"
+                class="rounded-lg bg-gradient-to-br from-primary-400 to-primary-700 active:from-primary-700 active:to-primary-900 text-white border-none px-6 py-3 font-bold hover:ring-2 cursor-pointer ring-offset-2 ring-offset-surface-0 dark:ring-offset-surface-900 ring-primary transition-all"
+            >
+                SIGN UP
+            </button>
+        </Button>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Icon Only
 
@@ -109,6 +198,85 @@ Buttons can have icons without labels.
 <Button icon="pi pi-star" severity="contrast" variant="text" rounded aria-label="Star" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex justify-center mb-8">
+            <SelectButton v-model="size" :options="sizeOptions" optionLabel="label" optionValue="value" dataKey="label" />
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <Button icon="pi pi-check" aria-label="Filter" :size="size" />
+            <Button icon="pi pi-bookmark" severity="secondary" aria-label="Bookmark" :size="size" />
+            <Button icon="pi pi-search" severity="success" aria-label="Search" :size="size" />
+            <Button icon="pi pi-user" severity="info" aria-label="User" :size="size" />
+            <Button icon="pi pi-bell" severity="warn" aria-label="Notification" :size="size" />
+            <Button icon="pi pi-heart" severity="help" aria-label="Favorite" :size="size" />
+            <Button icon="pi pi-times" severity="danger" aria-label="Cancel" :size="size" />
+            <Button icon="pi pi-star" severity="contrast" aria-label="Star" :size="size" />
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <Button icon="pi pi-check" rounded aria-label="Filter" :size="size" />
+            <Button icon="pi pi-bookmark" severity="secondary" rounded aria-label="Bookmark" :size="size" />
+            <Button icon="pi pi-search" severity="success" rounded aria-label="Search" :size="size" />
+            <Button icon="pi pi-user" severity="info" rounded aria-label="User" :size="size" />
+            <Button icon="pi pi-bell" severity="warn" rounded aria-label="Notification" :size="size" />
+            <Button icon="pi pi-heart" severity="help" rounded aria-label="Favorite" :size="size" />
+            <Button icon="pi pi-times" severity="danger" rounded aria-label="Cancel" :size="size" />
+            <Button icon="pi pi-star" severity="contrast" rounded aria-label="Star" :size="size" />
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <Button icon="pi pi-check" rounded variant="outlined" aria-label="Filter" :size="size" /> <Button icon="pi pi-bookmark" severity="secondary" rounded variant="outlined" aria-label="Bookmark" :size="size" />
+            <Button icon="pi pi-search" severity="success" rounded variant="outlined" aria-label="Search" :size="size" />
+            <Button icon="pi pi-user" severity="info" rounded variant="outlined" aria-label="User" :size="size" />
+            <Button icon="pi pi-bell" severity="warn" rounded variant="outlined" aria-label="Notification" :size="size" />
+            <Button icon="pi pi-heart" severity="help" rounded variant="outlined" aria-label="Favorite" :size="size" />
+            <Button icon="pi pi-times" severity="danger" rounded variant="outlined" aria-label="Cancel" :size="size" />
+            <Button icon="pi pi-star" severity="contrast" rounded variant="outlined" aria-label="Star" :size="size" />
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <Button icon="pi pi-check" variant="text" raised rounded aria-label="Filter" :size="size" />
+            <Button icon="pi pi-bookmark" severity="secondary" variant="text" raised rounded aria-label="Bookmark" :size="size" />
+            <Button icon="pi pi-search" severity="success" variant="text" raised rounded aria-label="Search" :size="size" />
+            <Button icon="pi pi-user" severity="info" variant="text" raised rounded aria-label="User" :size="size" />
+            <Button icon="pi pi-bell" severity="warn" variant="text" raised rounded aria-label="Notification" :size="size" />
+            <Button icon="pi pi-heart" severity="help" variant="text" raised rounded aria-label="Favorite" :size="size" />
+            <Button icon="pi pi-times" severity="danger" variant="text" raised rounded aria-label="Cancel" :size="size" />
+            <Button icon="pi pi-star" severity="contrast" variant="text" raised rounded aria-label="Star" :size="size" />
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+            <Button icon="pi pi-check" variant="text" rounded aria-label="Filter" :size="size" />
+            <Button icon="pi pi-bookmark" severity="secondary" variant="text" rounded aria-label="Bookmark" :size="size" />
+            <Button icon="pi pi-search" severity="success" variant="text" rounded aria-label="Search" :size="size" />
+            <Button icon="pi pi-user" severity="info" variant="text" rounded aria-label="User" :size="size" />
+            <Button icon="pi pi-bell" severity="warn" variant="text" rounded aria-label="Notification" :size="size" />
+            <Button icon="pi pi-heart" severity="help" variant="text" rounded aria-label="Favorite" :size="size" />
+            <Button icon="pi pi-times" severity="danger" variant="text" rounded aria-label="Cancel" :size="size" />
+            <Button icon="pi pi-star" severity="contrast" variant="text" rounded aria-label="Star" :size="size" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const size = ref('normal');
+const sizeOptions = ref([
+    { label: 'Small', value: 'small' },
+    { label: 'Normal', value: 'normal' },
+    { label: 'Large', value: 'large' }
+]);
+<\/script>
+```
+</details>
+
 ## Icons
 
 Icon of a button is specified with icon property and position is configured using iconPos attribute.
@@ -120,6 +288,29 @@ Icon of a button is specified with icon property and position is configured usin
 <Button label="Search" icon="pi pi-search" iconPos="top" />
 <Button label="Update" icon="pi pi-refresh" iconPos="bottom" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <div class="flex flex-wrap gap-4 justify-center">
+            <Button icon="pi pi-home" aria-label="Save" />
+            <Button label="Profile" icon="pi pi-user" />
+            <Button label="Save" icon="pi pi-check" iconPos="right" />
+        </div>
+        <div class="flex flex-wrap gap-4 justify-center">
+            <Button label="Search" icon="pi pi-search" iconPos="top" />
+            <Button label="Update" icon="pi pi-refresh" iconPos="bottom" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Link
 
@@ -133,6 +324,25 @@ The button element can be displayed as a link element visually when the link pro
 </Button>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center gap-4">
+        <Button label="Link" variant="link" />
+        <Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
+        <Button asChild v-slot="slotProps">
+            <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
+        </Button>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Loading
 
 Busy state is controlled with the loading property.
@@ -140,6 +350,31 @@ Busy state is controlled with the loading property.
 ```vue
 <Button type="button" label="Search" icon="pi pi-search" :loading="loading" @click="load" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button type="button" label="Search" icon="pi pi-search" :loading="loading" @click="load" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const loading = ref(false);
+
+const load = () => {
+    loading.value = true;
+    setTimeout(() => {
+        loading.value = false;
+    }, 2000);
+};
+<\/script>
+```
+</details>
 
 ## Outlined
 
@@ -156,6 +391,28 @@ Outlined buttons display a border without a transparent background.
 <Button label="Contrast" severity="contrast" variant="outlined" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" variant="outlined" />
+        <Button label="Secondary" severity="secondary" variant="outlined" />
+        <Button label="Success" severity="success" variant="outlined" />
+        <Button label="Info" severity="info" variant="outlined" />
+        <Button label="Warn" severity="warn" variant="outlined" />
+        <Button label="Help" severity="help" variant="outlined" />
+        <Button label="Danger" severity="danger" variant="outlined" />
+        <Button label="Contrast" severity="contrast" variant="outlined" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Raised
 
 Raised buttons display a shadow to indicate elevation.
@@ -170,6 +427,28 @@ Raised buttons display a shadow to indicate elevation.
 <Button label="Danger" severity="danger" raised />
 <Button label="Contrast" severity="contrast" raised />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" raised />
+        <Button label="Secondary" severity="secondary" raised />
+        <Button label="Success" severity="success" raised />
+        <Button label="Info" severity="info" raised />
+        <Button label="Warn" severity="warn" raised />
+        <Button label="Help" severity="help" raised />
+        <Button label="Danger" severity="danger" raised />
+        <Button label="Contrast" severity="contrast" raised />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Raised Text
 
@@ -186,6 +465,28 @@ Text buttons can be displayed elevated with the raised option.
 <Button label="Contrast" severity="contrast" variant="text" raised />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" variant="text" raised />
+        <Button label="Secondary" severity="secondary" variant="text" raised />
+        <Button label="Success" severity="success" variant="text" raised />
+        <Button label="Info" severity="info" variant="text" raised />
+        <Button label="Warn" severity="warn" variant="text" raised />
+        <Button label="Help" severity="help" variant="text" raised />
+        <Button label="Danger" severity="danger" variant="text" raised />
+        <Button label="Contrast" severity="contrast" variant="text" raised />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Rounded
 
 Rounded buttons have a circular border radius.
@@ -200,6 +501,28 @@ Rounded buttons have a circular border radius.
 <Button label="Danger" severity="danger" rounded />
 <Button label="Contrast" severity="contrast" rounded />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" rounded />
+        <Button label="Secondary" severity="secondary" rounded />
+        <Button label="Success" severity="success" rounded />
+        <Button label="Info" severity="info" rounded />
+        <Button label="Warn" severity="warn" rounded />
+        <Button label="Help" severity="help" rounded />
+        <Button label="Danger" severity="danger" rounded />
+        <Button label="Contrast" severity="contrast" rounded />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Severity
 
@@ -216,6 +539,28 @@ The severity property defines the variant of a button.
 <Button label="Contrast" severity="contrast" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" />
+        <Button label="Secondary" severity="secondary" />
+        <Button label="Success" severity="success" />
+        <Button label="Info" severity="info" />
+        <Button label="Warn" severity="warn" />
+        <Button label="Help" severity="help" />
+        <Button label="Danger" severity="danger" />
+        <Button label="Contrast" severity="contrast" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Sizes
 
 Button provides small and large sizes as alternatives to the base.
@@ -225,6 +570,23 @@ Button provides small and large sizes as alternatives to the base.
 <Button label="Normal" icon="pi pi-check" />
 <Button label="Large" icon="pi pi-check" size="large" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap items-center justify-center gap-4">
+        <Button label="Small" icon="pi pi-check" size="small" />
+        <Button label="Normal" icon="pi pi-check" />
+        <Button label="Large" icon="pi pi-check" size="large" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -238,6 +600,32 @@ Custom content inside a button is defined as children.
     </svg>
 </Button>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button variant="outlined" class="!border-2">
+            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                    fill="var(--p-primary-color)"
+                />
+                <path
+                    d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                    fill="var(--p-text-color)"
+                />
+            </svg>
+        </Button>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Text
 
@@ -253,6 +641,28 @@ Text buttons are displayed as textual elements.
 <Button label="Danger" severity="danger" variant="text" />
 <Button label="Contrast" severity="contrast" variant="text" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" variant="text" />
+        <Button label="Secondary" severity="secondary" variant="text" />
+        <Button label="Success" severity="success" variant="text" />
+        <Button label="Info" severity="info" variant="text" />
+        <Button label="Warn" severity="warn" variant="text" />
+        <Button label="Help" severity="help" variant="text" />
+        <Button label="Danger" severity="danger" variant="text" />
+        <Button label="Contrast" severity="contrast" variant="text" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Button
 
@@ -314,6 +724,8 @@ Text buttons are displayed as textual elements.
 | contextmenu | string | - |  |
 | dir | string | - |  |
 | draggable | Booleanish | - |  |
+| enterkeyhint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
+| enterKeyHint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
 | hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
 | id | string | - |  |
 | inert | Booleanish | - |  |
@@ -345,8 +757,10 @@ Text buttons are displayed as textual elements.
 | results | Numberish | - |  |
 | security | string | - |  |
 | unselectable | "on" \| "off" | - |  |
-| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| inputmode | "text" \| "search" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
 | is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| exportparts | string | - |  |
+| part | string | - |  |
 | autofocus | Booleanish | - |  |
 | disabled | Booleanish | - |  |
 | form | string | - |  |

@@ -6,8 +6,13 @@
     <div class="doc">
         <div class="doc-main">
             <div class="doc-intro">
-                <h1>Tailwind CSS</h1>
-                <p>Integration between PrimeVue and Tailwind CSS both in styled and unstyled modes.</p>
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                    <div class="flex-1">
+                        <h1>Tailwind CSS</h1>
+                        <p>Integration between PrimeVue and Tailwind CSS both in styled and unstyled modes.</p>
+                    </div>
+                    <DocCopyMarkdown docType="page" class="flex-shrink-0" />
+                </div>
             </div>
             <DocSections :docs="docs" />
         </div>
@@ -16,6 +21,7 @@
 </template>
 
 <script>
+import DocCopyMarkdown from '@/components/doc/DocCopyMarkdown.vue';
 import AnimationsDoc from '@/doc/tailwind/AnimationsDoc.vue';
 import DarkModeDoc from '@/doc/tailwind/DarkModeDoc.vue';
 import ExtensionsDoc from '@/doc/tailwind/ExtensionsDoc.vue';
@@ -29,6 +35,7 @@ import HeadlessDoc from '@/doc/tailwind/samples/HeadlessDoc.vue';
 import StarterDoc from '@/doc/tailwind/samples/StarterDoc.vue';
 
 export default {
+    components: { DocCopyMarkdown },
     data() {
         return {
             docs: [

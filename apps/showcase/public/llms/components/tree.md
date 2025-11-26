@@ -2,6 +2,12 @@
 
 Tree is used to display hierarchical data.
 
+## Import
+
+```javascript
+import Tree from 'primevue/tree';
+```
+
 ## AccessibilityDoc
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The root list element has a tree role whereas each list item has a treeitem role along with aria-label , aria-selected and aria-expanded attributes. In checkbox selection, aria-checked is used instead of aria-selected . The container element of a treenode has the group role. Checkbox and toggle icons are hidden from screen readers as their parent element with treeitem role and attributes are used instead for readers and keyboard support. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Keyboard Support Key Function tab Moves focus to the first selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the next focusable element in the page tab sequence. shift + tab Moves focus to the last selected node when focus enters the component, if there is none then first element receives the focus. If focus is already inside the component, moves focus to the previous focusable element in the page tab sequence. enter Selects the focused treenode. space Selects the focused treenode. down arrow Moves focus to the next treenode. up arrow Moves focus to the previous treenode. right arrow If node is closed, opens the node otherwise moves focus to the first child node. left arrow If node is open, closes the node otherwise moves focus to the parent node.
@@ -170,6 +176,137 @@ Lazy loading is useful when dealing with huge datasets, in this example nodes ar
 <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
 <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
+            <label class="font-bold block mb-2">Mask Mode</label>
+            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
+        </div>
+        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
+            <label class="font-bold block mb-2">Icon Mode</label>
+            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const nodes = ref(null);
+const nodes2 = ref(null);
+const loading = ref(false);
+
+onMounted(() => {
+    loading.value = true;
+    nodes2.value = initiateNodes2();
+
+    setTimeout(() => {
+        nodes.value = initiateNodes();
+        loading.value = false;
+        nodes2.value.map((node) => (node.loading = false));
+    }, 2000);
+});
+
+const onNodeExpand = (node) => {
+    if (!node.children) {
+        loading.value = true;
+
+        setTimeout(() => {
+            let _node = { ...node };
+
+            _node.children = [];
+
+            for (let i = 0; i < 3; i++) {
+                _node.children.push({
+                    key: node.key + '-' + i,
+                    label: 'Lazy ' + node.label + '-' + i
+                });
+            }
+
+            let _nodes = { ...nodes.value };
+            _nodes[parseInt(node.key, 10)] = _node;
+
+            nodes.value = _nodes;
+            loading.value = false;
+        }, 500);
+    }
+};
+
+const onNodeExpand2 = (node) => {
+    if (!node.children) {
+        node.loading = true;
+
+        setTimeout(() => {
+            let _node = { ...node };
+
+            _node.children = [];
+
+            for (let i = 0; i < 3; i++) {
+                _node.children.push({
+                    key: node.key + '-' + i,
+                    label: 'Lazy ' + node.label + '-' + i
+                });
+            }
+
+            let _nodes = { ...nodes2.value };
+
+            _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
+
+            nodes2.value = _nodes;
+        }, 500);
+    }
+};
+
+const initiateNodes = () => {
+    return [
+        {
+            key: '0',
+            label: 'Node 0',
+            leaf: false
+        },
+        {
+            key: '1',
+            label: 'Node 1',
+            leaf: false
+        },
+        {
+            key: '2',
+            label: 'Node 2',
+            leaf: false
+        }
+    ];
+};
+
+const initiateNodes2 = () => {
+    return [
+        {
+            key: '0',
+            label: 'Node 0',
+            leaf: false,
+            loading: true
+        },
+        {
+            key: '1',
+            label: 'Node 1',
+            leaf: false,
+            loading: true
+        },
+        {
+            key: '2',
+            label: 'Node 2',
+            leaf: false,
+            loading: true
+        }
+    ];
+};
+<\/script>
+```
+</details>
 
 ## TemplateDoc
 

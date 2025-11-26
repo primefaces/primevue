@@ -2,6 +2,12 @@
 
 Toast is used to display messages in an overlay.
 
+## Import
+
+```javascript
+import Toast from 'primevue/toast';
+```
+
 ## Accessibility
 
 Screen Reader Toast component use alert role that implicitly defines aria-live as "assertive" and aria-atomic as "true". Close element is a button with an aria-label that refers to the aria.close property of the locale API by default, you may use closeButtonProps to customize the element and override the default aria-label . Close Button Keyboard Support Key Function enter Closes the message. space Closes the message.
@@ -41,6 +47,74 @@ Headless mode is enabled by defining a container slot that lets you implement en
 <Button @click="show" label="View" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast position="top-center" group="headless" @close="visible = false">
+            <template #container="{ message, closeCallback }">
+                <section class="flex flex-col p-4 gap-4 w-full bg-primary/70 rounded-xl">
+                    <div class="flex items-center gap-5">
+                        <i class="pi pi-cloud-upload text-white dark:text-black text-2xl"></i>
+                        <span class="font-bold text-base text-white dark:text-black">{{ message.summary }}</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }" pt:value:class="!bg-primary-50 dark:!bg-primary-900" class="!bg-primary/80"></ProgressBar>
+                        <label class="text-sm font-bold text-white dark:text-black">{{ progress }}% uploaded</label>
+                    </div>
+                    <div class="flex gap-4 mb-4 justify-end">
+                        <Button label="Another Upload?" size="small" @click="closeCallback"></Button>
+                        <Button label="Cancel" size="small" @click="closeCallback"></Button>
+                    </div>
+                </section>
+            </template>
+        </Toast>
+        <Button @click="show" label="View" />
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+import { ref, onUnmounted } from 'vue';
+const toast = useToast();
+const visible = ref(false);
+const progress = ref(0);
+const interval = ref();
+
+onUnmounted(() => {
+    if (interval.value) {
+        clearInterval(interval.value);
+    }
+})
+
+const show = () => {
+    if (!visible.value) {
+        toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless', styleClass: 'backdrop-blur-lg rounded-2xl' });
+        visible.value = true;
+        progress.value = 0;
+
+        if (interval.value) {
+            clearInterval(interval.value);
+        }
+
+        interval.value = setInterval(() => {
+            if (progress.value <= 100) {
+                progress.value = progress.value + 20;
+            }
+
+            if (progress.value >= 100) {
+                progress.value = 100;
+                clearInterval(interval.value);
+            }
+        }, 1000);
+    }
+};
+<\/script>
+```
+</details>
+
 ## Multiple
 
 Multiple messages are displayed by passing an array to the show method.
@@ -49,6 +123,31 @@ Multiple messages are displayed by passing an array to the show method.
 <Toast />
 <Button label="Multiple" @click="showMultiple()" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast />
+        <Button label="Multiple" @click="showMultiple()" />
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const showMultiple = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Message Content', life: 3000 });
+    toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3050 });
+    toast.add({ severity: 'warn', summary: 'Warn', detail: 'Message Content', life: 3100 });
+    toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 });
+};
+<\/script>
+```
+</details>
 
 ## Position
 
@@ -64,6 +163,43 @@ A message can be targeted to a certain Toast component by matching the group key
 <Button label="Bottom Right" @click="showBottomRight" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast position="top-left" group="tl" />
+        <Toast position="bottom-left" group="bl" />
+        <Toast position="bottom-right" group="br" />
+
+        <div class="flex flex-wrap gap-2">
+            <Button label="Top Left" @click="showTopLeft" />
+            <Button label="Bottom Left" @click="showBottomLeft" />
+            <Button label="Bottom Right" @click="showBottomRight" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const showTopLeft = () => {
+    toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', group: 'tl', life: 3000 });
+};
+
+const showBottomLeft = () => {
+    toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content', group: 'bl', life: 3000 });
+};
+
+const showBottomRight = () => {
+    toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', group: 'br', life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## Severity
 
 The severity option specifies the type of the message.
@@ -78,6 +214,55 @@ The severity option specifies the type of the message.
 <Button label="Contrast" severity="contrast" @click="showContrast" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast />
+        <div class="flex flex-wrap gap-2">
+            <Button label="Success" severity="success" @click="showSuccess" />
+            <Button label="Info" severity="info" @click="showInfo" />
+            <Button label="Warn" severity="warn" @click="showWarn" />
+            <Button label="Error" severity="danger" @click="showError" />
+            <Button label="Secondary" severity="secondary" @click="showSecondary" />
+            <Button label="Contrast" severity="contrast" @click="showContrast" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const showSuccess = () => {
+    toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 });
+};
+
+const showInfo = () => {
+    toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', life: 3000 });
+};
+
+const showWarn = () => {
+    toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content', life: 3000 });
+};
+
+const showError = () => {
+    toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
+};
+
+const showSecondary = () => {
+    toast.add({ severity: 'secondary', summary: 'Secondary Message', detail: 'Message Content', life: 3000 });
+};
+
+const showContrast = () => {
+    toast.add({ severity: 'contrast', summary: 'Contrast Message', detail: 'Message Content', life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## Sticky
 
 A message disappears after the number of milliseconds defined in the life option. Omit the life option to make the message sticky.
@@ -87,6 +272,35 @@ A message disappears after the number of milliseconds defined in the life option
 <Button @click="showSticky" label="Sticky" />
 <Button label="Clear" severity="secondary" @click="clear()" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast />
+        <div class="flex flex-wrap gap-2">
+            <Button @click="showSticky" label="Sticky" />
+            <Button label="Clear" severity="secondary" @click="clear()" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const showSticky = () => {
+    toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content'});
+}
+
+const clear = () => {
+    toast.removeAllGroups();
+}
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -107,6 +321,53 @@ Custom content inside a message is defined with the message template.
 </Toast>
 <Button @click="showTemplate" label="View" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast position="bottom-center" group="bc" @close="onClose">
+            <template #message="slotProps">
+                <div class="flex flex-col items-start flex-auto">
+                    <div class="flex items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold">Amy Elsner</span>
+                    </div>
+                    <div class="font-medium text-lg my-4">{{ slotProps.message.summary }}</div>
+                    <Button size="small" label="Reply" severity="success" @click="onReply()"></Button>
+                </div>
+            </template>
+        </Toast>
+        <Button @click="showTemplate" label="View" />
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+import { ref } from 'vue';
+const toast = useToast();
+const visible = ref(false);
+
+const showTemplate = () => {
+    if (!visible.value) {
+        toast.add({ severity: 'success', summary: 'Can you send me the report?', group: 'bc' });
+        visible.value = true;
+    } 
+};
+
+const onReply = () => {
+    toast.removeGroup('bc');
+    visible.value = false;
+}
+
+const onClose = () => {
+    visible.value = false;
+}
+<\/script>
+```
+</details>
 
 ## ToastServiceDoc
 

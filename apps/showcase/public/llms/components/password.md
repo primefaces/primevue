@@ -2,9 +2,25 @@
 
 Password displays strength indicator for password fields.
 
+## Import
+
+```javascript
+import Password from 'primevue/password';
+```
+
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Screen reader is notified about the changes to the strength of the password using a section that has aria-live while typing. Keyboard Support Key Function tab Moves focus to the input. escape Hides the strength meter if open.
+
+```vue
+<label for="pwd1">Password</label>
+<Password inputId="pwd1" />
+
+<span id="pwd2">Password</span>
+<Password aria-labelledby="pwd2" />
+
+<Password aria-label="Password"/>
+```
 
 ## Basic
 
@@ -22,6 +38,24 @@ When showClear is enabled, a clear icon is added to reset the Password.
 <Password v-model="value" :feedback="false" showClear inputClass="w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password v-model="value" :feedback="false" showClear inputClass="w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -30,6 +64,21 @@ When disabled is present, the element cannot be edited and focused.
 <Password disabled placeholder="Disabled" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password disabled placeholder="Disabled" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -37,6 +86,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <Password v-model="value" :feedback="false" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password v-model="value" :feedback="false" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -59,6 +126,39 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+   <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <Password v-model="value1" inputId="over_label" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <Password v-model="value2" inputId="in_label" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <Password v-model="value3" inputId="on_label" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -66,6 +166,24 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <Password v-model="value" :feedback="false" fluid />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Password v-model="value" :feedback="false" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -83,6 +201,61 @@ InputText is used with the v-model property.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-64">
+            <div class="flex flex-col gap-1">
+                <Password name="password" placeholder="Password" :feedback="false" fluid />
+                <template v-if="$form.password?.invalid">
+                    <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error" size="small" variant="simple">{{ error.message }}</Message>
+                </template>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    password: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        password: z
+            .string()
+            .min(3, { message: 'Minimum 3 characters.' })
+            .max(8, { message: 'Maximum 8 characters.' })
+            .refine((value) => /[a-z]/.test(value), {
+                message: 'Must have a lowercase letter.'
+            })
+            .refine((value) => /[A-Z]/.test(value), {
+                message: 'Must have an uppercase letter.'
+            })
+            .refine((value) => /\d/.test(value), {
+                message: 'Must have a number.'
+            })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -94,6 +267,27 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <Password v-model="value" inputId="password" variant="filled" />
+            <label for="password">Password</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -103,6 +297,26 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <Password v-model="value2" :invalid="!value2" variant="filled" placeholder="Password" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <Password v-model="value1" :invalid="!value1" placeholder="Password" />
+        <Password v-model="value2" :invalid="!value2" variant="filled" placeholder="Password" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+<\/script>
+```
+</details>
+
 ## Locale
 
 Labels are translated at component level by promptLabel , weakLabel , mediumLabel and strongLabel properties. In order to apply global translations for all Password components in the application, refer to the locale .
@@ -111,6 +325,24 @@ Labels are translated at component level by promptLabel , weakLabel , mediumLabe
 <Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Meter
 
 Strength meter is displayed as a popup while a value is being entered.
@@ -118,6 +350,24 @@ Strength meter is displayed as a popup while a value is being entered.
 ```vue
 <Password v-model="value" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password v-model="value" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -130,6 +380,28 @@ Password provides small and large sizes as alternatives to the base.
     <Password v-model="value3" size="large" placeholder="Large" />
 </div>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <Password v-model="value1" size="small" placeholder="Small" />
+        <Password v-model="value2" placeholder="Normal" />
+        <Password v-model="value3" size="large" placeholder="Large" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -152,6 +424,37 @@ Password provides small and large sizes as alternatives to the base.
 </Password>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password v-model="value">
+            <template #header>
+                <div class="font-semibold text-xm mb-4">Reset Password</div>
+            </template>
+            <template #footer>
+                <Divider />
+                <ul class="pl-2 my-0 leading-normal text-sm">
+                    <li>At least one lowercase</li>
+                    <li>At least one uppercase</li>
+                    <li>At least one numeric</li>
+                    <li>Minimum 8 characters</li>
+                </ul>
+            </template>
+        </Password>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## ToggleMask
 
 When toggleMask is present, an icon is displayed to show the value as plain text.
@@ -159,6 +462,24 @@ When toggleMask is present, an icon is displayed to show the value as plain text
 ```vue
 <Password v-model="value" toggleMask />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password v-model="value" toggleMask />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Password
 
@@ -222,6 +543,8 @@ When toggleMask is present, an icon is displayed to show the value as plain text
 | contextmenu | string | - |  |
 | dir | string | - |  |
 | draggable | Booleanish | - |  |
+| enterkeyhint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
+| enterKeyHint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
 | hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
 | id | string | - |  |
 | inert | Booleanish | - |  |
@@ -252,15 +575,16 @@ When toggleMask is present, an icon is displayed to show the value as plain text
 | results | Numberish | - |  |
 | security | string | - |  |
 | unselectable | "on" \| "off" | - |  |
-| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| inputmode | "text" \| "search" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
 | is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| exportparts | string | - |  |
+| part | string | - |  |
 | accept | string | - |  |
 | alt | string | - |  |
 | autocomplete | string | - |  |
 | capture | boolean \| "user" \| "environment" | - |  |
 | checked | any[] \| Set<any> \| Booleanish | - |  |
 | crossorigin | string | - |  |
-| enterKeyHint | "search" \| "enter" \| "done" \| "go" \| "next" \| "previous" \| "send" | - |  |
 | form | string | - |  |
 | formaction | string | - |  |
 | formenctype | string | - |  |

@@ -10,8 +10,13 @@
                     <img alt="PrimeVue Designer" :src="introDesktopImg" class="w-full hidden md:block" />
                     <img alt="PrimeVue Designer" :src="introMobileImg" class="w-full md:hidden" />
                 </div>
-                <h1>Introduction</h1>
-                <p>Next-generation UI Component suite for Vue.</p>
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                    <div class="flex-1">
+                        <h1>Introduction</h1>
+                        <p>Next-generation UI Component suite for Vue.</p>
+                    </div>
+                    <DocCopyMarkdown docType="page" class="flex-shrink-0" />
+                </div>
             </div>
             <DocSections :docs="docs" />
         </div>
@@ -20,6 +25,7 @@
 </template>
 
 <script>
+import DocCopyMarkdown from '@/components/doc/DocCopyMarkdown.vue';
 import AccessibilityDoc from '@/doc/introduction/AccessibilityDoc.vue';
 import AddOnsDoc from '@/doc/introduction/AddOnsDoc.vue';
 import OverviewDoc from '@/doc/introduction/OverviewDoc.vue';
@@ -27,6 +33,7 @@ import PassThroughDoc from '@/doc/introduction/PassThroughDoc.vue';
 import ThemingDoc from '@/doc/introduction/ThemingDoc.vue';
 
 export default {
+    components: { DocCopyMarkdown },
     data() {
         return {
             docs: [

@@ -2,6 +2,15 @@
 
 DataTable displays data in tabular format.
 
+## Import
+
+```javascript
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import ColumnGroup from 'primevue/columngroup';   // optional
+import Row from 'primevue/row';                   // optional
+```
+
 ## AccessibilityDoc
 
 Screen Reader DataTable uses a table element whose attributes can be extended with the tableProps option. This property allows passing aria roles and attributes like aria-label and aria-describedby to define the table for readers. Default role of the table is table . Header, body and footer elements use rowgroup , rows use row role, header cells have columnheader and body cells use cell roles. Sortable headers utilizer aria-sort attribute either set to "ascending" or "descending". Built-in checkbox and radiobutton components for row selection use checkbox and radiobutton . The label to describe them is retrieved from the aria.selectRow and aria.unselectRow properties of the locale API. Similarly header checkbox uses selectAll and unselectAll keys. When a row is selected, aria-selected is set to true on a row. The element to expand or collapse a row is a button with aria-expanded and aria-controls properties. Value to describe the buttons is derived from aria.expandRow and aria.collapseRow properties of the locale API. The filter menu button use aria.showFilterMenu and aria.hideFilterMenu properties as aria-label in addition to the aria-haspopup , aria-expanded and aria-controls to define the relation between the button and the overlay. Popop menu has dialog role with aria-modal as focus is kept within the overlay. The operator dropdown use aria.filterOperator and filter constraints dropdown use aria.filterConstraint properties. Buttons to add rules on the other hand utilize aria.addRule and aria.removeRule properties. The footer buttons similarly use aria.clear and aria.apply properties. filterInputProps of the Column component can be used to define aria labels for the built-in filter components, if a custom component is used with templating you also may define your own aria labels as well. Editable cells use custom templating so you need to manage aria roles and attributes manually if required. The row editor controls are button elements with aria.editRow , aria.cancelEdit and aria.saveEdit used for the aria-label . Paginator is a standalone component used inside the DataTable, refer to the paginator for more information about the accessibility features. Keyboard Support Any button element inside the DataTable used for cases like filter, row expansion, edit are tabbable and can be used with space and enter keys. Sortable Headers Keyboard Support Key Function tab Moves through the headers. enter Sorts the column. space Sorts the column. Filter Menu Keyboard Support Key Function tab Moves through the elements inside the popup. escape Hides the popup. Selection Keyboard Support Key Function tab Moves focus to the first selected row, if there is none then first row receives the focus. up arrow Moves focus to the previous row. down arrow Moves focus to the next row. enter Toggles the selected state of the focused row depending on the metaKeySelection setting. space Toggles the selected state of the focused row depending on the metaKeySelection setting. home Moves focus to the first row. end Moves focus to the last row. shift + down arrow Moves focus to the next row and toggles the selection state. shift + up arrow Moves focus to the previous row and toggles the selection state. shift + space Selects the rows between the most recently selected row and the focused row. control + shift + home Selects the focused rows and all the options up to the first one. control + shift + end Selects the focused rows and all the options down to the last one. control + a Selects all rows.
@@ -67,6 +76,101 @@ Columns can be grouped within a Row component and groups can be displayed within
     </ColumnGroup>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <DataTable :value="sales" tableStyle="min-width: 50rem">
+        <ColumnGroup type="header">
+            <Row>
+                <Column header="Product" :rowspan="3" />
+                <Column header="Sale Rate" :colspan="4" />
+            </Row>
+            <Row>
+                <Column header="Sales" :colspan="2" />
+                <Column header="Profits" :colspan="2" />
+            </Row>
+            <Row>
+                <Column header="Last Year" sortable field="lastYearSale"/>
+                <Column header="This Year" sortable field="thisYearSale"/>
+                <Column header="Last Year" sortable field="lastYearProfit"/>
+                <Column header="This Year" sortable field="thisYearProfit"/>
+            </Row>
+        </ColumnGroup>
+        <Column field="product" />
+        <Column field="lastYearSale">
+            <template #body="slotProps">
+                {{slotProps.data.lastYearSale}}%
+            </template>
+        </Column>
+        <Column field="thisYearSale">
+            <template #body="slotProps">
+                {{slotProps.data.thisYearSale}}%
+            </template>
+        </Column>
+        <Column field="lastYearProfit">
+            <template #body="slotProps">
+                {{formatCurrency(slotProps.data.lastYearProfit)}}
+            </template>
+        </Column>
+        <Column field="thisYearProfit">
+            <template #body="slotProps">
+                {{formatCurrency(slotProps.data.thisYearProfit)}}
+            </template>
+        </Column>
+        <ColumnGroup type="footer">
+            <Row>
+                <Column footer="Totals:" :colspan="3" footerStyle="text-align:right"/>
+                <Column :footer="lastYearTotal" />
+                <Column :footer="thisYearTotal" />
+            </Row>
+        </ColumnGroup>
+    </DataTable>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue';
+
+const sales = ref([
+    {product: 'Bamboo Watch', lastYearSale: 51, thisYearSale: 40, lastYearProfit: 54406, thisYearProfit: 43342},
+    {product: 'Black Watch', lastYearSale: 83, thisYearSale: 9, lastYearProfit: 423132, thisYearProfit: 312122},
+    {product: 'Blue Band', lastYearSale: 38, thisYearSale: 5, lastYearProfit: 12321, thisYearProfit: 8500},
+    {product: 'Blue T-Shirt', lastYearSale: 49, thisYearSale: 22, lastYearProfit: 745232, thisYearProfit: 65323},
+    {product: 'Brown Purse', lastYearSale: 17, thisYearSale: 79, lastYearProfit: 643242, thisYearProfit: 500332},
+    {product: 'Chakra Bracelet', lastYearSale: 52, thisYearSale:  65, lastYearProfit: 421132, thisYearProfit: 150005},
+    {product: 'Galaxy Earrings', lastYearSale: 82, thisYearSale: 12, lastYearProfit: 131211, thisYearProfit: 100214},
+    {product: 'Game Controller', lastYearSale: 44, thisYearSale: 45, lastYearProfit: 66442, thisYearProfit: 53322},
+    {product: 'Gaming Set', lastYearSale: 90, thisYearSale: 56, lastYearProfit: 765442, thisYearProfit: 296232},
+    {product: 'Gold Phone Case', lastYearSale: 75, thisYearSale: 54, lastYearProfit: 21212, thisYearProfit: 12533}
+]);
+
+const formatCurrency = (value) => {
+    return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+};
+
+const lastYearTotal = computed(() => {
+    let total = 0;
+    for(let sale of sales.value) {
+        total += sale.lastYearProfit;
+    }
+
+    return formatCurrency(total);
+});
+
+const thisYearTotal = computed(() => {
+    let total = 0;
+    for(let sale of sales.value) {
+        total += sale.thisYearProfit;
+    }
+
+    return formatCurrency(total);
+});
+
+<\/script>
+```
+</details>
 
 ## ColumnToggleDoc
 

@@ -2,6 +2,12 @@
 
 Editor is rich text editor component based on Quill.
 
+## Import
+
+```javascript
+import Editor from 'primevue/editor';
+```
+
 ## Accessibility
 
 Screen Reader Quill performs generally well in terms of accessibility. The elements in the toolbar can be tabbed and have the necessary ARIA roles/attributes for screen readers. One known limitation is the lack of arrow key support for dropdowns in the toolbar that may be overcome with a custom toolbar.
@@ -28,9 +34,54 @@ Editor integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <Editor name="content" editorStyle="height: 320px" />
+                <Message v-if="$form.content?.invalid" severity="error" size="small" variant="simple">{{ $form.content.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    content: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        content: z.string().min(1, { message: 'Content is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Quill
 
 Editor uses Quill editor underneath so it needs to be installed as a dependency.
+
+```vue
+npm install quill
+```
 
 ## ReadOnly
 
@@ -39,6 +90,24 @@ When readonly is present, the value cannot be edited.
 ```vue
 <Editor v-model="value" editorStyle="height: 320px" readonly />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Editor v-model="value" editorStyle="height: 320px" readonly />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref('Always bet on Prime');
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -55,6 +124,32 @@ Editor provides a default toolbar with common options, to customize it define yo
     </template>
 </Editor>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Editor v-model="value" editorStyle="height: 320px">
+            <template v-slot:toolbar>
+                <span class="ql-formats">
+                    <button v-tooltip.bottom="'Bold'" class="ql-bold"></button>
+                    <button v-tooltip.bottom="'Italic'" class="ql-italic"></button>
+                    <button v-tooltip.bottom="'Underline'" class="ql-underline"></button>
+                </span>
+            </template>
+        </Editor>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref('<div>Hello World!</div><div>PrimeVue <b>Editor</b> Rocks</div><div><br></div>');
+<\/script>
+```
+</details>
 
 ## Editor
 

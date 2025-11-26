@@ -11,6 +11,11 @@ export default {
         componentName: {
             type: String,
             default: null
+        },
+        // Type of documentation: 'component' or 'page'
+        docType: {
+            type: String,
+            default: 'component'
         }
     },
     data() {
@@ -47,17 +52,25 @@ export default {
             }
             return 'https://primevue.org';
         },
-        markdownLink() {
-            // Extract component name from route (e.g., /button -> button)
+        pageName() {
+            // Extract page name from route (e.g., /button -> button, /theming/styled -> styled)
             const segments = this.$route.path.split('/').filter(Boolean);
-            const componentName = segments[segments.length - 1];
-
-            // Files are in /llms/components/ directory
-            return `${this.baseUrl}/llms/components/${componentName}.md`;
+            return segments[segments.length - 1] || segments[0];
+        },
+        markdownLink() {
+            if (this.docType === 'page') {
+                // For pages, use the route path directly (e.g., /theming/styled.md)
+                // The middleware will handle mapping to the correct file
+                const routePath = this.$route.path.replace(/\/$/, ''); // Remove trailing slash
+                return `${this.baseUrl}${routePath}.md`;
+            }
+            // For components, use the llms/components path
+            return `${this.baseUrl}/llms/components/${this.pageName}.md`;
         },
         githubLink() {
-            if (this.componentName) {
-                return `https://github.com/primefaces/primevue/tree/master/apps/showcase/doc/${this.componentName}/`;
+            const name = this.componentName || this.pageName;
+            if (name) {
+                return `https://github.com/primefaces/primevue/tree/master/apps/showcase/doc/${name}/`;
             }
             return 'https://github.com/primefaces/primevue/tree/master/apps/showcase/';
         },

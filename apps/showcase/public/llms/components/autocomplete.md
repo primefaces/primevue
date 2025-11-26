@@ -2,9 +2,25 @@
 
 AutoComplete is an input component that provides real-time suggestions when being typed.
 
+## Import
+
+```javascript
+import AutoComplete from 'primevue/autocomplete';
+```
+
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete , aria-haspopup and aria-expanded attributes. The relation between the input and the popup is created with aria-controls and aria-activedescendant attribute is used to instruct screen reader which option to read during keyboard navigation within the popup list. In multiple mode, chip list uses listbox role with aria-orientation set to horizontal whereas each chip has the option role with aria-label set to the label of the chip. The popup list has an id that refers to the aria-controls attribute of the input element and uses listbox as the role. Each list item has option role and an id to match the aria-activedescendant of the input element. Closed State Keyboard Support Key Function tab Moves focus to the autocomplete element. any printable character Opens the popup and moves focus to the first option. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Moves focus to the previous focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. enter Selects the focused option and closes the popup, then moves focus to the autocomplete element. space Selects the focused option and closes the popup, then moves focus to the autocomplete element. escape Closes the popup, then moves focus to the autocomplete element. down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. alt + up arrow Selects the focused option and closes the popup, then moves focus to the autocomplete element. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the last one. Chips Input Keyboard Support Key Function backspace Deletes the previous chip if the input field is empty. left arrow Moves focus to the previous chip if available and input field is empty. Chip Keyboard Support Key Function left arrow Moves focus to the previous chip if available. right arrow Moves focus to the next chip, if there is none then input field receives the focus. backspace Deletes the chips and adds focus to the input field.
+
+```vue
+<label for="ac1">;Username</label>
+<AutoComplete inputId="ac1" />
+
+<span id="ac2">Email</span>
+<AutoComplete aria-labelledby="ac2" />
+
+<AutoComplete aria-label="City" />
+```
 
 ## Basic
 
@@ -22,6 +38,29 @@ When showClear is enabled, a clear icon is added to reset the AutoComplete.
 <AutoComplete v-model="value" showClear :suggestions="items" @complete="search" inputClass="w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="value" showClear :suggestions="items" @complete="search" inputClass="w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -29,6 +68,22 @@ When disabled is present, the element cannot be edited and focused.
 ```vue
 <AutoComplete disabled placeholder="Disabled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete disabled placeholder="Disabled" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## Dropdown
 
@@ -38,6 +93,31 @@ Enabling dropdown property displays a button next to the input field where click
 <AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+const items = ref([]);
+
+const search = (event) => {
+    let _items = [...Array(10).keys()];
+
+    items.value = event.query ? [...Array(10).keys()].map((item) => event.query + '-' + item) : _items;
+}
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -45,6 +125,29 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <AutoComplete v-model="value" :suggestions="items" @complete="search" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="value" :suggestions="items" @complete="search" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -67,6 +170,44 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <AutoComplete v-model="value1" inputId="over_label" :suggestions="items" @complete="search" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <AutoComplete v-model="value2" inputId="in_label" :suggestions="items" @complete="search" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <AutoComplete v-model="value3" inputId="on_label" :suggestions="items" @complete="search" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref('');
+const value2 = ref('');
+const value3 = ref('');
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -75,6 +216,29 @@ The fluid prop makes the component take up the full width of its container when 
 <AutoComplete v-model="value" :suggestions="items" fluid @complete="search" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <AutoComplete v-model="value" :suggestions="items" fluid @complete="search" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
+
 ## Force Selection
 
 ForceSelection mode validates the manual input to check whether it also exists in the suggestions list, if not the input value is cleared to make sure the value passed to the model is always one of the suggestions. Simply enable forceSelection to enforce that input is always from the suggestion list.
@@ -82,6 +246,44 @@ ForceSelection mode validates the manual input to check whether it also exists i
 ```vue
 <AutoComplete v-model="selectedCountry" forceSelection optionLabel="name" :suggestions="filteredCountries" @complete="search" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="selectedCountry" forceSelection optionLabel="name" :suggestions="filteredCountries" @complete="search" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { CountryService } from "@/service/CountryService";
+
+onMounted(() => {
+    CountryService.getCountries().then((data) => (countries.value = data));
+});
+
+const countries = ref();
+const selectedCountry = ref();
+const filteredCountries = ref();
+
+
+const search = (event) => {
+    setTimeout(() => {
+        if (!event.query.trim().length) {
+            filteredCountries.value = [...countries.value];
+        } else {
+            filteredCountries.value = countries.value.filter((country) => {
+                return country.name.toLowerCase().startsWith(event.query.toLowerCase());
+            });
+        }
+    }, 250);
+}
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -96,6 +298,73 @@ AutoComplete integrates seamlessly with the PrimeVue Forms library.
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-56">
+            <div class="flex flex-col gap-1">
+                <AutoComplete name="country.name" optionLabel="name" :suggestions="filteredCountries" @complete="search" fluid />
+                <Message v-if="$form.country?.name?.invalid" severity="error" size="small" variant="simple">{{ $form.country.name.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+import { CountryService } from "@/service/CountryService";
+
+onMounted(() => {
+    CountryService.getCountries().then((data) => (countries.value = data));
+});
+
+const initialValues = ref({
+    country: { name: '' }
+});
+const resolver = ref(zodResolver(
+    z.object({
+        country: z.union([
+            z.object({
+                name: z.string().min(1, 'Country is required.')
+            }),
+            z.any().refine((val) => false, { message: 'Country is required.' })
+        ])
+    })
+));
+const countries = ref();
+const selectedCountry = ref();
+const filteredCountries = ref();
+const toast = useToast();
+
+const search = (event) => {
+    setTimeout(() => {
+        if (!event.query.trim().length) {
+            filteredCountries.value = [...countries.value];
+        } else {
+            filteredCountries.value = countries.value.filter((country) => {
+                return country.name.toLowerCase().startsWith(event.query.toLowerCase());
+            });
+        }
+    }, 250);
+};
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
 
 ## Group
 
@@ -112,6 +381,80 @@ Option groups are specified with the optionGroupLabel and optionGroupChildren pr
 </AutoComplete>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="search" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Hint: type 'a'">
+            <template #optiongroup="slotProps">
+                <div class="flex items-center country-item">
+                    <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+                    <div>{{ slotProps.option.label }}</div>
+                </div>
+            </template>
+        </AutoComplete>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { FilterMatchMode, FilterService } from '@primevue/core/api';
+
+const selectedCity = ref();
+const filteredCities = ref();
+const groupedCities = ref([
+    {
+        label: 'Germany',
+        code: 'DE',
+        items: [
+            { label: 'Berlin', value: 'Berlin' },
+            { label: 'Frankfurt', value: 'Frankfurt' },
+            { label: 'Hamburg', value: 'Hamburg' },
+            { label: 'Munich', value: 'Munich' }
+        ]
+    },
+    {
+        label: 'USA',
+        code: 'US',
+        items: [
+            { label: 'Chicago', value: 'Chicago' },
+            { label: 'Los Angeles', value: 'Los Angeles' },
+            { label: 'New York', value: 'New York' },
+            { label: 'San Francisco', value: 'San Francisco' }
+        ]
+    },
+    {
+        label: 'Japan',
+        code: 'JP',
+        items: [
+            { label: 'Kyoto', value: 'Kyoto' },
+            { label: 'Osaka', value: 'Osaka' },
+            { label: 'Tokyo', value: 'Tokyo' },
+            { label: 'Yokohama', value: 'Yokohama' }
+        ]
+    }
+]);
+
+const search = (event) => {
+    let query = event.query;
+    let newFilteredCities = [];
+
+    for (let country of groupedCities.value) {
+        let filteredItems = FilterService.filter(country.items, ['label'], query, FilterMatchMode.CONTAINS);
+        if (filteredItems && filteredItems.length) {
+            newFilteredCities.push({...country, ...{items: filteredItems}});
+        }
+    }
+
+    filteredCities.value = newFilteredCities;
+
+}
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -123,6 +466,32 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" variant="filled" />
+            <label for="ac">Identifier</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -131,6 +500,31 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <AutoComplete v-model="value1" :suggestions="items" @complete="search" :invalid="!value1" placeholder="Code" />
 <AutoComplete v-model="value2" :suggestions="items" @complete="search" :invalid="!value2" variant="filled" placeholder="Code" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <AutoComplete v-model="value1" :suggestions="items" @complete="search" :invalid="!value1" placeholder="Code" />
+        <AutoComplete v-model="value2" :suggestions="items" @complete="search" :invalid="!value2" variant="filled" placeholder="Code" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref('');
+const value2 = ref('');
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
 
 ## Multiple
 
@@ -144,6 +538,34 @@ Multiple mode is enabled using multiple property used to select more than one va
 <AutoComplete v-model="value2" inputId="multiple-ac-2" multiple fluid @complete="search" :typeahead="false" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <label for="multiple-ac-1" class="font-bold mb-2 block">With Typeahead</label>
+        <AutoComplete v-model="value1" inputId="multiple-ac-1" multiple fluid :suggestions="items" @complete="search" />
+
+        <label for="multiple-ac-2" class="font-bold mt-8 mb-2 block">Without Typeahead</label>
+        <AutoComplete v-model="value2" inputId="multiple-ac-2" multiple fluid @complete="search" :typeahead="false" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
+
 ## Objects
 
 AutoComplete can work with objects using the optionLabel property that defines the label to display as a suggestion. The value passed to the model would still be the object instance of a suggestion. Here is an example with a Country object that has name and code fields such as &#123;name: "United States", code:"USA"&#125; .
@@ -151,6 +573,44 @@ AutoComplete can work with objects using the optionLabel property that defines t
 ```vue
 <AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { CountryService } from "@/service/CountryService";
+
+onMounted(() => {
+    CountryService.getCountries().then((data) => (countries.value = data));
+});
+
+const countries = ref();
+const selectedCountry = ref();
+const filteredCountries = ref();
+
+
+const search = (event) => {
+    setTimeout(() => {
+        if (!event.query.trim().length) {
+            filteredCountries.value = [...countries.value];
+        } else {
+            filteredCountries.value = countries.value.filter((country) => {
+                return country.name.toLowerCase().startsWith(event.query.toLowerCase());
+            });
+        }
+    }, 250);
+}
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -161,6 +621,33 @@ AutoComplete provides small and large sizes as alternatives to the base.
 <AutoComplete v-model="value2" :suggestions="items" @complete="search" placeholder="Normal" dropdown />
 <AutoComplete v-model="value3" :suggestions="items" @complete="search" size="large" placeholder="Large" dropdown />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <AutoComplete v-model="value1" :suggestions="items" @complete="search" size="small" placeholder="Small" dropdown />
+        <AutoComplete v-model="value2" :suggestions="items" @complete="search" placeholder="Normal" dropdown />
+        <AutoComplete v-model="value3" :suggestions="items" @complete="search" size="large" placeholder="Large" dropdown />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const items = ref([]);
+
+const search = () => {
+    items.value = [];
+}
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -185,6 +672,59 @@ AutoComplete offers multiple slots for customization through templating.
 </AutoComplete>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search">
+            <template #option="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+                    <div>{{ slotProps.option.name }}</div>
+                </div>
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="px-3 py-3">
+                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+                </div>
+            </template>
+        </AutoComplete>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { CountryService } from "@/service/CountryService";
+
+onMounted(() => {
+    CountryService.getCountries().then((data) => (countries.value = data));
+});
+
+const countries = ref();
+const selectedCountry = ref();
+const filteredCountries = ref();
+
+
+const search = (event) => {
+    setTimeout(() => {
+        if (!event.query.trim().length) {
+            filteredCountries.value = [...countries.value];
+        } else {
+            filteredCountries.value = countries.value.filter((country) => {
+                return country.name.toLowerCase().startsWith(event.query.toLowerCase());
+            });
+        }
+    }, 250);
+}
+<\/script>
+```
+</details>
+
 ## Virtual Scroll
 
 Virtual Scrolling is a performant way to render large lists. Configuration of the scroll behavior is defined with virtualScrollerOptions that requires itemSize as the mandatory value to set the height of an item. Visit VirtualScroller documentation for more information about the configuration API.
@@ -193,6 +733,41 @@ Virtual Scrolling is a performant way to render large lists. Configuration of th
 <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems"
     :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref(Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+const selectedItem = ref();
+const filteredItems = ref();
+const searchItems = (event) => {
+    //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
+    let query = event.query;
+    let _filteredItems = [];
+
+    for (let i = 0; i < items.value.length; i++) {
+        let item = items.value[i];
+
+        if (item.label.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+            _filteredItems.push(item);
+        }
+    }
+
+    filteredItems.value = _filteredItems;
+};
+<\/script>
+```
+</details>
 
 ## Auto Complete
 

@@ -1,6 +1,6 @@
 # PrimeVue Components Documentation
 
-Generated: 2025-11-24T13:35:24.933Z
+Generated: 2025-11-26T14:47:17.014Z
 
 ---
 
@@ -94,6 +94,58 @@ Panels can be controlled programmatically using value property as a model.
 </Accordion>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex mb-4 gap-2 justify-end">
+            <Button @click="active = '0'" rounded label="1" class="w-8 h-8 p-0" :outlined="active !== '0'" />
+            <Button @click="active = '1'" rounded label="2" class="w-8 h-8 p-0" :outlined="active !== '1'" />
+            <Button @click="active = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="active !== '2'" />
+        </div>
+
+        <Accordion v-model:value="active">
+            <AccordionPanel value="0">
+                <AccordionHeader>Header I</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="1">
+                <AccordionHeader>Header II</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="2">
+                <AccordionHeader>Header III</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+        </Accordion>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const active = ref('0');
+<\/script>
+```
+</details>
+
 ## Disabled
 
 Enabling disabled property of an AccordionPanel prevents user interaction.
@@ -135,6 +187,52 @@ Enabling disabled property of an AccordionPanel prevents user interaction.
 </Accordion>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Accordion :value="['0']" multiple>
+            <AccordionPanel value="0">
+                <AccordionHeader>Header I</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="1">
+                <AccordionHeader>Header II</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="2">
+                <AccordionHeader>Header III</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="3" disabled>
+                <AccordionHeader>Header IV</AccordionHeader>
+            </AccordionPanel>
+        </Accordion>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Dynamic
 
 AccordionPanel can be generated dynamically using the standard v-for directive.
@@ -150,6 +248,46 @@ AccordionPanel can be generated dynamically using the standard v-for directive.
         </AccordionContent>
     </AccordionPanel>
 </Accordion>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Accordion value="0">
+            <AccordionPanel v-for="tab in tabs" :key="tab.title" :value="tab.value">
+                <AccordionHeader>{{ tab.title }}</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">{{ tab.content }}</p>
+                </AccordionContent>
+            </AccordionPanel>
+        </Accordion>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tabs = ref([
+    { title: 'Title 1', content: 'Content 1', value: '0' },
+    { title: 'Title 2', content: 'Content 2', value: '1' },
+    { title: 'Title 3', content: 'Content 3', value: '2' }
+]);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Accordion from 'primevue/accordion';
+import AccordionPanel from 'primevue/accordionpanel';
+import AccordionHeader from 'primevue/accordionheader';
+import AccordionContent from 'primevue/accordioncontent';
 ```
 
 ## Multiple
@@ -189,6 +327,49 @@ Only one tab at a time can be active by default, enabling multiple property chan
     </AccordionPanel>
 </Accordion>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Accordion :value="['0']" multiple>
+            <AccordionPanel value="0">
+                <AccordionHeader>Header I</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="1">
+                <AccordionHeader>Header II</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="2">
+                <AccordionHeader>Header III</AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+        </Accordion>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -245,6 +426,67 @@ Custom content for a header is defined with the default slot. The optional as pr
     </AccordionPanel>
 </Accordion>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Accordion value="0" expandIcon="pi pi-plus" collapseIcon="pi pi-minus">
+            <AccordionPanel value="0">
+                <AccordionHeader>
+                    <span class="flex items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold whitespace-nowrap">Amy Elsner</span>
+                        <Badge value="3" class="ml-auto mr-2" />
+                    </span>
+                </AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="1">
+                <AccordionHeader>
+                    <span class="flex items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                        <span class="font-bold whitespace-nowrap">Onyama Limba</span>
+                        <Badge value="4" class="ml-auto mr-2" />
+                    </span>
+                </AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+            <AccordionPanel value="2">
+                <AccordionHeader>
+                    <span class="flex items-center gap-2 w-full">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                        <span class="font-bold whitespace-nowrap">Ioni Bowcher</span>
+                        <Badge value="2" class="ml-auto mr-2" />
+                    </span>
+                </AccordionHeader>
+                <AccordionContent>
+                    <p class="m-0">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                    </p>
+                </AccordionContent>
+            </AccordionPanel>
+        </Accordion>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Accordion
 
@@ -447,6 +689,16 @@ Animation classes are defined with the enterClass and leaveClass properties. Thi
 </div>
 ```
 
+## Import
+
+**Basic Usage:**
+
+```vue
+import AnimateOnScroll from 'primevue/animateonscroll';
+
+app.directive('animateonscroll', AnimateOnScroll);
+```
+
 ## Animateonscroll
 
 ---
@@ -458,6 +710,18 @@ AutoComplete is an input component that provides real-time suggestions when bein
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete , aria-haspopup and aria-expanded attributes. The relation between the input and the popup is created with aria-controls and aria-activedescendant attribute is used to instruct screen reader which option to read during keyboard navigation within the popup list. In multiple mode, chip list uses listbox role with aria-orientation set to horizontal whereas each chip has the option role with aria-label set to the label of the chip. The popup list has an id that refers to the aria-controls attribute of the input element and uses listbox as the role. Each list item has option role and an id to match the aria-activedescendant of the input element. Closed State Keyboard Support Key Function tab Moves focus to the autocomplete element. any printable character Opens the popup and moves focus to the first option. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Moves focus to the previous focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. enter Selects the focused option and closes the popup, then moves focus to the autocomplete element. space Selects the focused option and closes the popup, then moves focus to the autocomplete element. escape Closes the popup, then moves focus to the autocomplete element. down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. alt + up arrow Selects the focused option and closes the popup, then moves focus to the autocomplete element. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the last one. Chips Input Keyboard Support Key Function backspace Deletes the previous chip if the input field is empty. left arrow Moves focus to the previous chip if available and input field is empty. Chip Keyboard Support Key Function left arrow Moves focus to the previous chip if available. right arrow Moves focus to the next chip, if there is none then input field receives the focus. backspace Deletes the chips and adds focus to the input field.
+
+**Basic Usage:**
+
+```vue
+<label for="ac1">;Username</label>
+<AutoComplete inputId="ac1" />
+
+<span id="ac2">Email</span>
+<AutoComplete aria-labelledby="ac2" />
+
+<AutoComplete aria-label="City" />
+```
 
 ## Basic
 
@@ -479,6 +743,29 @@ When showClear is enabled, a clear icon is added to reset the AutoComplete.
 <AutoComplete v-model="value" showClear :suggestions="items" @complete="search" inputClass="w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="value" showClear :suggestions="items" @complete="search" inputClass="w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -488,6 +775,22 @@ When disabled is present, the element cannot be edited and focused.
 ```vue
 <AutoComplete disabled placeholder="Disabled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete disabled placeholder="Disabled" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## Dropdown
 
@@ -499,6 +802,31 @@ Enabling dropdown property displays a button next to the input field where click
 <AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="value" dropdown :suggestions="items" @complete="search" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+const items = ref([]);
+
+const search = (event) => {
+    let _items = [...Array(10).keys()];
+
+    items.value = event.query ? [...Array(10).keys()].map((item) => event.query + '-' + item) : _items;
+}
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -508,6 +836,29 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <AutoComplete v-model="value" :suggestions="items" @complete="search" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="value" :suggestions="items" @complete="search" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -532,6 +883,44 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <AutoComplete v-model="value1" inputId="over_label" :suggestions="items" @complete="search" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <AutoComplete v-model="value2" inputId="in_label" :suggestions="items" @complete="search" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <AutoComplete v-model="value3" inputId="on_label" :suggestions="items" @complete="search" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref('');
+const value2 = ref('');
+const value3 = ref('');
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -542,6 +931,29 @@ The fluid prop makes the component take up the full width of its container when 
 <AutoComplete v-model="value" :suggestions="items" fluid @complete="search" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <AutoComplete v-model="value" :suggestions="items" fluid @complete="search" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
+
 ## Force Selection
 
 ForceSelection mode validates the manual input to check whether it also exists in the suggestions list, if not the input value is cleared to make sure the value passed to the model is always one of the suggestions. Simply enable forceSelection to enforce that input is always from the suggestion list.
@@ -551,6 +963,44 @@ ForceSelection mode validates the manual input to check whether it also exists i
 ```vue
 <AutoComplete v-model="selectedCountry" forceSelection optionLabel="name" :suggestions="filteredCountries" @complete="search" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="selectedCountry" forceSelection optionLabel="name" :suggestions="filteredCountries" @complete="search" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { CountryService } from "@/service/CountryService";
+
+onMounted(() => {
+    CountryService.getCountries().then((data) => (countries.value = data));
+});
+
+const countries = ref();
+const selectedCountry = ref();
+const filteredCountries = ref();
+
+
+const search = (event) => {
+    setTimeout(() => {
+        if (!event.query.trim().length) {
+            filteredCountries.value = [...countries.value];
+        } else {
+            filteredCountries.value = countries.value.filter((country) => {
+                return country.name.toLowerCase().startsWith(event.query.toLowerCase());
+            });
+        }
+    }, 250);
+}
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -567,6 +1017,73 @@ AutoComplete integrates seamlessly with the PrimeVue Forms library.
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4 w-full md:w-56">
+            <div class="flex flex-col gap-1">
+                <AutoComplete name="country.name" optionLabel="name" :suggestions="filteredCountries" @complete="search" fluid />
+                <Message v-if="$form.country?.name?.invalid" severity="error" size="small" variant="simple">{{ $form.country.name.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+import { CountryService } from "@/service/CountryService";
+
+onMounted(() => {
+    CountryService.getCountries().then((data) => (countries.value = data));
+});
+
+const initialValues = ref({
+    country: { name: '' }
+});
+const resolver = ref(zodResolver(
+    z.object({
+        country: z.union([
+            z.object({
+                name: z.string().min(1, 'Country is required.')
+            }),
+            z.any().refine((val) => false, { message: 'Country is required.' })
+        ])
+    })
+));
+const countries = ref();
+const selectedCountry = ref();
+const filteredCountries = ref();
+const toast = useToast();
+
+const search = (event) => {
+    setTimeout(() => {
+        if (!event.query.trim().length) {
+            filteredCountries.value = [...countries.value];
+        } else {
+            filteredCountries.value = countries.value.filter((country) => {
+                return country.name.toLowerCase().startsWith(event.query.toLowerCase());
+            });
+        }
+    }, 250);
+};
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
 
 ## Group
 
@@ -585,6 +1102,80 @@ Option groups are specified with the optionGroupLabel and optionGroupChildren pr
 </AutoComplete>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="selectedCity" :suggestions="filteredCities" @complete="search" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Hint: type 'a'">
+            <template #optiongroup="slotProps">
+                <div class="flex items-center country-item">
+                    <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+                    <div>{{ slotProps.option.label }}</div>
+                </div>
+            </template>
+        </AutoComplete>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { FilterMatchMode, FilterService } from '@primevue/core/api';
+
+const selectedCity = ref();
+const filteredCities = ref();
+const groupedCities = ref([
+    {
+        label: 'Germany',
+        code: 'DE',
+        items: [
+            { label: 'Berlin', value: 'Berlin' },
+            { label: 'Frankfurt', value: 'Frankfurt' },
+            { label: 'Hamburg', value: 'Hamburg' },
+            { label: 'Munich', value: 'Munich' }
+        ]
+    },
+    {
+        label: 'USA',
+        code: 'US',
+        items: [
+            { label: 'Chicago', value: 'Chicago' },
+            { label: 'Los Angeles', value: 'Los Angeles' },
+            { label: 'New York', value: 'New York' },
+            { label: 'San Francisco', value: 'San Francisco' }
+        ]
+    },
+    {
+        label: 'Japan',
+        code: 'JP',
+        items: [
+            { label: 'Kyoto', value: 'Kyoto' },
+            { label: 'Osaka', value: 'Osaka' },
+            { label: 'Tokyo', value: 'Tokyo' },
+            { label: 'Yokohama', value: 'Yokohama' }
+        ]
+    }
+]);
+
+const search = (event) => {
+    let query = event.query;
+    let newFilteredCities = [];
+
+    for (let country of groupedCities.value) {
+        let filteredItems = FilterService.filter(country.items, ['label'], query, FilterMatchMode.CONTAINS);
+        if (filteredItems && filteredItems.length) {
+            newFilteredCities.push({...country, ...{items: filteredItems}});
+        }
+    }
+
+    filteredCities.value = newFilteredCities;
+
+}
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -598,6 +1189,40 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <AutoComplete v-model="value" inputId="ac" :suggestions="items" @complete="search" variant="filled" />
+            <label for="ac">Identifier</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import AutoComplete from 'primevue/autocomplete';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -608,6 +1233,31 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <AutoComplete v-model="value1" :suggestions="items" @complete="search" :invalid="!value1" placeholder="Code" />
 <AutoComplete v-model="value2" :suggestions="items" @complete="search" :invalid="!value2" variant="filled" placeholder="Code" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <AutoComplete v-model="value1" :suggestions="items" @complete="search" :invalid="!value1" placeholder="Code" />
+        <AutoComplete v-model="value2" :suggestions="items" @complete="search" :invalid="!value2" variant="filled" placeholder="Code" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref('');
+const value2 = ref('');
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
 
 ## Multiple
 
@@ -623,6 +1273,34 @@ Multiple mode is enabled using multiple property used to select more than one va
 <AutoComplete v-model="value2" inputId="multiple-ac-2" multiple fluid @complete="search" :typeahead="false" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <label for="multiple-ac-1" class="font-bold mb-2 block">With Typeahead</label>
+        <AutoComplete v-model="value1" inputId="multiple-ac-1" multiple fluid :suggestions="items" @complete="search" />
+
+        <label for="multiple-ac-2" class="font-bold mt-8 mb-2 block">Without Typeahead</label>
+        <AutoComplete v-model="value2" inputId="multiple-ac-2" multiple fluid @complete="search" :typeahead="false" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+const items = ref([]);
+
+const search = (event) => {
+    items.value = [...Array(10).keys()].map((item) => event.query + '-' + item);
+}
+<\/script>
+```
+</details>
+
 ## Objects
 
 AutoComplete can work with objects using the optionLabel property that defines the label to display as a suggestion. The value passed to the model would still be the object instance of a suggestion. Here is an example with a Country object that has name and code fields such as &#123;name: "United States", code:"USA"&#125; .
@@ -632,6 +1310,44 @@ AutoComplete can work with objects using the optionLabel property that defines t
 ```vue
 <AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { CountryService } from "@/service/CountryService";
+
+onMounted(() => {
+    CountryService.getCountries().then((data) => (countries.value = data));
+});
+
+const countries = ref();
+const selectedCountry = ref();
+const filteredCountries = ref();
+
+
+const search = (event) => {
+    setTimeout(() => {
+        if (!event.query.trim().length) {
+            filteredCountries.value = [...countries.value];
+        } else {
+            filteredCountries.value = countries.value.filter((country) => {
+                return country.name.toLowerCase().startsWith(event.query.toLowerCase());
+            });
+        }
+    }, 250);
+}
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -644,6 +1360,33 @@ AutoComplete provides small and large sizes as alternatives to the base.
 <AutoComplete v-model="value2" :suggestions="items" @complete="search" placeholder="Normal" dropdown />
 <AutoComplete v-model="value3" :suggestions="items" @complete="search" size="large" placeholder="Large" dropdown />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <AutoComplete v-model="value1" :suggestions="items" @complete="search" size="small" placeholder="Small" dropdown />
+        <AutoComplete v-model="value2" :suggestions="items" @complete="search" placeholder="Normal" dropdown />
+        <AutoComplete v-model="value3" :suggestions="items" @complete="search" size="large" placeholder="Large" dropdown />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const items = ref([]);
+
+const search = () => {
+    items.value = [];
+}
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -670,6 +1413,59 @@ AutoComplete offers multiple slots for customization through templating.
 </AutoComplete>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="selectedCountry" optionLabel="name" :suggestions="filteredCountries" @complete="search">
+            <template #option="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+                    <div>{{ slotProps.option.name }}</div>
+                </div>
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="px-3 py-3">
+                    <Button label="Add New" fluid severity="secondary" text size="small" icon="pi pi-plus" />
+                </div>
+            </template>
+        </AutoComplete>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { CountryService } from "@/service/CountryService";
+
+onMounted(() => {
+    CountryService.getCountries().then((data) => (countries.value = data));
+});
+
+const countries = ref();
+const selectedCountry = ref();
+const filteredCountries = ref();
+
+
+const search = (event) => {
+    setTimeout(() => {
+        if (!event.query.trim().length) {
+            filteredCountries.value = [...countries.value];
+        } else {
+            filteredCountries.value = countries.value.filter((country) => {
+                return country.name.toLowerCase().startsWith(event.query.toLowerCase());
+            });
+        }
+    }, 250);
+}
+<\/script>
+```
+</details>
+
 ## Virtual Scroll
 
 Virtual Scrolling is a performant way to render large lists. Configuration of the scroll behavior is defined with virtualScrollerOptions that requires itemSize as the mandatory value to set the height of an item. Visit VirtualScroller documentation for more information about the configuration API.
@@ -680,6 +1476,41 @@ Virtual Scrolling is a performant way to render large lists. Configuration of th
 <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems"
     :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref(Array.from({ length: 1000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+const selectedItem = ref();
+const filteredItems = ref();
+const searchItems = (event) => {
+    //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
+    let query = event.query;
+    let _filteredItems = [];
+
+    for (let i = 0; i < items.value.length; i++) {
+        let item = items.value[i];
+
+        if (item.label.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+            _filteredItems.push(item);
+        }
+    }
+
+    filteredItems.value = _filteredItems;
+};
+<\/script>
+```
+</details>
 
 ## Auto Complete
 
@@ -894,6 +1725,29 @@ Grouping is available by wrapping multiple Avatar components inside an AvatarGro
 </AvatarGroup>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <AvatarGroup>
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/asiyajavayant.png" shape="circle" />
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" shape="circle" />
+            <Avatar label="+2" shape="circle" />
+        </AvatarGroup>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
 ## Icon
 
 A font icon is displayed as an Avatar with the icon property.
@@ -914,6 +1768,43 @@ A font icon is displayed as an Avatar with the icon property.
 </OverlayBadge>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-wrap gap-8">
+            <div class="flex-auto">
+                <h5>Icon</h5>
+                <Avatar icon="pi pi-user" class="mr-2" size="xlarge" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+                <Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" />
+            </div>
+
+            <div class="flex-auto">
+                <h5>Circle</h5>
+                <Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" />
+                <Avatar icon="pi pi-user" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+                <Avatar icon="pi pi-user" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
+            </div>
+
+            <div class="flex-auto">
+                <h5>Badge</h5>
+                <OverlayBadge value="4" severity="danger" class="inline-flex">
+                    <Avatar icon="pi pi-user" size="xlarge" />
+                </OverlayBadge>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
 ## Image
 
 Use the image property to display an image as an Avatar.
@@ -930,6 +1821,50 @@ Use the image property to display an image as an Avatar.
 </OverlayBadge>
 
 <Avatar image="https://www.gravatar.com/avatar/05dfd4b41340d09cae045235eb0893c3?d=mp" class="flex items-center justify-center mr-2" size="xlarge" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-wrap gap-8">
+            <div class="flex-auto">
+                <h5>Image</h5>
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" size="xlarge" shape="circle" />
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/asiyajavayant.png" class="mr-2" size="large" shape="circle" />
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+            </div>
+
+            <div class="flex-auto">
+                <h5>Badge</h5>
+                <OverlayBadge value="4" severity="danger" class="inline-flex">
+                    <Avatar class="p-overlay-badge" image="https://primefaces.org/cdn/primevue/images/organization/walter.jpg" size="xlarge" />
+                </OverlayBadge>
+            </div>
+
+            <div class="flex-auto">
+                <h5>Gravatar</h5>
+                <Avatar image="https://www.gravatar.com/avatar/05dfd4b41340d09cae045235eb0893c3?d=mp" class="flex items-center justify-center mr-2" size="xlarge" />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Avatar from 'primevue/avatar';
+import AvatarGroup from 'primevue/avatargroup';   //Optional for grouping
 ```
 
 ## Label
@@ -951,6 +1886,41 @@ A letter Avatar is defined with the label property.
     <Avatar label="U" size="xlarge" />
 </OverlayBadge>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="flex flex-wrap gap-8">
+        <div class="flex-auto">
+            <h5>Label</h5>
+            <Avatar label="P" class="mr-2" size="xlarge" />
+            <Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" />
+            <Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" />
+        </div>
+
+        <div class="flex-auto">
+            <h5>Circle</h5>
+            <Avatar label="P" class="mr-2" size="xlarge" shape="circle" />
+            <Avatar label="V" class="mr-2" size="large" style="background-color: #ece9fc; color: #2a1261" shape="circle" />
+            <Avatar label="U" class="mr-2" style="background-color: #dee9fc; color: #1a2551" shape="circle" />
+        </div>
+
+        <div class="flex-auto">
+            <h5>Badge</h5>
+            <OverlayBadge value="4" severity="danger" class="inline-flex">
+                <Avatar label="U" size="xlarge" />
+            </OverlayBadge>
+        </div>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## Avatar
 
@@ -1048,6 +2018,32 @@ Buttons have built-in support for badges to display a badge inline.
 <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" variant="outlined" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button type="button" label="Notifications" icon="pi pi-bell" badge="2" />
+        <Button type="button" label="Inbox" icon="pi pi-inbox" badge="2" badgeSeverity="contrast" variant="outlined" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+// import as component
+import Badge from 'primevue/badge';
+import OverlayBadge from 'primevue/overlaybadge';
+```
+
 ## Overlay
 
 A badge can be added to any element by encapsulating the content with the OverlayBadge component.
@@ -1066,6 +2062,30 @@ A badge can be added to any element by encapsulating the content with the Overla
 </OverlayBadge>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-6">
+        <OverlayBadge value="2">
+            <i class="pi pi-bell" style="font-size: 2rem" />
+        </OverlayBadge>
+        <OverlayBadge value="4" severity="danger">
+            <i class="pi pi-calendar" style="font-size: 2rem" />
+        </OverlayBadge>
+        <OverlayBadge severity="danger">
+            <i class="pi pi-envelope" style="font-size: 2rem" />
+        </OverlayBadge>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
 ## Severity
 
 Severity defines the variant of a badge.
@@ -1082,6 +2102,27 @@ Severity defines the variant of a badge.
 <Badge value="5" severity="contrast"></Badge>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-2">
+        <Badge value="2"></Badge>
+        <Badge value="6" severity="secondary"></Badge>
+        <Badge value="8" severity="success"></Badge>
+        <Badge value="4" severity="info"></Badge>
+        <Badge value="9" severity="warn"></Badge>
+        <Badge value="3" severity="danger"></Badge>
+        <Badge value="5" severity="contrast"></Badge>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Size
 
 Use the size property to customize the dimensions of a Badge.
@@ -1094,6 +2135,25 @@ Use the size property to customize the dimensions of a Badge.
 <Badge value="4" severity="info"></Badge>
 <Badge value="2" size="small"></Badge>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-2">
+        <Badge value="8" size="xlarge" severity="success"></Badge>
+        <Badge value="6" size="large" severity="warn"></Badge>
+        <Badge value="4" severity="info"></Badge>
+        <Badge value="2" size="small"></Badge>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## Badge
 
@@ -1203,6 +2263,40 @@ Enabling fullScreen property controls the document.
 <Button label="Block" @click="blocked = true" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <BlockUI :blocked="blocked" fullScreen />
+        <Button label="Block" @click="blockDocument" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const blocked = ref(false);
+const blockDocument = () => {
+    blocked.value = true;
+
+    setTimeout(() => {
+        blocked.value = false;
+    }, 3000);
+}
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import BlockUI from 'primevue/blockui';
+```
+
 ## Block U I
 
 ### Props
@@ -1260,6 +2354,14 @@ Breadcrumb requires a collection of menuitems as its model , the root item is de
 <Breadcrumb :home="home" :model="items" />
 ```
 
+## Import
+
+**Basic Usage:**
+
+```vue
+import Breadcrumb from 'primevue/breadcrumb';
+```
+
 ## Router
 
 Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
@@ -1282,6 +2384,44 @@ Items with navigation are defined with templating to be able to use a router lin
 </Breadcrumb>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Breadcrumb :home="home" :model="items">
+            <template #item="{ item, props }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="[item.icon, 'text-color']" />
+                        <span class="text-primary font-semibold">{{ item.label }}</span>
+                    </a>
+                </router-link>
+                <a v-else :href="item.url" :target="item.target" v-bind="props.action">
+                    <span class="text-surface-700 dark:text-surface-0">{{ item.label }}</span>
+                </a>
+            </template>
+        </Breadcrumb>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const home = ref({
+    icon: 'pi pi-home',
+    route: '/introduction'
+});
+const items = ref([
+    { label: 'Components' },
+    { label: 'Form' },
+    { label: 'InputText', route: '/inputtext' }
+]);
+<\/script>
+```
+</details>
+
 ## Template
 
 Custom content can be placed inside the items using the item template. The divider between the items has its own separator template.
@@ -1299,6 +2439,32 @@ Custom content can be placed inside the items using the item template. The divid
 </Breadcrumb>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Breadcrumb :home="home" :model="items">
+            <template #item="{ item }">
+                <a class="cursor-pointer" :href="item.url">
+                    <span :class="item.icon"></span>
+                </a>
+            </template>
+            <template #separator> / </template>
+        </Breadcrumb>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const home = ref({ icon: 'pi pi-home' });
+const items = ref([{ icon: 'pi pi-sitemap' }, { icon: 'pi pi-book' }, { icon: 'pi pi-wallet' }, { icon: 'pi pi-shopping-bag' }, { icon: 'pi pi-calculator' }]);
+<\/script>
+```
+</details>
+
 ---
 
 # Vue Button Component
@@ -1308,6 +2474,19 @@ Button is an extension to standard input element with icons and theming.
 ## Accessibility
 
 Screen Reader Button component renders a native button element that implicitly includes any passed prop. Text to describe the button is defined with the aria-label prop, if not present label prop is used as the value. If the button is icon only or custom templating is used, it is recommended to use aria-label so that screen readers would be able to read the element properly. Keyboard Support Key Function tab Moves focus to the button. enter Activates the button. space Activates the button.
+
+**Basic Usage:**
+
+```vue
+<Button icon="pi pi-check" aria-label="Submit" />
+
+<Button icon="pi pi-check" label="Submit" />
+
+<Button class="youtube p-0" aria-label="Youtube">
+    <i class="pi pi-youtube px-2"></i>
+    <span class="px-4">Youtube</span>
+</Button>
+```
 
 ## Badge
 
@@ -1319,6 +2498,22 @@ Buttons have built-in badge support with badge and badgeSeverity properties.
 <Button type="button" label="Emails" badge="2" />
 <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" variant="outlined"  />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button type="button" label="Emails" badge="2" />
+        <Button type="button" label="Messages" icon="pi pi-users" badge="2" badgeSeverity="contrast" variant="outlined"  />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Basic
 
@@ -1344,6 +2539,25 @@ Multiple buttons are grouped when wrapped inside an element with ButtonGroup com
 </ButtonGroup>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ButtonGroup>
+            <Button label="Save" icon="pi pi-check" />
+            <Button label="Delete" icon="pi pi-trash" />
+            <Button label="Cancel" icon="pi pi-times" />
+        </ButtonGroup>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be used.
@@ -1353,6 +2567,21 @@ When disabled is present, the element cannot be used.
 ```vue
 <Button label="Submit" disabled />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button label="Submit" disabled />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Headless
 
@@ -1370,6 +2599,28 @@ Headless mode is enabled by adding the asChild property and defining your own UI
     </button>
 </Button>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button v-slot="slotProps" asChild>
+            <button
+                v-bind="slotProps.a11yAttrs"
+                class="rounded-lg bg-gradient-to-br from-primary-400 to-primary-700 active:from-primary-700 active:to-primary-900 text-white border-none px-6 py-3 font-bold hover:ring-2 cursor-pointer ring-offset-2 ring-offset-surface-0 dark:ring-offset-surface-900 ring-primary transition-all"
+            >
+                SIGN UP
+            </button>
+        </Button>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Icon Only
 
@@ -1424,6 +2675,85 @@ Buttons can have icons without labels.
 <Button icon="pi pi-star" severity="contrast" variant="text" rounded aria-label="Star" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex justify-center mb-8">
+            <SelectButton v-model="size" :options="sizeOptions" optionLabel="label" optionValue="value" dataKey="label" />
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <Button icon="pi pi-check" aria-label="Filter" :size="size" />
+            <Button icon="pi pi-bookmark" severity="secondary" aria-label="Bookmark" :size="size" />
+            <Button icon="pi pi-search" severity="success" aria-label="Search" :size="size" />
+            <Button icon="pi pi-user" severity="info" aria-label="User" :size="size" />
+            <Button icon="pi pi-bell" severity="warn" aria-label="Notification" :size="size" />
+            <Button icon="pi pi-heart" severity="help" aria-label="Favorite" :size="size" />
+            <Button icon="pi pi-times" severity="danger" aria-label="Cancel" :size="size" />
+            <Button icon="pi pi-star" severity="contrast" aria-label="Star" :size="size" />
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <Button icon="pi pi-check" rounded aria-label="Filter" :size="size" />
+            <Button icon="pi pi-bookmark" severity="secondary" rounded aria-label="Bookmark" :size="size" />
+            <Button icon="pi pi-search" severity="success" rounded aria-label="Search" :size="size" />
+            <Button icon="pi pi-user" severity="info" rounded aria-label="User" :size="size" />
+            <Button icon="pi pi-bell" severity="warn" rounded aria-label="Notification" :size="size" />
+            <Button icon="pi pi-heart" severity="help" rounded aria-label="Favorite" :size="size" />
+            <Button icon="pi pi-times" severity="danger" rounded aria-label="Cancel" :size="size" />
+            <Button icon="pi pi-star" severity="contrast" rounded aria-label="Star" :size="size" />
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <Button icon="pi pi-check" rounded variant="outlined" aria-label="Filter" :size="size" /> <Button icon="pi pi-bookmark" severity="secondary" rounded variant="outlined" aria-label="Bookmark" :size="size" />
+            <Button icon="pi pi-search" severity="success" rounded variant="outlined" aria-label="Search" :size="size" />
+            <Button icon="pi pi-user" severity="info" rounded variant="outlined" aria-label="User" :size="size" />
+            <Button icon="pi pi-bell" severity="warn" rounded variant="outlined" aria-label="Notification" :size="size" />
+            <Button icon="pi pi-heart" severity="help" rounded variant="outlined" aria-label="Favorite" :size="size" />
+            <Button icon="pi pi-times" severity="danger" rounded variant="outlined" aria-label="Cancel" :size="size" />
+            <Button icon="pi pi-star" severity="contrast" rounded variant="outlined" aria-label="Star" :size="size" />
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <Button icon="pi pi-check" variant="text" raised rounded aria-label="Filter" :size="size" />
+            <Button icon="pi pi-bookmark" severity="secondary" variant="text" raised rounded aria-label="Bookmark" :size="size" />
+            <Button icon="pi pi-search" severity="success" variant="text" raised rounded aria-label="Search" :size="size" />
+            <Button icon="pi pi-user" severity="info" variant="text" raised rounded aria-label="User" :size="size" />
+            <Button icon="pi pi-bell" severity="warn" variant="text" raised rounded aria-label="Notification" :size="size" />
+            <Button icon="pi pi-heart" severity="help" variant="text" raised rounded aria-label="Favorite" :size="size" />
+            <Button icon="pi pi-times" severity="danger" variant="text" raised rounded aria-label="Cancel" :size="size" />
+            <Button icon="pi pi-star" severity="contrast" variant="text" raised rounded aria-label="Star" :size="size" />
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+            <Button icon="pi pi-check" variant="text" rounded aria-label="Filter" :size="size" />
+            <Button icon="pi pi-bookmark" severity="secondary" variant="text" rounded aria-label="Bookmark" :size="size" />
+            <Button icon="pi pi-search" severity="success" variant="text" rounded aria-label="Search" :size="size" />
+            <Button icon="pi pi-user" severity="info" variant="text" rounded aria-label="User" :size="size" />
+            <Button icon="pi pi-bell" severity="warn" variant="text" rounded aria-label="Notification" :size="size" />
+            <Button icon="pi pi-heart" severity="help" variant="text" rounded aria-label="Favorite" :size="size" />
+            <Button icon="pi pi-times" severity="danger" variant="text" rounded aria-label="Cancel" :size="size" />
+            <Button icon="pi pi-star" severity="contrast" variant="text" rounded aria-label="Star" :size="size" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const size = ref('normal');
+const sizeOptions = ref([
+    { label: 'Small', value: 'small' },
+    { label: 'Normal', value: 'normal' },
+    { label: 'Large', value: 'large' }
+]);
+<\/script>
+```
+</details>
+
 ## Icons
 
 Icon of a button is specified with icon property and position is configured using iconPos attribute.
@@ -1436,6 +2766,37 @@ Icon of a button is specified with icon property and position is configured usin
 <Button label="Save" icon="pi pi-check" iconPos="right" />
 <Button label="Search" icon="pi pi-search" iconPos="top" />
 <Button label="Update" icon="pi pi-refresh" iconPos="bottom" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <div class="flex flex-wrap gap-4 justify-center">
+            <Button icon="pi pi-home" aria-label="Save" />
+            <Button label="Profile" icon="pi pi-user" />
+            <Button label="Save" icon="pi pi-check" iconPos="right" />
+        </div>
+        <div class="flex flex-wrap gap-4 justify-center">
+            <Button label="Search" icon="pi pi-search" iconPos="top" />
+            <Button label="Update" icon="pi pi-refresh" iconPos="bottom" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Button from 'primevue/button';
 ```
 
 ## Link
@@ -1452,6 +2813,25 @@ The button element can be displayed as a link element visually when the link pro
 </Button>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center gap-4">
+        <Button label="Link" variant="link" />
+        <Button as="a" label="External" href="https://vuejs.org/" target="_blank" rel="noopener" />
+        <Button asChild v-slot="slotProps">
+            <RouterLink to="/" :class="slotProps.class">Router</RouterLink>
+        </Button>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Loading
 
 Busy state is controlled with the loading property.
@@ -1461,6 +2841,31 @@ Busy state is controlled with the loading property.
 ```vue
 <Button type="button" label="Search" icon="pi pi-search" :loading="loading" @click="load" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button type="button" label="Search" icon="pi pi-search" :loading="loading" @click="load" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const loading = ref(false);
+
+const load = () => {
+    loading.value = true;
+    setTimeout(() => {
+        loading.value = false;
+    }, 2000);
+};
+<\/script>
+```
+</details>
 
 ## Outlined
 
@@ -1479,6 +2884,28 @@ Outlined buttons display a border without a transparent background.
 <Button label="Contrast" severity="contrast" variant="outlined" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" variant="outlined" />
+        <Button label="Secondary" severity="secondary" variant="outlined" />
+        <Button label="Success" severity="success" variant="outlined" />
+        <Button label="Info" severity="info" variant="outlined" />
+        <Button label="Warn" severity="warn" variant="outlined" />
+        <Button label="Help" severity="help" variant="outlined" />
+        <Button label="Danger" severity="danger" variant="outlined" />
+        <Button label="Contrast" severity="contrast" variant="outlined" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Raised
 
 Raised buttons display a shadow to indicate elevation.
@@ -1495,6 +2922,28 @@ Raised buttons display a shadow to indicate elevation.
 <Button label="Danger" severity="danger" raised />
 <Button label="Contrast" severity="contrast" raised />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" raised />
+        <Button label="Secondary" severity="secondary" raised />
+        <Button label="Success" severity="success" raised />
+        <Button label="Info" severity="info" raised />
+        <Button label="Warn" severity="warn" raised />
+        <Button label="Help" severity="help" raised />
+        <Button label="Danger" severity="danger" raised />
+        <Button label="Contrast" severity="contrast" raised />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Raised Text
 
@@ -1513,6 +2962,28 @@ Text buttons can be displayed elevated with the raised option.
 <Button label="Contrast" severity="contrast" variant="text" raised />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" variant="text" raised />
+        <Button label="Secondary" severity="secondary" variant="text" raised />
+        <Button label="Success" severity="success" variant="text" raised />
+        <Button label="Info" severity="info" variant="text" raised />
+        <Button label="Warn" severity="warn" variant="text" raised />
+        <Button label="Help" severity="help" variant="text" raised />
+        <Button label="Danger" severity="danger" variant="text" raised />
+        <Button label="Contrast" severity="contrast" variant="text" raised />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Rounded
 
 Rounded buttons have a circular border radius.
@@ -1529,6 +3000,28 @@ Rounded buttons have a circular border radius.
 <Button label="Danger" severity="danger" rounded />
 <Button label="Contrast" severity="contrast" rounded />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" rounded />
+        <Button label="Secondary" severity="secondary" rounded />
+        <Button label="Success" severity="success" rounded />
+        <Button label="Info" severity="info" rounded />
+        <Button label="Warn" severity="warn" rounded />
+        <Button label="Help" severity="help" rounded />
+        <Button label="Danger" severity="danger" rounded />
+        <Button label="Contrast" severity="contrast" rounded />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Severity
 
@@ -1547,6 +3040,28 @@ The severity property defines the variant of a button.
 <Button label="Contrast" severity="contrast" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" />
+        <Button label="Secondary" severity="secondary" />
+        <Button label="Success" severity="success" />
+        <Button label="Info" severity="info" />
+        <Button label="Warn" severity="warn" />
+        <Button label="Help" severity="help" />
+        <Button label="Danger" severity="danger" />
+        <Button label="Contrast" severity="contrast" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Sizes
 
 Button provides small and large sizes as alternatives to the base.
@@ -1558,6 +3073,23 @@ Button provides small and large sizes as alternatives to the base.
 <Button label="Normal" icon="pi pi-check" />
 <Button label="Large" icon="pi pi-check" size="large" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap items-center justify-center gap-4">
+        <Button label="Small" icon="pi pi-check" size="small" />
+        <Button label="Normal" icon="pi pi-check" />
+        <Button label="Large" icon="pi pi-check" size="large" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -1573,6 +3105,32 @@ Custom content inside a button is defined as children.
     </svg>
 </Button>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button variant="outlined" class="!border-2">
+            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                    fill="var(--p-primary-color)"
+                />
+                <path
+                    d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                    fill="var(--p-text-color)"
+                />
+            </svg>
+        </Button>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Text
 
@@ -1590,6 +3148,28 @@ Text buttons are displayed as textual elements.
 <Button label="Danger" severity="danger" variant="text" />
 <Button label="Contrast" severity="contrast" variant="text" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Button label="Primary" variant="text" />
+        <Button label="Secondary" severity="secondary" variant="text" />
+        <Button label="Success" severity="success" variant="text" />
+        <Button label="Info" severity="info" variant="text" />
+        <Button label="Warn" severity="warn" variant="text" />
+        <Button label="Help" severity="help" variant="text" />
+        <Button label="Danger" severity="danger" variant="text" />
+        <Button label="Contrast" severity="contrast" variant="text" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Button
 
@@ -1651,6 +3231,8 @@ Text buttons are displayed as textual elements.
 | contextmenu | string | - |  |
 | dir | string | - |  |
 | draggable | Booleanish | - |  |
+| enterkeyhint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
+| enterKeyHint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
 | hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
 | id | string | - |  |
 | inert | Booleanish | - |  |
@@ -1682,8 +3264,10 @@ Text buttons are displayed as textual elements.
 | results | Numberish | - |  |
 | security | string | - |  |
 | unselectable | "on" \| "off" | - |  |
-| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| inputmode | "text" \| "search" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
 | is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| exportparts | string | - |  |
+| part | string | - |  |
 | autofocus | Booleanish | - |  |
 | disabled | Booleanish | - |  |
 | form | string | - |  |
@@ -2031,6 +3615,14 @@ Card is a flexible container component.
 
 Screen Reader A card can be utilized in many use cases as a result no role is enforced, in fact a role may not be necessary if the card is used for presentational purposes only. Any valid attribute is passed to the container element so if you require to use one of the landmark roles like region , you may use the role property. Keyboard Support Component does not include any interactive elements.
 
+**Basic Usage:**
+
+```vue
+<Card role="region">
+    Content
+</Card>
+```
+
 ## Advanced
 
 Card provides header , title , subtitle , content and footer as the named templates to place content.
@@ -2059,6 +3651,37 @@ Card provides header , title , subtitle , content and footer as the named templa
 </Card>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <Card style="width: 25rem; overflow: hidden">
+        <template #header>
+            <img alt="user header" src="https://primefaces.org/cdn/primevue/images/usercard.png" />
+        </template>
+        <template #title>Advanced Card</template>
+        <template #subtitle>Card subtitle</template>
+        <template #content>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+                quas!
+            </p>
+        </template>
+        <template #footer>
+            <div class="flex gap-4 mt-1">
+                <Button label="Cancel" severity="secondary" variant="outlined" class="w-full" />
+                <Button label="Save" class="w-full" />
+            </div>
+        </template>
+    </Card>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Basic
 
 A simple Card is created with a title property along with the content as children.
@@ -2075,6 +3698,14 @@ A simple Card is created with a title property along with the content as childre
         </p>
     </template>
 </Card>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Card from 'primevue/card';
 ```
 
 ## Card
@@ -2169,6 +3800,25 @@ Carousel requires a collection of items as its value along with a template to re
         </div>
     </template>
 </Carousel>
+```
+
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
 ```
 
 ## Circular
@@ -2281,6 +3931,33 @@ const getSeverity = (status) => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Carousel from 'primevue/carousel';
+```
+
 ## Responsive
 
 Carousel supports specific configuration per screen size with the responsiveOptions property that takes an array of objects where each object defines the max-width breakpoint , numVisible for the number of items items per page and numScroll for number of items to scroll. When responsiveOptions is defined, the numScroll and numVisible properties of the Carousel are used as default when there is breakpoint that applies.
@@ -2390,6 +4067,25 @@ const getSeverity = (status) => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
 ## Vertical
 
 To create a vertical Carousel, orientation needs to be set to vertical along with a verticalViewPortHeight .
@@ -2477,6 +4173,25 @@ const getSeverity = (status) => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
 
 ## Carousel
 
@@ -2576,6 +4291,15 @@ CascadeSelect is a form component to select a value from a nested structure of o
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The cascadeselect element has a combobox role in addition to aria-haspopup and aria-expanded attributes. The relation between the combobox and the popup is created with aria-controls that refers to the id of the popup. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses tree as the role. Each list item has a treeitem role along with aria-label , aria-selected and aria-expanded attributes. The container element of a treenode has the group role. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Closed State Keyboard Support Key Function tab Moves focus to the cascadeselect element. space Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. enter Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. up arrow Opens the popup and moves visual focus to the selected option, if there is none then last option receives the focus. any printable character Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none then first option receives the focus. Popup Keyboard Support Key Function tab Hides the popup and moves focus to the next tabbable element. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Hides the popup and moves focus to the previous tabbable element. enter Selects the focused option and closes the popup. space Selects the focused option and closes the popup. escape Closes the popup, moves focus to the cascadeselect element. down arrow Moves focus to the next option. up arrow Moves focus to the previous option. alt + up arrow Selects the focused option and closes the popup, then moves focus to the cascadeselect element. right arrow If option is closed, opens the option otherwise moves focus to the first child option. left arrow If option is open, closes the option otherwise moves focus to the parent option. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. any printable character Moves focus to the option whose label starts with the characters being typed.
 
+**Basic Usage:**
+
+```vue
+<span id="dd1"></span>Options</span>
+<CascadeSelect aria-labelledby="dd1" />
+
+<CascadeSelect aria-label="Options" />
+```
+
 ## Basic
 
 CascadeSelect is used with the v-model property for two-way value binding along with the options collection. To define the label of a group optionGroupLabel property is needed and also optionGroupChildren is required to define the property that refers to the children of a group. Note that order of the optionGroupChildren matters as it should correspond to the data hierarchy.
@@ -2598,6 +4322,99 @@ When showClear is enabled, a clear icon is added to reset the CascadeSelect.
     :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
+            :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -2607,6 +4424,22 @@ When disabled is present, the element cannot be edited and focused.
 ```vue
 <CascadeSelect disabled placeholder="Disabled" class="w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <CascadeSelect disabled placeholder="Disabled" class="w-56" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## Filled
 
@@ -2618,6 +4451,99 @@ Specify the variant property as filled to display the component with a higher vi
 <CascadeSelect v-model="selectedCity" variant="filled" :options="countries" optionLabel="cname" optionGroupLabel="name"
     :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <CascadeSelect v-model="selectedCity" variant="filled" :options="countries" optionLabel="cname" optionGroupLabel="name"
+            :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -2642,6 +4568,113 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value1" inputId="over_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value2" inputId="in_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56">
+            <CascadeSelect v-model="value3" inputId="on_label" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -2652,6 +4685,99 @@ The fluid prop makes the component take up the full width of its container when 
 <CascadeSelect v-model="selectedCity" fluid :options="countries" optionLabel="cname" optionGroupLabel="name"
     :optionGroupChildren="['states', 'cities']" placeholder="Select a City" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <CascadeSelect v-model="selectedCity" fluid :options="countries" optionLabel="cname" optionGroupLabel="name"
+            :optionGroupChildren="['states', 'cities']" placeholder="Select a City" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -2669,6 +4795,129 @@ CascadeSelect integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <CascadeSelect name="city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City" />
+                <Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    city: null
+});
+
+const resolver = ref(zodResolver(
+    z.object({
+        city: z.union([
+            z.object({
+                cname: z.string().min(1, 'City is required.')
+            }),
+            z.any().refine((val) => false, { message: 'City is required.' })
+        ])
+    })
+));
+
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -2680,6 +4929,109 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <CascadeSelect v-model="selectedCity" inputId="cs_city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" variant="filled" />
     <label for="cs_city">City</label>
 </IftaLabel>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel class="w-full md:w-56">
+            <CascadeSelect v-model="selectedCity" inputId="cs_city" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" class="w-full" variant="filled" />
+            <label for="cs_city">City</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import CascadeSelect from 'primevue/cascadeselect';
 ```
 
 ## Invalid
@@ -2697,6 +5049,102 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <CascadeSelect v-model="selectedCity1" :invalid="!selectedCity1" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+            :optionGroupChildren="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City" />
+        <CascadeSelect v-model="selectedCity2" :invalid="!selectedCity2" :options="countries" optionLabel="cname" optionGroupLabel="name" 
+            :optionGroupChildren="['states', 'cities']" class="w-full sm:w-56" placeholder="Select a City" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity1 = ref(null);
+const selectedCity2 = ref(null);
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Loading State
 
 Loading state can be used loading property.
@@ -2706,6 +5154,22 @@ Loading state can be used loading property.
 ```vue
 <CascadeSelect loading placeholder="Loading..." class="w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <CascadeSelect loading placeholder="Loading..." class="w-56" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -2721,6 +5185,105 @@ CascadeSelect provides small and large sizes as alternatives to the base.
 <CascadeSelect v-model="value3" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" 
     class="w-56" size="large" placeholder="Large" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <CascadeSelect v-model="value1" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" 
+            class="w-56" size="small" placeholder="Small" />
+        <CascadeSelect v-model="value2" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" 
+            class="w-56" placeholder="Normal" />
+        <CascadeSelect v-model="value3" :options="countries" optionLabel="cname" optionGroupLabel="name" :optionGroupChildren="['states', 'cities']" 
+            class="w-56" size="large" placeholder="Large" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -2752,6 +5315,119 @@ CascadeSelect offers multiple slots for customization through templating.
     </template>
 </CascadeSelect>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <CascadeSelect v-model="selectedCity" :options="countries" optionLabel="cname" optionGroupLabel="name"
+            :optionGroupChildren="['states', 'cities']" class="w-56" placeholder="Select a City">
+            <template #option="slotProps">
+                <div class="flex items-center">
+                    <img v-if="slotProps.option.states" :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px"  />
+                    <i v-if="slotProps.option.cities" class="pi pi-compass mr-2"></i>
+                    <i v-if="slotProps.option.cname" class="pi pi-map-marker mr-2"></i>
+                    <span>{{ slotProps.option.cname || slotProps.option.name }}</span>
+                </div>
+            </template>
+            <template #dropdownicon>
+                <i class="pi pi-map" />
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="px-3 py-1">
+                    <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+                </div>
+            </template>
+        </CascadeSelect>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const countries = ref([
+    {
+        name: 'Australia',
+        code: 'AU',
+        states: [
+            {
+                name: 'New South Wales',
+                cities: [
+                    { cname: 'Sydney', code: 'A-SY' },
+                    { cname: 'Newcastle', code: 'A-NE' },
+                    { cname: 'Wollongong', code: 'A-WO' }
+                ]
+            },
+            {
+                name: 'Queensland',
+                cities: [
+                    { cname: 'Brisbane', code: 'A-BR' },
+                    { cname: 'Townsville', code: 'A-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'Canada',
+        code: 'CA',
+        states: [
+            {
+                name: 'Quebec',
+                cities: [
+                    { cname: 'Montreal', code: 'C-MO' },
+                    { cname: 'Quebec City', code: 'C-QU' }
+                ]
+            },
+            {
+                name: 'Ontario',
+                cities: [
+                    { cname: 'Ottawa', code: 'C-OT' },
+                    { cname: 'Toronto', code: 'C-TO' }
+                ]
+            }
+        ]
+    },
+    {
+        name: 'United States',
+        code: 'US',
+        states: [
+            {
+                name: 'California',
+                cities: [
+                    { cname: 'Los Angeles', code: 'US-LA' },
+                    { cname: 'San Diego', code: 'US-SD' },
+                    { cname: 'San Francisco', code: 'US-SF' }
+                ]
+            },
+            {
+                name: 'Florida',
+                cities: [
+                    { cname: 'Jacksonville', code: 'US-JA' },
+                    { cname: 'Miami', code: 'US-MI' },
+                    { cname: 'Tampa', code: 'US-TA' },
+                    { cname: 'Orlando', code: 'US-OR' }
+                ]
+            },
+            {
+                name: 'Texas',
+                cities: [
+                    { cname: 'Austin', code: 'US-AU' },
+                    { cname: 'Dallas', code: 'US-DA' },
+                    { cname: 'Houston', code: 'US-HO' }
+                ]
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Cascade Select
 
@@ -2926,6 +5602,12 @@ Chart components are based on Chart.js, an open source HTML5 based charting libr
 
 Screen Reader Chart components internally use canvas element, refer to the Chart.js accessibility guide for more information. The canvas element can be customized with canvasProps property to define aria roles and properties, in addition any content inside the component is directly passed as a child of the canvas to be able to provide fallback content like a table.
 
+**Basic Usage:**
+
+```vue
+<Chart type="line" :data="data" :canvasProps="{'role': 'img', 'aria-label': 'Data'}" />
+```
+
 ## Basic
 
 A chart is configured with 3 properties; type , data and options . Chart type is defined using the type property that accepts pie , doughtnut , line , bar , radar and polarArea as a value. The data defines datasets represented with the chart and the options provide numerous customization options to customize the presentation.
@@ -2940,6 +5622,12 @@ A chart is configured with 3 properties; type , data and options . Chart type is
 
 Chart component uses Chart.JS underneath so it needs to be installed as a dependency.
 
+**Basic Usage:**
+
+```vue
+npm install chart.js
+```
+
 ## Combo
 
 Different chart types can be combined in the same graph usign the type option of a dataset.
@@ -2949,6 +5637,99 @@ Different chart types can be combined in the same graph usign the type option of
 ```vue
 <Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref();
+        
+const setChartData = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+
+    return {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                type: 'line',
+                label: 'Dataset 1',
+                borderColor: documentStyle.getPropertyValue('--p-orange-500'),
+                borderWidth: 2,
+                fill: false,
+                tension: 0.4,
+                data: [50, 25, 12, 48, 56, 76, 42]
+            },
+            {
+                type: 'bar',
+                label: 'Dataset 2',
+                backgroundColor: documentStyle.getPropertyValue('--p-gray-500'),
+                data: [21, 84, 24, 75, 37, 65, 34],
+                borderColor: 'white',
+                borderWidth: 2
+            },
+            {
+                type: 'bar',
+                label: 'Dataset 3',
+                backgroundColor: documentStyle.getPropertyValue('--p-cyan-500'),
+                data: [41, 52, 24, 74, 23, 21, 32]
+            }
+        ]
+    };
+};
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+    const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
+    const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
+
+    return {
+        maintainAspectRatio: false,
+        aspectRatio: 0.6,
+        plugins: {
+            legend: {
+                labels: {
+                    color: textColor
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            },
+            y: {
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            }
+        }
+    };
+}
+<\/script>
+```
+</details>
 
 ## Doughnut
 
@@ -2960,6 +5741,61 @@ A doughnut chart is a variant of the pie chart, with a blank center allowing for
 <Chart type="doughnut" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Chart type="doughnut" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref(null);
+
+const setChartData = () => {
+    const documentStyle = getComputedStyle(document.body);
+
+    return {
+        labels: ['A', 'B', 'C'],
+        datasets: [
+            {
+                data: [540, 325, 702],
+                backgroundColor: [documentStyle.getPropertyValue('--p-cyan-500'), documentStyle.getPropertyValue('--p-orange-500'), documentStyle.getPropertyValue('--p-gray-500')],
+                hoverBackgroundColor: [documentStyle.getPropertyValue('--p-cyan-400'), documentStyle.getPropertyValue('--p-orange-400'), documentStyle.getPropertyValue('--p-gray-400')]
+            }
+        ]
+    };
+};
+
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+
+    return {
+        plugins: {
+            legend: {
+                labels: {
+                    cutout: '60%',
+                    color: textColor
+                }
+            }
+        }
+    };
+};
+<\/script>
+```
+</details>
+
 ## HorizontalBarDoc
 
 A bar chart is rendered horizontally when indexAxis option is set as y .
@@ -2968,6 +5804,102 @@ A bar chart is rendered horizontally when indexAxis option is set as y .
 
 ```vue
 <Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]"  />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]"  />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref();
+
+const setChartData = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+
+    return {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: 'My First dataset',
+                backgroundColor: documentStyle.getPropertyValue('--p-cyan-500'),
+                borderColor: documentStyle.getPropertyValue('--p-cyan-500'),
+                data: [65, 59, 80, 81, 56, 55, 40]
+            },
+            {
+                label: 'My Second dataset',
+                backgroundColor: documentStyle.getPropertyValue('--p-gray-500'),
+                borderColor: documentStyle.getPropertyValue('--p-gray-500'),
+                data: [28, 48, 40, 19, 86, 27, 90]
+            }
+        ]
+    };
+};
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+    const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
+    const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
+
+    return {
+        indexAxis: 'y',
+        maintainAspectRatio: false,
+        aspectRatio: 0.8,
+        plugins: {
+            legend: {
+                labels: {
+                    color: textColor
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: textColorSecondary,
+                    font: {
+                        weight: 500
+                    }
+                },
+                grid: {
+                    display: false,
+                    drawBorder: false
+                }
+            },
+            y: {
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder,
+                    drawBorder: false
+                }
+            }
+        }
+    };
+}
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Chart from 'primevue/chart';
 ```
 
 ## Line
@@ -2980,6 +5912,90 @@ A line chart or line graph is a type of chart which displays information as a se
 <Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref();
+        
+const setChartData = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+
+    return {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: 'First Dataset',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                borderColor: documentStyle.getPropertyValue('--p-cyan-500'),
+                tension: 0.4
+            },
+            {
+                label: 'Second Dataset',
+                data: [28, 48, 40, 19, 86, 27, 90],
+                fill: false,
+                borderColor: documentStyle.getPropertyValue('--p-gray-500'),
+                tension: 0.4
+            }
+        ]
+    };
+};
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+    const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
+    const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
+
+    return {
+        maintainAspectRatio: false,
+        aspectRatio: 0.6,
+        plugins: {
+            legend: {
+                labels: {
+                    color: textColor
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            },
+            y: {
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            }
+        }
+    };
+}
+<\/script>
+```
+</details>
+
 ## Line Styles
 
 Various styles of a line series can be customized to display customizations like an area chart.
@@ -2989,6 +6005,99 @@ Various styles of a line series can be customized to display customizations like
 ```vue
 <Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref();
+        
+const setChartData = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+
+    return {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: 'First Dataset',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                tension: 0.4,
+                borderColor: documentStyle.getPropertyValue('--p-cyan-500')
+            },
+            {
+                label: 'Second Dataset',
+                data: [28, 48, 40, 19, 86, 27, 90],
+                fill: false,
+                borderDash: [5, 5],
+                tension: 0.4,
+                borderColor: documentStyle.getPropertyValue('--p-orange-500')
+            },
+            {
+                label: 'Third Dataset',
+                data: [12, 51, 62, 33, 21, 62, 45],
+                fill: true,
+                borderColor: documentStyle.getPropertyValue('--p-gray-500'),
+                tension: 0.4,
+                backgroundColor: 'rgba(107, 114, 128, 0.2)'
+            }
+        ]
+    };
+};
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+    const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
+    const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
+
+    return {
+        maintainAspectRatio: false,
+        aspectRatio: 0.6,
+        plugins: {
+            legend: {
+                labels: {
+                    color: textColor
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            },
+            y: {
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            }
+        }
+    };
+}
+<\/script>
+```
+</details>
 
 ## Multi Axis
 
@@ -3000,6 +6109,108 @@ Multiple axes can be added using the scales option.
 <Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Chart type="line" :data="chartData" :options="chartOptions" class="h-[30rem]" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref();
+        
+const setChartData = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+
+    return {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: 'Dataset 1',
+                fill: false,
+                borderColor: documentStyle.getPropertyValue('--p-cyan-500'),
+                yAxisID: 'y',
+                tension: 0.4,
+                data: [65, 59, 80, 81, 56, 55, 10]
+            },
+            {
+                label: 'Dataset 2',
+                fill: false,
+                borderColor: documentStyle.getPropertyValue('--p-gray-500'),
+                yAxisID: 'y1',
+                tension: 0.4,
+                data: [28, 48, 40, 19, 86, 27, 90]
+            }
+        ]
+    };
+};
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+    const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
+    const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
+
+    return {
+        stacked: false,
+        maintainAspectRatio: false,
+        aspectRatio: 0.6,
+        plugins: {
+            legend: {
+                labels: {
+                    color: textColor
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            },
+            y: {
+                type: 'linear',
+                display: true,
+                position: 'left',
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            },
+            y1: {
+                type: 'linear',
+                display: true,
+                position: 'right',
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    drawOnChartArea: false,
+                    color: surfaceBorder
+                }
+            }
+        }
+    };
+}
+<\/script>
+```
+</details>
+
 ## PieChartDoc
 
 A pie chart is a circular statistical graphic which is divided into slices to illustrate numerical proportion.
@@ -3009,6 +6220,61 @@ A pie chart is a circular statistical graphic which is divided into slices to il
 ```vue
 <Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref();
+
+const setChartData = () => {
+    const documentStyle = getComputedStyle(document.body);
+
+    return {
+        labels: ['A', 'B', 'C'],
+        datasets: [
+            {
+                data: [540, 325, 702],
+                backgroundColor: [documentStyle.getPropertyValue('--p-cyan-500'), documentStyle.getPropertyValue('--p-orange-500'), documentStyle.getPropertyValue('--p-gray-500')],
+                hoverBackgroundColor: [documentStyle.getPropertyValue('--p-cyan-400'), documentStyle.getPropertyValue('--p-orange-400'), documentStyle.getPropertyValue('--p-gray-400')]
+            }
+        ]
+    };
+};
+
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+
+    return {
+        plugins: {
+            legend: {
+                labels: {
+                    usePointStyle: true,
+                    color: textColor
+                }
+            }
+        }
+    };
+};
+<\/script>
+```
+</details>
 
 ## Polar Area
 
@@ -3020,6 +6286,73 @@ Polar area charts are similar to pie charts, but each segment has the same angle
 <Chart type="polarArea" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Chart type="polarArea" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref();
+        
+const setChartData = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+
+    return {
+        datasets: [
+            {
+                data: [11, 16, 7, 3, 14],
+                backgroundColor: [
+                    documentStyle.getPropertyValue('--p-pink-500'),
+                    documentStyle.getPropertyValue('--p-gray-500'),
+                    documentStyle.getPropertyValue('--p-orange-500'),
+                    documentStyle.getPropertyValue('--p-purple-500'),
+                    documentStyle.getPropertyValue('--p-cyan-500')
+                ],
+                label: 'My dataset'
+            }
+        ],
+        labels: ['Pink', 'Gray', 'Orange', 'Purple', 'Cyan']
+    };
+};
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+    const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
+
+    return {
+        plugins: {
+            legend: {
+                labels: {
+                    color: textColor
+                }
+            }
+        },
+        scales: {
+            r: {
+                grid: {
+                    color: surfaceBorder
+                }
+            }
+        }
+    };
+}
+<\/script>
+```
+</details>
+
 ## Radar
 
 A radar chart is a graphical method of displaying multivariate data in the form of a two-dimensional chart of three or more quantitative variables represented on axes starting from the same point.
@@ -3029,6 +6362,81 @@ A radar chart is a graphical method of displaying multivariate data in the form 
 ```vue
 <Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Chart type="radar" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref();
+        
+const setChartData = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+
+    return {
+        labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
+        datasets: [
+            {
+                label: 'My First dataset',
+                borderColor: documentStyle.getPropertyValue('--p-gray-400'),
+                pointBackgroundColor: documentStyle.getPropertyValue('--p-gray-400'),
+                pointBorderColor: documentStyle.getPropertyValue('--p-gray-400'),
+                pointHoverBackgroundColor: textColor,
+                pointHoverBorderColor: documentStyle.getPropertyValue('--p-gray-400'),
+                data: [65, 59, 90, 81, 56, 55, 40]
+            },
+            {
+                label: 'My Second dataset',
+                borderColor: documentStyle.getPropertyValue('--p-pink-400'),
+                pointBackgroundColor: documentStyle.getPropertyValue('--p-pink-400'),
+                pointBorderColor: documentStyle.getPropertyValue('--p-pink-400'),
+                pointHoverBackgroundColor: textColor,
+                pointHoverBorderColor: documentStyle.getPropertyValue('--p-pink-400'),
+                data: [28, 48, 40, 19, 96, 27, 100]
+            }
+        ]
+    };
+};
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+    const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
+
+    return {
+        plugins: {
+            legend: {
+                labels: {
+                    color: textColor
+                }
+            }
+        },
+        scales: {
+            r: {
+                grid: {
+                    color: textColorSecondary
+                }
+            }
+        }
+    };
+}
+<\/script>
+```
+</details>
 
 ## StackedBarDoc
 
@@ -3040,6 +6448,100 @@ Bars can be stacked on top of each other when stacked option of a scale is enabl
 <Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref();
+
+const setChartData = () =>  {
+    const documentStyle = getComputedStyle(document.documentElement);
+
+    return {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                type: 'bar',
+                label: 'Dataset 1',
+                backgroundColor: documentStyle.getPropertyValue('--p-cyan-500'),
+                data: [50, 25, 12, 48, 90, 76, 42]
+            },
+            {
+                type: 'bar',
+                label: 'Dataset 2',
+                backgroundColor: documentStyle.getPropertyValue('--p-gray-500'),
+                data: [21, 84, 24, 75, 37, 65, 34]
+            },
+            {
+                type: 'bar',
+                label: 'Dataset 3',
+                backgroundColor: documentStyle.getPropertyValue('--p-orange-500'),
+                data: [41, 52, 24, 74, 23, 21, 32]
+            }
+        ]
+    };
+};
+const setChartOptions = () =>  {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+    const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
+    const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
+
+    return {
+        maintainAspectRatio: false,
+        aspectRatio: 0.8,
+        plugins: {
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            legend: {
+                labels: {
+                    color: textColor
+                }
+            }
+        },
+        scales: {
+            x: {
+                stacked: true,
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            },
+            y: {
+                stacked: true,
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder
+                }
+            }
+        }
+    };
+}
+<\/script>
+```
+</details>
+
 ## VerticalBarDoc
 
 A bar chart or bar graph is a chart that presents grouped data with rectangular bars with lengths proportional to the values that they represent.
@@ -3049,6 +6551,93 @@ A bar chart or bar graph is a chart that presents grouped data with rectangular 
 ```vue
 <Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]"  />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]"  />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref();
+
+const setChartData = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+
+    return {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: 'My First dataset',
+                backgroundColor: documentStyle.getPropertyValue('--p-cyan-500'),
+                borderColor: documentStyle.getPropertyValue('--p-cyan-500'),
+                data: [65, 59, 80, 81, 56, 55, 40]
+            },
+            {
+                label: 'My Second dataset',
+                backgroundColor: documentStyle.getPropertyValue('--p-gray-500'),
+                borderColor: documentStyle.getPropertyValue('--p-gray-500'),
+                data: [28, 48, 40, 19, 86, 27, 90]
+            }
+        ]
+    };
+};
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+    const textColorSecondary = documentStyle.getPropertyValue('--p-text-muted-color');
+    const surfaceBorder = documentStyle.getPropertyValue('--p-content-border-color');
+
+    return {
+        maintainAspectRatio: false,
+        aspectRatio: 0.8,
+        plugins: {
+            legend: {
+                labels: {
+                    color: textColor
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: textColorSecondary,
+                    font: {
+                        weight: 500
+                    }
+                },
+                grid: {
+                    display: false,
+                    drawBorder: false
+                }
+            },
+            y: {
+                ticks: {
+                    color: textColorSecondary
+                },
+                grid: {
+                    color: surfaceBorder,
+                    drawBorder: false
+                }
+            }
+        }
+    };
+}
+<\/script>
+```
+</details>
 
 ## Chart
 
@@ -3094,6 +6683,18 @@ Checkbox is an extension to standard checkbox element with theming.
 
 Screen Reader Checkbox component uses a hidden native checkbox element internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the checkbox. space Toggles the checked state.
 
+**Basic Usage:**
+
+```vue
+<label for="chkbox1">Remember Me</label>
+<Checkbox inputId="chkbox1" />
+
+<span id="chkbox2">Remember Me</span>
+<Checkbox aria-labelledby="chkbox2" />
+
+<Checkbox aria-label="Remember Me" />
+```
+
 ## Basic
 
 Binary checkbox is used with the v-model for two-way value binding and the binary property.
@@ -3115,6 +6716,26 @@ When disabled is present, the element cannot be edited and focused.
 <Checkbox v-model="checked2" binary disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center gap-2">
+        <Checkbox v-model="checked1" binary disabled />
+        <Checkbox v-model="checked2" binary disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const checked1 = ref(false);
+const checked2 = ref(true);
+<\/script>
+```
+</details>
+
 ## Dynamic
 
 Checkboxes can be generated using a list of values.
@@ -3128,6 +6749,35 @@ Checkboxes can be generated using a list of values.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="flex flex-col gap-4">
+            <div v-for="category of categories" :key="category.key" class="flex items-center gap-2">
+                <Checkbox v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
+                <label :for="category.key">{{ category.name }}</label>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const categories = ref([
+    {name: "Accounting", key: "A"},
+    {name: "Marketing", key: "M"},
+    {name: "Production", key: "P"},
+    {name: "Research", key: "R"}
+]);
+const selectedCategories = ref(['Marketing']);
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -3137,6 +6787,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <Checkbox v-model="checked" binary variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Checkbox v-model="checked" binary variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const checked = ref(false);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -3171,6 +6839,65 @@ Checkbox integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+            <div class="flex flex-col gap-2">
+                <CheckboxGroup name="ingredient" class="flex flex-wrap gap-4">
+                    <div class="flex items-center gap-2">
+                        <Checkbox inputId="cheese" value="Cheese" />
+                        <label for="cheese"> Cheese </label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <Checkbox inputId="mushroom" value="Mushroom" />
+                        <label for="mushroom"> Mushroom </label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <Checkbox inputId="pepper" value="Pepper" />
+                        <label for="pepper"> Pepper </label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <Checkbox inputId="onion" value="Onion" />
+                        <label for="onion"> Onion </label>
+                    </div>
+                </CheckboxGroup>
+                <Message v-if="$form.ingredient?.invalid" severity="error" size="small" variant="simple">{{ $form.ingredient.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+    <Toast />
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    ingredient: []
+});
+const resolver = ref(zodResolver(
+    z.object({
+        ingredient: z.array(z.string()).min(1, { message: 'At least one ingredient must be selected.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Group
 
 Multiple checkboxes can be grouped together.
@@ -3198,6 +6925,48 @@ Multiple checkboxes can be grouped together.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="pizza" inputId="ingredient1" name="pizza" value="Cheese" />
+            <label for="ingredient1"> Cheese </label>
+        </div>
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="pizza" inputId="ingredient2" name="pizza" value="Mushroom" />
+            <label for="ingredient2"> Mushroom </label>
+        </div>
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="pizza" inputId="ingredient3" name="pizza" value="Pepper" />
+            <label for="ingredient3"> Pepper </label>
+        </div>
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="pizza" inputId="ingredient4" name="pizza" value="Onion" />
+            <label for="ingredient4"> Onion </label>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const pizza = ref();
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Checkbox from 'primevue/checkbox';
+import CheckboxGroup from 'primevue/checkboxgroup';
+```
+
 ## Indeterminate
 
 When indeterminate is present, the checkbox masks the actual value visually.
@@ -3208,6 +6977,24 @@ When indeterminate is present, the checkbox masks the actual value visually.
 <Checkbox v-model="checked" indeterminate binary />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Checkbox v-model="checked" indeterminate binary />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const checked = ref(false);
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -3217,6 +7004,24 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 ```vue
 <Checkbox v-model="checked" :invalid="!checked"  binary />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Checkbox v-model="checked" :invalid="!checked"  binary />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const checked = ref(false);
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -3240,6 +7045,35 @@ Checkbox provides small and large sizes as alternatives to the base.
     </div>
 </div>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="size" inputId="size_small" name="size" value="Small" size="small" />
+            <label for="size_small" class="text-sm">Small</label>
+        </div>
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="size" inputId="size_normal" name="size" value="Normal" />
+            <label for="size_normal">Normal</label>
+        </div>
+        <div class="flex items-center gap-2">
+            <Checkbox v-model="size" inputId="size_large" name="size" value="Large" size="large" />
+            <label for="size_large" class="text-lg">Large</label>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const size = ref();
+<\/script>
+```
+</details>
 
 ## Checkbox
 
@@ -3376,6 +7210,29 @@ A font icon next to the label can be displayed with the icon property.
 </Chip>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-2">
+        <Chip label="Apple" icon="pi pi-apple" />
+        <Chip label="Facebook" icon="pi pi-facebook" />
+        <Chip label="Google" icon="pi pi-google" />
+        <Chip label="Microsoft" icon="pi pi-microsoft" removable />
+        <Chip label="GitHub" icon="pi pi-github" removable>
+            <template #removeicon="{ removeCallback, keydownCallback }">
+                <i class="pi pi-minus-circle" @click="removeCallback" @keydown="keydownCallback" />
+            </template>
+        </Chip>
+    </div>
+</template>
+<script setup>
+
+<\/script>
+```
+</details>
+
 ## Image
 
 The image property is used to display an image like an avatar.
@@ -3387,6 +7244,33 @@ The image property is used to display an image like an avatar.
 <Chip label="Asiya Javayant" image="/images/avatar/asiyajavayant.png" />
 <Chip label="Onyama Limba" image="/images/avatar/onyamalimba.png" />
 <Chip label="Xuxue Feng" image="/images/avatar/xuxuefeng.png" removable />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-2">
+        <Chip label="Amy Elsner" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" />
+        <Chip label="Asiya Javayant" image=https://primefaces.org/cdn/primevue"/images/avatar/asiyajavayant.png" />
+        <Chip label="Onyama Limba" image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" />
+        <Chip label="Xuxue Feng" image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" removable />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Chip from 'primevue/chip';
 ```
 
 ## StyleDoc
@@ -3405,6 +7289,25 @@ The default slot allows displaying custom content inside a chip.
     <span class="ml-2 font-medium">PRIME</span>
 </Chip>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Chip class="py-0 pl-0 pr-4">
+            <span class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex items-center justify-center">P</span>
+            <span class="ml-2 font-medium">PRIME</span>
+        </Chip>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## Chip
 
@@ -3500,6 +7403,24 @@ When disabled is present, the element cannot be edited and focused.
 <ColorPicker v-model="color" disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ColorPicker v-model="color" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const color = ref();
+<\/script>
+```
+</details>
+
 ## Format
 
 Default color format to use in value binding is hex and other possible values can be rgb and hsb using the format property.
@@ -3511,6 +7432,40 @@ Default color format to use in value binding is hex and other possible values ca
 <ColorPicker v-model="colorRGB" inputId="cp-rgb" format="rgb" class="mb-4" />
 <ColorPicker v-model="colorHSB" inputId="cp-hsb" format="hsb" class="mb-4" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-1 flex flex-col items-center">
+            <label for="cp-hex" class="font-bold block mb-2"> HEX </label>
+            <ColorPicker v-model="colorHEX" inputId="cp-hex" format="hex" class="mb-4" />
+            <span>{{ colorHEX }}</span>
+        </div>
+        <div class="flex-1 flex flex-col items-center">
+            <label for="cp-rgb" class="font-bold block mb-2"> RGB </label>
+            <ColorPicker v-model="colorRGB" inputId="cp-rgb" format="rgb" class="mb-4" />
+            <span>{{ JSON.stringify(colorRGB) }}</span>
+        </div>
+        <div class="flex-1 flex flex-col items-center">
+            <label for="cp-hsb" class="font-bold block mb-2"> HSB </label>
+            <ColorPicker v-model="colorHSB" inputId="cp-hsb" format="hsb" class="mb-4" />
+            <span>{{ JSON.stringify(colorHSB) }}</span>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const colorHEX = ref('6466f1');
+const colorRGB = ref({ r: 100, g: 102, b: 241 });
+const colorHSB = ref({ h: 239, s: 59, b: 95 });
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -3528,6 +7483,55 @@ ColorPicker integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col items-center gap-2">
+                <ColorPicker name="color" />
+                <Message v-if="$form.color?.invalid" severity="error" size="small" variant="simple">{{ $form.color.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    color: null
+});
+const resolver = ref(zodResolver(
+    z.object({
+        color: z.union([z.string(), z.literal(null)]).refine((value) => value !== null, { message: 'Color is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ColorPicker from 'primevue/colorpicker';
+```
+
 ## Inline
 
 ColorPicker is displayed as a popup by default, add inline property to customize this behavior.
@@ -3537,6 +7541,24 @@ ColorPicker is displayed as a popup by default, add inline property to customize
 ```vue
 <ColorPicker v-model="color" inline />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ColorPicker v-model="color" inline />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const color = ref();
+<\/script>
+```
+</details>
 
 ## Color Picker
 
@@ -3666,6 +7688,64 @@ Headless mode is enabled by defining a container slot that lets you implement en
 <Button @click="requireConfirmation()" label="Save"></Button>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <ConfirmDialog group="headless">
+        <template #container="{ message, acceptCallback, rejectCallback }">
+            <div class="flex flex-col items-center p-8 bg-surface-0 dark:bg-surface-900 rounded">
+                <div class="rounded-full bg-primary text-primary-contrast inline-flex justify-center items-center h-24 w-24 -mt-20">
+                    <i class="pi pi-question !text-4xl"></i>
+                </div>
+                <span class="font-bold text-2xl block mb-2 mt-6">{{ message.header }}</span>
+                <p class="mb-0">{{ message.message }}</p>
+                <div class="flex items-center gap-2 mt-6">
+                    <Button label="Save" @click="acceptCallback"></Button>
+                    <Button label="Cancel" variant="outlined" @click="rejectCallback"></Button>
+                </div>
+            </div>
+        </template>
+    </ConfirmDialog>
+    <div class="card flex justify-center">
+        <Button @click="requireConfirmation()" label="Save"></Button>
+    </div>
+    <Toast />
+</template>
+
+<script setup>
+import { useConfirm } from "primevue/useconfirm";
+import { useToast } from "primevue/usetoast";
+
+const confirm = useConfirm();
+const toast = useToast();
+
+const requireConfirmation = () => {
+    confirm.require({
+        group: 'headless',
+        header: 'Are you sure?',
+        message: 'Please confirm to proceed.',
+        accept: () => {
+            toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+        },
+        reject: () => {
+            toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+        }
+    });
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ConfirmDialog from 'primevue/confirmdialog';
+```
+
 ## Position
 
 The position property of the confirm options specifies the location of the Dialog.
@@ -3690,6 +7770,66 @@ The position property of the confirm options specifies the location of the Dialo
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <Toast />
+    <ConfirmDialog group="positioned"></ConfirmDialog>
+    <div class="card">
+        <div class="flex flex-wrap justify-center gap-2 mb-4">
+            <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="secondary" style="min-width: 10rem"></Button>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2 mb-4">
+            <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="secondary" style="min-width: 10rem"></Button>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2">
+            <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="secondary" style="min-width: 10rem"></Button>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { useConfirm } from "primevue/useconfirm";
+import { useToast } from "primevue/usetoast";
+
+const confirm = useConfirm();
+const toast = useToast();
+
+const confirmPosition = (position) => {
+    confirm.require({
+        group: 'positioned',
+        message: 'Are you sure you want to proceed?',
+        header: 'Confirmation',
+        icon: 'pi pi-info-circle',
+        position: position,
+        rejectProps: {
+            label: 'Cancel',
+            severity: 'secondary',
+            text: true
+        },
+        acceptProps: {
+            label: 'Save',
+            text: true
+        },
+        accept: () => {
+            toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Request submitted', life: 3000 });
+        },
+        reject: () => {
+            toast.add({ severity: 'error', summary: 'Rejected', detail: 'Process incomplete', life: 3000 });
+        }
+    });
+};
+<\/script>
+```
+</details>
+
 ## Template
 
 Templating allows customizing the message content.
@@ -3707,6 +7847,61 @@ Templating allows customizing the message content.
 </ConfirmDialog>
 <Button @click="showTemplate()" label="Save"></Button>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <ConfirmDialog group="templating">
+        <template #message="slotProps">
+            <div class="flex flex-col items-center w-full gap-4 border-b border-surface-200 dark:border-surface-700">
+                <i :class="slotProps.message.icon" class="!text-6xl text-primary-500"></i>
+                <p>{{ slotProps.message.message }}</p>
+            </div>
+        </template>
+    </ConfirmDialog>
+    <div class="card flex justify-center">
+        <Button @click="showTemplate()" label="Save"></Button>
+    </div>
+    <Toast />
+</template>
+
+<script setup>
+import { useConfirm } from "primevue/useconfirm";
+import { useToast } from "primevue/usetoast";
+
+const confirm = useConfirm();
+const toast = useToast();
+
+const showTemplate = () => {
+    confirm.require({
+        group: 'templating',
+        header: 'Confirmation',
+        message: 'Please confirm to proceed moving forward.',
+        icon: 'pi pi-exclamation-circle',
+        rejectProps: {
+            label: 'Cancel',
+            icon: 'pi pi-times',
+            outlined: true,
+            size: 'small'
+        },
+        acceptProps: {
+            label: 'Save',
+            icon: 'pi pi-check',
+            size: 'small'
+        },
+        accept: () => {
+            toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+        },
+        reject: () => {
+            toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+        }
+    });
+};
+<\/script>
+```
+</details>
 
 ## Confirm Dialog
 
@@ -3808,6 +8003,60 @@ Headless mode is enabled by defining a container slot that lets you implement en
 <Button @click="requireConfirmation($event)" label="Save"></Button>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <Toast />
+    <ConfirmPopup group="headless">
+        <template #container="{ message, acceptCallback, rejectCallback }">
+            <div class="rounded p-4">
+                <span>{{ message.message }}</span>
+                <div class="flex items-center gap-2 mt-4">
+                    <Button label="Save" @click="acceptCallback" size="small"></Button>
+                    <Button label="Cancel" variant="outlined" @click="rejectCallback" severity="secondary" size="small" text></Button>
+                </div>
+            </div>
+        </template>
+    </ConfirmPopup>
+    <div class="card flex justify-center">
+        <Button @click="requireConfirmation($event)" label="Save"></Button>
+    </div>
+</template>
+
+<script setup>
+import { useConfirm } from "primevue/useconfirm";
+import { useToast } from "primevue/usetoast";
+
+const confirm = useConfirm();
+const toast = useToast();
+
+const requireConfirmation = (event) => {
+    confirm.require({
+        target: event.currentTarget,
+        group: 'headless',
+        message: 'Save your current process?',
+        accept: () => {
+            toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+        },
+        reject: () => {
+            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+        }
+    });
+}
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ConfirmPopup from 'primevue/confirmpopup';
+```
+
 ## Template
 
 Templating allows customizing the message content.
@@ -3825,6 +8074,59 @@ Templating allows customizing the message content.
 </ConfirmPopup>
 <Button @click="showTemplate($event)" label="Save"></Button>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <Toast />
+    <ConfirmPopup group="templating">
+        <template #message="slotProps">
+            <div class="flex flex-col items-center w-full gap-4 border-b border-surface-200 dark:border-surface-700 p-4 mb-4 pb-0">
+                <i :class="slotProps.message.icon" class="!text-6xl text-primary-500"></i>
+                <p>{{ slotProps.message.message }}</p>
+            </div>
+        </template>
+    </ConfirmPopup>
+    <div class="card flex justify-center">
+        <Button @click="showTemplate($event)" label="Save"></Button>
+    </div>
+</template>
+
+<script setup>
+import { useConfirm } from "primevue/useconfirm";
+import { useToast } from "primevue/usetoast";
+
+const confirm = useConfirm();
+const toast = useToast();
+
+const showTemplate = (event) => {
+    confirm.require({
+        target: event.currentTarget,
+        group: 'templating',
+        message: 'Please confirm to proceed moving forward.',
+        icon: 'pi pi-exclamation-circle',
+        rejectProps: {
+            icon: 'pi pi-times',
+            label: 'Cancel',
+            outlined: true
+        },
+        acceptProps: {
+            icon: 'pi pi-check',
+            label: 'Confirm'
+        },
+        accept: () => {
+            toast.add({severity:'info', summary:'Confirmed', detail:'You have accepted', life: 3000});
+        },
+        reject: () => {
+            toast.add({severity:'error', summary:'Rejected', detail:'You have rejected', life: 3000});
+        }
+    });
+}
+<\/script>
+```
+</details>
 
 ## Confirm Popup
 
@@ -3930,6 +8232,93 @@ The command property defines the callback to run when an item is activated by cl
 <Toast />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex sm:justify-center">
+        <ul class="m-0 list-none border border-surface rounded p-4 flex flex-col gap-2 w-full sm:w-96">
+            <li
+                v-for="user in users"
+                :key="user.id"
+                :class="['p-2 hover:bg-emphasis rounded border border-transparent transition-all duration-200 flex items-center justify-content-between', { 'border-primary': selectedUser?.id === user.id }]"
+                @contextmenu="onRightClick($event, user)"
+            >
+                <div class="flex flex-1 items-center gap-2">
+                    <img :alt="user.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${user.image}\`" class="w-8 h-8" />
+                    <span class="font-bold">{{ user.name }}</span>
+                </div>
+                <Tag :value="user.role" :severity="getBadge(user)" />
+            </li>
+        </ul>
+        <ContextMenu ref="menu" :model="items" @hide="selectedUser = null" />
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { useToast } from "primevue/usetoast";
+
+const toast = useToast();
+const selectedUser = ref();
+const menu = ref();
+const users = ref([
+    { id: 0, name: 'Amy Elsner', image: 'amyelsner.png', role: 'Admin' },
+    { id: 1, name: 'Anna Fali', image: 'annafali.png', role: 'Member' },
+    { id: 2, name: 'Asiya Javayant', image: 'asiyajavayant.png', role: 'Member' },
+    { id: 3, name: 'Bernardo Dominic', image: 'bernardodominic.png', role: 'Guest' },
+    { id: 4, name: 'Elwin Sharvill', image: 'elwinsharvill.png', role: 'Member' }
+]);
+const items = ref([
+    {
+        label: 'Roles',
+        icon: 'pi pi-users',
+        items: [
+            {
+                label: 'Admin',
+                command: () => {
+                    selectedUser.value.role = 'Admin';
+                }
+            },
+            {
+                label: 'Member',
+                command: () => {
+                    selectedUser.value.role = 'Member';
+                }
+            },
+            {
+                label: 'Guest',
+                command: () => {
+                    selectedUser.value.role = 'Guest';
+                }
+            }
+        ]
+    },
+    {
+        label: 'Invite',
+        icon: 'pi pi-user-plus',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Success', detail: 'Invitation sent!', life: 3000 });
+        }
+    }
+]);
+
+const onRightClick = (event, user) => {
+    selectedUser.value = user;
+    menu.value.show(event);
+};
+
+const getBadge = (user) => {
+    if (user.role === 'Member') return 'info';
+    else if (user.role === 'Guest') return 'warn';
+    else return null;
+}
+<\/script>
+```
+</details>
+
 ## DataTable
 
 DataTable has built-in support for ContextMenu, see the ContextMenu demo for an example.
@@ -3942,6 +8331,59 @@ Setting global property attaches the context menu to the document.
 
 ```vue
 <ContextMenu global :model="items" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card text-center">
+        <p class="mb-0">Right-Click anywhere on this page to view the global ContextMenu.</p>
+        <ContextMenu global :model="items" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref([
+    {
+        label: 'Translate',
+        icon: 'pi pi-language'
+    },
+    {
+        label: 'Speech',
+        icon: 'pi pi-volume-up',
+        items: [
+            {
+                label: 'Start',
+                icon: 'pi pi-caret-right'
+            },
+            {
+                label: 'Stop',
+                icon: 'pi pi-pause'
+            }
+        ]
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Print',
+        icon: 'pi pi-print'
+    }
+]);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ContextMenu from 'primevue/contextmenu';
 ```
 
 ## Router
@@ -3972,6 +8414,75 @@ Items with navigation are defined with templating to be able to use a router lin
     </template>
 </ContextMenu>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <span class="inline-flex items-center justify-center border-2 border-primary rounded w-16 h-16" @contextmenu="onRightClick" aria-haspopup="true">
+            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                    fill="var(--p-primary-color)"
+                />
+                <path
+                    d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                    fill="var(--p-text-color)"
+                />
+            </svg>
+        </span>
+        <ContextMenu ref="routemenu" :model="items">
+            <template #item="{ item, props }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="item.icon" />
+                        <span class="ml-2">{{ item.label }}</span>
+                    </a>
+                </router-link>
+                <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+            </template>
+        </ContextMenu>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const routemenu = ref();
+const items = ref([
+    {
+        label: 'Router Link',
+        icon: 'pi pi-palette',
+        route: '/theming/unstyled'
+    },
+    {
+        label: 'Programmatic',
+        icon: 'pi pi-link',
+        command: () => {
+            router.push('/introduction');
+        }
+    },
+    {
+        label: 'External',
+        icon: 'pi pi-home',
+        url: 'https://vuejs.org/'
+    }
+]);
+
+const onRightClick = (event) => {
+    routemenu.value.show(event);
+};
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -4013,6 +8524,99 @@ ContextMenu offers item customization with the item template that receives the m
 </ContextMenu>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex md:justify-center">
+        <ul class="m-0 p-0 list-none border border-surface-200 dark:border-surface-700 rounded p-4 flex flex-col gap-2 w-full md:w-[30rem]" @hide="selectedId = null">
+            <li
+                v-for="product in products"
+                :key="product.id"
+                :class="['p-2 hover:bg-surface-100 dark:hover:bg-surface-800 rounded border border-transparent transition-all transition-duration-200', { 'border-primary': selectedId === product.id }]"
+                @contextmenu="onRightClick($event, product.id)"
+            >
+                <div class="flex flex-wrap p-2 items-center gap-4">
+                    <img class="w-16 shrink-0 rounded" :src="'https://primefaces.org/cdn/primevue/images/product/' + product.image" :alt="product.name" />
+                    <div class="flex-1 flex flex-col gap-1">
+                        <span class="font-bold">{{ product.name }}</span>
+                        <div class="flex items-center gap-2">
+                            <i class="pi pi-tag text-sm"></i>
+                            <span>{{ product.category }}</span>
+                        </div>
+                    </div>
+                    <span class="font-bold ml-8">\${{ product.price }}</span>
+                </div>
+            </li>
+        </ul>
+        <ContextMenu ref="menu" :model="items">
+            <template #item="{ item, props }">
+                <a v-ripple class="flex items-center" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
+                    <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+                    <span v-if="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+                    <i v-if="item.items" class="pi pi-angle-right ml-auto"></i>
+                </a>
+            </template>
+        </ContextMenu>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { ProductService } from '@/service/ProductService'
+
+const menu = ref();
+const items = ref([
+    {
+        label: 'Favorite',
+        icon: 'pi pi-star',
+        shortcut: '⌘+D'
+    },
+    {
+        label: 'Add',
+        icon: 'pi pi-shopping-cart',
+        shortcut: '⌘+A'
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Share',
+        icon: 'pi pi-share-alt',
+        items: [
+            {
+                label: 'Whatsapp',
+                icon: 'pi pi-whatsapp',
+                badge: 2
+            },
+            {
+                label: 'Instagram',
+                icon: 'pi pi-instagram',
+                badge: 3
+            }
+        ]
+    }
+]);
+
+const products = ref(null);
+const selectedId = ref(null);
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (products.value = data));
+});
+
+const onRightClick = (event, id) => {
+    selectedId.value = id;
+    menu.value.show(event);
+};
+
+<\/script>
+```
+</details>
+
 ---
 
 # Vue Table Component
@@ -4036,6 +8640,24 @@ DataTable requires a value as data to display and Column components as children 
     <Column field="category" header="Category"></Column>
     <Column field="quantity" header="Quantity"></Column>
 </DataTable>
+```
+
+**Sample Data:**
+
+```json
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
 ```
 
 ## ColumnGroupDoc
@@ -4088,6 +8710,101 @@ Columns can be grouped within a Row component and groups can be displayed within
     </ColumnGroup>
 </DataTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <DataTable :value="sales" tableStyle="min-width: 50rem">
+        <ColumnGroup type="header">
+            <Row>
+                <Column header="Product" :rowspan="3" />
+                <Column header="Sale Rate" :colspan="4" />
+            </Row>
+            <Row>
+                <Column header="Sales" :colspan="2" />
+                <Column header="Profits" :colspan="2" />
+            </Row>
+            <Row>
+                <Column header="Last Year" sortable field="lastYearSale"/>
+                <Column header="This Year" sortable field="thisYearSale"/>
+                <Column header="Last Year" sortable field="lastYearProfit"/>
+                <Column header="This Year" sortable field="thisYearProfit"/>
+            </Row>
+        </ColumnGroup>
+        <Column field="product" />
+        <Column field="lastYearSale">
+            <template #body="slotProps">
+                {{slotProps.data.lastYearSale}}%
+            </template>
+        </Column>
+        <Column field="thisYearSale">
+            <template #body="slotProps">
+                {{slotProps.data.thisYearSale}}%
+            </template>
+        </Column>
+        <Column field="lastYearProfit">
+            <template #body="slotProps">
+                {{formatCurrency(slotProps.data.lastYearProfit)}}
+            </template>
+        </Column>
+        <Column field="thisYearProfit">
+            <template #body="slotProps">
+                {{formatCurrency(slotProps.data.thisYearProfit)}}
+            </template>
+        </Column>
+        <ColumnGroup type="footer">
+            <Row>
+                <Column footer="Totals:" :colspan="3" footerStyle="text-align:right"/>
+                <Column :footer="lastYearTotal" />
+                <Column :footer="thisYearTotal" />
+            </Row>
+        </ColumnGroup>
+    </DataTable>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue';
+
+const sales = ref([
+    {product: 'Bamboo Watch', lastYearSale: 51, thisYearSale: 40, lastYearProfit: 54406, thisYearProfit: 43342},
+    {product: 'Black Watch', lastYearSale: 83, thisYearSale: 9, lastYearProfit: 423132, thisYearProfit: 312122},
+    {product: 'Blue Band', lastYearSale: 38, thisYearSale: 5, lastYearProfit: 12321, thisYearProfit: 8500},
+    {product: 'Blue T-Shirt', lastYearSale: 49, thisYearSale: 22, lastYearProfit: 745232, thisYearProfit: 65323},
+    {product: 'Brown Purse', lastYearSale: 17, thisYearSale: 79, lastYearProfit: 643242, thisYearProfit: 500332},
+    {product: 'Chakra Bracelet', lastYearSale: 52, thisYearSale:  65, lastYearProfit: 421132, thisYearProfit: 150005},
+    {product: 'Galaxy Earrings', lastYearSale: 82, thisYearSale: 12, lastYearProfit: 131211, thisYearProfit: 100214},
+    {product: 'Game Controller', lastYearSale: 44, thisYearSale: 45, lastYearProfit: 66442, thisYearProfit: 53322},
+    {product: 'Gaming Set', lastYearSale: 90, thisYearSale: 56, lastYearProfit: 765442, thisYearProfit: 296232},
+    {product: 'Gold Phone Case', lastYearSale: 75, thisYearSale: 54, lastYearProfit: 21212, thisYearProfit: 12533}
+]);
+
+const formatCurrency = (value) => {
+    return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+};
+
+const lastYearTotal = computed(() => {
+    let total = 0;
+    for(let sale of sales.value) {
+        total += sale.lastYearProfit;
+    }
+
+    return formatCurrency(total);
+});
+
+const thisYearTotal = computed(() => {
+    let total = 0;
+    for(let sale of sales.value) {
+        total += sale.thisYearProfit;
+    }
+
+    return formatCurrency(total);
+});
+
+<\/script>
+```
+</details>
 
 ## ColumnToggleDoc
 
@@ -4149,6 +8866,24 @@ const onToggle = (val) => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
 
 ## ConditionalStyleDoc
 
@@ -4215,6 +8950,24 @@ const stockSeverity = (data) => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
 
 ## ContextMenuDoc
 
@@ -4295,6 +9048,25 @@ const formatCurrency = (value) => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
 ## DynamicColumnsDoc
 
 Columns can be created programmatically.
@@ -4338,6 +9110,24 @@ const columns = [
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
 
 ## ExportDoc
 
@@ -4396,6 +9186,25 @@ const exportCSV = () => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
 ## Grid Lines
 
 Enabling showGridlines displays borders between cells.
@@ -4439,6 +9248,35 @@ const products = ref();
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import ColumnGroup from 'primevue/columngroup';   // optional
+import Row from 'primevue/row';                   // optional
+```
 
 ## LazyLoadDoc
 
@@ -4622,6 +9460,30 @@ const onRowUnselect = () => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    id: 1000,
+    name: 'James Butt',
+    country: {
+        name: 'Algeria',
+        code: 'dz'
+    },
+    company: 'Benton, John B Jr',
+    date: '2015-09-13',
+    status: 'unqualified',
+    verified: true,
+    activity: 17,
+    representative: {
+        name: 'Ioni Bowcher',
+        image: 'ionibowcher.png'
+    },
+    balance: 70663
+},
+...
+```
+
 ## ReorderDoc
 
 Order of the columns and rows can be changed using drag and drop. Column reordering is configured by adding reorderableColumns property. Similarly, adding rowReorder property to a column enables draggable rows. For the drag handle a column needs to have rowReorder property and table needs to have row-reorder event is required to control the state of the rows after reorder completes.
@@ -4678,6 +9540,24 @@ const onRowReorder = (event) => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
 
 ## RowExpansionDoc
 
@@ -4878,6 +9758,36 @@ const getOrderSeverity = (order) => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5,
+    orders: [
+        {
+            id: '1000-0',
+            productCode: 'f230fh0g3',
+            date: '2020-09-13',
+            amount: 65,
+            quantity: 1,
+            customer: 'David James',
+            status: 'PENDING'
+        },
+        ...
+    ]
+},
+...
+```
+
 ## Size
 
 In addition to a regular table, alternatives with alternative sizes are available.
@@ -4931,6 +9841,24 @@ const sizeOptions = ref([
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
 
 ## StatefulDoc
 
@@ -5125,6 +10053,31 @@ const getSeverity = (status) => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* CustomerService */
+{
+    id: 1000,
+    name: 'James Butt',
+    country: {
+        name: 'Algeria',
+        code: 'dz'
+    },
+    company: 'Benton, John B Jr',
+    date: '2015-09-13',
+    status: 'unqualified',
+    verified: true,
+    activity: 17,
+    representative: {
+        name: 'Ioni Bowcher',
+        image: 'ionibowcher.png'
+    },
+    balance: 70663
+},
+...
+```
+
 ## StripedRowsDoc
 
 Alternating rows are displayed when stripedRows property is present.
@@ -5168,6 +10121,24 @@ const products = ref();
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
 
 ## Template
 
@@ -5280,6 +10251,24 @@ const getSeverity = (product) => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
 
 ## Data Table
 
@@ -5621,6 +10610,33 @@ DataView requires a value to display along with a list slot for item content.
 </DataView>
 ```
 
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import DataView from 'primevue/dataview';
+```
+
 ## Layout
 
 DataView supports list and grid display modes defined with the layout property. The grid mode is not built-in for flexibility purposes and requires a library with CSS grid features like Tailwind.
@@ -5841,6 +10857,25 @@ const getSeverity = (product) => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
 ## Loading
 
 While data is being loaded, Skeleton component may be used to indicate the busy state.
@@ -6007,6 +11042,25 @@ const getSeverity = (product) => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
 ## Pagination
 
 Pagination is enabled with the paginator and rows properties. Refer to the Paginator for more information about customizing the paginator.
@@ -6126,6 +11180,25 @@ const getSeverity = (product) => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
 
 ## Sorting
 
@@ -6275,6 +11348,25 @@ const getSeverity = (product) => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
 ## Data View
 
 ### Props
@@ -6368,6 +11460,18 @@ DatePicker is a form component for date inputs.
 
 Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete as "none", aria-haspopup as "dialog" and aria-expanded attributes. The relation between the input and the popup is created with aria-controls attribute that refers to the id of the popup. The optional datepicker button requires includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The value to read is retrieved from the chooseDate key of the aria property from the locale API. This label is also used for the aria-label of the popup as well. When there is a value selected, it is formatted and appended to the label to be able to notify users about the current value. Popup has a dialog role along with aria-modal and aria-label . The navigation buttons at the header has an aria-label retrieved from the prevYear , nextYear , prevMonth , nextMonth , prevDecade and nextDecade keys of the locale aria API. Similarly month picker button uses the chooseMonth and year picker button uses the chooseYear keys. Main date table uses grid role that contains th elements with col as the scope along with abbr tag resolving to the full name of the month. Each date cell has an aria-label referring to the full date value. Buttons at the footer utilize their readable labels as aria-label as well. Selected date also receives the aria-selected attribute. Timepicker spinner buttons get their labels for aria-label from the aria locale API using the prevHour , nextHour , prevMinute , nextMinute , prevSecond , nextSecond , am and pm keys. DatePicker also includes a hidden section that is only available to screen readers with aria-live as "polite". This element is updated when the selected date changes to instruct the user about the current date selected. Choose Date Button Keyboard Support Key Function space Opens popup and moves focus to the selected date, if there is none focuses on today. enter Opens popup and moves focus to the selected date, if there is none focuses on today. Popup Keyboard Support Key Function escape Closes the popup and moves focus to the input element. tab Moves focus to the next focusable element within the popup. shift + tab Moves focus to the next focusable element within the popup. Header Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action. Date Grid Keyboard Support Key Function enter Selects the date, closes the popup and moves focus to the input element. space Closes the popup and moves focus to the input element. up arrow Moves focus to the same day of the previous week. alt + up arrow Closes the popup and moves focus to the input element. down arrow Moves focus to the same day of the next week. right arrow Moves focus to the next day. left arrow Moves focus to the previous day. home Moves focus to the first day of the current week. end Moves focus to the last day of the current week. page up Changes the date to previous month in date picker mode. Moves to previous year in month picker mode and previous decade in year picker. shift + page up Changes the date to previous year in date picker mode. Has no effect in month or year picker. page down Changes the date to next month in date picker mode. Moves to next year in month picker mode and next decade in year picker. shift + page down Changes the date to next year in date picker mode. Has no effect in month or year picker. Footer Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action.
 
+**Basic Usage:**
+
+```vue
+<label for="date1">Date</label>
+<DatePicker inputId="date1" />
+
+<span id="date2">Date</span>
+<DatePicker aria-labelledby="date2" />
+
+<DatePicker aria-label="Date" />
+```
+
 ## Basic
 
 DatePicker is used with the v-model property for two-way value binding.
@@ -6402,6 +11506,39 @@ When showButtonBar is present, today and clear buttons are displayed at the foot
 </DatePicker>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center gap-4 flex-wrap">
+        <DatePicker v-model="date" showButtonBar placeholder="Basic" />
+        <DatePicker v-model="dates" showButtonBar placeholder="Customized" selectionMode="range" :manualInput="false">
+            <template #buttonbar="{ todayCallback, clearCallback }">
+                <div class="flex justify-between w-full">
+                    <div class="flex gap-2">
+                        <Button size="small" label="Exact" severity="secondary" />
+                        <Button size="small" label="Flexible" severity="secondary" />
+                    </div>
+                    <div class="flex gap-2">
+                        <Button size="small" label="Today" @click="todayCallback" variant="outlined" />
+                        <Button size="small" icon="pi pi-times" severity="danger" variant="outlined" @click="clearCallback" />
+                    </div>
+                </div>
+            </template>
+        </DatePicker>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+const dates = ref();
+<\/script>
+```
+</details>
+
 ## Clear Icon
 
 When showClear is enabled, a clear icon is added to reset the DatePicker.
@@ -6411,6 +11548,24 @@ When showClear is enabled, a clear icon is added to reset the DatePicker.
 ```vue
 <DatePicker v-model="date" showClear />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" showClear />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
 
 ## Date Template
 
@@ -6427,6 +11582,29 @@ Custom content can be placed inside date cells with the date slot that takes a D
 </DatePicker>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date">
+            <template #date="slotProps">
+                <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" style="text-decoration: line-through">{{ slotProps.date.day }}</strong>
+                <template v-else>{{ slotProps.date.day }}</template>
+            </template>
+        </DatePicker>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
+
 ## Disabled
 
 DatePicker is used a controlled input component with v-model property.
@@ -6437,6 +11615,24 @@ DatePicker is used a controlled input component with v-model property.
 <DatePicker v-model="date" disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -6446,6 +11642,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <DatePicker v-model="date" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -6470,6 +11684,39 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <DatePicker v-model="value1" inputId="over_label" showIcon iconDisplay="input" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <DatePicker v-model="value2" inputId="in_label" showIcon iconDisplay="input" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <DatePicker v-model="value3" inputId="on_label" showIcon iconDisplay="input" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -6480,6 +11727,28 @@ The fluid prop makes the component take up the full width of its container when 
 <DatePicker v-model="date" fluid />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DatePicker v-model="date" fluid />
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            date: null
+        };
+    }
+};
+<\/script>
+```
+</details>
+
 ## Format
 
 Default date format is mm/dd/yy which can be customized using the dateFormat property. Following options can be a part of the format. d - day of month (no leading zero) dd - day of month (two digit) o - day of the year (no leading zeros) oo - day of the year (three digit) D - day name short DD - day name long m - month of year (no leading zero) mm - month of year (two digit) M - month name short MM - month name long y - year (two digit) yy - year (four digit) @ - Unix timestamp (ms since 01/01/1970) ! - Windows ticks (100ns since 01/01/0001) '...' - literal text '' - single quote anything else - literal text
@@ -6489,6 +11758,24 @@ Default date format is mm/dd/yy which can be customized using the dateFormat pro
 ```vue
 <DatePicker v-model="date" dateFormat="dd/mm/yy" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" dateFormat="dd/mm/yy" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -6506,6 +11793,53 @@ DatePicker integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <DatePicker name="date" fluid />
+                <Message v-if="$form.date?.invalid" severity="error" size="small" variant="simple">{{ $form.date.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    date: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        date: z.preprocess((val) => {
+            if (val === '' || val === null) {
+                return null;
+            }
+
+            return new Date(val);
+        }, z.union([z.date(), z.null().refine((val) => val !== null, { message: 'Date is required.' })]))
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Icon
 
 An additional icon is displayed next to the input field when showIcon is present.
@@ -6522,6 +11856,41 @@ An additional icon is displayed next to the input field when showIcon is present
 </DatePicker>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <label for="buttondisplay" class="font-bold block mb-2"> Button </label>
+            <DatePicker v-model="buttondisplay" showIcon fluid :showOnFocus="false" inputId="buttondisplay" />
+        </div>
+        <div class="flex-auto">
+            <label for="icondisplay" class="font-bold block mb-2"> Default Icon </label>
+            <DatePicker v-model="icondisplay" showIcon fluid iconDisplay="input" inputId="icondisplay" />
+        </div>
+        <div class="flex-auto">
+            <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
+            <DatePicker v-model="templatedisplay" showIcon fluid iconDisplay="input" timeOnly inputId="templatedisplay">
+                <template #inputicon="slotProps">
+                    <i class="pi pi-clock" @click="slotProps.clickCallback" />
+                </template>
+            </DatePicker>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const buttondisplay = ref();
+const icondisplay = ref();
+const templatedisplay = ref();
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -6535,6 +11904,35 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <DatePicker v-model="value" inputId="date" showIcon iconDisplay="input" variant="filled" />
+            <label for="date">Date</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import DatePicker from 'primevue/datepicker';
+```
+
 ## Inline
 
 DatePicker is displayed as a popup by default, add inline property to customize this behavior.
@@ -6544,6 +11942,24 @@ DatePicker is displayed as a popup by default, add inline property to customize 
 ```vue
 <DatePicker v-model="date" inline showWeek class="w-full sm:w-[30rem]" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" inline showWeek class="w-full sm:w-[30rem]" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
 
 ## Invalid
 
@@ -6555,6 +11971,26 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <DatePicker v-model="date1" :invalid="!date1" placeholder="Date" />
 <DatePicker v-model="date2" :invalid="!date2" variant="filled" placeholder="Date" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <DatePicker v-model="date1" :invalid="!date1" placeholder="Date" />
+        <DatePicker v-model="date2" :invalid="!date2" variant="filled" placeholder="Date" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date1 = ref(null);
+const date2 = ref(null);
+<\/script>
+```
+</details>
 
 ## Locale
 
@@ -6570,6 +12006,39 @@ Boundaries for the permitted dates that can be entered are defined with minDate 
 <DatePicker v-model="date" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+let today = new Date();
+let month = today.getMonth();
+let year = today.getFullYear();
+let prevMonth = (month === 0) ? 11 : month -1;
+let prevYear = (prevMonth === 11) ? year - 1 : year;
+let nextMonth = (month === 11) ? 0 : month + 1;
+let nextYear = (nextMonth === 0) ? year + 1 : year;
+
+const date = ref();
+const minDate = ref(new Date());
+const maxDate = ref(new Date());
+
+minDate.value.setMonth(prevMonth);
+minDate.value.setFullYear(prevYear);
+maxDate.value.setMonth(nextMonth);
+maxDate.value.setFullYear(nextYear);
+<\/script>
+```
+</details>
+
 ## Model Type
 
 The updateModelType property controls the data type of the value. When set to string it returns a string representation of the date, when set to date (default) it returns a Date object.
@@ -6581,6 +12050,32 @@ The updateModelType property controls the data type of the value. When set to st
 <DatePicker v-model="stringTypeModel" updateModelType="string" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <label for="datetype" class="font-bold block mb-2"> Date Type Model </label>
+            <DatePicker v-model="dateTypeModel" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="stringtype" class="font-bold block mb-2"> String Type Model </label>
+            <DatePicker v-model="stringTypeModel" updateModelType="string" fluid />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const dateTypeModel = ref();
+const stringTypeModel = ref();
+<\/script>
+```
+</details>
+
 ## Month Picker
 
 Month only picker is enabled by specifying view as month in addition to a suitable dateFormat .
@@ -6590,6 +12085,24 @@ Month only picker is enabled by specifying view as month in addition to a suitab
 ```vue
 <DatePicker v-model="date" view="month" dateFormat="mm/yy" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" view="month" dateFormat="mm/yy" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
 
 ## Multiple
 
@@ -6601,6 +12114,24 @@ In order to choose multiple dates, set selectionMode as multiple . In this mode,
 <DatePicker v-model="dates" selectionMode="multiple" :manualInput="false" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="dates" selectionMode="multiple" :manualInput="false" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const dates = ref();
+<\/script>
+```
+</details>
+
 ## Multiple Months
 
 Number of months to display is configured with the numberOfMonths property.
@@ -6611,6 +12142,24 @@ Number of months to display is configured with the numberOfMonths property.
 <DatePicker v-model="date" :numberOfMonths="2" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" :numberOfMonths="2" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
+
 ## Range
 
 A range of dates can be selected by defining selectionMode as range , in this case the bound value would be an array with two values where first date is the start of the range and second date is the end.
@@ -6620,6 +12169,24 @@ A range of dates can be selected by defining selectionMode as range , in this ca
 ```vue
 <DatePicker v-model="dates" selectionMode="range" :manualInput="false" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="dates" selectionMode="range" :manualInput="false" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const dates = ref();
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -6633,6 +12200,28 @@ DatePicker provides small and large sizes as alternatives to the base.
 <DatePicker v-model="value3" size="large" placeholder="Large" showIcon iconDisplay="input" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <DatePicker v-model="value1" size="small" placeholder="Small" showIcon iconDisplay="input" />
+        <DatePicker v-model="value2" placeholder="Normal" showIcon iconDisplay="input" />
+        <DatePicker v-model="value3" size="large" placeholder="Large" showIcon iconDisplay="input" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## Time
 
 A time picker is displayed when showTime is enabled where 12/24 hour format is configured with hourFormat property. In case, only time needs to be selected, add timeOnly to hide the date section.
@@ -6645,6 +12234,37 @@ A time picker is displayed when showTime is enabled where 12/24 hour format is c
 <DatePicker id="datepicker-timeonly" v-model="time" timeOnly fluid />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <label for="datepicker-12h" class="font-bold block mb-2"> 12h Format </label>
+            <DatePicker id="datepicker-12h" v-model="datetime12h" showTime hourFormat="12" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="datepicker-24h" class="font-bold block mb-2"> 24h Format </label>
+            <DatePicker id="datepicker-24h" v-model="datetime24h" showTime hourFormat="24" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="datepicker-timeonly" class="font-bold block mb-2"> Time Only </label>
+            <DatePicker id="datepicker-timeonly" v-model="time" timeOnly fluid />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const datetime12h = ref();
+const datetime24h = ref();
+const time = ref();
+<\/script>
+```
+</details>
+
 ## Year Picker
 
 Specifying view as year in addition to a suitable dateFormat enables the year picker.
@@ -6654,6 +12274,24 @@ Specifying view as year in addition to a suitable dateFormat enables the year pi
 ```vue
 <DatePicker v-model="date" view="year" dateFormat="yy" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" view="year" dateFormat="yy" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
 
 ## Date Picker
 
@@ -6930,6 +12568,14 @@ DeferredContent postpones the loading the content that is initially not in the v
 
 Screen Reader DeferredContent can be utilized in many use cases as a result no role is enforced, in fact a role may not be necessary if the card is used for presentational purposes only. Any valid attribute is passed to the container element so you have full control over the roles like landmark and attributes like aria-live . Keyboard Support Component does not include any interactive elements.
 
+**Basic Usage:**
+
+```vue
+<DeferredContent role="region" aria-live="polite" aria-label="Content loaded after page scrolled down">
+    Content
+</DeferredContent>
+```
+
 ## Basic
 
 DeferredContent is used by wrapping the target.
@@ -6959,6 +12605,48 @@ A practical example that triggers a fetch when the table becomes visible in view
 </DeferredContent>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Toast />
+        <div style="height: 800px">Scroll down to lazy load a DataTable.</div>
+
+        <DeferredContent @load="onDataLoad" role="region" aria-live="polite" aria-label="Content loaded after page scrolled down">
+            <DataTable :value="products">
+                <Column field="code" header="Code"></Column>
+                <Column field="name" header="Name"></Column>
+                <Column field="category" header="Category"></Column>
+                <Column field="quantity" header="Quantity"></Column>
+            </DataTable>
+        </DeferredContent>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { ProductService } from '@/service/ProductService';
+
+const products = ref(null);
+
+const onDataLoad = () => {
+    ProductService.getProductsSmall().then((data) => (products.value = data));
+    toast.add({ severity: 'success', summary: 'Data Initialized', detail: 'Render Completed', life: 2000 });
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import DeferredContent from 'primevue/deferredcontent';
+```
+
 ## Deferred Content
 
 ### Props
@@ -6986,6 +12674,16 @@ Dialog is a container to display content in an overlay window.
 ## Accessibility
 
 Screen Reader Dialog component uses dialog role along with aria-labelledby referring to the header element however any attribute is passed to the root element so you may use aria-labelledby to override this default behavior. In addition aria-modal is added since focus is kept within the popup. Trigger element also requires aria-expanded and aria-controls to be handled explicitly. Close element is a button with an aria-label that refers to the aria.close property of the locale API by default, you may use closeButtonProps to customize the element and override the default aria-label . Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the dialog if modal is true. Otherwise, the focusable element in the page tab sequence. shift + tab Moves focus to the previous the focusable element within the dialog if modal is true. Otherwise, the focusable element in the page tab sequence. escape Closes the dialog if closeOnEscape is true. Close Button Keyboard Support Key Function enter Closes the dialog. space Closes the dialog.
+
+**Basic Usage:**
+
+```vue
+<Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'dlg' : null" :aria-expanded="visible ? true : false" />
+
+<Dialog id="dlg" header="Header" v-model:visible="visible" :style="{ width: '50vw' }">
+    <p>Content</p>
+</Dialog>
+```
 
 ## Basic
 
@@ -7052,6 +12750,61 @@ Headless mode is enabled by defining a container slot that lets you implement en
 </Dialog>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button label="Login" icon="pi pi-user" @click="visible = true" />
+
+        <Dialog v-model:visible="visible" pt:root:class="!border-0 !bg-transparent" pt:mask:class="backdrop-blur-sm">
+            <template #container="{ closeCallback }">
+                <div class="flex flex-col px-8 py-8 gap-6 rounded-2xl" style="background-image: radial-gradient(circle at left top, var(--p-primary-400), var(--p-primary-700))">
+                    <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="block mx-auto">
+                        <path
+                            d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                            fill="var(--p-primary-700)"
+                        />
+                        <path
+                            d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                            fill="var(--p-primary-200)"
+                        />
+                    </svg>
+                    <div class="inline-flex flex-col gap-2">
+                        <label for="username" class="text-primary-50 font-semibold">Username</label>
+                        <InputText id="username" class="!bg-white/20 !border-0 !p-4 !text-primary-50 w-80"></InputText>
+                    </div>
+                    <div class="inline-flex flex-col gap-2">
+                        <label for="password" class="text-primary-50 font-semibold">Password</label>
+                        <InputText id="password" class="!bg-white/20 !border-0 !p-4 !text-primary-50 w-80" type="password"></InputText>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <Button label="Cancel" @click="closeCallback" variant="text" class="!p-4 w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"></Button>
+                        <Button label="Sign-In" @click="closeCallback" variant="text" class="!p-4 w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"></Button>
+                    </div>
+                </div>
+            </template>
+        </Dialog>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const visible = ref(false);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Dialog from 'primevue/dialog';
+```
+
 ## Long Content
 
 When content exceeds viewport, Dialog automatically becomes scrollable.
@@ -7097,6 +12850,58 @@ When content exceeds viewport, Dialog automatically becomes scrollable.
 </Dialog>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button label="Show" @click="visible = true" />
+        <Dialog v-model:visible="visible" modal header="Header" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+            <p class="mb-8">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p class="mb-8">
+                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+                adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+                ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+            </p>
+            <p class="mb-8">
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+                maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae
+                non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+            </p>
+            <p class="mb-8">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p class="mb-8">
+                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+                adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid
+                ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+            </p>
+            <p>
+                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+                maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae
+                non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+            </p>
+        </Dialog>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const visible = ref(false);
+<\/script>
+```
+</details>
+
 ## Maximizable
 
 Adding maximizable property enables the full screen mode.
@@ -7113,6 +12918,30 @@ Adding maximizable property enables the full screen mode.
     </p>
 </Dialog>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button label="Show" @click="visible = true" />
+        <Dialog v-model:visible="visible" maximizable modal header="Header" :style="{ width: '50rem' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </Dialog>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const visible = ref(false);
+<\/script>
+```
+</details>
 
 ## Position
 
@@ -7153,6 +12982,59 @@ The position property defines the location of relative to the screen.
 </Dialog>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-wrap justify-center gap-2 mb-2">
+            <Button label="Left" icon="pi pi-arrow-right" @click="openPosition('left')" severity="secondary" style="min-width: 10rem" />
+            <Button label="Right" icon="pi pi-arrow-left" @click="openPosition('right')" severity="secondary" style="min-width: 10rem" />
+        </div>
+        <div class="flex flex-wrap justify-center gap-2 mb-2">
+            <Button label="TopLeft" icon="pi pi-arrow-down-right" @click="openPosition('topleft')" severity="secondary" style="min-width: 10rem" />
+            <Button label="Top" icon="pi pi-arrow-down" @click="openPosition('top')" severity="secondary" style="min-width: 10rem" />
+            <Button label="TopRight" icon="pi pi-arrow-down-left" @click="openPosition('topright')" severity="secondary" style="min-width: 10rem" />
+        </div>
+        <div class="flex flex-wrap justify-center gap-2">
+            <Button label="BottomLeft" icon="pi pi-arrow-up-right" @click="openPosition('bottomleft')" severity="secondary" style="min-width: 10rem" />
+            <Button label="Bottom" icon="pi pi-arrow-up" @click="openPosition('bottom')" severity="secondary" style="min-width: 10rem" />
+            <Button label="BottomRight" icon="pi pi-arrow-up-left" @click="openPosition('bottomright')" severity="secondary" style="min-width: 10rem" />
+        </div>
+
+        <Dialog v-model:visible="visible" header="Edit Profile" :style="{ width: '25rem' }" :position="position" :modal="true" :draggable="false">
+            <span class="text-surface-500 dark:text-surface-400 block mb-8">Update your information.</span>
+            <div class="flex items-center gap-4 mb-4">
+                <label for="username" class="font-semibold w-24">Username</label>
+                <InputText id="username" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex items-center gap-4 mb-8">
+                <label for="email" class="font-semibold w-24">Email</label>
+                <InputText id="email" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex justify-end gap-2">
+                <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
+                <Button type="button" label="Save" @click="visible = false"></Button>
+            </div>
+        </Dialog>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const position = ref('center');
+const visible = ref(false);
+
+const openPosition = (pos) => {
+    position.value = pos;
+    visible.value = true;
+}
+<\/script>
+```
+</details>
+
 ## Responsive
 
 Dialog width can be adjusted per screen size with the breakpoints option where the max-width for the breakpoint and the width are defined as key-value pairs. When no breakpoint matches width defined in style or class is used. Alternatively responsive utility classes of libraries like Tailwind can also be used such as md:w-screen .
@@ -7169,6 +13051,30 @@ Dialog width can be adjusted per screen size with the breakpoints option where t
     </p>
 </Dialog>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button label="Show" @click="visible = true" />
+        <Dialog v-model:visible="visible" modal header="Header" :style="{ width: '50vw' }" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </Dialog>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const visible = ref(false);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -7202,6 +13108,45 @@ Header and Footer sections allow customization via templating.
 </Dialog>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button label="Show" @click="visible = true" />
+        <Dialog v-model:visible="visible" modal header="Edit Profile" :style="{ width: '25rem' }">
+            <template #header>
+                <div class="inline-flex items-center justify-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold whitespace-nowrap">Amy Elsner</span>
+                </div>
+            </template>
+            <span class="text-surface-500 dark:text-surface-400 block mb-8">Update your information.</span>
+            <div class="flex items-center gap-4 mb-4">
+                <label for="username" class="font-semibold w-24">Username</label>
+                <InputText id="username" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex items-center gap-4 mb-2">
+                <label for="email" class="font-semibold w-24">Email</label>
+                <InputText id="email" class="flex-auto" autocomplete="off" />
+            </div>
+            <template #footer>
+                <Button label="Cancel" text severity="secondary" @click="visible = false" autofocus />
+                <Button label="Save" variant="outlined" severity="secondary" @click="visible = false" autofocus />
+            </template>
+        </Dialog>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const visible = ref(false);
+<\/script>
+```
+</details>
+
 ## WithoutModalDoc
 
 Mask layer behind the Dialog is configured with the modal property. By default, no modal layer is added.
@@ -7227,6 +13172,39 @@ Mask layer behind the Dialog is configured with the modal property. By default, 
     </div>
 </Dialog>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button label="Show" @click="visible = true" />
+        <Dialog v-model:visible="visible" header="Edit Profile" :style="{ width: '25rem' }">
+            <span class="text-surface-500 dark:text-surface-400 block mb-8">Update your information.</span>
+            <div class="flex items-center gap-4 mb-4">
+                <label for="username" class="font-semibold w-24">Username</label>
+                <InputText id="username" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex items-center gap-4 mb-8">
+                <label for="email" class="font-semibold w-24">Email</label>
+                <InputText id="email" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex justify-end gap-2">
+                <Button type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
+                <Button type="button" label="Save" @click="visible = false"></Button>
+            </div>
+        </Dialog>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const visible = ref(false);
+<\/script>
+```
+</details>
 
 ## Dialog
 
@@ -7402,6 +13380,59 @@ Children are rendered within the boundaries of the divider where location of the
 </p>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+
+        <Divider align="left" type="solid">
+            <b>Left</b>
+        </Divider>
+
+        <p class="m-0">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+        </p>
+
+        <Divider align="center" type="dotted">
+            <b>Center</b>
+        </Divider>
+
+        <p class="m-0">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
+            deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+        </p>
+
+        <Divider align="right" type="dashed">
+            <b>Right</b>
+        </Divider>
+
+        <p class="m-0">
+            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+            maiores alias consequatur aut perferendis doloribus asperiores repellat. Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.
+        </p>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Divider from 'primevue/divider';
+```
+
 ## Login
 
 Sample implementation of a login form using a divider with content.
@@ -7432,6 +13463,42 @@ Sample implementation of a login form using a divider with content.
     </div>
 </div>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-col md:flex-row">
+            <div class="w-full md:w-5/12 flex flex-col items-center justify-center gap-3 py-5">
+                <div class="flex flex-col gap-2">
+                    <label for="username">Username</label>
+                    <InputText id="username" type="text" />
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="password">Password</label>
+                    <InputText id="password" type="password" />
+                </div>
+                <div class="flex">
+                    <Button label="Login" icon="pi pi-user" class="w-full max-w-[17.35rem] mx-auto"></Button>
+                </div>
+            </div>
+            <div class="w-full md:w-2/12">
+                <Divider layout="vertical" class="!hidden md:!flex"><b>OR</b></Divider>
+                <Divider layout="horizontal" class="!flex md:!hidden" align="center"><b>OR</b></Divider>
+            </div>
+            <div class="w-full md:w-5/12 flex items-center justify-center py-5">
+                <Button label="Sign Up" icon="pi pi-user-plus" severity="success" class="w-full max-w-[17.35rem] mx-auto"></Button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Type
 
@@ -7467,6 +13534,45 @@ Style of the border is configured with the type property that can either be soli
 </p>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+
+        <Divider type="solid" />
+
+        <p class="m-0">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+        </p>
+
+        <Divider type="dotted" />
+
+        <p class="m-0">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
+            deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+        </p>
+
+        <Divider type="dashed" />
+
+        <p class="m-0">
+            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+            maiores alias consequatur aut perferendis doloribus asperiores repellat. Donec vel volutpat ipsum. Integer nunc magna, posuere ut tincidunt eget, egestas vitae sapien. Morbi dapibus luctus odio.
+        </p>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Vertical
 
 Vertical divider is enabled by setting the layout property as vertical .
@@ -7493,6 +13599,38 @@ Vertical divider is enabled by setting the layout property as vertical .
     deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
 </p>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex">
+        <p class="m-0">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+
+        <Divider layout="vertical" />
+
+        <p class="m-0">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+        </p>
+
+        <Divider layout="vertical" />
+
+        <p class="m-0">
+            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
+            deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+        </p>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Divider
 
@@ -7565,6 +13703,319 @@ A mock desktop UI implemented with various components in addition to Dock.
 </Dock>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div>
+        <div class="card dock-demo">
+            <Toast position="top-center" group="tc" />
+
+            <Menubar :model="menubarItems">
+                <template #start>
+                    <i class="pi pi-apple px-2"></i>
+                </template>
+                <template #end>
+                    <i class="pi pi-video px-2" />
+                    <i class="pi pi-wifi px-2" />
+                    <i class="pi pi-volume-up px-2" />
+                    <span class="px-2">Fri 13:07</span>
+                    <i class="pi pi-search px-2" />
+                    <i class="pi pi-bars px-2" />
+                </template>
+            </Menubar>
+
+            <div class="dock-window dock-advanced">
+                <Dock :model="items">
+                    <template #item="{ item }">
+                        <a v-tooltip.top="item.label" href="#" class="p-dock-item-link" @click="onDockItemClick($event, item)">
+                            <img :alt="item.label" :src="item.icon" style="width: 100%" />
+                        </a>
+                    </template>
+                </Dock>
+
+                <Dialog v-model:visible="displayTerminal" header="Terminal" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
+                    <Terminal welcomeMessage="Welcome to PrimeVue(cmd: 'date', 'greet {0}' and 'random')" prompt="primevue $" />
+                </Dialog>
+
+                <Dialog v-model:visible="displayFinder" header="Finder" :breakpoints="{ '960px': '50vw' }" :style="{ width: '40vw' }" :maximizable="true">
+                    <Tree :value="nodes" />
+                </Dialog>
+
+                <Galleria v-model:visible="displayPhotos" :value="images" :responsiveOptions="responsiveOptions" :numVisible="2" containerStyle="width: 400px" :circular="true" :fullScreen="true" :showThumbnails="false" :showItemNavigators="true">
+                    <template #item="slotProps">
+                        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%" />
+                    </template>
+                </Galleria>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import TerminalService from 'primevue/terminalservice';
+import { NodeService } from '@/service/NodeService';
+import { PhotoService } from '@/service/PhotoService';
+
+onMounted(() => {
+    PhotoService.getImages().then(data => images.value = data);
+    NodeService.getTreeNodes().then(data => nodes.value = data);
+    TerminalService.on('command', commandHandler);
+})
+
+onBeforeUnmount(() => {
+    TerminalService.off('command', commandHandler);
+})
+
+const displayFinder = ref(false);
+const displayTerminal = ref(false);
+const displayPhotos = ref(false);
+const images = ref();
+const nodes = ref();
+const toast = useToast();
+const items = ref([
+    {
+        label: 'Finder',
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/finder.svg',
+        command: () => {
+            this.displayFinder = true;
+        }
+    },
+    {
+        label: 'Terminal',
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/terminal.svg',
+        command: () => {
+            this.displayTerminal = true;
+        }
+    },
+    {
+        label: 'App Store',
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/appstore.svg',
+        url: 'https://www.apple.com/app-store/'
+    },
+    {
+        label: 'Safari',
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/safari.svg',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Safari has stopped working', group: 'tc', life: 3000 });
+        }
+    },
+    {
+        label: 'Photos',
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/photos.svg',
+        command: () => {
+            this.displayPhotos = true;
+        }
+    },
+    {
+        label: 'GitHub',
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/github.svg',
+        url: 'https://github.com/primefaces/primevue'
+    },
+    {
+        label: 'Trash',
+        icon: 'https://primefaces.org/cdn/primevue/images/dock/trash.png',
+        command: () => {
+            toast.add({ severity: 'info', summary: 'Trash is empty', life: 3000 });
+        }
+    }
+]);
+const menubarItems = ref([
+    {
+        label: 'Finder',
+        class: 'menubar-root'
+    },
+    {
+        label: 'File',
+        items: [
+            {
+                label: 'New',
+                icon: 'pi pi-fw pi-plus',
+                items: [
+                    {
+                        label: 'Bookmark',
+                        icon: 'pi pi-fw pi-bookmark'
+                    },
+                    {
+                        label: 'Video',
+                        icon: 'pi pi-fw pi-video'
+                    },
+
+                ]
+            },
+            {
+                label: 'Delete',
+                icon: 'pi pi-fw pi-trash'
+            },
+            {
+                separator: true
+            },
+            {
+                label: 'Export',
+                icon: 'pi pi-fw pi-external-link'
+            }
+        ]
+    },
+    {
+        label: 'Edit',
+        items: [
+            {
+                label: 'Left',
+                icon: 'pi pi-fw pi-align-left'
+            },
+            {
+                label: 'Right',
+                icon: 'pi pi-fw pi-align-right'
+            },
+            {
+                label: 'Center',
+                icon: 'pi pi-fw pi-align-center'
+            },
+            {
+                label: 'Justify',
+                icon: 'pi pi-fw pi-align-justify'
+            },
+
+        ]
+    },
+    {
+        label: 'Users',
+        items: [
+            {
+                label: 'New',
+                icon: 'pi pi-fw pi-user-plus',
+            },
+            {
+                label: 'Delete',
+                icon: 'pi pi-fw pi-user-minus',
+
+            },
+            {
+                label: 'Search',
+                icon: 'pi pi-fw pi-users',
+                items: [
+                    {
+                        label: 'Filter',
+                        icon: 'pi pi-fw pi-filter',
+                        items: [
+                            {
+                                label: 'Print',
+                                icon: 'pi pi-fw pi-print'
+                            }
+                        ]
+                    },
+                    {
+                        icon: 'pi pi-fw pi-bars',
+                        label: 'List'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        label: 'Events',
+        items: [
+            {
+                label: 'Edit',
+                icon: 'pi pi-fw pi-pencil',
+                items: [
+                    {
+                        label: 'Save',
+                        icon: 'pi pi-fw pi-calendar-plus'
+                    },
+                    {
+                        label: 'Delete',
+                        icon: 'pi pi-fw pi-calendar-minus'
+                    }
+                ]
+            },
+            {
+                label: 'Archive',
+                icon: 'pi pi-fw pi-calendar-times',
+                items: [
+                    {
+                        label: 'Remove',
+                        icon: 'pi pi-fw pi-calendar-minus'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        label: 'Quit'
+    }
+]);
+const responsiveOptions = ref([
+    {
+        breakpoint: '1024px',
+        numVisible: 3
+    },
+    {
+        breakpoint: '768px',
+        numVisible: 2
+    },
+    {
+        breakpoint: '560px',
+        numVisible: 1
+    }
+]);
+
+const onDockItemClick = (event, item) => {
+    if (item.command) {
+        item.command();
+    }
+
+    event.preventDefault();
+};
+
+const commandHandler = (text) => {
+    let response;
+    let argsIndex = text.indexOf(' ');
+    let command = argsIndex !== -1 ? text.substring(0, argsIndex) : text;
+
+    switch(command) {
+        case "date":
+            response = 'Today is ' + new Date().toDateString();
+            break;
+
+        case "greet":
+            response = 'Hola ' + text.substring(argsIndex + 1);
+            break;
+
+        case "random":
+            response = Math.floor(Math.random() * 100);
+            break;
+
+        default:
+            response = "Unknown command: " + command;
+    }
+
+    TerminalService.emit('response', response);
+};
+<\/script>
+
+<style scoped>
+.dock-demo > .dock-window {
+    width: 100%;
+    height: 450px;
+    position: relative;
+    background-image: url("https://primefaces.org/cdn/primevue/images/dock/window.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.dock-demo .p-menubar {
+    padding: 0;
+    border-radius: 0;
+}
+</style>
+```
+</details>
+
 ## Basic
 
 Dock requires a collection of menuitems as its model and an icon template. Default location is bottom and other edges are also available when defined with the position property.
@@ -7579,6 +14030,14 @@ Dock requires a collection of menuitems as its model and an icon template. Defau
 </Dock>
 ```
 
+## Import
+
+**Basic Usage:**
+
+```vue
+import Dock from 'primevue/dock';
+```
+
 ---
 
 # Vue Drawer Component
@@ -7588,6 +14047,16 @@ Drawer is a container component displayed as an overlay.
 ## Accessibility
 
 Screen Reader Drawer component uses complementary role by default, since any attribute is passed to the root element aria role can be changed depending on your use case and additional attributes like aria-labelledby can be added. In addition aria-modal is added since focus is kept within the drawer when opened. Trigger element also requires aria-expanded and aria-controls to be handled explicitly. Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the drawer. shift + tab Moves focus to the previous the focusable element within the drawer. escape Closes the drawer. Close Button Keyboard Support Key Function enter Closes the drawer. space Closes the drawer.
+
+**Basic Usage:**
+
+```vue
+<Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'sbar' : null" :aria-expanded="visible"/>
+
+<Drawer id="sbar" v-model:visible="visible" role="region" >
+    <p>Content</p>
+</Drawer>
+```
 
 ## Basic
 
@@ -7618,6 +14087,27 @@ The full screen mode is enabled when position property is set as full .
     <Button icon="pi pi-window-maximize" @click="visible = true" />
 </div>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Drawer v-model:visible="visible" header="Drawer" position="full">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </Drawer>
+        <Button icon="pi pi-window-maximize" @click="visible = true" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const visible = ref(false);
+<\/script>
+```
+</details>
 
 ## Headless
 
@@ -7807,6 +14297,216 @@ Headless mode is enabled by defining a container slot that lets you implement en
 <Button icon="pi pi-bars" @click="visible = true" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Drawer v-model:visible="visible">
+            <template #container="{ closeCallback }">
+                <div class="flex flex-col h-full">
+                    <div class="flex items-center justify-between px-6 pt-4 shrink-0">
+                        <span class="inline-flex items-center gap-2">
+                            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                                    fill="var(--p-primary-color)"
+                                />
+                                <path
+                                    d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                                    fill="var(--p-text-color)"
+                                />
+                            </svg>
+                            <span class="font-semibold text-2xl text-primary">Your Logo</span>
+                        </span>
+                        <span>
+                            <Button type="button" @click="closeCallback" icon="pi pi-times" rounded variant="outlined"></Button>
+                        </span>
+                    </div>
+                    <div class="overflow-y-auto">
+                        <ul class="list-none p-4 m-0">
+                            <li>
+                                <div
+                                    v-ripple
+                                    v-styleclass="{
+                                        selector: '@next',
+                                        enterFromClass: 'hidden',
+                                        enterActiveClass: 'animate-slidedown',
+                                        leaveToClass: 'hidden',
+                                        leaveActiveClass: 'animate-slideup'
+                                    }"
+                                    class="p-4 flex items-center justify-between text-surface-500 dark:text-surface-400 cursor-pointer p-ripple"
+                                >
+                                    <span class="font-medium">FAVORITES</span>
+                                    <i class="pi pi-chevron-down"></i>
+                                </div>
+                                <ul class="list-none p-0 m-0 overflow-hidden">
+                                    <li>
+                                        <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                            <i class="pi pi-home mr-2"></i>
+                                            <span class="font-medium">Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                            <i class="pi pi-bookmark mr-2"></i>
+                                            <span class="font-medium">Bookmarks</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            v-ripple
+                                            v-styleclass="{
+                                                selector: '@next',
+                                                enterFromClass: 'hidden',
+                                                enterActiveClass: 'animate-slidedown',
+                                                leaveToClass: 'hidden',
+                                                leaveActiveClass: 'animate-slideup'
+                                            }"
+                                            class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple"
+                                        >
+                                            <i class="pi pi-chart-line mr-2"></i>
+                                            <span class="font-medium">Reports</span>
+                                            <i class="pi pi-chevron-down ml-auto"></i>
+                                        </a>
+                                        <ul class="list-none py-0 pl-4 pr-0 m-0 hidden overflow-y-hidden transition-all duration-[400ms] ease-in-out">
+                                            <li>
+                                                <a
+                                                    v-ripple
+                                                    v-styleclass="{
+                                                        selector: '@next',
+                                                        enterFromClass: 'hidden',
+                                                        enterActiveClass: 'animate-slidedown',
+                                                        leaveToClass: 'hidden',
+                                                        leaveActiveClass: 'animate-slideup'
+                                                    }"
+                                                    class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple"
+                                                >
+                                                    <i class="pi pi-chart-line mr-2"></i>
+                                                    <span class="font-medium">Revenue</span>
+                                                    <i class="pi pi-chevron-down ml-auto"></i>
+                                                </a>
+                                                <ul class="list-none py-0 pl-4 pr-0 m-0 hidden overflow-y-hidden transition-all duration-[400ms] ease-in-out">
+                                                    <li>
+                                                        <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                                            <i class="pi pi-table mr-2"></i>
+                                                            <span class="font-medium">View</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                                            <i class="pi pi-search mr-2"></i>
+                                                            <span class="font-medium">Search</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                                    <i class="pi pi-chart-line mr-2"></i>
+                                                    <span class="font-medium">Expenses</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                            <i class="pi pi-users mr-2"></i>
+                                            <span class="font-medium">Team</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                            <i class="pi pi-comments mr-2"></i>
+                                            <span class="font-medium">Messages</span>
+                                            <span class="inline-flex items-center justify-center ml-auto bg-primary text-primary-contrast rounded-full" style="min-width: 1.5rem; height: 1.5rem">3</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                            <i class="pi pi-calendar mr-2"></i>
+                                            <span class="font-medium">Calendar</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                            <i class="pi pi-cog mr-2"></i>
+                                            <span class="font-medium">Settings</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="list-none p-4 m-0">
+                            <li>
+                                <div
+                                    v-ripple
+                                    v-styleclass="{
+                                        selector: '@next',
+                                        enterFromClass: 'hidden',
+                                        enterActiveClass: 'animate-slidedown',
+                                        leaveToClass: 'hidden',
+                                        leaveActiveClass: 'animate-slideup'
+                                    }"
+                                    class="p-4 flex items-center justify-between text-surface-500 dark:text-surface-400 cursor-pointer p-ripple"
+                                >
+                                    <span class="font-medium">APPLICATION</span>
+                                    <i class="pi pi-chevron-down"></i>
+                                </div>
+                                <ul class="list-none p-0 m-0 overflow-hidden">
+                                    <li>
+                                        <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                            <i class="pi pi-folder mr-2"></i>
+                                            <span class="font-medium">Projects</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                            <i class="pi pi-chart-bar mr-2"></i>
+                                            <span class="font-medium">Performance</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a v-ripple class="flex items-center cursor-pointer p-4 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                                            <i class="pi pi-cog mr-2"></i>
+                                            <span class="font-medium">Settings</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-auto">
+                        <hr class="mb-4 mx-4 border-t border-0 border-surface-200 dark:border-surface-700" />
+                        <a v-ripple class="m-4 flex items-center cursor-pointer p-4 gap-2 rounded text-surface-700 hover:bg-surface-100 dark:text-surface-0 dark:hover:bg-surface-800 duration-150 transition-colors p-ripple">
+                            <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                            <span class="font-bold">Amy Elsner</span>
+                        </a>
+                    </div>
+                </div>
+            </template>
+        </Drawer>
+        <Button icon="pi pi-bars" @click="visible = true" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const visible = ref(false);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Drawer from 'primevue/drawer';
+```
+
 ## Position
 
 Drawer location is configured with the position property that can take left , right , top and bottom as valid values.
@@ -7838,6 +14538,48 @@ Drawer location is configured with the position property that can take left , ri
 </Drawer>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex gap-2 justify-center">
+            <Button icon="pi pi-arrow-right" @click="visibleLeft = true" />
+            <Button icon="pi pi-arrow-left" @click="visibleRight = true" />
+            <Button icon="pi pi-arrow-down" @click="visibleTop = true" />
+            <Button icon="pi pi-arrow-up" @click="visibleBottom = true" />
+        </div>
+
+        <Drawer v-model:visible="visibleLeft" header="Left Drawer">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </Drawer>
+
+        <Drawer v-model:visible="visibleRight" header="Right Drawer" position="right">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </Drawer>
+
+        <Drawer v-model:visible="visibleTop" header="Top Drawer" position="top" style="height: auto">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </Drawer>
+
+        <Drawer v-model:visible="visibleBottom" header="Bottom Drawer" position="bottom" style="height: auto">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </Drawer>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const visibleLeft = ref(false);
+const visibleRight = ref(false);
+const visibleTop = ref(false);
+const visibleBottom = ref(false);
+<\/script>
+```
+</details>
+
 ## Size
 
 Drawer dimension can be defined with style or class properties, this responsive example utilizes Tailwind.
@@ -7852,6 +14594,27 @@ Drawer dimension can be defined with style or class properties, this responsive 
     <Button icon="pi pi-arrow-right" @click="visible = true" />
 </div>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Drawer v-model:visible="visible" header="Drawer" class="!w-full md:!w-80 lg:!w-[30rem]">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </Drawer>
+        <Button icon="pi pi-arrow-right" @click="visible = true" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const visible = ref(false);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -7877,6 +14640,39 @@ Custom content at the header and footer sections is displayed with templating.
 </Drawer>
 <Button icon="pi pi-plus" @click="visible = true" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Drawer v-model:visible="visible">
+            <template #header>
+                <div class="flex items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold">Amy Elsner</span>
+                </div>
+            </template>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <template #footer>
+                <div class="flex items-center gap-2">
+                    <Button label="Account" icon="pi pi-user" class="flex-auto" variant="outlined"></Button>
+                    <Button label="Logout" icon="pi pi-sign-out" class="flex-auto" severity="danger" text></Button>
+                </div>
+            </template>
+        </Drawer>
+        <Button icon="pi pi-plus" @click="visible = true" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const visible = ref(false);
+<\/script>
+```
+</details>
 
 ## Drawer
 
@@ -7956,9 +14752,46 @@ Visit accessibility section of dialog component for more information.
 
 The close function is available through a dialogRef that is injected to the component loaded by the dialog.
 
+**Basic Usage:**
+
+```vue
+import { inject } from "vue";
+
+const dialogRef = inject('dialogRef');
+
+const closeDialog = () => {
+    dialogRef.value.close();
+}
+```
+
 ## Customization
 
 DynamicDialog uses the Dialog component internally, visit dialog for more information about the available props.
+
+**Basic Usage:**
+
+```vue
+import ProductListDemo from './ProductListDemo';
+import { useDialog } from 'primevue/usedialog';
+
+const dialog = useDialog();
+
+const showProducts = () => {
+    dialog.open(ProductListDemo, {
+        props: {
+            header: 'Product List',
+            style: {
+                width: '50vw',
+            },
+            breakpoints:{
+                '960px': '75vw',
+                '640px': '90vw'
+            },
+            modal: true
+        }
+    });
+}
+```
 
 ## Dialog Service
 
@@ -8034,6 +14867,33 @@ const showProducts = () => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import DynamicDialog from 'primevue/dynamicdialog';
+```
+
 ## OpenDialogDoc
 
 The open function of the DialogService is used to open a Dialog. First parameter is the component to load and second one is the configuration object to customize the Dialog. The component can also be loaded asynchronously, this approach is useful in conditional cases and to improve initial load times as well.
@@ -8088,9 +14948,64 @@ Editor integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <Editor name="content" editorStyle="height: 320px" />
+                <Message v-if="$form.content?.invalid" severity="error" size="small" variant="simple">{{ $form.content.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    content: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        content: z.string().min(1, { message: 'Content is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Editor from 'primevue/editor';
+```
+
 ## Quill
 
 Editor uses Quill editor underneath so it needs to be installed as a dependency.
+
+**Basic Usage:**
+
+```vue
+npm install quill
+```
 
 ## ReadOnly
 
@@ -8101,6 +15016,24 @@ When readonly is present, the value cannot be edited.
 ```vue
 <Editor v-model="value" editorStyle="height: 320px" readonly />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Editor v-model="value" editorStyle="height: 320px" readonly />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref('Always bet on Prime');
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -8119,6 +15052,32 @@ Editor provides a default toolbar with common options, to customize it define yo
     </template>
 </Editor>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Editor v-model="value" editorStyle="height: 320px">
+            <template v-slot:toolbar>
+                <span class="ql-formats">
+                    <button v-tooltip.bottom="'Bold'" class="ql-bold"></button>
+                    <button v-tooltip.bottom="'Italic'" class="ql-italic"></button>
+                    <button v-tooltip.bottom="'Underline'" class="ql-underline"></button>
+                </span>
+            </template>
+        </Editor>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref('<div>Hello World!</div><div>PrimeVue <b>Editor</b> Rocks</div><div><br></div>');
+<\/script>
+```
+</details>
 
 ## Editor
 
@@ -8232,6 +15191,14 @@ A simple Fieldset is created with a legend property along with the content as ch
 </Fieldset>
 ```
 
+## Import
+
+**Basic Usage:**
+
+```vue
+import Fieldset from 'primevue/fieldset';
+```
+
 ## Template
 
 Legend section can be customized with custom content using templating.
@@ -8253,6 +15220,32 @@ Legend section can be customized with custom content using templating.
 </Fieldset>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Fieldset>
+            <template #legend>
+                <div class="flex items-center pl-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold p-2">Amy Elsner</span>
+                </div>
+            </template>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </Fieldset>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Toggleable
 
 Content of the fieldset can be expanded and collapsed when toggleable option is enabled.
@@ -8267,6 +15260,26 @@ Content of the fieldset can be expanded and collapsed when toggleable option is 
     </p>
 </Fieldset>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Fieldset legend="Header" :toggleable="true">
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </Fieldset>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Fieldset
 
@@ -8299,6 +15312,7 @@ Content of the fieldset can be expanded and collapsed when toggleable option is 
 | toggleIcon | FieldsetPassThroughOptionType | Used to pass attributes to the toggle icon's DOM element. |
 | legendLabel | FieldsetPassThroughOptionType | Used to pass attributes to the legend label's DOM element. |
 | contentContainer | FieldsetPassThroughOptionType | Used to pass attributes to the content container's DOM element. |
+| contentWrapper | FieldsetPassThroughOptionType | Used to pass attributes to the content wrapper DOM element. |
 | content | FieldsetPassThroughOptionType | Used to pass attributes to the content's DOM element. |
 | hooks | any | Used to manage all lifecycle hooks. |
 | transition | FieldsetPassThroughTransitionType | Used to control Vue Transition API. |
@@ -8369,6 +15383,32 @@ Advanced uploader provides dragdrop support, multi file uploads, auto uploading,
 </FileUpload>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Toast />
+        <FileUpload name="demo[]" url="/api/upload" @upload="onAdvancedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000">
+            <template #empty>
+                <span>Drag and drop files to here to upload.</span>
+            </template>
+        </FileUpload>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const onAdvancedUpload = () => {
+    toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## Auto
 
 When auto property is enabled, a file gets uploaded instantly after selection.
@@ -8378,6 +15418,28 @@ When auto property is enabled, a file gets uploaded instantly after selection.
 ```vue
 <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast />
+        <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" :maxFileSize="1000000" @upload="onUpload" :auto="true" chooseLabel="Browse" />
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const onUpload = () => {
+    toast.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+};
+<\/script>
+```
+</details>
 
 ## Basic
 
@@ -8399,6 +15461,44 @@ Uploading implementation can be overridden by enabling customUpload property. Th
 ```vue
 <FileUpload mode="basic" @select="onFileSelect" customUpload auto severity="secondary" class="p-button-outlined" />
 <img v-if="src" :src="src" alt="Image" class="shadow-md rounded-xl w-full sm:w-64" style="filter: grayscale(100%)" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-6">
+        <FileUpload mode="basic" @select="onFileSelect" customUpload auto severity="secondary" class="p-button-outlined" />
+        <img v-if="src" :src="src" alt="Image" class="shadow-md rounded-xl w-full sm:w-64" style="filter: grayscale(100%)" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const src = ref(null);
+
+function onFileSelect(event) {
+    const file = event.files[0];
+    const reader = new FileReader();
+
+    reader.onload = async (e) => {
+        src.value = e.target.result;
+    };
+
+    reader.readAsDataURL(file);
+}
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import FileUpload from 'primevue/fileupload';
 ```
 
 ## Template
@@ -8466,6 +15566,127 @@ Uploader UI can be customized with templating.
     </template>
 </FileUpload>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Toast />
+        <FileUpload name="demo[]" url="/api/upload" @upload="onTemplatedUpload($event)" :multiple="true" accept="image/*" :maxFileSize="1000000" @select="onSelectedFiles">
+            <template #header="{ chooseCallback, uploadCallback, clearCallback, files }">
+                <div class="flex flex-wrap justify-between items-center flex-1 gap-4">
+                    <div class="flex gap-2">
+                        <Button @click="chooseCallback()" icon="pi pi-images" rounded variant="outlined" severity="secondary"></Button>
+                        <Button @click="uploadEvent(uploadCallback)" icon="pi pi-cloud-upload" rounded variant="outlined" severity="success" :disabled="!files || files.length === 0"></Button>
+                        <Button @click="clearCallback()" icon="pi pi-times" rounded variant="outlined" severity="danger" :disabled="!files || files.length === 0"></Button>
+                    </div>
+                    <ProgressBar :value="totalSizePercent" :showValue="false" class="md:w-20rem h-1 w-full md:ml-auto">
+                        <span class="whitespace-nowrap">{{ totalSize }}B / 1Mb</span>
+                    </ProgressBar>
+                </div>
+            </template>
+            <template #content="{ files, uploadedFiles, removeUploadedFileCallback, removeFileCallback }">
+                <div class="flex flex-col gap-8 pt-4">
+                    <div v-if="files.length > 0">
+                        <h5>Pending</h5>
+                        <div class="flex flex-wrap gap-4">
+                            <div v-for="(file, index) of files" :key="file.name + file.type + file.size" class="p-8 rounded-border flex flex-col border border-surface items-center gap-4">
+                                <div>
+                                    <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" height="50" />
+                                </div>
+                                <span class="font-semibold text-ellipsis max-w-60 whitespace-nowrap overflow-hidden">{{ file.name }}</span>
+                                <div>{{ formatSize(file.size) }}</div>
+                                <Badge value="Pending" severity="warn" />
+                                <Button icon="pi pi-times" @click="onRemoveTemplatingFile(file, removeFileCallback, index)" variant="outlined" rounded severity="danger" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div v-if="uploadedFiles.length > 0">
+                        <h5>Completed</h5>
+                        <div class="flex flex-wrap gap-4">
+                            <div v-for="(file, index) of uploadedFiles" :key="file.name + file.type + file.size" class="p-8 rounded-border flex flex-col border border-surface items-center gap-4">
+                                <div>
+                                    <img role="presentation" :alt="file.name" :src="file.objectURL" width="100" height="50" />
+                                </div>
+                                <span class="font-semibold text-ellipsis max-w-60 whitespace-nowrap overflow-hidden">{{ file.name }}</span>
+                                <div>{{ formatSize(file.size) }}</div>
+                                <Badge value="Completed" class="mt-4" severity="success" />
+                                <Button icon="pi pi-times" @click="removeUploadedFileCallback(index)" variant="outlined" rounded severity="danger" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <template #empty>
+                <div class="flex items-center justify-center flex-col">
+                    <i class="pi pi-cloud-upload !border-2 !rounded-full !p-8 !text-4xl !text-muted-color" />
+                    <p class="mt-6 mb-0">Drag and drop files to here to upload.</p>
+                </div>
+            </template>
+        </FileUpload>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { usePrimeVue } from 'primevue/config';
+import { useToast } from "primevue/usetoast";
+
+const $primevue = usePrimeVue();
+const toast = useToast();
+
+const totalSize = ref(0);
+const totalSizePercent = ref(0);
+const files = ref([]);
+
+const onRemoveTemplatingFile = (file, removeFileCallback, index) => {
+    removeFileCallback(index);
+    totalSize.value -= parseInt(formatSize(file.size));
+    totalSizePercent.value = totalSize.value / 10;
+};
+
+const onClearTemplatingUpload = (clear) => {
+    clear();
+    totalSize.value = 0;
+    totalSizePercent.value = 0;
+};
+
+const onSelectedFiles = (event) => {
+    files.value = event.files;
+    files.value.forEach((file) => {
+        totalSize.value += parseInt(formatSize(file.size));
+    });
+};
+
+const uploadEvent = (callback) => {
+    totalSizePercent.value = totalSize.value / 10;
+    callback();
+};
+
+const onTemplatedUpload = () => {
+    toast.add({ severity: "info", summary: "Success", detail: "File Uploaded", life: 3000 });
+};
+
+const formatSize = (bytes) => {
+    const k = 1024;
+    const dm = 3;
+    const sizes = $primevue.config.locale.fileSizeTypes;
+
+    if (bytes === 0) {
+        return \`0 \${sizes[0]}\`;
+    }
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    const formattedSize = parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
+
+    return \`\${formattedSize} \${sizes[i]}\`;
+};
+<\/script>
+```
+</details>
 
 ## File Upload
 
@@ -8604,6 +15825,14 @@ FloatLabel is used by wrapping the input and its label.
 </FloatLabel>
 ```
 
+## Import
+
+**Basic Usage:**
+
+```vue
+import FloatLabel from 'primevue/floatlabel';
+```
+
 ## Invalid
 
 When the form element is invalid, the label is also highlighted.
@@ -8627,6 +15856,39 @@ When the form element is invalid, the label is also highlighted.
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <InputText id="value1" v-model="value1" :invalid="!value1" />
+            <label for="value1">Username</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <InputText id="value2" v-model="value2" :invalid="!value2" />
+            <label for="value2">Username</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <InputText id="value3" v-model="value3" :invalid="!value3" />
+            <label for="value3">Username</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref('');
+const value2 = ref('');
+const value3 = ref('');
+<\/script>
+```
+</details>
+
 ## Variants
 
 The variant property defines the position of the label. Default value is over , whereas in and on are the alternatives.
@@ -8644,6 +15906,33 @@ The variant property defines the position of the label. Default value is over , 
     <label for="on_label">On Label</label>
 </FloatLabel>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<div class="card flex flex-wrap justify-center items-end gap-4">
+    <div class="card flex flex-wrap justify-center gap-4">
+        <FloatLabel variant="in">
+            <InputText id="in_label" v-model="value1" autocomplete="off" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <InputText id="on_label" v-model="value2" autocomplete="off" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -8738,6 +16027,14 @@ Components with the fluid option like InputText have the ability to span the ful
 </Fluid>
 ```
 
+## Import
+
+**Basic Usage:**
+
+```vue
+import Fluid from 'primevue/fluid';
+```
+
 ## Fluid
 
 ### Props
@@ -8805,6 +16102,16 @@ FocusTrap is enabled by attaching the directive with the v- prefix.
 
     <Button type="submit" label="Submit" class="mt-2" />
 </div>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import FocusTrap from 'primevue/focustrap';
+
+app.directive('focustrap', FocusTrap);
 ```
 
 ## Focustrap
@@ -9027,6 +16334,19 @@ const slideButtonIcon = computed(() => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* PhotoService */
+{
+    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg',
+    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1s.jpg',
+    alt: 'Description for Image 1',
+    title: 'Title 1'
+},
+...
+```
+
 ## AutoPlayDoc
 
 A slideshow implementation is defined by adding circular and autoPlay properties.
@@ -9086,6 +16406,19 @@ const responsiveOptions = ref([
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* PhotoService */
+{
+    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg',
+    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1s.jpg',
+    alt: 'Description for Image 1',
+    title: 'Title 1'
+},
+...
+```
+
 ## Basic
 
 Galleria requires a value as a collection of images, item template for the higher resolution image and thumbnail template to display as a thumbnail.
@@ -9101,6 +16434,19 @@ Galleria requires a value as a collection of images, item template for the highe
         <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" />
     </template>
 </Galleria>
+```
+
+**Sample Data:**
+
+```json
+/* PhotoService */
+{
+    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg',
+    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1s.jpg',
+    alt: 'Description for Image 1',
+    title: 'Title 1'
+},
+...
 ```
 
 ## CaptionDoc
@@ -9167,6 +16513,19 @@ const responsiveOptions = ref([
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+/* PhotoService */
+{
+    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg',
+    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1s.jpg',
+    alt: 'Description for Image 1',
+    title: 'Title 1'
+},
+...
+```
 
 ## Controlled
 
@@ -9243,6 +16602,27 @@ const prev = () => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* PhotoService */
+{
+    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg',
+    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1s.jpg',
+    alt: 'Description for Image 1',
+    title: 'Title 1'
+},
+...
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Galleria from 'primevue/galleria';
+```
+
 ## ResponsiveDoc
 
 Settings per screen size is defined via the responsiveOptions property.
@@ -9299,6 +16679,19 @@ const responsiveOptions = ref([
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+/* PhotoService */
+{
+    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg',
+    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1s.jpg',
+    alt: 'Description for Image 1',
+    title: 'Title 1'
+},
+...
+```
 
 ## ThumbnailDoc
 
@@ -9385,6 +16778,19 @@ onMounted(() => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+/* PhotoService */
+{
+    itemImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1.jpg',
+    thumbnailImageSrc: 'https://primefaces.org/cdn/primevue/images/galleria/galleria1s.jpg',
+    alt: 'Description for Image 1',
+    title: 'Title 1'
+},
+...
+```
 
 ## Galleria
 
@@ -9626,6 +17032,48 @@ FloatLabel visually integrates a label with its form element. Visit FloatLabel d
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <IconField>
+                <InputIcon class="pi pi-search" />
+                <InputText id="over_label" v-model="value1" autocomplete="off" />
+            </IconField>
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <IconField>
+                <InputIcon class="pi pi-search" />
+                <InputText id="in_label" v-model="value2" autocomplete="off" variant="filled" />
+            </IconField>
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <IconField>
+                <InputIcon class="pi pi-search" />
+                <InputText id="on_label" v-model="value3" autocomplete="off" />
+            </IconField>
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -9640,6 +17088,39 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     </IconField>
     <label for="username">Username</label>
 </IftaLabel>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <IconField>
+                <InputIcon class="pi pi-user" />
+                <InputText id="username" v-model="value" variant="filled" />
+            </IconField>
+            <label for="username">Username</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import IconField from 'primevue/iconfield';
+import InputIcon from 'primevue/inputicon';
 ```
 
 ## Sizes
@@ -9665,6 +17146,39 @@ IconField is compatible with the size setting of the input field.
 </IconField>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <IconField>
+            <InputIcon class="pi pi-search" />
+            <InputText v-model="value1" placeholder="Small" size="small" />
+        </IconField>
+
+        <IconField>
+            <InputIcon class="pi pi-search" />
+            <InputText v-model="value2" placeholder="Normal" />
+        </IconField>
+
+        <IconField>
+            <InputText v-model="value3" placeholder="Large" size="large" />
+            <InputIcon class="pi pi-spin pi-spinner" />
+        </IconField>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## Template
 
 Custom content inside an InputIcon is defined as children.
@@ -9682,6 +17196,32 @@ Custom content inside an InputIcon is defined as children.
     <InputText v-model="value" placeholder="Search" />
 </IconField>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IconField>
+            <InputIcon>
+                <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="..." fill="var(--p-primary-color)" />
+                    <path d="..." fill="var(--p-text-color)" />
+                </svg>
+            </InputIcon>
+            <InputText v-model="value" placeholder="Search" />
+        </IconField>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Icon Field
 
@@ -9738,6 +17278,14 @@ IftaLabel is used by wrapping the input and its label.
 </IftaLabel>
 ```
 
+## Import
+
+**Basic Usage:**
+
+```vue
+import IftaLabel from 'primevue/iftalabel';
+```
+
 ## Invalid
 
 When the form element is invalid, the label is also highlighted.
@@ -9750,6 +17298,27 @@ When the form element is invalid, the label is also highlighted.
     <label for="username">Username</label>
 </IftaLabel>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <InputText id="username" v-model="value" :invalid="!value" />
+            <label for="username">Username</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
 
 ## Ifta Label
 
@@ -9818,6 +17387,14 @@ Image is used similar to the standard img element.
 <Image src="/image.jpg" alt="Image" width="250" />
 ```
 
+## Import
+
+**Basic Usage:**
+
+```vue
+import Image from 'primevue/image';
+```
+
 ## Preview
 
 Enabling preview mode displays a modal layer when the image is clicked to provide transformation options such as rotating and zooming.
@@ -9827,6 +17404,18 @@ Enabling preview mode displays a modal layer when the image is clicked to provid
 ```vue
 <Image src="/image.jpg" alt="Image" width="250" preview />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Image src="https://primefaces.org/cdn/primevue/images/galleria/galleria10.jpg" alt="Image" width="250" preview />
+    </div>
+</template>
+```
+</details>
 
 ## Template
 
@@ -9847,6 +17436,28 @@ An eye icon is displayed by default when the image is hovered in preview mode, u
     </template>
 </Image>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Image alt="Image" preview>
+            <template #previewicon>
+                <i class="pi pi-search"></i>
+            </template>
+            <template #image>
+                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria11.jpg" alt="image" width="250" />
+            </template>
+            <template #preview="slotProps">
+                <img src="https://primefaces.org/cdn/primevue/images/galleria/galleria11.jpg" alt="preview" :style="slotProps.style" @click="slotProps.onClick" />
+            </template>
+        </Image>
+    </div>
+</template>
+```
+</details>
 
 ## Image
 
@@ -9953,6 +17564,19 @@ Compare two images side by side with a slider.
 
 Screen Reader ImageComponent component uses a native range slider internally. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Key Function tab Moves focus to the component. left arrow up arrow Decrements the value. right arrow down arrow Increments the value. home Set the minimum value. end Set the maximum value. page up Increments the value by 10 steps. page down Decrements the value by 10 steps.
 
+**Basic Usage:**
+
+```vue
+<span id="image_label">Compare Images</span>
+<ImageCompare class="shadow-lg rounded-2xl" aria-labelledby="image-label">
+    ...
+</ImageCompare>
+
+<ImageCompare class="shadow-lg rounded-2xl" aria-label="Compare Images">
+    ...
+</ImageCompare>
+```
+
 ## Basic
 
 Images are defined using templating with left and right slots. Use the style or class properties to define the size of the container.
@@ -9968,6 +17592,14 @@ Images are defined using templating with left and right slots. Use the style or 
         <img src="~/assets/images/island2.jpg" />
     </template>
 </ImageCompare>
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ImageCompare from 'primevue/imagecompare';
 ```
 
 ## Responsive
@@ -9986,6 +17618,25 @@ Apply responsive styles to the container element to optimize display per screen 
     </template>
 </ImageCompare>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ImageCompare class="sm:!w-96 shadow-lg">
+            <template #left>
+                <img src="https://primefaces.org/cdn/primevue/images/compare/island1.jpg" />
+            </template>
+            <template #right>
+                <img src="https://primefaces.org/cdn/primevue/images/compare/island2.jpg" />
+            </template>
+        </ImageCompare>
+    </div>
+</template>
+```
+</details>
 
 ## Image Compare
 
@@ -10085,6 +17736,40 @@ Any content such as an image can be placed inside an Inplace.
 </Inplace>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Inplace>
+            <template #display>
+                <span class="inline-flex items-center gap-2">
+                    <span class="pi pi-image"></span>
+                    <span>View Photo</span>
+                </span>
+            </template>
+            <template #content>
+                <img class="w-full sm:w-80 shadow-md" alt="Nature" src="https://primefaces.org/cdn/primevue/images/nature/nature8.jpg" />
+            </template>
+        </Inplace>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Inplace from 'primevue/inplace';
+```
+
 ## Input
 
 The closeCallback switches the state back to display mode when called from an event.
@@ -10105,6 +17790,34 @@ The closeCallback switches the state back to display mode when called from an ev
 </Inplace>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Inplace>
+            <template #display>
+                {{ text || 'Click to Edit' }}
+            </template>
+            <template #content="{ closeCallback }">
+                <span class="inline-flex items-center gap-2">
+                    <InputText v-model="text" autofocus />
+                    <Button icon="pi pi-times" text severity="danger" @click="closeCallback" />
+                </span>
+            </template>
+        </Inplace>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const text = ref();
+<\/script>
+```
+</details>
+
 ## Lazy
 
 The open event is used to initialize the content such as loading data in a lazy manner.
@@ -10124,6 +17837,39 @@ The open event is used to initialize the content such as loading data in a lazy 
     </template>
 </Inplace>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Inplace @open="loadData">
+            <template #display> View Data </template>
+            <template #content>
+                <DataTable :value="products">
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                    <Column field="category" header="Category"></Column>
+                    <Column field="quantity" header="Quantity"></Column>
+                </DataTable>
+            </template>
+        </Inplace>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import {ProductService} from "@/service/ProductService";
+
+
+const products = ref();
+const loadData = () => {
+    ProductService.getProductsMini().then((data) => (products.value = data));
+}
+<\/script>
+```
+</details>
 
 ## Inplace
 
@@ -10247,6 +17993,50 @@ Buttons can be placed at either side of an input element.
 </InputGroup>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col md:flex-row gap-4">
+        <InputGroup>
+            <Button label="Search" />
+            <InputText placeholder="Keyword" />
+        </InputGroup>
+
+        <InputGroup>
+            <InputText placeholder="Keyword" />
+            <InputGroupAddon>
+                <Button icon="pi pi-search" severity="secondary" variant="text" @click="toggle" />
+            </InputGroupAddon>
+        </InputGroup>
+        <Menu ref="menu" :model="items" popup class="!min-w-fit" />
+
+        <InputGroup>
+            <InputGroupAddon>
+                <Button icon="pi pi-check" severity="secondary" />
+            </InputGroupAddon>
+            <InputText placeholder="Vote" />
+            <InputGroupAddon>
+                <Button icon="pi pi-times" severity="secondary" />
+            </InputGroupAddon>
+        </InputGroup>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const menu = ref();
+const items = ref([{ label: 'Web Search' }, { label: 'AI Assistant' }, { label: 'History' }]);
+
+const toggle = (event) => {
+    menu.value.toggle(event);
+};
+<\/script>
+```
+</details>
+
 ## Checkbox & Radio
 
 Checkbox and RadioButton components can be combined with an input element under the same group.
@@ -10278,6 +18068,49 @@ Checkbox and RadioButton components can be combined with an input element under 
     </InputGroupAddon>
 </InputGroup>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col md:flex-row gap-4">
+        <InputGroup>
+            <InputText placeholder="Price" />
+            <InputGroupAddon>
+                <RadioButton v-model="radioValue1" name="rb1" value="rb1" />
+            </InputGroupAddon>
+        </InputGroup>
+
+        <InputGroup>
+            <InputGroupAddon>
+                <Checkbox v-model="checked1" :binary="true" />
+            </InputGroupAddon>
+            <InputText placeholder="Username" />
+        </InputGroup>
+
+        <InputGroup>
+            <InputGroupAddon>
+                <Checkbox v-model="checked2" :binary="true" />
+            </InputGroupAddon>
+            <InputText placeholder="Website" />
+            <InputGroupAddon>
+                <RadioButton v-model="radioValue2" name="rb2" value="rb2" />
+            </InputGroupAddon>
+        </InputGroup>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const checked1 = ref(false);
+const checked2 = ref(false);
+const radioValue1 = ref('');
+const radioValue2 = ref('');
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -10314,6 +18147,51 @@ FloatLabel visually integrates a label with its form element. Visit FloatLabel d
 </InputGroup>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col md:items-end md:flex-row gap-4">
+        <InputGroup>
+            <InputGroupAddon>
+                <i class="pi pi-user"></i>
+            </InputGroupAddon>
+            <FloatLabel>
+                <InputText id="over_label" v-model="value1" />
+                <label for="over_label">Over Label</label>
+            </FloatLabel>
+        </InputGroup>
+
+        <InputGroup>
+            <InputGroupAddon>$</InputGroupAddon>
+            <FloatLabel variant="in">
+                <InputText id="in_label" v-model="value2" />
+                <label for="in_label">In Label</label>
+            </FloatLabel>
+            <InputGroupAddon>.00</InputGroupAddon>
+        </InputGroup>
+
+        <InputGroup>
+            <InputGroupAddon>www</InputGroupAddon>
+            <FloatLabel variant="on">
+                <InputText id="on_label" v-model="value3" />
+                <label for="on_label">On Label</label>
+            </FloatLabel>
+        </InputGroup>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -10330,6 +18208,41 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
         <label for="price">Price</label>
     </IftaLabel>
 </InputGroup>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputGroup class="md:w-80">
+            <InputGroupAddon>
+                <i class="pi pi-shopping-cart"></i>
+            </InputGroupAddon>
+            <IftaLabel>
+                <InputNumber v-model="value" inputId="price" mode="currency" currency="USD" locale="en-US" />
+                <label for="price">Price</label>
+            </IftaLabel>
+        </InputGroup>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(10);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
 ```
 
 ## Multiple
@@ -10351,6 +18264,28 @@ Multiple add-ons can be placed inside the same group.
     <InputGroupAddon>.00</InputGroupAddon>
 </InputGroup>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputGroup class="sm:!w-96">
+            <InputGroupAddon>
+                <i class="pi pi-clock"></i>
+            </InputGroupAddon>
+            <InputGroupAddon>
+                <i class="pi pi-star-fill"></i>
+            </InputGroupAddon>
+            <InputNumber placeholder="Price" />
+            <InputGroupAddon>$</InputGroupAddon>
+            <InputGroupAddon>.00</InputGroupAddon>
+        </InputGroup>
+    </div>
+</template>
+```
+</details>
 
 ## Input Group
 
@@ -10407,6 +18342,18 @@ InputMask component is used to enter input in a certain format such as numeric, 
 
 Screen Reader InputMask component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
 
+**Basic Usage:**
+
+```vue
+<label for="date">Date</label>
+<InputMask id="date" />
+
+<span id="phone">Phone</span>
+<InputMask aria-labelledby="phone" />
+
+<InputMask aria-label="Age" />
+```
+
 ## Basic
 
 InputMask is used with the v-model property for two-way value binding.
@@ -10427,6 +18374,24 @@ When disabled is present, the element cannot be edited and focused.
 <InputMask mask="99-999999" placeholder="Disabled" disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputMask mask="99-999999" placeholder="Disabled" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -10436,6 +18401,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <InputMask id="basic" v-model="value" variant="filled" mask="99-999999" placeholder="99-999999" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputMask id="basic" v-model="value" variant="filled" mask="99-999999" placeholder="99-999999" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -10460,6 +18443,39 @@ FloatLabel visually integrates a label with its form element. Visit FloatLabel d
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <InputMask id="over_label" v-model="value1" mask="999-99-9999" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <InputMask id="in_label" v-model="value2" mask="999-99-9999" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <InputMask id="on_label" v-model="value3" mask="999-99-9999" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref('');
+const value2 = ref('');
+const value3 = ref('');
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -10469,6 +18485,24 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <InputMask v-model="value" fluid mask="99-999999" placeholder="99-999999" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <InputMask v-model="value" fluid mask="99-999999" placeholder="99-999999" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -10486,6 +18520,48 @@ InputMask integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-1">
+                <InputMask name="serialNumber" mask="99-999999" placeholder="99-999999" fluid />
+                <Message v-if="$form.serialNumber?.invalid" severity="error" size="small" variant="simple">{{ $form.serialNumber.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    serialNumber: ''
+});
+
+const resolver = ref(zodResolver(
+    z.object({
+        serialNumber: z.string().min(1, { message: 'Serial number is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -10499,6 +18575,35 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <InputMask id="ssn" v-model="value" mask="999-99-9999" variant="filled" />
+            <label for="ssn">SSN</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import InputMask from 'primevue/inputmask';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -10509,6 +18614,26 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <InputMask v-model="value1" mask="99-999999" placeholder="Serial Key" :invalid="!value1" />
 <InputMask v-model="value2" mask="99-999999" placeholder="Serial Key" :invalid="!value2" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <InputMask v-model="value1" mask="99-999999" placeholder="Serial Key" :invalid="!value1" />
+        <InputMask v-model="value2" mask="99-999999" placeholder="Serial Key" :invalid="!value2" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref('');
+const value2 = ref('');
+<\/script>
+```
+</details>
 
 ## Mask
 
@@ -10533,6 +18658,39 @@ Mask format can be a combination of the following definitions; a for alphabetic 
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <label for="ssn" class="font-bold block mb-2">SSN</label>
+            <InputMask id="ssn" v-model="value1" mask="999-99-9999" placeholder="999-99-9999" fluid />
+        </div>
+
+        <div class="flex-auto">
+            <label for="phone" class="font-bold block mb-2">Phone</label>
+            <InputMask id="phone" v-model="value2" mask="(999) 999-9999" placeholder="(999) 999-9999" fluid />
+        </div>
+
+        <div class="flex-auto">
+            <label for="serial" class="font-bold block mb-2">Serial</label>
+            <InputMask id="serial" v-model="value3" mask="a*-999-a999" placeholder="a*-999-a999" fluid />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref('');
+const value2 = ref('');
+const value3 = ref('');
+<\/script>
+```
+</details>
+
 ## Optional
 
 When the input does not complete the mask definition, it is cleared by default. Use autoClear property to control this behavior. In addition, ? is used to mark anything after the question mark optional.
@@ -10542,6 +18700,24 @@ When the input does not complete the mask definition, it is cleared by default. 
 ```vue
 <InputMask v-model="value" mask="(999) 999-9999? x99999" placeholder="(999) 999-9999? x99999" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputMask v-model="value" mask="(999) 999-9999? x99999"  placeholder="(999) 999-9999? x99999" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -10555,6 +18731,28 @@ InputMask provides small and large sizes as alternatives to the base.
 <InputMask v-model="value3" placeholder="Large" size="large" mask="99-999999" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <InputMask v-model="value1" placeholder="Small" size="small" mask="99-999999" />
+        <InputMask v-model="value2" placeholder="Normal" mask="99-999999" />
+        <InputMask v-model="value3" placeholder="Large" size="large" mask="99-999999" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## SlotChar
 
 Default placeholder for a mask is underscore that can be customized using slotChar property.
@@ -10564,6 +18762,24 @@ Default placeholder for a mask is underscore that can be customized using slotCh
 ```vue
 <InputMask id="basic" v-model="value" placeholder="99/99/9999" mask="99/99/9999" slotChar="mm/dd/yyyy" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputMask id="basic" v-model="value" placeholder="99/99/9999" mask="99/99/9999" slotChar="mm/dd/yyyy" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
 
 ## Input Mask
 
@@ -10626,6 +18842,18 @@ InputNumber is an input component to provide numerical input.
 
 Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element uses spinbutton role in addition to the aria-valuemin , aria-valuemax and aria-valuenow attributes. Keyboard Support Key Function tab Moves focus to the input. up arrow Increments the value. down arrow Decrements the value. home Set the minimum value if provided. end Set the maximum value if provided.
 
+**Basic Usage:**
+
+```vue
+<label for="price">Price</label>
+<InputNumber inputId="price" />
+
+<span id="label_number">Number</span>
+<InputNumber aria-labelledby="label_number" />
+
+<InputNumber aria-label="Number" />
+```
+
 ## Buttons
 
 Spinner buttons are enabled using the showButtons property and layout is defined with the buttonLayout .
@@ -10645,6 +18873,45 @@ Spinner buttons are enabled using the showButtons property and layout is defined
 </InputNumber>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <label for="stacked-buttons" class="font-bold block mb-2"> Stacked </label>
+            <InputNumber v-model="value1" inputId="stacked-buttons" showButtons mode="currency" currency="USD" fluid />
+        </div>
+
+        <div class="flex-auto">
+            <label for="minmax-buttons" class="font-bold block mb-2"> Min-Max Boundaries </label>
+            <InputNumber v-model="value2" inputId="minmax-buttons" mode="decimal" showButtons :min="0" :max="100" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="horizontal-buttons" class="font-bold block mb-2"> Horizontal with Step </label>
+            <InputNumber v-model="value3" inputId="horizontal-buttons" showButtons buttonLayout="horizontal" :step="0.25" mode="currency" currency="EUR" fluid >
+                <template #incrementbuttonicon>
+                    <span class="pi pi-plus" />
+                </template>
+                <template #decrementbuttonicon>
+                    <span class="pi pi-minus" />
+                </template>
+            </InputNumber>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(20);
+const value2 = ref(25);
+const value3 = ref(10.5);
+<\/script>
+```
+</details>
+
 ## Clear Icon
 
 When showClear is enabled, a clear icon is added to reset the InputNumber.
@@ -10654,6 +18921,24 @@ When showClear is enabled, a clear icon is added to reset the InputNumber.
 ```vue
 <InputNumber v-model="value" showClear />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputNumber v-model="value" showClear />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Currency
 
@@ -10668,6 +18953,42 @@ Monetary values are enabled by setting mode property as currency . In this setti
 <InputNumber v-model="value4" inputId="currency-japan" mode="currency" currency="JPY" locale="jp-JP" fluid />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <label for="currency-us" class="font-bold block mb-2"> United States </label>
+            <InputNumber v-model="value1" inputId="currency-us" mode="currency" currency="USD" locale="en-US" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="currency-germany" class="font-bold block mb-2"> Germany </label>
+            <InputNumber v-model="value2" inputId="currency-germany" mode="currency" currency="EUR" locale="de-DE" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="currency-india" class="font-bold block mb-2"> India </label>
+            <InputNumber v-model="value3" inputId="currency-india" mode="currency" currency="INR" currencyDisplay="code" locale="en-IN" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="currency-japan" class="font-bold block mb-2"> Japan </label>
+            <InputNumber v-model="value4" inputId="currency-japan" mode="currency" currency="JPY" locale="jp-JP" fluid />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(1500);
+const value2 = ref(2500);
+const value3 = ref(4250);
+const value4 = ref(5002);
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -10678,6 +18999,24 @@ When disabled is present, the element cannot be edited and focused.
 <InputNumber v-model="value" disabled prefix="%" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputNumber v-model="value" disabled prefix="%" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(50);
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -10687,6 +19026,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <InputNumber v-model="value" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputNumber v-model="value" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref();
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -10711,6 +19068,39 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <InputNumber v-model="value1" inputId="over_label" mode="currency" currency="USD" locale="en-US" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <InputNumber v-model="value2" inputId="in_label" mode="currency" currency="USD" locale="en-US" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <InputNumber v-model="value3" inputId="on_label" mode="currency" currency="USD" locale="en-US" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -10720,6 +19110,24 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <InputNumber v-model="value" fluid mode="currency" currency="USD" locale="en-US" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <InputNumber v-model="value" fluid mode="currency" currency="USD" locale="en-US" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref();
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -10737,6 +19145,47 @@ InputNumber integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-1">
+                <InputNumber name="amount" fluid />
+                <Message v-if="$form.amount?.invalid" severity="error" size="small" variant="simple">{{ $form.amount.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    amount: 5
+});
+const resolver = ref(zodResolver(
+    z.object({
+        amount: z.union([z.number().gt(0, { message: 'Must be greater than 0.' }).lt(10, { message: 'Must be less than 10.' }), z.literal(null)]).refine((val) => val !== null, { message: 'Number is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -10750,6 +19199,35 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <InputNumber v-model="value" inputId="price_input" mode="currency" currency="USD" locale="en-US" variant="filled" />
+            <label for="price_input">Price</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(1);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import InputNumber from 'primevue/inputnumber';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -10760,6 +19238,26 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <InputNumber v-model="value1" :invalid="value1 === null" mode="decimal" :minFractionDigits="2" placeholder="Amount" />
 <InputNumber v-model="value2" :invalid="value2 === null" mode="decimal" :minFractionDigits="2" variant="filled" placeholder="Amount" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <InputNumber v-model="value1" :invalid="value1 === null" mode="decimal" :minFractionDigits="2" placeholder="Amount" />
+        <InputNumber v-model="value2" :invalid="value2 === null" mode="decimal" :minFractionDigits="2" variant="filled" placeholder="Amount" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+<\/script>
+```
+</details>
 
 ## Locale
 
@@ -10774,6 +19272,42 @@ Localization information such as grouping and decimal symbols are defined with t
 <InputNumber v-model="value4" inputId="locale-indian" locale="en-IN" :minFractionDigits="2" fluid />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <label for="locale-user" class="font-bold block mb-2"> User Locale </label>
+            <InputNumber v-model="value1" inputId="locale-user" :minFractionDigits="2" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="locale-us" class="font-bold block mb-2"> United States Locale </label>
+            <InputNumber v-model="value2" inputId="locale-us" locale="en-US" :minFractionDigits="2" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="locale-german" class="font-bold block mb-2"> German Locale </label>
+            <InputNumber v-model="value3" inputId="locale-german" locale="de-DE" :minFractionDigits="2" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="locale-indian" class="font-bold block mb-2"> Indian Locale </label>
+            <InputNumber v-model="value4" inputId="locale-indian" locale="en-IN" :minFractionDigits="2" fluid />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(151351);
+const value2 = ref(115744);
+const value3 = ref(635524);
+const value4 = ref(732762);
+<\/script>
+```
+</details>
+
 ## Numerals
 
 InputNumber is used with the v-model property for two-way value binding.
@@ -10786,6 +19320,42 @@ InputNumber is used with the v-model property for two-way value binding.
 <InputNumber v-model="value3" inputId="minmaxfraction" :minFractionDigits="2" :maxFractionDigits="5" fluid />
 <InputNumber v-model="value4" inputId="minmax" :min="0" :max="100" fluid />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <label for="integeronly" class="font-bold block mb-2"> Integer Only </label>
+            <InputNumber v-model="value1" inputId="integeronly" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="withoutgrouping" class="font-bold block mb-2"> Without Grouping </label>
+            <InputNumber v-model="value2" inputId="withoutgrouping" :useGrouping="false" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="minmaxfraction" class="font-bold block mb-2"> Min-Max Fraction Digits </label>
+            <InputNumber v-model="value3" inputId="minmaxfraction" :minFractionDigits="2" :maxFractionDigits="5" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="minmax" class="font-bold block mb-2"> Min-Max Boundaries </label>
+            <InputNumber v-model="value4" inputId="minmax" :min="0" :max="100" fluid />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(42723);
+const value2 = ref(58151);
+const value3 = ref(2351.35);
+const value4 = ref(50);
+<\/script>
+```
+</details>
 
 ## Prefix & Suffix
 
@@ -10800,6 +19370,42 @@ Custom texts e.g. units can be placed before or after the input section with the
 <InputNumber v-model="value4" inputId="temperature" prefix="&uarr; " suffix="℃" :min="0" :max="40" fluid />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <label for="mile" class="font-bold block mb-2"> Mile </label>
+            <InputNumber v-model="value1" inputId="mile" suffix=" mi" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="percent" class="font-bold block mb-2"> Percent </label>
+            <InputNumber v-model="value2" inputId="percent" prefix="%" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="expiry" class="font-bold block mb-2"> Expiry </label>
+            <InputNumber v-model="value3" inputId="expiry" prefix="Expires in " suffix=" days" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="temperature" class="font-bold block mb-2"> Temperature </label>
+            <InputNumber v-model="value4" inputId="temperature" prefix="&uarr; " suffix="℃" :min="0" :max="40" fluid />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(20);
+const value2 = ref(50);
+const value3 = ref(10);
+const value4 = ref(20);
+<\/script>
+```
+</details>
+
 ## Sizes
 
 InputNumber provides small and large sizes as alternatives to the base.
@@ -10811,6 +19417,28 @@ InputNumber provides small and large sizes as alternatives to the base.
 <InputNumber v-model="value2" placeholder="Normal" mode="currency" currency="USD" locale="en-US" />
 <InputNumber v-model="value3" size="large" placeholder="Large" mode="currency" currency="USD" locale="en-US" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <InputNumber v-model="value1" size="small" placeholder="Small" mode="currency" currency="USD" locale="en-US" />
+        <InputNumber v-model="value2" placeholder="Normal" mode="currency" currency="USD" locale="en-US" />
+        <InputNumber v-model="value3" size="large" placeholder="Large" mode="currency" currency="USD" locale="en-US" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
 
 ## Vertical
 
@@ -10828,6 +19456,31 @@ Buttons can also placed vertically by setting buttonLayout as vertical .
     </template>
 </InputNumber>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputNumber v-model="value" showButtons buttonLayout="vertical" style="width: 3rem" :min="0" :max="99">
+            <template #incrementbuttonicon>
+                <span class="pi pi-plus" />
+            </template>
+            <template #decrementbuttonicon>
+                <span class="pi pi-minus" />
+            </template>
+        </InputNumber>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(50);
+<\/script>
+```
+</details>
 
 ## Input Number
 
@@ -10956,6 +19609,24 @@ Specify the variant property as filled to display the component with a higher vi
 <InputOtp v-model="value" variant="filled" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputOtp v-model="value" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Forms
 
 InputOtp integrates seamlessly with the PrimeVue Forms library.
@@ -10972,6 +19643,55 @@ InputOtp integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <InputOtp name="passcode" />
+                <Message v-if="$form.passcode?.invalid" severity="error" size="small" variant="simple">{{ $form.passcode.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    passcode: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        passcode: z.string().min(1, { message: 'Passcode is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import InputOtp from 'primevue/inputotp';
+```
+
 ## Integer Only
 
 When integerOnly is present, only integers can be accepted as input.
@@ -10982,6 +19702,24 @@ When integerOnly is present, only integers can be accepted as input.
 <InputOtp v-model="value" integerOnly />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputOtp v-model="value" integerOnly />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Mask
 
 Enable the mask option to hide the values in the input fields.
@@ -10991,6 +19729,24 @@ Enable the mask option to hide the values in the input fields.
 ```vue
 <InputOtp v-model="value" mask />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputOtp v-model="value" mask />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Sample
 
@@ -11017,6 +19773,77 @@ A sample UI implementation with templating and additional elements.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="flex flex-col items-center">
+            <div class="font-bold text-xl mb-2">Authenticate Your Account</div>
+            <p class="text-surface-500 dark:text-surface-400 block mb-8">Please enter the code sent to your phone.</p>
+            <InputOtp v-model="value" :length="6" style="gap: 0">
+                <template #default="{ attrs, events, index }">
+                    <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+                    <div v-if="index === 3" class="px-4">
+                        <i class="pi pi-minus" />
+                    </div>
+                </template>
+            </InputOtp>
+            <div class="flex justify-between mt-8 self-stretch">
+                <Button label="Resend Code" link class="p-0"></Button>
+                <Button label="Submit Code"></Button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+
+<style scoped>
+.custom-otp-input {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    appearance: none;
+    text-align: center;
+    transition: all 0.2s;
+    border-radius: 0;
+    border: 1px solid var(--p-inputtext-border-color);
+    background: transparent;
+    outline-offset: -2px;
+    outline-color: transparent;
+    border-right: 0 none;
+    transition: outline-color 0.3s;
+    color: var(--p-inputtext-color);
+}
+
+.custom-otp-input:focus {
+    outline: 2px solid var(--p-focus-ring-color);
+}
+
+.custom-otp-input:first-child,
+.custom-otp-input:nth-child(5) {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.custom-otp-input:nth-child(3),
+.custom-otp-input:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-color: var(--p-inputtext-border-color);
+}
+<\/style>
+```
+</details>
+
 ## Sizes
 
 InputOtp provides small and large sizes as alternatives to the base.
@@ -11028,6 +19855,28 @@ InputOtp provides small and large sizes as alternatives to the base.
 <InputOtp v-model="value2" />
 <InputOtp v-model="value3" size="large" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <InputOtp v-model="value1" size="small" />
+        <InputOtp v-model="value2" />
+        <InputOtp v-model="value3" size="large" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -11042,6 +19891,46 @@ Define a template with your own UI elements with bindings to the provided events
     </template>
 </InputOtp>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputOtp v-model="value">
+            <template #default="{ attrs, events }">
+                <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+            </template>
+        </InputOtp>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+
+<style scoped>
+.custom-otp-input {
+    width: 40px;
+    font-size: 36px;
+    border: 0 none;
+    appearance: none;
+    text-align: center;
+    transition: all 0.2s;
+    background: transparent;
+    border-bottom: 2px solid var(--p-inputtext-border-color);
+}
+
+.custom-otp-input:focus {
+    outline: 0 none;
+    border-bottom-color: var(--p-primary-color);
+}
+<\/style>
+```
+</details>
 
 ## Input Otp
 
@@ -11103,6 +19992,18 @@ InputText is an extension to standard input element with theming.
 
 Screen Reader InputText component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
 
+**Basic Usage:**
+
+```vue
+<label for="firstname">Firstname</label>
+<InputText id="firstname" />
+
+<span id="lastname">Lastname</span>
+<InputText aria-labelledby="lastname" />
+
+<InputText aria-label="Age"/>
+```
+
 ## Basic
 
 InputText is used with the v-model property for two-way value binding.
@@ -11123,6 +20024,24 @@ When disabled is present, the element cannot be edited and focused.
 <InputText v-model="value" disabled placeholder="Disabled" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputText v-model="value" disabled placeholder="Disabled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -11132,6 +20051,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <InputText type="text" v-model="value" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputText v-model="value" type="text" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -11156,6 +20093,39 @@ FloatLabel visually integrates a label with its form element. Visit FloatLabel d
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <InputText id="over_label" v-model="value1" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <InputText id="in_label" v-model="value2" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <InputText id="on_label" v-model="value3" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -11165,6 +20135,24 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <InputText type="text" v-model="value" fluid />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <InputText type="text" v-model="value" fluid />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -11186,6 +20174,54 @@ InputText integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-1">
+                <InputText name="username" type="text" placeholder="Username" fluid />
+                <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error?.message }}</Message>
+            </div>
+            <div class="flex flex-col gap-1">
+                <InputText name="email" type="text" placeholder="Email" fluid />
+                <Message v-if="$form.email?.invalid" severity="error" size="small" variant="simple">{{ $form.email.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    username: '',
+    email: ''
+});
+
+const resolver = ref(zodResolver(
+    z.object({
+        username: z.string().min(1, { message: 'Username is required.' }),
+        email: z.string().min(1, { message: 'Email is required.' }).email({ message: 'Invalid email address.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Help Text
 
 An advisory text can be defined with the Message component.
@@ -11200,6 +20236,28 @@ An advisory text can be defined with the Message component.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="flex flex-col gap-2">
+            <label for="username">Username</label>
+            <InputText id="username" v-model="value" aria-describedby="username-help" />
+            <Message size="small" severity="secondary" variant="simple">Enter your username to reset your password.</Message>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -11213,6 +20271,35 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <InputText id="username" v-model="value" variant="filled" />
+            <label for="username">Username</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import InputText from 'primevue/inputtext';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -11223,6 +20310,26 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <InputText v-model="value1" :invalid="!value1" placeholder="Name" />
 <InputText v-model="value2" :invalid="!value2" variant="filled" placeholder="Name" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <InputText v-model="value1" :invalid="!value1" placeholder="Name" />
+        <InputText v-model="value2" :invalid="!value2" variant="filled" placeholder="Name" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref('');
+const value2 = ref('');
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -11235,6 +20342,28 @@ InputText provides small and large sizes as alternatives to the base.
 <InputText v-model="value2" type="text" placeholder="Normal" />
 <InputText v-model="value3" type="text" size="large" placeholder="Large" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <InputText v-model="value1" type="text" size="small" placeholder="Small" />
+        <InputText v-model="value2" type="text" placeholder="Normal" />
+        <InputText v-model="value3" type="text" size="large" placeholder="Large" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
 
 ## Input Text
 
@@ -11298,6 +20427,8 @@ InputText provides small and large sizes as alternatives to the base.
 | contextmenu | string | - |  |
 | dir | string | - |  |
 | draggable | Booleanish | - |  |
+| enterkeyhint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
+| enterKeyHint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
 | hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
 | id | string | - |  |
 | inert | Booleanish | - |  |
@@ -11328,8 +20459,10 @@ InputText provides small and large sizes as alternatives to the base.
 | results | Numberish | - |  |
 | security | string | - |  |
 | unselectable | "on" \| "off" | - |  |
-| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| inputmode | "text" \| "search" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
 | is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| exportparts | string | - |  |
+| part | string | - |  |
 | accept | string | - |  |
 | alt | string | - |  |
 | autocomplete | string | - |  |
@@ -11338,7 +20471,6 @@ InputText provides small and large sizes as alternatives to the base.
 | checked | any[] \| Set<any> \| Booleanish | - |  |
 | crossorigin | string | - |  |
 | disabled | Booleanish | - |  |
-| enterKeyHint | "search" \| "enter" \| "done" \| "go" \| "next" \| "previous" \| "send" | - |  |
 | form | string | - |  |
 | formaction | string | - |  |
 | formenctype | string | - |  |
@@ -11529,6 +20661,16 @@ A keyfilter is a directive used to block individual keystrokes based on a patter
 
 KeyFilter is a directive and do not require any accessibility features.
 
+## Import
+
+**Basic Usage:**
+
+```vue
+import KeyFilter from 'primevue/keyfilter';
+
+app.directive('keyfilter', KeyFilter);
+```
+
 ## Presets
 
 KeyFilter provides various presets configured with the v-keyfilter directive.
@@ -11544,6 +20686,56 @@ KeyFilter provides various presets configured with the v-keyfilter directive.
 <InputText v-keyfilter.alphanum />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-wrap gap-3 mb-4">
+            <div class="flex-auto">
+                <label for="integer" class="font-bold block mb-2"> Integer </label>
+                <InputText id="integer" v-model="integer" v-keyfilter.int fluid />
+            </div>
+            <div class="flex-auto">
+                <label for="number" class="font-bold block mb-2"> Number </label>
+                <InputText id="number" v-model="number" v-keyfilter.num fluid />
+            </div>
+            <div class="flex-auto">
+                <label for="money" class="font-bold block mb-2"> Money </label>
+                <InputText id="money" v-model="money" v-keyfilter.money fluid />
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-3">
+            <div class="flex-auto">
+                <label for="hex" class="font-bold block mb-2"> Hex </label>
+                <InputText id="hex" v-model="hex" v-keyfilter.hex fluid />
+            </div>
+            <div class="flex-auto">
+                <label for="alphabetic" class="font-bold block mb-2"> Alphabetic </label>
+                <InputText id="alphabetic" v-model="alphabetic" v-keyfilter.alpha fluid />
+            </div>
+            <div class="flex-auto">
+                <label for="alphanumeric" class="font-bold block mb-2"> Alphanumeric </label>
+                <InputText id="alphanumeric" v-model="alphanumeric" v-keyfilter.alphanum fluid />
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const integer = ref(null);
+const number = ref(null);
+const money = ref(null);
+const hex = ref(null);
+const alphabetic = ref(null);
+const alphanumeric = ref(null);
+<\/script>
+```
+</details>
+
 ## Regex (Single Keypress)
 
 In addition to the presets, a regular expression can be configured for customization of blocking a single key press.
@@ -11555,6 +20747,32 @@ In addition to the presets, a regular expression can be configured for customiza
 <InputText v-model="chars" v-keyfilter="/^[^<>*!]+$/" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-3">
+        <div class="flex-auto">
+            <label for="spacekey" class="font-bold block mb-2"> Block Space </label>
+            <InputText id="spacekey" v-model="spacekey" v-keyfilter="/[^\s]/" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="chars" class="font-bold block mb-2"> Block &lt; &gt; * ! </label>
+            <InputText id="chars" v-model="chars" v-keyfilter="/^[^<>*!]+$/" fluid />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const spacekey = ref(null);
+const chars = ref(null);
+<\/script>
+```
+</details>
+
 ## Regex (Whole Word)
 
 In addition to the presets, a regular expression can be used to validate the entire word using validateOnly option.
@@ -11564,6 +20782,27 @@ In addition to the presets, a regular expression can be used to validate the ent
 ```vue
 <InputText v-model="text" v-keyfilter="{ pattern: /^[+]?(\d{1,12})?$/, validateOnly: true }" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div>
+            <label for="numkeys" class="font-bold block mb-2"> Block Numeric (allow "+" only once at start) </label>
+            <InputText id="numkeys" v-model="text" v-keyfilter="{ pattern: /^[+]?(\d{1,12})?$/, validateOnly: true }" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const text = ref(null);
+<\/script>
+```
+</details>
 
 ## Keyfilter
 
@@ -11576,6 +20815,15 @@ Knob is a form component to define number inputs with a dial.
 ## Accessibility
 
 Screen Reader Knob element component uses slider role in addition to the aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Key Function tab Moves focus to the slider. left arrow down arrow Decrements the value. right arrow up arrow Increments the value. home Set the minimum value. end Set the maximum value. page up Increments the value by 10 steps. page down Decrements the value by 10 steps.
+
+**Basic Usage:**
+
+```vue
+<span id="label_number">Number</span>
+<Knob aria-labelledby="label_number" />
+
+<Knob aria-label="Number" />
+```
 
 ## Basic
 
@@ -11597,6 +20845,24 @@ valueColor defines the value color, rangeColor defines the range background and 
 <Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+  <div class="card flex justify-center">
+      <Knob v-model="value" valueColor="SlateGray" rangeColor="MediumTurquoise" />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(50);
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, a visual hint is applied to indicate that the Knob cannot be interacted with.
@@ -11606,6 +20872,24 @@ When disabled is present, a visual hint is applied to indicate that the Knob can
 ```vue
 <Knob v-model="value" disabled />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Knob v-model="value" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(50);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -11623,6 +20907,57 @@ Knob integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col items-center gap-1">
+                <Knob name="knob" />
+                <Message v-if="$form.knob?.invalid" severity="error" size="small" variant="simple">{{ $form.knob.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+    <Toast />
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+
+const toast = useToast();
+const initialValues = ref({
+    knob: 15
+});
+const resolver = ref(zodResolver(
+    z.object({
+        knob: z.number().gt(25, { message: 'Must be greater than 25.' }).lt(75, { message: 'Must be less than 75.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Knob from 'primevue/knob';
+```
+
 ## Min/Max
 
 Boundaries are configured with the min and max values whose defaults are 0 and 100 respectively.
@@ -11632,6 +20967,24 @@ Boundaries are configured with the min and max values whose defaults are 0 and 1
 ```vue
 <Knob v-model="value" :min="-50" :max="50" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Knob v-model="value" :min="-50" :max="50" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(10);
+<\/script>
+```
+</details>
 
 ## Reactive
 
@@ -11647,6 +21000,28 @@ Knob can be controlled with custom controls as well.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-2">
+        <Knob v-model="value" :size="150" readonly />
+        <div class="flex gap-2">
+            <Button icon="pi pi-plus" @click="value++" :disabled="value >= 100" />
+            <Button icon="pi pi-minus" @click="value--" :disabled="value <= 0" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(0);
+<\/script>
+```
+</details>
+
 ## ReadOnly
 
 When readonly present, value cannot be edited.
@@ -11656,6 +21031,24 @@ When readonly present, value cannot be edited.
 ```vue
 <Knob v-model="value" readonly />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Knob v-model="value" readonly />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(50);
+<\/script>
+```
+</details>
 
 ## Size
 
@@ -11667,6 +21060,24 @@ Diameter of the knob is defined in pixels using the size property.
 <Knob v-model="value" :size="200" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+  <div class="card flex justify-center">
+      <Knob v-model="value" :size="200" />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(60);
+<\/script>
+```
+</details>
+
 ## Step
 
 Step factor is 1 by default and can be customized with step option.
@@ -11676,6 +21087,24 @@ Step factor is 1 by default and can be customized with step option.
 ```vue
 <Knob v-model="value5" :step="10" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Knob v-model="value" :step="10" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(40);
+<\/script>
+```
+</details>
 
 ## Stroke
 
@@ -11687,6 +21116,24 @@ The border size is specified with the stroke property as a number in pixels.
 <Knob v-model="value" :strokeWidth="5" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+  <div class="card flex justify-center">
+      <Knob v-model="value" :strokeWidth="5" />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(40);
+<\/script>
+```
+</details>
+
 ## Template
 
 The label can be customized with the valueTemplate property using either a template string or a function.
@@ -11696,6 +21143,24 @@ The label can be customized with the valueTemplate property using either a templ
 ```vue
 <Knob v-model="value" valueTemplate="{value}%" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Knob v-model="value" valueTemplate="{value}%" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(60);
+<\/script>
+```
+</details>
 
 ## Knob
 
@@ -11774,6 +21239,15 @@ Listbox is used to select one or more values from a list of items.
 
 Screen Reader Value to describe the component can be provided aria-labelledby or aria-label props. The list element has a listbox role with the aria-multiselectable attribute that sets to true when multiple selection is enabled. Each list item has an option role with aria-selected and aria-disabled as their attributes. If filtering is enabled, filterInputProps can be defined to give aria-* props to the input element. Alternatively filterPlaceholder is usually utilized by the screen readers as well. Keyboard Support Key Function tab Moves focus to the first selected option, if there is none then first option receives the focus. up arrow Moves focus to the previous option. down arrow Moves focus to the next option. enter Toggles the selected state of the focused option. space Toggles the selected state of the focused option. home Moves focus to the first option. end Moves focus to the last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the last one. control + a Selects all options. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. any printable character Moves focus to the option whose label starts with the characters being typed. Filter Input Keyboard Support Key Function down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. enter Closes the popup and moves focus to the multiselect element. escape Closes the popup and moves focus to the multiselect element. tab Moves focus to the next focusable element in the component. If there is none, moves focus to next element in page.
 
+**Basic Usage:**
+
+```vue
+<span id="lb"></span>Options</span>
+<Listbox aria-labelledby="lb" />
+
+<Listbox aria-label="City" />
+```
+
 ## Basic
 
 Listbox is used with the v-model property for two-way value binding along with the options collection. Label and value of an option are defined with the optionLabel and optionValue properties respectively. Note that, when options are simple primitive values such as a string array, no optionLabel and optionValue would be necessary.
@@ -11794,6 +21268,31 @@ An alternative way to highlight the selected option is displaying a checkmark in
 <Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -11804,6 +21303,31 @@ When disabled is present, the element cannot be edited and focused.
 <Listbox v-model="selectedCity" disabled :options="cities" optionLabel="name" class="w-full md:w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" disabled :options="cities" optionLabel="name" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Filter
 
 Listbox provides built-in filtering that is enabled by adding the filter property.
@@ -11813,6 +21337,31 @@ Listbox provides built-in filtering that is enabled by adding the filter propert
 ```vue
 <Listbox v-model="selectedCity" :options="cities" filter optionLabel="name" class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" filter optionLabel="name" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -11829,6 +21378,52 @@ Listbox integrates seamlessly with the PrimeVue Forms library.
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-1">
+                <Listbox name="city" :options="cities" optionLabel="name" fluid />
+                <Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    city: { name: '' }
+});
+const resolver = ref(zodResolver(
+    z.object({
+        city: z.union([
+            z.object({
+                name: z.string().min(1, 'City is required.')
+            }),
+            z.any().refine((val) => false, { message: 'City is required.' })
+        ])
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
 
 ## Group
 
@@ -11847,6 +21442,71 @@ Options can be grouped when a nested data structures is provided. To define the 
 </Listbox>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" class="w-full md:w-56" listStyle="max-height:250px">
+            <template #optiongroup="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+                    <div>{{ slotProps.option.label }}</div>
+                </div>
+            </template>
+        </Listbox>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const groupedCities = ref([
+    {
+        label: 'Germany',
+        code: 'DE',
+        items: [
+            { label: 'Berlin', value: 'Berlin' },
+            { label: 'Frankfurt', value: 'Frankfurt' },
+            { label: 'Hamburg', value: 'Hamburg' },
+            { label: 'Munich', value: 'Munich' }
+        ]
+    },
+    {
+        label: 'USA',
+        code: 'US',
+        items: [
+            { label: 'Chicago', value: 'Chicago' },
+            { label: 'Los Angeles', value: 'Los Angeles' },
+            { label: 'New York', value: 'New York' },
+            { label: 'San Francisco', value: 'San Francisco' }
+        ]
+    },
+    {
+        label: 'Japan',
+        code: 'JP',
+        items: [
+            { label: 'Kyoto', value: 'Kyoto' },
+            { label: 'Osaka', value: 'Osaka' },
+            { label: 'Tokyo', value: 'Tokyo' },
+            { label: 'Yokohama', value: 'Yokohama' }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Listbox from 'primevue/listbox';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -11857,6 +21517,31 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <Listbox v-model="selectedCity" :options="cities" optionLabel="name" :invalid="selectedCity === null"  class="w-full md:w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" :invalid="selectedCity === null"  class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Multiple
 
 Listbox allows choosing a single item by default, enable multiple property to choose more than one. When the optional metaKeySelection is present, behavior is changed in a way that selecting a new item requires meta key to be present.
@@ -11866,6 +21551,31 @@ Listbox allows choosing a single item by default, enable multiple property to ch
 ```vue
 <Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -11884,6 +21594,43 @@ Custom content for an option is displayed with the option slot that takes an opt
 </Listbox>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCountry" :options="countries" optionLabel="name" class="w-full md:w-56" listStyle="max-height:250px">
+            <template #option="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+                    <div>{{ slotProps.option.name }}</div>
+                </div>
+            </template>
+        </Listbox>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCountry = ref();
+const countries = ref([
+    { name: 'Australia', code: 'AU' },
+    { name: 'Brazil', code: 'BR' },
+    { name: 'China', code: 'CN' },
+    { name: 'Egypt', code: 'EG' },
+    { name: 'France', code: 'FR' },
+    { name: 'Germany', code: 'DE' },
+    { name: 'India', code: 'IN' },
+    { name: 'Japan', code: 'JP' },
+    { name: 'Spain', code: 'ES' },
+    { name: 'United States', code: 'US' }
+]);
+<\/script>
+```
+</details>
+
 ## Virtual Scroll
 
 VirtualScroller is used to render a long list of options efficiently like 100K records in this demo. The configuration is done with virtualScrollerOptions property, refer to the VirtualScroller for more information about the available options as it is used internally by Listbox.
@@ -11894,6 +21641,26 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
     :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" striped />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
+            :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" striped />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedItem = ref();
+const items = ref(Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+<\/script>
+```
+</details>
 
 ## Listbox
 
@@ -12045,6 +21812,26 @@ MegaMenu requires a collection of menuitems as its model .
 
 The command property of a menuitem defines the callback to run when an item is activated by click or a key event.
 
+**Basic Usage:**
+
+```vue
+{
+    label: 'Log out',
+    icon: 'pi pi-signout',
+    command: () => {
+        // Callback to run
+    }
+}
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import MegaMenu from 'primevue/megamenu';
+```
+
 ## Router
 
 Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
@@ -12067,6 +21854,84 @@ Items with navigation are defined with templating to be able to use a router lin
     </template>
 </MegaMenu>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MegaMenu :model="items">
+            <template #item="{ item }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a v-ripple :href="href" @click="navigate">
+                        <span :class="item.icon" />
+                        <span class="ml-2">{{ item.label }}</span>
+                    </a>
+                </router-link>
+                <a v-else v-ripple :href="item.url" :target="item.target">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+            </template>
+        </MegaMenu>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Navigation',
+        icon: 'pi pi-link',
+        items: [
+            [
+                {
+                    label: 'Router',
+                    items: [
+                        { label: 'Theming', route: '/theming/styled' },
+                        { label: 'Unstyled', route: '/theming/unstyled' }
+                    ]
+                }
+            ],
+            [
+                {
+                    label: 'Programmatic',
+                    items: [
+                        {
+                            label: 'Installation',
+                            command: () => {
+                                router.push('/introduction');
+                            }
+                        }
+                    ]
+                }
+            ],
+            [
+                {
+                    label: 'External',
+                    items: [
+                        {
+                            label: 'Vue.js',
+                            url: 'https://vuejs.org/'
+                        },
+                        {
+                            label: 'Vite.js',
+                            url: 'https://vuejs.org/'
+                        }
+                    ]
+                }
+            ]
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -12107,6 +21972,106 @@ MegaMenu offers item customization with the item template that receives the menu
 </MegaMenu>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MegaMenu :model="items" class="p-4 bg-surface-0" style="border-radius: 3rem">
+            <template #start>
+                <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
+                    <path
+                        d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                        fill="var(--p-primary-color)"
+                    />
+                    <path
+                        d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                        fill="var(--p-text-color)"
+                    />
+                </svg>
+            </template>
+            <template #item="{ item }">
+                <a v-if="item.root" class="flex items-center cursor-pointer px-4 py-2 overflow-hidden relative font-semibold text-lg uppercase" style="border-radius: 2rem">
+                    <span>{{ item.label }}</span>
+                </a>
+                <a v-else-if="!item.image" class="flex items-center p-4 cursor-pointer mb-2 gap-3">
+                    <span class="inline-flex items-center justify-center rounded-full bg-primary text-primary-contrast w-12 h-12">
+                        <i :class="[item.icon, 'text-lg']"></i>
+                    </span>
+                    <span class="inline-flex flex-col gap-1">
+                        <span class="font-bold text-lg">{{ item.label }}</span>
+                        <span class="whitespace-nowrap">{{ item.subtext }}</span>
+                    </span>
+                </a>
+                <div v-else class="flex flex-col items-start gap-4 p-2">
+                    <img alt="megamenu-demo" :src="item.image" class="w-full" />
+                    <span>{{ item.subtext }}</span>
+                    <Button :label="item.label" variant="outlined" />
+                </div>
+            </template>
+            <template #end>
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+            </template>
+        </MegaMenu>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref([
+    {
+        label: 'Company',
+        root: true,
+        items: [
+            [
+                {
+                    items: [
+                        { label: 'Features', icon: 'pi pi-list', subtext: 'Subtext of item' },
+                        { label: 'Customers', icon: 'pi pi-users', subtext: 'Subtext of item' },
+                        { label: 'Case Studies', icon: 'pi pi-file', subtext: 'Subtext of item' }
+                    ]
+                }
+            ],
+            [
+                {
+                    items: [
+                        { label: 'Solutions', icon: 'pi pi-shield', subtext: 'Subtext of item' },
+                        { label: 'Faq', icon: 'pi pi-question', subtext: 'Subtext of item' },
+                        { label: 'Library', icon: 'pi pi-search', subtext: 'Subtext of item' }
+                    ]
+                }
+            ],
+            [
+                {
+                    items: [
+                        { label: 'Community', icon: 'pi pi-comments', subtext: 'Subtext of item' },
+                        { label: 'Rewards', icon: 'pi pi-star', subtext: 'Subtext of item' },
+                        { label: 'Investors', icon: 'pi pi-globe', subtext: 'Subtext of item' }
+                    ]
+                }
+            ],
+            [
+                {
+                    items: [{ image: 'https://primefaces.org/cdn/primevue/images/uikit/uikit-system.png', label: 'GET STARTED', subtext: 'Build spectacular apps in no time.' }]
+                }
+            ]
+        ]
+    },
+    {
+        label: 'Resources',
+        root: true
+    },
+    {
+        label: 'Contact',
+        root: true
+    }
+]);
+<\/script>
+```
+</details>
+
 ## VerticalDoc
 
 Layout of the MegaMenu is configured with the orientation property that accepts horizontal and vertical as options.
@@ -12116,6 +22081,119 @@ Layout of the MegaMenu is configured with the orientation property that accepts 
 ```vue
 <MegaMenu :model="items" orientation="vertical" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MegaMenu :model="items" orientation="vertical" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref([
+    {
+        label: 'Furniture',
+        icon: 'pi pi-box',
+        items: [
+            [
+                {
+                    label: 'Living Room',
+                    items: [{ label: 'Accessories' }, { label: 'Armchair' }, { label: 'Coffee Table' }, { label: 'Couch' }, { label: 'TV Stand' }]
+                }
+            ],
+            [
+                {
+                    label: 'Kitchen',
+                    items: [{ label: 'Bar stool' }, { label: 'Chair' }, { label: 'Table' }]
+                },
+                {
+                    label: 'Bathroom',
+                    items: [{ label: 'Accessories' }]
+                }
+            ],
+            [
+                {
+                    label: 'Bedroom',
+                    items: [{ label: 'Bed' }, { label: 'Chaise lounge' }, { label: 'Cupboard' }, { label: 'Dresser' }, { label: 'Wardrobe' }]
+                }
+            ],
+            [
+                {
+                    label: 'Office',
+                    items: [{ label: 'Bookcase' }, { label: 'Cabinet' }, { label: 'Chair' }, { label: 'Desk' }, { label: 'Executive Chair' }]
+                }
+            ]
+        ]
+    },
+    {
+        label: 'Electronics',
+        icon: 'pi pi-mobile',
+        items: [
+            [
+                {
+                    label: 'Computer',
+                    items: [{ label: 'Monitor' }, { label: 'Mouse' }, { label: 'Notebook' }, { label: 'Keyboard' }, { label: 'Printer' }, { label: 'Storage' }]
+                }
+            ],
+            [
+                {
+                    label: 'Home Theater',
+                    items: [{ label: 'Projector' }, { label: 'Speakers' }, { label: 'TVs' }]
+                }
+            ],
+            [
+                {
+                    label: 'Gaming',
+                    items: [{ label: 'Accessories' }, { label: 'Console' }, { label: 'PC' }, { label: 'Video Games' }]
+                }
+            ],
+            [
+                {
+                    label: 'Appliances',
+                    items: [{ label: 'Coffee Machine' }, { label: 'Fridge' }, { label: 'Oven' }, { label: 'Vaccum Cleaner' }, { label: 'Washing Machine' }]
+                }
+            ]
+        ]
+    },
+    {
+        label: 'Sports',
+        icon: 'pi pi-clock',
+        items: [
+            [
+                {
+                    label: 'Football',
+                    items: [{ label: 'Kits' }, { label: 'Shoes' }, { label: 'Shorts' }, { label: 'Training' }]
+                }
+            ],
+            [
+                {
+                    label: 'Running',
+                    items: [{ label: 'Accessories' }, { label: 'Shoes' }, { label: 'T-Shirts' }, { label: 'Shorts' }]
+                }
+            ],
+            [
+                {
+                    label: 'Swimming',
+                    items: [{ label: 'Kickboard' }, { label: 'Nose Clip' }, { label: 'Swimsuits' }, { label: 'Paddles' }]
+                }
+            ],
+            [
+                {
+                    label: 'Tennis',
+                    items: [{ label: 'Balls' }, { label: 'Rackets' }, { label: 'Shoes' }, { label: 'Training' }]
+                }
+            ]
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ---
 
@@ -12148,6 +22226,43 @@ The command property defines the callback to run when an item is activated by cl
 <Toast />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Menu :model="items" />
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { useToast } from "primevue/usetoast";
+
+const toast = useToast();
+
+const items = ref([
+    {
+        label: 'New',
+        icon: 'pi pi-plus',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Success', detail: 'File created', life: 3000 });
+        }
+    },
+    {
+        label: 'Search',
+        icon: 'pi pi-search',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Search Completed', detail: 'No results found', life: 3000 });
+        }
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Group
 
 Menu supports single level of grouping by defining children with the items property.
@@ -12156,6 +22271,59 @@ Menu supports single level of grouping by defining children with the items prope
 
 ```vue
 <Menu :model="items" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Menu :model="items" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref([
+    {
+        label: 'Documents',
+        items: [
+            {
+                label: 'New',
+                icon: 'pi pi-plus'
+            },
+            {
+                label: 'Search',
+                icon: 'pi pi-search'
+            }
+        ]
+    },
+    {
+        label: 'Profile',
+        items: [
+            {
+                label: 'Settings',
+                icon: 'pi pi-cog'
+            },
+            {
+                label: 'Logout',
+                icon: 'pi pi-sign-out'
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Menu from 'primevue/menu';
 ```
 
 ## Popup
@@ -12168,6 +22336,44 @@ Overlay mode is enabled by adding popup property and calling toggle function of 
 <Button type="button" icon="pi pi-ellipsis-v" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
 <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button type="button" icon="pi pi-ellipsis-v" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
+        <Menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const menu = ref();
+const items = ref([
+    {
+        label: 'Options',
+        items: [
+            {
+                label: 'Refresh',
+                icon: 'pi pi-refresh'
+            },
+            {
+                label: 'Export',
+                icon: 'pi pi-upload'
+            }
+        ]
+    }
+]);
+
+const toggle = (event) => {
+    menu.value.toggle(event);
+};
+<\/script>
+```
+</details>
 
 ## Router
 
@@ -12191,6 +22397,58 @@ Items with navigation are defined with templating to be able to use a router lin
     </template>
 </Menu>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Menu :model="items">
+            <template #item="{ item, props }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="item.icon" />
+                        <span class="ml-2">{{ item.label }}</span>
+                    </a>
+                </router-link>
+                <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+            </template>
+        </Menu>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Router Link',
+        icon: 'pi pi-palette',
+        route: '/theming/unstyled'
+    },
+    {
+        label: 'Programmatic',
+        icon: 'pi pi-link',
+        command: () => {
+            router.push('/introduction');
+        }
+    },
+    {
+        label: 'External',
+        icon: 'pi pi-home',
+        url: 'https://vuejs.org/'
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -12231,6 +22489,102 @@ Menu offers item customization with the item template that receives the menuitem
     </template>
 </Menu>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Menu :model="items" class="w-full md:w-60">
+            <template #start>
+                <span class="inline-flex items-center gap-1 px-2 py-2">
+                    <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
+                        <path
+                            d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                            fill="var(--p-primary-color)"
+                        />
+                        <path
+                            d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                            fill="var(--p-text-color)"
+                        />
+                    </svg>
+                    <span class="text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
+                </span>
+            </template>
+            <template #submenulabel="{ item }">
+                <span class="text-primary font-bold">{{ item.label }}</span>
+            </template>
+            <template #item="{ item, props }">
+                <a v-ripple class="flex items-center" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span>{{ item.label }}</span>
+                    <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+                    <span v-if="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+                </a>
+            </template>
+            <template #end>
+                <button v-ripple class="relative overflow-hidden w-full border-0 bg-transparent flex items-start p-2 pl-4 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-none cursor-pointer transition-colors duration-200">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" class="mr-2" shape="circle" />
+                    <span class="inline-flex flex-col items-start">
+                        <span class="font-bold">Amy Elsner</span>
+                        <span class="text-sm">Admin</span>
+                    </span>
+                </button>
+            </template>
+        </Menu>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref([
+    {
+        separator: true
+    },
+    {
+        label: 'Documents',
+        items: [
+            {
+                label: 'New',
+                icon: 'pi pi-plus',
+                shortcut: '⌘+N'
+            },
+            {
+                label: 'Search',
+                icon: 'pi pi-search',
+                shortcut: '⌘+S'
+            }
+        ]
+    },
+    {
+        label: 'Profile',
+        items: [
+            {
+                label: 'Settings',
+                icon: 'pi pi-cog',
+                shortcut: '⌘+O'
+            },
+            {
+                label: 'Messages',
+                icon: 'pi pi-inbox',
+                badge: 2
+            },
+            {
+                label: 'Logout',
+                icon: 'pi pi-sign-out',
+                shortcut: '⌘+Q'
+            }
+        ]
+    },
+    {
+        separator: true
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Menubar
 
@@ -12285,6 +22639,87 @@ The command property defines the callback to run when an item is activated by cl
 <Toast />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Menubar :model="items" />
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { useToast } from "primevue/usetoast";
+
+const toast = useToast();
+
+const items = ref([
+    {
+        label: 'File',
+        icon: 'pi pi-file',
+        items: [
+            {
+                label: 'New',
+                icon: 'pi pi-plus',
+                command: () => {
+                    toast.add({ severity: 'success', summary: 'Success', detail: 'File created', life: 3000 });
+                }
+            },
+            {
+                label: 'Print',
+                icon: 'pi pi-print',
+                command: () => {
+                    toast.add({ severity: 'error', summary: 'Error', detail: 'No printer connected', life: 3000 });
+                }
+            }
+        ]
+    },
+    {
+        label: 'Search',
+        icon: 'pi pi-search',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Search Results', detail: 'No results found', life: 3000 });
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Sync',
+        icon: 'pi pi-cloud',
+        items: [
+            {
+                label: 'Import',
+                icon: 'pi pi-cloud-download',
+                command: () => {
+                    toast.add({ severity: 'info', summary: 'Downloads', detail: 'Downloaded from cloud', life: 3000 });
+                }
+            },
+            {
+                label: 'Export',
+                icon: 'pi pi-cloud-upload',
+                command: () => {
+                    toast.add({ severity: 'info', summary: 'Shared', detail: 'Exported to cloud', life: 3000 });
+                }
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Menubar from 'primevue/menubar';
+```
+
 ## Router
 
 Items with navigation are defined with templating to be able to use a router link component, an external link or programmatic navigation.
@@ -12308,6 +22743,77 @@ Items with navigation are defined with templating to be able to use a router lin
     </template>
 </Menubar>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Menubar :model="items">
+            <template #item="{ item, props, hasSubmenu }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="item.icon" />
+                        <span>{{ item.label }}</span>
+                    </a>
+                </router-link>
+                <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span>{{ item.label }}</span>
+                    <span v-if="hasSubmenu" class="pi pi-fw pi-angle-down" />
+                </a>
+            </template>
+        </Menubar>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Router',
+        icon: 'pi pi-palette',
+        items: [
+            {
+                label: 'Styled',
+                route: '/theming/styled'
+            },
+            {
+                label: 'Unstyled',
+                route: '/theming/unstyled'
+            }
+        ]
+    },
+    {
+        label: 'Programmatic',
+        icon: 'pi pi-link',
+        command: () => {
+            router.push('/introduction');
+        }
+    },
+    {
+        label: 'External',
+        icon: 'pi pi-home',
+        items: [
+            {
+                label: 'Vue.js',
+                url: 'https://vuejs.org/'
+            },
+            {
+                label: 'Vite.js',
+                url: 'https://vitejs.dev/'
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -12340,6 +22846,81 @@ Menubar offers item customization with the item template that receives the menui
 </Menubar>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Menubar :model="items">
+            <template #start>
+                <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8">
+                    <path
+                        d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                        fill="var(--p-primary-color)"
+                    />
+                    <path
+                        d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                        fill="var(--p-text-color)"
+                    />
+                </svg>
+            </template>
+            <template #item="{ item, props, hasSubmenu, root }">
+                <a v-ripple class="flex items-center" v-bind="props.action">
+                    <span>{{ item.label }}</span>
+                    <Badge v-if="item.badge" :class="{ 'ml-auto': !root, 'ml-2': root }" :value="item.badge" />
+                    <span v-if="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+                    <i v-if="hasSubmenu" :class="['pi pi-angle-down ml-auto', { 'pi-angle-down': root, 'pi-angle-right': !root }]"></i>
+                </a>
+            </template>
+            <template #end>
+                <div class="flex items-center gap-2">
+                    <InputText placeholder="Search" type="text" class="w-32 sm:w-auto" />
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                </div>
+            </template>
+        </Menubar>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref([
+    {
+        label: 'Home',
+        icon: 'pi pi-home'
+    },
+    {
+        label: 'Projects',
+        icon: 'pi pi-search',
+        badge: 3,
+        items: [
+            {
+                label: 'Core',
+                icon: 'pi pi-bolt',
+                shortcut: '⌘+S'
+            },
+            {
+                label: 'Blocks',
+                icon: 'pi pi-server',
+                shortcut: '⌘+B'
+            },
+            {
+                separator: true
+            },
+            {
+                label: 'UI Kit',
+                icon: 'pi pi-pencil',
+                shortcut: '⌘+U'
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ---
 
 # Vue Message Component
@@ -12370,6 +22951,21 @@ Enable closable option to display an icon to remove a message.
 <Message closable>Closable Message</Message>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Message closable>Closable Message</Message>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Dynamic
 
 Multiple messages can be displayed using the standard v-for directive.
@@ -12395,13 +22991,41 @@ Validation errors in a form are displayed with the error severity.
 <Message v-if="username && email" severity="success" icon="pi pi-times-circle" class="mb-2">Form is valid</Message>
 <div class="flex flex-col gap-1">
     <InputText v-model="username" placeholder="Username" aria-label="username" :invalid="!username" />
-    <Message v-if="!username" severity="error" variant="simple" size="small">Username is required</Message>
+    <Message v-show="!username" severity="error" variant="simple" size="small">Username is required</Message>
 </div>
 <div class="flex flex-col gap-1">
     <InputText v-model="email" placeholder="Email" aria-label="email" :invalid="!email" />
-    <Message v-if="!email" severity="error" variant="simple" size="small">Email is not valid</Message>
+    <Message v-show="!email" severity="error" variant="simple" size="small">Email is not valid</Message>
 </div>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="flex flex-col gap-4">
+        <Message v-if="!username || !email" severity="error" icon="pi pi-times-circle" class="mb-2">Validation error</Message>
+        <Message v-if="username && email" severity="success" icon="pi pi-times-circle" class="mb-2">Form is valid</Message>
+        <div class="flex flex-col gap-1">
+            <InputText v-model="username" placeholder="Username" aria-label="username" :invalid="!username" />
+            <Message v-show="!username" severity="error" variant="simple" size="small">Username is required</Message>
+        </div>
+        <div class="flex flex-col gap-1">
+            <InputText v-model="email" placeholder="Email" aria-label="email" :invalid="!email" />
+            <Message v-show="!email" severity="error" variant="simple" size="small">Email is not valid</Message>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const username = ref(null);
+const email = ref(null);
+<\/script>
+```
+</details>
 
 ## Icon
 
@@ -12419,6 +23043,35 @@ Icon property and the icon slots are available to customize the icon of the mess
 </Message>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center gap-4">
+        <Message severity="info" icon="pi pi-send">Info Message</Message>
+        <Message severity="success">
+            <template #icon>
+                <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+            </template>
+            <span class="ml-2">How may I help you?</span>
+        </Message>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Message from 'primevue/message';
+```
+
 ## Life
 
 Messages can disappear automatically by defined the life in milliseconds.
@@ -12429,6 +23082,33 @@ Messages can disappear automatically by defined the life in milliseconds.
 <Button label="Show" @click="showMessage" :disabled="visible" class="mb-4" />
 <Message v-if="visible" severity="success" :life="3000">Auto Disappear Message</Message>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center justify-center">
+        <Button label="Show" @click="showMessage" :disabled="visible" class="mb-4" />
+        <Message v-if="visible" severity="success" :life="3000">Auto Disappear Message</Message>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+let visible = ref(false);
+
+const showMessage = () => {
+    visible.value = true;
+
+    setTimeout(() => {
+        visible.value = false;
+    }, 3500);
+}
+<\/script>
+```
+</details>
 
 ## Outlined
 
@@ -12445,6 +23125,26 @@ Configure the variant value as outlined for messages with borders and no backgro
 <Message severity="contrast" variant="outlined">Contrast Message</Message>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4 justify-center">
+        <Message severity="success" variant="outlined">Success Message</Message>
+        <Message severity="info" variant="outlined">Info Message</Message>
+        <Message severity="warn" variant="outlined">Warn Message</Message>
+        <Message severity="error" variant="outlined">Error Message</Message>
+        <Message severity="secondary" variant="outlined">Secondary Message</Message>
+        <Message severity="contrast" variant="outlined">Contrast Message</Message>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Severity
 
 The severity option specifies the type of the message.
@@ -12459,6 +23159,26 @@ The severity option specifies the type of the message.
 <Message severity="secondary">Secondary Message</Message>
 <Message severity="contrast">Contrast Message</Message>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4 justify-center">
+        <Message severity="success">Success Message</Message>
+        <Message severity="info">Info Message</Message>
+        <Message severity="warn">Warn Message</Message>
+        <Message severity="error">Error Message</Message>
+        <Message severity="secondary">Secondary Message</Message>
+        <Message severity="contrast">Contrast Message</Message>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Simple
 
@@ -12475,6 +23195,26 @@ Configure the variant value as simple for messages without borders, backgrounds 
 <Message severity="contrast" variant="simple">Contrast Message</Message>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-8 justify-center">
+        <Message severity="success" variant="simple">Success Message</Message>
+        <Message severity="info" variant="simple">Info Message</Message>
+        <Message severity="warn" variant="simple">Warn Message</Message>
+        <Message severity="error" variant="simple">Error Message</Message>
+        <Message severity="secondary" variant="simple">Secondary Message</Message>
+        <Message severity="contrast" variant="simple">Contrast Message</Message>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Sizes
 
 Message provides small and large sizes as alternatives to the base.
@@ -12486,6 +23226,23 @@ Message provides small and large sizes as alternatives to the base.
 <Message icon="pi pi-user">Normal Message</Message>
 <Message size="large" icon="pi pi-check">Large Message</Message>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <Message size="small" icon="pi pi-send">Small Message</Message>
+        <Message icon="pi pi-user">Normal Message</Message>
+        <Message size="large" icon="pi pi-check">Large Message</Message>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Message
 
@@ -12512,6 +23269,7 @@ Message provides small and large sizes as alternatives to the base.
 | Name | Type | Description |
 |------|------|-------------|
 | root | MessagePassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| contentWrapper | MessagePassThroughOptionType<T> | Used to pass attributes to the content wrapper DOM element. |
 | content | MessagePassThroughOptionType<T> | Used to pass attributes to the content's DOM element. |
 | icon | MessagePassThroughOptionType<T> | Used to pass attributes to the icon's DOM element. |
 | text | MessagePassThroughOptionType<T> | Used to pass attributes to the text's DOM element. |
@@ -12653,6 +23411,37 @@ Icons can be displayed next to the labels instead of the default marker.
 <MeterGroup :value="value" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MeterGroup :value="value" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref([
+    { label: 'Apps', color: '#34d399', value: 16, icon: 'pi pi-table' },
+    { label: 'Messages', color: '#fbbf24', value: 8, icon: 'pi pi-inbox' },
+    { label: 'Media', color: '#60a5fa', value: 24, icon: 'pi pi-image' },
+    { label: 'System', color: '#c084fc', value: 10, icon: 'pi pi-cog' }
+]);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import MeterGroup from 'primevue/metergroup';
+```
+
 ## Label
 
 The position of the labels relative to the meters is defined using the labelPosition property. The default orientation of the labels is horizontal, and the vertical alternative is available through the labelOrientation option.
@@ -12662,6 +23451,29 @@ The position of the labels relative to the meters is defined using the labelPosi
 ```vue
 <MeterGroup :value="value" labelPosition="start" labelOrientation="vertical" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MeterGroup :value="value" labelPosition="start" labelOrientation="vertical" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref([
+    { label: 'Apps', color: '#34d399', value: 16 },
+    { label: 'Messages', color: '#fbbf24', value: 8 },
+    { label: 'Media', color: '#60a5fa', value: 24 },
+    { label: 'System', color: '#c084fc', value: 10 }
+]);
+<\/script>
+```
+</details>
 
 ## Min-Max
 
@@ -12673,6 +23485,29 @@ Boundaries are configured with the min and max values whose defaults are 0 and 1
 <MeterGroup :value="value" :max="200"  />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MeterGroup :value="value" :max="200"  />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref([
+    { label: 'Apps', color: '#34d399', value: 16 },
+    { label: 'Messages', color: '#fbbf24', value: 8 },
+    { label: 'Media', color: '#60a5fa', value: 24 },
+    { label: 'System', color: '#c084fc', value: 10 }
+]);
+<\/script>
+```
+</details>
+
 ## Multiple
 
 Adding more items to the array displays the meters in a group.
@@ -12682,6 +23517,29 @@ Adding more items to the array displays the meters in a group.
 ```vue
 <MeterGroup :value="value" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MeterGroup :value="value" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref([
+    { label: 'Apps', color: '#34d399', value: 16 },
+    { label: 'Messages', color: '#fbbf24', value: 8 },
+    { label: 'Media', color: '#60a5fa', value: 24 },
+    { label: 'System', color: '#c084fc', value: 10 }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -12729,6 +23587,65 @@ MeterGroup provides templating support for labels, meter items, and content arou
 </MeterGroup>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MeterGroup :value="value" labelPosition="start">
+            <template #label="{ value }">
+                <div class="flex flex-wrap gap-4">
+                    <template v-for="val of value" :key="i">
+                        <Card class="flex-1 border border-surface shadow-none">
+                            <template #content>
+                                <div class="flex justify-between gap-8">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="text-surface-500 dark:text-surface-400 text-sm">{{ val.label }}</span>
+                                        <span class="font-bold text-lg">{{ val.value }}%</span>
+                                    </div>
+                                    <span class="w-8 h-8 rounded-full inline-flex justify-center items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">
+                                        <i :class="val.icon" />
+                                    </span>
+                                </div>
+                            </template>
+                        </Card>
+                    </template>
+                </div>
+            </template>
+            <template #meter="slotProps">
+                <span :class="slotProps.class" :style="{ background: \`linear-gradient(to right, \${slotProps.value.color1}, \${slotProps.value.color2})\`, width: slotProps.size }" />
+            </template>
+            <template #start="{ totalPercent }">
+                <div class="flex justify-between mt-4 mb-2 relative">
+                    <span>Storage</span>
+                    <span :style="{ width: totalPercent + '%' }" class="absolute text-right">{{ totalPercent }}%</span>
+                    <span class="font-medium">1TB</span>
+                </div>
+            </template>
+            <template #end>
+                <div class="flex justify-between mt-4">
+                    <Button label="Manage Storage" variant="outlined" size="small" />
+                    <Button label="Update Plan" size="small" />
+                </div>
+            </template>
+        </MeterGroup>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref([
+    { label: 'Apps', color1: '#34d399', color2: '#fbbf24', value: 25, icon: 'pi pi-table' },
+    { label: 'Messages', color1: '#fbbf24', color2: '#60a5fa', value: 15, icon: 'pi pi-inbox' },
+    { label: 'Media', color1: '#60a5fa', color2: '#c084fc', value: 20, icon: 'pi pi-image' },
+    { label: 'System', color1: '#c084fc', color2: '#c084fc', value: 10, icon: 'pi pi-cog' }
+]);
+<\/script>
+```
+</details>
+
 ## Vertical
 
 Layout of the MeterGroup is configured with the orientation property that accepts either horizontal or vertical as available options.
@@ -12738,6 +23655,29 @@ Layout of the MeterGroup is configured with the orientation property that accept
 ```vue
 <MeterGroup :value="value" orientation="vertical" labelOrientation="vertical" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center" style="height: 360px">
+        <MeterGroup :value="value" orientation="vertical" labelOrientation="vertical" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref([
+    { label: 'Apps', color: '#34d399', value: 24 },
+    { label: 'Messages', color: '#fbbf24', value: 16 },
+    { label: 'Media', color: '#60a5fa', value: 24 },
+    { label: 'System', color: '#c084fc', value: 12 }
+]);
+<\/script>
+```
+</details>
 
 ## Meter Group
 
@@ -12808,6 +23748,15 @@ MultiSelect is used to select multiple items from a collection.
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The multiselect component has a combobox role in addition to aria-haspopup and aria-expanded attributes. The relation between the combobox and the popup is created with aria-controls attribute that refers to the id of the popup listbox. The popup listbox uses listbox as the role with aria-multiselectable enabled. Each list item has an option role along with aria-label , aria-selected and aria-disabled attributes. Checkbox component at the header uses a hidden native checkbox element internally that is only visible to screen readers. Value to read is defined with the selectAll and unselectAll keys of the aria property from the locale API. If filtering is enabled, filterInputProps can be defined to give aria-* props to the input element. Close button uses close key of the aria property from the locale API as the aria-label by default, this can be overridden with the closeButtonProps . Closed State Keyboard Support Key Function tab Moves focus to the multiselect element. space Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. enter Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. up arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. any printable character Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the popup, if there is none then first focusable element receives the focus. shift + tab Moves focus to the previous focusable element in the popup, if there is none then last focusable element receives the focus. enter Toggles the selection state of the focused option, then moves focus to the multiselect element. space Toggles the selection state of the focused option, then moves focus to the multiselect element. escape Closes the popup, moves focus to the multiselect element. down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. alt + up arrow Selects the focused option and closes the popup, then moves focus to the multiselect element. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. home Moves focus to the first option. end Moves focus to the last option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the last one. control + a Selects all options. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. any printable character Moves focus to the option whose label starts with the characters being typed. Toggle All Checkbox Keyboard Support Key Function space Toggles the checked state. escape Closes the popup and moves focus to the multiselect element. Filter Input Keyboard Support Key Function down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. enter Closes the popup and moves focus to the multiselect element. escape Closes the popup and moves focus to the multiselect element. tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page.
 
+**Basic Usage:**
+
+```vue
+<span id="dd1"></span>Options</span>
+<MultiSelect aria-labelledby="dd1" />
+
+<MultiSelect aria-label="Options" />
+```
+
 ## Basic
 
 MultiSelect is used with the v-model property for two-way value binding along with the options collection. Label and value of an option are defined with the optionLabel and optionValue properties respectively. Note that, when options are simple primitive values such as a string array, no optionLabel and optionValue would be necessary.
@@ -12830,6 +23779,32 @@ Selected values are displayed as a comma separated list by default, setting disp
     :maxSelectedLabels="3" class="w-full md:w-80" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCities" display="chip" :options="cities" optionLabel="name" filter placeholder="Select Cities"
+            :maxSelectedLabels="3" class="w-full md:w-80" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCities = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Clear Icon
 
 When showClear is enabled, a clear icon is added to reset the MultiSelect.
@@ -12840,6 +23815,31 @@ When showClear is enabled, a clear icon is added to reset the MultiSelect.
 <MultiSelect v-model="selectedCities" showClear :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCities" showClear :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCities = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -12849,6 +23849,22 @@ When disabled is present, the element cannot be edited and focused.
 ```vue
 <MultiSelect disabled placeholder="Select Cities" class="w-full md:w-80" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="flex justify-center">
+        <MultiSelect disabled placeholder="Select Cities" class="w-full md:w-80" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## Filled
 
@@ -12861,6 +23877,32 @@ Specify the variant property as filled to display the component with a higher vi
     :maxSelectedLabels="3" class="w-full md:w-80" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCities" variant="filled" :options="cities" optionLabel="name" filter placeholder="Select Cities"
+            :maxSelectedLabels="3" class="w-full md:w-80" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCities = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Filter
 
 Filtering allows searching items in the list using an input field at the header. In order to use filtering, enable filter property. By default, optionLabel is used when searching and filterFields can be used to customize the fields being utilized. Furthermore, filterMatchMode is available to define the search algorithm. Valid values are "contains" (default), "startsWith" and "endsWith".
@@ -12871,6 +23913,32 @@ Filtering allows searching items in the list using an input field at the header.
 <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities"
     :maxSelectedLabels="3" class="w-full md:w-80" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCities" :options="cities" filter optionLabel="name" placeholder="Select Cities"
+            :maxSelectedLabels="3" class="w-full md:w-80" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCities = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -12895,6 +23963,46 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel class="w-full md:w-80">
+            <MultiSelect id="over_label" v-model="value1" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-80" variant="in">
+            <MultiSelect id="in_label" v-model="value2" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-80" variant="on">
+            <MultiSelect id="on_label" v-model="value3" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Forms
 
 **Basic Usage:**
@@ -12908,6 +24016,60 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex justify-center flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <MultiSelect name="city" :options="cities" optionLabel="name" filter placeholder="Select Cities" :maxSelectedLabels="3" class="w-full md:w-80" />
+                <Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    city: []
+});
+const resolver = ref(zodResolver(
+    z.object({
+        city: z
+            .array(
+                z.object({
+                    name: z.string().min(1, 'City is required.')
+                })
+            )
+            .min(1, 'City is required.')
+    })
+));
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
 
 ## Group
 
@@ -12926,6 +24088,63 @@ Options can be grouped when a nested data structures is provided. To define the 
 </MultiSelect>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCities" :options="groupedCities" optionLabel="label" filter optionGroupLabel="label" optionGroupChildren="items" display="chip" placeholder="Select Cities" class="w-full md:w-80">
+            <template #optiongroup="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+                    <div>{{ slotProps.option.label }}</div>
+                </div>
+            </template>
+        </MultiSelect>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCities = ref();
+const groupedCities = ref([
+    {
+        label: 'Germany',
+        code: 'DE',
+        items: [
+            { label: 'Berlin', value: 'Berlin' },
+            { label: 'Frankfurt', value: 'Frankfurt' },
+            { label: 'Hamburg', value: 'Hamburg' },
+            { label: 'Munich', value: 'Munich' }
+        ]
+    },
+    {
+        label: 'USA',
+        code: 'US',
+        items: [
+            { label: 'Chicago', value: 'Chicago' },
+            { label: 'Los Angeles', value: 'Los Angeles' },
+            { label: 'New York', value: 'New York' },
+            { label: 'San Francisco', value: 'San Francisco' }
+        ]
+    },
+    {
+        label: 'Japan',
+        code: 'JP',
+        items: [
+            { label: 'Kyoto', value: 'Kyoto' },
+            { label: 'Osaka', value: 'Osaka' },
+            { label: 'Tokyo', value: 'Tokyo' },
+            { label: 'Yokohama', value: 'Yokohama' }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -12937,6 +24156,42 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
     <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full" variant="filled" />
     <label for="ms_cities">Cities</label>
 </IftaLabel>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel class="w-full md:w-80">
+            <MultiSelect v-model="selectedCities" inputId="ms_cities" :options="cities" optionLabel="name" filter :maxSelectedLabels="3" class="w-full"variant="filled" />
+            <label for="ms_cities">Cities</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCities = ref(null);
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import MultiSelect from 'primevue/multiselect';
 ```
 
 ## Invalid
@@ -12952,6 +24207,35 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
         :maxSelectedLabels="3" :invalid="selectedCities2?.length === 0" class="w-full md:w-80" variant="filled" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <MultiSelect v-model="selectedCities1" :options="cities" optionLabel="name" filter placeholder="Select Cities" 
+                :maxSelectedLabels="3" :invalid="selectedCities1?.length === 0" class="w-full md:w-80" />
+        <MultiSelect v-model="selectedCities2" :options="cities" optionLabel="name" filter placeholder="Select Cities" 
+                :maxSelectedLabels="3" :invalid="selectedCities2?.length === 0" class="w-full md:w-80" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCities1 = ref([]);
+const selectedCities2 = ref([]);
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Loading State
 
 Loading state can be used loading property.
@@ -12961,6 +24245,21 @@ Loading state can be used loading property.
 ```vue
 <MultiSelect placeholder="Loading..." loading class="w-full md:w-80"></MultiSelect>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <MultiSelect placeholder="Loading..." loading class="w-full md:w-80"></MultiSelect>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -12973,6 +24272,35 @@ MultiSelect provides small and large sizes as alternatives to the base.
 <MultiSelect v-model="value2" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full md:w-80" placeholder="Normal" />
 <MultiSelect v-model="value3" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full md:w-80" size="large" placeholder="Large" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <MultiSelect v-model="value1" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full md:w-80" size="small" placeholder="Small" />
+        <MultiSelect v-model="value2" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full md:w-80" placeholder="Normal" />
+        <MultiSelect v-model="value3" :options="cities" optionLabel="name" :maxSelectedLabels="3" class="w-full md:w-80" size="large" placeholder="Large" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -13006,6 +24334,58 @@ MultiSelect offers multiple slots for customization through templating.
 </MultiSelect>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedCountries" :options="countries" optionLabel="name" filter placeholder="Select Countries" display="chip" class="w-full md:w-80">
+            <template #option="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+                    <div>{{ slotProps.option.name }}</div>
+                </div>
+            </template>
+            <template #dropdownicon>
+                <i class="pi pi-map" />
+            </template>
+            <template #filtericon>
+                <i class="pi pi-map-marker" />
+            </template>
+            <template #header>
+                <div class="font-medium px-3 py-2">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="p-3 flex justify-between">
+                    <Button label="Add New" severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+                    <Button label="Remove All" severity="danger" variant="text" size="small" icon="pi pi-times" />
+                </div>
+            </template>
+        </MultiSelect>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCountries = ref();
+const countries = ref([
+    { name: 'Australia', code: 'AU' },
+    { name: 'Brazil', code: 'BR' },
+    { name: 'China', code: 'CN' },
+    { name: 'Egypt', code: 'EG' },
+    { name: 'France', code: 'FR' },
+    { name: 'Germany', code: 'DE' },
+    { name: 'India', code: 'IN' },
+    { name: 'Japan', code: 'JP' },
+    { name: 'Spain', code: 'ES' },
+    { name: 'United States', code: 'US' }
+]);
+<\/script>
+```
+</details>
+
 ## VirtualScroll
 
 VirtualScroller is used to render a long list of options efficiently like 100K records in this demo. The configuration is done with virtualScrollerOptions property, refer to the VirtualScroller for more information about the available options as it is used internally by MultiSelect.
@@ -13016,6 +24396,37 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 <MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" optionLabel="label" optionValue="value"
     @selectall-change="onSelectAllChange($event)" @change="onChange($event)" :virtualScrollerOptions="{ itemSize: 44 }" filter placeholder="Select Item" class="w-full md:w-80" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <MultiSelect v-model="selectedItems" :options="items" :maxSelectedLabels="3" :selectAll="selectAll" optionLabel="label" optionValue="value"
+            @selectall-change="onSelectAllChange($event)" @change="onChange($event)" :virtualScrollerOptions="{ itemSize: 44 }" filter placeholder="Select Item" class="w-full md:w-80" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+
+const selectedItems = ref();
+const selectAll = ref(false);
+const items = ref(Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+
+const onSelectAllChange = (event) => {
+    selectedItems.value = event.checked ? items.value.map((item) => item.value) : [];
+    selectAll.value = event.checked;
+};
+const onChange = (event) => {
+    selectAll.value = event.value.length === items.value.length;
+}
+
+<\/script>
+```
+</details>
 
 ## Multi Select
 
@@ -13221,6 +24632,15 @@ OrderList is used to sort a collection.
 
 Screen Reader Value to describe the listbox can be provided with listProps by passing aria-labelledby or aria-label props. The list element has a listbox role with the aria-multiselectable attribute. Each list item has an option role with aria-selected and aria-disabled as their attributes. Controls buttons are button elements with an aria-label that refers to the aria.moveTop , aria.moveUp , aria.moveDown and aria.moveBottom properties of the locale API by default, alternatively you may use moveTopButtonProps , moveUpButtonProps , moveDownButtonProps and moveBottomButtonProps to customize the buttons like overriding the default aria-label attributes. ListBox Keyboard Support Key Function tab Moves focus to the first selected option, if there is none then first option receives the focus. up arrow Moves focus to the previous option. down arrow Moves focus to the next option. enter Toggles the selected state of the focused option. space Toggles the selected state of the focused option. home Moves focus to the first option. end Moves focus to the last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the first one. control + a Selects all options. Buttons Keyboard Support Key Function enter Executes button action. space Executes button action.
 
+**Basic Usage:**
+
+```vue
+<span id="lb">Options</span>
+<OrderList aria-labelledby="lb" />
+
+<OrderList aria-label="City" />
+```
+
 ## Basic
 
 OrderList requires an array as its value bound with the v-model directive and option template for its content.
@@ -13233,6 +24653,33 @@ OrderList requires an array as its value bound with the v-model directive and op
         {{ option.name }}
     </template>
 </OrderList>
+```
+
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import OrderList from 'primevue/orderlist';
 ```
 
 ## Template
@@ -13289,6 +24736,25 @@ onMounted(() => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: 'bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
 
 ## Order List
 
@@ -13397,6 +24863,96 @@ Styling a specific node is configured with styleClass and style options of a Tre
 </OrganizationChart>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card overflow-x-auto">
+        <OrganizationChart :value="data" collapsible>
+            <template #person="slotProps">
+                <div class="flex flex-col">
+                    <div class="flex flex-col items-center">
+                        <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-4 w-12 h-12" />
+                        <span class="font-bold mb-2">{{ slotProps.node.data.name }}</span>
+                        <span>{{ slotProps.node.data.title }}</span>
+                    </div>
+                </div>
+            </template>
+            <template #default="slotProps">
+                <span>{{ slotProps.node.label }}</span>
+            </template>
+        </OrganizationChart>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const data = ref({
+    key: '0',
+    type: 'person',
+    styleClass: '!bg-indigo-100 text-white rounded-xl',
+    data: {
+        image: 'https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png',
+        name: 'Amy Elsner',
+        title: 'CEO'
+    },
+    children: [
+        {
+            key: '0_0',
+            type: 'person',
+            styleClass: '!bg-purple-100 text-white rounded-xl',
+            data: {
+                image: 'https://primefaces.org/cdn/primevue/images/avatar/annafali.png',
+                name: 'Anna Fali',
+                title: 'CMO'
+            },
+            children: [
+                {
+                    label: 'Sales',
+                    styleClass: '!bg-purple-100 text-white rounded-xl'
+                },
+                {
+                    label: 'Marketing',
+                    styleClass: '!bg-purple-100 text-white rounded-xl'
+                }
+            ]
+        },
+        {
+            key: '0_1',
+            type: 'person',
+            styleClass: '!bg-teal-100 text-white rounded-xl',
+            data: {
+                image: 'https://primefaces.org/cdn/primevue/images/avatar/stephenshaw.png',
+                name: 'Stephen Shaw',
+                title: 'CTO'
+            },
+            children: [
+                {
+                    label: 'Development',
+                    styleClass: '!bg-teal-100 text-white rounded-xl'
+                },
+                {
+                    label: 'UI/UX Design',
+                    styleClass: '!bg-teal-100 text-white rounded-xl'
+                }
+            ]
+        }
+    ]
+});
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import OrganizationChart from 'primevue/organizationchart';
+```
+
 ## Selection
 
 Selection is enabled by defining the selectionMode to either "single" or "multiple" and specifying the selectionKeys with the v-model directive. Note that selection on a particular node can be disabled if the selectable is false on the node instance.
@@ -13420,6 +24976,84 @@ Selection is enabled by defining the selectionMode to either "single" or "multip
 </OrganizationChart>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="multiple">
+        <template #person="slotProps">
+            <div class="flex flex-col">
+                <div class="flex flex-col items-center">
+                    <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-4 w-12 h-12" />
+                    <span class="font-bold mb-2">{{ slotProps.node.data.name }}</span>
+                    <span>{{ slotProps.node.data.title }}</span>
+                </div>
+            </div>
+        </template>
+        <template #default="slotProps">
+            <span>{{ slotProps.node.label }}</span>
+        </template>
+    </OrganizationChart>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const data = ref({
+    key: '0',
+    type: 'person',
+    data: {
+        image: 'https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png',
+        name: 'Amy Elsner',
+        title: 'CEO'
+    },
+    children: [
+        {
+            key: '0_0',
+            type: 'person',
+            data: {
+                image: 'https://primefaces.org/cdn/primevue/images/avatar/annafali.png',
+                name: 'Anna Fali',
+                title: 'CMO'
+            },
+            children: [
+                {
+                    key: '0_0_0',
+                    label: 'Sales'
+                },
+                {
+                    key: '0_0_"1',
+                    label: 'Marketing'
+                }
+            ]
+        },
+        {
+            key: '0_1',
+            type: 'person',
+            data: {
+                image: 'https://primefaces.org/cdn/primevue/images/avatar/stephenshaw.png',
+                name: 'Stephen Shaw',
+                title: 'CTO'
+            },
+            children: [
+                {
+                    key: '0_1_0',
+                    label: 'Development'
+                },
+                {
+                    key: '0_1_1',
+                    label: 'UI/UX Design'
+                }
+            ]
+        }
+    ]
+});
+const selection = ref({});
+<\/script>
+```
+</details>
+
 ## Template
 
 The type property of an OrganizationChartNode is used to map a template to a node. If it is undefined, the default template is used.
@@ -13439,6 +25073,82 @@ The type property of an OrganizationChartNode is used to map a template to a nod
     </template>
 </OrganizationChart>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card overflow-x-auto">
+        <OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="single">
+            <template #country="slotProps">
+                <div class="flex flex-col items-center">
+                    <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`w-2rem flag flag-\${slotProps.node.data}\`" />
+                    <div class="mt-4 font-medium text-lg">{{ slotProps.node.label }}</div>
+                </div>
+            </template>
+            <template #default="slotProps">
+                <span>{{slotProps.node.data.label}}</span>
+            </template>
+        </OrganizationChart>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selection = ref({});
+const data = ref({
+    key: '0',
+    type: 'country',
+    label: 'Argentina',
+    data: 'ar',
+    children: [
+        {
+            key: '0_0',
+            type: 'country',
+            label: 'Argentina',
+            data: 'ar',
+            children: [
+                {
+                    key: '0_0_0',
+                    type: 'country',
+                    label: 'Argentina',
+                    data: 'ar'
+                },
+                {
+                    key: '0_0_1',
+                    type: 'country',
+                    label: 'Croatia',
+                    data: 'hr'
+                }
+            ]
+        },
+        {
+            key: '0_1',
+            type: 'country',
+            label: 'France',
+            data: 'fr',
+            children: [
+                {
+                    key: '0_1_0',
+                    type: 'country',
+                    label: 'France',
+                    data: 'fr'
+                },
+                {
+                    key: '0_1_1',
+                    type: 'country',
+                    label: 'Morocco',
+                    data: 'ma'
+                }
+            ]
+        }
+    ]
+});
+<\/script>
+```
+</details>
 
 ## Organization Chart
 
@@ -13563,6 +25273,25 @@ Current page report item in the template displays information about the paginati
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Paginator :rows="10" :totalRecords="120" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const first = ref(0);
+<\/script>
+```
+</details>
+
 ## Custom Content
 
 There are two templates available named start and end to add custom content to these locations. Both templates get a state object as a slot property to provide the current page, first index and the rows.
@@ -13581,6 +25310,30 @@ There are two templates available named start and end to add custom content to t
     </template>
 </Paginator>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Paginator :rows="10" :totalRecords="120" :rowsPerPageOptions="[10, 20, 30]">
+            <template #start="slotProps">
+                Page: {{ slotProps.state.page }}
+                First: {{ slotProps.state.first }}
+                Rows: {{ slotProps.state.rows }}
+            </template>
+            <template #end>
+                <Button type="button" icon="pi pi-search" />
+            </template>
+        </Paginator>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Headless
 
@@ -13603,6 +25356,40 @@ Headless mode is enabled by defining a container slot that lets you implement en
 </Paginator>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Paginator :rows="10" :totalRecords="120">
+            <template #container="{ first, last, page, pageCount, prevPageCallback, nextPageCallback, totalRecords }">
+                <div class="flex items-center gap-4 border border-primary bg-transparent rounded-full w-full py-1 px-2 justify-between">
+                    <Button icon="pi pi-chevron-left" rounded variant="text" @click="prevPageCallback" :disabled="page === 0" />
+                    <div class="text-color font-medium">
+                        <span class="hidden sm:block">Showing {{ first }} to {{ last }} of {{ totalRecords }}</span>
+                        <span class="block sm:hidden">Page {{ page + 1 }} of {{ pageCount }}</span>
+                    </div>
+                    <Button icon="pi pi-chevron-right" rounded variant="text" @click="nextPageCallback" :disabled="page === pageCount - 1" />
+                </div>
+            </template>
+        </Paginator>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Paginator from 'primevue/paginator';
+```
+
 ## Responsive
 
 Paginator elements can be customized per screen size by defining a template per breakpoint. Note that breakpoints are based on max-width setting, if default key is omitted then the default template would be used. Example below has 4 settings; up to 640px, between 641px-960px, between 961px-1300px and larger than 1301px which is the default.
@@ -13622,6 +25409,30 @@ Paginator elements can be customized per screen size by defining a template per 
 </Paginator>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Paginator
+            :template="{
+                '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+                '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
+                '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+                default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink JumpToPageDropdown JumpToPageInput'
+            }"
+            :rows="10"
+            :totalRecords="120">
+        </Paginator>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Template
 
 Paginator elements can be customized using the template property using the predefined keys, default value is "FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown". Here are the available elements that can be placed inside a paginator in any order. FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown JumpToPageDropdown JumpToPageInput CurrentPageReport
@@ -13635,6 +25446,28 @@ Paginator elements can be customized using the template property using the prede
     <img :src="\`https://primefaces.org/cdn/primevue/images/nature/nature\${first + 1}.jpg\`" :alt="first" class="rounded w-full sm:w-[30rem]" />
 </div>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Paginator v-model:first="first" :rows="1" :totalRecords="12" template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink" />
+
+        <div class="p-4 text-center">
+            <img :src="\`https://primefaces.org/cdn/primevue/images/nature/nature\${first + 1}.jpg\`" :alt="first" class="rounded w-full sm:w-[30rem]" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const first = ref(0);
+<\/script>
+```
+</details>
 
 ## Paginator
 
@@ -13755,6 +25588,14 @@ A simple Panel is created with a header property along with the content as child
 </Panel>
 ```
 
+## Import
+
+**Basic Usage:**
+
+```vue
+import Panel from 'primevue/panel';
+```
+
 ## Template
 
 Header, icons and footer sections of the panel are customizable via templating.
@@ -13789,6 +25630,80 @@ Header, icons and footer sections of the panel are customizable via templating.
 </Panel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Toast />
+        <Panel toggleable>
+            <template #header>
+                <div class="flex items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold">Amy Elsner</span>
+                </div>
+            </template>
+            <template #footer>
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-2">
+                        <Button icon="pi pi-user" rounded text></Button>
+                        <Button icon="pi pi-bookmark" severity="secondary" rounded text></Button>
+                    </div>
+                    <span class="text-surface-500 dark:text-surface-400">Updated 2 hours ago</span>
+                </div>
+            </template>
+            <template #icons>
+                <Button icon="pi pi-cog" severity="secondary" rounded text @click="toggle" />
+                <Menu ref="menu" id="config_menu" :model="items" popup />
+            </template>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </Panel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { useToast } from "primevue/usetoast";
+import { useRouter } from 'vue-router';
+import Menu from 'primevue/menu';
+
+const menu = ref(null);
+const toast = useToast();
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Refresh',
+        icon: 'pi pi-refresh'
+    },
+    {
+        label: 'Search',
+        icon: 'pi pi-search'
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Delete',
+        icon: 'pi pi-times'
+    }
+]);
+
+const toggle = (event) => {
+    menu.value.toggle(event);
+};
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## Toggleable
 
 Content of the panel can be expanded and collapsed using toggleable option.
@@ -13803,6 +25718,26 @@ Content of the panel can be expanded and collapsed using toggleable option.
     </p>
 </Panel>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Panel header="Header" toggleable>
+            <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </Panel>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Panel
 
@@ -13831,6 +25766,7 @@ Content of the panel can be expanded and collapsed using toggleable option.
 | headerActions | PanelPassThroughOptionType | Used to pass attributes to the header actions' DOM element. |
 | pcToggleButton | any | Used to pass attributes to the toggle button button's DOM element. |
 | contentContainer | PanelPassThroughOptionType | Used to pass attributes to the content container's DOM element. |
+| contentWrapper | PanelPassThroughOptionType | Used to pass attributes to the content wrapper DOM element. |
 | content | PanelPassThroughOptionType | Used to pass attributes to the content's DOM element. |
 | footer | PanelPassThroughOptionType | Used to pass attributes to the footer's DOM element. |
 | transition | PanelPassThroughTransitionType | Used to control Vue Transition API. |
@@ -13901,6 +25837,83 @@ The command property defines the callback to run when an item is activated by cl
 <Toast />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <PanelMenu :model="items" class="w-full md:w-80" />
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { useToast } from "primevue/usetoast";
+
+const toast = useToast();
+
+const items = ref([
+    {
+        label: 'Files',
+        icon: 'pi pi-file',
+        items: [
+            {
+                label: 'New',
+                icon: 'pi pi-plus',
+                command: () => {
+                    toast.add({ severity: 'success', summary: 'Success', detail: 'File created', life: 3000 });
+                }
+            },
+            {
+                label: 'Search',
+                icon: 'pi pi-search',
+                command: () => {
+                    toast.add({ severity: 'warn', summary: 'Search Results', detail: 'No results found', life: 3000 });
+                }
+            },
+            {
+                label: 'Print',
+                icon: 'pi pi-print',
+                command: () => {
+                    toast.add({ severity: 'error', summary: 'Error', detail: 'No printer connected', life: 3000 });
+                }
+            }
+        ]
+    },
+    {
+        label: 'Sync',
+        icon: 'pi pi-cloud',
+        items: [
+            {
+                label: 'Import',
+                icon: 'pi pi-cloud-download',
+                command: () => {
+                    toast.add({ severity: 'info', summary: 'Downloads', detail: 'Downloaded from cloud', life: 3000 });
+                }
+            },
+            {
+                label: 'Export',
+                icon: 'pi pi-cloud-upload',
+                command: () => {
+                    toast.add({ severity: 'info', summary: 'Shared', detail: 'Exported to cloud', life: 3000 });
+                }
+            }
+        ]
+    },
+    {
+        label: 'Sign Out',
+        icon: 'pi pi-sign-out',
+        command: () => {
+            toast.add({ severity: 'info', summary: 'Signed out', detail: 'User logged out', life: 3000 });
+        }
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Controlled
 
 If the menuitem has a key defined, PanelMenu state can be controlled programmatically with the expandedKeys property that defines the keys that are expanded. This property is a Map instance whose key is the key of a node and value is a boolean.
@@ -13912,6 +25925,125 @@ If the menuitem has a key defined, PanelMenu state can be controlled programmati
 <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <Button type="button" label="Toggle All" text @click="toggleAll" />
+        <PanelMenu v-model:expandedKeys="expandedKeys" :model="items" class="w-full md:w-80" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const expandedKeys = ref({});
+const items = ref([
+    {
+        key: '0',
+        label: 'Users',
+        icon: 'pi pi-users',
+        items: [
+            {
+                key: '0_1',
+                label: 'New',
+                items: [
+                    {
+                        key: '0_1_0',
+                        label: 'Member'
+                    },
+                    {
+                        key: '0_1_1',
+                        label: 'Group'
+                    }
+                ]
+            },
+            {
+                key: '0_2',
+                label: 'Search'
+            }
+        ]
+    },
+    {
+        key: '1',
+        label: 'Tasks',
+        icon: 'pi pi-server',
+        items: [
+            {
+                key: '1_0',
+                label: 'Add New'
+            },
+            {
+                key: '1_1',
+                label: 'Pending'
+            },
+            {
+                key: '1_2',
+                label: 'Overdue'
+            }
+        ]
+    },
+    {
+        key: '2',
+        label: 'Calendar',
+        icon: 'pi pi-calendar',
+        items: [
+            {
+                key: '2_0',
+                label: 'New Event'
+            },
+            {
+                key: '2_1',
+                label: 'Today'
+            },
+            {
+                key: '2_2',
+                label: 'This Week'
+            }
+        ]
+    }
+]);
+
+const toggleAll = () => {
+    if (Object.keys(expandedKeys.value).length) collapseAll();
+    else expandAll();
+}
+
+const expandAll = () => {
+    for (let node of items.value) {
+        expandNode(node);
+    }
+
+    expandedKeys.value = {...expandedKeys.value};
+};
+
+const collapseAll = () => {
+    expandedKeys.value = {};
+};
+
+const expandNode = (node) => {
+    if (node.items && node.items.length) {
+        expandedKeys.value[node.key] = true;
+
+        for (let child of node.items) {
+            expandNode(child);
+        }
+    }
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import PanelMenu from 'primevue/panelmenu';
+```
+
 ## Multiple
 
 Only one root menuitem at a time can be active by default, enabling multiple property changes this behavior to allow multiple root menuitems.
@@ -13921,6 +26053,101 @@ Only one root menuitem at a time can be active by default, enabling multiple pro
 ```vue
 <PanelMenu :model="items" multiple />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <PanelMenu :model="items" multiple class="w-full md:w-80" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref([
+    {
+        label: 'Files',
+        icon: 'pi pi-file',
+        items: [
+            {
+                label: 'Documents',
+                icon: 'pi pi-file',
+                items: [
+                    {
+                        label: 'Invoices',
+                        icon: 'pi pi-file-pdf',
+                        items: [
+                            {
+                                label: 'Pending',
+                                icon: 'pi pi-stop'
+                            },
+                            {
+                                label: 'Paid',
+                                icon: 'pi pi-check-circle'
+                            }
+                        ]
+                    },
+                    {
+                        label: 'Clients',
+                        icon: 'pi pi-users'
+                    }
+                ]
+            },
+            {
+                label: 'Images',
+                icon: 'pi pi-image',
+                items: [
+                    {
+                        label: 'Logos',
+                        icon: 'pi pi-image'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        label: 'Cloud',
+        icon: 'pi pi-cloud',
+        items: [
+            {
+                label: 'Upload',
+                icon: 'pi pi-cloud-upload'
+            },
+            {
+                label: 'Download',
+                icon: 'pi pi-cloud-download'
+            },
+            {
+                label: 'Sync',
+                icon: 'pi pi-refresh'
+            }
+        ]
+    },
+    {
+        label: 'Devices',
+        icon: 'pi pi-desktop',
+        items: [
+            {
+                label: 'Phone',
+                icon: 'pi pi-mobile'
+            },
+            {
+                label: 'Desktop',
+                icon: 'pi pi-desktop'
+            },
+            {
+                label: 'Tablet',
+                icon: 'pi pi-tablet'
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ## Router
 
@@ -13946,6 +26173,81 @@ Items with navigation are defined with templating to be able to use a router lin
 </PanelMenu>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <PanelMenu :model="items" class="w-full md:w-80">
+            <template #item="{ item }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a v-ripple class="flex items-center cursor-pointer text-surface-700 dark:text-surface-0 px-4 py-2" :href="href" @click="navigate">
+                        <span :class="item.icon" />
+                        <span class="ml-2">{{ item.label }}</span>
+                    </a>
+                </router-link>
+                <a v-else v-ripple class="flex items-center cursor-pointer text-surface-700 dark:text-surface-0 px-4 py-2" :href="item.url" :target="item.target">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
+                    <span v-if="item.items" class="pi pi-angle-down text-primary ml-auto" />
+                </a>
+            </template>
+        </PanelMenu>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Router',
+        icon: 'pi pi-palette',
+        items: [
+            {
+                label: 'Styled',
+                icon: 'pi pi-eraser',
+                route: '/theming/styled'
+            },
+            {
+                label: 'Unstyled',
+                icon: 'pi pi-heart',
+                route: '/theming/unstyled'
+            }
+        ]
+    },
+    {
+        label: 'Programmatic',
+        icon: 'pi pi-link',
+        command: () => {
+            router.push('/introduction');
+        }
+    },
+    {
+        label: 'External',
+        icon: 'pi pi-home',
+        items: [
+            {
+                label: 'Vue.js',
+                icon: 'pi pi-star',
+                url: 'https://vuejs.org/'
+            },
+            {
+                label: 'Vite.js',
+                icon: 'pi pi-bookmark',
+                url: 'https://vuejs.org/'
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Template
 
 PanelMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
@@ -13965,6 +26267,95 @@ PanelMenu offers item customization with the item template that receives the men
 </PanelMenu>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <PanelMenu :model="items" class="w-full md:w-80">
+            <template #item="{ item }">
+                <a v-ripple class="flex items-center px-4 py-2 cursor-pointer group">
+                    <span :class="[item.icon, 'text-primary group-hover:text-inherit']" />
+                    <span :class="['ml-2', { 'font-semibold': item.items }]">{{ item.label }}</span>
+                    <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+                    <span v-if="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+                </a>
+            </template>
+        </PanelMenu>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref([
+    {
+        label: 'Mail',
+        icon: 'pi pi-envelope',
+        badge: 5,
+        items: [
+            {
+                label: 'Compose',
+                icon: 'pi pi-file-edit',
+                shortcut: '⌘+N'
+            },
+            {
+                label: 'Inbox',
+                icon: 'pi pi-inbox',
+                badge: 5
+            },
+            {
+                label: 'Sent',
+                icon: 'pi pi-send',
+                shortcut: '⌘+S'
+            },
+            {
+                label: 'Trash',
+                icon: 'pi pi-trash',
+                shortcut: '⌘+T'
+            }
+        ]
+    },
+    {
+        label: 'Reports',
+        icon: 'pi pi-chart-bar',
+        shortcut: '⌘+R',
+        items: [
+            {
+                label: 'Sales',
+                icon: 'pi pi-chart-line',
+                badge: 3
+            },
+            {
+                label: 'Products',
+                icon: 'pi pi-list',
+                badge: 6
+            }
+        ]
+    },
+    {
+        label: 'Profile',
+        icon: 'pi pi-user',
+        shortcut: '⌘+W',
+        items: [
+            {
+                label: 'Settings',
+                icon: 'pi pi-cog',
+                shortcut: '⌘+O'
+            },
+            {
+                label: 'Privacy',
+                icon: 'pi pi-shield',
+                shortcut: '⌘+P'
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ---
 
 # Vue Password Component
@@ -13974,6 +26365,18 @@ Password displays strength indicator for password fields.
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Screen reader is notified about the changes to the strength of the password using a section that has aria-live while typing. Keyboard Support Key Function tab Moves focus to the input. escape Hides the strength meter if open.
+
+**Basic Usage:**
+
+```vue
+<label for="pwd1">Password</label>
+<Password inputId="pwd1" />
+
+<span id="pwd2">Password</span>
+<Password aria-labelledby="pwd2" />
+
+<Password aria-label="Password"/>
+```
 
 ## Basic
 
@@ -13995,6 +26398,24 @@ When showClear is enabled, a clear icon is added to reset the Password.
 <Password v-model="value" :feedback="false" showClear inputClass="w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password v-model="value" :feedback="false" showClear inputClass="w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -14005,6 +26426,21 @@ When disabled is present, the element cannot be edited and focused.
 <Password disabled placeholder="Disabled" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password disabled placeholder="Disabled" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -14014,6 +26450,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <Password v-model="value" :feedback="false" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password v-model="value" :feedback="false" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -14038,6 +26492,39 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+   <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <Password v-model="value1" inputId="over_label" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <Password v-model="value2" inputId="in_label" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <Password v-model="value3" inputId="on_label" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -14047,6 +26534,24 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <Password v-model="value" :feedback="false" fluid />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Password v-model="value" :feedback="false" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -14066,6 +26571,61 @@ InputText is used with the v-model property.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-64">
+            <div class="flex flex-col gap-1">
+                <Password name="password" placeholder="Password" :feedback="false" fluid />
+                <template v-if="$form.password?.invalid">
+                    <Message v-for="(error, index) of $form.password.errors" :key="index" severity="error" size="small" variant="simple">{{ error.message }}</Message>
+                </template>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    password: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        password: z
+            .string()
+            .min(3, { message: 'Minimum 3 characters.' })
+            .max(8, { message: 'Maximum 8 characters.' })
+            .refine((value) => /[a-z]/.test(value), {
+                message: 'Must have a lowercase letter.'
+            })
+            .refine((value) => /[A-Z]/.test(value), {
+                message: 'Must have an uppercase letter.'
+            })
+            .refine((value) => /\d/.test(value), {
+                message: 'Must have a number.'
+            })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -14079,6 +26639,35 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <Password v-model="value" inputId="password" variant="filled" />
+            <label for="password">Password</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Password from 'primevue/password';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -14090,6 +26679,26 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <Password v-model="value2" :invalid="!value2" variant="filled" placeholder="Password" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <Password v-model="value1" :invalid="!value1" placeholder="Password" />
+        <Password v-model="value2" :invalid="!value2" variant="filled" placeholder="Password" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+<\/script>
+```
+</details>
+
 ## Locale
 
 Labels are translated at component level by promptLabel , weakLabel , mediumLabel and strongLabel properties. In order to apply global translations for all Password components in the application, refer to the locale .
@@ -14100,6 +26709,24 @@ Labels are translated at component level by promptLabel , weakLabel , mediumLabe
 <Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password v-model="value" promptLabel="Choose a password" weakLabel="Too simple" mediumLabel="Average complexity" strongLabel="Complex password" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Meter
 
 Strength meter is displayed as a popup while a value is being entered.
@@ -14109,6 +26736,24 @@ Strength meter is displayed as a popup while a value is being entered.
 ```vue
 <Password v-model="value" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password v-model="value" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -14123,6 +26768,28 @@ Password provides small and large sizes as alternatives to the base.
     <Password v-model="value3" size="large" placeholder="Large" />
 </div>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <Password v-model="value1" size="small" placeholder="Small" />
+        <Password v-model="value2" placeholder="Normal" />
+        <Password v-model="value3" size="large" placeholder="Large" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -14147,6 +26814,37 @@ Password provides small and large sizes as alternatives to the base.
 </Password>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password v-model="value">
+            <template #header>
+                <div class="font-semibold text-xm mb-4">Reset Password</div>
+            </template>
+            <template #footer>
+                <Divider />
+                <ul class="pl-2 my-0 leading-normal text-sm">
+                    <li>At least one lowercase</li>
+                    <li>At least one uppercase</li>
+                    <li>At least one numeric</li>
+                    <li>Minimum 8 characters</li>
+                </ul>
+            </template>
+        </Password>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## ToggleMask
 
 When toggleMask is present, an icon is displayed to show the value as plain text.
@@ -14156,6 +26854,24 @@ When toggleMask is present, an icon is displayed to show the value as plain text
 ```vue
 <Password v-model="value" toggleMask />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Password v-model="value" toggleMask />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Password
 
@@ -14219,6 +26935,8 @@ When toggleMask is present, an icon is displayed to show the value as plain text
 | contextmenu | string | - |  |
 | dir | string | - |  |
 | draggable | Booleanish | - |  |
+| enterkeyhint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
+| enterKeyHint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
 | hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
 | id | string | - |  |
 | inert | Booleanish | - |  |
@@ -14249,15 +26967,16 @@ When toggleMask is present, an icon is displayed to show the value as plain text
 | results | Numberish | - |  |
 | security | string | - |  |
 | unselectable | "on" \| "off" | - |  |
-| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| inputmode | "text" \| "search" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
 | is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| exportparts | string | - |  |
+| part | string | - |  |
 | accept | string | - |  |
 | alt | string | - |  |
 | autocomplete | string | - |  |
 | capture | boolean \| "user" \| "environment" | - |  |
 | checked | any[] \| Set<any> \| Booleanish | - |  |
 | crossorigin | string | - |  |
-| enterKeyHint | "search" \| "enter" \| "done" \| "go" \| "next" \| "previous" \| "send" | - |  |
 | form | string | - |  |
 | formaction | string | - |  |
 | formenctype | string | - |  |
@@ -14480,6 +27199,15 @@ PickList is used to reorder items between different lists.
 
 Screen Reader Value to describe the source listbox and target listbox can be provided with sourceListProps and targetListProps by passing aria-labelledby or aria-label props. The list elements has a listbox role with the aria-multiselectable attribute. Each list item has an option role with aria-selected as their attributes. Controls buttons are button elements with an aria-label that refers to the aria.moveTop , aria.moveUp , aria.moveDown , aria.moveBottom , aria.moveToTarget , aria.moveAllToTarget , aria.moveToSource and aria.moveAllToSource properties of the locale API by default, alternatively you may use moveTopButtonProps , moveUpButtonProps , moveDownButtonProps , moveToButtonProps , moveAllToButtonProps , moveFromButtonProps , moveFromButtonProps moveAllFromButtonProps moveToTargetProps , moveAllToTargetProps , moveToSourceProps and moveAllToSourceProps to customize the buttons like overriding the default aria-label attributes. ListBox Keyboard Support Key Function tab Moves focus to the first selected option, if there is none then first option receives the focus. up arrow Moves focus to the previous option. down arrow Moves focus to the next option. enter Toggles the selected state of the focused option. space Toggles the selected state of the focused option. home Moves focus to the first option. end Moves focus to the last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the first one. control + a Selects all options. Buttons Keyboard Support Key Function enter Executes button action. space Executes button action.
 
+**Basic Usage:**
+
+```vue
+<span id="lb">Options</span>
+<PickList aria-labelledby="lb" />
+
+<PickList aria-label="City" />
+```
+
 ## Basic
 
 PickList requires a multidimensional array as its value bound with the v-model directive and a template for its content that gets the option instance and the index via slotProps.
@@ -14492,6 +27220,33 @@ PickList requires a multidimensional array as its value bound with the v-model d
         {{ option.name }}
     </template>
 </PickList>
+```
+
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: '/bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import PickList from 'primevue/picklist';
 ```
 
 ## Template
@@ -14548,6 +27303,25 @@ onMounted(() => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: '/bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
 
 ## Pick List
 
@@ -14848,6 +27622,33 @@ const getSeverity = (product) => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+/* ProductService */
+{
+    id: '1000',
+    code: 'f230fh0g3',
+    name: 'Bamboo Watch',
+    description: 'Product Description',
+    image: '/bamboo-watch.jpg',
+    price: 65,
+    category: 'Accessories',
+    quantity: 24,
+    inventoryStatus: 'INSTOCK',
+    rating: 5
+},
+...
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Popover from 'primevue/popover';
+```
+
 ## Select Data
 
 In this sample, data is retrieved from the content inside the popover.
@@ -14874,6 +27675,56 @@ In this sample, data is retrieved from the content inside the popover.
     </div>
 </Popover>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button type="button" :label="selectedMember ? selectedMember.name : 'Select Member'" @click="toggle" class="min-w-48" />
+
+        <Popover ref="op">
+            <div class="flex flex-col gap-4">
+                <div>
+                    <span class="font-medium block mb-2">Team Members</span>
+                    <ul class="list-none p-0 m-0 flex flex-col">
+                        <li v-for="member in members" :key="member.name" class="flex items-center gap-2 px-2 py-3 hover:bg-emphasis cursor-pointer rounded-border" @click="selectMember(member)">
+                            <img :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${member.image}\`" style="width: 32px" />
+                            <div>
+                                <span class="font-medium">{{ member.name }}</span>
+                                <div class="text-sm text-surface-500 dark:text-surface-400">{{ member.email }}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </Popover>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const op = ref();
+const selectedMember = ref(null);
+const members = ref([
+    { name: 'Amy Elsner', image: 'amyelsner.png', email: 'amy@email.com', role: 'Owner' },
+    { name: 'Bernardo Dominic', image: 'bernardodominic.png', email: 'bernardo@email.com', role: 'Editor' },
+    { name: 'Ioni Bowcher', image: 'ionibowcher.png', email: 'ioni@email.com', role: 'Viewer' }
+]);
+
+const toggle = (event) => {
+    op.value.toggle(event);
+}
+
+const selectMember = (member) => {
+    selectedMember.value = member;
+    op.value.hide();
+}
+<\/script>
+```
+</details>
 
 ## Popover
 
@@ -14933,6 +27784,15 @@ ProgressBar is a process status indicator.
 
 Screen Reader ProgressBar components uses progressbar role along with aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Not applicable.
 
+**Basic Usage:**
+
+```vue
+<span id="label_status" />
+<ProgressBar aria-labelledby="label_status" />
+
+<ProgressBar aria-label="Status" />
+```
+
 ## Basic
 
 ProgressBar is used with the value property.
@@ -14953,6 +27813,58 @@ Value is reactive so updating it dynamically changes the bar as well.
 <ProgressBar :value="value"></ProgressBar>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Toast></Toast>
+        <ProgressBar :value="value1" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useToast } from "primevue/usetoast";
+
+onMounted(() => {
+    startProgress();
+});
+
+onBeforeUnmount(() => {
+    endProgress();
+});
+
+const toast = useToast();
+const value1 = ref(0);
+const interval = ref();
+const startProgress = () => {
+    interval.value = setInterval(() => {
+        let newValue = value1.value + Math.floor(Math.random() * 10) + 1;
+        if (newValue >= 100) {
+            newValue = 100;
+            toast.add({ severity: 'info', summary: 'Success', detail: 'Process Completed', life: 1000 });
+        }
+        value1.value = newValue;
+    }, 2000);
+};
+const endProgress = () => {
+    clearInterval(interval.value);
+    interval.value = null;
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ProgressBar from 'primevue/progressbar';
+```
+
 ## Indeterminate
 
 For progresses with no value to track, set the mode property to indeterminate .
@@ -14963,6 +27875,22 @@ For progresses with no value to track, set the mode property to indeterminate .
 <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
 ## Template
 
 Custom content inside the ProgressBar is defined with the default slot.
@@ -14972,6 +27900,24 @@ Custom content inside the ProgressBar is defined with the default slot.
 ```vue
 <ProgressBar :value="40"> {{ value }}/100 </ProgressBar>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <ProgressBar :value="40"> {{ value }}/100 </ProgressBar>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(40);
+<\/script>
+```
+</details>
 
 ## Progress Bar
 
@@ -15028,6 +27974,12 @@ ProgressSpinner is a process status indicator.
 
 Screen Reader ProgressSpinner components uses progressbar role. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Component does not include any interactive elements.
 
+**Basic Usage:**
+
+```vue
+<ProgressSpinner aria-label="Loading" />
+```
+
 ## Basic
 
 An infinite spin animation is displayed by default.
@@ -15047,6 +27999,30 @@ ProgressSpinner can be customized with styling property like style , strokeWidth
 ```vue
 <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="8" fill="transparent"
     animationDuration=".5s" aria-label="Custom ProgressSpinner" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ProgressSpinner style="width: 50px; height: 50px" strokeWidth="8" fill="transparent"
+            animationDuration=".5s" aria-label="Custom ProgressSpinner" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ProgressSpinner from 'primevue/progressspinner';
 ```
 
 ## Progress Spinner
@@ -15101,6 +28077,18 @@ RadioButton is an extension to standard radio button element with theming.
 
 Screen Reader RadioButton component uses a hidden native radio button element internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the checked radio button, if there is none within the group then first radio button receives the focus. left arrow up arrow Moves focus to the previous radio button, if there is none then last radio button receives the focus. right arrow down arrow Moves focus to the next radio button, if there is none then first radio button receives the focus. space If the focused radio button is unchecked, changes the state to checked.
 
+**Basic Usage:**
+
+```vue
+<label for="rb1">One</label>
+<RadioButton inputId="rb1" />
+
+<span id="rb2">Two</span>
+<RadioButton aria-labelledby="rb2" />
+
+<RadioButton aria-label="Three" />
+```
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -15111,6 +28099,25 @@ When disabled is present, the element cannot be edited and focused.
 <RadioButton v-model="value" :value="1" disabled />
 <RadioButton v-model="value" :value="2" disabled />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center gap-2">
+        <RadioButton v-model="value" :value="1" disabled />
+        <RadioButton v-model="value" :value="2" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(2);
+<\/script>
+```
+</details>
 
 ## Dynamic
 
@@ -15125,6 +28132,35 @@ RadioButtons can be generated using a list of values.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="flex flex-col gap-4">
+            <div v-for="category in categories" :key="category.key" class="flex items-center gap-2">
+                <RadioButton v-model="selectedCategory" :inputId="category.key" name="dynamic" :value="category.name" />
+                <label :for="category.key">{{ category.name }}</label>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const selectedCategory = ref('Production');
+const categories = ref([
+    { name: 'Accounting', key: 'A' },
+    { name: 'Marketing', key: 'M' },
+    { name: 'Production', key: 'P' },
+    { name: 'Research', key: 'R' }
+]);
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -15134,6 +28170,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <RadioButton v-model="value" value="1" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <RadioButton v-model="value" value="1" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -15168,6 +28222,64 @@ RadioButton integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+                <RadioButtonGroup name="ingredient" class="flex flex-wrap gap-4">
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="cheese" value="Cheese" />
+                        <label for="cheese">Cheese</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="mushroom" value="Mushroom" />
+                        <label for="mushroom">Mushroom</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="pepper" value="Pepper" />
+                        <label for="pepper">Pepper</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <RadioButton inputId="onion" value="Onion" />
+                        <label for="onion">Onion</label>
+                    </div>
+                </RadioButtonGroup>
+                <Message v-if="$form.ingredient?.invalid" severity="error" size="small" variant="simple">{{ $form.ingredient.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    ingredient: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        ingredient: z.string().min(1, { message: 'Ingredient is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Group
 
 RadioButton is used with the v-model property for two-way value binding.
@@ -15195,6 +28307,50 @@ RadioButton is used with the v-model property for two-way value binding.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="ingredient" inputId="ingredient1" name="pizza" value="Cheese" />
+                <label for="ingredient1">Cheese</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="ingredient" inputId="ingredient2" name="pizza" value="Mushroom" />
+                <label for="ingredient2">Mushroom</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="ingredient" inputId="ingredient3" name="pizza" value="Pepper" />
+                <label for="ingredient3">Pepper</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="ingredient" inputId="ingredient4" name="pizza" value="Onion" />
+                <label for="ingredient4">Onion</label>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const ingredient = ref('');
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import RadioButton from 'primevue/radiobutton';
+import RadioButtonGroup from 'primevue/radiobuttongroup';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -15204,6 +28360,24 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 ```vue
 <RadioButton v-model="value" value="1" :invalid="value === null" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <RadioButton v-model="value" value="1" :invalid="value === null" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -15227,6 +28401,37 @@ RadioButton provides small and large sizes as alternatives to the base.
     </div>
 </div>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="flex flex-wrap gap-4">
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="size" inputId="size_small" name="size" value="Small" size="small" />
+                <label for="size_small" class="text-sm">Small</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="size" inputId="size_normal" name="size" value="Normal" />
+                <label for="size_normal">Normal</label>
+            </div>
+            <div class="flex items-center gap-2">
+                <RadioButton v-model="size" inputId="size_large" name="size" value="Large" size="large" />
+                <label for="size_large" class="text-lg">Large</label>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const size = ref(null);
+<\/script>
+```
+</details>
 
 ## Radio Button
 
@@ -15346,6 +28551,24 @@ When disabled is present, a visual hint is applied to indicate that the Knob can
 <Rating v-model="value" disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Rating v-model="value" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(5);
+<\/script>
+```
+</details>
+
 ## Forms
 
 Rating integrates seamlessly with the PrimeVue Forms library.
@@ -15362,6 +28585,55 @@ Rating integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-40">
+            <div class="flex flex-col items-center gap-2">
+                <Rating name="rating" />
+                <Message v-if="$form.rating?.invalid" severity="error" size="small" variant="simple">{{ $form.rating.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    rating: null
+});
+const resolver = ref(zodResolver(
+    z.object({
+        rating: z.union([z.number(), z.literal(null)]).refine((value) => value !== null, { message: 'Rating is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Rating from 'primevue/rating';
+```
+
 ## Number of Stars
 
 Number of stars to display is defined with stars property.
@@ -15372,6 +28644,24 @@ Number of stars to display is defined with stars property.
 <Rating v-model="value" :stars="10" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Rating v-model="value" :stars="10" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(5);
+<\/script>
+```
+</details>
+
 ## ReadOnly
 
 When readOnly present, value cannot be edited.
@@ -15381,6 +28671,24 @@ When readOnly present, value cannot be edited.
 ```vue
 <Rating v-model="value" readonly />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Rating v-model="value" readonly />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(3);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -15398,6 +28706,31 @@ Custom icons are used to override the default icons with onicon , officon and ca
     </template>
 </Rating>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Rating v-model="value">
+            <template #onicon>
+                <img src="https://primefaces.org/cdn/primevue/images/rating/custom-onicon.png" height="24" width="24" />
+            </template>
+            <template #officon>
+                <img src="https://primefaces.org/cdn/primevue/images/rating/custom-officon.png" height="24" width="24" />
+            </template>
+        </Rating>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Rating
 
@@ -15481,6 +28814,18 @@ mounted() {
 }
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+import { usePrimeVue } from 'primevue/config';
+
+const PrimeVue = usePrimeVue();
+
+PrimeVue.config.ripple = true;
+```
+</details>
+
 ## Custom
 
 Default styling of the animation adds a shade of white. This can easily be customized using css that changes the color of p-ink element.
@@ -15493,6 +28838,29 @@ Default styling of the animation adds a shade of white. This can easily be custo
 <div v-ripple class="box" style="border: 1px solid rgba(156, 39, 176, 0.3); --p-ripple-background: rgba(156, 39, 176, 0.3)">Purple</div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="flex justify-center items-center gap-2">
+        <div v-ripple class="box" style="border: 1px solid rgba(75, 175, 80, 0.3); --p-ripple-background: rgba(75, 175, 80, 0.3)">Green</div>
+        <div v-ripple class="box" style="border: 1px solid rgba(255, 193, 6, 0.3); --p-ripple-background: rgba(255, 193, 6, 0.3)">Orange</div>
+        <div v-ripple class="box" style="border: 1px solid rgba(156, 39, 176, 0.3); --p-ripple-background: rgba(156, 39, 176, 0.3)">Purple</div>
+    </div>
+</template>
+
+<style scoped>
+.box {
+    padding: 2rem;
+    border-radius: 10px;
+    width: 110px;
+    text-align: center;
+}
+</style>
+```
+</details>
+
 ## Default
 
 Ripple is enabled by adding add p-ripple class to the target and attach the directive with the v- prefix.
@@ -15502,6 +28870,35 @@ Ripple is enabled by adding add p-ripple class to the target and attach the dire
 ```vue
 <div v-ripple class="ripple-box">Default</div>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <div v-ripple class="ripple-box">Default</div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+
+<style scoped>
+.ripple-box {
+    display: flex;
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    font-weight: bold;
+    background: var(--p-content-background);
+    border: 1px solid var(--p-content-border-color);
+    border-radius: var(--p-content-border-radius);
+}
+<\/style>
+```
+</details>
 
 ## Import
 
@@ -15571,6 +28968,38 @@ Scrollbar visuals can be styled for a unified look across different platforms.
 >
     ...
 </ScrollPanel>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <ScrollPanel
+            style="width: 100%; height: 200px"
+            :dt="{
+                bar: {
+                    background: '{primary.color}'
+                }
+            }"
+        >
+            ...
+        </ScrollPanel>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ScrollPanel from 'primevue/scrollpanel';
 ```
 
 ## Scroll Panel
@@ -15667,6 +29096,35 @@ Setting the target property to parent binds ScrollTop to its parent element that
 </ScrollPanel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ScrollPanel style="width: 250px; height: 200px">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae et leo duis ut diam. Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing
+                elit ut. Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna. Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris. Semper
+                feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales. Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus. Cursus sit amet
+                dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas. Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris. Eget egestas purus viverra accumsan in nisl nisi.
+                Suscipit adipiscing bibendum est ultricies integer. Mattis aliquam faucibus purus in massa tempor nec.
+            </p>
+            <ScrollTop target="parent" :threshold="100" icon="pi pi-arrow-up" :buttonProps="{ severity: 'contrast', raised: true, rounded: true }" />
+        </ScrollPanel>
+    </div>
+</template>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ScrollTop from 'primevue/scrolltop';
+```
+
 ## Scroll Top
 
 ### Props
@@ -15710,6 +29168,15 @@ Select is used to choose an item from a collection of options.
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The select element has a combobox role in addition to aria-haspopup and aria-expanded attributes. If the editable option is enabled aria-autocomplete is also added. The relation between the combobox and the popup is created with aria-controls and aria-activedescendant attribute is used to instruct screen reader which option to read during keyboard navigation within the popup list. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses listbox as the role. Each list item has an option role, an id to match the aria-activedescendant of the input element along with aria-label , aria-selected and aria-disabled attributes. If filtering is enabled, filterInputProps can be defined to give aria-* props to the filter input element. Closed State Keyboard Support Key Function tab Moves focus to the select element. space Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. enter Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. up arrow Opens the popup and moves visual focus to the selected option, if there is none then last option receives the focus. any printable character Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none and select is not editable then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Moves focus to the previous focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. enter Selects the focused option and closes the popup, then moves focus to the select element. space Selects the focused option and closes the popup, then moves focus to the select element. escape Closes the popup, then moves focus to the select element. down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. alt + up arrow Selects the focused option and closes the popup, then moves focus to the select element. left arrow If the select is editable, removes the visual focus from the current option and moves input cursor to one character left. right arrow If the select is editable, removes the visual focus from the current option and moves input cursor to one character right. home If the select is editable, moves input cursor at the end, if not then moves focus to the first option. end If the select is editable, moves input cursor at the beginning, if not then moves focus to the last option. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. any printable character Moves focus to the option whose label starts with the characters being typed if select is not editable. Filter Input Keyboard Support Key Function down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. enter Closes the popup and moves focus to the select element. escape Closes the popup and moves focus to the select element. tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page.
 
+**Basic Usage:**
+
+```vue
+<span id="dd1"></span>Options</span>
+<select aria-labelledby="dd1" />
+
+<select aria-label="Options" />
+```
+
 ## Basic
 
 Select is used with the v-model property for two-way value binding along with the options collection. Label and value of an option are defined with the optionLabel and optionValue properties respectively. Note that, when options are simple primitive values such as a string array, no optionLabel and optionValue would be necessary.
@@ -15730,6 +29197,31 @@ An alternative way to highlight the selected option is displaying a checkmark in
 <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Clear Icon
 
 When showClear is enabled, a clear icon is added to reset the Select.
@@ -15739,6 +29231,31 @@ When showClear is enabled, a clear icon is added to reset the Select.
 ```vue
 <Select v-model="selectedCity" :options="cities" showClear optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" :options="cities" showClear optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Disabled
 
@@ -15750,6 +29267,22 @@ When disabled is present, the element cannot be edited and focused.
 <Select disabled placeholder="Select a City" class="w-full md:w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select disabled placeholder="Select a City" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
 ## Editable
 
 When editable is present, the input can also be entered with typing.
@@ -15760,6 +29293,31 @@ When editable is present, the input can also be entered with typing.
 <Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -15769,6 +29327,31 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Filter
 
@@ -15796,6 +29379,52 @@ Select provides built-in filtering that is enabled by adding the filter property
 </Select>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCountry" :options="countries" filter optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
+            <template #value="slotProps">
+                <div v-if="slotProps.value" class="flex items-center">
+                    <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.value.code.toLowerCase()}\`" style="width: 18px" />
+                    <div>{{ slotProps.value.name }}</div>
+                </div>
+                <span v-else>
+                    {{ slotProps.placeholder }}
+                </span>
+            </template>
+            <template #option="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+                    <div>{{ slotProps.option.name }}</div>
+                </div>
+            </template>
+        </Select>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCountry = ref();
+const countries = ref([
+    { name: 'Australia', code: 'AU' },
+    { name: 'Brazil', code: 'BR' },
+    { name: 'China', code: 'CN' },
+    { name: 'Egypt', code: 'EG' },
+    { name: 'France', code: 'FR' },
+    { name: 'Germany', code: 'DE' },
+    { name: 'India', code: 'IN' },
+    { name: 'Japan', code: 'JP' },
+    { name: 'Spain', code: 'ES' },
+    { name: 'United States', code: 'US' }
+]);
+<\/script>
+```
+</details>
+
 ## Float Label
 
 A floating label appears on top of the input field when focused. Visit FloatLabel documentation for more information.
@@ -15819,6 +29448,46 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-stretch gap-4">
+        <FloatLabel class="w-full md:w-56">
+            <Select v-model="value1" inputId="over_label" :options="cities" optionLabel="name" class="w-full" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56" variant="in">
+            <Select v-model="value2" inputId="in_label" :options="cities" optionLabel="name" class="w-full" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56" variant="on">
+            <Select v-model="value3" inputId="on_label" :options="cities" optionLabel="name" class="w-full" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -15828,6 +29497,31 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -15842,6 +29536,59 @@ The fluid prop makes the component take up the full width of its container when 
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-56">
+            <div class="flex flex-col gap-1">
+                <Select name="city.name" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
+                <Message v-if="$form.city?.name?.invalid" severity="error" size="small" variant="simple">{{ $form.city.name.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    city: { name: '' }
+});
+const resolver = ref(zodResolver(
+    z.object({
+        city: z.union([
+            z.object({
+                name: z.string().min(1, 'City is required.')
+            }),
+            z.any().refine((val) => false, { message: 'City is required.' })
+        ])
+    })
+));
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
 
 ## Group
 
@@ -15860,6 +29607,63 @@ Options can be grouped when a nested data structures is provided. To define the 
 </Select>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-56">
+            <template #optiongroup="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+                    <div>{{ slotProps.option.label }}</div>
+                </div>
+            </template>
+        </Select>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const groupedCities = ref([
+    {
+        label: 'Germany',
+        code: 'DE',
+        items: [
+            { label: 'Berlin', value: 'Berlin' },
+            { label: 'Frankfurt', value: 'Frankfurt' },
+            { label: 'Hamburg', value: 'Hamburg' },
+            { label: 'Munich', value: 'Munich' }
+        ]
+    },
+    {
+        label: 'USA',
+        code: 'US',
+        items: [
+            { label: 'Chicago', value: 'Chicago' },
+            { label: 'Los Angeles', value: 'Los Angeles' },
+            { label: 'New York', value: 'New York' },
+            { label: 'San Francisco', value: 'San Francisco' }
+        ]
+    },
+    {
+        label: 'Japan',
+        code: 'JP',
+        items: [
+            { label: 'Kyoto', value: 'Kyoto' },
+            { label: 'Osaka', value: 'Osaka' },
+            { label: 'Tokyo', value: 'Tokyo' },
+            { label: 'Yokohama', value: 'Yokohama' }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -15873,6 +29677,42 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel class="w-full md:w-56">
+            <Select v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" class="w-full" variant="filled" />
+            <label for="dd-city">City</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Select from 'primevue/select';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -15883,6 +29723,33 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <Select v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity1" class="w-full md:w-56" />
 <Select v-model="selectedCity2" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity2" class="w-full md:w-56" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <Select v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity1" class="w-full md:w-56" />
+        <Select v-model="selectedCity2" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity2" class="w-full md:w-56" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity1 = ref(null);
+const selectedCity2 = ref(null);
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Lazy Virtual Scroll
 
@@ -15895,6 +29762,48 @@ The virtual scrolling also supports dynamically loading items on demand.
     :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 38, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" class="w-full md:w-56"
+            :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 38, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedItem = ref();
+const items = ref(Array.from({ length: 100000 }));
+const loading = ref(false);
+const loadLazyTimeout = ref();
+const onLazyLoad = (event) => {
+    loading.value = true;
+
+    if (loadLazyTimeout.value) {
+        clearTimeout(loadLazyTimeout.value);
+    }
+
+    //imitate delay of a backend call
+    loadLazyTimeout.value = setTimeout(() => {
+        const { first, last } = event;
+        const _items = [...items.value];
+
+        for (let i = first; i < last; i++) {
+            _items[i] = { label: \`Item #\${i}\`, value: i };
+        }
+
+        items.value = _items;
+        loading.value = false;
+    }, Math.random() * 1000 + 250);
+}
+<\/script>
+```
+</details>
+
 ## Loading State
 
 Loading state is enabled with the loading property.
@@ -15904,6 +29813,21 @@ Loading state is enabled with the loading property.
 ```vue
 <Select placeholder="Loading..." loading class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select placeholder="Loading..." loading class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -15916,6 +29840,35 @@ Select provides small and large sizes as alternatives to the base.
 <Select v-model="value2" :options="cities" optionLabel="name" placeholder="Normal" class="w-full md:w-56" />
 <Select v-model="value3" :options="cities" optionLabel="name" size="large" placeholder="Large" class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <Select v-model="value1" :options="cities" optionLabel="name" size="small" placeholder="Small" class="w-full md:w-56" />
+        <Select v-model="value2" :options="cities" optionLabel="name" placeholder="Normal" class="w-full md:w-56" />
+        <Select v-model="value3" :options="cities" optionLabel="name" size="large" placeholder="Large" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -15954,6 +29907,63 @@ Select offers multiple slots for customization through templating.
 </Select>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCountry" :options="countries" optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
+            <template #value="slotProps">
+                <div v-if="slotProps.value" class="flex items-center">
+                    <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.value.code.toLowerCase()}\`" style="width: 18px" />
+                    <div>{{ slotProps.value.name }}</div>
+                </div>
+                <span v-else>
+                    {{ slotProps.placeholder }}
+                </span>
+            </template>
+            <template #option="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+                    <div>{{ slotProps.option.name }}</div>
+                </div>
+            </template>
+            <template #dropdownicon>
+                <i class="pi pi-map" />
+            </template>
+            <template #header>
+                <div class="font-medium p-3">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="p-3">
+                    <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+                </div>
+            </template>
+        </Select>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCountry = ref();
+const countries = ref([
+    { name: 'Australia', code: 'AU' },
+    { name: 'Brazil', code: 'BR' },
+    { name: 'China', code: 'CN' },
+    { name: 'Egypt', code: 'EG' },
+    { name: 'France', code: 'FR' },
+    { name: 'Germany', code: 'DE' },
+    { name: 'India', code: 'IN' },
+    { name: 'Japan', code: 'JP' },
+    { name: 'Spain', code: 'ES' },
+    { name: 'United States', code: 'US' }
+]);
+<\/script>
+```
+</details>
+
 ## Virtual Scroll
 
 VirtualScroller is used to render a long list of options efficiently like 100K records in this demo. The configuration is done with virtualScrollerOptions property, refer to the VirtualScroller for more information about the available options as it is used internally by Select.
@@ -15964,6 +29974,26 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 <Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
     :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
+            :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedItem = ref();
+const items = ref(Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+<\/script>
+```
+</details>
 
 ## Select
 
@@ -16167,6 +30197,15 @@ SelectButton is used to choose single or multiple items from a list using button
 
 Screen Reader SelectButton component uses ToggleButton internally and has group role. Value to describe the component can be provided via aria-labelledby property. Keyboard Support Keyboard interaction is derived from the native browser handling of checkboxs in a group. Key Function tab Moves focus to the next the focusable element in the page tab sequence. shift + tab Moves focus to the previous the focusable element in the page tab sequence. space Toggles the checked state of a button.
 
+**Basic Usage:**
+
+```vue
+<span id="label_number">Number</span>
+<Slider aria-labelledby="label_number" />
+
+<Slider aria-label="Number" />
+```
+
 ## Basic
 
 SelectButton is used with the v-model property for two-way value binding along with the options collection. Label and value of an option are defined with the optionLabel and optionValue properties respectively. Note that, when options are simple primitive values such as a string array, no optionLabel and optionValue would be necessary.
@@ -16188,6 +30227,31 @@ When disabled is present, the element cannot be edited and focused entirely. Cer
 <SelectButton v-model="value" :options="options2" optionDisabled="constant" optionLabel="name" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center flex-wrap gap-4">
+        <SelectButton v-model="value" :options="options" disabled />
+        <SelectButton v-model="value" :options="options2" optionDisabled="constant" optionLabel="name" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref('Off');
+const value2 = ref();
+const options1 = ref(['Off', 'On']);
+const options2 = ref([
+    { name: 'Option 1', value: 1, constant: false },
+    { name: 'Option 2', value: 2, constant: true }
+]);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -16197,6 +30261,25 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <SelectButton v-model="value" :options="options" fluid />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <SelectButton v-model="value" :options="options" fluid />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('One-Way');
+const options = ref(['One-Way', 'Return']);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -16214,6 +30297,55 @@ SelectButton integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <SelectButton name="selection" :options="options" />
+                <Message v-if="$form.selection?.invalid" severity="error">{{ $form.selection.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    selection: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        selection: z.preprocess((val) => (val === null ? '' : val), z.string().min(1, { message: 'Selection is required' }))
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import SelectButton from 'primevue/selectbutton';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -16224,6 +30356,25 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <SelectButton v-model="value" :options="options" aria-labelledby="basic" allowEmpty :invalid="value === null"  />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <SelectButton v-model="value" :options="options" aria-labelledby="basic" allowEmpty :invalid="value === null"  />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+const options = ref(['One-Way', 'Return']);
+<\/script>
+```
+</details>
+
 ## Multiple
 
 SelectButton allows selecting only one item by default and setting multiple option enables choosing more than one item. In multiple case, model property should be an array.
@@ -16233,6 +30384,29 @@ SelectButton allows selecting only one item by default and setting multiple opti
 ```vue
 <SelectButton v-model="value" :options="options" optionLabel="name" multiple aria-labelledby="multiple" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <SelectButton v-model="value" :options="options" optionLabel="name" multiple aria-labelledby="multiple" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+const options = ref([
+    { name: 'Option 1', value: 1 },
+    { name: 'Option 2', value: 2 },
+    { name: 'Option 3', value: 3 }
+]);
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -16245,6 +30419,29 @@ SelectButton provides small and large sizes as alternatives to the base.
 <SelectButton v-model="value2" :options="options" />
 <SelectButton v-model="value3" :options="options" size="large" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <SelectButton v-model="value1" :options="options" size="small" />
+        <SelectButton v-model="value2" :options="options" />
+        <SelectButton v-model="value3" :options="options" size="large" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref('Beginner');
+const value3 = ref('Expert');
+const options = ref(['Beginner', 'Expert']);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -16259,6 +30456,34 @@ Label of an option is used as the display text of an item by default, for custom
     </template>
 </SelectButton>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <SelectButton v-model="value" :options="options" optionLabel="value" dataKey="value" aria-labelledby="custom">
+            <template #option="slotProps">
+                <i :class="slotProps.option.icon"></i>
+            </template>
+        </SelectButton>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+const options = ref([
+    { icon: 'pi pi-align-left', value: 'Left' },
+    { icon: 'pi pi-align-right', value: 'Right' },
+    { icon: 'pi pi-align-center', value: 'Center' },
+    { icon: 'pi pi-align-justify', value: 'Justify' }
+]);
+<\/script>
+```
+</details>
 
 ## Select Button
 
@@ -16344,6 +30569,35 @@ Sample card implementation using different Skeleton components and Tailwind CSS 
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+            <div class="flex mb-4">
+                <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                <div>
+                    <Skeleton width="10rem" class="mb-2"></Skeleton>
+                    <Skeleton width="5rem" class="mb-2"></Skeleton>
+                    <Skeleton height=".5rem"></Skeleton>
+                </div>
+            </div>
+            <Skeleton width="100%" height="150px"></Skeleton>
+            <div class="flex justify-between mt-4">
+                <Skeleton width="4rem" height="2rem"></Skeleton>
+                <Skeleton width="4rem" height="2rem"></Skeleton>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## DataTable
 
 Sample DataTable implementation using different Skeleton components and Tailwind CSS utilities.
@@ -16373,6 +30627,53 @@ Sample DataTable implementation using different Skeleton components and Tailwind
         </template>
     </Column>
 </DataTable>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DataTable :value="products">
+            <Column field="code" header="Code">
+                <template #body>
+                    <Skeleton></Skeleton>
+                </template>
+            </Column>
+            <Column field="name" header="Name">
+                <template #body>
+                    <Skeleton></Skeleton>
+                </template>
+            </Column>
+            <Column field="category" header="Category">
+                <template #body>
+                    <Skeleton></Skeleton>
+                </template>
+            </Column>
+            <Column field="quantity" header="Quantity">
+                <template #body>
+                    <Skeleton></Skeleton>
+                </template>
+            </Column>
+        </DataTable>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const products = ref(new Array(4));
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Skeleton from 'primevue/skeleton';
 ```
 
 ## List
@@ -16424,6 +30725,58 @@ Sample list implementation using different Skeleton components and Tailwind CSS 
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="rounded border border-surface-200 dark:border-surface-700 p-6 bg-surface-0 dark:bg-surface-900">
+        <ul class="m-0 p-0 list-none">
+            <li class="mb-4">
+                <div class="flex">
+                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                    <div class="self-center" style="flex: 1">
+                        <Skeleton width="100%" class="mb-2"></Skeleton>
+                        <Skeleton width="75%"></Skeleton>
+                    </div>
+                </div>
+            </li>
+            <li class="mb-4">
+                <div class="flex">
+                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                    <div class="self-center" style="flex: 1">
+                        <Skeleton width="100%" class="mb-2"></Skeleton>
+                        <Skeleton width="75%"></Skeleton>
+                    </div>
+                </div>
+            </li>
+            <li class="mb-4">
+                <div class="flex">
+                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                    <div class="self-center" style="flex: 1">
+                        <Skeleton width="100%" class="mb-2"></Skeleton>
+                        <Skeleton width="75%"></Skeleton>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="flex">
+                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                    <div class="self-center" style="flex: 1">
+                        <Skeleton width="100%" class="mb-2"></Skeleton>
+                        <Skeleton width="75%"></Skeleton>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Shapes
 
 Various shapes and sizes can be created using styling properties like shape , width , height , borderRadius and class .
@@ -16457,6 +30810,56 @@ Various shapes and sizes can be created using styling properties like shape , wi
 <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
 <Skeleton shape="circle" size="5rem"></Skeleton>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex flex-wrap">
+            <div class="w-full xl:w-6/12 p-4">
+                <h5>Rectangle</h5>
+                <Skeleton class="mb-2"></Skeleton>
+                <Skeleton width="10rem" class="mb-2"></Skeleton>
+                <Skeleton width="5rem" class="mb-2"></Skeleton>
+                <Skeleton height="2rem" class="mb-2"></Skeleton>
+                <Skeleton width="10rem" height="4rem"></Skeleton>
+            </div>
+            <div class="w-full xl:w-6/12 p-4">
+                <h5>Rounded</h5>
+                <Skeleton class="mb-2" borderRadius="16px"></Skeleton>
+                <Skeleton width="10rem" class="mb-2" borderRadius="16px"></Skeleton>
+                <Skeleton width="5rem" borderRadius="16px" class="mb-2"></Skeleton>
+                <Skeleton height="2rem" class="mb-2" borderRadius="16px"></Skeleton>
+                <Skeleton width="10rem" height="4rem" borderRadius="16px"></Skeleton>
+            </div>
+            <div class="w-full xl:w-6/12 p-4">
+                <h5 class="mt-4">Square</h5>
+                <div class="flex items-end">
+                    <Skeleton size="2rem" class="mr-2"></Skeleton>
+                    <Skeleton size="3rem" class="mr-2"></Skeleton>
+                    <Skeleton size="4rem" class="mr-2"></Skeleton>
+                    <Skeleton size="5rem"></Skeleton>
+                </div>
+            </div>
+            <div class="w-full xl:w-6/12 p-4">
+                <h5 class="mt-4">Circle</h5>
+                <div class="flex items-end">
+                    <Skeleton shape="circle" size="2rem" class="mr-2"></Skeleton>
+                    <Skeleton shape="circle" size="3rem" class="mr-2"></Skeleton>
+                    <Skeleton shape="circle" size="4rem" class="mr-2"></Skeleton>
+                    <Skeleton shape="circle" size="5rem"></Skeleton>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Skeleton
 
@@ -16508,6 +30911,15 @@ Slider is a component to provide input with a drag handle.
 
 Screen Reader Slider element component uses slider role on the handle in addition to the aria-orientation , aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby and aria-label props. Keyboard Support Key Function tab Moves focus to the slider. left arrow up arrow Decrements the value. right arrow down arrow Increments the value. home Set the minimum value. end Set the maximum value. page up Increments the value by 10 steps. page down Decrements the value by 10 steps.
 
+**Basic Usage:**
+
+```vue
+<span id="label_number">Number</span>
+<Slider aria-labelledby="label_number" />
+
+<Slider aria-label="Number" />
+```
+
 ## Basic
 
 Slider is used with the v-model property for two-way value binding.
@@ -16530,6 +30942,37 @@ Image filter implementation using multiple sliders.
 <Slider v-model="filterValues[filter]" class="w-56" :min="0" :max="200" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center justify-center">
+        <img alt="user header" class="w-full md:w-80 rounded mb-6" src="https://primefaces.org/cdn/primevue/images/card-vue.jpg" :style="filterStyle" />
+        <SelectButton v-model="filter" :options="filterOptions" optionLabel="label" optionValue="value" class="mb-4" />
+        <Slider v-model="filterValues[filter]" class="w-56" :min="0" :max="200" />
+    </div>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue';
+
+const filter = ref(0);
+const filterValues = ref([100, 100, 0]);
+const filterOptions = ref([
+    { label: 'Contrast', value: 0 },
+    { label: 'Brightness', value: 1 },
+    { label: 'Sepia', value: 2 }
+]);
+const filterStyle = computed(() => {
+    return {
+        filter: \`contrast(\${filterValues.value[0]}%) brightness(\${filterValues.value[1]}%) sepia(\${filterValues.value[2]}%)\`
+    };
+})
+<\/script>
+```
+</details>
+
 ## Forms
 
 Slider integrates seamlessly with the PrimeVue Forms library.
@@ -16546,6 +30989,55 @@ Slider integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-4">
+                <Slider name="slider" />
+                <Message v-if="$form.slider?.invalid" severity="error" size="small" variant="simple">{{ $form.slider.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    slider: 0
+});
+const resolver = ref(zodResolver(
+    z.object({
+        slider: z.number().gt(25, { message: 'Must be greater than 25.' }).lt(75, { message: 'Must be less than 75.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Slider from 'primevue/slider';
+```
+
 ## Input
 
 Slider is connected to an input field using two-way binding.
@@ -16557,6 +31049,27 @@ Slider is connected to an input field using two-way binding.
 <Slider v-model="value" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="w-56">
+            <InputText v-model.number="value" class="w-full mb-4" />
+            <Slider v-model="value" class="w-full" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(50);
+<\/script>
+```
+</details>
+
 ## Range
 
 When range property is present, slider provides two handles to define two values. In range mode, value should be an array instead of a single value.
@@ -16566,6 +31079,24 @@ When range property is present, slider provides two handles to define two values
 ```vue
 <Slider v-model="value" range class="w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Slider v-model="value" range class="w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref([20, 80]);
+<\/script>
+```
+</details>
 
 ## Step
 
@@ -16577,6 +31108,24 @@ Size of each movement is defined with the step property.
 <Slider v-model="value" :step="20" class="w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Slider v-model="value" :step="20" class="w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(20);
+<\/script>
+```
+</details>
+
 ## Vertical
 
 Default layout of slider is horizontal , use orientation property for the alternative vertical mode.
@@ -16586,6 +31135,24 @@ Default layout of slider is horizontal , use orientation property for the altern
 ```vue
 <Slider v-model="value" orientation="vertical" class="h-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Slider v-model="value" orientation="vertical" class="h-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(50);
+<\/script>
+```
+</details>
 
 ## Slider
 
@@ -16669,6 +31236,12 @@ When pressed, a floating action button can display multiple primary actions that
 
 Screen Reader SpeedDial component renders a native button element that implicitly includes any passed prop. Text to describe the button can be defined with the aria-labelledby or aria-label props. Addititonally the button includes includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The popup overlay uses menu role on the list and each action item has a menuitem role with an aria-label as the menuitem label. The id of the menu refers to the aria-controls of the button. Menu Button Keyboard Support Key Function enter Toggles the visibility of the menu. space Toggles the visibility of the menu. down arrow Opens the menu and moves focus to the first item. up arrow Opens the menu and moves focus to the last item. right arrow Opens the menu and moves focus to the last item. left arrow Opens the menu and moves focus to the first item. escape Closes the menu. Menu Keyboard Support Key Function enter Actives the menuitem, closes the menu and sets focus on the menu button. space Actives the menuitem, closes the menu and sets focus on the menu button. escape Closes the menu and sets focus on the menu button. arrow keys Navigates between the menu items. home Moves focus to the first item. end Moves focus to the last item.
 
+**Basic Usage:**
+
+```vue
+<SpeedDial aria-label="Options" />
+```
+
 ## Circle
 
 Items can be displayed around the button when type is set to circle . Additional radius property defines the radius of the circle.
@@ -16677,6 +31250,76 @@ Items can be displayed around the button when type is set to circle . Additional
 
 ```vue
 <SpeedDial :model="items" :radius="80" type="circle" :style="{ position: 'absolute' }" :buttonProps="{ severity: 'warn', rounded: true }" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div :style="{ position: 'relative', height: '500px' }" class="flex items-center justify-center">
+            <SpeedDial :model="items" :radius="80" type="circle" :style="{ position: 'absolute' }" :buttonProps="{ severity: 'warn', rounded: true }" />
+            <Toast />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { useRouter } from 'vue-router';
+
+const toast = useToast();
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Add',
+        icon: 'pi pi-pencil',
+        command: () => {
+            toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added', life: 3000 });
+        }
+    },
+    {
+        label: 'Update',
+        icon: 'pi pi-refresh',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        icon: 'pi pi-trash',
+        command: () => {
+            toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        label: 'Upload',
+        icon: 'pi pi-upload',
+        command: () => {
+            router.push('/fileupload');
+        }
+    },
+    {
+        label: 'Vue Website',
+        icon: 'pi pi-external-link',
+        command: () => {
+            window.location.href = 'https://vuejs.org/'
+        }
+    }
+])
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import SpeedDial from 'primevue/speeddial';
 ```
 
 ## Linear
@@ -16692,6 +31335,71 @@ SpeedDial items are defined with the model property based on MenuModel API. Defa
 <SpeedDial :model="items" direction="right" style="position: absolute; top: calc(50% - 2rem); left: 0" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div style="position: relative; height: 500px">
+            <SpeedDial :model="items" direction="up" style="position: absolute; left: calc(50% - 2rem); bottom: 0" />
+            <SpeedDial :model="items" direction="down" style="position: absolute; left: calc(50% - 2rem); top: 0" />
+            <SpeedDial :model="items" direction="left" style="position: absolute; top: calc(50% - 2rem); right: 0" />
+            <SpeedDial :model="items" direction="right" style="position: absolute; top: calc(50% - 2rem); left: 0" />
+            <Toast />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { useRouter } from 'vue-router';
+
+const toast = useToast();
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Add',
+        icon: 'pi pi-pencil',
+        command: () => {
+            toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added', life: 3000 });
+        }
+    },
+    {
+        label: 'Update',
+        icon: 'pi pi-refresh',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        icon: 'pi pi-trash',
+        command: () => {
+            toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        label: 'Upload',
+        icon: 'pi pi-upload',
+        command: () => {
+            router.push('/fileupload');
+        }
+    },
+    {
+        label: 'Vue Website',
+        icon: 'pi pi-external-link',
+        command: () => {
+            window.location.href = 'https://vuejs.org/'
+        }
+    }
+])
+<\/script>
+```
+</details>
+
 ## Mask
 
 Adding mask property displays a modal layer behind the popup items.
@@ -16701,6 +31409,67 @@ Adding mask property displays a modal layer behind the popup items.
 ```vue
 <SpeedDial :model="items" direction="up" mask :style="{ position: 'absolute', right: '1rem', bottom: '1rem' }" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card p-4">
+        <div :style="{ position: 'relative', height: '350px' }">
+            <SpeedDial :model="items" direction="up" mask :style="{ position: 'absolute', right: '1rem', bottom: '1rem' }" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { useRouter } from 'vue-router';
+
+const toast = useToast();
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Add',
+        icon: 'pi pi-pencil',
+        command: () => {
+            toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added', life: 3000 });
+        }
+    },
+    {
+        label: 'Update',
+        icon: 'pi pi-refresh',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        icon: 'pi pi-trash',
+        command: () => {
+            toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        label: 'Upload',
+        icon: 'pi pi-upload',
+        command: () => {
+            router.push('/fileupload');
+        }
+    },
+    {
+        label: 'Vue Website',
+        icon: 'pi pi-external-link',
+        command: () => {
+            window.location.href = 'https://vuejs.org/'
+        }
+    }
+])
+<\/script>
+```
+</details>
 
 ## QuarterCircleDoc
 
@@ -16715,6 +31484,71 @@ Setting type as quarter-circle displays the items at one of four corners of a bu
 <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-right" :style="{ position: 'absolute', left: 0, top: 0 }" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div style="position: relative; height: 500px">
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-left" :style="{ position: 'absolute', right: 0, bottom: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="up-right" :style="{ position: 'absolute', left: 0, bottom: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-left" :style="{ position: 'absolute', right: 0, top: 0 }" />
+            <SpeedDial :model="items" :radius="120" type="quarter-circle" direction="down-right" :style="{ position: 'absolute', left: 0, top: 0 }" />
+            <Toast />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { useRouter } from 'vue-router';
+
+const toast = useToast();
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Add',
+        icon: 'pi pi-pencil',
+        command: () => {
+            toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added', life: 3000 });
+        }
+    },
+    {
+        label: 'Update',
+        icon: 'pi pi-refresh',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        icon: 'pi pi-trash',
+        command: () => {
+            toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        label: 'Upload',
+        icon: 'pi pi-upload',
+        command: () => {
+            router.push('/fileupload');
+        }
+    },
+    {
+        label: 'Vue Website',
+        icon: 'pi pi-external-link',
+        command: () => {
+            window.location.href = 'https://vuejs.org/'
+        }
+    }
+])
+<\/script>
+```
+</details>
+
 ## SemiCircleDoc
 
 When type is defined as semi-circle , items are displayed in a half-circle around the button.
@@ -16727,6 +31561,69 @@ When type is defined as semi-circle , items are displayed in a half-circle aroun
 <SpeedDial :model="items" :radius="80" type="semi-circle" direction="left" style="position: absolute; top: calc(50% - 2rem); right: 0" />
 <SpeedDial :model="items" :radius="80" type="semi-circle" direction="right" style="position: absolute; top: calc(50% - 2rem); left: 0" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card" :style="{ position: 'relative', height: '500px' }">
+        <SpeedDial :model="items" :radius="80" type="semi-circle" direction="up" style="position: absolute; left: calc(50% - 2rem); bottom: 0" />
+        <SpeedDial :model="items" :radius="80" type="semi-circle" direction="down" style="position: absolute; left: calc(50% - 2rem); top: 0" />
+        <SpeedDial :model="items" :radius="80" type="semi-circle" direction="left" style="position: absolute; top: calc(50% - 2rem); right: 0" />
+        <SpeedDial :model="items" :radius="80" type="semi-circle" direction="right" style="position: absolute; top: calc(50% - 2rem); left: 0" />
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { useRouter } from 'vue-router';
+
+const toast = useToast();
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Add',
+        icon: 'pi pi-pencil',
+        command: () => {
+            toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added', life: 3000 });
+        }
+    },
+    {
+        label: 'Update',
+        icon: 'pi pi-refresh',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        icon: 'pi pi-trash',
+        command: () => {
+            toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        label: 'Upload',
+        icon: 'pi pi-upload',
+        command: () => {
+            router.push('/fileupload');
+        }
+    },
+    {
+        label: 'Vue Website',
+        icon: 'pi pi-external-link',
+        command: () => {
+            window.location.href = 'https://vuejs.org/'
+        }
+    }
+])
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -16755,6 +31652,85 @@ SpeedDial offers item customization with the item template that receives the men
 </SpeedDial>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex items-end justify-center" :style="{ position: 'relative', height: '400px' }">
+            <SpeedDial :model="items" direction="up" :transitionDelay="80" :style="{ position: 'absolute' }" pt:menuitem="m-2">
+                <template #button="{ toggleCallback }">
+                    <Button variant="outlined" class="border" @click="toggleCallback">
+                        <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="..." fill="var(--p-primary-color)" />
+                            <path d="..." fill="var(--p-text-color)" />
+                        </svg>
+                    </Button>
+                </template>
+                <template #item="{ item, toggleCallback }">
+                    <div class="flex flex-col items-center justify-between gap-2 p-2 border rounded border-surface-200 dark:border-surface-700 w-20 cursor-pointer" @click="toggleCallback">
+                        <span :class="item.icon" />
+                        <span>
+                            {{ item.label }}
+                        </span>
+                    </div>
+                </template>
+            </SpeedDial>
+        </div>
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { useRouter } from 'vue-router';
+
+const toast = useToast();
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Add',
+        icon: 'pi pi-pencil',
+        command: () => {
+            toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added', life: 3000 });
+        }
+    },
+    {
+        label: 'Update',
+        icon: 'pi pi-refresh',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        icon: 'pi pi-trash',
+        command: () => {
+            toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        label: 'Upload',
+        icon: 'pi pi-upload',
+        command: () => {
+            router.push('/fileupload');
+        }
+    },
+    {
+        label: 'Vue Website',
+        icon: 'pi pi-external-link',
+        command: () => {
+            window.location.href = 'https://vuejs.org/'
+        }
+    }
+])
+<\/script>
+```
+</details>
+
 ## Tooltip
 
 Items display a tooltip on hover when a standalone Tooltip is present with a target that matches the items.
@@ -16765,6 +31741,69 @@ Items display a tooltip on hover when a standalone Tooltip is present with a tar
 <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', right: 0, bottom: 0 }" :buttonProps="{ severity: 'help', rounded: true }" :tooltipOptions="{ position: 'left' }" />
 <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 0, bottom: 0 }" :buttonProps="{ severity: 'danger', rounded: true }" :tooltipOptions="{ position: 'right' }" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div :style="{ position: 'relative', height: '350px' }">
+            <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', right: 0, bottom: 0 }" :buttonProps="{ severity: 'help', rounded: true }" :tooltipOptions="{ position: 'left' }" />
+            <SpeedDial :model="items" direction="up" :style="{ position: 'absolute', left: 0, bottom: 0 }" :buttonProps="{ severity: 'danger', rounded: true }" :tooltipOptions="{ position: 'right' }" />
+            <Toast />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { useToast } from 'primevue/usetoast';
+import { useRouter } from 'vue-router';
+
+const toast = useToast();
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Add',
+        icon: 'pi pi-pencil',
+        command: () => {
+            toast.add({ severity: 'info', summary: 'Add', detail: 'Data Added', life: 3000 });
+        }
+    },
+    {
+        label: 'Update',
+        icon: 'pi pi-refresh',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Update', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        icon: 'pi pi-trash',
+        command: () => {
+            toast.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        label: 'Upload',
+        icon: 'pi pi-upload',
+        command: () => {
+            router.push('/fileupload');
+        }
+    },
+    {
+        label: 'Vue Website',
+        icon: 'pi pi-external-link',
+        command: () => {
+            window.location.href = 'https://vuejs.org/'
+        }
+    }
+])
+<\/script>
+```
+</details>
 
 ## Speed Dial
 
@@ -16843,6 +31882,12 @@ SplitButton groups a set of commands in an overlay with a default command.
 
 Screen Reader SplitButton component renders two native button elements, main button uses the label property to define aria-label by default which can be customized with buttonProps . Dropdown button requires an explicit definition to describe it using menuButtonProps option and also includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The popup overlay uses menu role on the list and each action item has a menuitem role with an aria-label as the menuitem label. The id of the menu refers to the aria-controls of the dropdown button. Main Button Keyboard Support Key Function enter Activates the button. space Activates the button. Menu Button Keyboard Support Key Function enter space down arrow up arrow Opens the menu and moves focus to the first item. Menu Keyboard Support Key Function enter If menuitem has a submenu, opens the submenu otherwise activates the menuitem and closes all open overlays. space If menuitem has a submenu, opens the submenu otherwise activates the menuitem and closes all open overlays. escape If focus is inside a popup submenu, closes the submenu and moves focus to the root item of the closed submenu. down arrow Moves focus to the next menuitem within the submenu. up arrow Moves focus to the previous menuitem within the submenu. alt + up arrow Closes the popup, then moves focus to the target element. right arrow In nested mode if option is closed, opens the option otherwise moves focus to the first child option. left arrow In nested mode if option is open, closes the option otherwise moves focus to the parent option. home Moves focus to the first menuitem within the submenu. end Moves focus to the last menuitem within the submenu. any printable character Moves focus to the menuitem whose label starts with the characters being typed.
 
+**Basic Usage:**
+
+```vue
+<SplitButton :buttonProps="{'aria-label': 'Default Action'}" :menuButtonProps="{'aria-label': 'More Options'}" />
+```
+
 ## Basic
 
 SplitButton has a default command button and a collection of additional options defined by the model property.
@@ -16919,6 +31964,63 @@ The buttons and menuitems have support to display icons.
 <SplitButton label="Save" icon="pi pi-check" dropdownIcon="pi pi-cog" @click="save" :model="items" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast />
+        <SplitButton label="Save" icon="pi pi-check" dropdownIcon="pi pi-cog" @click="save" :model="items" />
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const items = [
+    {
+        label: 'Update',
+        icon: 'pi pi-refresh',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        icon: 'pi pi-times',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Quit',
+        icon: 'pi pi-power-off',
+        command: () => {
+            window.location.href = 'https://vuejs.org/';
+        }
+    }
+];
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import SplitButton from 'primevue/splitbutton';
+```
+
 ## Nested
 
 Multi-level menus are supported with a nested menu hierarchy.
@@ -16928,6 +32030,94 @@ Multi-level menus are supported with a nested menu hierarchy.
 ```vue
 <SplitButton label="Save" @click="save" :model="items" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <SplitButton label="Save" @click="save" :model="items" />
+    </div>
+</template>
+
+<script setup>
+const items = [
+    {
+        label: 'File',
+        icon: 'pi pi-file',
+        items: [
+            {
+                label: 'New',
+                icon: 'pi pi-plus',
+                items: [
+                    {
+                        label: 'Document',
+                        icon: 'pi pi-file'
+                    },
+                    {
+                        label: 'Image',
+                        icon: 'pi pi-image'
+                    },
+                    {
+                        label: 'Video',
+                        icon: 'pi pi-video'
+                    }
+                ]
+            },
+            {
+                label: 'Open',
+                icon: 'pi pi-folder-open'
+            },
+            {
+                label: 'Print',
+                icon: 'pi pi-print'
+            }
+        ]
+    },
+    {
+        label: 'Edit',
+        icon: 'pi pi-file-edit',
+        items: [
+            {
+                label: 'Copy',
+                icon: 'pi pi-copy'
+            },
+            {
+                label: 'Delete',
+                icon: 'pi pi-times'
+            }
+        ]
+    },
+    {
+        label: 'Search',
+        icon: 'pi pi-search'
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Share',
+        icon: 'pi pi-share-alt',
+        items: [
+            {
+                label: 'Slack',
+                icon: 'pi pi-slack'
+            },
+            {
+                label: 'Whatsapp',
+                icon: 'pi pi-whatsapp'
+            }
+        ]
+    }
+];
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
+<\/script>
+```
+</details>
 
 ## Outlined
 
@@ -16946,6 +32136,59 @@ Outlined buttons display a border without a background initially.
 <SplitButton label="Save" :model="items" @click="save" outlined severity="contrast"></SplitButton>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Toast />
+        <SplitButton label="Save" :model="items" @click="save" outlined></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" outlined severity="secondary"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" outlined severity="success"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" outlined severity="info"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" outlined severity="warn"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" outlined severity="help"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" outlined severity="danger"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" outlined severity="contrast"></SplitButton>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const items = [
+    {
+        label: 'Update',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Quit',
+        command: () => {
+            window.location.href = 'https://vuejs.org/';
+        }
+    }
+];
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## Raised
 
 Raised buttons display a shadow to indicate elevation.
@@ -16963,6 +32206,59 @@ Raised buttons display a shadow to indicate elevation.
 <SplitButton label="Save" :model="items" @click="save" raised severity="contrast"></SplitButton>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Toast />
+        <SplitButton label="Save" :model="items" @click="save" raised></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised severity="secondary"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised severity="success"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised severity="info"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised severity="warn"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised severity="help"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised severity="danger"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised severity="contrast"></SplitButton>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const items = [
+    {
+        label: 'Update',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Quit',
+        command: () => {
+            window.location.href = 'https://vuejs.org/';
+        }
+    }
+];
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## Raised Text
 
 Text buttons can be displayed as raised as well for elevation.
@@ -16978,6 +32274,58 @@ Text buttons can be displayed as raised as well for elevation.
 <SplitButton label="Save" :model="items" @click="save" raised text severity="help"></SplitButton>
 <SplitButton label="Save" :model="items" @click="save" raised text severity="danger"></SplitButton>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Toast />
+        <SplitButton label="Save" :model="items" @click="save" raised text></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised text severity="secondary"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised text severity="success"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised text severity="info"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised text severity="warn"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised text severity="help"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" raised text severity="danger"></SplitButton>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const items = [
+    {
+        label: 'Update',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Quit',
+        command: () => {
+            window.location.href = 'https://vuejs.org/';
+        }
+    }
+];
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
+<\/script>
+```
+</details>
 
 ## Rounded
 
@@ -16996,6 +32344,59 @@ Rounded buttons have a circular border radius.
 <SplitButton label="Save" :model="items" @click="save" rounded severity="contrast"></SplitButton>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Toast />
+        <SplitButton label="Save" :model="items" @click="save" rounded></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" rounded severity="secondary"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" rounded severity="success"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" rounded severity="info"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" rounded severity="warn"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" rounded severity="help"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" rounded severity="danger"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" rounded severity="contrast"></SplitButton>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const items = [
+    {
+        label: 'Update',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Quit',
+        command: () => {
+            window.location.href = 'https://vuejs.org/';
+        }
+    }
+];
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## Severity
 
 The severity property defines the variant of a button.
@@ -17013,6 +32414,59 @@ The severity property defines the variant of a button.
 <SplitButton label="Save" :model="items" @click="save" severity="contrast"></SplitButton>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Toast />
+        <SplitButton label="Save" :model="items" @click="save"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" severity="secondary"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" severity="success"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" severity="info"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" severity="warn"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" severity="help"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" severity="danger"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" severity="contrast"></SplitButton>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const items = [
+    {
+        label: 'Update',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Quit',
+        command: () => {
+            window.location.href = 'https://vuejs.org/';
+        }
+    }
+];
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## Sizes
 
 SplitButton provides small and large sizes as alternatives to the standard.
@@ -17024,6 +32478,54 @@ SplitButton provides small and large sizes as alternatives to the standard.
 <SplitButton label="Save" :model="items" icon="pi pi-plus"></SplitButton>
 <SplitButton label="Save" :model="items" icon="pi pi-plus" size="large"></SplitButton>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex items-center justify-center flex-wrap gap-4">
+        <Toast />
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" size="small"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus"></SplitButton>
+        <SplitButton label="Save" :model="items" icon="pi pi-plus" size="large"></SplitButton>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const items = [
+    {
+        label: 'Update',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Quit',
+        command: () => {
+            window.location.href = 'https://vuejs.org/';
+        }
+    }
+];
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -17040,6 +32542,57 @@ Custom content inside a button is defined as children.
 </SplitButton>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast />
+        <SplitButton :model="items" @click="save" severity="contrast">
+            <span class="flex items-center font-bold">
+                <img alt="logo" src="https://primefaces.org/cdn/primevue/images/logo.svg" style="height: 1rem; margin-right: 0.5rem" />
+                <span>PrimeVue</span>
+            </span>
+        </SplitButton>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const items = [
+    {
+        label: 'Update',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Quit',
+        command: () => {
+            window.location.href = 'https://vuejs.org/';
+        }
+    }
+];
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## Text
 
 Text buttons are displayed as textual elements.
@@ -17055,6 +32608,58 @@ Text buttons are displayed as textual elements.
 <SplitButton label="Save" :model="items" @click="save" text severity="help"></SplitButton>
 <SplitButton label="Save" :model="items" @click="save" text severity="danger"></SplitButton>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center flex-wrap gap-4">
+        <Toast />
+        <SplitButton label="Save" :model="items" @click="save" text></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" text severity="secondary"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" text severity="success"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" text severity="info"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" text severity="warn"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" text severity="help"></SplitButton>
+        <SplitButton label="Save" :model="items" @click="save" text severity="danger"></SplitButton>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const items = [
+    {
+        label: 'Update',
+        command: () => {
+            toast.add({ severity: 'success', summary: 'Updated', detail: 'Data Updated', life: 3000 });
+        }
+    },
+    {
+        label: 'Delete',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted', life: 3000 });
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Quit',
+        command: () => {
+            window.location.href = 'https://vuejs.org/';
+        }
+    }
+];
+
+const save = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Data Saved', life: 3000 });
+};
+<\/script>
+```
+</details>
 
 ## Split Button
 
@@ -17139,6 +32744,33 @@ Splitter requires two SplitterPanel components as children which are displayed h
 </Splitter>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Splitter style="height: 300px">
+            <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
+        </Splitter>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Splitter from 'primevue/splitter';
+import SplitterPanel from 'primevue/splitterpanel';
+```
+
 ## Nested
 
 Splitters can be combined to create advanced layouts.
@@ -17162,6 +32794,34 @@ Splitters can be combined to create advanced layouts.
 </Splitter>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Splitter style="height: 300px">
+            <SplitterPanel class="flex items-center justify-center" :size="20" :minSize="10"> Panel 1 </SplitterPanel>
+            <SplitterPanel :size="80">
+                <Splitter layout="vertical">
+                    <SplitterPanel class="flex items-center justify-center" :size="15"> Panel 2 </SplitterPanel>
+                    <SplitterPanel :size="85">
+                        <Splitter>
+                            <SplitterPanel class="flex items-center justify-center" :size="20"> Panel 3 </SplitterPanel>
+                            <SplitterPanel class="flex items-center justify-center" :size="80"> Panel 4 </SplitterPanel>
+                        </Splitter>
+                    </SplitterPanel>
+                </Splitter>
+            </SplitterPanel>
+        </Splitter>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Size
 
 Initial dimension of a panel is percentage based and defined using the size property. In addition, minSize is provided to set a minimum value during a resize.
@@ -17175,6 +32835,24 @@ Initial dimension of a panel is percentage based and defined using the size prop
 </Splitter>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Splitter style="height: 300px">
+            <SplitterPanel class="flex items-center justify-center" :size="25" :minSize="10"> Panel 1 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center" :size="75"> Panel 2 </SplitterPanel>
+        </Splitter>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Vertical
 
 Panels are displayed as stacked by setting the layout to vertical .
@@ -17187,6 +32865,24 @@ Panels are displayed as stacked by setting the layout to vertical .
     <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
 </Splitter>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Splitter style="height: 300px" layout="vertical">
+            <SplitterPanel class="flex items-center justify-center"> Panel 1 </SplitterPanel>
+            <SplitterPanel class="flex items-center justify-center"> Panel 2 </SplitterPanel>
+        </Splitter>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Splitter
 
@@ -17296,6 +32992,64 @@ Stepper consists of a combination of StepList , Step , StepPanels and StepPanel 
 </Stepper>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Stepper value="1" class="basis-[50rem]">
+            <StepList>
+                <Step value="1">Header I</Step>
+                <Step value="2">Header II</Step>
+                <Step value="3">Header III</Step>
+            </StepList>
+            <StepPanels>
+                <StepPanel v-slot="{ activateCallback }" value="1">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
+                    </div>
+                    <div class="flex pt-6 justify-end">
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('2')" />
+                    </div>
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" value="2">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                    </div>
+                    <div class="flex pt-6 justify-between">
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('1')" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('3')" />
+                    </div>
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" value="3">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
+                    </div>
+                    <div class="pt-6">
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('2')" />
+                    </div>
+                </StepPanel>
+            </StepPanels>
+        </Stepper>
+    </div>
+</template>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Stepper from 'primevue/stepper';
+import StepList from 'primevue/steplist';
+import StepPanels from 'primevue/steppanels';
+import StepItem from 'primevue/stepitem';
+import Step from 'primevue/step';
+import StepPanel from 'primevue/steppanel';
+```
+
 ## Linear
 
 When linear property is present, current step must be completed in order to move to the next step.
@@ -17339,6 +33093,51 @@ When linear property is present, current step must be completed in order to move
 </Stepper>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Stepper value="1" linear class="basis-[50rem]">
+            <StepList>
+                <Step value="1">Header I</Step>
+                <Step value="2">Header II</Step>
+                <Step value="3">Header III</Step>
+            </StepList>
+            <StepPanels>
+                <StepPanel v-slot="{ activateCallback }" value="1">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
+                    </div>
+                    <div class="flex pt-6 justify-end">
+                        <Button label="Next" icon="pi pi-arrow-right" @click="activateCallback('2')" />
+                    </div>
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" value="2">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                    </div>
+                    <div class="flex pt-6 justify-between">
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('1')" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback('3')" />
+                    </div>
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" value="3">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
+                    </div>
+                    <div class="pt-6">
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback('2')" />
+                    </div>
+                </StepPanel>
+            </StepPanels>
+        </Stepper>
+    </div>
+</template>
+```
+</details>
+
 ## Steps Only
 
 Use Stepper with a StepList only for custom requirements where a progress indicator is needed.
@@ -17354,6 +33153,24 @@ Use Stepper with a StepList only for custom requirements where a progress indica
     </StepList>
 </Stepper>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Stepper value="1" class="basis-[50rem]">
+            <StepList>
+                <Step value="1">Design</Step>
+                <Step value="2">Development</Step>
+                <Step value="3">QA</Step>
+            </StepList>
+        </Stepper>
+    </div>
+</template>
+```
+</details>
 
 ## Template
 
@@ -17463,6 +33280,136 @@ Custom content for a step is defined with the default slot. The optional as prop
 </Stepper>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Stepper v-model:value="activeStep" class="basis-[40rem]">
+            <StepList>
+                <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="1">
+                    <div class="flex flex-row flex-auto gap-2" v-bind="a11yAttrs.root">
+                        <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                            <span
+                                :class="[
+                                    'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                                    { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                                ]"
+                            >
+                                <i class="pi pi-user" />
+                            </span>
+                        </button>
+                        <Divider />
+                    </div>
+                </Step>
+                <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="2">
+                    <div class="flex flex-row flex-auto gap-2 pl-2" v-bind="a11yAttrs.root">
+                        <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                            <span
+                                :class="[
+                                    'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                                    { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                                ]"
+                            >
+                                <i class="pi pi-star" />
+                            </span>
+                        </button>
+                        <Divider />
+                    </div>
+                </Step>
+                <Step v-slot="{ activateCallback, value, a11yAttrs }" asChild :value="3">
+                    <div class="flex flex-row pl-2" v-bind="a11yAttrs.root">
+                        <button class="bg-transparent border-0 inline-flex flex-col gap-2" @click="activateCallback" v-bind="a11yAttrs.header">
+                            <span
+                                :class="[
+                                    'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
+                                    { 'bg-primary text-primary-contrast border-primary': value <= activeStep, 'border-surface-200 dark:border-surface-700': value > activeStep }
+                                ]"
+                            >
+                                <i class="pi pi-id-card" />
+                            </span>
+                        </button>
+                    </div>
+                </Step>
+            </StepList>
+            <StepPanels>
+                <StepPanel v-slot="{ activateCallback }" :value="1">
+                    <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 20rem">
+                        <div class="text-center mt-4 mb-4 text-xl font-semibold">Create your account</div>
+                        <div class="field">
+                            <InputText id="input" v-model="name" type="text" placeholder="Name" fluid />
+                        </div>
+                        <div class="field">
+                            <InputText id="email" v-model="email" type="email" placeholder="Email" fluid />
+                        </div>
+                        <div class="field">
+                            <Password v-model="password" placeholder="Password" fluid />
+                        </div>
+                    </div>
+                    <div class="flex pt-6 justify-end">
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(2)" />
+                    </div>
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" :value="2">
+                    <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                        <div class="text-center mt-4 mb-4 text-xl font-semibold">Choose your interests</div>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <ToggleButton v-model="option1" onLabel="Nature" offLabel="Nature" />
+                            <ToggleButton v-model="option2" onLabel="Art" offLabel="Art" />
+                            <ToggleButton v-model="option3" onLabel="Music" offLabel="Music" />
+                            <ToggleButton v-model="option4" onLabel="Design" offLabel="Design" />
+                            <ToggleButton v-model="option5" onLabel="Photography" offLabel="Photography" />
+                            <ToggleButton v-model="option6" onLabel="Movies" offLabel="Movies" />
+                            <ToggleButton v-model="option7" onLabel="Sports" offLabel="Sports" />
+                            <ToggleButton v-model="option8" onLabel="Gaming" offLabel="Gaming" />
+                            <ToggleButton v-model="option9" onLabel="Traveling" offLabel="Traveling" />
+                            <ToggleButton v-model="option10" onLabel="Dancing" offLabel="Dancing" />
+                        </div>
+                    </div>
+                    <div class="flex pt-6 justify-between">
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback(1)" />
+                        <Button label="Next" icon="pi pi-arrow-right" iconPos="right" @click="activateCallback(3)" />
+                    </div>
+                </StepPanel>
+                <StepPanel v-slot="{ activateCallback }" :value="3">
+                    <div class="flex flex-col gap-2 mx-auto" style="min-height: 16rem; max-width: 24rem">
+                        <div class="text-center mt-4 mb-4 text-xl font-semibold">Account created successfully</div>
+                        <div class="flex justify-center">
+                            <img alt="logo" src="https://primefaces.org/cdn/primevue/images/stepper/content.svg" />
+                        </div>
+                    </div>
+                    <div class="flex pt-6 justify-start">
+                        <Button label="Back" severity="secondary" icon="pi pi-arrow-left" @click="activateCallback(2)" />
+                    </div>
+                </StepPanel>
+            </StepPanels>
+        </Stepper>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const activeStep = ref(1);
+const name = ref();
+const email = ref();
+const password = ref();
+const option1 = ref(false);
+const option2 = ref(false);
+const option3 = ref(false);
+const option4 = ref(false);
+const option5 = ref(false);
+const option6 = ref(false);
+const option7 = ref(false);
+const option8 = ref(false);
+const option9 = ref(false);
+const option10 = ref(false);
+
+<\/script>
+```
+</details>
+
 ## Vertical
 
 Vertical layout requires StepItem as a wrapper of Step and StepPanel components.
@@ -17507,6 +33454,53 @@ Vertical layout requires StepItem as a wrapper of Step and StepPanel components.
     </StepItem>
 </Stepper>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Stepper value="1">
+            <StepItem value="1">
+                <Step>Header I</Step>
+                <StepPanel v-slot="{ activateCallback }">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content I</div>
+                    </div>
+                    <div class="py-6">
+                        <Button label="Next" @click="activateCallback('2')" />
+                    </div>
+                </StepPanel>
+            </StepItem>
+            <StepItem value="2">
+                <Step>Header II</Step>
+                <StepPanel v-slot="{ activateCallback }">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content II</div>
+                    </div>
+                    <div class="flex py-6 gap-2">
+                        <Button label="Back" severity="secondary" @click="activateCallback('1')" />
+                        <Button label="Next" @click="activateCallback('3')" />
+                    </div>
+                </StepPanel>
+            </StepItem>
+            <StepItem value="3">
+                <Step>Header III</Step>
+                <StepPanel v-slot="{ activateCallback }">
+                    <div class="flex flex-col h-48">
+                        <div class="border-2 border-dashed border-surface-200 dark:border-surface-700 rounded bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">Content III</div>
+                    </div>
+                    <div class="py-6">
+                        <Button label="Back" severity="secondary" @click="activateCallback('2')" />
+                    </div>
+                </StepPanel>
+            </StepItem>
+        </Stepper>
+    </div>
+</template>
+```
+</details>
 
 ## Stepper
 
@@ -17616,6 +33610,74 @@ Classes to apply during enter and leave animations are specified using the enter
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex items-center justify-center gap-8">
+        <div class="flex flex-col items-center">
+            <div>
+                <Button v-styleclass="{ selector: '.box1', enterFromClass: 'my-hidden', enterActiveClass: 'my-fadein' }" label="FadeIn" class="mr-2" />
+                <Button v-styleclass="{ selector: '.box1', leaveActiveClass: 'my-fadeout', leaveToClass: 'my-hidden' }" label="FadeOut" severity="secondary" />
+            </div>
+            <div class="h-32">
+                <div class="my-hidden animate-duration-500 box1">
+                    <div class="flex bg-primary text-primary-contrast items-center justify-center py-4 rounded-md mt-4 font-bold w-32 h-32">Custom</div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col items-center">
+            <div>
+                <Button v-styleclass="{ selector: '.box2', enterFromClass: 'hidden', enterActiveClass: 'animate-slidedown' }" label="SlideDown" class="mr-2" />
+                <Button v-styleclass="{ selector: '.box2', leaveActiveClass: 'animate-slideup', leaveToClass: 'hidden' }" label="SlideUp" severity="secondary" />
+            </div>
+            <div class="h-32">
+                <div class="hidden animate-duration-500 box2 overflow-hidden">
+                    <div class="flex bg-primary text-primary-contrast items-center justify-center py-4 rounded-md mt-4 font-bold w-32 h-32">Content</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+
+<style scoped>
+@keyframes my-fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes my-fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.my-hidden {
+    display: none;
+}
+
+.my-fadein {
+    animation: my-fadein 150ms linear;
+}
+
+.my-fadeout {
+    animation: my-fadeout 150ms linear;
+}
+</style>
+```
+</details>
+
 ## HideOnResizeDoc
 
 When hideOnResize is enabled, the leave animation is triggered automatically when resizing occurs. Use the resizeSelector property to specify whether to listen to window resize events or element-specific resize events. Set resizeSelector to "window" (default) or "document" for browser resize, or a CSS selector to observe the target element's dimensions.
@@ -17656,6 +33718,67 @@ When hideOnResize is enabled, the leave animation is triggered automatically whe
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex justify-center">
+            <div class="flex flex-col items-center gap-4 w-[25rem]">
+                <Button
+                    v-styleclass="{ selector: '.box', hideOnResize: true, enterFromClass: 'hidden', enterActiveClass: 'animate-fadein', leaveActiveClass: 'animate-fadeout', leaveToClass: 'hidden' }"
+                    label="Show Window Responsive Content"
+                />
+                <div class="box hidden animate-duration-300 border border-lg border-surface">
+                    <div class="p-4 flex flex-col gap-2">
+                        <h3 class="text-xl font-bold">Window Responsive Panel</h3>
+                        <p class="text-sm">This panel will hide when you resize the browser window.</p>
+                        <p class="text-sm">Try resizing your browser window to see the effect.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center gap-4 w-[25rem]">
+                <Button
+                    v-styleclass="{
+                        selector: '.resizable',
+                        resizeSelector: '.resizable',
+                        hideOnResize: true,
+                        enterFromClass: 'hidden',
+                        enterActiveClass: 'animate-fadein',
+                        leaveActiveClass: 'animate-fadeout',
+                        leaveToClass: 'hidden'
+                    }"
+                    label="Show Resizable Panel"
+                />
+                <div class="resizable hidden animate-duration-300 border border-lg border-surface w-[20rem] w-max-[25rem] w-min-[15rem] overflow-auto resize">
+                    <div class="p-4 h-full flex flex-col gap-2">
+                        <h3 class="text-xl font-bold">Resizable Panel</h3>
+                        <p class="text-sm">Drag the resize handle in the bottom-right corner to resize this panel.</p>
+                        <p class="text-sm">The panel will hide when you resize it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import StyleClass from 'primevue/styleclass';
+
+app.directive('styleclass', StyleClass);
+```
+
 ## ToggleClassDoc
 
 StyleClass has two modes, toggleClass to simply add-remove a class and enter/leave animations.
@@ -17666,6 +33789,22 @@ StyleClass has two modes, toggleClass to simply add-remove a class and enter/lea
 <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle p-disabled" />
 <InputText />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <Button v-styleclass="{ selector: '@next', toggleClass: 'p-disabled' }" label="Toggle .p-disabled" />
+        <InputText />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Styleclass
 
@@ -17757,6 +33896,56 @@ Tabs can be controlled programmatically using value property as a model.
 </Tabs>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <div class="flex mb-2 gap-2 justify-end">
+            <Button @click="value = '0'" rounded label="1" class="w-8 h-8 p-0" :outlined="value !== '0'" />
+            <Button @click="value = '1'" rounded label="2" class="w-8 h-8 p-0" :outlined="value !== '1'" />
+            <Button @click="value = '2'" rounded label="3" class="w-8 h-8 p-0" :outlined="value !== '2'" />
+        </div>
+
+        <Tabs v-model:value="value">
+            <TabList>
+                <Tab value="0">Header I</Tab>
+                <Tab value="1">Header II</Tab>
+                <Tab value="2">Header III</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel value="0">
+                    <p class="m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </TabPanel>
+                <TabPanel value="1">
+                    <p class="m-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                    </p>
+                </TabPanel>
+                <TabPanel value="2">
+                    <p class="m-0">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                    </p>
+                </TabPanel>
+            </TabPanels>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('0');
+<\/script>
+```
+</details>
+
 ## Disabled
 
 Enabling disabled property of a Tab prevents user interaction.
@@ -17794,6 +33983,48 @@ Enabling disabled property of a Tab prevents user interaction.
 </Tabs>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Tabs value="0">
+            <TabList>
+                <Tab value="0">Header I</Tab>
+                <Tab value="1">Header II</Tab>
+                <Tab value="2">Header III</Tab>
+                <Tab disabled>Header IV</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel value="0">
+                    <p class="m-0">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </TabPanel>
+                <TabPanel value="1">
+                    <p class="m-0">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                    </p>
+                </TabPanel>
+                <TabPanel value="2">
+                    <p class="m-0">
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+                        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                    </p>
+                </TabPanel>
+            </TabPanels>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
 ## Dynamic
 
 Tabs can be generated dynamically using the standard v-for directive on Tab and TabPanel.
@@ -17811,6 +34042,49 @@ Tabs can be generated dynamically using the standard v-for directive on Tab and 
         </TabPanel>
     </TabPanels>
 </Tabs>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Tabs value="0">
+            <TabList>
+                <Tab v-for="tab in tabs" :key="tab.title" :value="tab.value">{{ tab.title }}</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel v-for="tab in tabs" :key="tab.content" :value="tab.value">
+                    <p class="m-0">{{ tab.content }}</p>
+                </TabPanel>
+            </TabPanels>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tabs = ref([
+    { title: 'Tab 1', content: 'Tab 1 Content', value: '0' },
+    { title: 'Tab 2', content: 'Tab 2 Content', value: '1' },
+    { title: 'Tab 3', content: 'Tab 3 Content', value: '2' }
+]);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Tabs from 'primevue/tabs';
+import TabList from 'primevue/tablist';
+import Tab from 'primevue/tab';
+import TabPanels from 'primevue/tabpanels';
+import TabPanel from 'primevue/tabpanel';
 ```
 
 ## Scrollable
@@ -17834,6 +34108,35 @@ Adding scrollable property displays navigational buttons at each side to scroll 
 </Tabs>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Tabs value="0" scrollable>
+            <TabList>
+                <Tab v-for="tab in scrollableTabs" :key="tab.title" :value="tab.value">
+                    {{ tab.title }}
+                </Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel v-for="tab in scrollableTabs" :key="tab.content" :value="tab.value">
+                    <p class="m-0">{{ tab.content }}</p>
+                </TabPanel>
+            </TabPanels>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const scrollableTabs = ref(Array.from({ length: 50 }, (_, i) => ({ title: \`Tab \${i + 1}\`, content: \`Tab \${i + 1} Content\`, value: \`\${i}\` })));
+<\/script>
+```
+</details>
+
 ## Tab Menu
 
 A navigation menu is implemented using tabs without the panels where the content of a tab is provided by a route component like router-view . For the purpose of this demo, router-view is not included.
@@ -17854,6 +34157,40 @@ A navigation menu is implemented using tabs without the panels where the content
     </TabList>
 </Tabs>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Tabs value="/dashboard">
+            <TabList>
+                <Tab v-for="tab in items" :key="tab.label" :value="tab.route">
+                    <router-link v-if="tab.route" v-slot="{ href, navigate }" :to="tab.route" custom>
+                        <a v-ripple :href="href" @click="navigate" class="flex items-center gap-2 text-inherit">
+                            <i :class="tab.icon" />
+                            <span>{{ tab.label }}</span>
+                        </a>
+                    </router-link>
+                </Tab>
+            </TabList>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref([
+    { route: '/dashboard', label: 'Dashboard', icon: 'pi pi-home' },
+    { route: '/transactions', label: 'Transactions', icon: 'pi pi-chart-line' },
+    { route: '/products', label: 'Products', icon: 'pi pi-list' },
+    { route: '/messages', label: 'Messages', icon: 'pi pi-inbox' }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -17900,6 +34237,57 @@ Custom content for a tab is defined with the default slot. The optional as prope
     </TabPanels>
 </Tabs>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Tabs value="0">
+            <TabList>
+                <Tab value="0" as="div" class="flex items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                    <span class="font-bold whitespace-nowrap">Amy Elsner</span>
+                </Tab>
+                <Tab value="1" as="div" class="flex items-center gap-2">
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" shape="circle" />
+                    <span class="font-bold whitespace-nowrap">Onyama Limba</span>
+                </Tab>
+                <Tab v-slot="slotProps" value="2" asChild>
+                    <div :class="['flex items-center gap-2', slotProps.class]" @click="slotProps.onClick" v-bind="slotProps.a11yAttrs">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/ionibowcher.png" shape="circle" />
+                        <span class="font-bold whitespace-nowrap">Ioni Bowcher</span>
+                        <Badge value="2" />
+                    </div>
+                </Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel value="0" as="p" class="m-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </TabPanel>
+                <TabPanel value="1" as="p" class="m-0">
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                    ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                </TabPanel>
+                <TabPanel v-slot="slotProps" value="2" asChild>
+                    <div v-show="slotProps.active" :class="slotProps.class" v-bind="slotProps.a11yAttrs">
+                        <p class="m-0">
+                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in
+                            culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+                        </p>
+                    </div>
+                </TabPanel>
+            </TabPanels>
+        </Tabs>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Tabs
 
@@ -18018,6 +34406,36 @@ A font icon next to the value can be displayed with the icon property.
 <Tag icon="pi pi-cog" severity="contrast" value="Contrast"></Tag>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-2">
+        <Tag icon="pi pi-user" value="Primary"></Tag>
+        <Tag icon="pi pi-check" severity="success" value="Success"></Tag>
+        <Tag icon="pi pi-search" severity="secondary" value="Secondary"></Tag>
+        <Tag icon="pi pi-info-circle" severity="info" value="Info"></Tag>
+        <Tag icon="pi pi-exclamation-triangle" severity="warn" value="Warn"></Tag>
+        <Tag icon="pi pi-times" severity="danger" value="Danger"></Tag>
+        <Tag icon="pi pi-cog" severity="contrast" value="Contrast"></Tag>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Tag from 'primevue/tag';
+```
+
 ## Pill
 
 Enabling rounded , displays a tag as a pill.
@@ -18033,6 +34451,28 @@ Enabling rounded , displays a tag as a pill.
 <Tag severity="danger" value="Danger" rounded></Tag>
 <Tag severity="contrast" value="Contrast" rounded></Tag>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-2">
+        <Tag value="Primary" rounded></Tag>
+        <Tag severity="success" value="Success" rounded></Tag>
+        <Tag severity="secondary" value="Secondary" rounded></Tag>
+        <Tag severity="info" value="Info" rounded></Tag>
+        <Tag severity="warn" value="Warn" rounded></Tag>
+        <Tag severity="danger" value="Danger" rounded></Tag>
+        <Tag severity="contrast" value="Contrast" rounded></Tag>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## Severity
 
@@ -18050,6 +34490,28 @@ Severity defines the variant of a tag.
 <Tag severity="contrast" value="Contrast"></Tag>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="flex flex-wrap justify-center gap-2">
+        <Tag value="Primary"></Tag>
+        <Tag severity="secondary" value="Secondary"></Tag>
+        <Tag severity="success" value="Success"></Tag>
+        <Tag severity="info" value="Info"></Tag>
+        <Tag severity="warn" value="Warn"></Tag>
+        <Tag severity="danger" value="Danger"></Tag>
+        <Tag severity="contrast" value="Contrast"></Tag>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
 ## Template
 
 Children of the component are passed as the content for templating.
@@ -18064,6 +34526,26 @@ Children of the component are passed as the content for templating.
     </div>
 </Tag>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Tag style="border: 2px solid var(--border-color); background: transparent; color: var(--text-color)">
+            <div class="flex items-center gap-2 px-1">
+                <img alt="Country" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" class="flag flag-it" style="width: 18px" />
+                <span class="text-base">Italy</span>
+            </div>
+        </Tag>
+    </div>    
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Tag
 
@@ -18149,6 +34631,15 @@ Commands are processed using an EventBus implementation called TerminalService .
 />
 ```
 
+## Import
+
+**Basic Usage:**
+
+```vue
+import Terminal from 'primevue/terminal';
+import TerminalService from 'primevue/terminalservice'
+```
+
 ## Terminal
 
 ### Props
@@ -18218,6 +34709,18 @@ Textarea adds styling and autoResize functionality to standard textarea element.
 
 Screen Reader Textarea component renders a native textarea element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
 
+**Basic Usage:**
+
+```vue
+<label for="address1">Address 1</label>
+<Textarea id="address1" />
+
+<span id="address2">Address 2</span>
+<Textarea aria-labelledby="address2" />
+
+<Textarea aria-label="Address Details"/>
+```
+
 ## AutoResizeDoc
 
 When autoResize is enabled, textarea grows instead of displaying a scrollbar.
@@ -18227,6 +34730,24 @@ When autoResize is enabled, textarea grows instead of displaying a scrollbar.
 ```vue
 <Textarea v-model="value" autoResize rows="5" cols="30" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Textarea v-model="value" autoResize rows="5" cols="30" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
 
 ## Basic
 
@@ -18248,6 +34769,24 @@ When disabled is present, the element cannot be edited and focused.
 <Textarea v-model="value" rows="5" cols="30" disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Textarea v-model="value" rows="5" cols="30" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('Disabled');
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -18257,6 +34796,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <Textarea v-model="value" variant="filled" rows="5" cols="30" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Textarea v-model="value" variant="filled" rows="5" cols="30" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -18281,6 +34838,39 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <Textarea id="over_label" v-model="value1" rows="5" cols="30" style="resize: none" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <Textarea id="in_label" v-model="value2" rows="5" cols="30" style="resize: none" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <Textarea id="on_label" v-model="value3" rows="5" cols="30" style="resize: none" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref('');
+const value2 = ref('');
+const value3 = ref('');
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -18290,6 +34880,24 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <Textarea v-model="value" rows="5" fluid />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Textarea v-model="value" rows="5" fluid />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -18307,6 +34915,47 @@ Textarea integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <Textarea name="address" rows="5" cols="30" style="resize: none" />
+                <Message v-if="$form.address?.invalid" severity="error" size="small" variant="simple">{{ $form.address.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    address: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        address: z.string().min(1, { message: 'Address is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -18320,6 +34969,35 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <Textarea id="description" v-model="value" rows="5" cols="30" style="resize: none" />
+            <label for="description">Description</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Textarea from 'primevue/textarea';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -18329,6 +35007,24 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 ```vue
 <Textarea v-model="value" rows="5" cols="30" :invalid="!value" style="resize: none" placeholder="Address" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Textarea v-model="value" rows="5" cols="30" :invalid="!value" style="resize: none" placeholder="Address" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -18341,6 +35037,28 @@ Textarea provides small and large sizes as alternatives to the base.
 <Textarea v-model="value2" placeholder="Normal" rows="3" />
 <Textarea v-model="value3" size="large" placeholder="Large" rows="3" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <Textarea v-model="value1" size="small" placeholder="Small" rows="3" />
+        <Textarea v-model="value2" placeholder="Normal" rows="3" />
+        <Textarea v-model="value3" size="large" placeholder="Large" rows="3" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
 
 ## Textarea
 
@@ -18404,6 +35122,8 @@ Textarea provides small and large sizes as alternatives to the base.
 | contextmenu | string | - |  |
 | dir | string | - |  |
 | draggable | Booleanish | - |  |
+| enterkeyhint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
+| enterKeyHint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
 | hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
 | id | string | - |  |
 | inert | Booleanish | - |  |
@@ -18434,8 +35154,10 @@ Textarea provides small and large sizes as alternatives to the base.
 | results | Numberish | - |  |
 | security | string | - |  |
 | unselectable | "on" \| "off" | - |  |
-| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| inputmode | "text" \| "search" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
 | is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| exportparts | string | - |  |
+| part | string | - |  |
 | autocomplete | string | - |  |
 | autofocus | Booleanish | - |  |
 | cols | Numberish | - |  |
@@ -18644,6 +35366,87 @@ The command property defines the callback to run when an item is activated by cl
 <Toast />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TieredMenu :model="items" />
+        <Toast />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { useToast } from "primevue/usetoast";
+
+const toast = useToast();
+
+const items = ref([
+    {
+        label: 'File',
+        icon: 'pi pi-file',
+        items: [
+            {
+                label: 'New',
+                icon: 'pi pi-plus',
+                command: () => {
+                    toast.add({ severity: 'success', summary: 'Success', detail: 'File created', life: 3000 });
+                }
+            },
+            {
+                label: 'Print',
+                icon: 'pi pi-print',
+                command: () => {
+                    toast.add({ severity: 'error', summary: 'Error', detail: 'No printer connected', life: 3000 });
+                }
+            }
+        ]
+    },
+    {
+        label: 'Search',
+        icon: 'pi pi-search',
+        command: () => {
+            toast.add({ severity: 'warn', summary: 'Search Results', detail: 'No results found', life: 3000 });
+        }
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Sync',
+        icon: 'pi pi-cloud',
+        items: [
+            {
+                label: 'Import',
+                icon: 'pi pi-cloud-download',
+                command: () => {
+                    toast.add({ severity: 'info', summary: 'Downloads', detail: 'Downloaded from cloud', life: 3000 });
+                }
+            },
+            {
+                label: 'Export',
+                icon: 'pi pi-cloud-upload',
+                command: () => {
+                    toast.add({ severity: 'info', summary: 'Shared', detail: 'Exported to cloud', life: 3000 });
+                }
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import TieredMenu from 'primevue/tieredmenu';
+```
+
 ## Popup
 
 Overlay mode is enabled by adding popup property and calling toggle function of the menu ref with an event of the target.
@@ -18654,6 +35457,98 @@ Overlay mode is enabled by adding popup property and calling toggle function of 
 <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_tmenu" />
 <TieredMenu ref="menu" id="overlay_tmenu" :model="items" popup />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button type="button" label="Toggle" @click="toggle" aria-haspopup="true" aria-controls="overlay_tmenu" />
+        <TieredMenu ref="menu" id="overlay_tmenu" :model="items" popup />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const menu = ref();
+const items = ref([
+    {
+        label: 'File',
+        icon: 'pi pi-file',
+        items: [
+            {
+                label: 'New',
+                icon: 'pi pi-plus',
+                items: [
+                    {
+                        label: 'Document',
+                        icon: 'pi pi-file'
+                    },
+                    {
+                        label: 'Image',
+                        icon: 'pi pi-image'
+                    },
+                    {
+                        label: 'Video',
+                        icon: 'pi pi-video'
+                    }
+                ]
+            },
+            {
+                label: 'Open',
+                icon: 'pi pi-folder-open'
+            },
+            {
+                label: 'Print',
+                icon: 'pi pi-print'
+            }
+        ]
+    },
+    {
+        label: 'Edit',
+        icon: 'pi pi-file-edit',
+        items: [
+            {
+                label: 'Copy',
+                icon: 'pi pi-copy'
+            },
+            {
+                label: 'Delete',
+                icon: 'pi pi-times'
+            }
+        ]
+    },
+    {
+        label: 'Search',
+        icon: 'pi pi-search'
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Share',
+        icon: 'pi pi-share-alt',
+        items: [
+            {
+                label: 'Slack',
+                icon: 'pi pi-slack'
+            },
+            {
+                label: 'Whatsapp',
+                icon: 'pi pi-whatsapp'
+            }
+        ]
+    }
+]);
+
+const toggle = (event) => {
+    menu.value.toggle(event);
+};
+<\/script>
+```
+</details>
 
 ## Router
 
@@ -18679,6 +35574,77 @@ Items with navigation are defined with templating to be able to use a router lin
 </TieredMenu>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TieredMenu :model="items">
+            <template #item="{ item, props, hasSubmenu }">
+                <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
+                    <a v-ripple :href="href" v-bind="props.action" @click="navigate">
+                        <span :class="item.icon" />
+                        <span class="ml-2">{{ item.label }}</span>
+                    </a>
+                </router-link>
+                <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
+                    <span v-if="hasSubmenu" class="pi pi-angle-right ml-auto" />
+                </a>
+            </template>
+        </TieredMenu>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const items = ref([
+    {
+        label: 'Router',
+        icon: 'pi pi-palette',
+        items: [
+            {
+                label: 'Styled',
+                route: '/theming/styled'
+            },
+            {
+                label: 'Unstyled',
+                route: '/theming/unstyled'
+            }
+        ]
+    },
+    {
+        label: 'Programmatic',
+        icon: 'pi pi-link',
+        command: () => {
+            router.push('/introduction');
+        }
+    },
+    {
+        label: 'External',
+        icon: 'pi pi-home',
+        items: [
+            {
+                label: 'Vue.js',
+                url: 'https://vuejs.org/'
+            },
+            {
+                label: 'Vite.js',
+                url: 'https://vuejs.org/'
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Template
 
 TieredMenu offers item customization with the item template that receives the menuitem instance from the model as a parameter.
@@ -18698,6 +35664,112 @@ TieredMenu offers item customization with the item template that receives the me
     </template>
 </TieredMenu>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <TieredMenu :model="items">
+            <template #item="{ item, props, hasSubmenu }">
+                <a v-ripple class="flex items-center" v-bind="props.action">
+                    <span :class="item.icon" />
+                    <span class="ml-2">{{ item.label }}</span>
+                    <Badge v-if="item.badge" class="ml-auto" :value="item.badge" />
+                    <span v-if="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+                    <i v-if="hasSubmenu" class="pi pi-angle-right ml-auto"></i>
+                </a>
+            </template>
+        </TieredMenu>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const items = ref([
+    {
+        label: 'File',
+        icon: 'pi pi-file',
+        items: [
+            {
+                label: 'New',
+                icon: 'pi pi-plus',
+                items: [
+                    {
+                        label: 'Document',
+                        icon: 'pi pi-file',
+                        shortcut: '⌘+N'
+                    },
+                    {
+                        label: 'Image',
+                        icon: 'pi pi-image',
+                        shortcut: '⌘+I'
+                    },
+                    {
+                        label: 'Video',
+                        icon: 'pi pi-video',
+                        shortcut: '⌘+L'
+                    }
+                ]
+            },
+            {
+                label: 'Open',
+                icon: 'pi pi-folder-open',
+                shortcut: '⌘+O'
+            },
+            {
+                label: 'Print',
+                icon: 'pi pi-print',
+                shortcut: '⌘+P'
+            }
+        ]
+    },
+    {
+        label: 'Edit',
+        icon: 'pi pi-file-edit',
+        items: [
+            {
+                label: 'Copy',
+                icon: 'pi pi-copy',
+                shortcut: '⌘+C'
+            },
+            {
+                label: 'Delete',
+                icon: 'pi pi-times',
+                shortcut: '⌘+D'
+            }
+        ]
+    },
+    {
+        label: 'Search',
+        icon: 'pi pi-search',
+        shortcut: '⌘+S'
+    },
+    {
+        separator: true
+    },
+    {
+        label: 'Share',
+        icon: 'pi pi-share-alt',
+        items: [
+            {
+                label: 'Slack',
+                icon: 'pi pi-slack',
+                badge: 2
+            },
+            {
+                label: 'Whatsapp',
+                icon: 'pi pi-whatsapp',
+                badge: 3
+            }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
 
 ---
 
@@ -18734,6 +35806,46 @@ Content location relative the line is defined with the align property.
     </template>
 </Timeline>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-12">
+        <Timeline :value="events" class="w-full md:w-80">
+            <template #content="slotProps">
+                {{ slotProps.item.status }}
+            </template>
+        </Timeline>
+
+        <Timeline :value="events" align="right" class="w-full md:w-80">
+            <template #content="slotProps">
+                {{ slotProps.item.status }}
+            </template>
+        </Timeline>
+
+        <Timeline :value="events" align="alternate" class="w-full md:w-80">
+            <template #content="slotProps">
+                {{ slotProps.item.status }}
+            </template>
+        </Timeline>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const events = ref([
+    { status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0'},
+    { status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7' },
+    { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800' },
+    { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
+]);
+
+<\/script>
+```
+</details>
 
 ## Basic
 
@@ -18776,6 +35888,49 @@ TimeLine orientation is controlled with the layout property, default is vertical
 </Timeline>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col gap-4">
+        <Timeline :value="events" layout="horizontal" align="top">
+            <template #content="slotProps">
+                {{ slotProps.item }}
+            </template>
+        </Timeline>
+
+        <Timeline :value="events" layout="horizontal" align="bottom">
+            <template #content="slotProps">
+                {{ slotProps.item }}
+            </template>
+        </Timeline>
+
+        <Timeline :value="events" layout="horizontal" align="alternate">
+            <template #opposite> &nbsp; </template>
+            <template #content="slotProps">
+                {{ slotProps.item }}
+            </template>
+        </Timeline>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const events = ref(['2020', '2021', '2022', '2023']);
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Timeline from 'primevue/timeline';
+```
+
 ## Opposite
 
 Additional content at the other side of the line can be provided with the opposite property.
@@ -18792,6 +35947,37 @@ Additional content at the other side of the line can be provided with the opposi
     </template>
 </Timeline>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Timeline :value="events">
+            <template #opposite="slotProps">
+                <small class="text-surface-500 dark:text-surface-400">{{slotProps.item.date}}</small>
+            </template>
+            <template #content="slotProps">
+                {{slotProps.item.status}}
+            </template>
+        </Timeline>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const events = ref([
+    { status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0'},
+    { status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7' },
+    { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800' },
+    { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
+]);
+
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -18826,6 +36012,72 @@ Sample implementation with custom content and styled markers.
     </template>
 </Timeline>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Timeline :value="events" align="alternate" class="customized-timeline">
+            <template #marker="slotProps">
+                <span class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm" :style="{ backgroundColor: slotProps.item.color }">
+                    <i :class="slotProps.item.icon"></i>
+                </span>
+            </template>
+            <template #content="slotProps">
+                <Card class="mt-4">
+                    <template #title>
+                        {{ slotProps.item.status }}
+                    </template>
+                    <template #subtitle>
+                        {{ slotProps.item.date }}
+                    </template>
+                    <template #content>
+                        <img v-if="slotProps.item.image" :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.item.image}\`" :alt="slotProps.item.name" width="200" class="shadow-sm" />
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
+                            neque quas!
+                        </p>
+                        <Button label="Read more" variant="text"></Button>
+                    </template>
+                </Card>
+            </template>
+        </Timeline>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const events = ref([
+    { status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0', image: 'game-controller.jpg' },
+    { status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7' },
+    { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800' },
+    { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
+]);
+
+<\/script>
+
+<style lang="scss" scoped>
+@media screen and (max-width: 960px) {
+    ::v-deep(.customized-timeline) {
+        .p-timeline-event:nth-child(even) {
+            flex-direction: row;
+
+            .p-timeline-event-content {
+                text-align: left;
+            }
+        }
+
+        .p-timeline-event-opposite {
+            flex: 0;
+        }
+    }
+}
+</style>
+```
+</details>
 
 ## Timeline
 
@@ -18937,6 +36189,82 @@ Headless mode is enabled by defining a container slot that lets you implement en
 <Button @click="show" label="View" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast position="top-center" group="headless" @close="visible = false">
+            <template #container="{ message, closeCallback }">
+                <section class="flex flex-col p-4 gap-4 w-full bg-primary/70 rounded-xl">
+                    <div class="flex items-center gap-5">
+                        <i class="pi pi-cloud-upload text-white dark:text-black text-2xl"></i>
+                        <span class="font-bold text-base text-white dark:text-black">{{ message.summary }}</span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <ProgressBar :value="progress" :showValue="false" :style="{ height: '4px' }" pt:value:class="!bg-primary-50 dark:!bg-primary-900" class="!bg-primary/80"></ProgressBar>
+                        <label class="text-sm font-bold text-white dark:text-black">{{ progress }}% uploaded</label>
+                    </div>
+                    <div class="flex gap-4 mb-4 justify-end">
+                        <Button label="Another Upload?" size="small" @click="closeCallback"></Button>
+                        <Button label="Cancel" size="small" @click="closeCallback"></Button>
+                    </div>
+                </section>
+            </template>
+        </Toast>
+        <Button @click="show" label="View" />
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+import { ref, onUnmounted } from 'vue';
+const toast = useToast();
+const visible = ref(false);
+const progress = ref(0);
+const interval = ref();
+
+onUnmounted(() => {
+    if (interval.value) {
+        clearInterval(interval.value);
+    }
+})
+
+const show = () => {
+    if (!visible.value) {
+        toast.add({ severity: 'custom', summary: 'Uploading your files.', group: 'headless', styleClass: 'backdrop-blur-lg rounded-2xl' });
+        visible.value = true;
+        progress.value = 0;
+
+        if (interval.value) {
+            clearInterval(interval.value);
+        }
+
+        interval.value = setInterval(() => {
+            if (progress.value <= 100) {
+                progress.value = progress.value + 20;
+            }
+
+            if (progress.value >= 100) {
+                progress.value = 100;
+                clearInterval(interval.value);
+            }
+        }, 1000);
+    }
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Toast from 'primevue/toast';
+```
+
 ## Multiple
 
 Multiple messages are displayed by passing an array to the show method.
@@ -18947,6 +36275,31 @@ Multiple messages are displayed by passing an array to the show method.
 <Toast />
 <Button label="Multiple" @click="showMultiple()" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast />
+        <Button label="Multiple" @click="showMultiple()" />
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const showMultiple = () => {
+    toast.add({ severity: 'success', summary: 'Success', detail: 'Message Content', life: 3000 });
+    toast.add({ severity: 'info', summary: 'Info', detail: 'Message Content', life: 3050 });
+    toast.add({ severity: 'warn', summary: 'Warn', detail: 'Message Content', life: 3100 });
+    toast.add({ severity: 'error', summary: 'Error', detail: 'Message Content', life: 3150 });
+};
+<\/script>
+```
+</details>
 
 ## Position
 
@@ -18964,6 +36317,43 @@ A message can be targeted to a certain Toast component by matching the group key
 <Button label="Bottom Right" @click="showBottomRight" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast position="top-left" group="tl" />
+        <Toast position="bottom-left" group="bl" />
+        <Toast position="bottom-right" group="br" />
+
+        <div class="flex flex-wrap gap-2">
+            <Button label="Top Left" @click="showTopLeft" />
+            <Button label="Bottom Left" @click="showBottomLeft" />
+            <Button label="Bottom Right" @click="showBottomRight" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const showTopLeft = () => {
+    toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', group: 'tl', life: 3000 });
+};
+
+const showBottomLeft = () => {
+    toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content', group: 'bl', life: 3000 });
+};
+
+const showBottomRight = () => {
+    toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', group: 'br', life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## Severity
 
 The severity option specifies the type of the message.
@@ -18980,6 +36370,55 @@ The severity option specifies the type of the message.
 <Button label="Contrast" severity="contrast" @click="showContrast" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast />
+        <div class="flex flex-wrap gap-2">
+            <Button label="Success" severity="success" @click="showSuccess" />
+            <Button label="Info" severity="info" @click="showInfo" />
+            <Button label="Warn" severity="warn" @click="showWarn" />
+            <Button label="Error" severity="danger" @click="showError" />
+            <Button label="Secondary" severity="secondary" @click="showSecondary" />
+            <Button label="Contrast" severity="contrast" @click="showContrast" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const showSuccess = () => {
+    toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 });
+};
+
+const showInfo = () => {
+    toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Content', life: 3000 });
+};
+
+const showWarn = () => {
+    toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Content', life: 3000 });
+};
+
+const showError = () => {
+    toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Content', life: 3000 });
+};
+
+const showSecondary = () => {
+    toast.add({ severity: 'secondary', summary: 'Secondary Message', detail: 'Message Content', life: 3000 });
+};
+
+const showContrast = () => {
+    toast.add({ severity: 'contrast', summary: 'Contrast Message', detail: 'Message Content', life: 3000 });
+};
+<\/script>
+```
+</details>
+
 ## Sticky
 
 A message disappears after the number of milliseconds defined in the life option. Omit the life option to make the message sticky.
@@ -18991,6 +36430,35 @@ A message disappears after the number of milliseconds defined in the life option
 <Button @click="showSticky" label="Sticky" />
 <Button label="Clear" severity="secondary" @click="clear()" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast />
+        <div class="flex flex-wrap gap-2">
+            <Button @click="showSticky" label="Sticky" />
+            <Button label="Clear" severity="secondary" @click="clear()" />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+const toast = useToast();
+
+const showSticky = () => {
+    toast.add({ severity: 'info', summary: 'Sticky Message', detail: 'Message Content'});
+}
+
+const clear = () => {
+    toast.removeAllGroups();
+}
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -19013,6 +36481,53 @@ Custom content inside a message is defined with the message template.
 </Toast>
 <Button @click="showTemplate" label="View" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Toast position="bottom-center" group="bc" @close="onClose">
+            <template #message="slotProps">
+                <div class="flex flex-col items-start flex-auto">
+                    <div class="flex items-center gap-2">
+                        <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" shape="circle" />
+                        <span class="font-bold">Amy Elsner</span>
+                    </div>
+                    <div class="font-medium text-lg my-4">{{ slotProps.message.summary }}</div>
+                    <Button size="small" label="Reply" severity="success" @click="onReply()"></Button>
+                </div>
+            </template>
+        </Toast>
+        <Button @click="showTemplate" label="View" />
+    </div>
+</template>
+
+<script setup>
+import { useToast } from "primevue/usetoast";
+import { ref } from 'vue';
+const toast = useToast();
+const visible = ref(false);
+
+const showTemplate = () => {
+    if (!visible.value) {
+        toast.add({ severity: 'success', summary: 'Can you send me the report?', group: 'bc' });
+        visible.value = true;
+    } 
+};
+
+const onReply = () => {
+    toast.removeGroup('bc');
+    visible.value = false;
+}
+
+const onClose = () => {
+    visible.value = false;
+}
+<\/script>
+```
+</details>
 
 ## ToastServiceDoc
 
@@ -19162,6 +36677,15 @@ ToggleButton is used to select a boolean value using a button.
 
 Screen Reader ToggleButton component uses a native button element as the switch element internally that is only visible to screen readers. Value to describe the component can be defined with aria-labelledby or aria-label props, it is highly suggested to use either of these props as the component changes the label displayed which will result in screen readers to read different labels when the component receives focus. To prevent this, always provide an aria label that does not change related to state. Keyboard Support Keyboard interaction is derived from the native browser handling of checkboxs in a group. Key Function tab Moves focus to the button. space Toggles the checked state.
 
+**Basic Usage:**
+
+```vue
+<span id="rememberme">Remember Me</span>
+<ToggleButton aria-labelledby="rememberme" />
+
+<ToggleButton aria-label="Remember Me" />
+```
+
 ## Basic
 
 ToggleButton is used with the v-model property for two-way value binding.
@@ -19183,6 +36707,25 @@ Icons and Labels can be customized using onLabel , offLabel , onIcon and offIcon
     offIcon="pi pi-lock-open" class="w-36" aria-label="Do you confirm" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleButton v-model="checked" onLabel="Locked" offLabel="Unlocked" onIcon="pi pi-lock" 
+            offIcon="pi pi-lock-open" class="w-36" aria-label="Do you confirm" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -19194,6 +36737,25 @@ When disabled is present, the element cannot be edited and focused.
     class="w-full sm:w-40" aria-label="Confirmation" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleButton v-model="checked" disabled onIcon="pi pi-check" offIcon="pi pi-times"
+            class="w-full sm:w-40" aria-label="Confirmation" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -19203,6 +36765,24 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <ToggleButton v-model="checked" onLabel="On" offLabel="Off" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <ToggleButton v-model="checked" fluid onLabel="On" offLabel="Off" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -19220,6 +36800,56 @@ ToggleButton integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col items-center gap-1">
+                <ToggleButton name="consent" class="w-48" onLabel="Accept All" offLabel="Reject All" />
+                <Message v-if="$form.consent?.invalid" severity="error" variant="simple">{{ $form.consent.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    consent: false
+});
+
+const resolver = ref(zodResolver(
+    z.object({
+        consent: z.boolean().refine((val) => val === true, { message: 'Consent is mandatory.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ToggleButton from 'primevue/togglebutton';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -19229,6 +36859,24 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 ```vue
 <ToggleButton v-model="checked" onIcon="pi pi-check" offIcon="pi pi-times" :invalid="!checked" class="w-full sm:w-40" aria-label="Confirmation" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleButton v-model="checked" onIcon="pi pi-check" offIcon="pi pi-times" :invalid="!checked" class="w-full sm:w-40" aria-label="Confirmation" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -19241,6 +36889,28 @@ ToggleButton provides small and large sizes as alternatives to the base.
 <ToggleButton v-model="value2" onLabel="On" offLabel="Off" class="min-w-20" />
 <ToggleButton v-model="value3" onLabel="On" offLabel="Off" size="large" class="min-w-24" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <ToggleButton v-model="value1" onLabel="On" offLabel="Off" size="small" class="min-w-16" />
+        <ToggleButton v-model="value2" onLabel="On" offLabel="Off" class="min-w-20" />
+        <ToggleButton v-model="value3" onLabel="On" offLabel="Off" size="large" class="min-w-24" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(false);
+const value2 = ref(false);
+const value3 = ref(false);
+<\/script>
+```
+</details>
 
 ## Toggle Button
 
@@ -19339,6 +37009,18 @@ ToggleSwitch is used to select a boolean value.
 
 Screen Reader ToggleSwitch component uses a hidden native checkbox element with switch role internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the switch. space Toggles the checked state.
 
+**Basic Usage:**
+
+```vue
+<label for="switch1">Remember Me</label>
+<ToggleSwitch inputId="switch1" />
+
+<span id="switch2">Remember Me</span>
+<ToggleSwitch aria-labelledby="switch2" />
+
+<ToggleSwitch aria-label="Remember Me" />
+```
+
 ## Basic
 
 ToggleSwitch is used with the v-model property for two-way value binding.
@@ -19359,6 +37041,24 @@ When disabled is present, the element cannot be edited and focused.
 <ToggleSwitch v-model="checked" disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleSwitch v-model="checked" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
+
 ## Forms
 
 ToggleSwitch integrates seamlessly with the PrimeVue Forms library.
@@ -19375,6 +37075,49 @@ ToggleSwitch integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-48">
+            <div class="flex flex-col items-center gap-2">
+                <ToggleSwitch name="activation" />
+                <Message v-if="$form.activation?.invalid" severity="error" size="small" variant="simple">{{ $form.activation.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    activation: false
+});
+const resolver = ref(zodResolver(
+    z.object({
+        activation: z.boolean().refine((val) => val === true, { message: 'Activation is required.' })
+    })
+));
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import ToggleSwitch from 'primevue/toggleswitch';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -19385,6 +37128,24 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <ToggleSwitch v-model="checked" :invalid="!checked" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleSwitch v-model="checked" :invalid="!checked" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
+
 ## Preselection
 
 Enabling checked property displays the component as active initially.
@@ -19394,6 +37155,24 @@ Enabling checked property displays the component as active initially.
 ```vue
 <ToggleSwitch v-model="checked" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleSwitch v-model="checked" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(true);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -19408,6 +37187,28 @@ The handle slot is available to display custom content.
     </template>
 </ToggleSwitch>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleSwitch v-model="checked">
+            <template #handle="{ checked }">
+                <i :class="['!text-xs pi', { 'pi-check': checked, 'pi-times': !checked }]" />
+            </template>
+        </ToggleSwitch>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
 
 ## Toggle Switch
 
@@ -19561,6 +37362,54 @@ A customized toolbar with navigation bar functionality.
 </Toolbar>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Toolbar style="border-radius: 3rem; padding: 1rem 1rem 1rem 1.5rem">
+            <template #start>
+                <div class="flex items-center gap-2">
+                    <svg viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 2rem; margin-right: 1rem">
+                        <path
+                            d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                            fill="var(--p-text-color)"
+                        />
+                        <path
+                            d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                            fill="transparent"
+                        />
+                    </svg>
+                    <Button label="Files" text plain />
+                    <Button label="Edit" text plain />
+                    <Button label="View" text plain />
+                </div>
+            </template>
+
+            <template #end>
+                <div class="flex items-center gap-2">
+                    <Button label="Share" severity="contrast" size="small" />
+                    <Avatar image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" style="width: 32px; height: 32px" />
+                </div>
+            </template>
+        </Toolbar>
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Toolbar from 'primevue/toolbar';
+```
+
 ## Toolbar
 
 ### Props
@@ -19626,6 +37475,19 @@ Tooltip gets hidden when mouse leaves the target element by default, set autoHid
 <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="autoHide: true" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-2">
+        <InputText v-tooltip.bottom="{ value: 'Enter your username', autoHide: false }" type="text" placeholder="autoHide: false" />
+        <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="autoHide: true" />
+    </div>
+</template>
+```
+</details>
+
 ## Custom
 
 A tooltip sample with a custom style and content.
@@ -19649,6 +37511,32 @@ A tooltip sample with a custom style and content.
 />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center">
+        <Button
+            v-tooltip.bottom="{
+                value: 'PrimeVue Rocks',
+                pt: {
+                    arrow: {
+                        style: {
+                            borderBottomColor: 'var(--p-primary-color)'
+                        }
+                    },
+                    text: '!bg-primary !text-primary-contrast !font-medium'
+                }
+            }"
+            severity="secondary"
+            label="Button"
+        />
+    </div>
+</template>
+```
+</details>
+
 ## Delay
 
 Delays to the enter and leave events are defined with showDelay and hideDelay options respectively.
@@ -19659,6 +37547,18 @@ Delays to the enter and leave events are defined with showDelay and hideDelay op
 <Button v-tooltip="{ value: 'Confirm to proceed', showDelay: 1000, hideDelay: 300 }" label="Save" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center">
+        <Button v-tooltip="{ value: 'Confirm to proceed', showDelay: 1000, hideDelay: 300 }" label="Save" />
+    </div>
+</template>
+```
+</details>
+
 ## Event
 
 Event to display the tooltip is defined as a modifier, default event is hover.
@@ -19667,6 +37567,28 @@ Event to display the tooltip is defined as a modifier, default event is hover.
 
 ```vue
 <InputText v-tooltip.focus.top="'Enter your username'" type="text" placeholder="Focus" />
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center">
+        <InputText v-tooltip.focus.top="'Enter your username'" type="text" placeholder="Focus" />
+    </div>
+</template>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Tooltip from 'primevue/tooltip';
+
+app.directive('tooltip', Tooltip);
 ```
 
 ## Position
@@ -19681,6 +37603,21 @@ There are four choices to position the tooltip, default value is right and alter
 <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />
 <InputText v-tooltip.left="'Enter your username'" type="text" placeholder="Left" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-2">
+        <InputText v-tooltip="'Enter your username'" type="text" placeholder="Right" />
+        <InputText v-tooltip.top="'Enter your username'" type="text" placeholder="Top" />
+        <InputText v-tooltip.bottom="'Enter your username'" type="text" placeholder="Bottom" />
+        <InputText v-tooltip.left="'Enter your username'" type="text" placeholder="Left" />
+    </div>
+</template>
+```
+</details>
 
 ## Tooltip
 
@@ -19733,6 +37670,37 @@ Tree component requires an array of TreeNode objects as its value .
 
 ```vue
 <Tree :value="nodes" class="w-full md:w-[30rem]"></Tree>
+```
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
 ```
 
 ## Controlled
@@ -19799,6 +37767,37 @@ const expandNode = (node) => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
 ## EventsDoc
 
 An event is provided for each type of user interaction such as expand, collapse and selection.
@@ -19854,6 +37853,37 @@ const onNodeCollapse = (node) => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
 ## FilterDoc
 
 Filtering is enabled by adding the filter property, by default label property of a node is used to compare against the value in the text field, in order to customize which field(s) should be used during search define filterBy property. In addition filterMode specifies the filtering strategy. In lenient mode when the query matches a node, children of the node are not searched further as all descendants of the node are included. On the other hand, in strict mode when the query matches a node, filtering continues on all descendants.
@@ -19889,6 +37919,45 @@ onMounted(() => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import Tree from 'primevue/tree';
+```
+
 ## LazyDoc
 
 Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using loading property and node-expand method. Default value of loadingMode is mask and also icon is available.
@@ -19899,6 +37968,137 @@ Lazy loading is useful when dealing with huge datasets, in this example nodes ar
 <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
 <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
+            <label class="font-bold block mb-2">Mask Mode</label>
+            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
+        </div>
+        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
+            <label class="font-bold block mb-2">Icon Mode</label>
+            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const nodes = ref(null);
+const nodes2 = ref(null);
+const loading = ref(false);
+
+onMounted(() => {
+    loading.value = true;
+    nodes2.value = initiateNodes2();
+
+    setTimeout(() => {
+        nodes.value = initiateNodes();
+        loading.value = false;
+        nodes2.value.map((node) => (node.loading = false));
+    }, 2000);
+});
+
+const onNodeExpand = (node) => {
+    if (!node.children) {
+        loading.value = true;
+
+        setTimeout(() => {
+            let _node = { ...node };
+
+            _node.children = [];
+
+            for (let i = 0; i < 3; i++) {
+                _node.children.push({
+                    key: node.key + '-' + i,
+                    label: 'Lazy ' + node.label + '-' + i
+                });
+            }
+
+            let _nodes = { ...nodes.value };
+            _nodes[parseInt(node.key, 10)] = _node;
+
+            nodes.value = _nodes;
+            loading.value = false;
+        }, 500);
+    }
+};
+
+const onNodeExpand2 = (node) => {
+    if (!node.children) {
+        node.loading = true;
+
+        setTimeout(() => {
+            let _node = { ...node };
+
+            _node.children = [];
+
+            for (let i = 0; i < 3; i++) {
+                _node.children.push({
+                    key: node.key + '-' + i,
+                    label: 'Lazy ' + node.label + '-' + i
+                });
+            }
+
+            let _nodes = { ...nodes2.value };
+
+            _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
+
+            nodes2.value = _nodes;
+        }, 500);
+    }
+};
+
+const initiateNodes = () => {
+    return [
+        {
+            key: '0',
+            label: 'Node 0',
+            leaf: false
+        },
+        {
+            key: '1',
+            label: 'Node 1',
+            leaf: false
+        },
+        {
+            key: '2',
+            label: 'Node 2',
+            leaf: false
+        }
+    ];
+};
+
+const initiateNodes2 = () => {
+    return [
+        {
+            key: '0',
+            label: 'Node 0',
+            leaf: false,
+            loading: true
+        },
+        {
+            key: '1',
+            label: 'Node 1',
+            leaf: false,
+            loading: true
+        },
+        {
+            key: '2',
+            label: 'Node 2',
+            leaf: false,
+            loading: true
+        }
+    ];
+};
+<\/script>
+```
+</details>
 
 ## TemplateDoc
 
@@ -19962,6 +38162,32 @@ const nodes = ref([
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Introduction',
+    children: [
+        { key: '0-0', label: 'What is Vue.js?', data: 'https://vuejs.org/guide/introduction.html#what-is-vue', type: 'url' },
+        { key: '0-1', label: 'Quick Start', data: 'https://vuejs.org/guide/quick-start.html#quick-start', type: 'url' },
+        { key: '0-2', label: 'Creating a Vue Application', data: 'https://vuejs.org/guide/essentials/application.html#creating-a-vue-application', type: 'url' },
+        { key: '0-3', label: 'Conditional Rendering', data: 'https://vuejs.org/guide/essentials/conditional.html#conditional-rendering', type: 'url' }
+    ]
+},
+{
+    key: '1',
+    label: 'Components In-Depth',
+    children: [
+        { key: '1-0', label: 'Component Registration', data: 'https://vuejs.org/guide/components/registration.html#component-registration', type: 'url' },
+        { key: '1-1', label: 'Props', data: 'https://vuejs.org/guide/components/props.html#props', type: 'url' },
+        { key: '1-2', label: 'Components Events', data: 'https://vuejs.org/guide/components/events.html#component-events', type: 'url' },
+        { key: '1-3', label: 'Slots', data: 'https://vuejs.org/guide/components/slots.html#slots', type: 'url' }
+    ]
+},
+...
+```
 
 ## Tree
 
@@ -20105,6 +38331,15 @@ TreeSelect is a form component to choose from hierarchical data.
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The treeselect element has a combobox role in addition to aria-haspopup and aria-expanded attributes. The relation between the combobox and the popup is created with aria-controls that refers to the id of the popup. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses tree as the role. Each list item has a treeitem role along with aria-label , aria-selected and aria-expanded attributes. In checkbox selection, aria-checked is used instead of aria-selected . Checkbox and toggle icons are hidden from screen readers as their parent element with treeitem role and attributes are used instead for readers and keyboard support. The container element of a treenode has the group role. The aria-setsize , aria-posinset and aria-level attributes are calculated implicitly and added to each treeitem. Closed State Keyboard Support Key Function tab Moves focus to the treeselect element. space Opens the popup and moves visual focus to the selected treenode, if there is none then first treenode receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the page tab sequence. shift + tab Moves focus to the previous focusable element in the page tab sequence. enter Selects the focused option, closes the popup if selection mode is single. space Selects the focused option, closes the popup if selection mode is single. escape Closes the popup, moves focus to the treeselect element. down arrow Moves focus to the next treenode. up arrow Moves focus to the previous treenode. right arrow If node is closed, opens the node otherwise moves focus to the first child node. left arrow If node is open, closes the node otherwise moves focus to the parent node.
 
+**Basic Usage:**
+
+```vue
+<span id="dd1">Options</span>
+<TreeSelect aria-labelledby="dd1" />
+
+<TreeSelect aria-label="Options" />
+```
+
 ## Basic
 
 TreeSelect is used with the v-model property for two-way value binding along with the options collection. Internally Tree component is used so the options model is based on TreeNode API. In single selection mode, value binding should be the key value of a node.
@@ -20113,6 +38348,37 @@ TreeSelect is used with the v-model property for two-way value binding along wit
 
 ```vue
 <TreeSelect v-model="selectedValue" :options="nodes" placeholder="Select Item" class="md:w-80 w-full" />
+```
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
 ```
 
 ## Checkbox
@@ -20149,6 +38415,37 @@ onMounted(() => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
 ## Clear Icon
 
 When showClear is enabled, a clear icon is added to reset the TreeSelect.
@@ -20182,6 +38479,37 @@ onMounted(() => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
 
 ## Disabled
 
@@ -20217,6 +38545,37 @@ onMounted(() => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -20250,6 +38609,37 @@ onMounted(() => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
 
 ## Filter
 
@@ -20287,6 +38677,37 @@ onMounted(() => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
 
 ## Float Label
 
@@ -20350,6 +38771,37 @@ onMounted(() => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -20384,6 +38836,37 @@ onMounted(() => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
 ## Forms
 
 TreeSelect is used with the v-model property.
@@ -20399,6 +38882,48 @@ TreeSelect is used with the v-model property.
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-80">
+            <div class="flex flex-col gap-1">
+                <TreeSelect name="node" :options="nodes" placeholder="Select Item" fluid />
+                <Message v-if="$form.node?.invalid" severity="error" size="small" variant="simple">{{ $form.node.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+import { NodeService } from '/service/NodeService';
+
+const toast = useToast();
+const initialValues = ref({
+    node: null
+});
+const resolver = ref(zodResolver(
+    z.object({
+        node: z.union([z.record(z.boolean()), z.literal(null)]).refine((obj) => obj !== null && Object.keys(obj).length > 0, { message: 'Selection is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
 
 ## Ifta Label
 
@@ -20440,6 +38965,45 @@ onMounted(() => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import TreeSelect from 'primevue/treeselect';
+```
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -20477,6 +39041,37 @@ onMounted(() => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
 ## Lazy
 
 Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using loading property and node-expand method. Default value of loadingMode is mask and also icon is available.
@@ -20487,6 +39082,126 @@ Lazy loading is useful when dealing with huge datasets, in this example nodes ar
 <TreeSelect v-model="selectedValue" :loading="loading" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
 <TreeSelect v-model="selectedValue2" loadingMode="icon" :options="nodes2" @node-expand="onNodeExpand2" placeholder="Select Item" class="md:w-80 w-full" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <TreeSelect v-model="selectedValue" :loading="loading" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
+        <TreeSelect v-model="selectedValue2" loadingMode="icon" :options="nodes2" @node-expand="onNodeExpand2" placeholder="Select Item" class="md:w-80 w-full" />
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const nodes = ref(null);
+const nodes2 = ref(null);
+const selectedValue = ref(null);
+const selectedValue2 = ref(null);
+const loading = ref(false);
+
+onMounted(() => {
+    loading.value = true;
+    nodes2.value = initiateNodes2();
+
+    setTimeout(() => {
+        nodes.value = initiateNodes();
+        loading.value = false;
+        nodes2.value.map((node) => (node.loading = false));
+    }, 2000);
+});
+
+const onNodeExpand = (node) => {
+    if (!node.children) {
+        loading.value = true;
+
+        setTimeout(() => {
+            let _node = { ...node };
+
+            _node.children = [];
+
+            for (let i = 0; i < 3; i++) {
+                _node.children.push({
+                    key: node.key + '-' + i,
+                    label: 'Lazy ' + node.label + '-' + i
+                });
+            }
+
+            nodes.value[parseInt(node.key, 10)] = _node;
+            loading.value = false;
+        }, 500);
+    }
+};
+
+const onNodeExpand2 = (node) => {
+    if (!node.children) {
+        node.loading = true;
+
+        setTimeout(() => {
+            let _node = { ...node };
+
+            _node.children = [];
+
+            for (let i = 0; i < 3; i++) {
+                _node.children.push({
+                    key: node.key + '-' + i,
+                    label: 'Lazy ' + node.label + '-' + i
+                });
+            }
+
+            nodes2.value[parseInt(node.key, 10)] = { ..._node, loading: false };
+        }, 500);
+    }
+};
+
+const initiateNodes = () => {
+    return [
+        {
+            key: '0',
+            label: 'Node 0',
+            leaf: false
+        },
+        {
+            key: '1',
+            label: 'Node 1',
+            leaf: false
+        },
+        {
+            key: '2',
+            label: 'Node 2',
+            leaf: false
+        }
+    ];
+};
+
+const initiateNodes2 = () => {
+    return [
+        {
+            key: '0',
+            label: 'Node 0',
+            leaf: false,
+            loading: true
+        },
+        {
+            key: '1',
+            label: 'Node 1',
+            leaf: false,
+            loading: true
+        },
+        {
+            key: '2',
+            label: 'Node 2',
+            leaf: false,
+            loading: true
+        }
+    ];
+};
+<\/script>
+```
+</details>
 
 ## Multiple
 
@@ -20521,6 +39236,37 @@ onMounted(() => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
 
 ## Sizes
 
@@ -20561,6 +39307,37 @@ onMounted(() => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
 
 ## Template
 
@@ -20621,6 +39398,37 @@ onMounted(() => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
 
 ## Tree Select
 
@@ -20779,6 +39587,37 @@ TreeTable requires a collection of TreeNode instances as a value and Column comp
 </TreeTable>
 ```
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
 ## ColumnToggleDoc
 
 Column visibility based on a condition can be implemented with dynamic columns, in this sample a MultiSelect is used to manage the visible columns.
@@ -20835,6 +39674,37 @@ const onToggle = (val) => {
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
 
 ## ContextMenuDoc
 
@@ -20922,6 +39792,37 @@ const filterNodes = (nodeList, keyToRemove) => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
 ## Controlled
 
 Expansion state is controlled with expandedKeys property. The expandedKeys should be an object whose keys refer to the node key and values represent the expanded state e.g. &#123;'0-0': true&#125; .
@@ -20974,6 +39875,37 @@ const toggleApplications = () => {
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
 ## DynamicColumnsDoc
 
 Columns can be created programmatically.
@@ -21015,6 +39947,37 @@ const columns = ref([
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
 
 ## FilterDoc
 
@@ -21107,6 +40070,46 @@ const filterOptions = ref([
 ```
 </details>
 
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import TreeTable from 'primevue/treetable';
+import Column from 'primevue/column';
+```
+
 ## LazyLoadDoc
 
 Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging , sorting and filtering occurs. Sample below imitates lazy loading data from a remote datasource using an in-memory list and timeouts to mimic network connection. Enabling the lazy property and assigning the logical number of rows to totalRecords by doing a projection query are the key elements of the implementation so that paginator displays the UI assuming there are actually records of totalRecords size although in reality they are not present on page, only the records that are displayed on the current page exist. In addition, only the root elements should be loaded, children can be loaded on demand using nodeExpand callback.
@@ -21121,6 +40124,107 @@ Lazy mode is handy to deal with large datasets, instead of loading the entire da
     <Column field="type" header="Type"></Column>
 </TreeTable>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div>
+        <TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
+            @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" :expander="true"></Column>
+            <Column field="size" header="Size"></Column>
+            <Column field="type" header="Type"></Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+
+onMounted(() => {
+    loading.value = true;
+
+    setTimeout(() => {
+        loading.value = false;
+        nodes.value = loadNodes(0, rows.value);
+        totalRecords.value = 1000;
+    }, 1000);
+});
+
+const nodes = ref();
+const rows = ref(10);
+const loading = ref(false);
+const totalRecords = ref(0);
+const onExpand = (node) => {
+    if (!node.children) {
+        loading.value = true;
+
+        setTimeout(() => {
+            let lazyNode = {...node};
+
+            lazyNode.children = [
+                {
+                    data: {
+                        name: lazyNode.data.name + ' - 0',
+                        size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                        type: 'File'
+                    },
+                },
+                {
+                    data: {
+                        name: lazyNode.data.name + ' - 1',
+                        size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                        type: 'File'
+                    }
+                }
+            ];
+
+            let newNodes = nodes.value.map(n => {
+                if (n.key === node.key) {
+                    n = lazyNode;
+                }
+
+                return n;
+            });
+
+            loading.value = false;
+            nodes.value = newNodes;
+        }, 250);
+    }
+};
+const onPage = (event) => {
+    loading.value = true;
+
+    //imitate delay of a backend call
+    setTimeout(() => {
+        loading.value = false;
+        nodes.value = loadNodes(event.first, rows.value);
+    }, 1000);
+};
+const loadNodes = (first, rows) => {
+    let nodes = [];
+
+    for(let i = 0; i < rows; i++) {
+        let node = {
+            key: (first + i),
+            data: {
+                name: 'Item ' + (first + i),
+                size: Math.floor(Math.random() * 1000) + 1 + 'kb',
+                type: 'Type ' + (first + i)
+            },
+            leaf: false
+        };
+
+        nodes.push(node);
+    }
+
+    return nodes;
+};
+<\/script>
+```
+</details>
 
 ## Size
 
@@ -21168,6 +40272,37 @@ const sizeOptions = ref([
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
 
 ## Template
 
@@ -21241,6 +40376,37 @@ const nodes = ref();
 <\/script>
 ```
 </details>
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
 
 ## Tree Table
 
@@ -21474,6 +40640,47 @@ The delay property adds a threshold to wait in milliseconds during scrolling for
 </VirtualScroller>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-8">
+        <div>
+            <span class="font-bold block mb-2">No Delay</span>
+            <VirtualScroller :items="items" :itemSize="50" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+                <template v-slot:item="{ item, options }">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+                </template>
+            </VirtualScroller>
+        </div>
+        <div>
+            <span class="font-bold block mb-2">150ms</span>
+            <VirtualScroller :items="items" :itemSize="50" :delay="150" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+                <template v-slot:item="{ item, options }">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+                </template>
+            </VirtualScroller>
+        </div>
+        <div>
+            <span class="font-bold block mb-2">500ms</span>
+            <VirtualScroller :items="items" :itemSize="50" :delay="500" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+                <template v-slot:item="{ item, options }">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+                </template>
+            </VirtualScroller>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const items = ref(Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`));
+<\/script>
+```
+</details>
+
 ## Grid
 
 Scrolling can be enabled vertically and horizontally when orientation is set as both . In this mode, itemSize should be an array where first value is the height of an item and second is the width.
@@ -21492,6 +40699,32 @@ Scrolling can be enabled vertically and horizontally when orientation is set as 
 </VirtualScroller>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <VirtualScroller :items="items" :itemSize="[50, 100]" orientation="both" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+            <template v-slot:item="{ item, options }">
+                <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">
+                    <template v-for="(el, index) of item" :key="index">
+                        <div style="width: 100px">{{ el }}</div>
+                    </template>
+                </div>
+            </template>
+        </VirtualScroller>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const items = ref(Array.from({ length: 1000 }).map((_, i) => Array.from({ length: 1000 }).map((_j, j) => \`Item #\${i}_\${j}\`)));
+<\/script>
+```
+</details>
+
 ## Horizontal
 
 Setting orientation to horizontal enables scrolling horizontally. In this case, the itemSize should refer to the width of an item.
@@ -21504,6 +40737,36 @@ Setting orientation to horizontal enables scrolling horizontally. In this case, 
         <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="width: 50px; writing-mode: vertical-lr;">{{ item }}</div>
     </template>
 </VirtualScroller>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <VirtualScroller :items="items" :itemSize="50" orientation="horizontal" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px" :pt="{ content: 'flex flex-row' }">
+            <template v-slot:item="{ item, options }">
+                <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="width: 50px; writing-mode: vertical-lr;">{{ item }}</div>
+            </template>
+        </VirtualScroller>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const items = ref(Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`));
+<\/script>
+```
+</details>
+
+## Import
+
+**Basic Usage:**
+
+```vue
+import VirtualScroller from 'primevue/virtualscroller';
 ```
 
 ## Lazy
@@ -21519,6 +40782,51 @@ Lazy mode is handy to deal with large datasets, instead of loading the entire da
     </template>
 </VirtualScroller>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" lazy @lazy-load="onLazyLoad" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+            <template v-slot:item="{ item, options }">
+                <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+            </template>
+        </VirtualScroller>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const lazyItems = ref(Array.from({ length: 10000 }));
+const lazyLoading = ref(false);
+const loadLazyTimeout = ref();
+const onLazyLoad = (event) => {
+    lazyLoading.value = true;
+
+    if (loadLazyTimeout.value) {
+        clearTimeout(loadLazyTimeout.value);
+    }
+
+    //imitate delay of a backend call
+    loadLazyTimeout.value = setTimeout(() => {
+        const { first, last } = event;
+        const _lazyItems = [...lazyItems.value];
+
+        for (let i = first; i < last; i++) {
+            _lazyItems[i] = \`Item #\${i}\`;
+        }
+
+        lazyItems.value = _lazyItems;
+        lazyLoading.value = false;
+
+    }, Math.random() * 1000 + 250);
+};
+<\/script>
+```
+</details>
 
 ## Loading
 
@@ -21544,6 +40852,44 @@ Busy state is enabled by adding showLoader property which blocks the UI with a m
     </template>
 </VirtualScroller>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-8">
+        <div>
+            <span class="font-bold block mb-2">Modal</span>
+            <VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+                <template v-slot:item="{ item, options }">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+                </template>
+            </VirtualScroller>
+        </div>
+        <div>
+            <span class="font-bold block mb-2">Skeleton</span>
+            <VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+                <template v-slot:item="{ item, options }">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+                </template>
+                <template v-slot:loader="{ options }">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">
+                        <Skeleton :width="options.even ? '60%' : '50%'" height="1.3rem" />
+                    </div>
+                </template>
+            </VirtualScroller>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const items = ref(Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`));
+<\/script>
+```
+</details>
 
 ## Virtual Scroller
 

@@ -2,9 +2,25 @@
 
 ToggleSwitch is used to select a boolean value.
 
+## Import
+
+```javascript
+import ToggleSwitch from 'primevue/toggleswitch';
+```
+
 ## Accessibility
 
 Screen Reader ToggleSwitch component uses a hidden native checkbox element with switch role internally that is only visible to screen readers. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the switch. space Toggles the checked state.
+
+```vue
+<label for="switch1">Remember Me</label>
+<ToggleSwitch inputId="switch1" />
+
+<span id="switch2">Remember Me</span>
+<ToggleSwitch aria-labelledby="switch2" />
+
+<ToggleSwitch aria-label="Remember Me" />
+```
 
 ## Basic
 
@@ -22,6 +38,24 @@ When disabled is present, the element cannot be edited and focused.
 <ToggleSwitch v-model="checked" disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleSwitch v-model="checked" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
+
 ## Forms
 
 ToggleSwitch integrates seamlessly with the PrimeVue Forms library.
@@ -36,6 +70,41 @@ ToggleSwitch integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-48">
+            <div class="flex flex-col items-center gap-2">
+                <ToggleSwitch name="activation" />
+                <Message v-if="$form.activation?.invalid" severity="error" size="small" variant="simple">{{ $form.activation.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    activation: false
+});
+const resolver = ref(zodResolver(
+    z.object({
+        activation: z.boolean().refine((val) => val === true, { message: 'Activation is required.' })
+    })
+));
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -44,6 +113,24 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <ToggleSwitch v-model="checked" :invalid="!checked" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleSwitch v-model="checked" :invalid="!checked" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
+
 ## Preselection
 
 Enabling checked property displays the component as active initially.
@@ -51,6 +138,24 @@ Enabling checked property displays the component as active initially.
 ```vue
 <ToggleSwitch v-model="checked" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleSwitch v-model="checked" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(true);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -63,6 +168,28 @@ The handle slot is available to display custom content.
     </template>
 </ToggleSwitch>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleSwitch v-model="checked">
+            <template #handle="{ checked }">
+                <i :class="['!text-xs pi', { 'pi-check': checked, 'pi-times': !checked }]" />
+            </template>
+        </ToggleSwitch>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
 
 ## Toggle Switch
 

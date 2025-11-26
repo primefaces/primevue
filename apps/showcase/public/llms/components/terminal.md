@@ -2,6 +2,13 @@
 
 Terminal is a text based user interface.
 
+## Import
+
+```javascript
+import Terminal from 'primevue/terminal';
+import TerminalService from 'primevue/terminalservice'
+```
+
 ## Accessibility
 
 Screen Reader Terminal component has an input element that can be described with aria-label or aria-labelledby props. The element that lists the previous commands has aria-live so that changes are received by the screen reader. Keyboard Support Key Function tab Moves focus through the input element. enter Executes the command when focus in on the input element.

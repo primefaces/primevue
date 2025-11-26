@@ -6,8 +6,13 @@
     <div class="doc">
         <div class="doc-main">
             <div class="doc-intro">
-                <h1>Install PrimeVue with Vite</h1>
-                <p>Setting up PrimeVue in a Vite project.</p>
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                    <div class="flex-1">
+                        <h1>Install PrimeVue with Vite</h1>
+                        <p>Setting up PrimeVue in a Vite project.</p>
+                    </div>
+                    <DocCopyMarkdown docType="page" class="flex-shrink-0" />
+                </div>
             </div>
             <DocSections :docs="docs" />
         </div>
@@ -16,6 +21,7 @@
 </template>
 
 <script>
+import DocCopyMarkdown from '@/components/doc/DocCopyMarkdown.vue';
 import DownloadDoc from '@/doc/vite/DownloadDoc.vue';
 import ExamplesDoc from '@/doc/vite/ExamplesDoc.vue';
 import NextStepsDoc from '@/doc/vite/NextStepsDoc.vue';
@@ -25,6 +31,7 @@ import VerifyDoc from '@/doc/vite/VerifyDoc.vue';
 import VideoDoc from '@/doc/vite/VideoDoc.vue';
 
 export default {
+    components: { DocCopyMarkdown },
     data() {
         return {
             docs: [

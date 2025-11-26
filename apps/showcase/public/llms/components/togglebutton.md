@@ -2,9 +2,22 @@
 
 ToggleButton is used to select a boolean value using a button.
 
+## Import
+
+```javascript
+import ToggleButton from 'primevue/togglebutton';
+```
+
 ## Accessibility
 
 Screen Reader ToggleButton component uses a native button element as the switch element internally that is only visible to screen readers. Value to describe the component can be defined with aria-labelledby or aria-label props, it is highly suggested to use either of these props as the component changes the label displayed which will result in screen readers to read different labels when the component receives focus. To prevent this, always provide an aria label that does not change related to state. Keyboard Support Keyboard interaction is derived from the native browser handling of checkboxs in a group. Key Function tab Moves focus to the button. space Toggles the checked state.
+
+```vue
+<span id="rememberme">Remember Me</span>
+<ToggleButton aria-labelledby="rememberme" />
+
+<ToggleButton aria-label="Remember Me" />
+```
 
 ## Basic
 
@@ -23,6 +36,25 @@ Icons and Labels can be customized using onLabel , offLabel , onIcon and offIcon
     offIcon="pi pi-lock-open" class="w-36" aria-label="Do you confirm" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleButton v-model="checked" onLabel="Locked" offLabel="Unlocked" onIcon="pi pi-lock" 
+            offIcon="pi pi-lock-open" class="w-36" aria-label="Do you confirm" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -32,6 +64,25 @@ When disabled is present, the element cannot be edited and focused.
     class="w-full sm:w-40" aria-label="Confirmation" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleButton v-model="checked" disabled onIcon="pi pi-check" offIcon="pi pi-times"
+            class="w-full sm:w-40" aria-label="Confirmation" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -39,6 +90,24 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <ToggleButton v-model="checked" onLabel="On" offLabel="Off" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <ToggleButton v-model="checked" fluid onLabel="On" offLabel="Off" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -54,6 +123,48 @@ ToggleButton integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col items-center gap-1">
+                <ToggleButton name="consent" class="w-48" onLabel="Accept All" offLabel="Reject All" />
+                <Message v-if="$form.consent?.invalid" severity="error" variant="simple">{{ $form.consent.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    consent: false
+});
+
+const resolver = ref(zodResolver(
+    z.object({
+        consent: z.boolean().refine((val) => val === true, { message: 'Consent is mandatory.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -61,6 +172,24 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 ```vue
 <ToggleButton v-model="checked" onIcon="pi pi-check" offIcon="pi pi-times" :invalid="!checked" class="w-full sm:w-40" aria-label="Confirmation" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <ToggleButton v-model="checked" onIcon="pi pi-check" offIcon="pi pi-times" :invalid="!checked" class="w-full sm:w-40" aria-label="Confirmation" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const checked = ref(false);
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -71,6 +200,28 @@ ToggleButton provides small and large sizes as alternatives to the base.
 <ToggleButton v-model="value2" onLabel="On" offLabel="Off" class="min-w-20" />
 <ToggleButton v-model="value3" onLabel="On" offLabel="Off" size="large" class="min-w-24" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <ToggleButton v-model="value1" onLabel="On" offLabel="Off" size="small" class="min-w-16" />
+        <ToggleButton v-model="value2" onLabel="On" offLabel="Off" class="min-w-20" />
+        <ToggleButton v-model="value3" onLabel="On" offLabel="Off" size="large" class="min-w-24" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(false);
+const value2 = ref(false);
+const value3 = ref(false);
+<\/script>
+```
+</details>
 
 ## Toggle Button
 

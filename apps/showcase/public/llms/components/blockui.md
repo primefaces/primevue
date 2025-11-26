@@ -2,6 +2,12 @@
 
 BlockUI can either block other components or the whole page.
 
+## Import
+
+```javascript
+import BlockUI from 'primevue/blockui';
+```
+
 ## Accessibility
 
 Screen Reader BlockUI manages aria-busy state attribute when the UI gets blocked and unblocked. Any valid attribute is passed to the root element so additional attributes like role and aria-live can be used to define live regions. Keyboard Support Component does not include any interactive elements.
@@ -33,6 +39,32 @@ Enabling fullScreen property controls the document.
 <BlockUI :blocked="blocked" fullScreen />
 <Button label="Block" @click="blocked = true" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <BlockUI :blocked="blocked" fullScreen />
+        <Button label="Block" @click="blockDocument" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const blocked = ref(false);
+const blockDocument = () => {
+    blocked.value = true;
+
+    setTimeout(() => {
+        blocked.value = false;
+    }, 3000);
+}
+<\/script>
+```
+</details>
 
 ## Block U I
 

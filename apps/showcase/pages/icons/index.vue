@@ -8,11 +8,16 @@
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
-                    <h1>Icons</h1>
-                    <p>
-                        <a href="https://github.com/primefaces/primeicons"> PrimeIcons </a>
-                        is the default icon library of PrimeVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as PrimeVue components can use any icon with templating.
-                    </p>
+                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                        <div class="flex-1">
+                            <h1>Icons</h1>
+                            <p>
+                                <a href="https://github.com/primefaces/primeicons"> PrimeIcons </a>
+                                is the default icon library of PrimeVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as PrimeVue components can use any icon with templating.
+                            </p>
+                        </div>
+                        <DocCopyMarkdown docType="page" class="flex-shrink-0" />
+                    </div>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -22,6 +27,7 @@
 </template>
 
 <script>
+import DocCopyMarkdown from '@/components/doc/DocCopyMarkdown.vue';
 import BasicDoc from '@/doc/icons/BasicDoc.vue';
 import ColorDoc from '@/doc/icons/ColorDoc.vue';
 import ConstantsDoc from '@/doc/icons/ConstantsDoc.vue';
@@ -33,6 +39,7 @@ import SizeDoc from '@/doc/icons/SizeDoc.vue';
 import SpinDoc from '@/doc/icons/SpinDoc.vue';
 
 export default {
+    components: { DocCopyMarkdown },
     data() {
         return {
             docs: [

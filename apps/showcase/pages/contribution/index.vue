@@ -8,8 +8,13 @@
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
-                    <h1>Contribution Guide</h1>
-                    <p>Welcome to the PrimeVue Contribution Guide and thank you for considering contributing.</p>
+                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                        <div class="flex-1">
+                            <h1>Contribution Guide</h1>
+                            <p>Welcome to the PrimeVue Contribution Guide and thank you for considering contributing.</p>
+                        </div>
+                        <DocCopyMarkdown docType="page" class="flex-shrink-0" />
+                    </div>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -19,6 +24,7 @@
 </template>
 
 <script>
+import DocCopyMarkdown from '@/components/doc/DocCopyMarkdown.vue';
 import BenefitsDoc from '@/doc/contribution/BenefitsDoc.vue';
 import CLADoc from '@/doc/contribution/CLADoc.vue';
 import CommunicationDoc from '@/doc/contribution/CommunicationDoc.vue';
@@ -28,6 +34,7 @@ import KeyPointsDoc from '@/doc/contribution/KeyPointsDoc.vue';
 import PathwayDoc from '@/doc/contribution/PathwayDoc.vue';
 
 export default {
+    components: { DocCopyMarkdown },
     data() {
         return {
             checked: false,

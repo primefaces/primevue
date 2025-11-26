@@ -2,6 +2,12 @@
 
 MeterGroup displays scalar measurements within a known range.
 
+## Import
+
+```javascript
+import MeterGroup from 'primevue/metergroup';
+```
+
 ## Accessibility
 
 Screen Reader MeterGroup component uses meter role in addition to the aria-valuemin , aria-valuemax and aria-valuenow attributes. Value to describe the component can be defined using aria-labelledby prop. Keyboard Support Component does not include any interactive elements.
@@ -22,6 +28,29 @@ Icons can be displayed next to the labels instead of the default marker.
 <MeterGroup :value="value" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MeterGroup :value="value" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref([
+    { label: 'Apps', color: '#34d399', value: 16, icon: 'pi pi-table' },
+    { label: 'Messages', color: '#fbbf24', value: 8, icon: 'pi pi-inbox' },
+    { label: 'Media', color: '#60a5fa', value: 24, icon: 'pi pi-image' },
+    { label: 'System', color: '#c084fc', value: 10, icon: 'pi pi-cog' }
+]);
+<\/script>
+```
+</details>
+
 ## Label
 
 The position of the labels relative to the meters is defined using the labelPosition property. The default orientation of the labels is horizontal, and the vertical alternative is available through the labelOrientation option.
@@ -29,6 +58,29 @@ The position of the labels relative to the meters is defined using the labelPosi
 ```vue
 <MeterGroup :value="value" labelPosition="start" labelOrientation="vertical" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MeterGroup :value="value" labelPosition="start" labelOrientation="vertical" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref([
+    { label: 'Apps', color: '#34d399', value: 16 },
+    { label: 'Messages', color: '#fbbf24', value: 8 },
+    { label: 'Media', color: '#60a5fa', value: 24 },
+    { label: 'System', color: '#c084fc', value: 10 }
+]);
+<\/script>
+```
+</details>
 
 ## Min-Max
 
@@ -38,6 +90,29 @@ Boundaries are configured with the min and max values whose defaults are 0 and 1
 <MeterGroup :value="value" :max="200"  />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MeterGroup :value="value" :max="200"  />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref([
+    { label: 'Apps', color: '#34d399', value: 16 },
+    { label: 'Messages', color: '#fbbf24', value: 8 },
+    { label: 'Media', color: '#60a5fa', value: 24 },
+    { label: 'System', color: '#c084fc', value: 10 }
+]);
+<\/script>
+```
+</details>
+
 ## Multiple
 
 Adding more items to the array displays the meters in a group.
@@ -45,6 +120,29 @@ Adding more items to the array displays the meters in a group.
 ```vue
 <MeterGroup :value="value" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MeterGroup :value="value" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref([
+    { label: 'Apps', color: '#34d399', value: 16 },
+    { label: 'Messages', color: '#fbbf24', value: 8 },
+    { label: 'Media', color: '#60a5fa', value: 24 },
+    { label: 'System', color: '#c084fc', value: 10 }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -90,6 +188,65 @@ MeterGroup provides templating support for labels, meter items, and content arou
 </MeterGroup>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <MeterGroup :value="value" labelPosition="start">
+            <template #label="{ value }">
+                <div class="flex flex-wrap gap-4">
+                    <template v-for="val of value" :key="i">
+                        <Card class="flex-1 border border-surface shadow-none">
+                            <template #content>
+                                <div class="flex justify-between gap-8">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="text-surface-500 dark:text-surface-400 text-sm">{{ val.label }}</span>
+                                        <span class="font-bold text-lg">{{ val.value }}%</span>
+                                    </div>
+                                    <span class="w-8 h-8 rounded-full inline-flex justify-center items-center text-center" :style="{ backgroundColor: \`\${val.color1}\`, color: '#ffffff' }">
+                                        <i :class="val.icon" />
+                                    </span>
+                                </div>
+                            </template>
+                        </Card>
+                    </template>
+                </div>
+            </template>
+            <template #meter="slotProps">
+                <span :class="slotProps.class" :style="{ background: \`linear-gradient(to right, \${slotProps.value.color1}, \${slotProps.value.color2})\`, width: slotProps.size }" />
+            </template>
+            <template #start="{ totalPercent }">
+                <div class="flex justify-between mt-4 mb-2 relative">
+                    <span>Storage</span>
+                    <span :style="{ width: totalPercent + '%' }" class="absolute text-right">{{ totalPercent }}%</span>
+                    <span class="font-medium">1TB</span>
+                </div>
+            </template>
+            <template #end>
+                <div class="flex justify-between mt-4">
+                    <Button label="Manage Storage" variant="outlined" size="small" />
+                    <Button label="Update Plan" size="small" />
+                </div>
+            </template>
+        </MeterGroup>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref([
+    { label: 'Apps', color1: '#34d399', color2: '#fbbf24', value: 25, icon: 'pi pi-table' },
+    { label: 'Messages', color1: '#fbbf24', color2: '#60a5fa', value: 15, icon: 'pi pi-inbox' },
+    { label: 'Media', color1: '#60a5fa', color2: '#c084fc', value: 20, icon: 'pi pi-image' },
+    { label: 'System', color1: '#c084fc', color2: '#c084fc', value: 10, icon: 'pi pi-cog' }
+]);
+<\/script>
+```
+</details>
+
 ## Vertical
 
 Layout of the MeterGroup is configured with the orientation property that accepts either horizontal or vertical as available options.
@@ -97,6 +254,29 @@ Layout of the MeterGroup is configured with the orientation property that accept
 ```vue
 <MeterGroup :value="value" orientation="vertical" labelOrientation="vertical" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center" style="height: 360px">
+        <MeterGroup :value="value" orientation="vertical" labelOrientation="vertical" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value = ref([
+    { label: 'Apps', color: '#34d399', value: 24 },
+    { label: 'Messages', color: '#fbbf24', value: 16 },
+    { label: 'Media', color: '#60a5fa', value: 24 },
+    { label: 'System', color: '#c084fc', value: 12 }
+]);
+<\/script>
+```
+</details>
 
 ## Meter Group
 

@@ -2,6 +2,12 @@
 
 Timeline visualizes a series of chained events.
 
+## Import
+
+```javascript
+import Timeline from 'primevue/timeline';
+```
+
 ## Accessibility
 
 Screen Reader Timeline uses a semantic ordered list element to list the events. No specific role is enforced, still you may use any aria role and attributes as any valid attribute is passed to the list element. Keyboard Support Component does not include any interactive elements.
@@ -29,6 +35,46 @@ Content location relative the line is defined with the align property.
     </template>
 </Timeline>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-12">
+        <Timeline :value="events" class="w-full md:w-80">
+            <template #content="slotProps">
+                {{ slotProps.item.status }}
+            </template>
+        </Timeline>
+
+        <Timeline :value="events" align="right" class="w-full md:w-80">
+            <template #content="slotProps">
+                {{ slotProps.item.status }}
+            </template>
+        </Timeline>
+
+        <Timeline :value="events" align="alternate" class="w-full md:w-80">
+            <template #content="slotProps">
+                {{ slotProps.item.status }}
+            </template>
+        </Timeline>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const events = ref([
+    { status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0'},
+    { status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7' },
+    { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800' },
+    { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
+]);
+
+<\/script>
+```
+</details>
 
 ## Basic
 
@@ -67,6 +113,41 @@ TimeLine orientation is controlled with the layout property, default is vertical
 </Timeline>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col gap-4">
+        <Timeline :value="events" layout="horizontal" align="top">
+            <template #content="slotProps">
+                {{ slotProps.item }}
+            </template>
+        </Timeline>
+
+        <Timeline :value="events" layout="horizontal" align="bottom">
+            <template #content="slotProps">
+                {{ slotProps.item }}
+            </template>
+        </Timeline>
+
+        <Timeline :value="events" layout="horizontal" align="alternate">
+            <template #opposite> &nbsp; </template>
+            <template #content="slotProps">
+                {{ slotProps.item }}
+            </template>
+        </Timeline>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const events = ref(['2020', '2021', '2022', '2023']);
+<\/script>
+```
+</details>
+
 ## Opposite
 
 Additional content at the other side of the line can be provided with the opposite property.
@@ -81,6 +162,37 @@ Additional content at the other side of the line can be provided with the opposi
     </template>
 </Timeline>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Timeline :value="events">
+            <template #opposite="slotProps">
+                <small class="text-surface-500 dark:text-surface-400">{{slotProps.item.date}}</small>
+            </template>
+            <template #content="slotProps">
+                {{slotProps.item.status}}
+            </template>
+        </Timeline>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const events = ref([
+    { status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0'},
+    { status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7' },
+    { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800' },
+    { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
+]);
+
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -113,6 +225,72 @@ Sample implementation with custom content and styled markers.
     </template>
 </Timeline>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Timeline :value="events" align="alternate" class="customized-timeline">
+            <template #marker="slotProps">
+                <span class="flex w-8 h-8 items-center justify-center text-white rounded-full z-10 shadow-sm" :style="{ backgroundColor: slotProps.item.color }">
+                    <i :class="slotProps.item.icon"></i>
+                </span>
+            </template>
+            <template #content="slotProps">
+                <Card class="mt-4">
+                    <template #title>
+                        {{ slotProps.item.status }}
+                    </template>
+                    <template #subtitle>
+                        {{ slotProps.item.date }}
+                    </template>
+                    <template #content>
+                        <img v-if="slotProps.item.image" :src="\`https://primefaces.org/cdn/primevue/images/product/\${slotProps.item.image}\`" :alt="slotProps.item.name" width="200" class="shadow-sm" />
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate
+                            neque quas!
+                        </p>
+                        <Button label="Read more" variant="text"></Button>
+                    </template>
+                </Card>
+            </template>
+        </Timeline>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const events = ref([
+    { status: 'Ordered', date: '15/10/2020 10:30', icon: 'pi pi-shopping-cart', color: '#9C27B0', image: 'game-controller.jpg' },
+    { status: 'Processing', date: '15/10/2020 14:00', icon: 'pi pi-cog', color: '#673AB7' },
+    { status: 'Shipped', date: '15/10/2020 16:15', icon: 'pi pi-shopping-cart', color: '#FF9800' },
+    { status: 'Delivered', date: '16/10/2020 10:00', icon: 'pi pi-check', color: '#607D8B' }
+]);
+
+<\/script>
+
+<style lang="scss" scoped>
+@media screen and (max-width: 960px) {
+    ::v-deep(.customized-timeline) {
+        .p-timeline-event:nth-child(even) {
+            flex-direction: row;
+
+            .p-timeline-event-content {
+                text-align: left;
+            }
+        }
+
+        .p-timeline-event-opposite {
+            flex: 0;
+        }
+    }
+}
+</style>
+```
+</details>
 
 ## Timeline
 

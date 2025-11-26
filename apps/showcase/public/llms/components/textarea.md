@@ -2,9 +2,25 @@
 
 Textarea adds styling and autoResize functionality to standard textarea element.
 
+## Import
+
+```javascript
+import Textarea from 'primevue/textarea';
+```
+
 ## Accessibility
 
 Screen Reader Textarea component renders a native textarea element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
+
+```vue
+<label for="address1">Address 1</label>
+<Textarea id="address1" />
+
+<span id="address2">Address 2</span>
+<Textarea aria-labelledby="address2" />
+
+<Textarea aria-label="Address Details"/>
+```
 
 ## AutoResizeDoc
 
@@ -13,6 +29,24 @@ When autoResize is enabled, textarea grows instead of displaying a scrollbar.
 ```vue
 <Textarea v-model="value" autoResize rows="5" cols="30" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Textarea v-model="value" autoResize rows="5" cols="30" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
 
 ## Basic
 
@@ -30,6 +64,24 @@ When disabled is present, the element cannot be edited and focused.
 <Textarea v-model="value" rows="5" cols="30" disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Textarea v-model="value" rows="5" cols="30" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('Disabled');
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -37,6 +89,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <Textarea v-model="value" variant="filled" rows="5" cols="30" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Textarea v-model="value" variant="filled" rows="5" cols="30" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -59,6 +129,39 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <Textarea id="over_label" v-model="value1" rows="5" cols="30" style="resize: none" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <Textarea id="in_label" v-model="value2" rows="5" cols="30" style="resize: none" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <Textarea id="on_label" v-model="value3" rows="5" cols="30" style="resize: none" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref('');
+const value2 = ref('');
+const value3 = ref('');
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -66,6 +169,24 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <Textarea v-model="value" rows="5" fluid />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Textarea v-model="value" rows="5" fluid />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -81,6 +202,47 @@ Textarea integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <Textarea name="address" rows="5" cols="30" style="resize: none" />
+                <Message v-if="$form.address?.invalid" severity="error" size="small" variant="simple">{{ $form.address.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    address: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        address: z.string().min(1, { message: 'Address is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -92,6 +254,27 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <Textarea id="description" v-model="value" rows="5" cols="30" style="resize: none" />
+            <label for="description">Description</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -99,6 +282,24 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 ```vue
 <Textarea v-model="value" rows="5" cols="30" :invalid="!value" style="resize: none" placeholder="Address" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Textarea v-model="value" rows="5" cols="30" :invalid="!value" style="resize: none" placeholder="Address" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref('');
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -109,6 +310,28 @@ Textarea provides small and large sizes as alternatives to the base.
 <Textarea v-model="value2" placeholder="Normal" rows="3" />
 <Textarea v-model="value3" size="large" placeholder="Large" rows="3" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <Textarea v-model="value1" size="small" placeholder="Small" rows="3" />
+        <Textarea v-model="value2" placeholder="Normal" rows="3" />
+        <Textarea v-model="value3" size="large" placeholder="Large" rows="3" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
 
 ## Textarea
 
@@ -172,6 +395,8 @@ Textarea provides small and large sizes as alternatives to the base.
 | contextmenu | string | - |  |
 | dir | string | - |  |
 | draggable | Booleanish | - |  |
+| enterkeyhint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
+| enterKeyHint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
 | hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
 | id | string | - |  |
 | inert | Booleanish | - |  |
@@ -202,8 +427,10 @@ Textarea provides small and large sizes as alternatives to the base.
 | results | Numberish | - |  |
 | security | string | - |  |
 | unselectable | "on" \| "off" | - |  |
-| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| inputmode | "text" \| "search" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
 | is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| exportparts | string | - |  |
+| part | string | - |  |
 | autocomplete | string | - |  |
 | autofocus | Booleanish | - |  |
 | cols | Numberish | - |  |

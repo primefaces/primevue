@@ -2,9 +2,25 @@
 
 DatePicker is a form component for date inputs.
 
+## Import
+
+```javascript
+import DatePicker from 'primevue/datepicker';
+```
+
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided via label tag combined with inputId prop or using aria-labelledby , aria-label props. The input element has combobox role in addition to aria-autocomplete as "none", aria-haspopup as "dialog" and aria-expanded attributes. The relation between the input and the popup is created with aria-controls attribute that refers to the id of the popup. The optional datepicker button requires includes aria-haspopup , aria-expanded for states along with aria-controls to define the relation between the popup and the button. The value to read is retrieved from the chooseDate key of the aria property from the locale API. This label is also used for the aria-label of the popup as well. When there is a value selected, it is formatted and appended to the label to be able to notify users about the current value. Popup has a dialog role along with aria-modal and aria-label . The navigation buttons at the header has an aria-label retrieved from the prevYear , nextYear , prevMonth , nextMonth , prevDecade and nextDecade keys of the locale aria API. Similarly month picker button uses the chooseMonth and year picker button uses the chooseYear keys. Main date table uses grid role that contains th elements with col as the scope along with abbr tag resolving to the full name of the month. Each date cell has an aria-label referring to the full date value. Buttons at the footer utilize their readable labels as aria-label as well. Selected date also receives the aria-selected attribute. Timepicker spinner buttons get their labels for aria-label from the aria locale API using the prevHour , nextHour , prevMinute , nextMinute , prevSecond , nextSecond , am and pm keys. DatePicker also includes a hidden section that is only available to screen readers with aria-live as "polite". This element is updated when the selected date changes to instruct the user about the current date selected. Choose Date Button Keyboard Support Key Function space Opens popup and moves focus to the selected date, if there is none focuses on today. enter Opens popup and moves focus to the selected date, if there is none focuses on today. Popup Keyboard Support Key Function escape Closes the popup and moves focus to the input element. tab Moves focus to the next focusable element within the popup. shift + tab Moves focus to the next focusable element within the popup. Header Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action. Date Grid Keyboard Support Key Function enter Selects the date, closes the popup and moves focus to the input element. space Closes the popup and moves focus to the input element. up arrow Moves focus to the same day of the previous week. alt + up arrow Closes the popup and moves focus to the input element. down arrow Moves focus to the same day of the next week. right arrow Moves focus to the next day. left arrow Moves focus to the previous day. home Moves focus to the first day of the current week. end Moves focus to the last day of the current week. page up Changes the date to previous month in date picker mode. Moves to previous year in month picker mode and previous decade in year picker. shift + page up Changes the date to previous year in date picker mode. Has no effect in month or year picker. page down Changes the date to next month in date picker mode. Moves to next year in month picker mode and next decade in year picker. shift + page down Changes the date to next year in date picker mode. Has no effect in month or year picker. Footer Buttons Keyboard Support Key Function enter Triggers the button action. space Triggers the button action.
+
+```vue
+<label for="date1">Date</label>
+<DatePicker inputId="date1" />
+
+<span id="date2">Date</span>
+<DatePicker aria-labelledby="date2" />
+
+<DatePicker aria-label="Date" />
+```
 
 ## Basic
 
@@ -36,6 +52,39 @@ When showButtonBar is present, today and clear buttons are displayed at the foot
 </DatePicker>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center gap-4 flex-wrap">
+        <DatePicker v-model="date" showButtonBar placeholder="Basic" />
+        <DatePicker v-model="dates" showButtonBar placeholder="Customized" selectionMode="range" :manualInput="false">
+            <template #buttonbar="{ todayCallback, clearCallback }">
+                <div class="flex justify-between w-full">
+                    <div class="flex gap-2">
+                        <Button size="small" label="Exact" severity="secondary" />
+                        <Button size="small" label="Flexible" severity="secondary" />
+                    </div>
+                    <div class="flex gap-2">
+                        <Button size="small" label="Today" @click="todayCallback" variant="outlined" />
+                        <Button size="small" icon="pi pi-times" severity="danger" variant="outlined" @click="clearCallback" />
+                    </div>
+                </div>
+            </template>
+        </DatePicker>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+const dates = ref();
+<\/script>
+```
+</details>
+
 ## Clear Icon
 
 When showClear is enabled, a clear icon is added to reset the DatePicker.
@@ -43,6 +92,24 @@ When showClear is enabled, a clear icon is added to reset the DatePicker.
 ```vue
 <DatePicker v-model="date" showClear />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" showClear />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
 
 ## Date Template
 
@@ -57,6 +124,29 @@ Custom content can be placed inside date cells with the date slot that takes a D
 </DatePicker>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date">
+            <template #date="slotProps">
+                <strong v-if="slotProps.date.day > 10 && slotProps.date.day < 15" style="text-decoration: line-through">{{ slotProps.date.day }}</strong>
+                <template v-else>{{ slotProps.date.day }}</template>
+            </template>
+        </DatePicker>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
+
 ## Disabled
 
 DatePicker is used a controlled input component with v-model property.
@@ -65,6 +155,24 @@ DatePicker is used a controlled input component with v-model property.
 <DatePicker v-model="date" disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -72,6 +180,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <DatePicker v-model="date" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -94,6 +220,39 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <DatePicker v-model="value1" inputId="over_label" showIcon iconDisplay="input" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <DatePicker v-model="value2" inputId="in_label" showIcon iconDisplay="input" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <DatePicker v-model="value3" inputId="on_label" showIcon iconDisplay="input" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -102,6 +261,28 @@ The fluid prop makes the component take up the full width of its container when 
 <DatePicker v-model="date" fluid />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <DatePicker v-model="date" fluid />
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            date: null
+        };
+    }
+};
+<\/script>
+```
+</details>
+
 ## Format
 
 Default date format is mm/dd/yy which can be customized using the dateFormat property. Following options can be a part of the format. d - day of month (no leading zero) dd - day of month (two digit) o - day of the year (no leading zeros) oo - day of the year (three digit) D - day name short DD - day name long m - month of year (no leading zero) mm - month of year (two digit) M - month name short MM - month name long y - year (two digit) yy - year (four digit) @ - Unix timestamp (ms since 01/01/1970) ! - Windows ticks (100ns since 01/01/0001) '...' - literal text '' - single quote anything else - literal text
@@ -109,6 +290,24 @@ Default date format is mm/dd/yy which can be customized using the dateFormat pro
 ```vue
 <DatePicker v-model="date" dateFormat="dd/mm/yy" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" dateFormat="dd/mm/yy" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -124,6 +323,53 @@ DatePicker integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4">
+            <div class="flex flex-col gap-1">
+                <DatePicker name="date" fluid />
+                <Message v-if="$form.date?.invalid" severity="error" size="small" variant="simple">{{ $form.date.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    date: ''
+});
+const resolver = ref(zodResolver(
+    z.object({
+        date: z.preprocess((val) => {
+            if (val === '' || val === null) {
+                return null;
+            }
+
+            return new Date(val);
+        }, z.union([z.date(), z.null().refine((val) => val !== null, { message: 'Date is required.' })]))
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Icon
 
 An additional icon is displayed next to the input field when showIcon is present.
@@ -138,6 +384,41 @@ An additional icon is displayed next to the input field when showIcon is present
 </DatePicker>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <label for="buttondisplay" class="font-bold block mb-2"> Button </label>
+            <DatePicker v-model="buttondisplay" showIcon fluid :showOnFocus="false" inputId="buttondisplay" />
+        </div>
+        <div class="flex-auto">
+            <label for="icondisplay" class="font-bold block mb-2"> Default Icon </label>
+            <DatePicker v-model="icondisplay" showIcon fluid iconDisplay="input" inputId="icondisplay" />
+        </div>
+        <div class="flex-auto">
+            <label for="templatedisplay" class="font-bold block mb-2"> Custom Icon </label>
+            <DatePicker v-model="templatedisplay" showIcon fluid iconDisplay="input" timeOnly inputId="templatedisplay">
+                <template #inputicon="slotProps">
+                    <i class="pi pi-clock" @click="slotProps.clickCallback" />
+                </template>
+            </DatePicker>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const buttondisplay = ref();
+const icondisplay = ref();
+const templatedisplay = ref();
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -149,6 +430,27 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <DatePicker v-model="value" inputId="date" showIcon iconDisplay="input" variant="filled" />
+            <label for="date">Date</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Inline
 
 DatePicker is displayed as a popup by default, add inline property to customize this behavior.
@@ -156,6 +458,24 @@ DatePicker is displayed as a popup by default, add inline property to customize 
 ```vue
 <DatePicker v-model="date" inline showWeek class="w-full sm:w-[30rem]" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" inline showWeek class="w-full sm:w-[30rem]" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
 
 ## Invalid
 
@@ -165,6 +485,26 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <DatePicker v-model="date1" :invalid="!date1" placeholder="Date" />
 <DatePicker v-model="date2" :invalid="!date2" variant="filled" placeholder="Date" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <DatePicker v-model="date1" :invalid="!date1" placeholder="Date" />
+        <DatePicker v-model="date2" :invalid="!date2" variant="filled" placeholder="Date" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date1 = ref(null);
+const date2 = ref(null);
+<\/script>
+```
+</details>
 
 ## Locale
 
@@ -178,6 +518,39 @@ Boundaries for the permitted dates that can be entered are defined with minDate 
 <DatePicker v-model="date" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" :minDate="minDate" :maxDate="maxDate" :manualInput="false" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+let today = new Date();
+let month = today.getMonth();
+let year = today.getFullYear();
+let prevMonth = (month === 0) ? 11 : month -1;
+let prevYear = (prevMonth === 11) ? year - 1 : year;
+let nextMonth = (month === 11) ? 0 : month + 1;
+let nextYear = (nextMonth === 0) ? year + 1 : year;
+
+const date = ref();
+const minDate = ref(new Date());
+const maxDate = ref(new Date());
+
+minDate.value.setMonth(prevMonth);
+minDate.value.setFullYear(prevYear);
+maxDate.value.setMonth(nextMonth);
+maxDate.value.setFullYear(nextYear);
+<\/script>
+```
+</details>
+
 ## Model Type
 
 The updateModelType property controls the data type of the value. When set to string it returns a string representation of the date, when set to date (default) it returns a Date object.
@@ -187,6 +560,32 @@ The updateModelType property controls the data type of the value. When set to st
 <DatePicker v-model="stringTypeModel" updateModelType="string" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <label for="datetype" class="font-bold block mb-2"> Date Type Model </label>
+            <DatePicker v-model="dateTypeModel" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="stringtype" class="font-bold block mb-2"> String Type Model </label>
+            <DatePicker v-model="stringTypeModel" updateModelType="string" fluid />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const dateTypeModel = ref();
+const stringTypeModel = ref();
+<\/script>
+```
+</details>
+
 ## Month Picker
 
 Month only picker is enabled by specifying view as month in addition to a suitable dateFormat .
@@ -194,6 +593,24 @@ Month only picker is enabled by specifying view as month in addition to a suitab
 ```vue
 <DatePicker v-model="date" view="month" dateFormat="mm/yy" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" view="month" dateFormat="mm/yy" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
 
 ## Multiple
 
@@ -203,6 +620,24 @@ In order to choose multiple dates, set selectionMode as multiple . In this mode,
 <DatePicker v-model="dates" selectionMode="multiple" :manualInput="false" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="dates" selectionMode="multiple" :manualInput="false" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const dates = ref();
+<\/script>
+```
+</details>
+
 ## Multiple Months
 
 Number of months to display is configured with the numberOfMonths property.
@@ -211,6 +646,24 @@ Number of months to display is configured with the numberOfMonths property.
 <DatePicker v-model="date" :numberOfMonths="2" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" :numberOfMonths="2" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
+
 ## Range
 
 A range of dates can be selected by defining selectionMode as range , in this case the bound value would be an array with two values where first date is the start of the range and second date is the end.
@@ -218,6 +671,24 @@ A range of dates can be selected by defining selectionMode as range , in this ca
 ```vue
 <DatePicker v-model="dates" selectionMode="range" :manualInput="false" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="dates" selectionMode="range" :manualInput="false" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const dates = ref();
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -229,6 +700,28 @@ DatePicker provides small and large sizes as alternatives to the base.
 <DatePicker v-model="value3" size="large" placeholder="Large" showIcon iconDisplay="input" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <DatePicker v-model="value1" size="small" placeholder="Small" showIcon iconDisplay="input" />
+        <DatePicker v-model="value2" placeholder="Normal" showIcon iconDisplay="input" />
+        <DatePicker v-model="value3" size="large" placeholder="Large" showIcon iconDisplay="input" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## Time
 
 A time picker is displayed when showTime is enabled where 12/24 hour format is configured with hourFormat property. In case, only time needs to be selected, add timeOnly to hide the date section.
@@ -239,6 +732,37 @@ A time picker is displayed when showTime is enabled where 12/24 hour format is c
 <DatePicker id="datepicker-timeonly" v-model="time" timeOnly fluid />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-4">
+        <div class="flex-auto">
+            <label for="datepicker-12h" class="font-bold block mb-2"> 12h Format </label>
+            <DatePicker id="datepicker-12h" v-model="datetime12h" showTime hourFormat="12" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="datepicker-24h" class="font-bold block mb-2"> 24h Format </label>
+            <DatePicker id="datepicker-24h" v-model="datetime24h" showTime hourFormat="24" fluid />
+        </div>
+        <div class="flex-auto">
+            <label for="datepicker-timeonly" class="font-bold block mb-2"> Time Only </label>
+            <DatePicker id="datepicker-timeonly" v-model="time" timeOnly fluid />
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const datetime12h = ref();
+const datetime24h = ref();
+const time = ref();
+<\/script>
+```
+</details>
+
 ## Year Picker
 
 Specifying view as year in addition to a suitable dateFormat enables the year picker.
@@ -246,6 +770,24 @@ Specifying view as year in addition to a suitable dateFormat enables the year pi
 ```vue
 <DatePicker v-model="date" view="year" dateFormat="yy" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <DatePicker v-model="date" view="year" dateFormat="yy" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const date = ref();
+<\/script>
+```
+</details>
 
 ## Date Picker
 

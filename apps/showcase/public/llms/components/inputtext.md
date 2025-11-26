@@ -2,9 +2,25 @@
 
 InputText is an extension to standard input element with theming.
 
+## Import
+
+```javascript
+import InputText from 'primevue/inputtext';
+```
+
 ## Accessibility
 
 Screen Reader InputText component renders a native input element that implicitly includes any passed prop. Value to describe the component can either be provided via label tag combined with id prop or using aria-labelledby , aria-label props. Keyboard Support Key Function tab Moves focus to the input.
+
+```vue
+<label for="firstname">Firstname</label>
+<InputText id="firstname" />
+
+<span id="lastname">Lastname</span>
+<InputText aria-labelledby="lastname" />
+
+<InputText aria-label="Age"/>
+```
 
 ## Basic
 
@@ -22,6 +38,24 @@ When disabled is present, the element cannot be edited and focused.
 <InputText v-model="value" disabled placeholder="Disabled" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputText v-model="value" disabled placeholder="Disabled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -29,6 +63,24 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <InputText type="text" v-model="value" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <InputText v-model="value" type="text" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Float Label
 
@@ -51,6 +103,39 @@ FloatLabel visually integrates a label with its form element. Visit FloatLabel d
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <FloatLabel>
+            <InputText id="over_label" v-model="value1" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="in">
+            <InputText id="in_label" v-model="value2" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel variant="on">
+            <InputText id="on_label" v-model="value3" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -58,6 +143,24 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <InputText type="text" v-model="value" fluid />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <InputText type="text" v-model="value" fluid />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -77,6 +180,54 @@ InputText integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-1">
+                <InputText name="username" type="text" placeholder="Username" fluid />
+                <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error?.message }}</Message>
+            </div>
+            <div class="flex flex-col gap-1">
+                <InputText name="email" type="text" placeholder="Email" fluid />
+                <Message v-if="$form.email?.invalid" severity="error" size="small" variant="simple">{{ $form.email.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    username: '',
+    email: ''
+});
+
+const resolver = ref(zodResolver(
+    z.object({
+        username: z.string().min(1, { message: 'Username is required.' }),
+        email: z.string().min(1, { message: 'Email is required.' }).email({ message: 'Invalid email address.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Help Text
 
 An advisory text can be defined with the Message component.
@@ -89,6 +240,28 @@ An advisory text can be defined with the Message component.
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <div class="flex flex-col gap-2">
+            <label for="username">Username</label>
+            <InputText id="username" v-model="value" aria-describedby="username-help" />
+            <Message size="small" severity="secondary" variant="simple">Enter your username to reset your password.</Message>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -100,6 +273,27 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel>
+            <InputText id="username" v-model="value" variant="filled" />
+            <label for="username">Username</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -108,6 +302,26 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <InputText v-model="value1" :invalid="!value1" placeholder="Name" />
 <InputText v-model="value2" :invalid="!value2" variant="filled" placeholder="Name" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <InputText v-model="value1" :invalid="!value1" placeholder="Name" />
+        <InputText v-model="value2" :invalid="!value2" variant="filled" placeholder="Name" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref('');
+const value2 = ref('');
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -118,6 +332,28 @@ InputText provides small and large sizes as alternatives to the base.
 <InputText v-model="value2" type="text" placeholder="Normal" />
 <InputText v-model="value3" type="text" size="large" placeholder="Large" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <InputText v-model="value1" type="text" size="small" placeholder="Small" />
+        <InputText v-model="value2" type="text" placeholder="Normal" />
+        <InputText v-model="value3" type="text" size="large" placeholder="Large" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+<\/script>
+```
+</details>
 
 ## Input Text
 
@@ -181,6 +417,8 @@ InputText provides small and large sizes as alternatives to the base.
 | contextmenu | string | - |  |
 | dir | string | - |  |
 | draggable | Booleanish | - |  |
+| enterkeyhint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
+| enterKeyHint | "enter" \| "done" \| "go" \| "next" \| "previous" \| "search" \| "send" | - |  |
 | hidden | "" \| Booleanish \| "hidden" \| "until-found" | - |  |
 | id | string | - |  |
 | inert | Booleanish | - |  |
@@ -211,8 +449,10 @@ InputText provides small and large sizes as alternatives to the base.
 | results | Numberish | - |  |
 | security | string | - |  |
 | unselectable | "on" \| "off" | - |  |
-| inputmode | "text" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" \| "search" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
+| inputmode | "text" \| "search" \| "none" \| "tel" \| "url" \| "email" \| "numeric" \| "decimal" | - | Hints at the type of data that might be entered by the user while editing the element or its contents |
 | is | string | - | Specify that a standard HTML element should behave like a defined custom built-in element |
+| exportparts | string | - |  |
+| part | string | - |  |
 | accept | string | - |  |
 | alt | string | - |  |
 | autocomplete | string | - |  |
@@ -221,7 +461,6 @@ InputText provides small and large sizes as alternatives to the base.
 | checked | any[] \| Set<any> \| Booleanish | - |  |
 | crossorigin | string | - |  |
 | disabled | Booleanish | - |  |
-| enterKeyHint | "search" \| "enter" \| "done" \| "go" \| "next" \| "previous" \| "send" | - |  |
 | form | string | - |  |
 | formaction | string | - |  |
 | formenctype | string | - |  |

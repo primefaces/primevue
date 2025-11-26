@@ -2,6 +2,12 @@
 
 OrganizationChart visualizes hierarchical organization data.
 
+## Import
+
+```javascript
+import OrganizationChart from 'primevue/organizationchart';
+```
+
 ## Accessibility
 
 Screen Reader Component currently uses a table based implementation and does not provide high level of screen reader support, a nested list implementation replacement is planned with aria roles and attributes aligned to a tree widget for high level of reader support in the upcoming versions. Keyboard Support Key Function tab Moves focus through the focusable elements within the chart. enter Toggles the expanded state of a node. space Toggles the expanded state of a node.
@@ -39,6 +45,88 @@ Styling a specific node is configured with styleClass and style options of a Tre
 </OrganizationChart>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card overflow-x-auto">
+        <OrganizationChart :value="data" collapsible>
+            <template #person="slotProps">
+                <div class="flex flex-col">
+                    <div class="flex flex-col items-center">
+                        <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-4 w-12 h-12" />
+                        <span class="font-bold mb-2">{{ slotProps.node.data.name }}</span>
+                        <span>{{ slotProps.node.data.title }}</span>
+                    </div>
+                </div>
+            </template>
+            <template #default="slotProps">
+                <span>{{ slotProps.node.label }}</span>
+            </template>
+        </OrganizationChart>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const data = ref({
+    key: '0',
+    type: 'person',
+    styleClass: '!bg-indigo-100 text-white rounded-xl',
+    data: {
+        image: 'https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png',
+        name: 'Amy Elsner',
+        title: 'CEO'
+    },
+    children: [
+        {
+            key: '0_0',
+            type: 'person',
+            styleClass: '!bg-purple-100 text-white rounded-xl',
+            data: {
+                image: 'https://primefaces.org/cdn/primevue/images/avatar/annafali.png',
+                name: 'Anna Fali',
+                title: 'CMO'
+            },
+            children: [
+                {
+                    label: 'Sales',
+                    styleClass: '!bg-purple-100 text-white rounded-xl'
+                },
+                {
+                    label: 'Marketing',
+                    styleClass: '!bg-purple-100 text-white rounded-xl'
+                }
+            ]
+        },
+        {
+            key: '0_1',
+            type: 'person',
+            styleClass: '!bg-teal-100 text-white rounded-xl',
+            data: {
+                image: 'https://primefaces.org/cdn/primevue/images/avatar/stephenshaw.png',
+                name: 'Stephen Shaw',
+                title: 'CTO'
+            },
+            children: [
+                {
+                    label: 'Development',
+                    styleClass: '!bg-teal-100 text-white rounded-xl'
+                },
+                {
+                    label: 'UI/UX Design',
+                    styleClass: '!bg-teal-100 text-white rounded-xl'
+                }
+            ]
+        }
+    ]
+});
+<\/script>
+```
+</details>
+
 ## Selection
 
 Selection is enabled by defining the selectionMode to either "single" or "multiple" and specifying the selectionKeys with the v-model directive. Note that selection on a particular node can be disabled if the selectable is false on the node instance.
@@ -60,6 +148,84 @@ Selection is enabled by defining the selectionMode to either "single" or "multip
 </OrganizationChart>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="multiple">
+        <template #person="slotProps">
+            <div class="flex flex-col">
+                <div class="flex flex-col items-center">
+                    <img :alt="slotProps.node.data.name" :src="slotProps.node.data.image" class="mb-4 w-12 h-12" />
+                    <span class="font-bold mb-2">{{ slotProps.node.data.name }}</span>
+                    <span>{{ slotProps.node.data.title }}</span>
+                </div>
+            </div>
+        </template>
+        <template #default="slotProps">
+            <span>{{ slotProps.node.label }}</span>
+        </template>
+    </OrganizationChart>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const data = ref({
+    key: '0',
+    type: 'person',
+    data: {
+        image: 'https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png',
+        name: 'Amy Elsner',
+        title: 'CEO'
+    },
+    children: [
+        {
+            key: '0_0',
+            type: 'person',
+            data: {
+                image: 'https://primefaces.org/cdn/primevue/images/avatar/annafali.png',
+                name: 'Anna Fali',
+                title: 'CMO'
+            },
+            children: [
+                {
+                    key: '0_0_0',
+                    label: 'Sales'
+                },
+                {
+                    key: '0_0_"1',
+                    label: 'Marketing'
+                }
+            ]
+        },
+        {
+            key: '0_1',
+            type: 'person',
+            data: {
+                image: 'https://primefaces.org/cdn/primevue/images/avatar/stephenshaw.png',
+                name: 'Stephen Shaw',
+                title: 'CTO'
+            },
+            children: [
+                {
+                    key: '0_1_0',
+                    label: 'Development'
+                },
+                {
+                    key: '0_1_1',
+                    label: 'UI/UX Design'
+                }
+            ]
+        }
+    ]
+});
+const selection = ref({});
+<\/script>
+```
+</details>
+
 ## Template
 
 The type property of an OrganizationChartNode is used to map a template to a node. If it is undefined, the default template is used.
@@ -77,6 +243,82 @@ The type property of an OrganizationChartNode is used to map a template to a nod
     </template>
 </OrganizationChart>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card overflow-x-auto">
+        <OrganizationChart v-model:selectionKeys="selection" :value="data" collapsible selectionMode="single">
+            <template #country="slotProps">
+                <div class="flex flex-col items-center">
+                    <img :alt="slotProps.node.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`w-2rem flag flag-\${slotProps.node.data}\`" />
+                    <div class="mt-4 font-medium text-lg">{{ slotProps.node.label }}</div>
+                </div>
+            </template>
+            <template #default="slotProps">
+                <span>{{slotProps.node.data.label}}</span>
+            </template>
+        </OrganizationChart>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selection = ref({});
+const data = ref({
+    key: '0',
+    type: 'country',
+    label: 'Argentina',
+    data: 'ar',
+    children: [
+        {
+            key: '0_0',
+            type: 'country',
+            label: 'Argentina',
+            data: 'ar',
+            children: [
+                {
+                    key: '0_0_0',
+                    type: 'country',
+                    label: 'Argentina',
+                    data: 'ar'
+                },
+                {
+                    key: '0_0_1',
+                    type: 'country',
+                    label: 'Croatia',
+                    data: 'hr'
+                }
+            ]
+        },
+        {
+            key: '0_1',
+            type: 'country',
+            label: 'France',
+            data: 'fr',
+            children: [
+                {
+                    key: '0_1_0',
+                    type: 'country',
+                    label: 'France',
+                    data: 'fr'
+                },
+                {
+                    key: '0_1_1',
+                    type: 'country',
+                    label: 'Morocco',
+                    data: 'ma'
+                }
+            ]
+        }
+    ]
+});
+<\/script>
+```
+</details>
 
 ## Organization Chart
 

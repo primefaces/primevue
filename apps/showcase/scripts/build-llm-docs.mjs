@@ -127,8 +127,8 @@ function extractCodeExamples(content) {
             }
 
             if (text[i] === '`') {
-                // Check if this is followed by comma or closing brace (can be on next line)
-                const after = text.substring(i + 1).match(/^[\s\n]*[,}]/);
+                // Check if this is followed by comma, closing brace, or end of content (can be on next line)
+                const after = text.substring(i + 1).match(/^[\s\n]*([,}]|$)/);
                 if (after) {
                     endIndex = i;
                     break;
@@ -677,24 +677,6 @@ function generateMarkdownOutput(components, apiDocs) {
 }
 
 /**
- * Generate llms.txt index file (curated list)
- */
-function generateLlmsTxt(components) {
-    let content = '# PrimeVue\n\n';
-    content += '## Components\n\n';
-
-    const sorted = [...components].sort((a, b) => a.title.localeCompare(b.title));
-
-    for (const comp of sorted) {
-        content += `- [${comp.title}](https://primevue.org/${comp.name}): ${comp.description}\n`;
-    }
-
-    const outputPath = path.join(OUTPUT_DIR, 'llms.txt');
-    fs.writeFileSync(outputPath, content, 'utf-8');
-    console.log(`✓ Generated llms.txt: ${outputPath}`);
-}
-
-/**
  * Generate individual component markdown files
  */
 function generateIndividualMarkdownFiles(components, apiDocs) {
@@ -758,6 +740,245 @@ function generateIndividualMarkdownFiles(components, apiDocs) {
     console.log(`✓ Generated ${components.length} individual markdown files`);
 }
 
+// Guide/documentation pages (non-component pages)
+const GUIDE_PAGES = [
+    'introduction',
+    'configuration',
+    'theming',
+    'styled',
+    'unstyled',
+    'passthrough',
+    'icons',
+    'customicons',
+    'forms',
+    'autoimport',
+    'cdn',
+    'nuxt',
+    'vite',
+    'designer',
+    'tailwind',
+    'uikit',
+    'contribution',
+    'setup',
+    'llms'
+];
+
+/**
+ * Get page metadata from pages directory
+ */
+function getPageMetadata(pageName) {
+    // Check direct page first
+    let pagePath = path.join(PAGES_DIR, pageName, 'index.vue');
+
+    // Check nested pages (like theming/styled, theming/unstyled)
+    if (!fs.existsSync(pagePath)) {
+        // Try to find in theming subdirectory
+        pagePath = path.join(PAGES_DIR, 'theming', pageName, 'index.vue');
+    }
+
+    if (!fs.existsSync(pagePath)) {
+        return null;
+    }
+
+    const content = fs.readFileSync(pagePath, 'utf-8');
+
+    // Extract title and description from Head or DocComponent
+    const titleMatch = content.match(/<Title>([^<]+)<\/Title>/i) || content.match(/title="([^"]+)"/);
+    const descriptionMatch = content.match(/<Meta[^>]*description[^>]*content="([^"]+)"/) || content.match(/description="([^"]+)"/);
+    const headerMatch = content.match(/<h1>([^<]+)<\/h1>/i) || content.match(/header="([^"]+)"/);
+
+    // Extract docs array to find sections
+    const docsMatch = content.match(/docs:\s*\[([\s\S]*?)\]\s*[,}]/);
+    let sections = [];
+
+    if (docsMatch) {
+        const docsContent = docsMatch[1];
+        // Match both flat sections and nested children
+        const sectionMatches = docsContent.matchAll(/{\s*id:\s*['"]([^'"]+)['"]\s*,\s*label:\s*['"]([^'"]+)['"]/g);
+
+        for (const match of sectionMatches) {
+            sections.push({
+                id: match[1],
+                label: match[2]
+            });
+        }
+    }
+
+    const title = titleMatch ? (titleMatch[1] || '').replace(' - PrimeVue', '') : pageName;
+
+    return {
+        name: pageName,
+        title: title,
+        description: descriptionMatch ? descriptionMatch[1] : '',
+        header: headerMatch ? headerMatch[1] : title,
+        sections
+    };
+}
+
+/**
+ * Process a guide/documentation page
+ */
+function processGuidePage(pageName) {
+    const metadata = getPageMetadata(pageName);
+
+    if (!metadata) {
+        return null;
+    }
+
+    // Find doc directory
+    let docDir = path.join(DOCS_DIR, pageName);
+
+    // Check nested paths (like theming/styled)
+    if (!fs.existsSync(docDir)) {
+        docDir = path.join(DOCS_DIR, 'theming', pageName);
+    }
+
+    if (!fs.existsSync(docDir)) {
+        // Some pages might not have separate doc folders
+        return {
+            name: pageName,
+            title: metadata.title,
+            description: metadata.description,
+            sections: []
+        };
+    }
+
+    const page = {
+        name: pageName,
+        title: metadata.title,
+        description: metadata.description,
+        sections: []
+    };
+
+    // Process doc files recursively
+    function processDocDir(dir, prefix = '') {
+        const entries = fs.readdirSync(dir);
+
+        for (const entry of entries) {
+            const entryPath = path.join(dir, entry);
+            const stat = fs.statSync(entryPath);
+
+            if (stat.isDirectory()) {
+                // Recurse into subdirectories
+                processDocDir(entryPath, entry + '/');
+            } else if (entry.endsWith('.vue') && entry.includes('Doc')) {
+                const sectionId = entry.replace('Doc.vue', '').toLowerCase();
+                const docData = parseVueDocFile(entryPath);
+
+                if (docData.description || docData.codeExamples) {
+                    const sectionInfo = metadata.sections.find(s => s.id === sectionId);
+
+                    page.sections.push({
+                        id: prefix + sectionId,
+                        label: sectionInfo ? sectionInfo.label : entry.replace('Doc.vue', '').replace(/([A-Z])/g, ' $1').trim(),
+                        description: docData.description,
+                        examples: docData.codeExamples
+                    });
+                }
+            }
+        }
+    }
+
+    processDocDir(docDir);
+
+    return page;
+}
+
+/**
+ * Get all guide pages
+ */
+function getAllGuidePages() {
+    const pages = [];
+
+    for (const pageName of GUIDE_PAGES) {
+        const page = processGuidePage(pageName);
+
+        if (page) {
+            pages.push(page);
+        }
+    }
+
+    return pages;
+}
+
+/**
+ * Generate individual guide page markdown files
+ */
+function generateGuideMarkdownFiles(pages) {
+    const pagesDir = path.join(OUTPUT_DIR, 'pages');
+
+    if (!fs.existsSync(pagesDir)) {
+        fs.mkdirSync(pagesDir, { recursive: true });
+    }
+
+    for (const page of pages) {
+        let markdown = `# ${page.title}\n\n`;
+
+        if (page.description) {
+            markdown += `${page.description}\n\n`;
+        }
+
+        for (const section of page.sections) {
+            markdown += `## ${section.label}\n\n`;
+
+            if (section.description) {
+                markdown += `${section.description}\n\n`;
+            }
+
+            if (section.examples) {
+                if (section.examples.basic) {
+                    markdown += '```vue\n';
+                    markdown += section.examples.basic;
+                    markdown += '\n```\n\n';
+                }
+
+                if (section.examples.composition) {
+                    markdown += '<details>\n<summary>Composition API Example</summary>\n\n';
+                    markdown += '```vue\n';
+                    markdown += section.examples.composition;
+                    markdown += '\n```\n';
+                    markdown += '</details>\n\n';
+                }
+            }
+        }
+
+        const outputPath = path.join(pagesDir, `${page.name}.md`);
+        fs.writeFileSync(outputPath, markdown, 'utf-8');
+    }
+
+    console.log(`✓ Generated ${pages.length} guide/page markdown files`);
+}
+
+/**
+ * Update llms.txt to include guide pages
+ */
+function generateLlmsTxtWithGuides(components, guidePages) {
+    let content = '# PrimeVue\n\n';
+
+    // Guides section
+    content += '## Guides\n\n';
+    for (const page of guidePages) {
+        if (page.description) {
+            content += `- [${page.title}](https://primevue.org/${page.name}): ${page.description}\n`;
+        } else {
+            content += `- [${page.title}](https://primevue.org/${page.name})\n`;
+        }
+    }
+    content += '\n';
+
+    // Components section
+    content += '## Components\n\n';
+    const sorted = [...components].sort((a, b) => a.title.localeCompare(b.title));
+
+    for (const comp of sorted) {
+        content += `- [${comp.title}](https://primevue.org/${comp.name}): ${comp.description}\n`;
+    }
+
+    const outputPath = path.join(OUTPUT_DIR, 'llms.txt');
+    fs.writeFileSync(outputPath, content, 'utf-8');
+    console.log(`✓ Generated llms.txt: ${outputPath}`);
+}
+
 /**
  * Main execution
  */
@@ -768,6 +989,10 @@ function main() {
     const components = getAllComponents();
     console.log(`   Found ${components.length} components\n`);
 
+    console.log('📄 Parsing guide pages...');
+    const guidePages = getAllGuidePages();
+    console.log(`   Found ${guidePages.length} guide pages\n`);
+
     console.log('📚 Loading API documentation...');
     const apiDocs = loadApiDocs();
     console.log(`   Loaded API docs for ${Object.keys(apiDocs).length} components\n`);
@@ -775,15 +1000,17 @@ function main() {
     console.log('✨ Generating outputs...\n');
     generateJsonOutput(components, apiDocs);
     generateMarkdownOutput(components, apiDocs);
-    generateLlmsTxt(components);
+    generateLlmsTxtWithGuides(components, guidePages);
     generateIndividualMarkdownFiles(components, apiDocs);
+    generateGuideMarkdownFiles(guidePages);
 
     console.log('\n✅ Enhanced LLM documentation generation complete!');
     console.log(`\nOutput directory: ${OUTPUT_DIR}`);
     console.log('   - components.json (for MCP server with full API data)');
     console.log('   - components.md (full documentation with Props, Slots, Emits, PT, Theming)');
-    console.log('   - llms.txt (index file)');
+    console.log('   - llms.txt (index file with guides and components)');
     console.log('   - components/*.md (individual component files with complete API)');
+    console.log('   - pages/*.md (guide/documentation pages)');
 }
 
 main();

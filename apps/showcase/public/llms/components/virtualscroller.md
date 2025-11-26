@@ -2,6 +2,12 @@
 
 VirtualScroller is a performant approach to render large amounts of data efficiently.
 
+## Import
+
+```javascript
+import VirtualScroller from 'primevue/virtualscroller';
+```
+
 ## Accessibility
 
 Screen Reader VirtualScroller has no specific role is enforced, still you may use any aria role and attributes as any valid attribute is passed to the container element. Keyboard Support Component does not include any built-in interactive elements.
@@ -42,6 +48,47 @@ The delay property adds a threshold to wait in milliseconds during scrolling for
 </VirtualScroller>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-8">
+        <div>
+            <span class="font-bold block mb-2">No Delay</span>
+            <VirtualScroller :items="items" :itemSize="50" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+                <template v-slot:item="{ item, options }">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+                </template>
+            </VirtualScroller>
+        </div>
+        <div>
+            <span class="font-bold block mb-2">150ms</span>
+            <VirtualScroller :items="items" :itemSize="50" :delay="150" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+                <template v-slot:item="{ item, options }">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+                </template>
+            </VirtualScroller>
+        </div>
+        <div>
+            <span class="font-bold block mb-2">500ms</span>
+            <VirtualScroller :items="items" :itemSize="50" :delay="500" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+                <template v-slot:item="{ item, options }">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+                </template>
+            </VirtualScroller>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const items = ref(Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`));
+<\/script>
+```
+</details>
+
 ## Grid
 
 Scrolling can be enabled vertically and horizontally when orientation is set as both . In this mode, itemSize should be an array where first value is the height of an item and second is the width.
@@ -58,6 +105,32 @@ Scrolling can be enabled vertically and horizontally when orientation is set as 
 </VirtualScroller>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <VirtualScroller :items="items" :itemSize="[50, 100]" orientation="both" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+            <template v-slot:item="{ item, options }">
+                <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">
+                    <template v-for="(el, index) of item" :key="index">
+                        <div style="width: 100px">{{ el }}</div>
+                    </template>
+                </div>
+            </template>
+        </VirtualScroller>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const items = ref(Array.from({ length: 1000 }).map((_, i) => Array.from({ length: 1000 }).map((_j, j) => \`Item #\${i}_\${j}\`)));
+<\/script>
+```
+</details>
+
 ## Horizontal
 
 Setting orientation to horizontal enables scrolling horizontally. In this case, the itemSize should refer to the width of an item.
@@ -70,6 +143,28 @@ Setting orientation to horizontal enables scrolling horizontally. In this case, 
 </VirtualScroller>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <VirtualScroller :items="items" :itemSize="50" orientation="horizontal" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px" :pt="{ content: 'flex flex-row' }">
+            <template v-slot:item="{ item, options }">
+                <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="width: 50px; writing-mode: vertical-lr;">{{ item }}</div>
+            </template>
+        </VirtualScroller>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const items = ref(Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`));
+<\/script>
+```
+</details>
+
 ## Lazy
 
 Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded on demand. To implement lazy loading, enable the lazy property and implement onLazyLoad callback to return data.
@@ -81,6 +176,51 @@ Lazy mode is handy to deal with large datasets, instead of loading the entire da
     </template>
 </VirtualScroller>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <VirtualScroller :items="lazyItems" :itemSize="50" showLoader :delay="250" :loading="lazyLoading" lazy @lazy-load="onLazyLoad" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+            <template v-slot:item="{ item, options }">
+                <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+            </template>
+        </VirtualScroller>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const lazyItems = ref(Array.from({ length: 10000 }));
+const lazyLoading = ref(false);
+const loadLazyTimeout = ref();
+const onLazyLoad = (event) => {
+    lazyLoading.value = true;
+
+    if (loadLazyTimeout.value) {
+        clearTimeout(loadLazyTimeout.value);
+    }
+
+    //imitate delay of a backend call
+    loadLazyTimeout.value = setTimeout(() => {
+        const { first, last } = event;
+        const _lazyItems = [...lazyItems.value];
+
+        for (let i = first; i < last; i++) {
+            _lazyItems[i] = \`Item #\${i}\`;
+        }
+
+        lazyItems.value = _lazyItems;
+        lazyLoading.value = false;
+
+    }, Math.random() * 1000 + 250);
+};
+<\/script>
+```
+</details>
 
 ## Loading
 
@@ -104,6 +244,44 @@ Busy state is enabled by adding showLoader property which blocks the UI with a m
     </template>
 </VirtualScroller>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-8">
+        <div>
+            <span class="font-bold block mb-2">Modal</span>
+            <VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+                <template v-slot:item="{ item, options }">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+                </template>
+            </VirtualScroller>
+        </div>
+        <div>
+            <span class="font-bold block mb-2">Skeleton</span>
+            <VirtualScroller :items="items" :itemSize="50" showLoader :delay="250" class="border border-surface-200 dark:border-surface-700 rounded" style="width: 200px; height: 200px">
+                <template v-slot:item="{ item, options }">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">{{ item }}</div>
+                </template>
+                <template v-slot:loader="{ options }">
+                    <div :class="['flex items-center p-2', { 'bg-surface-100 dark:bg-surface-700': options.odd }]" style="height: 50px">
+                        <Skeleton :width="options.even ? '60%' : '50%'" height="1.3rem" />
+                    </div>
+                </template>
+            </VirtualScroller>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const items = ref(Array.from({ length: 100000 }).map((_, i) => \`Item #\${i}\`));
+<\/script>
+```
+</details>
 
 ## Virtual Scroller
 

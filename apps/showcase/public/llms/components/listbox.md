@@ -2,9 +2,22 @@
 
 Listbox is used to select one or more values from a list of items.
 
+## Import
+
+```javascript
+import Listbox from 'primevue/listbox';
+```
+
 ## Accessibility
 
 Screen Reader Value to describe the component can be provided aria-labelledby or aria-label props. The list element has a listbox role with the aria-multiselectable attribute that sets to true when multiple selection is enabled. Each list item has an option role with aria-selected and aria-disabled as their attributes. If filtering is enabled, filterInputProps can be defined to give aria-* props to the input element. Alternatively filterPlaceholder is usually utilized by the screen readers as well. Keyboard Support Key Function tab Moves focus to the first selected option, if there is none then first option receives the focus. up arrow Moves focus to the previous option. down arrow Moves focus to the next option. enter Toggles the selected state of the focused option. space Toggles the selected state of the focused option. home Moves focus to the first option. end Moves focus to the last option. shift + down arrow Moves focus to the next option and toggles the selection state. shift + up arrow Moves focus to the previous option and toggles the selection state. shift + space Selects the items between the most recently selected option and the focused option. control + shift + home Selects the focused options and all the options up to the first one. control + shift + end Selects the focused options and all the options down to the last one. control + a Selects all options. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. any printable character Moves focus to the option whose label starts with the characters being typed. Filter Input Keyboard Support Key Function down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. enter Closes the popup and moves focus to the multiselect element. escape Closes the popup and moves focus to the multiselect element. tab Moves focus to the next focusable element in the component. If there is none, moves focus to next element in page.
+
+```vue
+<span id="lb"></span>Options</span>
+<Listbox aria-labelledby="lb" />
+
+<Listbox aria-label="City" />
+```
 
 ## Basic
 
@@ -22,6 +35,31 @@ An alternative way to highlight the selected option is displaying a checkmark in
 <Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Disabled
 
 When disabled is present, the element cannot be edited and focused.
@@ -30,6 +68,31 @@ When disabled is present, the element cannot be edited and focused.
 <Listbox v-model="selectedCity" disabled :options="cities" optionLabel="name" class="w-full md:w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" disabled :options="cities" optionLabel="name" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Filter
 
 Listbox provides built-in filtering that is enabled by adding the filter property.
@@ -37,6 +100,31 @@ Listbox provides built-in filtering that is enabled by adding the filter propert
 ```vue
 <Listbox v-model="selectedCity" :options="cities" filter optionLabel="name" class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" filter optionLabel="name" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -51,6 +139,52 @@ Listbox integrates seamlessly with the PrimeVue Forms library.
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+            <div class="flex flex-col gap-1">
+                <Listbox name="city" :options="cities" optionLabel="name" fluid />
+                <Message v-if="$form.city?.invalid" severity="error" size="small" variant="simple">{{ $form.city.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    city: { name: '' }
+});
+const resolver = ref(zodResolver(
+    z.object({
+        city: z.union([
+            z.object({
+                name: z.string().min(1, 'City is required.')
+            }),
+            z.any().refine((val) => false, { message: 'City is required.' })
+        ])
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
 
 ## Group
 
@@ -67,6 +201,63 @@ Options can be grouped when a nested data structures is provided. To define the 
 </Listbox>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" class="w-full md:w-56" listStyle="max-height:250px">
+            <template #optiongroup="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+                    <div>{{ slotProps.option.label }}</div>
+                </div>
+            </template>
+        </Listbox>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const groupedCities = ref([
+    {
+        label: 'Germany',
+        code: 'DE',
+        items: [
+            { label: 'Berlin', value: 'Berlin' },
+            { label: 'Frankfurt', value: 'Frankfurt' },
+            { label: 'Hamburg', value: 'Hamburg' },
+            { label: 'Munich', value: 'Munich' }
+        ]
+    },
+    {
+        label: 'USA',
+        code: 'US',
+        items: [
+            { label: 'Chicago', value: 'Chicago' },
+            { label: 'Los Angeles', value: 'Los Angeles' },
+            { label: 'New York', value: 'New York' },
+            { label: 'San Francisco', value: 'San Francisco' }
+        ]
+    },
+    {
+        label: 'Japan',
+        code: 'JP',
+        items: [
+            { label: 'Kyoto', value: 'Kyoto' },
+            { label: 'Osaka', value: 'Osaka' },
+            { label: 'Tokyo', value: 'Tokyo' },
+            { label: 'Yokohama', value: 'Yokohama' }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -75,6 +266,31 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <Listbox v-model="selectedCity" :options="cities" optionLabel="name" :invalid="selectedCity === null"  class="w-full md:w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" :invalid="selectedCity === null"  class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Multiple
 
 Listbox allows choosing a single item by default, enable multiple property to choose more than one. When the optional metaKeySelection is present, behavior is changed in a way that selecting a new item requires meta key to be present.
@@ -82,6 +298,31 @@ Listbox allows choosing a single item by default, enable multiple property to ch
 ```vue
 <Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCity" :options="cities" multiple optionLabel="name" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -98,6 +339,43 @@ Custom content for an option is displayed with the option slot that takes an opt
 </Listbox>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedCountry" :options="countries" optionLabel="name" class="w-full md:w-56" listStyle="max-height:250px">
+            <template #option="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.name" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`flag flag-\${slotProps.option.code.toLowerCase()} mr-2\`" style="width: 18px" />
+                    <div>{{ slotProps.option.name }}</div>
+                </div>
+            </template>
+        </Listbox>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCountry = ref();
+const countries = ref([
+    { name: 'Australia', code: 'AU' },
+    { name: 'Brazil', code: 'BR' },
+    { name: 'China', code: 'CN' },
+    { name: 'Egypt', code: 'EG' },
+    { name: 'France', code: 'FR' },
+    { name: 'Germany', code: 'DE' },
+    { name: 'India', code: 'IN' },
+    { name: 'Japan', code: 'JP' },
+    { name: 'Spain', code: 'ES' },
+    { name: 'United States', code: 'US' }
+]);
+<\/script>
+```
+</details>
+
 ## Virtual Scroll
 
 VirtualScroller is used to render a long list of options efficiently like 100K records in this demo. The configuration is done with virtualScrollerOptions property, refer to the VirtualScroller for more information about the available options as it is used internally by Listbox.
@@ -106,6 +384,26 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
     :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" striped />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Listbox v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
+            :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-56" listStyle="height:250px" striped />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedItem = ref();
+const items = ref(Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+<\/script>
+```
+</details>
 
 ## Listbox
 

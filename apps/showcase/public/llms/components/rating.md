@@ -2,6 +2,12 @@
 
 Rating component is a star based selection input.
 
+## Import
+
+```javascript
+import Rating from 'primevue/rating';
+```
+
 ## Accessibility
 
 Screen Reader Rating component internally uses radio buttons that are only visible to screen readers. The value to read for item is retrieved from the locale API via star and stars of the aria property. Keyboard Support Keyboard interaction is derived from the native browser handling of radio buttons in a group. Key Function tab Moves focus to the star representing the value, if there is none then first star receives the focus. left arrow up arrow Moves focus to the previous star, if there is none then last radio button receives the focus. right arrow down arrow Moves focus to the next star, if there is none then first star receives the focus. space If the focused star does not represent the value, changes the value to the star value.
@@ -22,6 +28,24 @@ When disabled is present, a visual hint is applied to indicate that the Knob can
 <Rating v-model="value" disabled />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Rating v-model="value" disabled />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(5);
+<\/script>
+```
+</details>
+
 ## Forms
 
 Rating integrates seamlessly with the PrimeVue Forms library.
@@ -36,6 +60,47 @@ Rating integrates seamlessly with the PrimeVue Forms library.
 </Form>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-40">
+            <div class="flex flex-col items-center gap-2">
+                <Rating name="rating" />
+                <Message v-if="$form.rating?.invalid" severity="error" size="small" variant="simple">{{ $form.rating.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    rating: null
+});
+const resolver = ref(zodResolver(
+    z.object({
+        rating: z.union([z.number(), z.literal(null)]).refine((value) => value !== null, { message: 'Rating is required.' })
+    })
+));
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
+
 ## Number of Stars
 
 Number of stars to display is defined with stars property.
@@ -44,6 +109,24 @@ Number of stars to display is defined with stars property.
 <Rating v-model="value" :stars="10" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Rating v-model="value" :stars="10" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(5);
+<\/script>
+```
+</details>
+
 ## ReadOnly
 
 When readOnly present, value cannot be edited.
@@ -51,6 +134,24 @@ When readOnly present, value cannot be edited.
 ```vue
 <Rating v-model="value" readonly />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Rating v-model="value" readonly />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(3);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -66,6 +167,31 @@ Custom icons are used to override the default icons with onicon , officon and ca
     </template>
 </Rating>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Rating v-model="value">
+            <template #onicon>
+                <img src="https://primefaces.org/cdn/primevue/images/rating/custom-onicon.png" height="24" width="24" />
+            </template>
+            <template #officon>
+                <img src="https://primefaces.org/cdn/primevue/images/rating/custom-officon.png" height="24" width="24" />
+            </template>
+        </Rating>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value = ref(null);
+<\/script>
+```
+</details>
 
 ## Rating
 

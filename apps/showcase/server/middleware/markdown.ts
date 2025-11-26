@@ -8,19 +8,33 @@ export default defineEventHandler((event) => {
         return;
     }
 
-    const match = url.match(/^\/([^\/]+)\.md$/);
+    // Match both single segment (/button.md) and nested paths (/theming/styled.md)
+    const match = url.match(/^\/(.+)\.md$/);
 
     if (!match) {
         return;
     }
 
-    const component = match[1];
-    const filePath = path.resolve(`./public/llms/components/${component}.md`);
+    const fullPath = match[1];
+    // Get the last segment for nested paths (e.g., "theming/styled" -> "styled")
+    const pageName = fullPath.includes('/') ? fullPath.split('/').pop() : fullPath;
+
+    if (!pageName) {
+        return;
+    }
+
+    // Check components folder first
+    let filePath = path.resolve(`./public/llms/components/${pageName}.md`);
+
+    // If not found in components, check pages folder (for guides)
+    if (!fs.existsSync(filePath)) {
+        filePath = path.resolve(`./public/llms/pages/${pageName}.md`);
+    }
 
     if (!fs.existsSync(filePath)) {
         throw createError({
             statusCode: 404,
-            statusMessage: `Component documentation not found for: ${component}`
+            statusMessage: `Documentation not found for: ${pageName}`
         });
     }
 

@@ -2,6 +2,12 @@
 
 DataView displays data in grid or list layout with pagination and sorting features.
 
+## Import
+
+```javascript
+import DataView from 'primevue/dataview';
+```
+
 ## Accessibility
 
 Screen Reader The container element that wraps the layout options buttons has a group role whereas each button element uses button role and aria-pressed is updated depending on selection state. Values to describe the buttons are derived from the aria.listView and aria.gridView properties of the locale API respectively. Refer to paginator accessibility documentation for the paginator of the component. Keyboard Support Key Function tab Moves focus to the buttons. space Toggles the checked state of a button.

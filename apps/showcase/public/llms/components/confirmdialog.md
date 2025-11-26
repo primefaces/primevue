@@ -2,6 +2,12 @@
 
 ConfirmDialog uses a Dialog UI that is integrated with the Confirmation API.
 
+## Import
+
+```javascript
+import ConfirmDialog from 'primevue/confirmdialog';
+```
+
 ## Accessibility
 
 Screen Reader ConfirmDialog component uses alertdialog role along with aria-labelledby referring to the header element however any attribute is passed to the root element so you may use aria-labelledby to override this default behavior. In addition aria-modal is added since focus is kept within the popup. When require method of the $confirm instance is used and a trigger is passed as a parameter, ConfirmDialog adds aria-expanded state attribute and aria-controls to the trigger so that the relation between the trigger and the dialog is defined. Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the dialog. shift + tab Moves focus to the previous the focusable element within the dialog. escape Closes the dialog. Buttons Keyboard Support Key Function enter Closes the dialog. space Closes the dialog.
@@ -43,6 +49,56 @@ Headless mode is enabled by defining a container slot that lets you implement en
 <Button @click="requireConfirmation()" label="Save"></Button>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <ConfirmDialog group="headless">
+        <template #container="{ message, acceptCallback, rejectCallback }">
+            <div class="flex flex-col items-center p-8 bg-surface-0 dark:bg-surface-900 rounded">
+                <div class="rounded-full bg-primary text-primary-contrast inline-flex justify-center items-center h-24 w-24 -mt-20">
+                    <i class="pi pi-question !text-4xl"></i>
+                </div>
+                <span class="font-bold text-2xl block mb-2 mt-6">{{ message.header }}</span>
+                <p class="mb-0">{{ message.message }}</p>
+                <div class="flex items-center gap-2 mt-6">
+                    <Button label="Save" @click="acceptCallback"></Button>
+                    <Button label="Cancel" variant="outlined" @click="rejectCallback"></Button>
+                </div>
+            </div>
+        </template>
+    </ConfirmDialog>
+    <div class="card flex justify-center">
+        <Button @click="requireConfirmation()" label="Save"></Button>
+    </div>
+    <Toast />
+</template>
+
+<script setup>
+import { useConfirm } from "primevue/useconfirm";
+import { useToast } from "primevue/usetoast";
+
+const confirm = useConfirm();
+const toast = useToast();
+
+const requireConfirmation = () => {
+    confirm.require({
+        group: 'headless',
+        header: 'Are you sure?',
+        message: 'Please confirm to proceed.',
+        accept: () => {
+            toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+        },
+        reject: () => {
+            toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+        }
+    });
+};
+<\/script>
+```
+</details>
+
 ## Position
 
 The position property of the confirm options specifies the location of the Dialog.
@@ -65,6 +121,66 @@ The position property of the confirm options specifies the location of the Dialo
 </div>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <Toast />
+    <ConfirmDialog group="positioned"></ConfirmDialog>
+    <div class="card">
+        <div class="flex flex-wrap justify-center gap-2 mb-4">
+            <Button @click="confirmPosition('left')" icon="pi pi-arrow-right" label="Left" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('right')" icon="pi pi-arrow-left" label="Right" severity="secondary" style="min-width: 10rem"></Button>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2 mb-4">
+            <Button @click="confirmPosition('topleft')" icon="pi pi-arrow-down-right" label="TopLeft" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('top')" icon="pi pi-arrow-down" label="Top" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('topright')" icon="pi pi-arrow-down-left" label="TopRight" severity="secondary" style="min-width: 10rem"></Button>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2">
+            <Button @click="confirmPosition('bottomleft')" icon="pi pi-arrow-up-right" label="BottomLeft" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottom')" icon="pi pi-arrow-up" label="Bottom" severity="secondary" style="min-width: 10rem"></Button>
+            <Button @click="confirmPosition('bottomright')" icon="pi pi-arrow-up-left" label="BottomRight" severity="secondary" style="min-width: 10rem"></Button>
+        </div>
+    </div>
+</template>
+
+<script setup>
+import { useConfirm } from "primevue/useconfirm";
+import { useToast } from "primevue/usetoast";
+
+const confirm = useConfirm();
+const toast = useToast();
+
+const confirmPosition = (position) => {
+    confirm.require({
+        group: 'positioned',
+        message: 'Are you sure you want to proceed?',
+        header: 'Confirmation',
+        icon: 'pi pi-info-circle',
+        position: position,
+        rejectProps: {
+            label: 'Cancel',
+            severity: 'secondary',
+            text: true
+        },
+        acceptProps: {
+            label: 'Save',
+            text: true
+        },
+        accept: () => {
+            toast.add({ severity: 'info', summary: 'Confirmed', detail: 'Request submitted', life: 3000 });
+        },
+        reject: () => {
+            toast.add({ severity: 'error', summary: 'Rejected', detail: 'Process incomplete', life: 3000 });
+        }
+    });
+};
+<\/script>
+```
+</details>
+
 ## Template
 
 Templating allows customizing the message content.
@@ -80,6 +196,61 @@ Templating allows customizing the message content.
 </ConfirmDialog>
 <Button @click="showTemplate()" label="Save"></Button>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <ConfirmDialog group="templating">
+        <template #message="slotProps">
+            <div class="flex flex-col items-center w-full gap-4 border-b border-surface-200 dark:border-surface-700">
+                <i :class="slotProps.message.icon" class="!text-6xl text-primary-500"></i>
+                <p>{{ slotProps.message.message }}</p>
+            </div>
+        </template>
+    </ConfirmDialog>
+    <div class="card flex justify-center">
+        <Button @click="showTemplate()" label="Save"></Button>
+    </div>
+    <Toast />
+</template>
+
+<script setup>
+import { useConfirm } from "primevue/useconfirm";
+import { useToast } from "primevue/usetoast";
+
+const confirm = useConfirm();
+const toast = useToast();
+
+const showTemplate = () => {
+    confirm.require({
+        group: 'templating',
+        header: 'Confirmation',
+        message: 'Please confirm to proceed moving forward.',
+        icon: 'pi pi-exclamation-circle',
+        rejectProps: {
+            label: 'Cancel',
+            icon: 'pi pi-times',
+            outlined: true,
+            size: 'small'
+        },
+        acceptProps: {
+            label: 'Save',
+            icon: 'pi pi-check',
+            size: 'small'
+        },
+        accept: () => {
+            toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+        },
+        reject: () => {
+            toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+        }
+    });
+};
+<\/script>
+```
+</details>
 
 ## Confirm Dialog
 

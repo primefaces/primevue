@@ -2,9 +2,22 @@
 
 Select is used to choose an item from a collection of options.
 
+## Import
+
+```javascript
+import Select from 'primevue/select';
+```
+
 ## Accessibility
 
 Screen Reader Value to describe the component can either be provided with aria-labelledby or aria-label props. The select element has a combobox role in addition to aria-haspopup and aria-expanded attributes. If the editable option is enabled aria-autocomplete is also added. The relation between the combobox and the popup is created with aria-controls and aria-activedescendant attribute is used to instruct screen reader which option to read during keyboard navigation within the popup list. The popup list has an id that refers to the aria-controls attribute of the combobox element and uses listbox as the role. Each list item has an option role, an id to match the aria-activedescendant of the input element along with aria-label , aria-selected and aria-disabled attributes. If filtering is enabled, filterInputProps can be defined to give aria-* props to the filter input element. Closed State Keyboard Support Key Function tab Moves focus to the select element. space Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. enter Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. down arrow Opens the popup and moves visual focus to the selected option, if there is none then first option receives the focus. up arrow Opens the popup and moves visual focus to the selected option, if there is none then last option receives the focus. any printable character Opens the popup and moves focus to the option whose label starts with the characters being typed, if there is none and select is not editable then first option receives the focus. Popup Keyboard Support Key Function tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. shift + tab Moves focus to the previous focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page. enter Selects the focused option and closes the popup, then moves focus to the select element. space Selects the focused option and closes the popup, then moves focus to the select element. escape Closes the popup, then moves focus to the select element. down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. alt + up arrow Selects the focused option and closes the popup, then moves focus to the select element. left arrow If the select is editable, removes the visual focus from the current option and moves input cursor to one character left. right arrow If the select is editable, removes the visual focus from the current option and moves input cursor to one character right. home If the select is editable, moves input cursor at the end, if not then moves focus to the first option. end If the select is editable, moves input cursor at the beginning, if not then moves focus to the last option. pageUp Jumps visual focus to first option. pageDown Jumps visual focus to last option. any printable character Moves focus to the option whose label starts with the characters being typed if select is not editable. Filter Input Keyboard Support Key Function down arrow Moves focus to the next option, if there is none then visual focus does not change. up arrow Moves focus to the previous option, if there is none then visual focus does not change. left arrow Removes the visual focus from the current option and moves input cursor to one character left. right arrow Removes the visual focus from the current option and moves input cursor to one character right. home Moves input cursor at the end, if not then moves focus to the first option. end Moves input cursor at the beginning, if not then moves focus to the last option. enter Closes the popup and moves focus to the select element. escape Closes the popup and moves focus to the select element. tab Moves focus to the next focusable element in the popup. If there is none, the focusable option is selected and the overlay is closed then moves focus to next element in page.
+
+```vue
+<span id="dd1"></span>Options</span>
+<select aria-labelledby="dd1" />
+
+<select aria-label="Options" />
+```
 
 ## Basic
 
@@ -22,6 +35,31 @@ An alternative way to highlight the selected option is displaying a checkmark in
 <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" checkmark :highlightOnSelect="false" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Clear Icon
 
 When showClear is enabled, a clear icon is added to reset the Select.
@@ -29,6 +67,31 @@ When showClear is enabled, a clear icon is added to reset the Select.
 ```vue
 <Select v-model="selectedCity" :options="cities" showClear optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" :options="cities" showClear optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Disabled
 
@@ -38,6 +101,22 @@ When disabled is present, the element cannot be edited and focused.
 <Select disabled placeholder="Select a City" class="w-full md:w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select disabled placeholder="Select a City" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
+
 ## Editable
 
 When editable is present, the input can also be entered with typing.
@@ -46,6 +125,31 @@ When editable is present, the input can also be entered with typing.
 <Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" editable :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Filled
 
 Specify the variant property as filled to display the component with a higher visual emphasis than the default outlined style.
@@ -53,6 +157,31 @@ Specify the variant property as filled to display the component with a higher vi
 ```vue
 <Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" variant="filled" :options="cities" optionLabel="name" placeholder="Select a City" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Filter
 
@@ -78,6 +207,52 @@ Select provides built-in filtering that is enabled by adding the filter property
 </Select>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCountry" :options="countries" filter optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
+            <template #value="slotProps">
+                <div v-if="slotProps.value" class="flex items-center">
+                    <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.value.code.toLowerCase()}\`" style="width: 18px" />
+                    <div>{{ slotProps.value.name }}</div>
+                </div>
+                <span v-else>
+                    {{ slotProps.placeholder }}
+                </span>
+            </template>
+            <template #option="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+                    <div>{{ slotProps.option.name }}</div>
+                </div>
+            </template>
+        </Select>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCountry = ref();
+const countries = ref([
+    { name: 'Australia', code: 'AU' },
+    { name: 'Brazil', code: 'BR' },
+    { name: 'China', code: 'CN' },
+    { name: 'Egypt', code: 'EG' },
+    { name: 'France', code: 'FR' },
+    { name: 'Germany', code: 'DE' },
+    { name: 'India', code: 'IN' },
+    { name: 'Japan', code: 'JP' },
+    { name: 'Spain', code: 'ES' },
+    { name: 'United States', code: 'US' }
+]);
+<\/script>
+```
+</details>
+
 ## Float Label
 
 A floating label appears on top of the input field when focused. Visit FloatLabel documentation for more information.
@@ -99,6 +274,46 @@ A floating label appears on top of the input field when focused. Visit FloatLabe
 </FloatLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center items-stretch gap-4">
+        <FloatLabel class="w-full md:w-56">
+            <Select v-model="value1" inputId="over_label" :options="cities" optionLabel="name" class="w-full" />
+            <label for="over_label">Over Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56" variant="in">
+            <Select v-model="value2" inputId="in_label" :options="cities" optionLabel="name" class="w-full" variant="filled" />
+            <label for="in_label">In Label</label>
+        </FloatLabel>
+
+        <FloatLabel class="w-full md:w-56" variant="on">
+            <Select v-model="value3" inputId="on_label" :options="cities" optionLabel="name" class="w-full" />
+            <label for="on_label">On Label</label>
+        </FloatLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Fluid
 
 The fluid prop makes the component take up the full width of its container when set to true.
@@ -106,6 +321,31 @@ The fluid prop makes the component take up the full width of its container when 
 ```vue
 <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Select v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Forms
 
@@ -118,6 +358,59 @@ The fluid prop makes the component take up the full width of its container when 
     <Button type="submit" severity="secondary" label="Submit" />
 </Form>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Form v-slot="$form" :resolver="resolver" :initialValues="initialValues" @submit="onFormSubmit" class="flex flex-col gap-4 w-full md:w-56">
+            <div class="flex flex-col gap-1">
+                <Select name="city.name" :options="cities" optionLabel="name" placeholder="Select a City" fluid />
+                <Message v-if="$form.city?.name?.invalid" severity="error" size="small" variant="simple">{{ $form.city.name.error?.message }}</Message>
+            </div>
+            <Button type="submit" severity="secondary" label="Submit" />
+        </Form>
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { useToast } from "primevue/usetoast";
+import { z } from 'zod';
+
+const toast = useToast();
+const initialValues = ref({
+    city: { name: '' }
+});
+const resolver = ref(zodResolver(
+    z.object({
+        city: z.union([
+            z.object({
+                name: z.string().min(1, 'City is required.')
+            }),
+            z.any().refine((val) => false, { message: 'City is required.' })
+        ])
+    })
+));
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+
+const onFormSubmit = ({ valid }) => {
+    if (valid) {
+        toast.add({ severity: 'success', summary: 'Form is submitted.', life: 3000 });
+    }
+};
+<\/script>
+```
+</details>
 
 ## Group
 
@@ -134,6 +427,63 @@ Options can be grouped when a nested data structures is provided. To define the 
 </Select>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCity" :options="groupedCities" optionLabel="label" optionGroupLabel="label" optionGroupChildren="items" placeholder="Select a City" class="w-full md:w-56">
+            <template #optiongroup="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+                    <div>{{ slotProps.option.label }}</div>
+                </div>
+            </template>
+        </Select>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const groupedCities = ref([
+    {
+        label: 'Germany',
+        code: 'DE',
+        items: [
+            { label: 'Berlin', value: 'Berlin' },
+            { label: 'Frankfurt', value: 'Frankfurt' },
+            { label: 'Hamburg', value: 'Hamburg' },
+            { label: 'Munich', value: 'Munich' }
+        ]
+    },
+    {
+        label: 'USA',
+        code: 'US',
+        items: [
+            { label: 'Chicago', value: 'Chicago' },
+            { label: 'Los Angeles', value: 'Los Angeles' },
+            { label: 'New York', value: 'New York' },
+            { label: 'San Francisco', value: 'San Francisco' }
+        ]
+    },
+    {
+        label: 'Japan',
+        code: 'JP',
+        items: [
+            { label: 'Kyoto', value: 'Kyoto' },
+            { label: 'Osaka', value: 'Osaka' },
+            { label: 'Tokyo', value: 'Tokyo' },
+            { label: 'Yokohama', value: 'Yokohama' }
+        ]
+    }
+]);
+<\/script>
+```
+</details>
+
 ## Ifta Label
 
 IftaLabel is used to create infield top aligned labels. Visit IftaLabel documentation for more information.
@@ -145,6 +495,34 @@ IftaLabel is used to create infield top aligned labels. Visit IftaLabel document
 </IftaLabel>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <IftaLabel class="w-full md:w-56">
+            <Select v-model="selectedCity" inputId="dd-city" :options="cities" optionLabel="name" class="w-full" variant="filled" />
+            <label for="dd-city">City</label>
+        </IftaLabel>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity = ref();
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
+
 ## Invalid
 
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
@@ -153,6 +531,33 @@ Invalid state is displayed using the invalid prop to indicate a failed validatio
 <Select v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity1" class="w-full md:w-56" />
 <Select v-model="selectedCity2" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity2" class="w-full md:w-56" variant="filled" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap justify-center gap-4">
+        <Select v-model="selectedCity1" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity1" class="w-full md:w-56" />
+        <Select v-model="selectedCity2" :options="cities" optionLabel="name" placeholder="Select a City" :invalid="!selectedCity2" class="w-full md:w-56" variant="filled" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCity1 = ref(null);
+const selectedCity2 = ref(null);
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Lazy Virtual Scroll
 
@@ -163,6 +568,48 @@ The virtual scrolling also supports dynamically loading items on demand.
     :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 38, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item" />
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value" class="w-full md:w-56"
+            :virtualScrollerOptions="{ lazy: true, onLazyLoad: onLazyLoad, itemSize: 38, showLoader: true, loading: loading, delay: 250 }" placeholder="Select Item" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedItem = ref();
+const items = ref(Array.from({ length: 100000 }));
+const loading = ref(false);
+const loadLazyTimeout = ref();
+const onLazyLoad = (event) => {
+    loading.value = true;
+
+    if (loadLazyTimeout.value) {
+        clearTimeout(loadLazyTimeout.value);
+    }
+
+    //imitate delay of a backend call
+    loadLazyTimeout.value = setTimeout(() => {
+        const { first, last } = event;
+        const _items = [...items.value];
+
+        for (let i = first; i < last; i++) {
+            _items[i] = { label: \`Item #\${i}\`, value: i };
+        }
+
+        items.value = _items;
+        loading.value = false;
+    }, Math.random() * 1000 + 250);
+}
+<\/script>
+```
+</details>
+
 ## Loading State
 
 Loading state is enabled with the loading property.
@@ -170,6 +617,21 @@ Loading state is enabled with the loading property.
 ```vue
 <Select placeholder="Loading..." loading class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select placeholder="Loading..." loading class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+<\/script>
+```
+</details>
 
 ## Sizes
 
@@ -180,6 +642,35 @@ Select provides small and large sizes as alternatives to the base.
 <Select v-model="value2" :options="cities" optionLabel="name" placeholder="Normal" class="w-full md:w-56" />
 <Select v-model="value3" :options="cities" optionLabel="name" size="large" placeholder="Large" class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-col items-center gap-4">
+        <Select v-model="value1" :options="cities" optionLabel="name" size="small" placeholder="Small" class="w-full md:w-56" />
+        <Select v-model="value2" :options="cities" optionLabel="name" placeholder="Normal" class="w-full md:w-56" />
+        <Select v-model="value3" :options="cities" optionLabel="name" size="large" placeholder="Large" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const value1 = ref(null);
+const value2 = ref(null);
+const value3 = ref(null);
+const cities = ref([
+    { name: 'New York', code: 'NY' },
+    { name: 'Rome', code: 'RM' },
+    { name: 'London', code: 'LDN' },
+    { name: 'Istanbul', code: 'IST' },
+    { name: 'Paris', code: 'PRS' }
+]);
+<\/script>
+```
+</details>
 
 ## Template
 
@@ -216,6 +707,63 @@ Select offers multiple slots for customization through templating.
 </Select>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedCountry" :options="countries" optionLabel="name" placeholder="Select a Country" class="w-full md:w-56">
+            <template #value="slotProps">
+                <div v-if="slotProps.value" class="flex items-center">
+                    <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.value.code.toLowerCase()}\`" style="width: 18px" />
+                    <div>{{ slotProps.value.name }}</div>
+                </div>
+                <span v-else>
+                    {{ slotProps.placeholder }}
+                </span>
+            </template>
+            <template #option="slotProps">
+                <div class="flex items-center">
+                    <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+                    <div>{{ slotProps.option.name }}</div>
+                </div>
+            </template>
+            <template #dropdownicon>
+                <i class="pi pi-map" />
+            </template>
+            <template #header>
+                <div class="font-medium p-3">Available Countries</div>
+            </template>
+            <template #footer>
+                <div class="p-3">
+                    <Button label="Add New" fluid severity="secondary" variant="text" size="small" icon="pi pi-plus" />
+                </div>
+            </template>
+        </Select>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedCountry = ref();
+const countries = ref([
+    { name: 'Australia', code: 'AU' },
+    { name: 'Brazil', code: 'BR' },
+    { name: 'China', code: 'CN' },
+    { name: 'Egypt', code: 'EG' },
+    { name: 'France', code: 'FR' },
+    { name: 'Germany', code: 'DE' },
+    { name: 'India', code: 'IN' },
+    { name: 'Japan', code: 'JP' },
+    { name: 'Spain', code: 'ES' },
+    { name: 'United States', code: 'US' }
+]);
+<\/script>
+```
+</details>
+
 ## Virtual Scroll
 
 VirtualScroller is used to render a long list of options efficiently like 100K records in this demo. The configuration is done with virtualScrollerOptions property, refer to the VirtualScroller for more information about the available options as it is used internally by Select.
@@ -224,6 +772,26 @@ VirtualScroller is used to render a long list of options efficiently like 100K r
 <Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
     :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-56" />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Select v-model="selectedItem" :options="items" optionLabel="label" optionValue="value"
+            :virtualScrollerOptions="{ itemSize: 38 }" placeholder="Select Item" class="w-full md:w-56" />
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const selectedItem = ref();
+const items = ref(Array.from({ length: 100000 }, (_, i) => ({ label: \`Item #\${i}\`, value: i })));
+<\/script>
+```
+</details>
 
 ## Select
 

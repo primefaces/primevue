@@ -2,6 +2,14 @@
 
 Focus Trap keeps focus within a certain DOM element while tabbing.
 
+## Import
+
+```javascript
+import FocusTrap from 'primevue/focustrap';
+
+app.directive('focustrap', FocusTrap);
+```
+
 ## Basic
 
 FocusTrap is enabled by attaching the directive with the v- prefix.

@@ -2,6 +2,12 @@
 
 Popover is a container component that can overlay other components on page.
 
+## Import
+
+```javascript
+import Popover from 'primevue/popover';
+```
+
 ## Accessibility
 
 Screen Reader Popover component uses dialog role and since any attribute is passed to the root element you may define attributes like aria-label or aria-labelledby to describe the popup contents. In addition aria-modal is added since focus is kept within the popup. Popover adds aria-expanded state attribute and aria-controls to the trigger so that the relation between the trigger and the popup is defined. Popover Keyboard Support When the popup gets opened, the first focusable element receives the focus and this can be customized by adding autofocus to an element within the popup. Key Function tab Moves focus to the next the focusable element within the popup. shift + tab Moves focus to the previous the focusable element within the popup. escape Closes the popup and moves focus to the trigger.
@@ -235,6 +241,56 @@ In this sample, data is retrieved from the content inside the popover.
     </div>
 </Popover>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Button type="button" :label="selectedMember ? selectedMember.name : 'Select Member'" @click="toggle" class="min-w-48" />
+
+        <Popover ref="op">
+            <div class="flex flex-col gap-4">
+                <div>
+                    <span class="font-medium block mb-2">Team Members</span>
+                    <ul class="list-none p-0 m-0 flex flex-col">
+                        <li v-for="member in members" :key="member.name" class="flex items-center gap-2 px-2 py-3 hover:bg-emphasis cursor-pointer rounded-border" @click="selectMember(member)">
+                            <img :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${member.image}\`" style="width: 32px" />
+                            <div>
+                                <span class="font-medium">{{ member.name }}</span>
+                                <div class="text-sm text-surface-500 dark:text-surface-400">{{ member.email }}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </Popover>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const op = ref();
+const selectedMember = ref(null);
+const members = ref([
+    { name: 'Amy Elsner', image: 'amyelsner.png', email: 'amy@email.com', role: 'Owner' },
+    { name: 'Bernardo Dominic', image: 'bernardodominic.png', email: 'bernardo@email.com', role: 'Editor' },
+    { name: 'Ioni Bowcher', image: 'ionibowcher.png', email: 'ioni@email.com', role: 'Viewer' }
+]);
+
+const toggle = (event) => {
+    op.value.toggle(event);
+}
+
+const selectMember = (member) => {
+    selectedMember.value = member;
+    op.value.hide();
+}
+<\/script>
+```
+</details>
 
 ## Popover
 

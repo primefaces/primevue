@@ -2,6 +2,12 @@
 
 Dialogs can be created dynamically with any component as the content using a DialogService.
 
+## Import
+
+```javascript
+import DynamicDialog from 'primevue/dynamicdialog';
+```
+
 ## Accessibility
 
 Visit accessibility section of dialog component for more information.
@@ -10,9 +16,42 @@ Visit accessibility section of dialog component for more information.
 
 The close function is available through a dialogRef that is injected to the component loaded by the dialog.
 
+```vue
+import { inject } from "vue";
+
+const dialogRef = inject('dialogRef');
+
+const closeDialog = () => {
+    dialogRef.value.close();
+}
+```
+
 ## Customization
 
 DynamicDialog uses the Dialog component internally, visit dialog for more information about the available props.
+
+```vue
+import ProductListDemo from './ProductListDemo';
+import { useDialog } from 'primevue/usedialog';
+
+const dialog = useDialog();
+
+const showProducts = () => {
+    dialog.open(ProductListDemo, {
+        props: {
+            header: 'Product List',
+            style: {
+                width: '50vw',
+            },
+            breakpoints:{
+                '960px': '75vw',
+                '640px': '90vw'
+            },
+            modal: true
+        }
+    });
+}
+```
 
 ## Dialog Service
 

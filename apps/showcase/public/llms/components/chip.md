@@ -2,6 +2,12 @@
 
 Chip represents entities using icons, labels and images.
 
+## Import
+
+```javascript
+import Chip from 'primevue/chip';
+```
+
 ## Accessibility
 
 Screen Reader Chip uses the label property as the default aria-label , since any attribute is passed to the root element aria-labelledby or aria-label can be used to override the default behavior. Removable chips have a tabindex and focusable with the tab key. Keyboard Support Key Function backspace Hides removable. enter Hides removable.
@@ -33,6 +39,29 @@ A font icon next to the label can be displayed with the icon property.
 </Chip>
 ```
 
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-2">
+        <Chip label="Apple" icon="pi pi-apple" />
+        <Chip label="Facebook" icon="pi pi-facebook" />
+        <Chip label="Google" icon="pi pi-google" />
+        <Chip label="Microsoft" icon="pi pi-microsoft" removable />
+        <Chip label="GitHub" icon="pi pi-github" removable>
+            <template #removeicon="{ removeCallback, keydownCallback }">
+                <i class="pi pi-minus-circle" @click="removeCallback" @keydown="keydownCallback" />
+            </template>
+        </Chip>
+    </div>
+</template>
+<script setup>
+
+<\/script>
+```
+</details>
+
 ## Image
 
 The image property is used to display an image like an avatar.
@@ -43,6 +72,25 @@ The image property is used to display an image like an avatar.
 <Chip label="Onyama Limba" image="/images/avatar/onyamalimba.png" />
 <Chip label="Xuxue Feng" image="/images/avatar/xuxuefeng.png" removable />
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card flex flex-wrap gap-2">
+        <Chip label="Amy Elsner" image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png" />
+        <Chip label="Asiya Javayant" image=https://primefaces.org/cdn/primevue"/images/avatar/asiyajavayant.png" />
+        <Chip label="Onyama Limba" image="https://primefaces.org/cdn/primevue/images/avatar/onyamalimba.png" />
+        <Chip label="Xuxue Feng" image="https://primefaces.org/cdn/primevue/images/avatar/xuxuefeng.png" removable />
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## StyleDoc
 
@@ -58,6 +106,25 @@ The default slot allows displaying custom content inside a chip.
     <span class="ml-2 font-medium">PRIME</span>
 </Chip>
 ```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <Chip class="py-0 pl-0 pr-4">
+            <span class="bg-primary text-primary-contrast rounded-full w-8 h-8 flex items-center justify-center">P</span>
+            <span class="ml-2 font-medium">PRIME</span>
+        </Chip>
+    </div>
+</template>
+
+<script setup>
+
+<\/script>
+```
+</details>
 
 ## Chip
 

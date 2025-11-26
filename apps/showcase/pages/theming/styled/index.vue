@@ -8,8 +8,13 @@
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
-                    <h1>Styled Mode</h1>
-                    <p>Choose from a variety of pre-styled themes or develop your own.</p>
+                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                        <div class="flex-1">
+                            <h1>Styled Mode</h1>
+                            <p>Choose from a variety of pre-styled themes or develop your own.</p>
+                        </div>
+                        <DocCopyMarkdown docType="page" class="flex-shrink-0" />
+                    </div>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -19,6 +24,7 @@
 </template>
 
 <script>
+import DocCopyMarkdown from '@/components/doc/DocCopyMarkdown.vue';
 import ArchitectureDoc from '@/doc/theming/styled/ArchitectureDoc.vue';
 import CSSModulesDoc from '@/doc/theming/styled/CSSModulesDoc.vue';
 import ColorsDoc from '@/doc/theming/styled/ColorsDoc.vue';
@@ -49,6 +55,7 @@ import UpdateSurfacePaletteDoc from '@/doc/theming/styled/utils/UpdateSurfacePal
 import UsePresetDoc from '@/doc/theming/styled/utils/UsePresetDoc.vue';
 
 export default {
+    components: { DocCopyMarkdown },
     data() {
         return {
             docs: [
