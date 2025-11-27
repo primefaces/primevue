@@ -1,4 +1,5 @@
-import path from 'path';
+import { readdirSync } from 'fs';
+import path, { join } from 'path';
 
 const baseUrl = '/';
 
@@ -15,6 +16,13 @@ try {
 } catch {
     // NOOP
 }
+
+const componentsDir = join(process.cwd(), 'public/llms/components')
+const mdFiles = readdirSync(componentsDir).filter(f => f.endsWith('.md'))
+
+const mdRedirects = Object.fromEntries(
+  mdFiles.map(f => [`/${f}`, { redirect: { to: `/llms/components/${f}`, statusCode: 301 } }])
+)
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -44,11 +52,7 @@ export default defineNuxtConfig({
         '/accessibility': { redirect: { to: '/guides/accessibility', statusCode: 301 } },
         '/installation': { redirect: { to: '/vite', statusCode: 301 } },
         '/setup.md': { redirect: { to: '/llms/pages/setup.md', statusCode: 301 } },
-        '/:path(.*).md': {
-            redirect: (to) => {
-                return `/llms/components/${to.path}`;
-            }
-        }
+        ...mdRedirects
     },
     primevue: {
         usePrimeVue: process.env.DEV_ENV !== 'hot',
