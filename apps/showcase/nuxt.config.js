@@ -43,7 +43,12 @@ export default defineNuxtConfig({
     routeRules: {
         '/accessibility': { redirect: { to: '/guides/accessibility', statusCode: 301 } },
         '/installation': { redirect: { to: '/vite', statusCode: 301 } },
-        '/button.md': { redirect: { to: '/llms/components/button.md', statusCode: 301 } }
+        '/setup.md': { redirect: { to: '/llms/pages/setup.md', statusCode: 301 } },
+        '/:path(.*).md': {
+            redirect: (to) => {
+                return `/llms/components/${to.path}`
+            }
+        }
     },
     primevue: {
         usePrimeVue: process.env.DEV_ENV !== 'hot',
