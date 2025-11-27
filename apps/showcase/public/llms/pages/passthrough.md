@@ -1,4 +1,4 @@
-# PrimeVue - Pass Through
+# Pass Through
 
 The Pass Through attributes is an API to access the internal DOM Structure of the components.
 

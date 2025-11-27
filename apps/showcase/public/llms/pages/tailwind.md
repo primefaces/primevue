@@ -1,6 +1,6 @@
 # Tailwind CSS
 
-Integration between PrimeVue and Tailwind CSS both in styled and unstyled modes
+Integration between PrimeVue and Tailwind CSS both in styled and unstyled modes.
 
 ## Animations
 

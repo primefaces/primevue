@@ -1,4 +1,4 @@
-# Vue Icon Library
+# Custom Icons
 
 PrimeVue components can be used with any icon library using the templating features.
 

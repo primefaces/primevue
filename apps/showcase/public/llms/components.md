@@ -1,8 +1,2310 @@
-# PrimeVue Components Documentation
+# PrimeVue Documentation
 
-Generated: 2025-11-26T14:47:17.014Z
+Generated: 2025-11-27T09:26:02.227Z
 
 ---
+
+# Guide Pages
+
+# Introduction
+
+Next-generation UI Component suite for Vue.
+
+## Accessibility
+
+PrimeVue has WCAG 2.1 AA level compliance; each component has a dedicated accessibility section to document several aspects, including keyboard and screen reader support. Through communication channels such as GitHub or Discord, numerous accessibility experts worldwide continue to provide constant feedback to improve the accessibility features further. View the accessibility guide to learn more.
+
+## Add Ons
+
+PrimeVue does not require financial sponsorships from its community; instead, to be backed by a solid financial foundation, optional add-ons are offered. These include a Figma UI Kit, premium application templates, and reusable UI blocks called PrimeBlocks. The add-ons are optional and there is no paywall when using PrimeVue.
+
+## Overview
+
+PrimeVue is a complete UI suite for Vue.js consisting of a rich set of UI components, icons, blocks, and application templates. The project's primary goal is to boost developer productivity by offering reusable solutions that are easy to tune and customize as an in-house library. The project has been created by PrimeTek a world-renowned vendor of popular UI Component suites, including PrimeFaces , PrimeNG , and PrimeReact. All the members in our team are full time employees of PrimeTek who share the same passion and vision for open source to create awesome UI libraries. Depending on a 3rd party library may introduce risks if the library maintainers decide not to work on the project, however, this is not the case with PrimeVue as the track record of PrimeTek shows. For example, PrimeFaces has been maintained actively since 2008.
+
+## Pass Through
+
+PassThrough is an innovative API to provide access to the internal DOM elements to add arbitrary attributes. In general, traditional UI component libraries encapsulate UI and logic with limited APIs that makes the developers dependant on the library maintainer to extend this API by adding new props or events. With Pass Through this limitation has been eliminated since, you'll be able to access the internal of the components to add events and attributes. Some common use-cases are adding test attributes, additional aria attributes, custom events and styling.
+
+## Theming
+
+PrimeVue can be styled in two modes; styled or unstyled. Styled mode is based on pre-skinned components with opinionated theme variants of PrimeOne design like Aura, Lara or Nora presets. Unstyled mode on the other hand, leaves the styling to you while implementing the functionality and accessibility. Unstyled mode provides full control over the styling with no boundaries by implementing a pluggable architecture to utilize CSS libraries like Tailwind CSS, Bootstrap, Bulma or your own custom CSS. We've even further built the Volt UI library that styles the components with utility classes of Tailwind. This design is future proof as PrimeVue can be styled with any CSS library without actually depending on it in its core.
+
+---
+
+# Configuration
+
+Application wide configuration for PrimeVue.
+
+## Import
+
+Configuration is managed by the PrimeVue instance imported from primevue/config .
+
+```vue
+import PrimeVue from 'primevue/config';
+const app = createApp(App);
+
+app.use(PrimeVue, { /* options */ });
+```
+
+## InputVariant
+
+Input fields come in two styles, default is outlined with borders around the field whereas filled alternative adds a background color to the field. Applying p-variant-filled to an ancestor of an input enables the filled style. If you prefer to use filled inputs in the entire application, use a global container such as the document body or the application element to apply the style class. Note that in case you add it to the application element, components that are teleported to the document body such as Dialog will not be able to display filled inputs as they are not a descendant of the application root element in the DOM tree, to resolve this case set inputVariant to filled at PrimeVue configuration as well.
+
+```vue
+import {createApp} from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, { inputVariant: "filled" });
+```
+
+## Pass Through
+
+Defines the shared pass through properties per component type. Visit the Pass Through Props documentation for more information.
+
+```vue
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, {
+    pt: {
+        slider: {
+            handle: { class: 'bg-primary text-primary-contrast' }
+        }
+    }
+});
+```
+
+## Pass Through Options
+
+Used to configure the ptOptions properties of components and the usePassThrough method. The mergeSections defines whether the sections from the main configuration gets added and the mergeProps controls whether to override or merge the defined props. Defaults are true for mergeSections and false for mergeProps .
+
+```vue
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, {
+    ptOptions: {
+        mergeSections: true,
+        mergeProps: false
+    }
+});
+```
+
+## Ripple
+
+Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at your app's entry file (e.g. main.js) during the PrimeVue setup.
+
+```vue
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, { ripple: true });
+```
+
+## Theme
+
+Style mode offers theming based on a design token based architecture. See the styled mode documentation for details such as building your own theme.
+
+```vue
+import PrimeVue from 'primevue/config';
+import Aura from '@primeuix/themes/aura';
+
+const app = createApp(App);
+
+app.use(PrimeVue, {
+    theme: {
+        preset: Aura,
+        options: {
+            prefix: 'p',
+            darkModeSelector: 'system',
+            cssLayer: false
+        }
+    }
+ });
+```
+
+## Unstyled
+
+Unstyled mode instructs the components not to add any built-in style classes so that they can be styled using custom css or libraries like Tailwind and Bootstrap. Visit Unstyled mode documentation for more information.
+
+```vue
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, { unstyled: true });
+```
+
+## ZIndex
+
+ZIndexes are managed automatically to make sure layering of overlay components work seamlessly when combining multiple components. Still there may be cases where you'd like to configure the configure default values such as a custom layout where header section is fixed. In a case like this, dropdown needs to be displayed below the application header but a modal dialog should be displayed above. PrimeVue configuration offers the zIndex property to customize the default values for components categories. Default values are described below and can be customized when setting up PrimeVue.
+
+```vue
+import {createApp} from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, {
+    zIndex: {
+        modal: 1100,        //dialog, drawer
+        overlay: 1000,      //select, popover
+        menu: 1000,         //overlay menus
+        tooltip: 1100       //tooltip
+    }
+});
+```
+
+## Nonce
+
+The nonce value to use on dynamically generated style elements in core.
+
+## Import
+
+Locale values are stored in the global configuration that becomes accessible after installing the PrimeVue.
+
+```vue
+import PrimeVue from 'primevue/config';
+const app = createApp(App);
+
+app.use(PrimeVue);
+```
+
+## Locale Api
+
+Configuration is managed by the Locale API imported from primevue/config . Locale Options Key Value startsWith Starts with contains Contains notContains Not contains endsWith Ends with equals Equals notEquals Not equals noFilter No Filter lt Less than lte Less than or equal to gt Greater than gte Greater than or equal to dateIs Date is dateIsNot Date is not dateBefore Date is before dateAfter Date is after clear Clear apply Apply matchAll Match All matchAny Match Any addRule Add Rule removeRule Remove Rule accept Yes reject No choose Choose upload Upload cancel Cancel completed Completed pending Pending fileSizeTypes ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'] dayNames ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' dayNamesShort ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' dayNamesMin ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa' monthNames ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' monthNamesShort ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' chooseYear Choose Year chooseMonth Choose Month chooseDate Choose Date prevDecade Previous Decade nextDecade Next Decade prevYear Previous Year nextYear Next Year prevMonth Previous Month nextMonth Next Month prevHour Previous Hour nextHour Next Hour prevMinute Previous Minute nextMinute Next Minute prevSecond Previous Second nextSecond Next Second am am pm pm today Today weekHeader Wk firstDayOfWeek 0 showMonthAfterYear false dateFormat mm/dd/yy weak Weak medium Medium strong Strong passwordPrompt Enter a password searchMessage {0} results are available selectionMessage {0} items selected emptySelectionMessage No selected item emptySearchMessage No results found fileChosenMessage {0} files noFileChosenMessage No file chosen emptyMessage No available options aria.trueLabel True aria.falseLabel False aria.nullLabel Not Selected aria.star 1 star aria.stars {star} stars aria.selectAll All items selected aria.unselectAll All items unselected aria.close Close aria.previous Previous aria.next Next aria.navigation Navigation aria.scrollTop Scroll Top aria.moveTop Move Top aria.moveUp Move Up aria.moveDown Move Down aria.moveBottom Move Bottom aria.moveToTarget Move to Target aria.moveToSource Move to Source aria.moveAllToTarget Move All to Target aria.moveAllToSource Move All to Source aria.pageLabel Page {page} aria.firstPageLabel First Page aria.lastPageLabel Last Page aria.nextPageLabel Next Page aria.prevPageLabel Previous Page aria.rowsPerPageLabel Rows per page aria.jumpToPageDropdownLabel Jump to Page Dropdown aria.jumpToPageInputLabel Jump to Page Input aria.selectRow Row Selected aria.unselectRow Row Unselected aria.expandRow Row Expanded aria.collapseRow Row Collapsed aria.showFilterMenu Show Filter Menu aria.hideFilterMenu Hide Filter Menu aria.filterOperator Filter Operator aria.filterConstraint Filter Constraint aria.editRow Row Edit aria.saveEdit Save Edit aria.cancelEdit Cancel Edit aria.listView List View aria.gridView Grid View aria.slide Slide aria.slideNumber {slideNumber} aria.zoomImage Zoom Image aria.zoomIn Zoom In aria.zoomOut Zoom Out aria.rotateRight Rotate Right aria.rotateLeft Rotate Left
+
+## Repository
+
+Ready to use settings for locales are available at the community supported PrimeLocale repository. We'd appreciate if you could contribute to this repository with pull requests and share it with the rest of the community.
+
+## Set Locale
+
+Second parameter of the use function can be used to initiate the locale during PrimeVue installation. The locale configuration is reactive so that any changes are instantly reflected in the UI. Suppose you are doing a multi language application and need to change the language dynamically.
+
+---
+
+# Styled Mode
+
+Choose from a variety of pre-styled themes or develop your own.
+
+## Architecture
+
+PrimeVue is a design agnostic library so unlike some other UI libraries it does not enforce a certain styling such as material design. Styling is decoupled from the components using the themes instead. A theme consists of two parts; base and preset . The base is the style rules with CSS variables as placeholders whereas the preset is a set of design tokens to feed a base by mapping the tokens to CSS variables. A base may be configured with different presets, currently Aura, Material, Lara and Nora are the available built-in options. The core of the styled mode architecture is based on a concept named design token , a preset defines the token configuration in 3 tiers; primitive , semantic and component . Primitive Tokens Primitive tokens have no context, a color palette is a good example for a primitive token such as blue-50 to blue-900 . A token named blue-500 may be used as the primary color, the background of a message however on its own, the name of the token does not indicate context. Usually they are utilized by the semantic tokens. Semantic Tokens Semantic tokens define content and their names indicate where they are utilized, a well known example of a semantic token is the primary.color . Semantic tokens map to primitive tokens or other semantic tokens. The colorScheme token group is a special variable to define tokens based on the color scheme active in the application, this allows defining different tokens based on the color scheme like dark mode. Component Tokens Component tokens are isolated tokens per component such as inputtext.background or button.color that map to the semantic tokens. As an example, button.background component token maps to the primary.color semantic token which maps to the green.500 primitive token. Best Practices Use primitive tokens when defining the core color palette and semantic tokens to specify the common design elements such as focus ring, primary colors and surfaces. Components tokens should only be used when customizing a specific component. By defining your own design tokens as a custom preset, you'll be able to define your own style without touching CSS. Overriding the PrimeVue components using style classes is not a best practice and should be the last resort, design tokens are the suggested approach. Video Tutorial Watch the PrimeVue Theming Demystified series to learn more about the architecture with examples.
+
+## C S S Modules
+
+CSS modules are supported by enabling the module property on a style element within your SFC. Use the $style keyword to apply classes to a PrimeVue component. It is recommend to enable cssLayer when using CSS modules so that the PrimeVue styles have low CSS specificity.
+
+## Colors
+
+Color palette of a preset is defined by the primitive design token group. You can access colors using CSS variables or the $dt utility.
+
+## Dark Mode
+
+PrimeVue uses the system as the default darkModeSelector in theme configuration. If you have a dark mode switch in your application, set the darkModeSelector to the selector you utilize such as .my-app-dark so that PrimeVue can fit in seamlessly with your color scheme. Following is a very basic example implementation of a dark mode switch, you may extend it further by involving prefers-color-scheme to retrieve it from the system initially and use localStorage to make it stateful. See this article for more information. In case you prefer to use dark mode all the time, apply the darkModeSelector initially and never change it. It is also possible to disable dark mode completely using false or none as the value of the selector.
+
+## Presets
+
+Aura, Material, Lara and Nora are the available built-in options, created to demonstrate the power of the design-agnostic theming. Aura is PrimeTek's own vision, Material follows Google Material Design v2, Lara is based on Bootstrap and Nora is inspired by enterprise applications. Visit the source code to learn more about the structure of presets. You may use them out of the box with modifications or utilize them as reference in case you need to build your own presets from scratch.
+
+## Reserved Keys
+
+Following keys are reserved in the preset scheme and cannot be used as a token name; primitive , semantic , components , directives , colorscheme , light , dark , common , root , states , and extend .
+
+## Scale
+
+PrimeVue UI component use rem units, 1rem equals to the font size of the html element which is 16px by default. Use the root font-size to adjust the size of the components globally. This website uses 14px as the base so it may differ from your application if your base font size is different.
+
+```vue
+html {
+    font-size: 14px;
+}
+```
+
+## Scoped Tokens
+
+Design tokens can be scoped to a certain component using the dt property. In this example, first switch uses the global tokens whereas second one overrides the global with its own tokens. This approach is recommended over the :deep() as it offers a cleaner API while avoiding the hassle of CSS rule overrides.
+
+## Options
+
+The options property defines the how the CSS would be generated from the design tokens of the preset. prefix The prefix of the CSS variables, defaults to p . For instance, the primary.color design token would be var(--p-primary-color) . darkModeSelector The CSS rule to encapsulate the CSS variables of the dark mode, the default is the system to generate @media (prefers-color-scheme: dark) . If you need to make the dark mode toggleable based on the user selection define a class selector such as .app-dark and toggle this class at the document root. See the dark mode toggle section for an example. cssLayer Defines whether the styles should be defined inside a CSS layer by default or not. A CSS layer would be handy to declare a custom cascade layer for easier customization if necessary. The default is false .
+
+## Theme
+
+The theme property is used to customize the initial theme.
+
+```vue
+import PrimeVue from 'primevue/config';
+import Aura from '@primeuix/themes/aura';
+
+const app = createApp(App);
+
+app.use(PrimeVue, {
+    // Default theme configuration
+    theme: {
+        preset: Aura,
+        options: {
+            prefix: 'p',
+            darkModeSelector: 'system',
+            cssLayer: false
+        }
+    }
+ });
+```
+
+## Libraries
+
+Example layer configuration for the popular CSS libraries.
+
+## Reset
+
+In case PrimeVue components have visual issues in your application, a Reset CSS may be the culprit. CSS layers would be an efficient solution that involves enabling the PrimeVue layer, wrapping the Reset CSS in another layer and defining the layer order. This way, your Reset CSS does not get in the way of PrimeVue components.
+
+```vue
+/* Order */
+@layer reset, primevue;
+
+/* Reset CSS */
+@layer reset {
+    button,
+    input {
+        /* CSS to Reset */
+    }
+}
+```
+
+## Specificity
+
+The &#64;layer is a standard CSS feature to define cascade layers for a customizable order of precedence. If you need to become more familiar with layers, visit the documentation at MDN to begin with. The cssLayer is disabled by default, when it is enabled at theme configuration, PrimeVue wraps the built-in style classes under the primevue cascade layer to make the library styles easy to override. CSS in your app without a layer has the highest CSS specificity, so you'll be able to override styles regardless of the location or how strong a class is written. Layers also make it easier to use CSS Modules, view the CSS Modules guide for examples.
+
+## Color Scheme
+
+A token can be defined per color scheme using light and dark properties of the colorScheme property. Each token can have specific values based on the current color scheme. Common Pitfall When customizing an existing preset, your token overrides may be ignored if you don't properly account for color scheme variations. If the original preset defines a token using the colorScheme property, but your customization only provides a direct value, your override will be ignored because the colorScheme property takes precedence over direct values and the system will continue using the preset's scheme-specific values. When customizing tokens that are not defined with colorScheme in the original preset, your customizations will be applied successfully regardless of how you structure them; whether direct or under colorScheme. Best Practices Check how tokens are defined in the preset before customizing from the source . Always maintain the same structure (direct value or colorScheme) as the original preset. Consider both light and dark mode values when overriding scheme-dependent tokens. This approach ensures your customizations will be applied correctly regardless of the user's selected color scheme.
+
+## Component
+
+The design tokens of a specific component is defined at components layer. Overriding components tokens is not the recommended approach if you are building your own style, building your own preset should be preferred instead. This configuration is global and applies to all card components, in case you need to customize a particular component on a page locally, view the Scoped CSS section for an example.
+
+```vue
+const MyPreset = definePreset(Aura, {
+    components: {
+        card: {
+            colorScheme: {
+                light: {
+                    root: {
+                        background: '{surface.0}',
+                        color: '{surface.700}'
+                    },
+                    subtitle: {
+                        color: '{surface.500}'
+                    }
+                },
+                dark: {
+                    root: {
+                        background: '{surface.900}',
+                        color: '{surface.0}'
+                    },
+                    subtitle: {
+                        color: '{surface.400}'
+                    }
+                }
+            }
+        }
+    }
+});
+```
+
+## Define Preset
+
+The definePreset utility is used to customize an existing preset during the PrimeVue setup. The first parameter is the preset to customize and the second is the design tokens to override.
+
+```vue
+import PrimeVue from 'primevue/config';
+import { definePreset } from '@primeuix/themes';
+import Aura from '@primeuix/themes/aura';
+
+const MyPreset = definePreset(Aura, {
+    //Your customizations, see the following sections for examples
+});
+
+app.use(PrimeVue, {
+    theme: {
+        preset: MyPreset
+    }
+ });
+```
+
+## Extend
+
+The theming system can be extended by adding custom design tokens and additional styles. This feature provides a high degree of customization, allowing you to adjust styles according to your needs, as you are not limited to the default tokens. The example preset configuration adds a new accent button with custom button.accent.color and button.accent.inverse.color tokens. It is also possible to add tokens globally to share them within the components.
+
+```vue
+const MyPreset = definePreset(Aura, {
+    components: {
+        // custom button tokens and additional style
+        button: {
+            extend: {
+                accent: {
+                    color: '#f59e0b',
+                    inverseColor: '#ffffff'
+                }
+            }
+        css: ({ dt }) => \`
+.p-button-accent {
+    background: \${dt('button.accent.color')};
+    color: \${dt('button.accent.inverse.color')};
+    transition-duration: \${dt('my.transition.fast')};
+}
+\`
+        }
+    },
+    // common tokens and styles
+    extend: {
+        my: {
+            transition: {
+                slow: '0.75s'
+                normal: '0.5s'
+                fast: '0.25s'
+            },
+            imageDisplay: 'block' 
+        }
+    },
+    css: ({ dt }) => \`
+        /* Global CSS */
+        img {
+            display: \${dt('my.image.display')};
+        }
+    \`
+});
+```
+
+## Focus Ring
+
+Focus ring defines the outline width, style, color and offset. Let's use a thicker ring with the primary color for the outline.
+
+```vue
+const MyPreset = definePreset(Aura, {
+    semantic: {
+        focusRing: {
+            width: '2px',
+            style: 'dashed',
+            color: '{primary.color}',
+            offset: '1px'
+        }
+    }
+});
+```
+
+## Font
+
+There is no design for fonts as UI components inherit their font settings from the application.
+
+## Forms
+
+The design tokens of the form input components are derived from the form.field token group. This customization example changes border color to primary on hover. Any component that depends on this semantic token such as dropdown.hover.border.color and textarea.hover.border.color would receive the change.
+
+```vue
+const MyPreset = definePreset(Aura, {
+    semantic: {
+        colorScheme: {
+            light: {
+                formField: {
+                    hoverBorderColor: '{primary.color}'
+                }
+            },
+            dark: {
+                formField: {
+                    hoverBorderColor: '{primary.color}'
+                }
+            }
+        }
+    }
+});
+```
+
+## Noir
+
+The noir mode is the nickname of a variant that uses surface tones as the primary and requires and additional colorScheme configuration to implement. A sample preset configuration with black and white variants as the primary color;
+
+```vue
+const Noir = definePreset(Aura, {
+    semantic: {
+        primary: {
+            50: '{zinc.50}',
+            100: '{zinc.100}',
+            200: '{zinc.200}',
+            300: '{zinc.300}',
+            400: '{zinc.400}',
+            500: '{zinc.500}',
+            600: '{zinc.600}',
+            700: '{zinc.700}',
+            800: '{zinc.800}',
+            900: '{zinc.900}',
+            950: '{zinc.950}'
+        },
+        colorScheme: {
+            light: {
+                primary: {
+                    color: '{zinc.950}',
+                    inverseColor: '#ffffff',
+                    hoverColor: '{zinc.900}',
+                    activeColor: '{zinc.800}'
+                },
+                highlight: {
+                    background: '{zinc.950}',
+                    focusBackground: '{zinc.700}',
+                    color: '#ffffff',
+                    focusColor: '#ffffff'
+                }
+            },
+            dark: {
+                primary: {
+                    color: '{zinc.50}',
+                    inverseColor: '{zinc.950}',
+                    hoverColor: '{zinc.100}',
+                    activeColor: '{zinc.200}'
+                },
+                highlight: {
+                    background: 'rgba(250, 250, 250, .16)',
+                    focusBackground: 'rgba(250, 250, 250, .24)',
+                    color: 'rgba(255,255,255,.87)',
+                    focusColor: 'rgba(255,255,255,.87)'
+                }
+            }
+        }
+    }
+});
+```
+
+## Primary
+
+The primary defines the main color palette, default value maps to the emerald primitive token. Let's setup to use indigo instead.
+
+```vue
+const MyPreset = definePreset(Aura, {
+    semantic: {
+        primary: {
+            50: '{indigo.50}',
+            100: '{indigo.100}',
+            200: '{indigo.200}',
+            300: '{indigo.300}',
+            400: '{indigo.400}',
+            500: '{indigo.500}',
+            600: '{indigo.600}',
+            700: '{indigo.700}',
+            800: '{indigo.800}',
+            900: '{indigo.900}',
+            950: '{indigo.950}'
+        }
+    }
+});
+```
+
+## Surface
+
+The color scheme palette that varies between light and dark modes is specified with the surface tokens. Example below uses zinc for light mode and slategray for dark mode. With this setting, light mode, would have a grayscale tone and dark mode would include bluish tone.
+
+```vue
+const MyPreset = definePreset(Aura, {
+    semantic: {
+        colorScheme: {
+            light: {
+                surface: {
+                    0: '#ffffff',
+                    50: '{zinc.50}',
+                    100: '{zinc.100}',
+                    200: '{zinc.200}',
+                    300: '{zinc.300}',
+                    400: '{zinc.400}',
+                    500: '{zinc.500}',
+                    600: '{zinc.600}',
+                    700: '{zinc.700}',
+                    800: '{zinc.800}',
+                    900: '{zinc.900}',
+                    950: '{zinc.950}'
+                }
+            },
+            dark: {
+                surface: {
+                    0: '#ffffff',
+                    50: '{slate.50}',
+                    100: '{slate.100}',
+                    200: '{slate.200}',
+                    300: '{slate.300}',
+                    400: '{slate.400}',
+                    500: '{slate.500}',
+                    600: '{slate.600}',
+                    700: '{slate.700}',
+                    800: '{slate.800}',
+                    900: '{slate.900}',
+                    950: '{slate.950}'
+                }
+            }
+        }
+    }
+});
+```
+
+## D T
+
+The $dt function returns the information about a token like the full path and value. This would be useful if you need to access tokens programmatically.
+
+```vue
+import { $dt } from '@primeuix/themes';
+
+const duration = $dt('transition.duration');
+/*
+    duration: {
+        name: '--transition-duration',
+        variable: 'var(--p-transition-duration)',
+        value: '0.2s'
+    }
+*/
+
+const primaryColor = $dt('primary.color');
+/*
+    primaryColor: {
+        name: '--primary-color',
+        variable: 'var(--p-primary-color)',
+        value: {
+        light: {
+            value: '#10b981',
+            paths: {
+                name: 'semantic.primary.color',
+                binding: {
+                    name: 'primitive.emerald.500'
+                }
+            }
+        },
+        dark: {
+            value: '#34d399',
+            paths: {
+                name: 'semantic.primary.color',
+                binding: {
+                    name: 'primitive.emerald.400'
+                }
+            }
+        }
+    }
+}
+*/
+```
+
+## Palette
+
+Returns shades and tints of a given color from 50 to 950 as an object.
+
+```vue
+import { palette } from '@primeuix/themes';
+
+// custom color
+const values1 = palette('#10b981');
+
+// copy an existing token set
+const primaryColor = palette('{blue}');
+```
+
+## Update Preset
+
+Merges the provided tokens to the current preset, an example would be changing the primary color palette dynamically.
+
+```vue
+import { updatePreset } from '@primeuix/themes';
+
+const changePrimaryColor() {
+    updatePreset({
+        semantic: {
+            primary: {
+                50: '{indigo.50}',
+                100: '{indigo.100}',
+                200: '{indigo.200}',
+                300: '{indigo.300}',
+                400: '{indigo.400}',
+                500: '{indigo.500}',
+                600: '{indigo.600}',
+                700: '{indigo.700}',
+                800: '{indigo.800}',
+                900: '{indigo.900}',
+                950: '{indigo.950}'
+            }
+        }
+    })
+}
+```
+
+## Update Primary Palette
+
+Updates the primary colors, this is a shorthand to do the same update using updatePreset .
+
+```vue
+import { updatePrimaryPalette } from '@primeuix/themes';
+
+const changePrimaryColor() {
+    updatePrimaryPalette({
+        50: '{indigo.50}',
+        100: '{indigo.100}',
+        200: '{indigo.200}',
+        300: '{indigo.300}',
+        400: '{indigo.400}',
+        500: '{indigo.500}',
+        600: '{indigo.600}',
+        700: '{indigo.700}',
+        800: '{indigo.800}',
+        900: '{indigo.900}',
+        950: '{indigo.950}'
+    });
+}
+```
+
+## Update Surface Palette
+
+Updates the surface colors, this is a shorthand to do the same update using updatePreset .
+
+```vue
+import { updateSurfacePalette } from '@primeuix/themes';
+
+const changeSurfaces() {
+    //changes surfaces both in light and dark mode
+    updateSurfacePalette({
+        50: '{zinc.50}',
+        // ...
+        950: '{zinc.950}'
+    });
+}
+
+const changeLightSurfaces() {
+    //changes surfaces only in light
+    updateSurfacePalette({
+        light: {
+            50: '{zinc.50}',
+            // ...
+            950: '{zinc.950}'
+        }
+    });
+}
+
+const changeDarkSurfaces() {
+    //changes surfaces only in dark mode
+    updateSurfacePalette({
+        dark: {
+            50: '{zinc.50}',
+            // ...
+            950: '{zinc.950}'
+        }
+    });
+}
+```
+
+## Use Preset
+
+Replaces the current presets entirely, common use case is changing the preset dynamically at runtime.
+
+```vue
+import { usePreset } from '@primeuix/themes';
+
+const onButtonClick() {
+    usePreset(MyPreset);
+}
+```
+
+---
+
+# Unstyled Mode
+
+Theming PrimeVue with alternative styling approaches.
+
+## Architecture
+
+The term unstyled is used to define an alternative styling approach instead of the default theming with design tokens. In unstyled mode the css variables of the design tokens and the css rule sets that utilize them are not included. Here is an example of an Unstyled Select, the core functionality and accessibility is provided whereas styling is not included. Unstyled components still need to be styled on your end, in the next sections, we'll cover the styling solutions for both modes.
+
+## Example
+
+Here is a sample that styles a button component with Tailwind CSS using pass through attributes. Before beginning, head over to the the pass through section at button documentation to learn more about the components internals section. We'll be using the root , label and icon elements to add a custom style.
+
+```vue
+<Button
+    label="Search"
+    icon="pi pi-search"
+    unstyled
+    pt:root="bg-teal-500 hover:bg-teal-700 active:bg-teal-900 cursor-pointer py-2 px-4 rounded-full border-0 flex gap-2"
+    pt:label="text-white font-bold text-lg"
+    pt:icon="text-white text-xl"
+/>
+```
+
+## Global
+
+A global configuration can be created at application level to avoid repetition via the global pt option so that the styles can be shared from a single location. A particular component can still override a global configuration with its own pt property.
+
+```vue
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, {
+    unstyled: true,
+    pt: {
+        button: {
+            root: 'bg-teal-500 hover:bg-teal-700 active:bg-teal-900 cursor-pointer py-2 px-4 rounded-full border-0 flex gap-2',
+            label: 'text-white font-bold text-lg',
+            icon: 'text-white text-xl'
+        },
+        panel: {
+            header: 'bg-primary text-primary-contrast border-primary',
+            content: 'border-primary text-lg text-primary-700',
+            title: 'bg-primary text-primary-contrast text-xl',
+            pcToggleButton: {
+                root: 'bg-primary text-primary-contrast hover:text-primary hover:bg-primary-contrast'
+            }
+        }
+    }
+});
+```
+
+## Setup
+
+Unstyled mode is enabled for the whole suite by enabling unstyled option during PrimeVue installation. Alternatively even in the default styled mode, a particular component can still be used as unstyled by adding the unstyled prop of the component.
+
+## Volt
+
+Tailwind CSS is perfect fit for the unstyled mode, PrimeTek has initiated a new UI library called Volt based on the unstyled PrimeVue and Tailwind CSS v4. Volt follows the code ownership model where the components are located in the application codebase rather than node_modules. All components within Volt are essentially wrapped versions of the unstyled PrimeVue equivalents, with an added layer of theming through Tailwind CSS v4. This approach, along with the templating features, offers complete control over the theming and presentation.
+
+---
+
+# Pass Through
+
+The Pass Through attributes is an API to access the internal DOM Structure of the components.
+
+## Basic
+
+Each component has a special pt property to define an object with keys corresponding to the available DOM elements. Each value can either be a string, an object or a function that returns a string or an object to define the arbitrary properties to apply to the element such as styling, aria, data-* or custom attributes. If the value is a string or a function that returns a string, it is considered as a class definition and added to the class attribute of the element. Every component documentation has a dedicated section to document the available section names exposed via PT. Most common usage of pt is styling and customization. The class and style properties support the exact syntax of the corresponding Vue bindings like arrays, objects and conditionals. Example below styles an unstyled Panel component with Tailwind CSS library.
+
+```vue
+<Panel header="Header" toggleable
+    :pt="{
+        root: 'border border-primary rounded-xl p-4',
+        header: (options) => ({
+            id: 'myPanelHeader',
+            style: {
+                'user-select': 'none'
+            },
+            class: ['flex items-center justify-between text-primary font-bold']
+        }),
+        content: { class: 'text-primary-700 dark:text-primary-200 mt-4' },
+        title: 'text-xl',
+        toggler: () => 'bg-primary text-primary-contrast hover:text-primary hover:bg-primary-contrast'
+    }">
+    <p class="m-0">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</Panel>
+```
+
+## Custom CSS
+
+The global property has a css option to define custom css that belongs to a global pt configuration. Common use case of this feature is defining global styles and animations related to the pass through configuration.
+
+```vue
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, {
+    pt: {
+        global: {
+            css: \`
+                .my-button {
+                    border-width: 2px;
+                }
+            \`
+        },
+        button: {
+            root: 'my-button'
+        }
+    }
+});
+```
+
+## Declarative
+
+The declarative syntax provides an alternative to the programmatic syntax. The attributes that start with pt are interpreted differently by the component based on the format below. An IDE extension is also being planned to autocomplete the values for better developer experience in the future. Here is another example using both syntax alternatives for the same options.
+
+## Global
+
+Defines the shared pass through properties per component type. For example, with the configuration below all panel headers have the bg-primary style class and all autocomplete components have a fixed width. These settings can be overridden by a particular component as components pt property has higher precedence over global pt .
+
+```vue
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+const app = createApp(App);
+
+app.use(PrimeVue, {
+    pt: {
+        panel: {
+            header: {
+                class: 'bg-primary text-primary-contrast'
+            }
+        },
+        autocomplete: {
+            input: {
+                root: 'w-64' // OR { class: 'w-64' }
+            }
+        }
+    }
+});
+```
+
+## Introduction
+
+In traditional 3rd party UI libraries, users are limited to the API provided by component author. This API commonly consists of props, events and slots. Whenever a requirement emerges for a new customization option in the API, the component author needs to develop and publish it with a new release. Vision of PrimeTek is Your components, not ours . The pass through feature is a key element to implement this vision by exposing the component internals in order to apply arbitrary attributes and listeners to the DOM elements. The primary advantage of this approach is that it frees you from being restricted by the main component API. We recommend considering the pass-through feature whenever you need to tailor a component that lacks a built-in feature for your specific requirement. Two videos are available at PrimeTV youtube channel, first one is an introduction and second one covers a unique case that is solved by the pass-through.
+
+## Lifecycle
+
+Lifecycle hooks of components are exposed as pass through using the hooks property so that callback functions can be registered. Available callbacks are onBeforeCreate , onCreated , onBeforeUpdate , onUpdated , onBeforeMount , onMounted , onBeforeUnmount and onUnmounted . Refer to the Vue.js documentation for detailed information about lifecycle hooks.
+
+```vue
+<Panel header="Header" :pt="panelPT">
+    Content
+</Panel>
+```
+
+## PC Prefix
+
+Section names prefixed with pc denote PrimeVue components, distinguishing them from standard DOM elements and indicating the necessity for a nested structure. For example, the "badge" section is identified as pcBadge because the button component incorporates the badge component internally.
+
+```vue
+<Button
+    type="button"
+    label="Messages"
+    icon="pi pi-inbox"
+    badge="2"
+    variant="outlined"
+    severity="secondary"
+    :pt="{
+        root: '!px-4 !py-3',
+        icon: '!text-xl !text-violet-500 dark:!text-violet-400',
+        label: '!text-lg !text-violet-500 dark:!text-violet-400',
+        pcBadge: {
+            root: '!bg-violet-500 dark:!bg-violet-400 !text-white dark:!text-black'
+        }
+    }"
+/>
+```
+
+## UsePassThrough
+
+An existing pass through configuration is customized with the usePassThrough utility. The first parameter is the object to customize, the second parameter is the customizations and the final parameter is the merge strategy. The mergeSections defines whether the sections from the main configuration gets added and the mergeProps controls whether to override or merge the defined props. Defaults are true for mergeSections and false for mergeProps .
+
+---
+
+# Icons
+
+PrimeIcons is the default icon library of PrimeVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as PrimeVue components can use any icon with templating.
+
+## Basic
+
+PrimeIcons use the pi pi-&#123;icon&#125; syntax such as pi pi-check . A standalone icon can be displayed using an element such as i or span
+
+```vue
+<i class="pi pi-check"></i>
+<i class="pi pi-times"></i>
+<span class="pi pi-search"></span>
+<span class="pi pi-user"></span>
+```
+
+## Color
+
+Icon color is defined with the color property which is inherited from parent by default.
+
+```vue
+<i class="pi pi-check" style="color: slateblue"></i>
+<i class="pi pi-times" style="color: green"></i>
+<i class="pi pi-search" style="color: 'var(--p-primary-color)'"></i>
+<i class="pi pi-user" style="color: #708090"></i>
+```
+
+## Constants
+
+Constants API is available to reference icons easily when used programmatically.
+
+```vue
+<template>
+    <div class="card flex justify-center">
+        <Menu :model="items" />
+    </div>
+</template>
+
+<script>
+import { PrimeIcons } from '@primevue/core/api';
+
+export default {
+    data() {
+        return {
+            items: [
+                {
+                    label: 'File',
+                    items: [
+                        { label: 'New', icon: PrimeIcons.PLUS },
+                        { label: 'Open', icon: PrimeIcons.DOWNLOAD }
+                    ]
+                }
+            ]
+        };
+    }
+};
+<\/script>
+```
+
+## Download
+
+PrimeIcons is available at npm, run the following command to download it to your project.
+
+```vue
+npm install primeicons
+```
+
+## Figma
+
+PrimeIcons library is now available on Figma Community . By adding them as a library, you can easily use these icons in your designs.
+
+## Import
+
+CSS file of the icon library needs to be imported in styles.scss of your application.
+
+## List
+
+Here is the full list of PrimeIcons. More icons will be added periodically and you may also request new icons at the issue tracker.
+
+## Size
+
+Size of an icon is controlled with the font-size property of the element.
+
+```vue
+<i class="pi pi-check" style="font-size: 1rem"></i>
+<i class="pi pi-times" style="font-size: 1.5rem"></i>
+<i class="pi pi-search" style="font-size: 2rem"></i>
+<i class="pi pi-user" style="font-size: 2.5rem"></i>
+```
+
+## Spin
+
+Special pi-spin class applies infinite rotation to an icon.
+
+```vue
+<i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+<i class="pi pi-spin pi-cog" style="font-size: 2rem"></i>
+```
+
+---
+
+# Custom Icons
+
+PrimeVue components can be used with any icon library using the templating features.
+
+## FontAwesome
+
+Font Awesome is a popular icon library with a wide range of icons.
+
+```vue
+<Select>
+    <template #dropdownicon>
+        <i class="fa-light fa-chevron-down"></i>
+    </template>
+</Select>
+```
+
+## Image
+
+Any type of image can be used as an icon.
+
+```vue
+<Select>
+    <template #dropdownicon>
+        <img alt="dropdown icon" src="/assets/icons/arrow_down.png">
+    </template>
+</Select>
+```
+
+## Material
+
+Material icons is the official icon library based on Google Material Design.
+
+```vue
+<Select>
+    <template #dropdownicon>
+        <span class="material-icons">arrow_drop_down</span>
+    </template>
+</Select>
+```
+
+## SVG
+
+Inline SVGs are embedded inside the dom.
+
+```vue
+<Select>
+    <template #dropdownicon>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g id="chevron-down">
+                <path d="M12,15.25a.74.74,0,0,1-.53-.22l-5-5A.75.75,0,0,1,7.53,9L12,13.44,16.47,9A.75.75,0,0,1,17.53,10l-5,5A.74.74,0,0,1,12,15.25Z"/>
+            </g>
+        </svg>
+    </template>
+</Select>
+```
+
+## Video Tutorial
+
+A video tutorial to demonstrate how to customize icons.
+
+---
+
+# Forms
+
+The PrimeVue Forms library provides comprehensive form state management with built-in validation support.
+
+## Accessibility
+
+Screen Reader Form does not require any roles and attributes. Keyboard Support Component does not include any interactive elements.
+
+## Basic
+
+All PrimeVue form components are designed for seamless integration with the forms library. Instead of using the standard v-model , the name property is used to link a state object that tracks values, errors, and actions. The form component provides four key properties for state management.
+
+```vue
+<Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <div class="flex flex-col gap-1">
+        <InputText name="username" type="text" placeholder="Username" fluid />
+        <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error?.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
+## Download
+
+Forms add-on is available for download on npm registry.
+
+```vue
+# Using npm
+npm install @primevue/forms
+
+# Using yarn
+yarn add @primevue/forms
+
+# Using pnpm
+pnpm add @primevue/forms
+```
+
+## Dynamic
+
+This section demonstrates how to create a dynamic form using a custom Form component. It showcases an example where form fields are generated dynamically based on the provided configuration, allowing for flexible form structures. The components named Dynamic* shown in this example are not built-in, and only available for sampling purposes. First form uses a declarative approach whereas second form goes for a programmatic approach. We suggest running this sample in StackBlitz to view the comprehensive implementation.
+
+```vue
+<Fieldset legend="Form 1" pt:content:class="flex justify-center">
+    <DynamicForm @submit="onFormSubmit('Form 1', $event)">
+        <DynamicFormField groupId="userId_1" name="username">
+            <DynamicFormLabel>Username</DynamicFormLabel>
+            <DynamicFormControl defaultValue="PrimeVue" fluid :schema="userNameSchema" />
+            <DynamicFormMessage />
+        </DynamicFormField>
+        <DynamicFormField groupId="passId_1" name="password">
+            <DynamicFormLabel>Password</DynamicFormLabel>
+            <DynamicFormControl as="Password" :feedback="false" toggleMask fluid :schema="passwordSchema" />
+            <DynamicFormMessage errorType="minimum" />
+            <DynamicFormMessage errorType="maximum" />
+            <DynamicFormMessage errorType="uppercase" severity="warn" />
+            <DynamicFormMessage errorType="lowercase" severity="warn" />
+            <DynamicFormMessage errorType="number" severity="secondary" />
+        </DynamicFormField>
+        <DynamicFormSubmit />
+    </DynamicForm>
+</Fieldset>
+
+<Fieldset legend="Form 2" pt:content:class="flex justify-center">
+    <DynamicForm :fields @submit="onFormSubmit('Form 2', $event)" />
+</Fieldset>
+```
+
+## Import
+
+The form component is responsible for managing the form state and must encapsulate the form fields.
+
+```vue
+import { Form } from '@primevue/forms';
+```
+
+## Resolvers
+
+Validations are implemented with the resolver property. A custom resolver is responsible for handling the validation and returning an errors object with key-value pairs where key is the form field name and value is an array of error object data. For productivity, we recommend using a schema validation library instead of building your own custom validation logic. The forms library provide built-in resolvers for popular options including Zod , Yup , Joi , Valibot , and Superstruct that can be imported from @primevue/forms/resolvers path.
+
+```vue
+<Form v-slot="$form" :initialValues :resolver="resolver" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <div class="flex flex-col gap-1">
+        <InputText name="username" type="text" placeholder="Username" fluid />
+        <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
+## States
+
+The $form object tracks the state management of the fields. Each field is linked with the name property. View the FormFieldState type in the API documentation for details about each property.
+
+```vue
+<Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="grid lg:grid-cols-2 gap-4 w-full">
+    <div class="flex flex-col justify-center items-center gap-4">
+        <InputText name="username" type="text" placeholder="Username" class="w-full sm:w-56" />
+        <Button type="submit" severity="secondary" label="Submit" class="w-full sm:w-56" />
+    </div>
+    <Fieldset legend="Form States" class="h-80 overflow-auto">
+        <pre class="whitespace-pre-wrap">{{ $form }}</pre>
+    </Fieldset>
+</Form>
+```
+
+## Submit
+
+The submit callback returns an object that encapsulates the form's validity, any existing errors, and its current state. This enables access to the form values, validation status, and any errors present at the time of submission. View the FormSubmitEvent in the API documentation for more information about the available event data.
+
+```vue
+<Form v-slot="$form" :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-60">
+    <div class="flex flex-col gap-1">
+        <InputText name="username" type="text" placeholder="Username" fluid />
+        <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error.message }}</Message>
+    </div>
+    <div class="flex flex-col gap-1">
+        <Password name="password" placeholder="Password" :feedback="false" toggleMask fluid />
+        <Message v-if="$form.password?.invalid" severity="error" size="small" variant="simple">
+            <ul class="my-0 px-4 flex flex-col gap-1">
+                <li v-for="(error, index) of $form.password.errors" :key="index">{{ error.message }}</li>
+            </ul>
+        </Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
+## ValidateOn
+
+Form component supports flexible validation triggers, allowing validation on value updates, blur events, form mount, or submission. These behaviors can be configured at form level or on specific fields via the validateOnValueUpdate , validateOnBlur , validateOnMount , and validateOnSubmit options of the formControl property. In this example, form disables validateOnValueUpdate and enables validateOnBlur at form level, and validates firstName on mount. The firstName field, overrides the form level setting locally.
+
+```vue
+<Form v-slot="$form" :initialValues :resolver :validateOnValueUpdate="false" :validateOnBlur="true" :validateOnMount="['firstName']" @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <div class="flex flex-col gap-1">
+        <InputText name="username" type="text" placeholder="Username" fluid />
+        <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">{{ $form.username.error.message }}</Message>
+    </div>
+    <div class="flex flex-col gap-1">
+        <InputText name="firstName" type="text" placeholder="First Name" fluid :formControl="{ validateOnValueUpdate: true }" />
+        <Message v-if="$form.firstName?.invalid" severity="error" size="small" variant="simple">{{ $form.firstName.error.message }}</Message>
+    </div>
+    <div class="flex flex-col gap-1">
+        <InputText name="lastName" type="text" placeholder="Last Name" fluid />
+        <Message v-if="$form.lastName?.invalid" severity="error" size="small" variant="simple">{{ $form.lastName.error.message }}</Message>
+    </div>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
+## Built In
+
+Although PrimeVue components have built-in support for the Form API, you may still prefer to utilize the components as wrapped with the FormField. This is a matter of preference, for example in case you are also using FormField for other 3rd party components, your own custom components, and native elements, for consistency it may be an option.
+
+```vue
+<Form :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <FormField v-slot="$field" name="username" initialValue="" class="flex flex-col gap-1">
+        <InputText type="text" placeholder="Username" />
+        <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
+    </FormField>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
+## FormField
+
+The FormField is a helper component that provides validation and tracking for input elements, offering a more flexible structure to bind PrimeVue, non-PrimeVue components or native HTML elements to Form API. Additionally, with props like validateOn* , initialValue , resolver , and name , behaviors can be controlled directly from this component.
+
+```vue
+import { FormField } from '@primevue/forms';
+```
+
+## Non Prime Vue
+
+Form API is not strictly tied to PrimeVue components, providing a flexible way to manage validation and state for any native HTML elements, your own custom components or third-party libraries.
+
+```vue
+<Form :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <FormField v-slot="$field" name="username" initialValue="" class="flex flex-col gap-1">
+        <input type="text" placeholder="Username" :class="[{ error: $field?.invalid }]" v-bind="$field.props" />
+        <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
+    </FormField>
+    <FormField v-slot="$field" name="password" initialValue="PrimeVue" class="flex flex-col gap-1">
+        <input v-model="$field.value" type="password" placeholder="Password" :class="[{ error: $field?.invalid }]" @input="$field.onInput" @blur="$field.onBlur" @change="$field.onChange" />
+        <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
+    </FormField>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
+## Resolver
+
+Each FormField can have its own dedicated resolver, allowing you to define custom validation logic for individual fields. This flexibility enables tailored validation rules, ensuring that each form field meets specific criteria.
+
+```vue
+<Form :initialValues :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-80">
+    <FormField v-slot="$field" name="username" initialValue="" :resolver="zodUserNameResolver" class="flex flex-col gap-1">
+        <InputText type="text" placeholder="Username" />
+        <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
+    </FormField>
+    <FormField v-slot="$field" name="firstname" initialValue="" :resolver="yupFirstNameResolver" class="flex flex-col gap-1">
+        <InputText type="text" placeholder="First Name" />
+        <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
+    </FormField>
+    <FormField v-slot="$field" name="lastname" initialValue="" :resolver="valibotLastNameResolver" class="flex flex-col gap-1">
+        <InputText type="text" placeholder="Last Name" />
+        <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
+    </FormField>
+    <FormField v-slot="$field" name="password" initialValue="" :resolver="customPasswordResolver" class="flex flex-col gap-1">
+        <Password type="text" placeholder="Password" :feedback="false" toggleMask fluid />
+        <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
+    </FormField>
+    <FormField v-slot="$field" name="details" class="flex flex-col gap-1">
+        <Textarea placeholder="Details" />
+        <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
+    </FormField>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
+## Template
+
+It renders as a HTML div element, but this behavior can be modified using the as and asChild props to render different HTML elements or to pass a custom component, allowing for greater flexibility in form structure.
+
+```vue
+<Form :resolver @submit="onFormSubmit" class="flex flex-col gap-4 w-full sm:w-56">
+    <FormField v-slot="$field" as="section" name="username" initialValue="" class="flex flex-col gap-2">
+        <InputText type="text" placeholder="Username" />
+        <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
+    </FormField>
+    <FormField v-slot="$field" asChild name="password" initialValue="">
+        <section class="flex flex-col gap-2">
+            <Password type="text" placeholder="Password" :feedback="false" toggleMask fluid />
+            <Message v-if="$field?.invalid" severity="error" size="small" variant="simple">{{ $field.error?.message }}</Message>
+        </section>
+    </FormField>
+    <Button type="submit" severity="secondary" label="Submit" />
+</Form>
+```
+
+## Styled
+
+Component does not apply any styling.
+
+---
+
+# Auto Import
+
+On-demand PrimeVue components with auto imports and tree-shaking.
+
+## Example
+
+A complete example using PrimeVue with auto imports is available at the playground .
+
+## Overview
+
+PrimeVue components need to be imported and configured individually. In the next section, we'll cleanup the code using auto imports.
+
+```vue
+import { createApp } from "vue";
+import PrimeVue from "primevue/config";
+import InputText from 'primevue/inputtext';
+import Button from 'primevue/button';
+import App from './App.vue'
+const app = createApp(App);
+
+app.use(PrimeVue);
+app.component('InputText', InputText);
+app.component('Button', Button);
+```
+
+## Unplugin
+
+The unplugin-vue-components library can automatically import and register PrimeVue components with the help of @primevue/auto-import-resolver . Begin with installing the packages as dev dependencies. Next step would be adding the PrimeVueResolver at vite.config using the Components plugin. That's it, now the initialization code can be refactored as the following. For configuration like namespacing, visit the official documentation .
+
+---
+
+# Install PrimeVue with CND
+
+Setting up PrimeVue in a project using CDN.
+
+## CreateApp
+
+Create an app container element and setup the application using createApp .
+
+```vue
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"><\/script>
+
+    <div id="app">
+    </div>
+
+    <script>
+        const { createApp, ref } = Vue;
+
+        const app = createApp({
+            setup() {
+
+            }
+        });
+
+        app.mount('#app');
+    <\/script>
+</body>
+```
+
+## Example
+
+A complete example using a PrimeVue DatePicker. You can also view this sample live at Stackblitz .
+
+```vue
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PrimeVue + CDN</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"><\/script>
+        <script src="https://unpkg.com/primevue/umd/primevue.min.js"><\/script>
+        <script src="https://unpkg.com/@primeuix/themes/umd/aura.js"><\/script>
+
+        <div id="app">
+            <p-datepicker v-model="date"></p-datepicker>
+            <br /><br />
+            {{ date }}
+        </div>
+
+        <script>
+            const { createApp, ref } = Vue;
+
+            const app = createApp({
+                setup() {
+                const date = ref();
+
+                return {
+                    date
+                };
+                },
+            });
+
+            app.use(PrimeVue.Config, {
+                theme: {
+                    preset: PrimeUIX.Themes.Aura
+                }
+            });
+
+            app.component('p-datepicker', PrimeVue.DatePicker);
+
+            app.mount('#app');
+        <\/script>
+    </body>
+</html>
+```
+
+## Plugin
+
+PrimeVue plugin is required to be installed as an application plugin to set up the default configuration .
+
+```vue
+app.use(PrimeVue.Config);
+```
+
+## Script
+
+You can use PrimeVue and Vue.js from a CDN with a script tag. This approach does not involve any build step, and is suitable for enhancing static HTML. This guide uses unpkg however other providers such as jsdeliver and cdnjs can also be used.
+
+```vue
+https://unpkg.com/vue@3/dist/vue.global.js
+https://unpkg.com/primevue/umd/primevue.min.js
+https://unpkg.com/@primeuix/themes/umd/aura.js  // see theming for alternatives
+```
+
+## Theming
+
+Include the theme preset via a script element after adding PrimeVue, valid options are Aura, Lara, Nora and Material.
+
+```vue
+<!-- <script src="https://unpkg.com/@primeuix/themes/umd/{preset}.js"><\/script> -->
+
+<script src="https://unpkg.com/@primeuix/themes/umd/aura.js"><\/script>
+<script src="https://unpkg.com/@primeuix/themes/umd/lara.js"><\/script>
+<script src="https://unpkg.com/@primeuix/themes/umd/nora.js"><\/script>
+<script src="https://unpkg.com/@primeuix/themes/umd/material.js"><\/script>
+```
+
+---
+
+# Install PrimeVue with Nuxt
+
+Setting up PrimeVue in a Nuxt project.
+
+## autoImport
+
+The auto import feature registers components automatically with tree shaking support. Defaults to true , when disabled use include/exclude options of components and directives for manual registration. Use the prefix in components and directives to add a prefix for registration.
+
+## Download
+
+PrimeVue is available for download on npm registry along with the official @primevue/nuxt-module .
+
+```vue
+# Using npm
+npm install primevue @primeuix/themes
+npm install --save-dev @primevue/nuxt-module
+
+# Using yarn
+yarn add primevue @primeuix/themes
+yarn add --dev @primevue/nuxt-module
+
+# Using pnpm
+pnpm add primevue @primeuix/themes
+pnpm add -D @primevue/nuxt-module
+```
+
+## Examples
+
+Nuxt based samples with different options are available at PrimeVue examples repository.
+
+## Module
+
+In nuxt.config file, add the @primevue/nuxt-module to the modules section and define primevue object for the configuration of the module.
+
+## Next Steps
+
+Welcome to the Prime UI Ecosystem! Once you have PrimeVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Customization of styles Pass through attributes Getting support
+
+## Styled Mode
+
+Styled mode provides pre-skinned components, default theme is Aura with emerald as the primary color. See the styled mode documentation for details. Install the @primeuix/themes add-on package as the themes are not included in PrimeVue by default. Configure the module to use a theme like Aura.
+
+## Theme
+
+Configure the module to use a theme like Aura.
+
+```vue
+import Aura from '@primeuix/themes/aura';
+
+export default defineNuxtConfig({
+    modules: [
+        '@primevue/nuxt-module'
+    ],
+    primevue: {
+        options: {
+            theme: {
+                preset: Aura
+            }
+        }
+    }
+})
+```
+
+## Unstyled Mode
+
+In unstyled mode, the components do not include any CSS so you'd need to style the components on your end, this is especially useful when building your own UI library on top of PrimeVue. Visit the Unstyled mode documentation for more information and examples.
+
+## Verify
+
+The nuxt-primevue module registers the components automatically with tree-shaking support so you may start using them instantly.
+
+```vue
+<Button label="Verify" />
+```
+
+## Video
+
+A video tutorial that goes through steps of setting up PrimeVue with the nuxt-primevue module.
+
+## components
+
+When autoImport is disabled, use the include and exclude for manual registration. The components to import and register are defined with the include option using a string array. When the value is ignored or set using the * alias, all of the components are registered. In case all components are imported, particular components can still be excluded with the exclude option. By default, for compatibility reasons, Chart and Editor components are excluded. To include them simply set the exclude option to an empty list. Use the prefix option to give a prefix to the registered component names. Component registration can be customized further by implementing the name function that gets an object representing the import metadata. name is the label of the component, as is the default export name and from is the import path.
+
+## composables
+
+Determines the composables to use, when default value is ignored or set as * all composables are imported.
+
+## directives
+
+When autoImport is disabled, use the include and exclude for manual registration. The names of the directives to import and register are provided using the include property. When the value is ignored or set using the * alias, all of the directives are registered. Similar to components, certain directives can be excluded and name registration can be customized.
+
+## importPT
+
+Configures the global pass through import path. mycustompt.js file defines the configuration and exports it.
+
+## importTheme
+
+Configures the theme configuration path for the customizations of a theme in styled mode. The mytheme.js file contains the theme configuration.
+
+## options
+
+Main configuration settings of PrimeVue, refer to the configuration documentation for details.
+
+```vue
+import Aura from '@primeuix/themes/aura';
+
+export default defineNuxtConfig({
+    modules: [
+        '@primevue/nuxt-module'
+    ],
+    primevue: {
+        options: {
+            ripple: true,
+            inputVariant: 'filled',
+            theme: {
+                preset: Aura,
+                options: {
+                    prefix: 'p',
+                    darkModeSelector: 'system',
+                    cssLayer: false
+                }
+            }
+        }
+    }
+})
+```
+
+## usePrimeVue
+
+The module installs the PrimeVue plugin by default. Disable this option if you prefer to configure PrimeVue manually e.g. with a Nuxt plugin.
+
+```vue
+primevue: {
+    usePrimeVue: true | false
+}
+```
+
+---
+
+# Install PrimeVue with Vite
+
+Setting up PrimeVue in a Vite project.
+
+## Download
+
+PrimeVue is available for download on npm registry .
+
+```vue
+# Using npm
+npm install primevue @primeuix/themes
+
+# Using yarn
+yarn add primevue @primeuix/themes
+
+# Using pnpm
+pnpm add primevue @primeuix/themes
+```
+
+## Examples
+
+We've created various samples for the popular options in the Vue ecosystem. Visit the primevue-examples repository for more samples including vite-quickstart and vite-ts-quickstart .
+
+## Next Steps
+
+Welcome to the Prime UI Ecosystem! Once you have PrimeVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes Getting support
+
+## Plugin
+
+PrimeVue plugin is required to be installed as an application plugin to set up the default configuration . The plugin is lightweight, and only utilized for configuration purposes.
+
+```vue
+import { createApp } from 'vue';
+import PrimeVue from 'primevue/config';
+
+const app = createApp(App);
+app.use(PrimeVue);
+```
+
+## Plugin
+
+Configure PrimeVue to use a theme like Aura.
+
+```vue
+import { createApp } from 'vue';
+import PrimeVue from 'primevue/config';
+import Aura from '@primeuix/themes/aura';
+
+const app = createApp(App);
+app.use(PrimeVue, {
+    theme: {
+        preset: Aura
+    }
+});
+```
+
+## Verify
+
+Verify your setup by adding a component such as Button . Each component can be imported and registered individually so that you only include what you use for bundle optimization. Import path is available in the documentation of the corresponding component.
+
+```vue
+import Button from "primevue/button"
+
+const app = createApp(App);
+app.component('Button', Button);
+```
+
+## Video
+
+Watch the short video tutorial from Çağatay Çivici to setup PrimeVue in styled mode with Create-Vue .
+
+---
+
+# Terms and Conditions
+
+Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to theme code, cloud storage, and migration assistant.
+
+## Dashboard
+
+Dashboard is the entry point of the designer. The license key can be configured at this view before getting started with the full set of features. In the My Themes section, you're able to create a theme, and manage existing themes. A theme can be renamed, duplicated and downloaded using the button.
+
+## License
+
+A license key is required to be able to use all the services provided by the designer. Without a license, the visual editor is still available for trial purposes with various options such as downloads, and cloud storage disabled. The license key can be purchased at PrimeStore , it is valid for 1 year and needs to be renewed manually after a year.
+
+## Limitations
+
+Current known technical limitations are listed at this section. The border width token in Figma does not support multiple values, related issue .
+
+## Migration Assistant
+
+Prime UI libraries continue to evolve with each version. New tokens are likely to be added with each major release, in order to keep your themes up to date the migration assistant is available featuring automated migration. The Check for Updates option initially scans a theme for any missing tokens. This tool does not override the values of existing tokens, and only adds missing tokens if necessary. Still, it is recommended to duplicate your theme as a backup and run a preview before the migration. Depending on the result, you may choose to proceed with the migration process. In case there are missing tokens, your theme would receive them with placeholder values so it is recommended to take a note of them before migration and then visit the components to replace the placeholder values with actual values of your choice. These types of newly added tokens would be highlighed in Editor.
+
+## Overview
+
+The theming api is open and source freely available with an extensive documentation. Theme Designer is a tool build on top of this theming api with important features to make theming easier. Designer consists of 4 key features; The visual editor provides a UI to edit the complete set of tokens. The figma to theme code generator is extremely useful to automate the design to code process and integrates seamlessly with the Figma UI Kit. The themes are saved in the cloud storage to be accessible from anywhere and any device and finally the migration assistant automatically updates your themes to the latest library version.
+
+## Designer Api
+
+Theme Designer public endpoint is hosted at PrimeUI Store. Get a Secret Key Visit the PrimeUI Store . Purchase an Extended License of Theme Designer. Navigate to your account settings . Generate a secret key for CI/CD integration. Authentication Define a Authentication: Bearer request headerto configure your secret key. Parameters The request type must be POST . Name Type Required Description name string yes Name of the theme to be generated. tokens json yes Content of the json file exported from Figma. project string yes Name of the project, possible values are "primeng" or "primevue". config.font_size string no Font size for theme preview in visual editor at website, defaults to "14px". config.font_family string no Font family for theme preview in visual editor at website, defaults to "Inter Var" Example Response A successful response returns a zip file containing the source code of the generated theme preset. The content-type header of this type of response is application/zip . Error Handling When theme generation fails, a json response is returned with application/json content-type header. The response contains an error object with code and message .
+
+## Figma
+
+Token Studio in Figma is the starting point of a continuous integration pipeline. You can connect a remote repository to sync your tokens data so that changes are saved remotely instead of locally. Token Studio offers various remote storage options such as GitHub , GitLab and Bitbucket . Refer to these documentations based on your environment before proceeding to the integrations in the next section.
+
+## Live Preview
+
+After your CI pipeline completes successfully, your theme also becomes available in the Prime UI Theme Designer. Navigate to the Prime UI library website. Click the ⚙️ icon at topbar to open up Designer Editor. Sign in with your license key and pass key credentials. Then select your theme from the available options to apply it across all demos and website content. Note that CI-generated themes are provided in read-only mode for preview purposes only and cannot be edited within the Theme Designer. The Migration Assistant is available to identify any missing tokens in your preset; however, if tokens are missing, they must be added manually in Figma as needed.
+
+## Overview
+
+The Figma UI Kit and the theming api is fully synchorized, meaning the design tokens in Figma map to the corresponding properties in a theme preset. The Theme Designer offers a feature to create a theme by uploading a tokens.json file that is exported from the Token Studio plugin in Figma. Once the theme is converted, it can either be edited further in the visual editor or downloaded as a zip file to access the full code. Visit the Figma section at the designer documentation for more information. Manually exporting the tokens file from Figma and uploading it to the online designer tool may quickly become tedious in active development cycles. As a solution, theme designer provides a remote API that can be integrated into your CI pipeline.
+
+## Video Tutorial
+
+Before diving into the implementation details, if you would like to understand the final outcome and see how the solution operates, please refer to the video tutorial for a comprehensive walkthrough and demonstration.
+
+## Bitbucket
+
+The BitBucket integration is implemented by executing a custom pipe whenever the tokens file changes. 1. Add Secret Key to Repository Secrets Go to your BitBucket repository. Navigate to Repository Settings > Repository Variables . Give a name such as: THEME_DESIGNER_SECRET_KEY . Value: Your API key from Prime Theme Designer. Click Add . 2. Add the pipe configuration to your bitbucket-pipelines.yml Define the configuration parameters for the Designer API and add the pipe as a runnable script to the action. Notice that, the referenced pipe is executed as a script rather than a pipe from the BitBucket pipe registry as PrimeTek currently has no intentions to maintain an official pipe for BitBucket. You may further improve this example by building a dockerized pipe that is accessible in the BitBucket Registry to refer it with the pipe config in yml. 3. Test Integration Edit a token in Token Studio in Figma and click Push to BitBucket button to update the tokens file in your Git repository, triggering the configured BitBucket Pipe. The pipe then sends the updated file content to the Theme Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An example repository is available at BitBucket that you may use as a starter.
+
+```vue
+image: atlassian/default-image:4
+
+pipelines:
+    default:
+        - step:
+              name: Generate Theme with Theme Designer
+              condition:
+                  changesets:
+                      includePaths:
+                          - "tokens.json"
+              script:
+                  - apt-get update && apt-get install -y jq curl unzip
+                  - git clone https://bitbucket.org/cagataycivici/figma-to-theme-code-generator.git temp-pipe
+                  - cp temp-pipe/pipe.sh ./
+                  - chmod +x pipe.sh
+                  - export DESIGNER_SECRET="\${THEME_DESIGNER_SECRET_KEY}"
+                  - export THEME_NAME="acme-theme"
+                  - export PROJECT="primevue"
+                  - export FONT_SIZE="14px"
+                  - export FONT_FAMILY="Inter Var"
+                  - export TOKENS_PATH="./tokens.json"
+                  - export OUTPUT_DIR="./acme-theme"
+                  - ./pipe.sh
+```
+
+## Git Hub
+
+The prime-figma-to-theme-code-generator is a GitHub Action that is available on the marketplace. 1. Add Secret Key to Repository Secrets Go to your GitHub repository. Navigate to Settings > Secrets and variables > Actions . Click New repository secret . Give a name such as: THEME_DESIGNER_SECRET_KEY . Value: Your API key from Prime Theme Designer. Click Add secret . 2. Add the action to your .github/worklows Visit the inputs documentation for more details about the parameters such as the theme-name . 3. Test Integration Edit a token in Token Studio in Figma and click Push to GitHub button to update the tokens file in your Git repository, triggering the configured GitHub Action. The GitHub Action then sends the updated file content to the Theme Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An example repository is available at GitHub that you may use as a starter.
+
+```vue
+name: Automated Figma To Theme Code
+
+on:
+    push:
+        paths:
+            - "tokens.json"
+
+permissions:
+    contents: write
+
+jobs:
+    generate-tokens:
+        name: Generate Theme Code
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Generate Prime Theme
+              uses: primefaces/theme-designer-ci@1.0.0-beta.4
+              with:
+                  designer-secret: \${{ secrets.THEME_DESIGNER_SECRET_KEY }}
+                  theme-name: "acme"
+                  project: "primevue"
+                  font-size: "14px"
+                  font-family: "Inter Var"
+                  tokens-path: "tokens.json"
+                  output-dir: "./acme-theme"
+```
+
+## Git Lab
+
+The GitLab integration is implemented by executing a script whenever the tokens file changes. 1. Add Secret Key to Repository Secrets Go to your GitLab repository. Navigate to Settings > CI/CD > Variables . Click Add variable . Give a name such as: THEME_DESIGNER_SECRET_KEY . Value: Your API key from Prime Theme Designer. Click Add variable . 2. Add the script to your project A sample script named figma-to-theme-converter.sh is available as a starter, copy and paste this script to your project. You may alter the script further per your requirements. 3. Add the script to your .gitlab-ci.yml Define the configuration parameters for the Designer API and add the script to the action. 4. Test Integration Edit a token in Token Studio in Figma and click Push to GitLab button to update the tokens file in your Git repository, triggering the configured GitLab Action. The GitLab Action then sends the updated file content to the Theme Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An example repository is available at GitLab that you may use as a starter.
+
+```vue
+variables:
+    # Set these as GitLab CI/CD variables for security
+    DESIGNER_SECRET: \${THEME_DESIGNER_SECRET_KEY}
+    THEME_NAME: "my-custom-theme"
+    PROJECT: "primevue" # or your target project
+    TOKENS_PATH: "./tokens.json"
+    OUTPUT_DIR: "./my-custom-theme"
+    # Optional configuration
+    FONT_SIZE: "14px"
+    FONT_FAMILY: "Inter"
+
+stages:
+    - generate-theme
+
+generate_theme_tokens:
+    stage: generate-theme
+    image: ubuntu:22.04
+
+    before_script:
+        # Install required dependencies
+        - apt-get update -qq
+        - apt-get install -y -qq git curl python3 unzip
+        - git config --global --add safe.directory $CI_PROJECT_DIR
+        # Ensure we're on the correct branch and have latest changes
+        - git fetch origin
+        - git checkout $CI_COMMIT_REF_NAME
+        - git pull origin $CI_COMMIT_REF_NAME || true
+
+    script:
+        # Run the theme generator script
+        - ./figma-to-theme-converter.sh
+
+    artifacts:
+        paths:
+            - $OUTPUT_DIR/
+        expire_in: 1 week
+
+    rules:
+        # Run on main branch when tokens.json is modified
+        - if: $CI_COMMIT_BRANCH == "main"
+          changes:
+              - tokens.json
+        # Or run manually
+        - when: manual
+```
+
+## Base
+
+In the new theme section, all of the built-in themes are available to use as the base. These are; Aura , Material , Lara and Nora . Each have their own characteristics, and it is recommended to choose the one that best suits your requirements.
+
+## Figma
+
+The Figma UI Kit and the theming api is fully synchorized, meaning the design tokens in Figma map to the CSS variables in the code. The mapping is created via the Token Studio at Figma which allows exporting a single json file. The Designer is able to interpret this file and transform it to an actual theme. In case your UI Kit version is older, the transformation process marks the missing tokens and recommends an auto migration via the migration assistant. This is an automated workflow and eliminates the manual design to code during the handoff process. If you have UI designers in your team, the recommended approach is using Figma for the actual design process and utilizing the designer for transformation, preview and download purposes. CI Pipeline Recommended approach is setting up the CI Pipeline flow as manually exporting the tokens file from Figma and uploading it to the online designer tool may quickly become tedious in active development cycles. As a solution, theme designer provides a remote API that can be integrated into your flow. Visit the CI Pipeline documentation for comprehensive information and examples for GitHub, GitLab and BitBucket. Manual Flow Instead of setting a CI pipeline, for quick prototyping purposes, you may also choose to use to manually export a tokens json file and then upload it to the designer. Note that, this flow would get tedious and repetitive in active development cycles when compared to an automated CI pipeline. Open the PrimeOne UI Kit in which you've modified tokens. In the Tokens Studio plugin, navigate to the Tools menu and select Export to file/folder. When the Export tokens modal appears, make sure the Single file tab is selected. Check the All tokens sets option, then click Export . In case you utilize custom tokens, create a new token set named custom and define your tokens under this set to make sure they are also exported to the theme code. When creating a new theme at Theme Designer, choose the Import Figma Tokens option and import the json file. Video Tutorial A tutorial is available demonstrating how the handoff process can be automated between the design team and the development team. -->
+
+## Custom Tokens
+
+Custom tokens allow bringing in your own design tokens to the theme to go beyond the built-in ones. A design token requires a name and a value where the value can be a static value like a color or another token. The name of the token should be a dot seperated lowercase value e.g. accent.color . For example, a custom token name can be defined as accent.color and the value can either be a value like #eab308 or another token such as {yellow.50} . Custom tokens can also refer to each other, e.g. selection.background custom token can define {accent.color} as a value. If you have created a theme from Figma, use the name custom as the name of your token set group. This keyword is special since the import tool will populate the custom tokens using this set in tokens json file.
+
+## Intelligent Completion
+
+The editor is packed with features for improved user experience. The input fields in the editor are capable of displaying a color preview when the value is a color, and beginning the value with a curly brace opens up the autocompletion feature to list the available tokens to choose from. The pi-sort-alt symbol over the input, transfers the token between the common tokens and color scheme specific tokens so that you are able to define tokens based on light and dark mode as well.
+
+## Token Sets
+
+The theming architecture is based on primitive, semantic and components tokens. The visual editor, displays a dedicated section for each set. For basic purposes such as customizing the primary and surface colors, primitive and semantic sections would be more than enough. The component tokens are displayed per route so navigate to the component page first to view the tokens of the specific component.
+
+## Typography
+
+The components are not opinionated about the typography. Important properties such as the font family, font size, and line-height do not have design tokens since they can be inherited from the document. For preview purposes, the settings tab displays options to customize the base font and the font family of the document. These values are not available in the generated theme and need to be applied to your application at the document level.
+
+---
+
+# Tailwind CSS
+
+Integration between PrimeVue and Tailwind CSS both in styled and unstyled modes.
+
+## Animations
+
+The plugin also adds extended animation utilities that can be used with the styleclass and animateonscroll directives. Enter and Leave In addition to the prebuilt animations, you may also build your own declaratively using the animate-enter and animate-leave along with the opacity, rotate, scale and translate parameters. These animations work perfectly with the AnimateOnScroll directive, visit this directive for various examples. Animations Class Property animate-enter animation-name: enter; --p-enter-opacity: initial; --p-enter-scale: initial; --p-enter-rotate: initial; --p-enter-translate-x: initial; --p-enter-translate-y: initial; animate-leave animation-name: leave; --p-leave-opacity: initial; --p-leave-scale: initial; --p-leave-rotate: initial; --p-leave-translate-x: initial; --p-leave-translate-y: initial; animate-leave fadein 0.15s linear animate-fadein fadein 0.15s linear animate-fadeout fadeout 0.15s linear animate-slidedown slidedown 0.45s ease-in-out animate-slideup slideup 0.45s cubic-bezier(0, 1, 0, 1) animate-scalein scalein 0.15s linear animate-fadeinleft fadeinleft 0.15s linear animate-fadeoutleft fadeoutleft 0.15s linear animate-fadeinright fadeinright 0.15s linear animate-fadeoutright fadeoutright 0.15s linear animate-fadeinup fadeinup 0.15s linear animate-fadeoutup fadeoutup 0.15s linear animate-fadeindown fadeindown 0.15s linear animate-fadeoutup fadeoutup 0.15s linear animate-width width 0.15s linear animate-flip flip 0.15s linear animate-flipup flipup 0.15s linear animate-flipleft fadein 0.15s linear animate-flipright flipright 0.15s linear animate-zoomin zoomin 0.15s linear animate-zoomindown zoomindown 0.15s linear animate-zoominleft zoominleft 0.15s linear animate-zoominright zoominright 0.15s linear animate-zoominup zoominup 0.15s linear Animation Duration Class Property animate-duration-0 animation-duration: 0s animate-duration-75 animation-duration: 75ms animate-duration-100 animation-duration: 100ms animate-duration-200 animation-duration: 200ms animate-duration-300 animation-duration: 300ms animate-duration-400 animation-duration: 400ms animate-duration-500 animation-duration: 500ms animate-duration-700 animation-duration: 700ms animate-duration-1000 animation-duration: 1000ms animate-duration-2000 animation-duration: 2000ms animate-duration-3000 animation-duration: 300ms animate-duration-[value] animation-duration: value Animation Delay Class Property animate-delay-none animation-duration: 0s animate-delay-75 animation-delay: 75ms animate-delay-100 animation-delay: 100ms animate-delay-150 animation-delay: 150ms animate-delay-200 animation-delay: 200ms animate-delay-300 animation-delay: 300ms animate-delay-400 animation-delay: 400ms animate-delay-500 animation-delay: 500ms animate-delay-700 animation-delay: 700ms animate-delay-1000 animation-delay: 1000ms Iteration Count Class Property animate-infinite animation-iteration-count: infinite animate-once animation-iteration-count: 1 animate-twice animation-iteration-count: 2 Direction Class Property animate-normal animation-direction: normal animate-reverse animation-direction: reverse animate-alternate animation-direction: alternate animate-alternate-reverse animation-direction: alternate-reverse Timing Function Class Property animate-ease-linear animation-timing-function: linear animate-ease-in animation-timing-function: cubic-bezier(0.4, 0, 1, 1) animate-ease-out animation-timing-function: cubic-bezier(0, 0, 0.2, 1) animate-ease-in-out animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1) Fill Mode Class Property animate-fill-none animation-fill-mode: normal animate-fill-forwards animation-fill-mode: forwards animate-fill-backwards animation-fill-mode: backwards animate-fill-both animation-fill-mode: both Play State Class Property animate-running animation-play-state: running animate-paused animation-play-state: paused Backface Visibility State Class Property backface-visible backface-visibility: visible backface-hidden backface-visibility: hidden Fade In and Out Values are derived from the Tailwind CSS opacity e.g. fade-in-50 and fade-out-20 . Arbitrary values such as fade-in-[15] are also supported. Class Property fade-in-{value} --p-enter-opacity: {value} fade-out-{value} --p-leave-opacity: {value} Zoom In and Out Values are derived from the Tailwind CSS scale e.g. zoom-in-50 and zoom-out-75 . Arbitrary values such as zoom-in-[0.8] are also supported. Class Property zoom-in-{value} --p-enter-scale: {value} zoom-out-{value} --p-leave-scale: {value} Spin In and Out Values are derived from the Tailwind CSS rotate e.g. spin-in-45 and spin-out-90 . Arbitrary values such as spin-in-[60deg] are also supported. Class Property spin-in-{value} --p-enter-rotate: {value} spin-out-{value} --p-leave-rotate: {value} Slide In and Out Values are derived from the Tailwind CSS translate e.g. slide-in-from-t-50 and slide-out-to-l-8 . Arbitrary values such as slide-in-from-b-[8px] are also supported. Class Property slide-in-from-t-{value} --p-enter-translate-y: -{value} slide-in-from-b-{value} --p-enter-translate-y: {value} slide-in-from-l-{value} --p-enter-translate-x: -{value} slide-in-from-r-{value} --p-enter-translate-x: {value} slide-out-to-t-{value} --p-leave-translate-y: -{value} slide-out-to-b-{value} --p-leave-translate-y: {value} slide-out-to-l-{value} --p-leave-translate-x: -{value} slide-out-to-r-{value} --p-leave-translate-x: {value}
+
+```vue
+<Select v-model="animation" :options="animations" placeholder="Select One" class="w-full sm:w-44" />
+<div class="py-8 overflow-hidden">
+    <div :class="\`rounded-border bg-primary w-16 h-16 mx-auto animate-\${animation} animate-once animate-duration-1000\`"></div>
+</div>
+```
+
+## Dark Mode
+
+In styled mode, PrimeVue uses the system as the default darkModeSelector in theme configuration. If you have a dark mode switch in your application, ensure that darkModeSelector is aligned with the Tailwind dark variant for seamless integration. Note that, this particular configuration isn't required if you're utilizing the default system color scheme. Suppose that, the darkModeSelector is set as my-app-dark in PrimeVue. Tailwind v4 Add a custom variant for dark with a custom selector. Tailwind v3 Use the plugins option in your Tailwind config file to configure the plugin.
+
+## Extensions
+
+The plugin extends the default configuration with a new set of utilities whose values are derived from the PrimeVue theme in use. All variants and breakpoints are supported e.g. dark:sm:hover:bg-primary . Color Palette Class Property primary-[50-950] Primary color palette. surface-[0-950] Surface color palette. primary Default primary color. primary-contrast Default primary contrast color. primary-emphasis Default primary emphasis color. border-surface Content border color. bg-emphasis Emphasis background e.g. hovered element. bg-highlight Highlight background. bg-highlight-emphasis Highlight background with emphasis. rounded-border Border radius. text-color Text color with emphasis. text-color-emphasis Default primary emphasis color. text-muted-color Secondary text color. text-muted-color-emphasis Secondary text color with emphasis.
+
+## Override
+
+Tailwind utilities may not be able to override the default styling of components due to css specificity, there are two possible solutions; Important and CSS Layer. Important Use the ! as a prefix to enforce the styling. This is not the recommend approach, and should be used as last resort to avoid adding unnecessary style classes to your bundle. Tailwind v4 Tailwind v3 CSS Layer CSS Layer provides control over the css specificity so that Tailwind utilities can safely override components. Tailwind v4 Ensure primevue layer is after theme and base , but before the other Tailwind layers such as utilities . No change in the CSS configuration is required. Tailwind v3 The primevue layer should be between base and utilities. Tailwind v3 does not use native layer so needs to be defined with CSS.
+
+## Overview
+
+Tailwind CSS is a popular CSS framework based on a utility-first design. The core provides flexible CSS classes with predefined CSS rules to build your own UI elements. For example, instead of an opinionated btn class as in Bootstrap, Tailwind offers primitive classes like bg-blue-500 , rounded and p-4 to apply a button. Tailwind is an outstanding CSS library, however it lacks a true comprehensive UI suite when combined with Vue.js, this is where PrimeVue comes in by providing a wide range of highly accessible and feature rich UI component library. The core of PrimeVue does not depend on Tailwind CSS, instead we provide the necessary integration points such as the primeui tailwind plugin or a spin-off UI library called Volt based on unstyled PrimeVue. Tailwind CSS and PrimeVue can be used together via two main approaches to choose from. First approach is using Tailwind CSS around the styled PrimeVue components as demonstrated in the samples section below. The second alternative approach takes the integration a step further by replacing the default design token based styled mode with the unstyled mode and utilizing Tailwind CSS within the component internals via pass-through feature. A spin-off library from the PrimeTek UI ecosystem has been created based on this advanced integration called VOLT .
+
+## Plugin
+
+The tailwindcss-primeui is an official plugin by PrimeTek to provide first class integration between a Prime UI library like PrimeVue and Tailwind CSS. It is designed to work both in styled and unstyled modes. In styled mode, for instance the semantic colors such as primary and surfaces are provided as Tailwind utilities e.g. bg-primary , text-surface-500 , text-muted-color . If you haven't already done so, start by integrating Tailwind into your project. Detailed steps for this process can be found in the Tailwind documentation . After successfully installing Tailwind, proceed with the installation of the PrimeUI plugin. This single npm package comes with two libraries: the CSS version is compatible with Tailwind v4, while the JS version is designed for Tailwind v3. Tailwind v4 In the CSS file that contains the tailwindcss import, add the tailwindcss-primeui import as well. Tailwind v3 Use the plugins option in your Tailwind config file to configure the plugin.
+
+## Volt UI
+
+Volt is ideal for developers who prefer customizing component styles using Tailwind CSS rather than the default design token-based styling. If you do not have this use case and prefer the default styled mode for PrimeVue, while using Tailwind CSS only for other requirements such as layout, you can proceed to the next section. Volt is an open source UI component library implemented with the Unstyled PrimeVue components and Tailwind CSS. Volt follows the Code Ownership model where the components live in your application code base as your own UI library rather than imported from node_modules as a 3rd party. Main benefit of this approach is full control over styling and ease of customization. Internally a Volt component wraps its PrimeVue counterpart, removes the default design token based theming and applies Tailwind utility classes via the pass through attributes feature. Volt components are designed to be customized with Tailwind CSS and do not require separate updates. They serve as wrappers around PrimeVue components, so maintenance is handled simply by updating the PrimeVue version.
+
+## Color Palette
+
+PrimeVue color palette as utility classes.
+
+```vue
+<div class="flex flex-col gap-12">
+    <div class="flex gap-6 flex-wrap">
+        <div class="rounded-border p-4 border border-transparent flex items-center justify-center bg-primary hover:bg-primary-emphasis text-primary-contrast font-medium flex-auto transition-colors">primary</div>
+        <div class="rounded-border p-4 border border-transparent flex items-center justify-center bg-highlight hover:bg-highlight-emphasis font-medium flex-auto transition-colors">highlight</div>
+        <div class="rounded-border p-4 border border-surface flex items-center justify-center text-muted-color hover:text-color hover:bg-emphasis font-medium flex-auto transition-colors">box</div>
+    </div>
+</div>
+```
+
+## Form
+
+Using Tailwind utilities for the responsive layout of a form with PrimeVue components.
+
+```vue
+<div class="flex flex-col gap-6 w-full sm:w-auto">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+        <div class="flex-auto">
+            <label for="firstname" class="block font-semibold mb-2">Firstname</label>
+            <InputText id="firstname" class="w-full" />
+        </div>
+        <div class="flex-auto">
+            <label for="lastname" class="block font-semibold mb-2">Lastname</label>
+            <InputText id="lastname" class="w-full" />
+        </div>
+    </div>
+    <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+        <div class="flex-1">
+            <label for="date" class="block font-semibold mb-2">Date</label>
+            <DatePicker inputId="date" class="w-full" />
+        </div>
+        <div class="flex-1">
+            <label for="country" class="block font-semibold mb-2">Country</label>
+            <Select v-model="selectedCountry" inputId="country" :options="countries" optionLabel="name" placeholder="Select a Country" class="w-full">
+                <template #value="slotProps">
+                    <div v-if="slotProps.value" class="flex items-center">
+                        <img :alt="slotProps.value.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.value.code.toLowerCase()}\`" style="width: 18px" />
+                        <div>{{ slotProps.value.name }}</div>
+                    </div>
+                    <span v-else>
+                        {{ slotProps.placeholder }}
+                    </span>
+                </template>
+                <template #option="slotProps">
+                    <div class="flex items-center">
+                        <img :alt="slotProps.option.label" src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png" :class="\`mr-2 flag flag-\${slotProps.option.code.toLowerCase()}\`" style="width: 18px" />
+                        <div>{{ slotProps.option.name }}</div>
+                    </div>
+                </template>
+            </Select>
+        </div>
+    </div>
+    <div class="flex-auto">
+        <label for="message" class="block font-semibold mb-2">Message</label>
+        <Textarea id="message" class="w-full" rows="4" />
+    </div>
+</div>
+```
+
+## Headless
+
+A headless PrimeVue dialog with a custom UI.
+
+```vue
+<Button label="Login" icon="pi pi-user" @click="visible = true" />
+
+<Dialog v-model:visible="visible" pt:root:class="!border-0 !bg-transparent" pt:mask:class="backdrop-blur-sm">
+    <template #container="{ closeCallback }">
+        <div class="flex flex-col px-8 py-8 gap-6 rounded-2xl" style="background-image: radial-gradient(circle at left top, var(--p-primary-400), var(--p-primary-700))">
+            <svg width="35" height="40" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="block mx-auto">
+                <path
+                    d="M25.87 18.05L23.16 17.45L25.27 20.46V29.78L32.49 23.76V13.53L29.18 14.73L25.87 18.04V18.05ZM25.27 35.49L29.18 31.58V27.67L25.27 30.98V35.49ZM20.16 17.14H20.03H20.17H20.16ZM30.1 5.19L34.89 4.81L33.08 12.33L24.1 15.67L30.08 5.2L30.1 5.19ZM5.72 14.74L2.41 13.54V23.77L9.63 29.79V20.47L11.74 17.46L9.03 18.06L5.72 14.75V14.74ZM9.63 30.98L5.72 27.67V31.58L9.63 35.49V30.98ZM4.8 5.2L10.78 15.67L1.81 12.33L0 4.81L4.79 5.19L4.8 5.2ZM24.37 21.05V34.59L22.56 37.29L20.46 39.4H14.44L12.34 37.29L10.53 34.59V21.05L12.42 18.23L17.45 26.8L22.48 18.23L24.37 21.05ZM22.85 0L22.57 0.69L17.45 13.08L12.33 0.69L12.05 0H22.85Z"
+                    fill="var(--p-primary-700)"
+                />
+                <path
+                    d="M30.69 4.21L24.37 4.81L22.57 0.69L22.86 0H26.48L30.69 4.21ZM23.75 5.67L22.66 3.08L18.05 14.24V17.14H19.7H20.03H20.16H20.2L24.1 15.7L30.11 5.19L23.75 5.67ZM4.21002 4.21L10.53 4.81L12.33 0.69L12.05 0H8.43002L4.22002 4.21H4.21002ZM21.9 17.4L20.6 18.2H14.3L13 17.4L12.4 18.2L12.42 18.23L17.45 26.8L22.48 18.23L22.5 18.2L21.9 17.4ZM4.79002 5.19L10.8 15.7L14.7 17.14H14.74H15.2H16.85V14.24L12.24 3.09L11.15 5.68L4.79002 5.2V5.19Z"
+                    fill="var(--p-primary-200)"
+                />
+            </svg>
+            <div class="inline-flex flex-col gap-2">
+                <label for="username" class="text-primary-50 font-semibold">Username</label>
+                <InputText id="username" class="!bg-white/20 !border-0 !p-4 !text-primary-50 w-80"></InputText>
+            </div>
+            <div class="inline-flex flex-col gap-2">
+                <label for="password" class="text-primary-50 font-semibold">Password</label>
+                <InputText id="password" class="!bg-white/20 !border-0 !p-4 !text-primary-50 w-80" type="password"></InputText>
+            </div>
+            <div class="flex items-center gap-4">
+                <Button label="Cancel" @click="closeCallback" text class="!p-4 w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"></Button>
+                <Button label="Sign-In" @click="closeCallback" text class="!p-4 w-full !text-primary-50 !border !border-white/30 hover:!bg-white/10"></Button>
+            </div>
+        </div>
+    </template>
+</Dialog>
+```
+
+## Starter
+
+The Tailwind v4 and PrimeVue starter example is available to demonstrate the integration setup with an example dashboard.
+
+---
+
+# UI Kit
+
+Design files for PrimeVue Components.
+
+## Adding Prime Icons
+
+PrimeOne uses PrimeIcons, the official icon library by PrimeTek. To use it effectively within your design system, you need to add PrimeIcons to your Figma environment by following these steps: Open the PrimeIcons file in Figma and move it to your team project. Publish the PrimeIcons file and enable it for all team files in your Team Settings. Return to your PrimeOne file. In the Libraries panel, click on the banner that says “Includes X missing libraries.” From the dropdown, select “ PrimeIcons (Community) ” and click the Swap Library button.
+
+## Overview
+
+PrimeOne is the official Figma library of UI components designed to match the implementations in the Prime UI Suites. The current iteration of PrimeOne is structured around the Aura Light and Aura Dark themes.
+
+## Resources
+
+PrimeOne for Figma takes full advantage of powerful Figma features such as components, variants, auto layout, styles, interactivity, and design tokens via Tokens Studio. If you're new to Figma or want to get the most out of PrimeOne, we recommend exploring the following resources: Tokens Studio Documentation - PrimeOne uses Tokens Studio for design token management. Visit the official docs to understand how it works and how to use it effectively. Figma's Best Practice Guides - Learn how to work efficiently with components, variants, and layouts. Figma's Official YouTube Channel - Tutorials and feature walkthroughs from the Figma team. Figmalion Newsletter - Stay updated with curated insights from the Figma community.
+
+## Support
+
+The community gathers on GitHub Discussions and Discord to ask questions, share ideas, and discuss the technology. For direct inquiries or suggestions, feel free to contact us at contact@primetek.com.tr .
+
+## Token Sets
+
+Primitive This set contains the most foundational tokens, such as base colors and border radius, elements that are considered “primitive” by nature. Semantic Includes essential system-wide tokens like primary, surface, and other shared design values It also defines tokens used across multiple component groups. For example, tokens under {form.field.*} are referenced by component-level tokens in InputText, MultiSelect, Checkbox, and other form components, enabling consistent styling across the board. Component These tokens are defined specifically for each component to allow deep customization While we've aimed to create dedicated tokens for every component state, many of them still reference the semantic or primitive tokens, allowing you to make global updates from a single place when needed. App Tokens in this set are not part of the PrimeUIX system. They are intended for values defined in your own application. The same applies to tokens used in our UI library showcases. For example, there is no dedicated font size token in PrimeUIX because font styles are not part of the design system. UI components inherit their font settings from the application. Custom If you're using the Figma to Theme feature and want your newly created custom tokens to appear in your Theme Designer themes, place them in this set. Even if you're not using the Theme Designer, we still recommend creating a separate set — or using the existing “Custom” set — for your own tokens. Making changes to the default sets, especially deleting tokens or altering reference values, can lead to inconsistencies with the library tokens and cause additional work during development.
+
+## Update Prime One
+
+When a new version of PrimeOne is released, follow the steps below to update your files: Download the latest version of PrimeOne from PrimeStore. Unzip the file and upload it to your Figma workspace. Publish the newly uploaded file as a library. In all consumer files, use Swap Library to point to the new version. Once the transition is complete, you can safely unpublish the old PrimeOne library Before each update, it's a good idea to review the Changelog on the Get Started page of the PrimeOne Figma file. Keep in mind that while Swap Library will update most components, any customized components may require manual review and adjustment.
+
+## Components
+
+How to change base font size? The base font size used in PrimeOne is 14px. Similar to how rem works in CSS, this is controlled by the {app.font.size} token located under the "app" set in Tokens Studio. When you change the value of this token, all size calculations will adjust accordingly based on the new value. To apply this change, you need to use the “Apply” function in Tokens Studio. However, we do not recommend using the “ Apply to Document ” option if the change affects the entire library, as it may lead to unexpected errors. Instead, go page by page and review the updates carefully before applying changes. Also note: not all token values in the library may be linked to {app.font.size} . So it's important to check components individually. After completing each page, verify the updated values under Local Variables and make manual adjustments if needed. Alternatively, you can use Export Styles & Variables to Figma in Tokens Studio to sync the updated values.
+
+## Licence
+
+Will purchasing a PrimeBlocks license include access to PrimeOne components? No. The PrimeBlocks license does not grant access to the PrimeOne UI Kit. They are separate products with individual licenses.
+
+## Roadmap
+
+Are there plans to add a Tailwind theme to the UI Kit? At this time, we do not plan to include Tailwind theme support in the Figma UI Kit.
+
+## Tokens
+
+Is Tokens Studio too slow? This might be caused by using the wrong Apply method when pushing your changes. Since PrimeOne is a large file, using Apply to Document can result in very long processing times. We recommend using Apply to Selection or Apply to Page instead for better performance.
+
+## Updates
+
+Will there be a completely new Figma file with each update, or will the current PrimeOne file be modified and versioned? Each update will come as a new Figma file—an updated version of the previous one. You can seamlessly transition to the new version in your consumer files using Figma's Swap Library feature. Will the PrimeOne UI Kit stay in sync with ongoing updates to the Prime UI Libraries? The PrimeOne UI Kit does not update in real time alongside the libraries. However, we regularly release updates to bridge the gap and ensure alignment with key changes. How will users receive new components when they're added? New components will be included in future updates to the UI Kit. Please note that these updates may not coincide immediately with library changes and may take some time to roll out. How frequently is the PrimeOne UI Kit updated? We don't follow a fixed release schedule. Updates are made as needed, based on significant changes or additions to the Prime UI libraries.
+
+## Usage
+
+What should we do after purchasing? I can't publish the Preview file? The Preview file is view-only , so it can't be published. To use the library, download the .fig file from PrimeStore and import it into your Figma workspace. Once imported, you'll be able to open the file and publish it as a library for use in your projects. How to change theme? After exporting your tokens as Figma Variables using the Themes option in Tokens Studio, theme switching must be handled using Figma's native Mode Switching feature. The Theme Switcher within the Tokens Studio plugin will no longer function once themes are bound to a Variable Collection — this applies to PrimeOne as well. Therefore, to switch between Light and Dark modes, you should always use Figma's built-in Mode Switching interface.
+
+## Enabling
+
+If you want to enable PrimeOne across all files in your team, follow these steps: Navigate to All Projects from the Teams section. Go to View Settings View Team Libraries . You can find this option in the dropdown menu next to your team name. Toggle PrimeOne "On" to make it available globally.
+
+## Importing
+
+Download the latest .fig UI Kit - From your PrimeStore panel, download the latest PrimeOne package. The archive contains the .fig UI Kit. Open Figma in Google Chrome - Launch Figma in Chrome (or another supported browser). Avoid using the Desktop app for this import. It's more reliable in-browser. Import into your Team project - Navigate to the Teams section in the left sidebar. Select your Team project where you want PrimeOne. Drag and drop the .fig file into the project folder in the browser UI. Figma will upload it, showing a new file card once complete.
+
+## Publishing
+
+To make PrimeOne available as a shared library: Open the imported PrimeOne .fig file. Go to Assets Manage Libraries Click "Publish..." to share PrimeOne with your team, then confirm by clicking the "Publish" button in the modal.
+
+## C I Pipeline
+
+Theme Designer offers an API that can be utilized to implement continuos integration pipelines to automate figma to theme code generation whenever you push updates to the repository from Figma. Visit the CI Pipeline documentation for comprehensive information.
+
+## Design Changes
+
+Change on Tokens Studio The first step when planning a design change is to identify which tokens need to be modified within Tokens Studio. Use the Inspect tab in Tokens Studio to locate the relevant tokens, then apply your changes directly via the plugin. After making the updates, don't forget to push the changes to your Sync Provider. Change on Figma Variables After making changes in Tokens Studio, you also need to apply these updates in Figma Variables. There are two options: Manually update the variables one by one, or Use the Export to Styles & Variables feature in Tokens Studio. In our own workflow, we prefer to update the variables manually, as the export feature can be unstable with large files like PrimeOne. We recommend this manual approach for reliability. However, if you choose to use the export feature, make sure the settings match the screenshot provided. Specifically, ensure the “ Themes (Pro) ” tab is selected during the second step. Don't worry, even though it says “Pro,” you don't need a Pro license to access this feature in Tokens Studio. If you notice missing or incomplete exports on your first attempt, try running the export again from the beginning. This is a known issue with Tokens Studio and often resolves on the second attempt. For more detailed guidance, see the official documentation . Get Updates on Consumer Files We do not recommend making design changes directly in consumer files, as this goes against best practices. Instead, apply all design updates in the main UI Kit file, then publish the library and accept the updates in any consumer files that rely on it.
+
+## Tokens Studio Setup
+
+Set sync provider via Tokens Studio - Figma plugins are limited to sharing a maximum of 100KB of data through their APIs. Because PrimeOne's token data exceeds this limit, using tokens locally within your Figma file may lead to performance issues. To avoid this, you should first configure and switch to a remote sync provider. You can follow the official Tokens Studio guide for setting up remote storage. Push tokens to your sync provider - Once you've successfully switched to your new sync provider, push the token data from your local file to the new provider to ensure everything stays in sync. Set Base Font Size to {app.font.size} in Tokens Studio Settings - PrimeOne uses a base font size of 14px, aligning with the default in Prime UI libraries. In Tokens Studio, go to the Settings tab and set the Base font size to {app.font.size} . If you wish to change this value, you can update the corresponding token in the app set.
+
+---
+
+# Contribution Guide
+
+Welcome to the PrimeVue Contribution Guide and thank you for considering contributing.
+
+## Benefits
+
+Contributing to PrimeVue comes with several benefits. Being part of an open-source project will enhance your career and open up exciting opportunities. Contributors and Committers will be listed on our team page . You'll gain significant visibility in the developer community while improving yourself as a professional. You'll be invited to a private communication channel at Discord to get in touch with PrimeTek. In addition, contributors have access to all PrimeVue add-ons like Premium Templates, Blocks, and UI Kit free of charge.
+
+## CLA
+
+When a community member is offered the Contributor role, they are expected to sign a Contributor License Agreement (CLA) for legal purposes. This helps protect both the contributor and PrimeTek.
+
+## Communication
+
+Join the Contributors channel on the PrimeLand Discord server to connect with PrimeVue staff and fellow contributors. In this channel, you can discuss the areas you want to contribute to and receive feedback. This channel is open to everyone who'd like to contribute.
+
+## Help Needed
+
+PrimeVue is a community-driven project backed by the expertise and sponsorship of PrimeTek, and we appreciate any help you can provide. Here are some areas where you can contribute: Issue Triage Help us manage issues by; Reproducing reported bugs Clarifying issue descriptions Tagging issues with appropriate labels Sending Pull Requests We encourage you to send pull requests, especially for issues tagged with the help-needed label. Community Support Assist other users by participating in the issue tracker, GitHub discussions , and the PrimeLand Discord server. Your expertise can help others solve problems and improve their experience with PrimeVue.
+
+## Introduction
+
+PrimeVue is a popular Vue UI library maintained by PrimeTek, a company renowned for its comprehensive set of UI components for various frameworks. PrimeTek is dedicated to providing high-quality, versatile, and accessible UI components that help developers build better applications faster. Development Setup To begin with, clone the PrimeVue repository from GitHub: Then run the showcase in your local environment at http://localhost:3000/ . Project Structure PrimeVue utilizes a monorepo architecture, the libraries are located at packages folder and the website is at apps/showcase .
+
+## Key Points
+
+PrimeVue has several add-ons such as UI Kit, Premium Templates, and Blocks that rely on design tokens and styling. Any core structural changes, such as adding new props, events, or updating design tokens, should be communicated with the core team to ensure consistency and compatibility.
+
+## Pathway
+
+PrimeTek offers an organization structure involving contributors and the core team: Contributor Role After a certain period of frequent contributions, a community member is offered the Contributor role. On average, it may take about three months, but the exact duration can vary depending on the individual commitment. Committer Role If a contributor actively participates in the codebase and PRs, their role may be upgraded to a Committer level, providing direct commit access to the PrimeVue codebase. Employment PrimeTek prefers to hire team members from open source committers, so you may be offered a full-time position when a position becomes available.
+
+---
+
+# Setup
+
+Installation guides for popular development environments.
+
+---
+
+# LLMs.txt
+
+LLM-optimized documentation endpoints for PrimeVue components.
+
+## /llms-full.txt
+
+The llms-full.txt file is a complete list of all the pages in the PrimeVue documentation. It is used to help AI models understand the entire documentation set. Open llms-full.txt
+
+## /llms.txt
+
+The llms.txt file is an industry standard that helps AI models better understand and navigate the PrimeVue documentation. It lists key pages in a structured format, making it easier for LLMs to retrieve relevant information. Open llms.txt
+
+## Markdown Extension
+
+Add a .md to a page's URL to display a Markdown version of that page. Open /button.md
+
+## Overview
+
+LLMs.txt is a file that contains the LLMs for the PrimeVue documentation.
+
+## Usage Examples
+
+The Copy Markdown dropdown menu appears on every component documentation page, providing quick access to LLM-friendly formats. Integration Examples Here are some ways to use the LLM documentation formats:
+
+---
+
+# Accessibility
+
+PrimeVue has WCAG 2.1 AA level compliance, refer to the accessibility documentation of each component for detailed information.
+
+## Colors
+
+Colors on a web page should aim a contrast ratio of at least 4.5:1 and consider a selection of colors that do not cause vibration. Good Contrast Color contrast between the background and the foreground content should be sufficient enough to ensure readability. Example below displays two cases with good and bad samples. GOOD BAD Vibration Color vibration is leads to an illusion of motion due to choosing colors that have low visibility against each other. Color combinations need to be picked with caution to avoid vibration. VIBRATE Dark Mode Highly saturated colors should be avoided when used within a dark design scheme as they cause eye strain. Instead desaturated colors should be preferred. Indigo 500 Indigo 200
+
+## Form Controls
+
+Native form elements should be preferred instead of elements that are meant for other purposes like presentation. As an example, button below is rendered as a form control by the browser, can receive focus via tabbing and can be used with space key as well to trigger.
+
+```vue
+<button @click="onButtonClick(event)">Click</button>
+
+<div class="fancy-button" @click="onButtonClick(event)">Click</div>
+
+<div class="fancy-button" @click="onClick(event)" @keydown="onKeyDown(event)" tabindex="0">Click</div>
+
+<label for="myinput">Username:</label>
+<input id="myinput" type="text" name="username" />
+```
+
+## Introduction
+
+According to the World Health Organization, 15% of the world population has a disability to some degree. As a result, accessibility features in any context such as a ramp for wheelchair users or a multimedia with captions are crucial to ensure content can be consumed by anyone. Types of disabilities are diverse so you need to know your audience well and how they interact with the content created. There four main categories; Visual Impairments Blindness, low-level vision or color blindness are the common types of visual impairments. Screen magnifiers and the color blind mode are usually built-in features of the browsers whereas for people who rely on screen readers, page developers are required to make sure content is readable by the readers. Popular readers are NVDA , JAWS and ChromeVox . Hearing Impairments Deafness or hearing loss refers to the inability to hear sounds totally or partially. People with hearing impairments use assistive devices however it may not be enough when interacting with a web page. Common implementation is providing textual alternatives, transcripts and captions for content with audio. Mobility Impairments People with mobility impairments have disabilities related to movement due to loss of a limb, paralysis or other varying reasons. Assistive technologies like a head pointer is a device to interact with a screen whereas keyboard or a trackpad remain as solutions for people who are not able to utilize a mouse. Cognitive Impairments Cognitive impairments have a wider range that includes people with learning disabilities, depression and dyslexia. A well designed content also leads to better user experience for people without disabilities so designing for cognitive impairments result in better design for any user.
+
+## Semantic HTML
+
+HTML offers various element to organize content on a web page that screen readers are aware of. Preferring Semantic HTML for good semantics provide out of the box support for reader which is not possible when regular div elements with classes are used. Consider the following example that do not mean too much for readers.
+
+```vue
+<div class="header">
+    <div class="header-text">Header</div>
+</div>
+
+<div class="nav"></div>
+
+<div class="main">
+    <div class="content">
+    </div>
+
+    <div class="sidebar">
+    </div>
+</div>
+
+<div class="footer">
+</div>
+
+<header>
+    <h1>Header</h1>
+</header>
+
+<nav></nav>
+
+<main>
+    <article></article>
+
+    <aside></aside>
+</main>
+
+<footer>
+</footer>
+```
+
+## WAI ARIA
+
+ARIA refers to "Accessible Rich Internet Applications" is a suite to fill the gap where semantic HTML is inadequate. These cases are mainly related to rich UI components/widgets. Although browser support for rich UI components such as a datepicker or colorpicker has been improved over the past years many web developers still utilize UI components derived from standard HTML elements created by them or by other projects like PrimeVue. These types of components must provide keyboard and screen reader support, the latter case is where the WAI-ARIA is utilized. ARIA consists of roles, properties and attributes. Roles define what the element is mainly used for e.g. checkbox , dialog , tablist whereas States and Properties define the metadata of the element like aria-checked , aria-disabled . Consider the following case of a native checkbox. It has built-in keyboard and screen reader support.
+
+```vue
+<input type="checkbox" value="Prime" name="ui" checked>
+
+<div class="fancy-checkbox">
+    <i class="checked-icon" v-if="checked"></i>
+</div>
+
+<span id="chk-label">Remember Me</span>
+<div class="fancy-checkbox" role="checkbox" aria-checked="false" tabindex="0" aria-labelledby="chk-label"
+    @click="toggle" @keydown="onKeyDown(event)">
+    <i class="checked-icon" v-if="checked"></i>
+</div>
+
+<label for="chkbox">Remember Me</label>
+<div class="fancy-checkbox" @click="toggle">
+    <input class="p-hidden-accessible" type="checkbox" id="chkbox" @focus="updateParentVisuals" @blur="updateParentVisuals"
+        @keydown="onKeyDown(event)">
+    <i class="checked-icon" v-if="checked"></i>
+</div>
+```
+
+## WCAG
+
+Correct page structure with the aid of assistive technologies are the core ingridients for an accessible web content. HTML is based on an accessible foundation, form controls can be used by keyboard by default and semantic HTML is easier to be processed by a screen reader. WCAG refers to Web Content Accessibility Guideline , a standard managed by the WAI (Web Accessibility Initiative) of W3C (World Wide Web Consortium). WCAG consists of recommendations for making the web content more accessible. PrimeVue components aim high level of WCAG compliancy in the near future. Various countries around the globe have governmental policies regarding web accessibility as well. Most well known of these are Section 508 in the US and Web Accessibility Directive of the European Union.
+
+---
+
+# Dynamic Imports
+
+Dynamic imports enable the loading of multiple items as needed, streamlining the import process.
+
+## Overview
+
+With @primevue/icons for icons and primevue for components (except Editor and Chart), multiple items can be imported together.
+
+```vue
+import { Button, InputText } from 'primevue';
+import { SearchIcon, BellIcon } from '@primevue/icons';
+
+<script setup>
+import * as PrimeVue from 'primevue';
+
+const items = [
+    { as: 'Button', class: 'my-button-class' },
+    { as: 'InputText', class: 'my-inputtext-class' }
+};
+</script>
+
+<template>
+    <component v-for="item of items" :is="PrimeVue[item.as]" :class="item.class" />
+</template>
+```
+
+---
+
+# Migration
+
+Migration guide to PrimeVue v4.
+
+## Overview
+
+At PrimeTek, we have been developing UI component libraries since 2008. The web continues to undergo technological advancements, and as a result, we have to modernize and update our libraries to stay relevant. PrimeVue v4 is the next-generation version that fully embraces modern Web APIs and removes technical debt like the legacy-styled mode. Every component has been reviewed and enhanced. As part of our commitment to our products and the community, PrimeVue v3 will continue to be maintained until the end of 2024. The most notable feature is the new styled mode implementation. Previous iterations use SASS at an external repo called primevue-sass-theme which requires compilation of a theme.css a file. This file had to be included in the application and need to be swapped at runtime for basic tasks like dark mode or primary color changes. In v4, styled mode is now part of the core, SASS is not used at all, and a new design token based architecture that fully utilizes CSS variables has been created. The new API is modern and superior to the legacy styled mode. Names of some of the components have been changed to more common alternatives for example, Popover replaced OverlayPanel and InputSwitch is now called ToggleSwitch . Each component has been reviewed for a consistent naming between CSS class names and PT sections. An example would be the option element of a Select component that uses p-select-option for the class name. Components have been utilized more within other components, for instance Dialog close button is not actually a PrimeVue button so that closeButtonProps can be used to enable the features of button like outlined, raised and more. Whenever a component is using another component, in v3 the pt sections were causing confusion, to prevent this pc prefix is added to indicate that the PT section is actually a PrimeVue component, not a simple DOM element. This is especially useful because PT allows passing arbitrary attributes to DOM elements whereas if the element is actually a PrimeVue component, props can also be passed.
+
+## Breaking
+
+SASS Themes The styled mode theming has been reimplemented from scratch based on an all-new architecture. The theme.css and the primevue/resources do not exist anymore, so any imports of these assets needs to be removed. If you had a custom theme for v3, the theme needs to be recreated using the new APIs. See the customization section at styled mode for details. Removed Components TriStateCheckbox | Use Checkbox with indeterminate option. DataViewLayoutOptions | Use SelectButton instead. Removed APIs switchTheme function, use the new APIs like usePreset instead to dynamic theme switching. Relocated APIs Imports from primevue/api have been relocated to @primevue/core/api . Removed Files Themes under the primevue/resources path, migration to new styled mode is necessary. The legacy Tailwind preset at primevue/passthrough/tailwind , migrate to the Volt project if you'd like to style PrimeVue with Tailwind CSS. Message and InlineMessage InlineMessage is deprecated due to overlap with the Message . The spacing, closable and life properties of the Message have breaking changes to provide InlineMessage functionality. Default margin is removed, closable is false by default and messages do not disappear automatically. PT Section Names The experimental PassThrough feature is not production ready, there are changes on the PT section names due to alignment with CSS classes for certain components. If when component element is another PrimeVue component pc prefix is added for indication. Review the Pass Through section of a component for the new API. The Tailwind CSS presets for the unstyled mode are not updated to v4 yet. Removed Features Sidebar/Drawer size property is removed, use a responsive class utilty as replacement, demos have new examples. Rating cancel prop is removed as toggling the selected star value clears it. Inplace closable is removed in favor of templating and closeCallback prop. Removed Style Classes .p-link , use a button in link mode. .p-highlight , each component have its own class such as .p-select-option-selected . .p-fluid , use the new built-in fluid property of the supported components or the Fluid component. Nuxt Module The nuxt-primevue module has been replaced with the new @primevue/nuxt-module . The old module is still maintained for v3 users. PrimeFlex CSS In case you are using PrimeFlex CSS library, upgrade to PrimeFlex v4 since PrimeFlex v3 is not compatible with PrimeVue v4+.
+
+## Compatible
+
+Renamed Components Old names are deprecated but still functional, migrate to new import paths instead e.g. primevue/calendar becomes primevue/datepicker . Calendar -> DatePicker . Dropdown -> Select . InputSwitch -> ToggleSwitch . OverlayPanel -> Popover . Sidebar -> Drawer . Deprecated Components Components that are deprecated since their functionality is provided by other components. Chips | Use AutoComplete with multiple enabled and typeahead disabled. TabMenu | Use Tabs without panels. Steps | Use Stepper without panels. InlineMessage | Use Message component. BadgeDirective | Use OverlayBadge instead. TabView | Use the new Tabs components. Accordion | Use with the new AccordionHeader and AccordionContent components. Important Tickets Issue tickets with detailed information about component internal changes. #5426 #5437
+
+---
+
+# RTL Support
+
+Right-to-left direction support of PrimeVue.
+
+## Configuration
+
+The PrimeVue components natively support Right-to-Left (RTL) text direction through a modern CSS implementation utilizing FlexBox and classes like *-inline-start and *-block-end . Consequently, no JavaScript configuration is necessary; setting the document's text direction to RTL is sufficient to enable this feature. The RTL setting can either be set using the dir attribute or with the direction style property.
+
+```vue
+<html dir="rtl">
+
+html {
+    direction: rtl
+}
+```
+
+## Limitations
+
+RTL is widely supported by the UI suite except the Galleria and Carousel components. These components will be enhanced with a modern implementation in upcoming versions with built-in support for RTL.
+
+---
+
+# Components
 
 # Vue Accordion Component
 

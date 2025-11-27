@@ -1,6 +1,6 @@
-# Install PrimeVue with CDN
+# Install PrimeVue with CND
 
-Setting up PrimeVue in a project using CDN
+Setting up PrimeVue in a project using CDN.
 
 ## CreateApp
 

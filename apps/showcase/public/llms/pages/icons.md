@@ -1,4 +1,4 @@
-# Vue Icon Library
+# Icons
 
 PrimeIcons is the default icon library of PrimeVue with over 250 open source icons developed by PrimeTek. PrimeIcons library is optional as PrimeVue components can use any icon with templating.
 

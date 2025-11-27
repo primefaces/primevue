@@ -1,4 +1,4 @@
-# Theme Designer
+# Terms and Conditions
 
 Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to theme code, cloud storage, and migration assistant.
 

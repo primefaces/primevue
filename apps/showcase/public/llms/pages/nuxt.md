@@ -1,6 +1,6 @@
 # Install PrimeVue with Nuxt
 
-Setting up PrimeVue in a Nuxt project
+Setting up PrimeVue in a Nuxt project.
 
 ## autoImport
 

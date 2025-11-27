@@ -73,85 +73,154 @@ function extractTextFromTemplate(template) {
 }
 
 /**
+ * Extract code from <pre v-code> blocks in template
+ * Used by guide pages that don't have code: {} objects
+ */
+function extractCodeFromPreBlocks(content) {
+    const examples = {};
+    const codeBlocks = [];
+
+    // Match <pre v-code> or <pre v-code.script> blocks
+    // The pattern captures the modifier (if any) and the code content
+    const prePattern = /<pre\s+v-code(?:\.(\w+))?><code>([\s\S]*?)<\/code><\/pre>/gi;
+    let match;
+
+    while ((match = prePattern.exec(content)) !== null) {
+        const modifier = match[1]; // 'script' or undefined
+        let code = match[2].trim();
+
+        // Decode HTML entities
+        code = code
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&')
+            .replace(/&quot;/g, '"')
+            .replace(/&#123;/g, '{')
+            .replace(/&#125;/g, '}')
+            .replace(/&#39;/g, "'");
+
+        codeBlocks.push({
+            modifier,
+            code
+        });
+    }
+
+    if (codeBlocks.length === 0) return null;
+
+    // Combine code blocks intelligently
+    // If there's a script block and a template block, combine them
+    const scriptBlocks = codeBlocks.filter(b => b.modifier === 'script');
+    const templateBlocks = codeBlocks.filter(b => !b.modifier);
+
+    if (scriptBlocks.length > 0 && templateBlocks.length > 0) {
+        // Combine script and template blocks
+        let combined = '';
+        for (const block of scriptBlocks) {
+            combined += block.code + '\n\n';
+        }
+        for (const block of templateBlocks) {
+            combined += block.code + '\n\n';
+        }
+        examples.basic = combined.trim();
+    } else if (codeBlocks.length === 1) {
+        // Single code block
+        examples.basic = codeBlocks[0].code;
+    } else {
+        // Multiple blocks of same type - combine them
+        examples.basic = codeBlocks.map(b => b.code).join('\n\n');
+    }
+
+    return Object.keys(examples).length > 0 ? examples : null;
+}
+
+/**
  * Extract code examples from Vue file
  * Handles escaped backticks properly to avoid cutting off code
  */
 function extractCodeExamples(content) {
+    // First try to extract from code: {} object (component docs pattern)
     const scriptMatch = content.match(/<script>([\s\S]*?)<\/script>/i);
-    if (!scriptMatch) return null;
 
-    const scriptContent = scriptMatch[1];
+    if (scriptMatch) {
+        const scriptContent = scriptMatch[1];
 
-    // Find the code object with proper brace matching
-    const codeStartMatch = scriptContent.match(/code:\s*{/);
-    if (!codeStartMatch) return null;
+        // Find the code object with proper brace matching
+        const codeStartMatch = scriptContent.match(/code:\s*{/);
 
-    const startIndex = codeStartMatch.index + codeStartMatch[0].length;
-    let braceDepth = 1;
-    let endIndex = -1;
+        if (codeStartMatch) {
+            const startIndex = codeStartMatch.index + codeStartMatch[0].length;
+            let braceDepth = 1;
+            let endIndex = -1;
 
-    // Find the matching closing brace for the code object
-    for (let i = startIndex; i < scriptContent.length; i++) {
-        if (scriptContent[i] === '{') {
-            braceDepth++;
-        } else if (scriptContent[i] === '}') {
-            braceDepth--;
-            if (braceDepth === 0) {
-                endIndex = i;
-                break;
-            }
-        }
-    }
-
-    if (endIndex === -1) return null;
-
-    const codeContent = scriptContent.substring(startIndex, endIndex);
-    const examples = {};
-
-    // Helper function to extract content between backticks, handling escaped backticks
-    function extractBetweenBackticks(text, prefix) {
-        const startPattern = prefix + '\\s*`';
-        const startMatch = text.match(new RegExp(startPattern));
-
-        if (!startMatch) return null;
-
-        const startIndex = startMatch.index + startMatch[0].length;
-        let endIndex = -1;
-
-        // Find the matching closing backtick, counting escaped backticks
-        for (let i = startIndex; i < text.length; i++) {
-            if (text[i] === '\\' && text[i + 1] === '`') {
-                // Skip escaped backtick
-                i++;
-                continue;
+            // Find the matching closing brace for the code object
+            for (let i = startIndex; i < scriptContent.length; i++) {
+                if (scriptContent[i] === '{') {
+                    braceDepth++;
+                } else if (scriptContent[i] === '}') {
+                    braceDepth--;
+                    if (braceDepth === 0) {
+                        endIndex = i;
+                        break;
+                    }
+                }
             }
 
-            if (text[i] === '`') {
-                // Check if this is followed by comma, closing brace, or end of content (can be on next line)
-                const after = text.substring(i + 1).match(/^[\s\n]*([,}]|$)/);
-                if (after) {
-                    endIndex = i;
-                    break;
+            if (endIndex !== -1) {
+                const codeContent = scriptContent.substring(startIndex, endIndex);
+                const examples = {};
+
+                // Helper function to extract content between backticks, handling escaped backticks
+                function extractBetweenBackticks(text, prefix) {
+                    const startPattern = prefix + '\\s*`';
+                    const startMatch = text.match(new RegExp(startPattern));
+
+                    if (!startMatch) return null;
+
+                    const startIndex = startMatch.index + startMatch[0].length;
+                    let endIndex = -1;
+
+                    // Find the matching closing backtick, counting escaped backticks
+                    for (let i = startIndex; i < text.length; i++) {
+                        if (text[i] === '\\' && text[i + 1] === '`') {
+                            // Skip escaped backtick
+                            i++;
+                            continue;
+                        }
+
+                        if (text[i] === '`') {
+                            // Check if this is followed by comma, closing brace, or end of content (can be on next line)
+                            const after = text.substring(i + 1).match(/^[\s\n]*([,}]|$)/);
+                            if (after) {
+                                endIndex = i;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (endIndex === -1) return null;
+
+                    return text.substring(startIndex, endIndex).trim();
+                }
+
+                const basic = extractBetweenBackticks(codeContent, 'basic:');
+                const options = extractBetweenBackticks(codeContent, 'options:');
+                const composition = extractBetweenBackticks(codeContent, 'composition:');
+                const data = extractBetweenBackticks(codeContent, 'data:');
+
+                if (basic) examples.basic = basic;
+                if (options) examples.options = options;
+                if (composition) examples.composition = composition;
+                if (data) examples.data = data;
+
+                if (Object.keys(examples).length > 0) {
+                    return examples;
                 }
             }
         }
-
-        if (endIndex === -1) return null;
-
-        return text.substring(startIndex, endIndex).trim();
     }
 
-    const basic = extractBetweenBackticks(codeContent, 'basic:');
-    const options = extractBetweenBackticks(codeContent, 'options:');
-    const composition = extractBetweenBackticks(codeContent, 'composition:');
-    const data = extractBetweenBackticks(codeContent, 'data:');
-
-    if (basic) examples.basic = basic;
-    if (options) examples.options = options;
-    if (composition) examples.composition = composition;
-    if (data) examples.data = data;
-
-    return Object.keys(examples).length > 0 ? examples : null;
+    // Fallback: Try to extract from <pre v-code> blocks (guide pages pattern)
+    return extractCodeFromPreBlocks(content);
 }
 
 /**
@@ -575,7 +644,7 @@ function generateThemingSection(apiDocs, componentName) {
 /**
  * Generate JSON output for MCP server
  */
-function generateJsonOutput(components, apiDocs) {
+function generateJsonOutput(components, apiDocs, guidePages = []) {
     const output = {
         version: '1.0.0',
         generatedAt: new Date().toISOString(),
@@ -602,7 +671,19 @@ function generateJsonOutput(components, apiDocs) {
                     tokens: getTokenOptionsFromApi(mainComponentName)
                 }
             };
-        })
+        }),
+        pages: guidePages.map(page => ({
+            name: page.name,
+            path: page.fullPath || page.name,
+            title: page.title,
+            description: page.description,
+            sections: page.sections.map(section => ({
+                id: section.id,
+                label: section.label,
+                description: section.description,
+                examples: section.examples
+            }))
+        }))
     };
 
     const outputPath = path.join(OUTPUT_DIR, 'components.json');
@@ -615,10 +696,44 @@ function generateJsonOutput(components, apiDocs) {
 /**
  * Generate Markdown output for AI context
  */
-function generateMarkdownOutput(components, apiDocs) {
-    let markdown = '# PrimeVue Components Documentation\n\n';
+function generateMarkdownOutput(components, apiDocs, guidePages = []) {
+    let markdown = '# PrimeVue Documentation\n\n';
     markdown += `Generated: ${new Date().toISOString()}\n\n`;
     markdown += '---\n\n';
+
+    // Guide Pages Section
+    if (guidePages.length > 0) {
+        markdown += '# Guide Pages\n\n';
+
+        for (const page of guidePages) {
+            markdown += `# ${page.title}\n\n`;
+
+            if (page.description) {
+                markdown += `${page.description}\n\n`;
+            }
+
+            for (const section of page.sections) {
+                markdown += `## ${section.label}\n\n`;
+
+                if (section.description) {
+                    markdown += `${section.description}\n\n`;
+                }
+
+                if (section.examples) {
+                    if (section.examples.basic) {
+                        markdown += '```vue\n';
+                        markdown += section.examples.basic;
+                        markdown += '\n```\n\n';
+                    }
+                }
+            }
+
+            markdown += '---\n\n';
+        }
+    }
+
+    // Components Section
+    markdown += '# Components\n\n';
 
     for (const comp of components) {
         markdown += `# ${comp.title}\n\n`;
@@ -741,6 +856,7 @@ function generateIndividualMarkdownFiles(components, apiDocs) {
 }
 
 // Guide/documentation pages (non-component pages)
+// Use format: 'pagename' for direct pages, or 'path/to/page' for nested pages
 const GUIDE_PAGES = [
     'introduction',
     'configuration',
@@ -760,14 +876,18 @@ const GUIDE_PAGES = [
     'uikit',
     'contribution',
     'setup',
-    'llms'
+    'llms',
+    'guides/accessibility',
+    'guides/dynamicimports',
+    'guides/migration/v4',
+    'guides/rtl'
 ];
 
 /**
  * Get page metadata from pages directory
  */
 function getPageMetadata(pageName) {
-    // Check direct page first
+    // Handle nested paths like 'guides/accessibility' or 'guides/migration/v4'
     let pagePath = path.join(PAGES_DIR, pageName, 'index.vue');
 
     // Check nested pages (like theming/styled, theming/unstyled)
@@ -780,12 +900,27 @@ function getPageMetadata(pageName) {
         return null;
     }
 
+    // Get the simple name for output file (last segment of path)
+    const simpleName = pageName.includes('/') ? pageName.split('/').pop() : pageName;
+
     const content = fs.readFileSync(pagePath, 'utf-8');
 
-    // Extract title and description from Head or DocComponent
-    const titleMatch = content.match(/<Title>([^<]+)<\/Title>/i) || content.match(/title="([^"]+)"/);
-    const descriptionMatch = content.match(/<Meta[^>]*description[^>]*content="([^"]+)"/) || content.match(/description="([^"]+)"/);
-    const headerMatch = content.match(/<h1>([^<]+)<\/h1>/i) || content.match(/header="([^"]+)"/);
+    // Extract h1 content (preferred for title) - handles plain text h1
+    const h1Match = content.match(/<h1>([^<{]+)<\/h1>/i);
+
+    // Extract title from Head as fallback
+    const titleTagMatch = content.match(/<Title>([^<]+)<\/Title>/i) || content.match(/title="([^"]+)"/);
+
+    // Extract description from Meta tag
+    const metaDescMatch = content.match(/<Meta[^>]*description[^>]*content="([^"]+)"/);
+
+    // Also try to get description from the <p> inside doc-intro (more accurate for guide pages)
+    // Use a regex that captures content including nested HTML tags, then strip tags
+    const introDescMatch = content.match(/<div class="doc-intro">[\s\S]*?<p[^>]*>([\s\S]*?)<\/p>/i);
+
+    // For DocComponent pages, get from props
+    const descPropMatch = content.match(/description="([^"]+)"/);
+    const headerPropMatch = content.match(/header="([^"]+)"/);
 
     // Extract docs array to find sections
     const docsMatch = content.match(/docs:\s*\[([\s\S]*?)\]\s*[,}]/);
@@ -804,13 +939,33 @@ function getPageMetadata(pageName) {
         }
     }
 
-    const title = titleMatch ? (titleMatch[1] || '').replace(' - PrimeVue', '') : pageName;
+    // Prefer h1 content, then header prop, then title tag (cleaned)
+    let title = pageName;
+    if (h1Match && h1Match[1].trim()) {
+        title = h1Match[1].trim();
+    } else if (headerPropMatch) {
+        title = headerPropMatch[1];
+    } else if (titleTagMatch) {
+        title = (titleTagMatch[1] || '').replace(' - PrimeVue', '').trim();
+    }
+
+    // Prefer intro paragraph, then meta description, then description prop
+    let description = '';
+    if (introDescMatch && introDescMatch[1].trim()) {
+        // Strip HTML tags and normalize whitespace
+        description = introDescMatch[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    } else if (metaDescMatch) {
+        description = metaDescMatch[1];
+    } else if (descPropMatch) {
+        description = descPropMatch[1];
+    }
 
     return {
         name: pageName,
+        simpleName: simpleName,
         title: title,
-        description: descriptionMatch ? descriptionMatch[1] : '',
-        header: headerMatch ? headerMatch[1] : title,
+        description: description,
+        header: h1Match ? h1Match[1].trim() : title,
         sections
     };
 }
@@ -825,7 +980,7 @@ function processGuidePage(pageName) {
         return null;
     }
 
-    // Find doc directory
+    // Find doc directory - handle nested paths like 'guides/accessibility'
     let docDir = path.join(DOCS_DIR, pageName);
 
     // Check nested paths (like theming/styled)
@@ -836,7 +991,8 @@ function processGuidePage(pageName) {
     if (!fs.existsSync(docDir)) {
         // Some pages might not have separate doc folders
         return {
-            name: pageName,
+            name: metadata.simpleName,  // Use simple name for output file
+            fullPath: pageName,         // Keep full path for reference
             title: metadata.title,
             description: metadata.description,
             sections: []
@@ -844,7 +1000,8 @@ function processGuidePage(pageName) {
     }
 
     const page = {
-        name: pageName,
+        name: metadata.simpleName,  // Use simple name for output file
+        fullPath: pageName,         // Keep full path for reference
         title: metadata.title,
         description: metadata.description,
         sections: []
@@ -958,10 +1115,12 @@ function generateLlmsTxtWithGuides(components, guidePages) {
     // Guides section
     content += '## Guides\n\n';
     for (const page of guidePages) {
+        // Use fullPath for URL if available, otherwise use name
+        const urlPath = page.fullPath || page.name;
         if (page.description) {
-            content += `- [${page.title}](https://primevue.org/${page.name}): ${page.description}\n`;
+            content += `- [${page.title}](https://primevue.org/${urlPath}): ${page.description}\n`;
         } else {
-            content += `- [${page.title}](https://primevue.org/${page.name})\n`;
+            content += `- [${page.title}](https://primevue.org/${urlPath})\n`;
         }
     }
     content += '\n';
@@ -998,8 +1157,8 @@ function main() {
     console.log(`   Loaded API docs for ${Object.keys(apiDocs).length} components\n`);
 
     console.log('✨ Generating outputs...\n');
-    generateJsonOutput(components, apiDocs);
-    generateMarkdownOutput(components, apiDocs);
+    generateJsonOutput(components, apiDocs, guidePages);
+    generateMarkdownOutput(components, apiDocs, guidePages);
     generateLlmsTxtWithGuides(components, guidePages);
     generateIndividualMarkdownFiles(components, apiDocs);
     generateGuideMarkdownFiles(guidePages);

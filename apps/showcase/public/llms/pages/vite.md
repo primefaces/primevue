@@ -1,6 +1,6 @@
 # Install PrimeVue with Vite
 
-Setting up PrimeVue in a Vite project
+Setting up PrimeVue in a Vite project.
 
 ## Download
 

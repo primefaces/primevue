@@ -1,4 +1,4 @@
 # Setup
 
-Setup guides for popular development environments.
+Installation guides for popular development environments.
 

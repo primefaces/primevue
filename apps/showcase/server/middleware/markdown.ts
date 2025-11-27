@@ -23,12 +23,15 @@ export default defineEventHandler((event) => {
         return;
     }
 
+    // Use absolute path from cwd
+    const publicDir = path.join(process.cwd(), 'public', 'llms');
+
     // Check components folder first
-    let filePath = path.resolve(`./public/llms/components/${pageName}.md`);
+    let filePath = path.join(publicDir, 'components', `${pageName}.md`);
 
     // If not found in components, check pages folder (for guides)
     if (!fs.existsSync(filePath)) {
-        filePath = path.resolve(`./public/llms/pages/${pageName}.md`);
+        filePath = path.join(publicDir, 'pages', `${pageName}.md`);
     }
 
     if (!fs.existsSync(filePath)) {

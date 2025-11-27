@@ -1,6 +1,6 @@
-# Contribution
+# Contribution Guide
 
-Accessible Vue UI Components.
+Welcome to the PrimeVue Contribution Guide and thank you for considering contributing.
 
 ## Benefits
 

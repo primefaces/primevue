@@ -8,8 +8,13 @@
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
-                    <h1>Accessibility</h1>
-                    <p>PrimeVue has WCAG 2.1 AA level compliance, refer to the accessibility documentation of each component for detailed information.</p>
+                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                        <div class="flex-1">
+                            <h1>Accessibility</h1>
+                            <p>PrimeVue has WCAG 2.1 AA level compliance, refer to the accessibility documentation of each component for detailed information.</p>
+                        </div>
+                        <DocCopyMarkdown docType="page" class="flex-shrink-0" />
+                    </div>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -19,6 +24,7 @@
 </template>
 
 <script>
+import DocCopyMarkdown from '@/components/doc/DocCopyMarkdown.vue';
 import ColorsDoc from '@/doc/guides/accessibility/ColorsDoc.vue';
 import FormControlsDoc from '@/doc/guides/accessibility/FormControlsDoc.vue';
 import IntroductionDoc from '@/doc/guides/accessibility/IntroductionDoc.vue';
@@ -27,6 +33,7 @@ import WAIAriaDoc from '@/doc/guides/accessibility/WAIAriaDoc.vue';
 import WCAGDoc from '@/doc/guides/accessibility/WCAGDoc.vue';
 
 export default {
+    components: { DocCopyMarkdown },
     data() {
         return {
             checked: false,

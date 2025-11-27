@@ -1,4 +1,4 @@
-# Unstyled
+# Unstyled Mode
 
 Theming PrimeVue with alternative styling approaches.
 
