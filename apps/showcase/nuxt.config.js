@@ -17,12 +17,10 @@ try {
     // NOOP
 }
 
-const componentsDir = join(process.cwd(), 'public/llms/components')
-const mdFiles = readdirSync(componentsDir).filter(f => f.endsWith('.md'))
+const componentsDir = join(process.cwd(), 'public/llms/components');
+const mdFiles = readdirSync(componentsDir).filter((f) => f.endsWith('.md'));
 
-const mdRedirects = Object.fromEntries(
-  mdFiles.map(f => [`/${f}`, { redirect: { to: `/llms/components/${f}`, statusCode: 301 } }])
-)
+const mdRedirects = Object.fromEntries(mdFiles.map((f) => [`/${f}`, { redirect: { to: `/llms/components/${f}`, statusCode: 301 } }]));
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
