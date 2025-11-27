@@ -511,10 +511,16 @@
         {
             "name": "Guides",
             "icon": "pi pi-book",
+            "badge": "NEW",
             "children": [
                 {
                     "name": "Accessibility",
                     "to": "/guides/accessibility"
+                },
+                {
+                    "name": "Animations",
+                    "to": "/guides/animations",
+                    "badge": "NEW"
                 },
                 {
                     "name": "Dynamic Imports",

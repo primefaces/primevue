@@ -35,7 +35,7 @@
             </span>
         </div>
 
-        <div class="mt-8 p-4 rounded-lg border border-surface-200 dark:border-surface-800 bg-surface-0 dark:bg-surface-900 w-full">
+        <div class="mt-8 p-4 rounded-lg border border-surface-200 dark:border-surface-800 bg-surface-0 dark:bg-surface-900 w-full" v-if="false">
             <img src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/store.images/discount/nov25/showcase/primestore-novembersale-2025-sm.jpg" class="w-full rounded-lg" alt="November Sale 2025" />
             <div class="text-xl font-semibold flex flex-col gap-2 text-center mt-4" v-if="false">
                 <span class="leading-none">November SALE</span>

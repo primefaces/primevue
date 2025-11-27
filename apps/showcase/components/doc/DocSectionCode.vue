@@ -37,7 +37,12 @@
 </code></pre>
             </template>
 
-            <template v-if="codeMode === 'basic' && !importCode">
+            <template v-if="codeMode === 'basic' && format === 'css'">
+                <pre v-code.css><code>{{ code.basic }}
+</code></pre>
+            </template>
+
+            <template v-if="codeMode === 'basic' && !importCode && !format">
                 <pre v-code><code>{{ code.basic }}
 </code></pre>
             </template>
@@ -69,6 +74,10 @@ export default {
     props: {
         code: {
             type: null,
+            default: null
+        },
+        format: {
+            type: String,
             default: null
         },
         service: {

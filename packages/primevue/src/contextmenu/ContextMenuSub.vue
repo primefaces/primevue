@@ -1,5 +1,5 @@
 <template>
-    <transition name="p-contextmenusub" @enter="onEnter" v-bind="ptm('menu.transition')">
+    <transition name="p-anchored-overlay" @enter="onEnter" v-bind="ptm('menu.transition')">
         <ul v-if="root ? true : visible" ref="container" :tabindex="tabindex" v-bind="ptm('rootList')">
             <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
                 <li

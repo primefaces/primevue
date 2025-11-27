@@ -1,6 +1,6 @@
 {
-    "id": 91,
-    "content": "November Deals: Limited Coupons Available! 🎁",
-    "linkText": "Claim Your Coupon",
-    "linkHref": "https://primeui.store"
+    "id": 92,
+    "content": "PrimeVue Docs are now AI-Ready! 🎉",
+    "linkText": "Learn More",
+    "to": "/llms"
 }

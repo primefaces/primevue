@@ -1,5 +1,5 @@
 <template>
-    <transition name="p-tieredmenu" @enter="onEnter" v-bind="ptm('menu.transition')">
+    <transition name="p-anchored-overlay" @enter="onEnter" v-bind="ptm('menu.transition')">
         <ul v-if="level === 0 ? true : visible" :ref="containerRef" :tabindex="tabindex">
             <template v-for="(processedItem, index) of items" :key="getItemKey(processedItem)">
                 <li
