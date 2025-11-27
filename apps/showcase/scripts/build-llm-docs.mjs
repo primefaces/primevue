@@ -828,7 +828,7 @@ function generateMarkdownOutput(components, apiDocs, guidePages = []) {
         markdown += '---\n\n';
     }
 
-    const outputPath = path.join(OUTPUT_DIR, 'components.md');
+    const outputPath = path.join(OUTPUT_DIR, 'llms-full.txt');
 
     fs.writeFileSync(outputPath, markdown, 'utf-8');
     console.log(`✓ Generated Markdown output: ${outputPath}`);
@@ -1233,7 +1233,7 @@ function main() {
     console.log('\n✅ Enhanced LLM documentation generation complete!');
     console.log(`\nOutput directory: ${OUTPUT_DIR}`);
     console.log('   - components.json (for MCP server with full API data)');
-    console.log('   - components.md (full documentation with Props, Slots, Emits, PT, Theming)');
+    console.log('   - llms-full.txt (full documentation with Props, Slots, Emits, PT, Theming)');
     console.log('   - llms.txt (index file with guides and components)');
     console.log('   - components/*.md (individual component files with complete API)');
     console.log('   - pages/*.md (guide/documentation pages)');

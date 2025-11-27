@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export default defineEventHandler(() => {
-    const filePath = path.resolve('./public/llms/components.md');
+    const filePath = path.resolve('./public/llms/llms-full.txt');
 
     if (!fs.existsSync(filePath)) {
         throw createError({

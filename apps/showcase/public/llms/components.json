@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2025-11-27T13:00:01.358Z",
+  "generatedAt": "2025-11-27T13:43:50.535Z",
   "components": [
     {
       "name": "accordion",
@@ -39975,12 +39975,6 @@
           "id": "overview",
           "label": "Overview",
           "description": "LLMs.txt is a file that contains the LLMs for the PrimeVue documentation.",
-          "examples": null
-        },
-        {
-          "id": "usageexamples",
-          "label": "Usage Examples",
-          "description": "The Copy Markdown dropdown menu appears on every component documentation page, providing quick access to LLM-friendly formats. Integration Examples Here are some ways to use the LLM documentation formats:",
           "examples": null
         }
       ]
