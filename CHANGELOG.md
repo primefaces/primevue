@@ -1,6 +1,15 @@
 # Changelog
 
-## [4.4.1](https://github.com/primefaces/primevue/tree/4.4.0) (2025-10-07)
+## [4.5.0](https://github.com/primefaces/primevue/tree/4.5.0) (2025-11-27)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.4.1...4.5.0)
+
+**Implemented New Features and Enhancements:**
+
+-  LLM Support [\#8292](https://github.com/primefaces/primevue/issues/8292)
+-  New Animations [\#8291](https://github.com/primefaces/primevue/issues/8291)
+
+## [4.4.1](https://github.com/primefaces/primevue/tree/4.4.1) (2025-10-07)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.4.0...4.4.1)
 
@@ -8,7 +17,6 @@
 
 - Improve drag and drop behaviour between multiple Tree's [\#8183](https://github.com/primefaces/primevue/issues/8183
 - DatePicker | new `buttonbar` slot [\#8172](https://github.com/primefaces/primevue/issues/8172)
-  )
 
 **Fixed bugs:**
 
