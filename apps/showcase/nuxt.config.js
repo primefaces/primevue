@@ -1,5 +1,5 @@
-import { readdirSync } from 'fs';
-import path, { join } from 'path';
+import fs from 'fs';
+import path from 'path';
 
 const baseUrl = '/';
 
@@ -17,10 +17,43 @@ try {
     // NOOP
 }
 
-const componentsDir = join(process.cwd(), 'public/llms/components');
-const mdFiles = readdirSync(componentsDir).filter((f) => f.endsWith('.md'));
+// Nested page paths that need redirects (e.g., /theming/styled.md -> /llms/pages/styled.md)
+const nestedPagePaths = {
+    'theming/styled': 'styled',
+    'theming/unstyled': 'unstyled',
+    'guides/accessibility': 'accessibility',
+    'guides/dynamicimports': 'dynamicimports',
+    'guides/rtl': 'rtl',
+    'guides/migration/v4': 'v4'
+};
 
-const mdRedirects = Object.fromEntries(mdFiles.map((f) => [`/${f}`, { redirect: { to: `/llms/components/${f}`, statusCode: 301 } }]));
+const markdownRedirects = (() => {
+    const rules = {};
+    const llmsDir = path.resolve(__dirname, 'public/llms');
+
+    try {
+        // Add nested path redirects
+        for (const [nestedPath, fileName] of Object.entries(nestedPagePaths)) {
+            rules[`/${nestedPath}.md`] = { redirect: { to: `/llms/pages/${fileName}.md`, statusCode: 301 } };
+        }
+
+        // Add direct page redirects
+        for (const file of fs.readdirSync(path.join(llmsDir, 'pages'))) {
+            rules[`/${file}`] = { redirect: { to: `/llms/pages/${file}`, statusCode: 301 } };
+        }
+
+        // Add component redirects
+        for (const file of fs.readdirSync(path.join(llmsDir, 'components'))) {
+            if (!rules[`/${file}`]) {
+                rules[`/${file}`] = { redirect: { to: `/llms/components/${file}`, statusCode: 301 } };
+            }
+        }
+    } catch {
+        // Silently fail if llms directory doesn't exist yet
+    }
+
+    return rules;
+})();
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -49,8 +82,7 @@ export default defineNuxtConfig({
     routeRules: {
         '/accessibility': { redirect: { to: '/guides/accessibility', statusCode: 301 } },
         '/installation': { redirect: { to: '/vite', statusCode: 301 } },
-        '/setup.md': { redirect: { to: '/llms/pages/setup.md', statusCode: 301 } },
-        ...mdRedirects
+        ...markdownRedirects
     },
     primevue: {
         usePrimeVue: process.env.DEV_ENV !== 'hot',
