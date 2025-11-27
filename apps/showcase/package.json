@@ -50,7 +50,7 @@
         "chart.js": "catalog:app",
         "quill": "catalog:app",
         "superstruct": "^2.0.2",
-        "valibot": "^0.42.1",
+        "valibot": "^1.2.0",
         "yup": "1.4.0",
         "zod": "3.23.8"
     },
