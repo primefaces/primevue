@@ -1,7 +1,7 @@
+import ComponentTokens from '@primeuix/themes/tokens';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import ComponentTokens from '@primeuix/themes/tokens';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,9 +13,9 @@ const OUTPUT_DIR = path.resolve(__dirname, '../public/llms');
 
 // Mapping for components where route name doesn't match API interface name
 const COMPONENT_NAME_MAP = {
-    'datepicker': 'DatePicker',
-    'datatable': 'DataTable',
-    'dataview': 'DataView'
+    datepicker: 'DatePicker',
+    datatable: 'DataTable',
+    dataview: 'DataView'
 };
 
 /**
@@ -24,15 +24,15 @@ const COMPONENT_NAME_MAP = {
 function getApiComponentName(apiDoc, componentName) {
     // First check the manual mapping
     const lowerName = componentName.toLowerCase();
+
     if (COMPONENT_NAME_MAP[lowerName]) {
         return COMPONENT_NAME_MAP[lowerName];
     }
 
     // If we have the API doc, find the actual Props interface name
     if (apiDoc && apiDoc.interfaces && apiDoc.interfaces.values) {
-        const propsInterfaceKey = Object.keys(apiDoc.interfaces.values).find(key =>
-            key.endsWith('Props') && !key.includes('PassThrough') && !key.includes('Event')
-        );
+        const propsInterfaceKey = Object.keys(apiDoc.interfaces.values).find((key) => key.endsWith('Props') && !key.includes('PassThrough') && !key.includes('Event'));
+
         if (propsInterfaceKey) {
             // Remove 'Props' suffix to get component name
             return propsInterfaceKey.replace(/Props$/, '');
@@ -53,17 +53,20 @@ if (!fs.existsSync(OUTPUT_DIR)) {
  */
 function extractTextFromTemplate(template) {
     let text = template.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
+
     text = text.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '');
     text = text.replace(/<template>/gi, '');
     text = text.replace(/<\/template>/gi, '');
 
     const docTextMatches = text.matchAll(/<DocSectionText[^>]*>([\s\S]*?)<\/DocSectionText>/gi);
     let descriptions = [];
+
     for (const match of docTextMatches) {
         const content = match[1]
             .replace(/<[^>]+>/g, ' ')
             .replace(/\s+/g, ' ')
             .trim();
+
         if (content) {
             descriptions.push(content);
         }
@@ -109,25 +112,28 @@ function extractCodeFromPreBlocks(content) {
 
     // Combine code blocks intelligently
     // If there's a script block and a template block, combine them
-    const scriptBlocks = codeBlocks.filter(b => b.modifier === 'script');
-    const templateBlocks = codeBlocks.filter(b => !b.modifier);
+    const scriptBlocks = codeBlocks.filter((b) => b.modifier === 'script');
+    const templateBlocks = codeBlocks.filter((b) => !b.modifier);
 
     if (scriptBlocks.length > 0 && templateBlocks.length > 0) {
         // Combine script and template blocks
         let combined = '';
+
         for (const block of scriptBlocks) {
             combined += block.code + '\n\n';
         }
+
         for (const block of templateBlocks) {
             combined += block.code + '\n\n';
         }
+
         examples.basic = combined.trim();
     } else if (codeBlocks.length === 1) {
         // Single code block
         examples.basic = codeBlocks[0].code;
     } else {
         // Multiple blocks of same type - combine them
-        examples.basic = codeBlocks.map(b => b.code).join('\n\n');
+        examples.basic = codeBlocks.map((b) => b.code).join('\n\n');
     }
 
     return Object.keys(examples).length > 0 ? examples : null;
@@ -158,6 +164,7 @@ function extractCodeExamples(content) {
                     braceDepth++;
                 } else if (scriptContent[i] === '}') {
                     braceDepth--;
+
                     if (braceDepth === 0) {
                         endIndex = i;
                         break;
@@ -190,6 +197,7 @@ function extractCodeExamples(content) {
                         if (text[i] === '`') {
                             // Check if this is followed by comma, closing brace, or end of content (can be on next line)
                             const after = text.substring(i + 1).match(/^[\s\n]*([,}]|$)/);
+
                             if (after) {
                                 endIndex = i;
                                 break;
@@ -284,6 +292,7 @@ function processComponent(componentName, componentDir) {
 
     if (!metadata) {
         console.warn(`No page metadata found for ${componentName}`);
+
         return null;
     }
 
@@ -305,7 +314,7 @@ function processComponent(componentName, componentDir) {
         if (stat.isDirectory()) continue;
 
         const sectionId = file.replace('Doc.vue', '').toLowerCase();
-        const sectionInfo = metadata.sections.find(s => s.id === sectionId);
+        const sectionInfo = metadata.sections.find((s) => s.id === sectionId);
         const docData = parseVueDocFile(filePath);
 
         if (docData.description || docData.codeExamples) {
@@ -330,11 +339,27 @@ function getAllComponents() {
 
     // Directories to exclude (non-component documentation)
     const excludeDirs = [
-        'common', 'guides', 'theming', 'clt', 'forms',
-        'autoimport', 'cdn', 'configuration', 'contribution',
-        'customicons', 'designer', 'icons', 'introduction',
-        'laravel', 'llms', 'nuxt', 'passthrough',
-        'setup', 'tailwind', 'uikit', 'vite'
+        'common',
+        'guides',
+        'theming',
+        'clt',
+        'forms',
+        'autoimport',
+        'cdn',
+        'configuration',
+        'contribution',
+        'customicons',
+        'designer',
+        'icons',
+        'introduction',
+        'laravel',
+        'llms',
+        'nuxt',
+        'passthrough',
+        'setup',
+        'tailwind',
+        'uikit',
+        'vite'
     ];
 
     for (const entry of entries) {
@@ -344,6 +369,7 @@ function getAllComponents() {
         if (!stat.isDirectory() || excludeDirs.includes(entry)) continue;
 
         const component = processComponent(entry, componentDir);
+
         if (component) {
             components.push(component);
         }
@@ -358,6 +384,7 @@ function getAllComponents() {
 function loadApiDocs() {
     if (!fs.existsSync(API_DOC_PATH)) {
         console.warn('API documentation not found. Run build:apidoc first.');
+
         return {};
     }
 
@@ -371,9 +398,10 @@ function getPropsFromApi(apiDoc, componentName) {
     if (!apiDoc || !apiDoc.interfaces || !apiDoc.interfaces.values) return null;
 
     const propsInterface = apiDoc.interfaces.values[`${componentName}Props`];
+
     if (!propsInterface || !propsInterface.props) return null;
 
-    return propsInterface.props.map(prop => ({
+    return propsInterface.props.map((prop) => ({
         name: prop.name,
         type: prop.type,
         default: prop.default || '-',
@@ -388,9 +416,10 @@ function getSlotsFromApi(apiDoc, componentName) {
     if (!apiDoc || !apiDoc.interfaces || !apiDoc.interfaces.values) return null;
 
     const slotsInterface = apiDoc.interfaces.values[`${componentName}Slots`];
+
     if (!slotsInterface || !slotsInterface.props) return null;
 
-    return slotsInterface.props.map(slot => ({
+    return slotsInterface.props.map((slot) => ({
         name: slot.name,
         parameters: slot.type,
         description: slot.description || ''
@@ -404,9 +433,10 @@ function getEmitsFromApi(apiDoc, componentName) {
     if (!apiDoc || !apiDoc.interfaces || !apiDoc.interfaces.values) return null;
 
     const emitsInterface = apiDoc.interfaces.values[`${componentName}EmitsOptions`];
+
     if (!emitsInterface || !emitsInterface.props) return null;
 
-    return emitsInterface.props.map(emit => ({
+    return emitsInterface.props.map((emit) => ({
         name: emit.name,
         parameters: emit.type,
         description: emit.description || ''
@@ -419,11 +449,11 @@ function getEmitsFromApi(apiDoc, componentName) {
 function getPTOptionsFromApi(apiDoc, componentName) {
     if (!apiDoc || !apiDoc.interfaces || !apiDoc.interfaces.values) return null;
 
-    const ptInterface = apiDoc.interfaces.values[`${componentName}PassThroughOptions`] ||
-                        apiDoc.interfaces.values[`${componentName}DirectivePassThroughOptions`];
+    const ptInterface = apiDoc.interfaces.values[`${componentName}PassThroughOptions`] || apiDoc.interfaces.values[`${componentName}DirectivePassThroughOptions`];
+
     if (!ptInterface || !ptInterface.props) return null;
 
-    return ptInterface.props.map(pt => ({
+    return ptInterface.props.map((pt) => ({
         name: pt.name,
         type: pt.type,
         description: pt.description || ''
@@ -435,13 +465,15 @@ function getPTOptionsFromApi(apiDoc, componentName) {
  */
 function getStyleOptionsFromApi(apiDocs, componentName) {
     const styleDoc = apiDocs[componentName.toLowerCase() + 'style'];
+
     if (!styleDoc || !styleDoc.enumerations || !styleDoc.enumerations.values) return null;
 
     const enumValues = styleDoc.enumerations.values;
     const classEnum = enumValues[`${componentName}Classes`];
+
     if (!classEnum || !classEnum.members) return null;
 
-    return classEnum.members.map(member => ({
+    return classEnum.members.map((member) => ({
         class: member.value.replaceAll('"', ''),
         description: member.description || ''
     }));
@@ -483,11 +515,12 @@ function generateApiSection(apiDocs, componentName, includeRelated = true) {
 
     if (includeRelated) {
         // Try to find related components (e.g., ButtonGroup for Button)
-        const relatedComponents = Object.keys(apiDocs).filter(key => {
+        const relatedComponents = Object.keys(apiDocs).filter((key) => {
             // Skip the component itself and *style components
             if (key === componentName.toLowerCase() || key.endsWith('style')) {
                 return false;
             }
+
             // Only include if it starts with component name (e.g., buttongroup for button)
             return key.startsWith(componentName.toLowerCase());
         });
@@ -495,6 +528,7 @@ function generateApiSection(apiDocs, componentName, includeRelated = true) {
         // Add related components, but avoid duplicates
         for (const rc of relatedComponents) {
             const relatedName = rc.charAt(0).toUpperCase() + rc.slice(1);
+
             if (!components.includes(relatedName)) {
                 components.push(relatedName);
             }
@@ -503,16 +537,19 @@ function generateApiSection(apiDocs, componentName, includeRelated = true) {
 
     for (const compName of components) {
         const compApiDoc = apiDocs[compName.toLowerCase()];
+
         if (!compApiDoc) {
             console.warn(`⚠️  No API doc found for component: ${compName} (looking for key: ${compName.toLowerCase()})`);
             continue;
         }
 
         const displayName = compName.replace(/([A-Z])/g, ' $1').trim();
+
         markdown += `## ${displayName}\n\n`;
 
         // Props
         const props = getPropsFromApi(compApiDoc, compName);
+
         if (props && props.length > 0) {
             markdown += '### Props\n\n';
             markdown += '| Name | Type | Default | Description |\n';
@@ -532,6 +569,7 @@ function generateApiSection(apiDocs, componentName, includeRelated = true) {
 
         // Slots
         const slots = getSlotsFromApi(compApiDoc, compName);
+
         if (slots && slots.length > 0) {
             markdown += '### Slots\n\n';
             markdown += '| Name | Parameters | Description |\n';
@@ -550,6 +588,7 @@ function generateApiSection(apiDocs, componentName, includeRelated = true) {
 
         // Emits
         const emits = getEmitsFromApi(compApiDoc, compName);
+
         if (emits && emits.length > 0) {
             markdown += '### Emits\n\n';
             markdown += '| Name | Parameters | Description |\n';
@@ -579,6 +618,7 @@ function generatePTSection(apiDocs, componentName) {
     const mainComponentName = getApiComponentName(apiDoc, componentName);
 
     const ptOptions = getPTOptionsFromApi(apiDoc, mainComponentName);
+
     if (ptOptions && ptOptions.length > 0) {
         markdown += '## Pass Through Options\n\n';
         markdown += '| Name | Type | Description |\n';
@@ -608,6 +648,7 @@ function generateThemingSection(apiDocs, componentName) {
 
     // CSS Classes
     const styleOptions = getStyleOptionsFromApi(apiDocs, mainComponentName);
+
     if (styleOptions && styleOptions.length > 0) {
         markdown += '## Theming\n\n';
         markdown += '### CSS Classes\n\n';
@@ -626,6 +667,7 @@ function generateThemingSection(apiDocs, componentName) {
 
     // Design Tokens (placeholder)
     const tokens = getTokenOptionsFromApi(mainComponentName);
+
     if (tokens && tokens.length > 0) {
         markdown += '### Design Tokens\n\n';
         markdown += '| Token | CSS Variable | Description |\n';
@@ -648,7 +690,7 @@ function generateJsonOutput(components, apiDocs, guidePages = []) {
     const output = {
         version: '1.0.0',
         generatedAt: new Date().toISOString(),
-        components: components.map(comp => {
+        components: components.map((comp) => {
             const apiDoc = apiDocs[comp.name.toLowerCase()];
             const mainComponentName = getApiComponentName(apiDoc, comp.name);
 
@@ -656,7 +698,7 @@ function generateJsonOutput(components, apiDocs, guidePages = []) {
                 name: comp.name,
                 title: comp.title,
                 description: comp.description,
-                sections: comp.sections.map(section => ({
+                sections: comp.sections.map((section) => ({
                     id: section.id,
                     label: section.label,
                     description: section.description,
@@ -672,12 +714,12 @@ function generateJsonOutput(components, apiDocs, guidePages = []) {
                 }
             };
         }),
-        pages: guidePages.map(page => ({
+        pages: guidePages.map((page) => ({
             name: page.name,
             path: page.fullPath || page.name,
             title: page.title,
             description: page.description,
-            sections: page.sections.map(section => ({
+            sections: page.sections.map((section) => ({
                 id: section.id,
                 label: section.label,
                 description: section.description,
@@ -687,6 +729,7 @@ function generateJsonOutput(components, apiDocs, guidePages = []) {
     };
 
     const outputPath = path.join(OUTPUT_DIR, 'components.json');
+
     fs.writeFileSync(outputPath, JSON.stringify(output, null, 2), 'utf-8');
     console.log(`✓ Generated JSON output: ${outputPath}`);
 
@@ -698,6 +741,7 @@ function generateJsonOutput(components, apiDocs, guidePages = []) {
  */
 function generateMarkdownOutput(components, apiDocs, guidePages = []) {
     let markdown = '# PrimeVue Documentation\n\n';
+
     markdown += `Generated: ${new Date().toISOString()}\n\n`;
     markdown += '---\n\n';
 
@@ -785,6 +829,7 @@ function generateMarkdownOutput(components, apiDocs, guidePages = []) {
     }
 
     const outputPath = path.join(OUTPUT_DIR, 'components.md');
+
     fs.writeFileSync(outputPath, markdown, 'utf-8');
     console.log(`✓ Generated Markdown output: ${outputPath}`);
 
@@ -803,9 +848,11 @@ function generateIndividualMarkdownFiles(components, apiDocs) {
 
     for (const comp of components) {
         let markdown = `# ${comp.title}\n\n`;
+
         markdown += `${comp.description}\n\n`;
 
-        const importSection = comp.sections.find(s => s.id === 'import');
+        const importSection = comp.sections.find((s) => s.id === 'import');
+
         if (importSection && importSection.examples && importSection.examples.basic) {
             markdown += '## Import\n\n';
             markdown += '```javascript\n';
@@ -849,6 +896,7 @@ function generateIndividualMarkdownFiles(components, apiDocs) {
         markdown += generateThemingSection(apiDocs, comp.name);
 
         const outputPath = path.join(componentsDir, `${comp.name}.md`);
+
         fs.writeFileSync(outputPath, markdown, 'utf-8');
     }
 
@@ -942,6 +990,7 @@ function getPageMetadata(pageName) {
 
     // Prefer h1 content, then header prop, then title tag (cleaned)
     let title = pageName;
+
     if (h1Match && h1Match[1].trim()) {
         title = h1Match[1].trim();
     } else if (headerPropMatch) {
@@ -952,9 +1001,13 @@ function getPageMetadata(pageName) {
 
     // Prefer intro paragraph, then meta description, then description prop
     let description = '';
+
     if (introDescMatch && introDescMatch[1].trim()) {
         // Strip HTML tags and normalize whitespace
-        description = introDescMatch[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+        description = introDescMatch[1]
+            .replace(/<[^>]+>/g, '')
+            .replace(/\s+/g, ' ')
+            .trim();
     } else if (metaDescMatch) {
         description = metaDescMatch[1];
     } else if (descPropMatch) {
@@ -992,8 +1045,8 @@ function processGuidePage(pageName) {
     if (!fs.existsSync(docDir)) {
         // Some pages might not have separate doc folders
         return {
-            name: metadata.simpleName,  // Use simple name for output file
-            fullPath: pageName,         // Keep full path for reference
+            name: metadata.simpleName, // Use simple name for output file
+            fullPath: pageName, // Keep full path for reference
             title: metadata.title,
             description: metadata.description,
             sections: []
@@ -1001,8 +1054,8 @@ function processGuidePage(pageName) {
     }
 
     const page = {
-        name: metadata.simpleName,  // Use simple name for output file
-        fullPath: pageName,         // Keep full path for reference
+        name: metadata.simpleName, // Use simple name for output file
+        fullPath: pageName, // Keep full path for reference
         title: metadata.title,
         description: metadata.description,
         sections: []
@@ -1024,11 +1077,16 @@ function processGuidePage(pageName) {
                 const docData = parseVueDocFile(entryPath);
 
                 if (docData.description || docData.codeExamples) {
-                    const sectionInfo = metadata.sections.find(s => s.id === sectionId);
+                    const sectionInfo = metadata.sections.find((s) => s.id === sectionId);
 
                     page.sections.push({
                         id: prefix + sectionId,
-                        label: sectionInfo ? sectionInfo.label : entry.replace('Doc.vue', '').replace(/([A-Z])/g, ' $1').trim(),
+                        label: sectionInfo
+                            ? sectionInfo.label
+                            : entry
+                                  .replace('Doc.vue', '')
+                                  .replace(/([A-Z])/g, ' $1')
+                                  .trim(),
                         description: docData.description,
                         examples: docData.codeExamples
                     });
@@ -1101,6 +1159,7 @@ function generateGuideMarkdownFiles(pages) {
         }
 
         const outputPath = path.join(pagesDir, `${page.name}.md`);
+
         fs.writeFileSync(outputPath, markdown, 'utf-8');
     }
 
@@ -1115,15 +1174,18 @@ function generateLlmsTxtWithGuides(components, guidePages) {
 
     // Guides section
     content += '## Guides\n\n';
+
     for (const page of guidePages) {
         // Use fullPath for URL if available, otherwise use name
         const urlPath = page.fullPath || page.name;
+
         if (page.description) {
             content += `- [${page.title}](https://primevue.org/${urlPath}): ${page.description}\n`;
         } else {
             content += `- [${page.title}](https://primevue.org/${urlPath})\n`;
         }
     }
+
     content += '\n';
 
     // Components section
@@ -1135,6 +1197,7 @@ function generateLlmsTxtWithGuides(components, guidePages) {
     }
 
     const outputPath = path.join(OUTPUT_DIR, 'llms.txt');
+
     fs.writeFileSync(outputPath, content, 'utf-8');
     console.log(`✓ Generated llms.txt: ${outputPath}`);
 }
@@ -1147,14 +1210,17 @@ function main() {
 
     console.log('📖 Parsing component documentation...');
     const components = getAllComponents();
+
     console.log(`   Found ${components.length} components\n`);
 
     console.log('📄 Parsing guide pages...');
     const guidePages = getAllGuidePages();
+
     console.log(`   Found ${guidePages.length} guide pages\n`);
 
     console.log('📚 Loading API documentation...');
     const apiDocs = loadApiDocs();
+
     console.log(`   Loaded API docs for ${Object.keys(apiDocs).length} components\n`);
 
     console.log('✨ Generating outputs...\n');

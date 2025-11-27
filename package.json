@@ -44,8 +44,8 @@
         "typecheck": "pnpm --filter volt typecheck",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
-        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-        "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+        "format": "prettier --write \"**/*.{js,mjs,jsx,ts,tsx,json,md}\"",
+        "format:check": "prettier --check \"**/*.{js,mjs,jsx,ts,tsx,json,md}\"",
         "test:unit": "pnpm --filter primevue test:unit"
     },
     "devDependencies": {
