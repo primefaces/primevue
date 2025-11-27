@@ -6,8 +6,8 @@
 
 **Implemented New Features and Enhancements:**
 
--  LLM Support [\#8292](https://github.com/primefaces/primevue/issues/8292)
--  New Animations [\#8291](https://github.com/primefaces/primevue/issues/8291)
+- LLM Support [\#8292](https://github.com/primefaces/primevue/issues/8292)
+- New Animations [\#8291](https://github.com/primefaces/primevue/issues/8291)
 
 ## [4.4.1](https://github.com/primefaces/primevue/tree/4.4.1) (2025-10-07)
 
