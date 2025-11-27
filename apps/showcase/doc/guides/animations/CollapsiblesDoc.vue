@@ -37,49 +37,24 @@
             </AccordionPanel>
         </Accordion>
     </div>
-    <DocSectionCode :code="code1" hideToggleCode hideStackBlitz />
-    <DocSectionCode :code="code2" hideToggleCode hideStackBlitz format="css" />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz format="css" />
 </template>
 
 <script>
 export default {
     data() {
         return {
-            code1: {
+            code: {
                 basic: `
-<Accordion value="0">
-    <AccordionPanel value="0">
-        <AccordionHeader>Header I</AccordionHeader>
-        <AccordionContent class="demo-accordion">
-            Content
-        </AccordionContent>
-    </AccordionPanel>
-    <AccordionPanel value="1">
-        <AccordionHeader>Header II</AccordionHeader>
-        <AccordionContent class="demo-accordion">
-            Content
-        </AccordionContent>
-    </AccordionPanel>
-    <AccordionPanel value="2">
-        <AccordionHeader>Header III</AccordionHeader>
-        <AccordionContent class="demo-accordion">
-           Content
-        </AccordionContent>
-    </AccordionPanel>
-</Accordion>
-`
-            },
-            code2: {
-                basic: `
-.demo-accordion.p-collapsible-enter-active {
-    animation: demo-accordion-expand 500ms cubic-bezier(0.65, 0, 0.35, 1);
+.p-collapsible-enter-active {
+    animation: demo-collapsible-expand 500ms cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.demo-accordion.p-collapsible-leave-active {
-    animation: demo-accordion-collapse 500ms cubic-bezier(0.65, 0, 0.35, 1);
+.p-collapsible-leave-active {
+    animation: demo-collapsible-collapse 500ms cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-@keyframes demo-accordion-expand {
+@keyframes demo-collapsible-expand {
     from {
         opacity: 0;
         grid-template-rows: 0fr;
@@ -91,7 +66,7 @@ export default {
     }
 }
 
-@keyframes demo-accordion-collapse {
+@keyframes demo-collapsible-collapse {
     from {
         opacity: 1;
         grid-template-rows: 1fr;

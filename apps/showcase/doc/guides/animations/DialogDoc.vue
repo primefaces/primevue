@@ -21,8 +21,7 @@
             </div>
         </Dialog>
     </div>
-    <DocSectionCode :code="code1" hideToggleCode hideStackBlitz />
-    <DocSectionCode :code="code2" hideToggleCode hideStackBlitz format="css" />
+    <DocSectionCode :code="code" hideToggleCode hideStackBlitz format="css" />
 </template>
 
 <script>
@@ -30,22 +29,13 @@ export default {
     data() {
         return {
             visible: false,
-            code1: {
+            code: {
                 basic: `
-<Button label="Show" @click="visible = true" />
-
-<Dialog v-model:visible="visible" modal header="Edit Profile" class="demo-dialog">
-    Content
-</Dialog>
-`
-            },
-            code2: {
-                basic: `
-.demo-dialog.p-dialog-enter-active {
+.p-dialog-enter-active {
     animation: demo-dialog-in 500ms ease-out;
 }
 
-.demo-dialog.p-dialog-leave-active {
+.p-dialog-leave-active {
     animation: demo-dialog-out 500ms ease-in;
 }
 
