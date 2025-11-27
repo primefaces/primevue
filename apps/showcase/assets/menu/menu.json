@@ -76,7 +76,8 @@
         {
             "name": "LLMs.txt",
             "icon": "pi pi-file",
-            "to": "/llms"
+            "to": "/llms",
+            "badge": "NEW"
         },
         {
             "name": "Components",
