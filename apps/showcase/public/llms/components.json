@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2025-11-27T09:26:02.209Z",
+  "generatedAt": "2025-11-27T09:30:17.465Z",
   "components": [
     {
       "name": "accordion",
@@ -39326,6 +39326,60 @@
           "description": "Include the theme preset via a script element after adding PrimeVue, valid options are Aura, Lara, Nora and Material.",
           "examples": {
             "basic": "<!-- <script src=\"https://unpkg.com/@primeuix/themes/umd/{preset}.js\"><\\/script> -->\n\n<script src=\"https://unpkg.com/@primeuix/themes/umd/aura.js\"><\\/script>\n<script src=\"https://unpkg.com/@primeuix/themes/umd/lara.js\"><\\/script>\n<script src=\"https://unpkg.com/@primeuix/themes/umd/nora.js\"><\\/script>\n<script src=\"https://unpkg.com/@primeuix/themes/umd/material.js\"><\\/script>"
+          }
+        }
+      ]
+    },
+    {
+      "name": "laravel",
+      "path": "laravel",
+      "title": "Install PrimeVue with Laravel",
+      "description": "Setting up PrimeVue in a Laravel project.",
+      "sections": [
+        {
+          "id": "download",
+          "label": "Download",
+          "description": "PrimeVue is available for download on npm registry .",
+          "examples": {
+            "basic": "# Using npm\nnpm install primevue @primeuix/themes\n\n# Using yarn\nyarn add primevue @primeuix/themes\n\n# Using pnpm\npnpm add primevue @primeuix/themes"
+          }
+        },
+        {
+          "id": "examples",
+          "label": "Examples",
+          "description": "We've created various samples for the popular options in the Vue ecosystem. Visit the primevue-examples repository for more samples including laravel-quickstart and inertia-quickstart .",
+          "examples": null
+        },
+        {
+          "id": "nextsteps",
+          "label": "Next Steps",
+          "description": "Welcome to the Prime UI Ecosystem! Once you have PrimeVue up and running, we recommend exploring the following resources to gain a deeper understanding of the library. Global configuration Auto imports with tree-shaking Customization of styles Pass through attributes Getting support",
+          "examples": null
+        },
+        {
+          "id": "plugin",
+          "label": "Plugin",
+          "description": "PrimeVue plugin is required to be installed as an application plugin to set up the default configuration . The plugin is lightweight, and only utilized for configuration purposes.",
+          "examples": {
+            "basic": "import { createApp } from 'vue';\nimport PrimeVue from 'primevue/config';\n\nconst app = createApp(App);\napp.use(PrimeVue);"
+          }
+        },
+        {
+          "id": "theme",
+          "label": "Plugin",
+          "description": "Configure PrimeVue to use a theme like Aura.",
+          "examples": {
+            "basic": "import { createApp } from 'vue';\nimport PrimeVue from 'primevue/config';\nimport Aura from '@primeuix/themes/aura';\n\nconst app = createApp(App);\napp.use(PrimeVue, {\n    theme: {\n        preset: Aura\n    }\n});"
+          }
+        },
+        {
+          "id": "verify",
+          "label": "Verify",
+          "description": "Verify your setup by adding a component such as Button . Each component can be imported and registered individually so that you only include what you use for bundle optimization. Import path is available in the documentation of the corresponding component.",
+          "examples": {
+            "basic": "import Button from \"primevue/button\"\n\nconst app = createApp(App);\napp.component('Button', Button);",
+            "options": "<template>\n    <div class=\"card flex justify-center\">\n        <Button label=\"Verify\" />\n    </div>\n</template>\n\n<script>\n<\\/script>",
+            "composition": "<template>\n    <div class=\"card flex justify-center\">\n        <Button label=\"Verify\" />\n    </div>\n</template>\n\n<script setup>\n<\\/script>"
           }
         }
       ]

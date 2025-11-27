@@ -869,6 +869,7 @@ const GUIDE_PAGES = [
     'forms',
     'autoimport',
     'cdn',
+    'laravel',
     'nuxt',
     'vite',
     'designer',
