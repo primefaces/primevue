@@ -46,7 +46,7 @@ export default defineNuxtConfig({
         '/setup.md': { redirect: { to: '/llms/pages/setup.md', statusCode: 301 } },
         '/:path(.*).md': {
             redirect: (to) => {
-                return `/llms/components/${to.path}`
+                return `/llms/components/${to.path}`;
             }
         }
     },
