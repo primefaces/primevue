@@ -28,11 +28,11 @@ export interface DynamicDialogTemplates {
  *
  * @group Interfaces
  */
-export interface DynamicDialogCloseOptions {
+export interface DynamicDialogCloseOptions<T = any> {
     /**
      * Custom data object
      */
-    data?: any;
+    data?: T;
     /**
      * Close type
      */
