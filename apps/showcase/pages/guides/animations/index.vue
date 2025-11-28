@@ -1,7 +1,7 @@
 <template>
     <div>
         <Head>
-            <Title>Accessibility - PrimeVue</Title>
+            <Title>Animations - PrimeVue</Title>
             <Meta name="description" content="Accessible Vue UI Components." />
         </Head>
 
