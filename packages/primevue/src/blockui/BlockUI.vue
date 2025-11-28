@@ -18,7 +18,8 @@ export default {
     mask: null,
     data() {
         return {
-            isBlocked: false
+            isBlocked: false,
+            pendingTimer: null
         };
     },
     watch: {
@@ -32,8 +33,26 @@ export default {
             this.block();
         }
     },
+    beforeUnmount() {
+        if (this.pendingTimer) {
+            clearTimeout(this.pendingTimer);
+        }
+        if (this.mask) {
+            this.removeMask();
+        }
+    },
     methods: {
         block() {
+            if (this.mask) {
+                // Clean up existing mask and listeners to prevent memory leaks
+                this.removeMask();
+            }
+
+            if (this.pendingTimer) {
+                clearTimeout(this.pendingTimer);
+                this.pendingTimer = null;
+            }
+
             let styleClass = 'p-blockui-mask p-overlay-mask p-overlay-mask-enter';
 
             if (this.fullScreen) {
@@ -78,15 +97,26 @@ export default {
         },
         unblock() {
             if (this.mask) {
+                if (this.pendingTimer) {
+                    clearTimeout(this.pendingTimer);
+                    this.pendingTimer = null;
+                }
+
                 !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
 
                 const handleAnimationEnd = () => {
-                    clearTimeout(fallbackTimer);
-                    this.mask.removeEventListener('animationend', handleAnimationEnd);
-                    this.mask.removeEventListener('webkitAnimationEnd', handleAnimationEnd);
+                    if (this.pendingTimer) {
+                        clearTimeout(this.pendingTimer);
+                        this.pendingTimer = null;
+                    }
+                    if (this.mask) {
+                        this.mask.removeEventListener('animationend', handleAnimationEnd);
+                        this.mask.removeEventListener('webkitAnimationEnd', handleAnimationEnd);
+                    }
+                    this.removeMask();
                 };
 
-                const fallbackTimer = setTimeout(() => {
+                this.pendingTimer = setTimeout(() => {
                     this.removeMask();
                 }, 10);
 
@@ -99,15 +129,27 @@ export default {
             }
         },
         removeMask() {
+            if (!this.mask) return;
+
+            if (this.pendingTimer) {
+                clearTimeout(this.pendingTimer);
+                this.pendingTimer = null;
+            }
+
             ZIndex.clear(this.mask);
 
             if (this.fullScreen) {
-                document.body.removeChild(this.mask);
+                if (this.mask.parentNode === document.body) {
+                    document.body.removeChild(this.mask);
+                }
                 unblockBodyScroll();
             } else {
-                this.$refs.container?.removeChild(this.mask);
+                if (this.mask.parentNode === this.$refs.container) {
+                    this.$refs.container.removeChild(this.mask);
+                }
             }
 
+            this.mask = null;
             this.isBlocked = false;
             this.$emit('unblock');
         }
