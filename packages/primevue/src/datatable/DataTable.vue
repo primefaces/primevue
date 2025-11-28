@@ -344,6 +344,7 @@ import {
 } from '@primeuix/utils/dom';
 import { equals, findIndexInList, isEmpty, isNotEmpty, localeComparator, reorderArray, resolveFieldData, sort } from '@primeuix/utils/object';
 import { FilterMatchMode, FilterOperator, FilterService } from '@primevue/core/api';
+import { getCurrentInstance } from 'vue'
 import { HelperSet, getVNodeProp } from '@primevue/core/utils';
 import ArrowDownIcon from '@primevue/icons/arrowdown';
 import ArrowUpIcon from '@primevue/icons/arrowup';
@@ -492,6 +493,15 @@ export default {
 
         if (this.editMode === 'row' && this.dataKey && !this.d_editingRowKeys) {
             this.updateEditingRowKeys(this.editingRows);
+        }
+
+        // Warn the user if they are using row selection events without a selection model.
+        const componentProps = getCurrentInstance()?.vnode?.props;
+        if ((componentProps?.onRowSelect || componentProps?.onRowUnselect) && !componentProps.selection) {
+            console.warn(
+                '[PrimeVue DataTable] You are using row selection events without providing a selection model.' +
+                ' This may lead to unexpected behavior. Please provide a selection model using v-model:selection.'
+            );
         }
     },
     beforeUnmount() {
