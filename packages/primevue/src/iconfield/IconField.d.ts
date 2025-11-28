@@ -119,10 +119,4 @@ export declare type IconFieldEmits = EmitFn<IconFieldEmitsOptions>;
  */
 declare const IconField: DefineComponent<IconFieldProps, IconFieldSlots, IconFieldEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        IconField: DefineComponent<IconFieldProps, IconFieldSlots, IconFieldEmits>;
-    }
-}
-
 export default IconField;
