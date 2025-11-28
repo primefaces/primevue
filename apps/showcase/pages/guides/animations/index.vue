@@ -2,7 +2,7 @@
     <div>
         <Head>
             <Title>Animations - PrimeVue</Title>
-            <Meta name="description" content="Accessible Vue UI Components." />
+            <Meta name="description" content="PrimeVue animations guide." />
         </Head>
 
         <div class="doc">
