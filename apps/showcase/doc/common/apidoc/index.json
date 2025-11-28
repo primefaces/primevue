@@ -402,6 +402,13 @@
                             "default": ""
                         },
                         {
+                            "name": "setErrors",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "Function",
+                            "default": ""
+                        },
+                        {
                             "name": "validate",
                             "optional": false,
                             "readonly": false,
