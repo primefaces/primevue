@@ -927,6 +927,7 @@ const GUIDE_PAGES = [
     'setup',
     'llms',
     'guides/accessibility',
+    'guides/animations',
     'guides/dynamicimports',
     'guides/migration/v4',
     'guides/rtl'

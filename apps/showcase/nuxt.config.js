@@ -22,6 +22,7 @@ const nestedPagePaths = {
     'theming/styled': 'styled',
     'theming/unstyled': 'unstyled',
     'guides/accessibility': 'accessibility',
+    'guides/animations': 'animations',
     'guides/dynamicimports': 'dynamicimports',
     'guides/rtl': 'rtl',
     'guides/migration/v4': 'v4'

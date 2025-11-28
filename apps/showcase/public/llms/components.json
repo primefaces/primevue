@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2025-11-27T13:43:50.535Z",
+  "generatedAt": "2025-11-28T10:55:52.150Z",
   "components": [
     {
       "name": "accordion",
@@ -40025,6 +40025,58 @@
           "id": "wcag",
           "label": "WCAG",
           "description": "Correct page structure with the aid of assistive technologies are the core ingridients for an accessible web content. HTML is based on an accessible foundation, form controls can be used by keyboard by default and semantic HTML is easier to be processed by a screen reader. WCAG refers to Web Content Accessibility Guideline , a standard managed by the WAI (Web Accessibility Initiative) of W3C (World Wide Web Consortium). WCAG consists of recommendations for making the web content more accessible. PrimeVue components aim high level of WCAG compliancy in the near future. Various countries around the globe have governmental policies regarding web accessibility as well. Most well known of these are Section 508 in the US and Web Accessibility Directive of the European Union.",
+          "examples": null
+        }
+      ]
+    },
+    {
+      "name": "animations",
+      "path": "guides/animations",
+      "title": "Animations",
+      "description": "Various PrimeVue Components utilize native CSS animations to provide an enhanced user experience. The default animations are based on the best practices recommended by the usability experts. In case you need to customize the default animations, this documentation covers the entire set of built-in animations.",
+      "sections": [
+        {
+          "id": "anchoredoverlays",
+          "label": "Anchored Overlays",
+          "description": "Anchored overlays are the components that have a floating ui positioned relatively to another element such as Select, Popover. The enter and leave animations are defined with the .p-anchored-overlay-enter-active and .p-anchored-overlay-leave-active classes.",
+          "examples": {
+            "basic": ".p-anchored-overlay-enter-active {\n    animation: demo-overlay-in 300ms ease-out;\n}\n\n.p-anchored-overlay-leave-active {\n    animation: demo-overlay-out 250ms ease-in;\n}\n\n@keyframes demo-overlay-in {\n    from {\n        opacity: 0;\n        transform: translateY(10%);\n    }\n}\n\n@keyframes demo-overlay-out {\n    to {\n        opacity: 0;\n        transform: translateY(10%);\n    }\n}"
+          }
+        },
+        {
+          "id": "collapsibles",
+          "label": "Collapsibles",
+          "description": "Collapsible components have a content that is toggleable including Accordion, Panel, Fieldset, Stepper and PanelMenu. The enter and leave animations are defined with the .p-collapsible-enter-active and .p-collapsible-leave-active classes.",
+          "examples": {
+            "basic": ".p-collapsible-enter-active {\n    animation: demo-collapsible-expand 500ms cubic-bezier(0.65, 0, 0.35, 1);\n}\n\n.p-collapsible-leave-active {\n    animation: demo-collapsible-collapse 500ms cubic-bezier(0.65, 0, 0.35, 1);\n}\n\n@keyframes demo-collapsible-expand {\n    from {\n        opacity: 0;\n        grid-template-rows: 0fr;\n        transform: scale(0.93);\n    }\n    to {\n        opacity: 1;\n        grid-template-rows: 1fr;\n    }\n}\n\n@keyframes demo-collapsible-collapse {\n    from {\n        opacity: 1;\n        grid-template-rows: 1fr;\n    }\n    to {\n        opacity: 0;\n        grid-template-rows: 0fr;\n        transform: scale(0.93);\n    }\n}"
+          }
+        },
+        {
+          "id": "dialog",
+          "label": "Dialog",
+          "description": "Overlays such as Dialog and Drawer are positioned relative to the viewport and have their own animations.",
+          "examples": {
+            "basic": ".p-dialog-enter-active {\n    animation: demo-dialog-in 500ms ease-out;\n}\n\n.p-dialog-leave-active {\n    animation: demo-dialog-out 500ms ease-in;\n}\n\n@keyframes demo-dialog-in {\n    from {\n        opacity: 0;\n        transform: translateY(-10%) scale(1.1);\n        filter: blur(10px);\n    }\n}\n\n@keyframes demo-dialog-out {\n    to {\n        opacity: 0;\n        transform: translateY(200%) rotate(-90deg);\n    }\n}"
+          }
+        },
+        {
+          "id": "disable",
+          "label": "Disable",
+          "description": "Individual animations can be reduced and even disabled completely using the animation duration.",
+          "examples": {
+            "basic": "@media (prefers-reduced-motion: reduce) {\n    .p-anchored-overlay-enter-active,\n    .p-anchored-overlay-leave-active {\n        animation-duration: 0s !important;\n    }\n}"
+          }
+        },
+        {
+          "id": "introduction",
+          "label": "Introduction",
+          "description": "Various PrimeVue Components utilize native CSS animations to provide an enhanced user experience. The default animations are based on the best practices recommended by the usability experts. In case you need to customize the default animations, this documentation covers the entire set of built-in animations. Animations are defined using a combination of style classes and keyframes. The ⁠ .{classname}-enter-active and ⁠ .{classname}-leave-active classes specify the animation name, duration, and easing function. You can customize animations globally by overriding the default animation classes, affecting all components. Alternatively, you can apply scoped classes to individual components to modify their animations independently. For demo purposes, this second approach is used throughout the next sections.",
+          "examples": null
+        },
+        {
+          "id": "reference",
+          "label": "Reference",
+          "description": "List of class names of the CSS animations used by the components. Component Enter Class Leave Class Accordion .p-collapsible-enter-active .p-collapsible-leave-active AutoComplete .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active CascadeSelect .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active ColorPicker .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active ConfirmPopup .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active ContextMenu .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active DatePicker .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Dialog .p-dialog-enter-active .p-dialog-leave-active Drawer .p-drawer-enter-active .p-drawer-leave-active Fieldset .p-collapsible-enter-active .p-collapsible-leave-active Galleria .p-galleria-enter-active .p-galleria-leave-active Image .p-image-original-enter-active .p-image-original-leave-active Menu .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Message .p-message-enter-active .p-message-leave-active MultiSelect .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Panel .p-collapsible-enter-active .p-collapsible-leave-active PanelMenu .p-collapsible-enter-active .p-collapsible-leave-active Password .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Select .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Stepper .p-collapsible-enter-active .p-collapsible-leave-active TieredMenu .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Toast .p-toast-message-enter-active .p-toast-message-leave-active TreeSelect .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active",
           "examples": null
         }
       ]

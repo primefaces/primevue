@@ -22,6 +22,7 @@
 - [Setup](https://primevue.org/setup): Installation guides for popular development environments.
 - [LLMs.txt](https://primevue.org/llms): LLM-optimized documentation endpoints for PrimeVue components.
 - [Accessibility](https://primevue.org/guides/accessibility): PrimeVue has WCAG 2.1 AA level compliance, refer to the accessibility documentation of each component for detailed information.
+- [Animations](https://primevue.org/guides/animations): Various PrimeVue Components utilize native CSS animations to provide an enhanced user experience. The default animations are based on the best practices recommended by the usability experts. In case you need to customize the default animations, this documentation covers the entire set of built-in animations.
 - [Dynamic Imports](https://primevue.org/guides/dynamicimports): Dynamic imports enable the loading of multiple items as needed, streamlining the import process.
 - [Migration](https://primevue.org/guides/migration/v4): Migration guide to PrimeVue v4.
 - [RTL Support](https://primevue.org/guides/rtl): Right-to-left direction support of PrimeVue.
