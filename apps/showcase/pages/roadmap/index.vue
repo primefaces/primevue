@@ -8,8 +8,8 @@
         <div class="doc-intro">
             <h1>Roadmap</h1>
             <p>
-                At <a href="https://www.primetek.com.tr/">PrimeTek</a>, we are passionate about improving PrimeVue and would like to share our ideas for 2025 with the community. These are planned to be implemented in parallel to the regular
-                maintenance work of the library involving review of issue tickets, PRs and PrimeVue PRO support.
+                At <a href="https://www.primetek.com.tr/">PrimeTek</a>, we are passionate about improving PrimeVue and would like to share our ideas for 2026 (Year 8) with the community. These are planned to be implemented in parallel to the regular
+                maintenance work of the library involving review of issue tickets, PRs and PrimeVue PRO support. Based on semantic versioning guidelines, PrimeVue updates will be backward compatible with a clear migration path when necessary.
             </p>
         </div>
 
@@ -28,133 +28,90 @@
                         <div class="shrink-0 p-4 bg-blue-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">COMPONENTS</div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">New Theme Editor</h2>
-                                <p class="mt-0 mb-4 leading-normal">Advanced visual theme designer with support for the entire design token set, figma to theme code and cloud storage.</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-blue-500 rounded" style="width: 100%; height: 4px"></div>
-                                </div>
+                                <h2 class="text-lg font-bold mt-0 mb-2">Component Updates</h2>
+                                <p class="mt-0 leading-normal">Rewritten Menus, ColorPicker, Org Chart, Toast. Brand new CommandMenu component.</p>
                             </div>
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">@primeuix/themes</h2>
-                                <p class="mt-0 mb-4 leading-normal">Migrate to the new theming package that is shared between all Prime UI libraries.</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-blue-500 rounded" style="width: 100%; height: 4px"></div>
-                                </div>
+                                <h2 class="text-lg font-bold mt-0 mb-2">PrimeUI+</h2>
+                                <p class="mt-0 leading-normal">New TextEditor and Event Calendar components.</p>
                             </div>
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Tailwind v4</h2>
-                                <p class="mt-0 mb-4 leading-normal">Update styled mode integration to support Tailwind v4.</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-blue-500 rounded" style="width: 100%; height: 4px"></div>
-                                </div>
+                                <h2 class="text-lg font-bold mt-0 mb-2">Theming API Enhancements</h2>
+                                <p class="mt-0 leading-normal">Significant performance and devex updates.</p>
+                            </div>
+                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
+                                <h2 class="text-lg font-bold mt-0 mb-2">Forms v2</h2>
+                                <p class="mt-0 leading-normal">Enhanced forms based on community feedback.</p>
+                            </div>
+                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
+                                <h2 class="text-lg font-bold mt-0 mb-2">PrimeIcons Update</h2>
+                                <p class="mt-0 leading-normal">100+ new icons.</p>
                             </div>
                         </div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Maintenance and Quality</h2>
-                                <p class="mt-0 mb-4 leading-normal">Revamp the overall quality by frequent releases based on community feedback.</p>
+                                <h2 class="text-lg font-bold mt-0 mb-2">Migrate to Composition API</h2>
+                                <p class="mt-0 leading-normal">Replace Options API based component implementation with Composition API.</p>
+                            </div>
+                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
+                                <h2 class="text-lg font-bold mt-0 mb-2">Migrate to Typescript</h2>
+                                <p class="mt-0 leading-normal">Use Typescript instead of vanilla Javascript.</p>
+                            </div>
+                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
+                                <h2 class="text-lg font-bold mt-0 mb-2">PrimeUI+</h2>
+                                <p class="mt-0 leading-normal">PrimeCharts, Advanced DataGrid, PDF Viewer and Gantt Chart.</p>
                             </div>
                         </div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Maintenance and Quality</h2>
-                                <p class="mt-0 mb-4 leading-normal">Revamp the overall quality by frequent releases based on community feedback.</p>
+                                <h2 class="text-lg font-bold mt-0 mb-2">PrimeUI+</h2>
+                                <p class="mt-0 leading-normal">Timeline, Diagram and File Manager.</p>
                             </div>
                         </div>
-                        <div class="flex-1 flex gap-4 flex-col">
-                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">PrimeVue+</h2>
-                                <p class="mt-0 mb-4 leading-normal">Initiate Advanced UI suite with complex components including Event Calendar, Data Grid, Text Editor, Charts, Gantt Chart, TimeLine, PDF Viewer...</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-blue-500 rounded" style="width: 0%; height: 4px"></div>
-                                </div>
-                            </div>
-                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-blue-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Maintenance and Quality</h2>
-                                <p class="mt-0 mb-4 leading-normal">Revamp the overall quality by frequent releases based on community feedback.</p>
-                            </div>
-                        </div>
+                        <div class="flex-1 flex gap-4 flex-col"></div>
                     </div>
                     <div class="flex gap-4 border-b border-surface-200 dark:border-surface-700 pb-4">
                         <div class="shrink-0 p-4 bg-indigo-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">FIGMA UI KIT</div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-indigo-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Updates to Sync PrimeVue Design Tokens</h2>
-                                <p class="mt-0 mb-4 leading-normal">Continuous updates to sync the design tokens in Figma with the theme code.</p>
-                                <div class="bg-surface-200 rounded invisible">
-                                    <div class="bg-indigo-500 rounded" style="width: 0%; height: 4px"></div>
-                                </div>
+                                <h2 class="text-lg font-bold mt-0 mb-2">UI Kit v4</h2>
+                                <p class="mt-0 leading-normal">Migration from Token Studio to Figma Variables.</p>
                             </div>
                         </div>
+                        <div class="flex-1 flex gap-4 flex-col">
+                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-indigo-500 border-l-4">
+                                <h2 class="text-lg font-bold mt-0 mb-2">New Design Tokens</h2>
+                                <p class="mt-0 leading-normal">New tokens such as typography and spacing.</p>
+                            </div>
+                        </div>
+                        <div class="flex-1 flex gap-4 flex-col"></div>
+                        <div class="flex-1 flex gap-4 flex-col"></div>
                     </div>
 
                     <div class="flex gap-4 border-b border-surface-200 dark:border-surface-700 pb-4">
                         <div class="shrink-0 p-4 bg-violet-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">TEMPLATES</div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-violet-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Poseidon Remaster</h2>
-                                <p class="mt-0 mb-4 leading-normal">Remastered version of Poseidon with a brand new design</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-violet-500 rounded" style="width: 100%; height: 4px"></div>
-                                </div>
+                                <h2 class="text-lg font-bold mt-0 mb-2">Maintenance and Quality</h2>
+                                <p class="mt-0 leading-normal">Focus on improving the templates quality with maintenance updates.</p>
                             </div>
                         </div>
-                        <div class="flex-1 flex gap-4 flex-col">
-                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-violet-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Avalon Remaster</h2>
-                                <p class="mt-0 mb-4 leading-normal">Redesigned version of Avalon with a fresh look and feel.</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-violet-500 rounded" style="width: 100%; height: 4px"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex-1 flex gap-4 flex-col">
-                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-violet-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">New Demo Content</h2>
-                                <p class="mt-0 mb-4 leading-normal">Update the included shared demo pages such as Mail, Chat, File Manager, CMS and more.</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-violet-500 rounded" style="width: 100%; height: 4px"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex-1 flex gap-4 flex-col"></div>
                     </div>
                     <div class="flex gap-4 border-b border-surface-200 dark:border-surface-700 pb-4">
                         <div class="shrink-0 p-4 bg-orange-500 text-white rounded font-bold text-lg flex items-center justify-center w-56">PrimeBlocks</div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-orange-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Remastered Marketing Blocks with 30+ New blocks</h2>
-                                <p class="mt-0 mb-4 leading-normal">Enhanced all marketing blocks and include 30 new blocks.</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-orange-500 rounded" style="width: 100%; height: 4px"></div>
-                                </div>
+                                <h2 class="text-lg font-bold mt-0 mb-2">Maintenance and Quality</h2>
+                                <p class="mt-0 leading-normal">Focus on improving the templates quality with maintenance updates.</p>
                             </div>
                         </div>
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-orange-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Remastered Application Blocks</h2>
-                                <p class="mt-0 mb-4 leading-normal">Improve application blocks and include new blocks.</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-orange-500 rounded" style="width: 100%; height: 4px"></div>
-                                </div>
+                                <h2 class="text-lg font-bold mt-0 mb-2">Block Builder</h2>
+                                <p class="mt-0 leading-normal">AI Based PrimeBlock builder.</p>
                             </div>
                         </div>
-                        <div class="flex-1 flex gap-4 flex-col">
-                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-orange-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Remastered E-Commerce Blocks</h2>
-                                <p class="mt-0 mb-4 leading-normal">Improve e-commerce blocks and include new blocks.</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-orange-500 rounded" style="width: 100%; height: 4px"></div>
-                                </div>
-                            </div>
-                            <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-orange-500 border-l-4">
-                                <h2 class="text-lg font-bold mt-0 mb-2">Tailwind v4 Upgrade</h2>
-                                <p class="mt-0 mb-4 leading-normal">Update the Tailwind version of Blocks to v4.</p>
-                                <div class="bg-surface-200 rounded">
-                                    <div class="bg-orange-500 rounded" style="width: 100%; height: 4px"></div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="flex-1 flex gap-4 flex-col"></div>
                         <div class="flex-1 flex gap-4 flex-col"></div>
                     </div>
                 </div>
