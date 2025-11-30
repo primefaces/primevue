@@ -305,6 +305,10 @@ export default {
         bindDocumentEditListener() {
             if (!this.documentEditListener) {
                 this.documentEditListener = (event) => {
+                    if (this.isOverlayClicked(event.target)) {
+                        return;
+                    }
+
                     this.selfClick = this.$el && this.$el.contains(event.target);
 
                     if (this.editCompleteTimeout) {
@@ -320,6 +324,11 @@ export default {
 
                 document.addEventListener('mousedown', this.documentEditListener);
             }
+        },
+        isOverlayClicked(target) {
+            if (!target) return false;
+
+            return Boolean(target.closest('[data-pc-section="panel"], [data-pc-section="overlay"]'));
         },
         unbindDocumentEditListener() {
             if (this.documentEditListener) {
