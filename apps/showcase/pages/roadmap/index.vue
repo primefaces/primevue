@@ -93,7 +93,7 @@
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-violet-500 border-l-4">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Maintenance and Quality</h2>
-                                <p class="mt-0 leading-normal">Focus on improving the templates quality with maintenance updates.</p>
+                                <p class="mt-0 leading-normal">Focus on improving the quality with maintenance updates.</p>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-orange-500 border-l-4">
                                 <h2 class="text-lg font-bold mt-0 mb-2">Maintenance and Quality</h2>
-                                <p class="mt-0 leading-normal">Focus on improving the templates quality with maintenance updates.</p>
+                                <p class="mt-0 leading-normal">Focus on improving the quality with maintenance updates.</p>
                             </div>
                         </div>
                         <div class="flex-1 flex gap-4 flex-col">
