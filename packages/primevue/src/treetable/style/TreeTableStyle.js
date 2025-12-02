@@ -47,6 +47,7 @@ const classes = {
     tbody: 'p-treetable-tbody',
     row: ({ props, instance }) => [
         {
+            'p-treetable-selectable-row': instance.$parentInstance.rowSelectionMode,
             'p-treetable-row-selected': instance.selected,
             'p-treetable-contextmenu-row-selected': props.contextMenuSelection && instance.isSelectedWithContextMenu
         }
