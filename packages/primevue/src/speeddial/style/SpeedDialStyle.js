@@ -32,12 +32,7 @@ const classes = {
     item: 'p-speeddial-item',
     action: 'p-speeddial-action',
     actionIcon: 'p-speeddial-action-icon',
-    mask: ({ instance }) => [
-        'p-speeddial-mask',
-        {
-            'p-speeddial-mask-visible': instance.d_visible
-        }
-    ]
+    mask: 'p-speeddial-mask p-overlay-mask'
 };
 
 export default BaseStyle.extend({

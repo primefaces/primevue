@@ -3,7 +3,8 @@
         <slot name="image" :errorCallback="onError">
             <img :style="imageStyle" :class="imageClass" @error="onError" v-bind="{ ...$attrs, ...ptm('image') }" />
         </slot>
-        <button v-if="preview" ref="previewButton" :aria-label="zoomImageAriaLabel" type="button" :class="cx('previewMask')" @click="onImageClick" v-bind="{ ...previewButtonProps, ...ptm('previewMask') }">
+        <button v-if="preview" ref="previewButton" :aria-label="zoomImageAriaLabel" type="button" :class="cx('previewMask')" @click="onImageClick"
+            v-bind="{ ...previewButtonProps, ...ptm('previewMask') }">
             <!-- TODO: indicator* deprecated since v4.0-->
             <slot :name="$slots.previewicon ? 'previewicon' : 'indicatoricon'">
                 <component :is="previewIcon || indicatorIcon ? 'i' : 'EyeIcon'" :class="[cx('previewIcon'), previewIcon]" v-bind="ptm('previewIcon')" />
@@ -24,13 +25,15 @@
                         </slot>
                     </button>
 
-                    <button :class="cx('zoomOutButton')" @click="zoomOut" type="button" :disabled="isZoomOutDisabled" :aria-label="zoomOutAriaLabel" v-bind="ptm('zoomOutButton')" data-pc-group-section="action">
+                    <button :class="cx('zoomOutButton')" @click="zoomOut" type="button" :disabled="isZoomOutDisabled" :aria-label="zoomOutAriaLabel" v-bind="ptm('zoomOutButton')"
+                        data-pc-group-section="action">
                         <slot name="zoomout">
                             <SearchMinusIcon v-bind="ptm('zoomOutIcon')" />
                         </slot>
                     </button>
 
-                    <button :class="cx('zoomInButton')" @click="zoomIn" type="button" :disabled="isZoomInDisabled" :aria-label="zoomInAriaLabel" v-bind="ptm('zoomInButton')" data-pc-group-section="action">
+                    <button :class="cx('zoomInButton')" @click="zoomIn" type="button" :disabled="isZoomInDisabled" :aria-label="zoomInAriaLabel" v-bind="ptm('zoomInButton')"
+                        data-pc-group-section="action">
                         <slot name="zoomin">
                             <SearchPlusIcon v-bind="ptm('zoomInIcon')" />
                         </slot>
@@ -42,7 +45,8 @@
                         </slot>
                     </button>
                 </div>
-                <transition name="p-image-original" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave" v-bind="ptm('transition')">
+                <transition name="p-image-original" @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" @before-leave="onBeforeLeave" @after-leave="onAfterLeave"
+                    v-bind="ptm('transition')">
                     <div v-if="previewVisible" v-bind="ptm('originalContainer')">
                         <!-- TODO: preview deprecated since v4.0-->
                         <slot :name="$slots.original ? 'original' : 'preview'" :class="cx('original')" :style="imagePreviewStyle" :previewCallback="onPreviewImageClick">
@@ -160,7 +164,7 @@ export default {
             this.$emit('show');
         },
         onBeforeLeave() {
-            !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
+            !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave-active');
         },
         onLeave() {
             unblockBodyScroll();

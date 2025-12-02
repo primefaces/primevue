@@ -29,7 +29,7 @@ const classes = {
         return [
             'p-dialog-mask',
             {
-                'p-overlay-mask p-overlay-mask-enter': props.modal
+                'p-overlay-mask p-overlay-mask-enter-active': props.modal
             },
             pos ? `p-dialog-${pos}` : ''
         ];

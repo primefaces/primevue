@@ -2,7 +2,7 @@ import { style } from '@primeuix/styles/galleria';
 import BaseStyle from '@primevue/core/base/style';
 
 const classes = {
-    mask: 'p-galleria-mask p-overlay-mask p-overlay-mask-enter',
+    mask: 'p-galleria-mask p-overlay-mask p-overlay-mask-enter-active',
     root: ({ instance }) => {
         const thumbnailsPosClass = instance.$attrs.showThumbnails && instance.getPositionClass('p-galleria-thumbnails', instance.$attrs.thumbnailsPosition);
         const indicatorPosClass = instance.$attrs.showIndicators && instance.getPositionClass('p-galleria-indicators', instance.$attrs.indicatorsPosition);

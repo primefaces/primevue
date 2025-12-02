@@ -59,9 +59,9 @@
             </template>
         </ul>
     </div>
-    <template v-if="mask">
-        <div :class="[cx('mask'), maskClass]" :style="maskStyle" v-bind="ptm('mask')"></div>
-    </template>
+    <Transition name="p-overlay-mask">
+        <div v-if="mask && d_visible" :class="[cx('mask'), maskClass]" :style="maskStyle" v-bind="ptm('mask')"></div>
+    </Transition>
 </template>
 
 <script>

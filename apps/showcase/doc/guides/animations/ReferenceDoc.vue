@@ -111,6 +111,13 @@
                     </tr>
                     <tr>
                         <td>
+                            <i>Modal Masks</i>
+                        </td>
+                        <td>.p-overlay-mask-enter-active</td>
+                        <td>.p-overlay-mask-leave-active</td>
+                    </tr>
+                    <tr>
+                        <td>
                             <i>MultiSelect</i>
                         </td>
                         <td>.p-anchored-overlay-enter-active</td>

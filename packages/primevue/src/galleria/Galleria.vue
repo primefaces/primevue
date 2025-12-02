@@ -2,7 +2,8 @@
     <Portal v-if="fullScreen">
         <div v-if="containerVisible" :ref="maskRef" :class="[cx('mask'), maskClass]" role="dialog" :aria-modal="fullScreen ? 'true' : undefined" v-bind="ptm('mask')">
             <transition name="p-galleria" @before-enter="onBeforeEnter" @enter="onEnter" @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave" appear v-bind="ptm('transition')">
-                <GalleriaContent v-if="visible" :ref="containerRef" v-focustrap @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" :pt="pt" :unstyled="unstyled" v-bind="$props" />
+                <GalleriaContent v-if="visible" :ref="containerRef" v-focustrap @mask-hide="maskHide" :templates="$slots" @activeitem-change="onActiveItemChange" :pt="pt" :unstyled="unstyled"
+                    v-bind="$props" />
             </transition>
         </div>
     </Portal>
@@ -61,7 +62,7 @@ export default {
             this.bindGlobalListeners();
         },
         onBeforeLeave() {
-            !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
+            !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave-active');
         },
         onLeave() {
             focus(this.target);

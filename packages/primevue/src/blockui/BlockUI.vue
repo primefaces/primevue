@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { addClass, createElement, hasCSSAnimation } from '@primeuix/utils/dom';
+import { addClass, createElement } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
 import { blockBodyScroll, unblockBodyScroll } from 'primevue/utils';
 import BaseBlockUI from './BaseBlockUI.vue';
@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         block() {
-            let styleClass = 'p-blockui-mask p-overlay-mask p-overlay-mask-enter';
+            let styleClass = 'p-blockui-mask p-overlay-mask p-overlay-mask-enter-active';
 
             if (this.fullScreen) {
                 styleClass += ' p-blockui-mask-document';
@@ -78,7 +78,7 @@ export default {
         },
         unblock() {
             if (this.mask) {
-                !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave');
+                !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave-active');
 
                 const handleAnimationEnd = () => {
                     clearTimeout(fallbackTimer);
@@ -88,7 +88,7 @@ export default {
 
                 const fallbackTimer = setTimeout(() => {
                     this.removeMask();
-                }, 10);
+                }, 300);
 
                 if (hasCSSAnimation(this.mask) > 0) {
                     this.mask.addEventListener('animationend', handleAnimationEnd);
