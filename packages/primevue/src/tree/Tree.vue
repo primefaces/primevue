@@ -1,13 +1,13 @@
 <template>
     <div :class="cx('root')" @dragover="onDragOver" @dragenter="onDragEnter" @dragleave="onDragLeave" @drop="onDrop" :data-p="containerDataP" v-bind="ptmi('root')">
-        <template v-if="loading && loadingMode === 'mask'">
-            <div :class="cx('mask')" v-bind="ptm('mask')">
+        <transition name="p-overlay-mask">
+            <div v-if="loading && loadingMode === 'mask'" :class="cx('mask')" v-bind="ptm('mask')">
                 <slot name="loadingicon" :class="cx('loadingIcon')">
                     <i v-if="loadingIcon" :class="[cx('loadingIcon'), 'pi-spin', loadingIcon]" v-bind="ptm('loadingIcon')" />
                     <SpinnerIcon v-else spin :class="cx('loadingIcon')" v-bind="ptm('loadingIcon')" />
                 </slot>
             </div>
-        </template>
+        </transition>
         <IconField v-if="filter" :unstyled="unstyled" :pt="{ ...ptm('pcFilter'), ...ptm('pcFilterContainer') }" :class="cx('pcFilterContainer')">
             <InputText v-model="filterValue" autocomplete="off" :class="cx('pcFilterInput')" :placeholder="filterPlaceholder" :unstyled="unstyled" @keyup="onFilterKeyup" :pt="ptm('pcFilterInput')" />
             <InputIcon :unstyled="unstyled" :pt="ptm('pcFilterIconContainer')">

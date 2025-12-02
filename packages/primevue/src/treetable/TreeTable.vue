@@ -1,13 +1,15 @@
 <template>
     <div :class="cx('root')" data-scrollselectors=".p-treetable-scrollable-body" :data-p="dataP" v-bind="ptmi('root')">
         <slot></slot>
-        <div v-if="loading && loadingMode === 'mask'" :class="cx('loading')" v-bind="ptm('loading')">
-            <div :class="cx('mask')" v-bind="ptm('mask')">
-                <slot name="loadingicon" :class="cx('loadingIcon')">
-                    <component :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="[cx('loadingIcon'), loadingIcon]" v-bind="ptm('loadingIcon')" />
-                </slot>
+        <transition name="p-overlay-mask">
+            <div v-if="loading && loadingMode === 'mask'" :class="cx('loading')" v-bind="ptm('loading')">
+                <div :class="cx('mask')" v-bind="ptm('mask')">
+                    <slot name="loadingicon" :class="cx('loadingIcon')">
+                        <component :is="loadingIcon ? 'span' : 'SpinnerIcon'" spin :class="[cx('loadingIcon'), loadingIcon]" v-bind="ptm('loadingIcon')" />
+                    </slot>
+                </div>
             </div>
-        </div>
+        </transition>
         <div v-if="$slots.header" :class="cx('header')" v-bind="ptm('header')">
             <slot name="header"></slot>
         </div>
