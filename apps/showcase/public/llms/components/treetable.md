@@ -343,6 +343,45 @@ const filterOptions = ref([
 ```
 </details>
 
+## GridLinesDoc
+
+Enabling showGridlines displays grid lines.
+
+```vue
+<TreeTable :value="nodes" tableStyle="min-width: 50rem">
+    <Column field="name" header="Name" expander style="width: 34%"></Column>
+    <Column field="size" header="Size" style="width: 33%"></Column>
+    <Column field="type" header="Type" style="width: 33%"></Column>
+</TreeTable>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <TreeTable :value="nodes" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const nodes = ref();
+<\/script>
+```
+</details>
+
 ## LazyLoadDoc
 
 Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging , sorting and filtering occurs. Sample below imitates lazy loading data from a remote datasource using an in-memory list and timeouts to mimic network connection. Enabling the lazy property and assigning the logical number of rows to totalRecords by doing a projection query are the key elements of the implementation so that paginator displays the UI assuming there are actually records of totalRecords size although in reality they are not present on page, only the records that are displayed on the current page exist. In addition, only the root elements should be loaded, children can be loaded on demand using nodeExpand callback.

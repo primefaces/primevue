@@ -1,6 +1,6 @@
 # PrimeVue Documentation
 
-Generated: 2025-11-28T10:55:52.168Z
+Generated: 2025-12-03T14:28:00.627Z
 
 ---
 
@@ -2419,7 +2419,7 @@ Various PrimeVue Components utilize native CSS animations to provide an enhanced
 
 ## Reference
 
-List of class names of the CSS animations used by the components. Component Enter Class Leave Class Accordion .p-collapsible-enter-active .p-collapsible-leave-active AutoComplete .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active CascadeSelect .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active ColorPicker .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active ConfirmPopup .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active ContextMenu .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active DatePicker .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Dialog .p-dialog-enter-active .p-dialog-leave-active Drawer .p-drawer-enter-active .p-drawer-leave-active Fieldset .p-collapsible-enter-active .p-collapsible-leave-active Galleria .p-galleria-enter-active .p-galleria-leave-active Image .p-image-original-enter-active .p-image-original-leave-active Menu .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Message .p-message-enter-active .p-message-leave-active MultiSelect .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Panel .p-collapsible-enter-active .p-collapsible-leave-active PanelMenu .p-collapsible-enter-active .p-collapsible-leave-active Password .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Select .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Stepper .p-collapsible-enter-active .p-collapsible-leave-active TieredMenu .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Toast .p-toast-message-enter-active .p-toast-message-leave-active TreeSelect .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active
+List of class names of the CSS animations used by the components. Component Enter Class Leave Class Accordion .p-collapsible-enter-active .p-collapsible-leave-active AutoComplete .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active CascadeSelect .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active ColorPicker .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active ConfirmPopup .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active ContextMenu .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active DatePicker .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Dialog .p-dialog-enter-active .p-dialog-leave-active Drawer .p-drawer-enter-active .p-drawer-leave-active Fieldset .p-collapsible-enter-active .p-collapsible-leave-active Galleria .p-galleria-enter-active .p-galleria-leave-active Image .p-image-original-enter-active .p-image-original-leave-active Menu .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Message .p-message-enter-active .p-message-leave-active Modal Masks .p-overlay-mask-enter-active .p-overlay-mask-leave-active MultiSelect .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Panel .p-collapsible-enter-active .p-collapsible-leave-active PanelMenu .p-collapsible-enter-active .p-collapsible-leave-active Password .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Select .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Stepper .p-collapsible-enter-active .p-collapsible-leave-active TieredMenu .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active Toast .p-toast-message-enter-active .p-toast-message-leave-active TreeSelect .p-anchored-overlay-enter-active .p-anchored-overlay-leave-active
 
 ---
 
@@ -4728,8 +4728,8 @@ The element to block should be placed as a child of BlockUI and blocked property
 
 ```vue
 <div class="mb-4">
-    <Button label="Block" @click="blocked = true" class="mr-2"></Button>
-    <Button label="Unblock" @click="blocked = false"></Button>
+    <Button label="Block" @click="blocked = true" class="me-2" severity="secondary"></Button>
+    <Button label="Unblock" @click="blocked = false" severity="secondary"></Button>
 </div>
 <BlockUI :blocked="blocked">
     <Panel header="Basic">
@@ -8099,7 +8099,7 @@ Screen Reader Chart components internally use canvas element, refer to the Chart
 
 ## Basic
 
-A chart is configured with 3 properties; type , data and options . Chart type is defined using the type property that accepts pie , doughtnut , line , bar , radar and polarArea as a value. The data defines datasets represented with the chart and the options provide numerous customization options to customize the presentation.
+A chart is configured with 3 properties; type , data and options . Chart type is defined using the type property that accepts pie , doughnut , line , bar , radar and polarArea as a value. The data defines datasets represented with the chart and the options provide numerous customization options to customize the presentation.
 
 **Basic Usage:**
 
@@ -40449,13 +40449,12 @@ import Tree from 'primevue/tree';
 
 ## LazyDoc
 
-Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using loading property and node-expand method. Default value of loadingMode is mask and also icon is available.
+Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using loading property and node-expand method.
 
 **Basic Usage:**
 
 ```vue
-<Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
-<Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
+<Tree :value="nodes" @node-expand="onNodeExpand" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
 ```
 
 <details>
@@ -40463,15 +40462,8 @@ Lazy loading is useful when dealing with huge datasets, in this example nodes ar
 
 ```vue
 <template>
-    <div class="card flex flex-wrap gap-4">
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Mask Mode</label>
-            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
-        </div>
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Icon Mode</label>
-            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
-        </div>
+    <div class="card">
+        <Tree :value="nodes" @node-expand="onNodeExpand" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>
 
@@ -40479,46 +40471,17 @@ Lazy loading is useful when dealing with huge datasets, in this example nodes ar
 import { ref, onMounted } from 'vue';
 
 const nodes = ref(null);
-const nodes2 = ref(null);
-const loading = ref(false);
 
 onMounted(() => {
-    loading.value = true;
-    nodes2.value = initiateNodes2();
+    nodes.value = initiateNodes();
 
     setTimeout(() => {
-        nodes.value = initiateNodes();
-        loading.value = false;
-        nodes2.value.map((node) => (node.loading = false));
+        nodes.value.map((node) => (node.loading = false));
     }, 2000);
 });
 
+
 const onNodeExpand = (node) => {
-    if (!node.children) {
-        loading.value = true;
-
-        setTimeout(() => {
-            let _node = { ...node };
-
-            _node.children = [];
-
-            for (let i = 0; i < 3; i++) {
-                _node.children.push({
-                    key: node.key + '-' + i,
-                    label: 'Lazy ' + node.label + '-' + i
-                });
-            }
-
-            let _nodes = { ...nodes.value };
-            _nodes[parseInt(node.key, 10)] = _node;
-
-            nodes.value = _nodes;
-            loading.value = false;
-        }, 500);
-    }
-};
-
-const onNodeExpand2 = (node) => {
     if (!node.children) {
         node.loading = true;
 
@@ -40534,36 +40497,16 @@ const onNodeExpand2 = (node) => {
                 });
             }
 
-            let _nodes = { ...nodes2.value };
+            let _nodes = { ...nodes.value };
 
             _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
 
-            nodes2.value = _nodes;
+            nodes.value = _nodes;
         }, 500);
     }
 };
 
 const initiateNodes = () => {
-    return [
-        {
-            key: '0',
-            label: 'Node 0',
-            leaf: false
-        },
-        {
-            key: '1',
-            label: 'Node 1',
-            leaf: false
-        },
-        {
-            key: '2',
-            label: 'Node 2',
-            leaf: false
-        }
-    ];
-};
-
-const initiateNodes2 = () => {
     return [
         {
             key: '0',
@@ -42555,6 +42498,78 @@ const filterOptions = ref([
     { label: 'Lenient', value: 'lenient' },
     { label: 'Strict', value: 'strict' }
 ]);
+<\/script>
+```
+</details>
+
+**Sample Data:**
+
+```json
+{
+    key: '0',
+    label: 'Documents',
+    data: 'Documents Folder',
+    icon: 'pi pi-fw pi-inbox',
+    children: [
+        {
+            key: '0-0',
+            label: 'Work',
+            data: 'Work Folder',
+            icon: 'pi pi-fw pi-cog',
+            children: [
+                { key: '0-0-0', label: 'Expenses.doc', icon: 'pi pi-fw pi-file', data: 'Expenses Document' },
+                { key: '0-0-1', label: 'Resume.doc', icon: 'pi pi-fw pi-file', data: 'Resume Document' }
+            ]
+        },
+        {
+            key: '0-1',
+            label: 'Home',
+            data: 'Home Folder',
+            icon: 'pi pi-fw pi-home',
+            children: [{ key: '0-1-0', label: 'Invoices.txt', icon: 'pi pi-fw pi-file', data: 'Invoices for this month' }]
+        }
+    ]
+},
+...
+```
+
+## GridLinesDoc
+
+Enabling showGridlines displays grid lines.
+
+**Basic Usage:**
+
+```vue
+<TreeTable :value="nodes" tableStyle="min-width: 50rem">
+    <Column field="name" header="Name" expander style="width: 34%"></Column>
+    <Column field="size" header="Size" style="width: 33%"></Column>
+    <Column field="type" header="Type" style="width: 33%"></Column>
+</TreeTable>
+```
+
+<details>
+<summary>Composition API Example</summary>
+
+```vue
+<template>
+    <div class="card">
+        <TreeTable :value="nodes" tableStyle="min-width: 50rem">
+            <Column field="name" header="Name" expander style="width: 34%"></Column>
+            <Column field="size" header="Size" style="width: 33%"></Column>
+            <Column field="type" header="Type" style="width: 33%"></Column>
+        </TreeTable>
+    </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import { NodeService } from '@/service/NodeService';
+
+onMounted(() => {
+    NodeService.getTreeTableNodes().then((data) => (nodes.value = data));
+});
+
+const nodes = ref();
 <\/script>
 ```
 </details>

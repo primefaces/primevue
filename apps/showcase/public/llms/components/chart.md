@@ -18,7 +18,7 @@ Screen Reader Chart components internally use canvas element, refer to the Chart
 
 ## Basic
 
-A chart is configured with 3 properties; type , data and options . Chart type is defined using the type property that accepts pie , doughtnut , line , bar , radar and polarArea as a value. The data defines datasets represented with the chart and the options provide numerous customization options to customize the presentation.
+A chart is configured with 3 properties; type , data and options . Chart type is defined using the type property that accepts pie , doughnut , line , bar , radar and polarArea as a value. The data defines datasets represented with the chart and the options provide numerous customization options to customize the presentation.
 
 ```vue
 <Chart type="bar" :data="chartData" :options="chartOptions" />

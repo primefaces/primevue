@@ -18,8 +18,8 @@ The element to block should be placed as a child of BlockUI and blocked property
 
 ```vue
 <div class="mb-4">
-    <Button label="Block" @click="blocked = true" class="mr-2"></Button>
-    <Button label="Unblock" @click="blocked = false"></Button>
+    <Button label="Block" @click="blocked = true" class="me-2" severity="secondary"></Button>
+    <Button label="Unblock" @click="blocked = false" severity="secondary"></Button>
 </div>
 <BlockUI :blocked="blocked">
     <Panel header="Basic">
