@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.5.1](https://github.com/primefaces/primevue/tree/4.5.1) (2025-12-03)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.5.0...4.5.1)
+
+**Fixed bugs:**
+
+- StepPanel - ptParams access warning [\#8300](https://github.com/primefaces/primevue/issues/8300)
+- fix(step-panel): property "ptParams" was accessed during render [\#8299](https://github.com/primefaces/primevue/issues/8299)
+- TreeSelect throws error when options prop is an empty array [\#8290](https://github.com/primefaces/primevue/issues/8290)
+- Update DynamicDialogCloseOptions to use generic type [\#8287](https://github.com/primefaces/primevue/issues/8287)
+- Select: label length check [\#8259](https://github.com/primefaces/primevue/issues/8259)
+- SelectButtonChangeEvent Type mismatch [\#8239](https://github.com/primefaces/primevue/issues/8239)
+
 ## [4.5.0](https://github.com/primefaces/primevue/tree/4.5.0) (2025-11-27)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.4.1...4.5.0)
