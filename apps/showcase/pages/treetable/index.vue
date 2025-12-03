@@ -18,10 +18,13 @@ import ContextMenuDoc from '@/doc/treetable/ContextMenuDoc.vue';
 import ControlledDoc from '@/doc/treetable/ControlledDoc.vue';
 import DynamicColumnsDoc from '@/doc/treetable/DynamicColumnsDoc.vue';
 import FilterDoc from '@/doc/treetable/FilterDoc.vue';
+import GridLinesDoc from '@/doc/treetable/GridLinesDoc.vue';
 import ImportDoc from '@/doc/treetable/ImportDoc.vue';
 import LazyLoadDoc from '@/doc/treetable/LazyLoadDoc.vue';
 import SizeDoc from '@/doc/treetable/SizeDoc.vue';
 import TemplateDoc from '@/doc/treetable/TemplateDoc.vue';
+import LoadingMaskDoc from '@/doc/treetable/loading/LoadingMaskDoc.vue';
+import LoadingSkeletonDoc from '@/doc/treetable/loading/LoadingSkeletonDoc.vue';
 import PaginationBasicDoc from '@/doc/treetable/pagination/PaginationBasicDoc.vue';
 import PaginationHeadlessDoc from '@/doc/treetable/pagination/PaginationHeadlessDoc.vue';
 import PaginationTemplateDoc from '@/doc/treetable/pagination/PaginationTemplateDoc.vue';
@@ -74,6 +77,27 @@ export default {
                     id: 'size',
                     label: 'Size',
                     component: SizeDoc
+                },
+                {
+                    id: 'grid_lines',
+                    label: 'Grid Lines',
+                    component: GridLinesDoc
+                },
+                {
+                    id: 'loading',
+                    label: 'Loading',
+                    children: [
+                        {
+                            id: 'loading_mask',
+                            label: 'Mask',
+                            component: LoadingMaskDoc
+                        },
+                        {
+                            id: 'loading_skeleton',
+                            label: 'Skeleton',
+                            component: LoadingSkeletonDoc
+                        }
+                    ]
                 },
                 {
                     id: 'pagination',
