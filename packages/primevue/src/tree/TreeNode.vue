@@ -125,7 +125,7 @@ export default {
             default: null
         },
         rootNodes: {
-            type: Array,
+            type: Object,
             default: null
         },
         expandedKeys: {
