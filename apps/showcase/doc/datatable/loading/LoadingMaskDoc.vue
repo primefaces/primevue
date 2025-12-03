@@ -1,14 +1,14 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>The <i>loading</i> property displays a mask layer to indicate busy state. Use the paginator to display the mask.</p>
+        <p>The <i>loading</i> property enables a loading mask overlay on the DataTable to indicate data is being processed.</p>
     </DocSectionText>
     <DeferredDemo @load="loadDemoData">
         <div class="card">
-            <DataTable :value="products" paginator :rows="10" :loading="loading" @page="onPage($event)" tableStyle="min-width: 50rem">
-                <Column field="code" header="Code"></Column>
-                <Column field="name" header="Name"></Column>
-                <Column field="category" header="Category"></Column>
-                <Column field="quantity" header="Quantity"></Column>
+            <DataTable :value="products" :loading="true" tableStyle="min-width: 50rem">
+                <Column field="code" header="Code" style="width: 25%"></Column>
+                <Column field="name" header="Name" style="width: 25%"></Column>
+                <Column field="category" header="Category" style="width: 25%"></Column>
+                <Column field="quantity" header="Quantity" style="width: 25%"></Column>
             </DataTable>
         </div>
     </DeferredDemo>
@@ -25,21 +25,21 @@ export default {
             loading: false,
             code: {
                 basic: `
-<DataTable :value="products" paginator :rows="10" :loading="loading" @page="onPage($event)" tableStyle="min-width: 50rem">
-    <Column field="code" header="Code"></Column>
-    <Column field="name" header="Name"></Column>
-    <Column field="category" header="Category"></Column>
-    <Column field="quantity" header="Quantity"></Column>
+<DataTable :value="products" :loading="true" tableStyle="min-width: 50rem">
+    <Column field="code" header="Code" style="width: 25%"></Column>
+    <Column field="name" header="Name" style="width: 25%"></Column>
+    <Column field="category" header="Category" style="width: 25%"></Column>
+    <Column field="quantity" header="Quantity" style="width: 25%"></Column>
 </DataTable>
 `,
                 options: `
 <template>
     <div class="card">
-        <DataTable :value="products" paginator :rows="10" :loading="loading" @page="onPage($event)" tableStyle="min-width: 50rem">
-            <Column field="code" header="Code"></Column>
-            <Column field="name" header="Name"></Column>
-            <Column field="category" header="Category"></Column>
-            <Column field="quantity" header="Quantity"></Column>
+        <DataTable :value="products" :loading="true" tableStyle="min-width: 50rem">
+            <Column field="code" header="Code" style="width: 25%"></Column>
+            <Column field="name" header="Name" style="width: 25%"></Column>
+            <Column field="category" header="Category" style="width: 25%"></Column>
+            <Column field="quantity" header="Quantity" style="width: 25%"></Column>
         </DataTable>
     </div>
 </template>
@@ -50,21 +50,11 @@ import { ProductService } from '@/service/ProductService';
 export default {
     data() {
         return {
-            products: null,
-            loading: false
+            products: null
         };
     },
     mounted() {
-        ProductService.getProducts().then((data) => (this.products = data));
-    },
-    methods: {
-        onPage() {
-            this.loading = true;
-
-            setTimeout(() => {
-                this.loading = false;
-            }, 500);
-        }
+        ProductService.getProductsMini().then((data) => (this.products = data));
     }
 };
 <\/script>
@@ -72,11 +62,11 @@ export default {
                 composition: `
 <template>
     <div class="card">
-        <DataTable :value="products" paginator :rows="10" :loading="loading" @page="onPage($event)" tableStyle="min-width: 50rem">
-            <Column field="code" header="Code"></Column>
-            <Column field="name" header="Name"></Column>
-            <Column field="category" header="Category"></Column>
-            <Column field="quantity" header="Quantity"></Column>
+        <DataTable :value="products" :loading="true" tableStyle="min-width: 50rem">
+            <Column field="code" header="Code" style="width: 25%"></Column>
+            <Column field="name" header="Name" style="width: 25%"></Column>
+            <Column field="category" header="Category" style="width: 25%"></Column>
+            <Column field="quantity" header="Quantity" style="width: 25%"></Column>
         </DataTable>
     </div>
 </template>
@@ -86,19 +76,10 @@ import { ref, onMounted } from 'vue';
 import { ProductService } from '@/service/ProductService';
 
 onMounted(() => {
-    ProductService.getProducts().then((data) => (products.value = data));
+    ProductService.getProductsMini().then((data) => (products.value = data));
 });
 
 const products = ref();
-const loading = ref(false);
-
-const onPage = () => {
-    loading.value = true;
-
-    setTimeout(() => {
-        loading.value = false;
-    }, 500);
-};
 
 <\/script>
 `,
@@ -121,15 +102,8 @@ const onPage = () => {
         };
     },
     methods: {
-        onPage() {
-            this.loading = true;
-
-            setTimeout(() => {
-                this.loading = false;
-            }, 500);
-        },
         loadDemoData() {
-            ProductService.getProducts().then((data) => (this.products = data));
+            ProductService.getProductsMini().then((data) => (this.products = data));
         }
     }
 };

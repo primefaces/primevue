@@ -115,7 +115,7 @@ export default {
                         {
                             id: 'loading_mask',
                             label: 'Mask',
-                            component:LoadingMaskDoc
+                            component: LoadingMaskDoc
                         },
                         {
                             id: 'loading_skeleton',
