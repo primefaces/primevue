@@ -28886,7 +28886,7 @@
                             "name": "data",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "T",
                             "default": "",
                             "description": "Custom data object"
                         },
@@ -28943,7 +28943,7 @@
                                 {
                                     "name": "options",
                                     "optional": true,
-                                    "type": "DynamicDialogCloseOptions"
+                                    "type": "DynamicDialogCloseOptions<any>"
                                 }
                             ],
                             "returnType": "void",
