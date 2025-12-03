@@ -1554,9 +1554,15 @@ export default {
         findColumnByKey(columns, key) {
             if (columns && columns.length) {
                 for (let i = 0; i < columns.length; i++) {
-                    let column = columns[i];
+                    const column = columns[i];
+                    const columnKey = this.columnProp(column, 'columnKey');
+                    const field = this.columnProp(column, 'field');
 
-                    if (this.columnProp(column, 'columnKey') === key || this.columnProp(column, 'field') === key) {
+                    if (columnKey !== null && columnKey !== undefined && columnKey === key) {
+                        return column;
+                    }
+
+                    if (field !== null && field !== undefined && field === key) {
                         return column;
                     }
                 }
@@ -2045,11 +2051,30 @@ export default {
 
             if (cols && this.reorderableColumns && this.d_columnOrder) {
                 let orderedColumns = [];
+                const keylessColumnsQueue = cols.filter((column) => {
+                    const columnKeyProp = this.columnProp(column, 'columnKey');
+                    const fieldProp = this.columnProp(column, 'field');
+
+                    return (columnKeyProp === null || columnKeyProp === undefined) && (fieldProp === null || fieldProp === undefined) && !this.columnProp(column, 'hidden');
+                });
 
                 for (let columnKey of this.d_columnOrder) {
+                    if (columnKey === null || columnKey === undefined) {
+                        while (keylessColumnsQueue.length) {
+                            const column = keylessColumnsQueue.shift();
+
+                            if (orderedColumns.indexOf(column) < 0) {
+                                orderedColumns.push(column);
+                                break;
+                            }
+                        }
+
+                        continue;
+                    }
+
                     let column = this.findColumnByKey(cols, columnKey);
 
-                    if (column && !this.columnProp(column, 'hidden')) {
+                    if (column && !this.columnProp(column, 'hidden') && orderedColumns.indexOf(column) < 0) {
                         orderedColumns.push(column);
                     }
                 }
