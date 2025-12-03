@@ -21,6 +21,8 @@ import DynamicColumnsDoc from '@/doc/datatable/DynamicColumnsDoc.vue';
 import ExportDoc from '@/doc/datatable/ExportDoc.vue';
 import GridLinesDoc from '@/doc/datatable/GridLinesDoc.vue';
 import ImportDoc from '@/doc/datatable/ImportDoc.vue';
+import LoadingMaskDoc from '@/doc/datatable/loading/LoadingMaskDoc.vue';
+import LoadingSkeletonDoc from '@/doc/datatable/loading/LoadingSkeletonDoc.vue';
 // import LazyLoadDoc from '@/doc/datatable/LazyLoadDoc.vue';
 import ReorderDoc from '@/doc/datatable/ReorderDoc.vue';
 import RowExpansionDoc from '@/doc/datatable/RowExpansionDoc.vue';
@@ -100,6 +102,27 @@ export default {
                     id: 'striped',
                     label: 'Striped Rows',
                     component: StripedRowsDoc
+                },
+                {
+                    id: 'conditional_style',
+                    label: 'Conditional Style',
+                    component: ConditionalStyleDoc
+                },
+                {
+                    id: 'loading',
+                    label: 'Loading',
+                    children: [
+                        {
+                            id: 'loading_mask',
+                            label: 'Mask',
+                            component:LoadingMaskDoc
+                        },
+                        {
+                            id: 'loading_skeleton',
+                            label: 'Skeleton',
+                            component: LoadingSkeletonDoc
+                        }
+                    ]
                 },
                 {
                     id: 'pagination',
@@ -299,11 +322,7 @@ export default {
                         }
                     ]
                 },
-                {
-                    id: 'conditional_style',
-                    label: 'Conditional Style',
-                    component: ConditionalStyleDoc
-                },
+
                 {
                     id: 'column_resize',
                     label: 'Column Resize',
