@@ -95,6 +95,13 @@ export default {
                 'data-p-active': this.active
             };
         },
+        ptParams() {
+            return {
+                context: {
+                    active: this.active
+                }
+            };
+        },
         dataP() {
             return cn({
                 vertical: this.$pcStepItem != null
