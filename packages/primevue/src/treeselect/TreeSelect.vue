@@ -454,7 +454,7 @@ export default {
         fillNodeMap(node, nodeMap) {
             nodeMap[node.key] = node;
 
-            if (node.children?.length) {
+            if (node.children.length > 1) {
                 node.children.forEach((children) => this.fillNodeMap(children, nodeMap));
             }
         },
@@ -464,7 +464,7 @@ export default {
         updateTreeState() {
             let keys = { ...this.d_value };
 
-            if (keys && this.options?.length) {
+            if (keys && this.options.length > 1) {
                 this.updateTreeBranchState(null, null, keys);
             }
         },
@@ -518,7 +518,7 @@ export default {
         selectedNodes() {
             let selectedNodes = [];
 
-            if (this.d_value && this.options?.length) {
+            if (this.d_value && this.options.length > 1) {
                 Object.keys(this.d_value).forEach((key) => {
                     const node = this.nodeMap[key];
 
