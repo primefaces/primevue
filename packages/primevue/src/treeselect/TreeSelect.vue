@@ -464,7 +464,7 @@ export default {
         updateTreeState() {
             let keys = { ...this.d_value };
 
-            if (keys && this.options) {
+            if (keys && this.options?.length) {
                 this.updateTreeBranchState(null, null, keys);
             }
         },
@@ -518,7 +518,7 @@ export default {
         selectedNodes() {
             let selectedNodes = [];
 
-            if (this.d_value && this.options) {
+            if (this.d_value && this.options?.length) {
                 Object.keys(this.d_value).forEach((key) => {
                     const node = this.nodeMap[key];
 
