@@ -1,19 +1,9 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>
-            Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using <i>loading</i> property and <i>node-expand</i> method. Default value of <i>loadingMode</i> is <i>mask</i> and also
-            <i>icon</i> is available.
-        </p>
+        <p>Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using <i>loading</i> property and <i>node-expand</i> method.</p>
     </DocSectionText>
-    <div class="card flex flex-wrap gap-4">
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Mask Mode</label>
-            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
-        </div>
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Icon Mode</label>
-            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
-        </div>
+    <div class="card">
+        <Tree :value="nodes" @node-expand="onNodeExpand" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
     </div>
     <DocSectionCode :code="code" />
 </template>
@@ -23,24 +13,14 @@ export default {
     data() {
         return {
             nodes: null,
-            nodes2: null,
-            loading: false,
             code: {
                 basic: `
-<Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
-<Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
+<Tree :value="nodes" @node-expand="onNodeExpand" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
 `,
                 options: `
 <template>
-    <div class="card flex flex-wrap gap-4">
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Mask Mode</label>
-            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
-        </div>
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Icon Mode</label>
-            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
-        </div>
+    <div class="card">
+        <Tree :value="nodes" @node-expand="onNodeExpand" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>
 
@@ -48,47 +28,18 @@ export default {
 export default {
     data() {
         return {
-            nodes: null,
-            nodes2: null,
-            loading: false
+            nodes: null
         };
     },
     mounted() {
-        this.loading = true;
-        this.nodes2 = this.initiateNodes2();
+        this.nodes = this.initiateNodes();
 
         setTimeout(() => {
-            this.nodes = this.initiateNodes();
-            this.loading = false;
-            this.nodes2.map((node) => (node.loading = false));
+            this.nodes.map((node) => (node.loading = false));
         }, 2000);
     },
     methods: {
         onNodeExpand(node) {
-            if (!node.children) {
-                this.loading = true;
-
-                setTimeout(() => {
-                    let _node = { ...node };
-
-                    _node.children = [];
-
-                    for (let i = 0; i < 3; i++) {
-                        _node.children.push({
-                            key: node.key + '-' + i,
-                            label: 'Lazy ' + node.label + '-' + i
-                        });
-                    }
-
-                    let _nodes = { ...this.nodes };
-                    _nodes[parseInt(node.key, 10)] = _node;
-
-                    this.nodes = _nodes;
-                    this.loading = false;
-                }, 500);
-            }
-        },
-        onNodeExpand2(node) {
             if (!node.children) {
                 node.loading = true;
 
@@ -104,34 +55,15 @@ export default {
                         });
                     }
 
-                    let _nodes = { ...this.nodes2 };
+                    let _nodes = { ...this.nodes };
 
                     _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
 
-                    this.nodes2 = _nodes;
+                    this.nodes = _nodes;
                 }, 500);
             }
         },
         initiateNodes() {
-            return [
-                {
-                    key: '0',
-                    label: 'Node 0',
-                    leaf: false
-                },
-                {
-                    key: '1',
-                    label: 'Node 1',
-                    leaf: false
-                },
-                {
-                    key: '2',
-                    label: 'Node 2',
-                    leaf: false
-                }
-            ];
-        },
-        initiateNodes2() {
             return [
                 {
                     key: '0',
@@ -159,15 +91,8 @@ export default {
 `,
                 composition: `
 <template>
-    <div class="card flex flex-wrap gap-4">
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Mask Mode</label>
-            <Tree :value="nodes" @node-expand="onNodeExpand" :loading="loading" class="w-full md:w-[30rem]"></Tree>
-        </div>
-        <div class="flex-auto md:flex md:justify-start md:items-center flex-col">
-            <label class="font-bold block mb-2">Icon Mode</label>
-            <Tree :value="nodes2" @node-expand="onNodeExpand2" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
-        </div>
+    <div class="card">
+        <Tree :value="nodes" @node-expand="onNodeExpand" loadingMode="icon" class="w-full md:w-[30rem]"></Tree>
     </div>
 </template>
 
@@ -175,46 +100,17 @@ export default {
 import { ref, onMounted } from 'vue';
 
 const nodes = ref(null);
-const nodes2 = ref(null);
-const loading = ref(false);
 
 onMounted(() => {
-    loading.value = true;
-    nodes2.value = initiateNodes2();
+    nodes.value = initiateNodes();
 
     setTimeout(() => {
-        nodes.value = initiateNodes();
-        loading.value = false;
-        nodes2.value.map((node) => (node.loading = false));
+        nodes.value.map((node) => (node.loading = false));
     }, 2000);
 });
 
+
 const onNodeExpand = (node) => {
-    if (!node.children) {
-        loading.value = true;
-
-        setTimeout(() => {
-            let _node = { ...node };
-
-            _node.children = [];
-
-            for (let i = 0; i < 3; i++) {
-                _node.children.push({
-                    key: node.key + '-' + i,
-                    label: 'Lazy ' + node.label + '-' + i
-                });
-            }
-
-            let _nodes = { ...nodes.value };
-            _nodes[parseInt(node.key, 10)] = _node;
-
-            nodes.value = _nodes;
-            loading.value = false;
-        }, 500);
-    }
-};
-
-const onNodeExpand2 = (node) => {
     if (!node.children) {
         node.loading = true;
 
@@ -230,36 +126,16 @@ const onNodeExpand2 = (node) => {
                 });
             }
 
-            let _nodes = { ...nodes2.value };
+            let _nodes = { ...nodes.value };
 
             _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
 
-            nodes2.value = _nodes;
+            nodes.value = _nodes;
         }, 500);
     }
 };
 
 const initiateNodes = () => {
-    return [
-        {
-            key: '0',
-            label: 'Node 0',
-            leaf: false
-        },
-        {
-            key: '1',
-            label: 'Node 1',
-            leaf: false
-        },
-        {
-            key: '2',
-            label: 'Node 2',
-            leaf: false
-        }
-    ];
-};
-
-const initiateNodes2 = () => {
     return [
         {
             key: '0',
@@ -287,42 +163,14 @@ const initiateNodes2 = () => {
         };
     },
     mounted() {
-        this.loading = true;
-        this.nodes2 = this.initiateNodes2();
+        this.nodes = this.initiateNodes();
 
         setTimeout(() => {
-            this.nodes = this.initiateNodes();
-            this.loading = false;
-            this.nodes2.map((node) => (node.loading = false));
+            this.nodes.map((node) => (node.loading = false));
         }, 2000);
     },
     methods: {
         onNodeExpand(node) {
-            if (!node.children) {
-                this.loading = true;
-
-                setTimeout(() => {
-                    let _node = { ...node };
-
-                    _node.children = [];
-
-                    for (let i = 0; i < 3; i++) {
-                        _node.children.push({
-                            key: node.key + '-' + i,
-                            label: 'Lazy ' + node.label + '-' + i
-                        });
-                    }
-
-                    let _nodes = { ...this.nodes };
-
-                    _nodes[parseInt(node.key, 10)] = _node;
-
-                    this.nodes = _nodes;
-                    this.loading = false;
-                }, 500);
-            }
-        },
-        onNodeExpand2(node) {
             if (!node.children) {
                 node.loading = true;
 
@@ -338,34 +186,15 @@ const initiateNodes2 = () => {
                         });
                     }
 
-                    let _nodes = { ...this.nodes2 };
+                    let _nodes = { ...this.nodes };
 
                     _nodes[parseInt(node.key, 10)] = { ..._node, loading: false };
 
-                    this.nodes2 = _nodes;
+                    this.nodes = _nodes;
                 }, 500);
             }
         },
         initiateNodes() {
-            return [
-                {
-                    key: '0',
-                    label: 'Node 0',
-                    leaf: false
-                },
-                {
-                    key: '1',
-                    label: 'Node 1',
-                    leaf: false
-                },
-                {
-                    key: '2',
-                    label: 'Node 2',
-                    leaf: false
-                }
-            ];
-        },
-        initiateNodes2() {
             return [
                 {
                     key: '0',
