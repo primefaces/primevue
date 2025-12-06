@@ -528,10 +528,4 @@ export interface VirtualScrollerMethods {
  */
 declare const VirtualScroller: DefineComponent<VirtualScrollerProps, VirtualScrollerSlots, VirtualScrollerEmits, VirtualScrollerMethods>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        VirtualScroller: DefineComponent<VirtualScrollerProps, VirtualScrollerSlots, VirtualScrollerEmits, VirtualScrollerMethods>;
-    }
-}
-
 export default VirtualScroller;

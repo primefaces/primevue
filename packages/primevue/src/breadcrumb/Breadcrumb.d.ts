@@ -232,10 +232,4 @@ export declare type BreadcrumbEmits = EmitFn<BreadcrumbEmitsOptions>;
  */
 declare const Breadcrumb: DefineComponent<BreadcrumbProps, BreadcrumbSlots, BreadcrumbEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Breadcrumb: DefineComponent<BreadcrumbProps, BreadcrumbSlots, BreadcrumbEmits>;
-    }
-}
-
 export default Breadcrumb;

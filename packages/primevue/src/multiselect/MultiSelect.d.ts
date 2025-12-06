@@ -940,10 +940,4 @@ export interface MultiSelectMethods {
  */
 declare const MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits, MultiSelectMethods>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits, MultiSelectMethods>;
-    }
-}
-
 export default MultiSelect;

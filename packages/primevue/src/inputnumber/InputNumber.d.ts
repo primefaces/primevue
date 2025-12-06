@@ -519,10 +519,4 @@ export interface InputNumberMethods {
  */
 declare const InputNumber: DefineComponent<InputNumberProps, InputNumberSlots, InputNumberEmits, InputNumberMethods>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        InputNumber: DefineComponent<InputNumberProps, InputNumberSlots, InputNumberEmits, InputNumberMethods>;
-    }
-}
-
 export default InputNumber;
