@@ -49,6 +49,7 @@
                 :defaultValue="checked"
                 :binary="true"
                 :indeterminate="partialChecked"
+                :indeterminate-read-only="true"
                 :class="cx('nodeCheckbox')"
                 :tabindex="-1"
                 :unstyled="unstyled"
@@ -606,7 +607,9 @@ export default {
         },
         toggleCheckbox() {
             let _selectionKeys = this.selectionKeys ? { ...this.selectionKeys } : {};
-            const _check = !this.checked;
+
+            let currentCheckedState = this.checked || this.partialChecked;
+            let _check = !currentCheckedState;
 
             this.propagateDown(this.node, _check, _selectionKeys);
 
@@ -617,14 +620,38 @@ export default {
             });
         },
         propagateDown(node, check, selectionKeys) {
-            if (check && node.selectable != false) selectionKeys[node.key] = { checked: true, partialChecked: false };
-            else delete selectionKeys[node.key];
+            if (check && node.selectable != false) {
+                if (this.hasHiddenChildren(node)) {
+                    selectionKeys[node.key] = { checked: false, partialChecked: true };
+                } else {
+                    selectionKeys[node.key] = { checked: true, partialChecked: false };
+                }
+            } else {
+                delete selectionKeys[node.key];
+            }
 
             if (node.children && node.children.length) {
                 for (let child of node.children) {
                     this.propagateDown(child, check, selectionKeys);
                 }
             }
+        },
+        hasHiddenChildren(node) {
+            if (node.originalChildren !== undefined) {
+                if (node.originalChildren.length !== node.children.length) {
+                    return true;
+                }
+            }
+
+            if (node.children && node.children.length) {
+                for (let child of node.children) {
+                    if (this.hasHiddenChildren(child)) {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         },
         propagateUp(event) {
             let check = event.check;
@@ -637,14 +664,19 @@ export default {
                 else if (_selectionKeys[child.key] && _selectionKeys[child.key].partialChecked) childPartialSelected = true;
             }
 
-            if (check && checkedChildCount === this.node.children.length) {
+            let children = this.node.children;
+            if (this.node.originalChildren !== undefined) {
+                children = this.node.originalChildren;
+            }
+
+            if (check && checkedChildCount === children.length) {
                 _selectionKeys[this.node.key] = { checked: true, partialChecked: false };
             } else {
                 if (!check) {
                     delete _selectionKeys[this.node.key];
                 }
 
-                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length)) _selectionKeys[this.node.key] = { checked: false, partialChecked: true };
+                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== children.length)) _selectionKeys[this.node.key] = { checked: false, partialChecked: true };
                 else delete _selectionKeys[this.node.key];
             }
 
