@@ -413,11 +413,10 @@ onMounted(() => {
 
 ## Lazy
 
-Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using loading property and node-expand method. Default value of loadingMode is mask and also icon is available.
+Lazy loading is useful when dealing with huge datasets, in this example nodes are dynamically loaded on demand using loading property and node-expand method.
 
 ```vue
-<TreeSelect v-model="selectedValue" :loading="loading" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
-<TreeSelect v-model="selectedValue2" loadingMode="icon" :options="nodes2" @node-expand="onNodeExpand2" placeholder="Select Item" class="md:w-80 w-full" />
+<TreeSelect v-model="selectedValue" loadingMode="icon" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
 ```
 
 <details>
@@ -425,9 +424,8 @@ Lazy loading is useful when dealing with huge datasets, in this example nodes ar
 
 ```vue
 <template>
-    <div class="card flex flex-wrap justify-center items-end gap-4">
-        <TreeSelect v-model="selectedValue" :loading="loading" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
-        <TreeSelect v-model="selectedValue2" loadingMode="icon" :options="nodes2" @node-expand="onNodeExpand2" placeholder="Select Item" class="md:w-80 w-full" />
+    <div class="card">
+        <TreeSelect v-model="selectedValue" loadingMode="icon" :options="nodes" @node-expand="onNodeExpand" placeholder="Select Item" class="md:w-80 w-full" />
     </div>
 </template>
 
@@ -435,45 +433,17 @@ Lazy loading is useful when dealing with huge datasets, in this example nodes ar
 import { ref, onMounted } from 'vue';
 
 const nodes = ref(null);
-const nodes2 = ref(null);
 const selectedValue = ref(null);
-const selectedValue2 = ref(null);
-const loading = ref(false);
 
 onMounted(() => {
-    loading.value = true;
-    nodes2.value = initiateNodes2();
+    nodes.value = initiateNodes();
 
     setTimeout(() => {
-        nodes.value = initiateNodes();
-        loading.value = false;
-        nodes2.value.map((node) => (node.loading = false));
+        nodes.value.map((node) => (node.loading = false));
     }, 2000);
 });
 
 const onNodeExpand = (node) => {
-    if (!node.children) {
-        loading.value = true;
-
-        setTimeout(() => {
-            let _node = { ...node };
-
-            _node.children = [];
-
-            for (let i = 0; i < 3; i++) {
-                _node.children.push({
-                    key: node.key + '-' + i,
-                    label: 'Lazy ' + node.label + '-' + i
-                });
-            }
-
-            nodes.value[parseInt(node.key, 10)] = _node;
-            loading.value = false;
-        }, 500);
-    }
-};
-
-const onNodeExpand2 = (node) => {
     if (!node.children) {
         node.loading = true;
 
@@ -489,32 +459,12 @@ const onNodeExpand2 = (node) => {
                 });
             }
 
-            nodes2.value[parseInt(node.key, 10)] = { ..._node, loading: false };
+            nodes.value[parseInt(node.key, 10)] = { ..._node, loading: false };
         }, 500);
     }
 };
 
 const initiateNodes = () => {
-    return [
-        {
-            key: '0',
-            label: 'Node 0',
-            leaf: false
-        },
-        {
-            key: '1',
-            label: 'Node 1',
-            leaf: false
-        },
-        {
-            key: '2',
-            label: 'Node 2',
-            leaf: false
-        }
-    ];
-};
-
-const initiateNodes2 = () => {
     return [
         {
             key: '0',
