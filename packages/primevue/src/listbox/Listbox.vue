@@ -356,6 +356,7 @@ export default {
 
                 if (selected) {
                     if (metaKey) {
+                        if (!this.allowEmpty) return;
                         value = null;
                         valueChanged = true;
                     }
@@ -364,6 +365,7 @@ export default {
                     valueChanged = true;
                 }
             } else {
+                if (selected && !this.allowEmpty) return;
                 value = selected ? null : _value;
                 valueChanged = true;
             }
@@ -383,12 +385,14 @@ export default {
 
                 if (selected) {
                     value = metaKey ? this.removeOption(option) : [_value];
+                    if (!this.allowEmpty && Array.isArray(value) && value.length === 0) return;
                 } else {
                     value = metaKey ? this.d_value || [] : [];
                     value = [...value, _value];
                 }
             } else {
                 value = selected ? this.removeOption(option) : [...(this.d_value || []), _value];
+                if (selected && !this.allowEmpty && Array.isArray(value) && value.length === 0) return;
             }
 
             this.updateModel(event, value);

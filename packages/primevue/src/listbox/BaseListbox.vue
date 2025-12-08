@@ -22,6 +22,10 @@ export default {
             type: Boolean,
             default: false
         },
+        allowEmpty: {
+            type: Boolean,
+            default: true
+        },
         metaKeySelection: {
             type: Boolean,
             default: false

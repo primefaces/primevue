@@ -12,6 +12,7 @@ import GroupDoc from '@/doc/listbox/GroupDoc.vue';
 import ImportDoc from '@/doc/listbox/ImportDoc.vue';
 import InvalidDoc from '@/doc/listbox/InvalidDoc.vue';
 import MultipleDoc from '@/doc/listbox/MultipleDoc.vue';
+import AllowEmptyDoc from '@/doc/listbox/AllowEmptyDoc.vue';
 import NoticeDoc from '@/doc/listbox/NoticeDoc.vue';
 import TemplateDoc from '@/doc/listbox/TemplateDoc.vue';
 import VirtualScrollDoc from '@/doc/listbox/VirtualScrollDoc.vue';
@@ -43,6 +44,11 @@ const docs = ref([
         id: 'multiple',
         label: 'Multiple',
         component: MultipleDoc
+    },
+    {
+        id: 'allowempty',
+        label: 'Allow Empty',
+        component: AllowEmptyDoc
     },
     {
         id: 'group',

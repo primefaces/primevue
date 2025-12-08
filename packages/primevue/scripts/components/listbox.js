@@ -72,6 +72,12 @@ const ListboxProps = [
         description: 'When specified, allows selecting multiple values.'
     },
     {
+        name: 'allowEmpty',
+        type: 'boolean',
+        default: 'true',
+        description: 'Whether selection can be cleared.'
+    },
+    {
         name: 'metaKeySelection',
         type: 'boolean',
         default: 'true',
