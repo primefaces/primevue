@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.5.2](https://github.com/primefaces/primevue/tree/4.5.2) (2025-12-08)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.5.1...4.5.2)
+
+**Fixed bugs:**
+
+- TreeSelect: tree state defects [\#8315](https://github.com/primefaces/primevue/issues/8315)
+
 ## [4.5.1](https://github.com/primefaces/primevue/tree/4.5.1) (2025-12-03)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.5.0...4.5.1)
