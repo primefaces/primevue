@@ -35,6 +35,9 @@
                         <InputText v-model="filters['type']" type="text" placeholder="Filter by type" />
                     </template>
                 </Column>
+                <template #empty>
+                    <div class="p-1 text-center text-gray-500">No results found</div>
+                </template>
             </TreeTable>
         </div>
     </DeferredDemo>
