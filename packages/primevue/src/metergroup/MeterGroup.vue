@@ -36,10 +36,12 @@ export default {
                 }
             });
         },
-        percent(meter = 0) {
+        exactPercent(meter = 0) {
             const percentOfItem = ((meter - this.min) / (this.max - this.min)) * 100;
-
-            return Math.round(Math.max(0, Math.min(100, percentOfItem)));
+            return Math.max(0, Math.min(100, percentOfItem));
+        },
+        percent(meter = 0) {
+            return Math.round(this.exactPercent(meter));
         },
         percentValue(meter) {
             return this.percent(meter) + '%';
@@ -47,8 +49,8 @@ export default {
         meterCalculatedStyles(val) {
             return {
                 backgroundColor: val.color,
-                width: this.orientation === 'horizontal' && this.percentValue(val.value),
-                height: this.orientation === 'vertical' && this.percentValue(val.value)
+                width: this.orientation === 'horizontal' && this.exactPercent(val.value) + '%',
+                height: this.orientation === 'vertical' && this.exactPercent(val.value) + '%'
             };
         }
     },
