@@ -20,6 +20,7 @@
                         </IconField>
                     </div>
                 </template>
+                <template #empty> No customers found.</template>
                 <Column field="name" header="Name" expander style="min-width: 12rem">
                     <template #filter>
                         <InputText v-model="filters['name']" type="text" placeholder="Filter by name" />
@@ -35,9 +36,6 @@
                         <InputText v-model="filters['type']" type="text" placeholder="Filter by type" />
                     </template>
                 </Column>
-                <template #empty>
-                    <div class="p-1 text-center text-gray-500">No results found</div>
-                </template>
             </TreeTable>
         </div>
     </DeferredDemo>
@@ -69,6 +67,7 @@ export default {
             </IconField>
         </div>
     </template>
+    <template #empty> No customers found.</template>
     <Column field="name" header="Name" expander style="min-width: 12rem">
         <template #filter>
             <InputText v-model="filters['name']" type="text" placeholder="Filter by name" />
@@ -101,6 +100,7 @@ export default {
                     </IconField>
                 </div>
             </template>
+            <template #empty> No customers found.</template>
             <Column field="name" header="Name" expander style="min-width: 12rem">
                 <template #filter>
                     <InputText v-model="filters['name']" type="text" placeholder="Filter by name" />
@@ -156,6 +156,7 @@ export default {
                     </IconField>
                 </div>
             </template>
+            <template #empty> No customers found.</template>
             <Column field="name" header="Name" expander style="min-width: 12rem">
                 <template #filter>
                     <InputText v-model="filters['name']" type="text" placeholder="Filter by name" />
