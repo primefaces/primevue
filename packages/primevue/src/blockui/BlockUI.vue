@@ -7,7 +7,7 @@
 <script>
 import { addClass, createElement } from '@primeuix/utils/dom';
 import { ZIndex } from '@primeuix/utils/zindex';
-import { blockBodyScroll, unblockBodyScroll } from 'primevue/utils';
+import { blockBodyScroll, unblockBodyScroll, hasCSSAnimation } from 'primevue/utils';
 import BaseBlockUI from './BaseBlockUI.vue';
 
 export default {
