@@ -109,20 +109,25 @@ npm run dev
 
 ### Testing with Claude Code
 
-Using the CLI command (recommended):
+Using the JSON command (recommended for reliability):
 
 ```bash
-claude mcp add primevue --transport stdio -- node /absolute/path/to/primevue/packages/mcp/dist/index.js
+# Add to user config (available in all projects)
+claude mcp add-json primevue '{"type":"stdio","command":"node","args":["/path/to/primevue/packages/mcp/dist/index.js"]}' -s user
+
+# Or add to current project only
+claude mcp add-json primevue '{"type":"stdio","command":"node","args":["/path/to/primevue/packages/mcp/dist/index.js"]}'
 ```
 
-Or manually add to your settings (`~/.claude/settings.json` or project-level `.claude/settings.json`):
+Or manually add to `~/.claude.json` (user-level) or `.claude/settings.json` (project-level):
 
 ```json
 {
   "mcpServers": {
     "primevue": {
+      "type": "stdio",
       "command": "node",
-      "args": ["/absolute/path/to/primevue/packages/mcp/dist/index.js"]
+      "args": ["/path/to/primevue/packages/mcp/dist/index.js"]
     }
   }
 }
