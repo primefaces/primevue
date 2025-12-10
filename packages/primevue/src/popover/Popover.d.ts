@@ -248,10 +248,4 @@ export interface PopoverMethods {
  */
 declare const Popover: DefineComponent<PopoverProps, PopoverSlots, PopoverEmits, PopoverMethods>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Popover: DefineComponent<PopoverProps, PopoverSlots, PopoverEmits, PopoverMethods>;
-    }
-}
-
 export default Popover;

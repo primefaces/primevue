@@ -181,10 +181,4 @@ export declare type ScrollTopEmits = EmitFn<ScrollTopEmitsOptions>;
  */
 declare const ScrollTop: DefineComponent<ScrollTopProps, ScrollTopSlots, ScrollTopEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        ScrollTop: DefineComponent<ScrollTopProps, ScrollTopSlots, ScrollTopEmits>;
-    }
-}
-
 export default ScrollTop;
