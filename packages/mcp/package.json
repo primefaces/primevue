@@ -13,11 +13,11 @@
     "bugs": {
         "url": "https://github.com/primefaces/primevue/issues"
     },
-    "main": "./src/index.mjs",
-    "module": "./src/index.mjs",
-    "types": "./src/index.d.ts",
+    "main": "./dist/index.mjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.mts",
     "exports": {
-        ".": "./src/index.mjs"
+        ".": "./dist/index.mjs"
     },
     "publishConfig": {
         "directory": "dist",
