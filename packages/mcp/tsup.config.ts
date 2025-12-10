@@ -7,7 +7,6 @@ export default defineConfig({
   splitting: false,
   clean: true,
   shims: true,
-  noExternal: [/.*/],  // Bundle all dependencies
   banner: {
     js: "#!/usr/bin/env node",
   },
