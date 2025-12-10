@@ -1,41 +1,60 @@
 {
-    "name": "@primevue/mcp",
-    "version": "4.5.2",
-    "author": "PrimeTek Informatics",
-    "description": "",
-    "homepage": "https://primevue.org/",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/primefaces/primevue.git",
-        "directory": "packages/mcp"
-    },
-    "bugs": {
-        "url": "https://github.com/primefaces/primevue/issues"
-    },
-    "main": "./dist/index.mjs",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.mts",
-    "exports": {
-        ".": "./dist/index.mjs"
-    },
-    "publishConfig": {
-        "directory": "dist",
-        "linkDirectory": false,
-        "access": "public"
-    },
-    "scripts": {
-        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
-        "build:package": "tsup",
-        "build:prebuild": "node ./scripts/prebuild.mjs",
-        "build:postbuild": "node ./scripts/postbuild.mjs",
-        "dev:link": "pnpm link --global && npm link"
-    },
-    "dependencies": {},
-    "devDependencies": {
-        "tsup": "^8.1.0"
-    },
-    "engines": {
-        "node": ">=12.11.0"
+  "name": "@primevue/mcp",
+  "version": "4.5.2",
+  "author": "PrimeTek Informatics",
+  "description": "Model Context Protocol (MCP) server for PrimeVue component library",
+  "homepage": "https://primevue.org/",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/primefaces/primevue.git",
+    "directory": "packages/mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/primefaces/primevue/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "bin": {
+    "primevue-mcp": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
     }
+  },
+  "files": [
+    "dist",
+    "data"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsup": "^8.1.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "primevue",
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "llm",
+    "vue",
+    "components"
+  ]
 }

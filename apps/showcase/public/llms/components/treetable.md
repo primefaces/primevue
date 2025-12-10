@@ -269,6 +269,7 @@ Filtering is enabled by adding the filter property to a Column. The filterMode s
             </IconField>
         </div>
     </template>
+    <template #empty> No customers found.</template>
     <Column field="name" header="Name" expander style="min-width: 12rem">
         <template #filter>
             <InputText v-model="filters['name']" type="text" placeholder="Filter by name" />
@@ -305,6 +306,7 @@ Filtering is enabled by adding the filter property to a Column. The filterMode s
                     </IconField>
                 </div>
             </template>
+            <template #empty> No customers found.</template>
             <Column field="name" header="Name" expander style="min-width: 12rem">
                 <template #filter>
                     <InputText v-model="filters['name']" type="text" placeholder="Filter by name" />
