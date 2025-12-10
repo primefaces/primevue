@@ -1,12 +1,12 @@
 <template>
     <div :class="cx('root')" v-bind="ptmi('root')">
+        <input v-if="$formName" type="hidden" :name="$formName" :value="modelValue" />
         <template v-for="i in length" :key="i">
             <slot :events="getTemplateEvents(i - 1)" :attrs="getTemplateAttrs(i - 1)" :index="i">
                 <OtpInputText
                     :value="tokens[i - 1]"
                     :type="inputType"
                     :class="cx('pcInputText')"
-                    :name="$formName"
                     :inputmode="inputMode"
                     :variant="variant"
                     :readonly="readonly"
