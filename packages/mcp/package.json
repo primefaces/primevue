@@ -1,0 +1,41 @@
+{
+    "name": "@primevue/mcp",
+    "version": "4.5.2",
+    "author": "PrimeTek Informatics",
+    "description": "",
+    "homepage": "https://primevue.org/",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/primefaces/primevue.git",
+        "directory": "packages/mcp"
+    },
+    "bugs": {
+        "url": "https://github.com/primefaces/primevue/issues"
+    },
+    "main": "./src/index.mjs",
+    "module": "./src/index.mjs",
+    "types": "./src/index.d.ts",
+    "exports": {
+        ".": "./src/index.mjs"
+    },
+    "publishConfig": {
+        "directory": "dist",
+        "linkDirectory": false,
+        "access": "public"
+    },
+    "scripts": {
+        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
+        "build:package": "tsup",
+        "build:prebuild": "node ./scripts/prebuild.mjs",
+        "build:postbuild": "node ./scripts/postbuild.mjs",
+        "dev:link": "pnpm link --global && npm link"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "tsup": "^8.1.0"
+    },
+    "engines": {
+        "node": ">=12.11.0"
+    }
+}
