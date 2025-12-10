@@ -1,9 +1,5 @@
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import {
-  CallToolRequestSchema,
-  ListToolsRequestSchema,
-} from "@modelcontextprotocol/sdk/types.js";
 import { readFile } from "fs/promises";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -279,338 +275,65 @@ async function loadComponentsData(): Promise<ComponentsData> {
   return JSON.parse(fileContent);
 }
 
-// Tool definitions
-const tools = [
-  {
-    name: "list_components",
-    description: "List all available PrimeVue components with their categories",
-    inputSchema: {
-      type: "object",
-      properties: {
-        category: { type: "string", description: "Optional category filter" },
-      },
+// Create and configure MCP server
+function createServer(data: ComponentsData): McpServer {
+  const server = new McpServer(
+    {
+      name: "@primevue/mcp",
+      version: "1.0.0",
     },
-  },
-  {
-    name: "get_component",
-    description: "Get detailed information about a specific PrimeVue component",
-    inputSchema: {
-      type: "object",
-      properties: {
-        name: { type: "string", description: "Component name (e.g., 'DataTable', 'Button')" },
+    {
+      capabilities: {
+        tools: {},
+        resources: {},
       },
-      required: ["name"],
-    },
-  },
-  {
-    name: "search_components",
-    description: "Search PrimeVue components by name or description",
-    inputSchema: {
-      type: "object",
-      properties: {
-        query: { type: "string", description: "Search query" },
-      },
-      required: ["query"],
-    },
-  },
-  {
-    name: "get_component_props",
-    description: "Get all props/properties for a PrimeVue component",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component: { type: "string", description: "Component name" },
-      },
-      required: ["component"],
-    },
-  },
-  {
-    name: "get_component_events",
-    description: "Get all events for a PrimeVue component",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component: { type: "string", description: "Component name" },
-      },
-      required: ["component"],
-    },
-  },
-  {
-    name: "get_component_slots",
-    description: "Get all slots/templates for a PrimeVue component",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component: { type: "string", description: "Component name" },
-      },
-      required: ["component"],
-    },
-  },
-  {
-    name: "get_usage_example",
-    description: "Get code examples for a PrimeVue component",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component: { type: "string", description: "Component name" },
-      },
-      required: ["component"],
-    },
-  },
-  {
-    name: "get_component_pt",
-    description: "Get Pass Through (PT) options for a PrimeVue component",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component: { type: "string", description: "Component name" },
-      },
-      required: ["component"],
-    },
-  },
-  {
-    name: "get_component_tokens",
-    description: "Get design tokens (CSS variables) for a PrimeVue component",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component: { type: "string", description: "Component name" },
-      },
-      required: ["component"],
-    },
-  },
-  {
-    name: "get_component_styles",
-    description: "Get CSS class names for a PrimeVue component",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component: { type: "string", description: "Component name" },
-      },
-      required: ["component"],
-    },
-  },
-  {
-    name: "find_by_prop",
-    description: "Find PrimeVue components that have a specific prop",
-    inputSchema: {
-      type: "object",
-      properties: {
-        prop_name: { type: "string", description: "Property name to search for" },
-      },
-      required: ["prop_name"],
-    },
-  },
-  {
-    name: "find_by_event",
-    description: "Find PrimeVue components that emit a specific event",
-    inputSchema: {
-      type: "object",
-      properties: {
-        event_name: { type: "string", description: "Event name to search for" },
-      },
-      required: ["event_name"],
-    },
-  },
-  {
-    name: "get_component_url",
-    description: "Get the official documentation URL for a PrimeVue component",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component: { type: "string", description: "Component name" },
-      },
-      required: ["component"],
-    },
-  },
-  {
-    name: "compare_components",
-    description: "Compare two PrimeVue components side by side",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component1: { type: "string", description: "First component name" },
-        component2: { type: "string", description: "Second component name" },
-      },
-      required: ["component1", "component2"],
-    },
-  },
-  {
-    name: "get_categories",
-    description: "Get all PrimeVue component categories",
-    inputSchema: { type: "object", properties: {} },
-  },
-  {
-    name: "get_version_info",
-    description: "Get PrimeVue version and compatibility information",
-    inputSchema: { type: "object", properties: {} },
-  },
-  {
-    name: "get_installation",
-    description: "Get PrimeVue installation instructions",
-    inputSchema: {
-      type: "object",
-      properties: {
-        environment: { type: "string", description: "Environment: 'vite', 'nuxt', 'laravel', or 'cdn'" },
-      },
-    },
-  },
-  {
-    name: "list_guides",
-    description: "List all available PrimeVue guides and documentation pages",
-    inputSchema: { type: "object", properties: {} },
-  },
-  {
-    name: "get_guide",
-    description: "Get a specific PrimeVue guide by name",
-    inputSchema: {
-      type: "object",
-      properties: {
-        name: { type: "string", description: "Guide name" },
-        section: { type: "string", description: "Optional section ID" },
-      },
-      required: ["name"],
-    },
-  },
-  {
-    name: "get_theming_info",
-    description: "Get information about PrimeVue theming",
-    inputSchema: {
-      type: "object",
-      properties: {
-        mode: { type: "string", description: "Theming mode: 'styled', 'unstyled', or 'passthrough'" },
-      },
-    },
-  },
-  {
-    name: "list_composables",
-    description: "List all PrimeVue composables",
-    inputSchema: { type: "object", properties: {} },
-  },
-  {
-    name: "get_composable",
-    description: "Get detailed info about a PrimeVue composable",
-    inputSchema: {
-      type: "object",
-      properties: {
-        name: { type: "string", description: "Composable name (e.g., 'useToast')" },
-      },
-      required: ["name"],
-    },
-  },
-  {
-    name: "list_examples",
-    description: "List all available code examples",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component: { type: "string", description: "Optional component filter" },
-      },
-    },
-  },
-  {
-    name: "get_example",
-    description: "Get a specific code example",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component: { type: "string", description: "Component name" },
-        section: { type: "string", description: "Section ID" },
-        variant: { type: "string", description: "Example variant (default: 'basic')" },
-      },
-      required: ["component", "section"],
-    },
-  },
-  {
-    name: "get_component_sections",
-    description: "Get all available sections for a component",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component: { type: "string", description: "Component name" },
-      },
-      required: ["component"],
-    },
-  },
-  {
-    name: "get_component_import",
-    description: "Get the import statement for a PrimeVue component",
-    inputSchema: {
-      type: "object",
-      properties: {
-        component: { type: "string", description: "Component name" },
-      },
-      required: ["component"],
-    },
-  },
-  {
-    name: "find_components_with_feature",
-    description: "Find components supporting a specific feature",
-    inputSchema: {
-      type: "object",
-      properties: {
-        feature: { type: "string", description: "Feature to search for" },
-      },
-      required: ["feature"],
-    },
-  },
-  {
-    name: "search_all",
-    description: "Search across all components, guides, and props",
-    inputSchema: {
-      type: "object",
-      properties: {
-        query: { type: "string", description: "Search query" },
-      },
-      required: ["query"],
-    },
-  },
-  {
-    name: "suggest_component",
-    description: "Suggest components based on use case",
-    inputSchema: {
-      type: "object",
-      properties: {
-        use_case: { type: "string", description: "Description of what you want to build" },
-      },
-      required: ["use_case"],
-    },
-  },
-  {
-    name: "get_form_components",
-    description: "Get all PrimeVue form input components",
-    inputSchema: { type: "object", properties: {} },
-  },
-  {
-    name: "get_data_components",
-    description: "Get all PrimeVue data display components",
-    inputSchema: { type: "object", properties: {} },
-  },
-  {
-    name: "get_overlay_components",
-    description: "Get all PrimeVue overlay/popup components",
-    inputSchema: { type: "object", properties: {} },
-  },
-];
-
-// Tool handlers
-function handleTool(name: string, args: Record<string, unknown>, data: ComponentsData): { content: { type: string; text: string }[] } {
-  switch (name) {
-    case "list_components": {
-      const category = args.category as string | undefined;
-      const grouped = data.components.reduce((acc, comp) => {
-        const cat = extractCategory(comp);
-        if (category && cat.toLowerCase() !== category.toLowerCase()) return acc;
-        if (!acc[cat]) acc[cat] = [];
-        acc[cat].push(comp.name);
-        return acc;
-      }, {} as Record<string, string[]>);
-      return { content: [{ type: "text", text: JSON.stringify(grouped, null, 2) }] };
     }
+  );
 
-    case "get_component": {
-      const component = findComponent(data, args.name as string);
+  // ===== Component Tools =====
+
+  server.tool(
+    "list_components",
+    "List all available PrimeVue components with their categories",
+    {
+      category: {
+        type: "string",
+        description: "Optional category filter",
+      },
+    },
+    async ({ category }) => {
+      const grouped = data.components.reduce(
+        (acc, comp) => {
+          const cat = extractCategory(comp);
+          if (category && cat.toLowerCase() !== (category as string).toLowerCase()) {
+            return acc;
+          }
+          if (!acc[cat]) acc[cat] = [];
+          acc[cat].push(comp.name);
+          return acc;
+        },
+        {} as Record<string, string[]>
+      );
+
+      return {
+        content: [{ type: "text", text: JSON.stringify(grouped, null, 2) }],
+      };
+    }
+  );
+
+  server.tool(
+    "get_component",
+    "Get detailed information about a specific PrimeVue component",
+    {
+      name: {
+        type: "string",
+        description: "Component name (e.g., 'DataTable', 'Button')",
+      },
+    },
+    async ({ name }) => {
+      const component = findComponent(data, name as string);
       const category = extractCategory(component);
+
       const summary = {
         name: component.name,
         title: component.title,
@@ -635,159 +358,396 @@ function handleTool(name: string, args: Record<string, unknown>, data: Component
           has_examples: s.examples !== null,
         })),
       };
-      return { content: [{ type: "text", text: JSON.stringify(summary, null, 2) }] };
-    }
 
-    case "search_components": {
-      const query = (args.query as string).toLowerCase();
-      const results = data.components.filter(
-        (c) =>
-          c.name.toLowerCase().includes(query) ||
-          c.description.toLowerCase().includes(query) ||
-          c.title.toLowerCase().includes(query)
-      );
       return {
-        content: [{
-          type: "text",
-          text: JSON.stringify(results.map((c) => ({ name: c.name, title: c.title, description: c.description })), null, 2),
-        }],
+        content: [{ type: "text", text: JSON.stringify(summary, null, 2) }],
       };
     }
+  );
 
-    case "get_component_props": {
-      const comp = findComponent(data, args.component as string);
-      return { content: [{ type: "text", text: JSON.stringify(comp.api.props || [], null, 2) }] };
+  server.tool(
+    "search_components",
+    "Search PrimeVue components by name or description",
+    {
+      query: {
+        type: "string",
+        description: "Search query",
+      },
+    },
+    async ({ query }) => {
+      const results = data.components.filter(
+        (c) =>
+          c.name.toLowerCase().includes((query as string).toLowerCase()) ||
+          c.description.toLowerCase().includes((query as string).toLowerCase()) ||
+          c.title.toLowerCase().includes((query as string).toLowerCase())
+      );
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(
+              results.map((c) => ({
+                name: c.name,
+                title: c.title,
+                description: c.description,
+              })),
+              null,
+              2
+            ),
+          },
+        ],
+      };
     }
+  );
 
-    case "get_component_events": {
-      const comp = findComponent(data, args.component as string);
-      return { content: [{ type: "text", text: JSON.stringify(comp.api.emits || [], null, 2) }] };
+  server.tool(
+    "get_component_props",
+    "Get all props/properties for a PrimeVue component",
+    {
+      component: {
+        type: "string",
+        description: "Component name",
+      },
+    },
+    async ({ component }) => {
+      const comp = findComponent(data, component as string);
+      return {
+        content: [{ type: "text", text: JSON.stringify(comp.api.props || [], null, 2) }],
+      };
     }
+  );
 
-    case "get_component_slots": {
-      const comp = findComponent(data, args.component as string);
-      return { content: [{ type: "text", text: JSON.stringify(comp.api.slots || [], null, 2) }] };
+  server.tool(
+    "get_component_events",
+    "Get all events for a PrimeVue component",
+    {
+      component: {
+        type: "string",
+        description: "Component name",
+      },
+    },
+    async ({ component }) => {
+      const comp = findComponent(data, component as string);
+      return {
+        content: [{ type: "text", text: JSON.stringify(comp.api.emits || [], null, 2) }],
+      };
     }
+  );
 
-    case "get_usage_example": {
-      const comp = findComponent(data, args.component as string);
+  server.tool(
+    "get_component_slots",
+    "Get all slots/templates for a PrimeVue component",
+    {
+      component: {
+        type: "string",
+        description: "Component name",
+      },
+    },
+    async ({ component }) => {
+      const comp = findComponent(data, component as string);
+      return {
+        content: [{ type: "text", text: JSON.stringify(comp.api.slots || [], null, 2) }],
+      };
+    }
+  );
+
+  server.tool(
+    "get_usage_example",
+    "Get code examples for a PrimeVue component",
+    {
+      component: {
+        type: "string",
+        description: "Component name",
+      },
+    },
+    async ({ component }) => {
+      const comp = findComponent(data, component as string);
       const examples: { section: string; label: string; examples: Record<string, string> }[] = [];
       comp.sections.forEach((section) => {
         if (section.examples) {
           examples.push({ section: section.id, label: section.label, examples: section.examples });
         }
       });
+
       return {
-        content: [{
-          type: "text",
-          text: JSON.stringify({
-            component: comp.name,
-            total_sections_with_examples: examples.length,
-            documentation_url: `${BASE_URL}/${comp.name.toLowerCase()}`,
-            examples,
-          }, null, 2),
-        }],
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(
+              {
+                component: comp.name,
+                total_sections_with_examples: examples.length,
+                documentation_url: `${BASE_URL}/${comp.name.toLowerCase()}`,
+                examples,
+              },
+              null,
+              2
+            ),
+          },
+        ],
       };
     }
+  );
 
-    case "get_component_pt": {
-      const comp = findComponent(data, args.component as string);
+  server.tool(
+    "get_component_pt",
+    "Get Pass Through (PT) options for a PrimeVue component",
+    {
+      component: {
+        type: "string",
+        description: "Component name",
+      },
+    },
+    async ({ component }) => {
+      const comp = findComponent(data, component as string);
       const pt = comp.api.pt || [];
+
       if (pt.length === 0) {
-        return { content: [{ type: "text", text: `No Pass Through (PT) options documented for ${comp.name}.` }] };
+        return {
+          content: [{ type: "text", text: `No Pass Through (PT) options documented for ${comp.name}.` }],
+        };
       }
+
       return {
-        content: [{
-          type: "text",
-          text: JSON.stringify({ component: comp.name, description: "Pass Through (PT) allows customizing DOM elements", pt_options: pt }, null, 2),
-        }],
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(
+              {
+                component: comp.name,
+                description: "Pass Through (PT) allows customizing DOM elements",
+                pt_options: pt,
+              },
+              null,
+              2
+            ),
+          },
+        ],
       };
     }
+  );
 
-    case "get_component_tokens": {
-      const comp = findComponent(data, args.component as string);
+  server.tool(
+    "get_component_tokens",
+    "Get design tokens (CSS variables) for a PrimeVue component",
+    {
+      component: {
+        type: "string",
+        description: "Component name",
+      },
+    },
+    async ({ component }) => {
+      const comp = findComponent(data, component as string);
       const tokens = comp.api.tokens || [];
+
       if (tokens.length === 0) {
-        return { content: [{ type: "text", text: `No design tokens documented for ${comp.name}.` }] };
+        return {
+          content: [{ type: "text", text: `No design tokens documented for ${comp.name}.` }],
+        };
       }
+
       return {
-        content: [{
-          type: "text",
-          text: JSON.stringify({ component: comp.name, total_tokens: tokens.length, tokens }, null, 2),
-        }],
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(
+              { component: comp.name, total_tokens: tokens.length, tokens },
+              null,
+              2
+            ),
+          },
+        ],
       };
     }
+  );
 
-    case "get_component_styles": {
-      const comp = findComponent(data, args.component as string);
+  server.tool(
+    "get_component_styles",
+    "Get CSS class names for a PrimeVue component",
+    {
+      component: {
+        type: "string",
+        description: "Component name",
+      },
+    },
+    async ({ component }) => {
+      const comp = findComponent(data, component as string);
       const styles = comp.api.styles || [];
+
       if (styles.length === 0) {
-        return { content: [{ type: "text", text: `No CSS classes documented for ${comp.name}.` }] };
+        return {
+          content: [{ type: "text", text: `No CSS classes documented for ${comp.name}.` }],
+        };
       }
+
       return {
-        content: [{
-          type: "text",
-          text: JSON.stringify({ component: comp.name, total_classes: styles.length, styles }, null, 2),
-        }],
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(
+              { component: comp.name, total_classes: styles.length, styles },
+              null,
+              2
+            ),
+          },
+        ],
       };
     }
+  );
 
-    case "find_by_prop": {
-      const propName = (args.prop_name as string).toLowerCase();
+  server.tool(
+    "find_by_prop",
+    "Find PrimeVue components that have a specific prop",
+    {
+      prop_name: {
+        type: "string",
+        description: "Property name to search for",
+      },
+    },
+    async ({ prop_name }) => {
+      const propNameLower = (prop_name as string).toLowerCase();
       const results = data.components.filter((c) =>
-        (c.api.props || []).some((p) => p.name.toLowerCase() === propName)
+        (c.api.props || []).some((p) => p.name.toLowerCase() === propNameLower)
       );
-      return { content: [{ type: "text", text: JSON.stringify(results.map((c) => c.name), null, 2) }] };
-    }
 
-    case "find_by_event": {
-      const eventName = (args.event_name as string).toLowerCase();
+      return {
+        content: [{ type: "text", text: JSON.stringify(results.map((c) => c.name), null, 2) }],
+      };
+    }
+  );
+
+  server.tool(
+    "find_by_event",
+    "Find PrimeVue components that emit a specific event",
+    {
+      event_name: {
+        type: "string",
+        description: "Event name to search for",
+      },
+    },
+    async ({ event_name }) => {
+      const eventNameLower = (event_name as string).toLowerCase();
       const results = data.components.filter((c) =>
-        (c.api.emits || []).some((e) => e.name.toLowerCase() === eventName)
+        (c.api.emits || []).some((e) => e.name.toLowerCase() === eventNameLower)
       );
-      return { content: [{ type: "text", text: JSON.stringify(results.map((c) => c.name), null, 2) }] };
-    }
 
-    case "get_component_url": {
-      const comp = findComponent(data, args.component as string);
-      return { content: [{ type: "text", text: `${BASE_URL}/${comp.name.toLowerCase()}` }] };
+      return {
+        content: [{ type: "text", text: JSON.stringify(results.map((c) => c.name), null, 2) }],
+      };
     }
+  );
 
-    case "compare_components": {
-      const comp1 = findComponent(data, args.component1 as string);
-      const comp2 = findComponent(data, args.component2 as string);
+  server.tool(
+    "get_component_url",
+    "Get the official documentation URL for a PrimeVue component",
+    {
+      component: {
+        type: "string",
+        description: "Component name",
+      },
+    },
+    async ({ component }) => {
+      const comp = findComponent(data, component as string);
+      return {
+        content: [{ type: "text", text: `${BASE_URL}/${comp.name.toLowerCase()}` }],
+      };
+    }
+  );
+
+  server.tool(
+    "compare_components",
+    "Compare two PrimeVue components side by side",
+    {
+      component1: {
+        type: "string",
+        description: "First component name",
+      },
+      component2: {
+        type: "string",
+        description: "Second component name",
+      },
+    },
+    async ({ component1, component2 }) => {
+      const comp1 = findComponent(data, component1 as string);
+      const comp2 = findComponent(data, component2 as string);
+
       const comparison = {
-        component1: { name: comp1.name, props_count: comp1.api.props?.length || 0, events_count: comp1.api.emits?.length || 0, slots_count: comp1.api.slots?.length || 0 },
-        component2: { name: comp2.name, props_count: comp2.api.props?.length || 0, events_count: comp2.api.emits?.length || 0, slots_count: comp2.api.slots?.length || 0 },
-        common_props: (comp1.api.props || []).filter((p1) => (comp2.api.props || []).some((p2) => p2.name === p1.name)).map((p) => p.name),
+        component1: {
+          name: comp1.name,
+          props_count: comp1.api.props?.length || 0,
+          events_count: comp1.api.emits?.length || 0,
+          slots_count: comp1.api.slots?.length || 0,
+        },
+        component2: {
+          name: comp2.name,
+          props_count: comp2.api.props?.length || 0,
+          events_count: comp2.api.emits?.length || 0,
+          slots_count: comp2.api.slots?.length || 0,
+        },
+        common_props: (comp1.api.props || [])
+          .filter((p1) => (comp2.api.props || []).some((p2) => p2.name === p1.name))
+          .map((p) => p.name),
       };
-      return { content: [{ type: "text", text: JSON.stringify(comparison, null, 2) }] };
-    }
 
-    case "get_categories": {
-      const categories = [...new Set(data.components.map((c) => extractCategory(c)))];
-      return { content: [{ type: "text", text: JSON.stringify(categories, null, 2) }] };
-    }
-
-    case "get_version_info": {
       return {
-        content: [{
-          type: "text",
-          text: JSON.stringify({
-            framework: "primevue",
-            version: data.version,
-            generated_at: data.generatedAt,
-            components_count: data.components.length,
-            pages_count: data.pages?.length || 0,
-            vue_compatibility: "Vue 3.x",
-          }, null, 2),
-        }],
+        content: [{ type: "text", text: JSON.stringify(comparison, null, 2) }],
       };
     }
+  );
 
-    case "get_installation": {
-      const env = ((args.environment as string) || "vite").toLowerCase();
+  server.tool(
+    "get_categories",
+    "Get all PrimeVue component categories",
+    {},
+    async () => {
+      const categories = [...new Set(data.components.map((c) => extractCategory(c)))];
+      return {
+        content: [{ type: "text", text: JSON.stringify(categories, null, 2) }],
+      };
+    }
+  );
+
+  server.tool(
+    "get_version_info",
+    "Get PrimeVue version and compatibility information",
+    {},
+    async () => {
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(
+              {
+                framework: "primevue",
+                version: data.version,
+                generated_at: data.generatedAt,
+                components_count: data.components.length,
+                pages_count: data.pages?.length || 0,
+                vue_compatibility: "Vue 3.x",
+              },
+              null,
+              2
+            ),
+          },
+        ],
+      };
+    }
+  );
+
+  server.tool(
+    "get_installation",
+    "Get PrimeVue installation instructions",
+    {
+      environment: {
+        type: "string",
+        description: "Environment: 'vite', 'nuxt', 'laravel', or 'cdn'",
+      },
+    },
+    async ({ environment }) => {
+      const env = ((environment as string) || "vite").toLowerCase();
       let guide = `# PrimeVue Installation\n\n`;
+
       if (env === "nuxt") {
         guide += `## Nuxt 3\n\n\`\`\`bash\nnpm install primevue @primevue/themes\n\`\`\`\n\nAdd to nuxt.config.ts:\n\`\`\`typescript\nexport default defineNuxtConfig({ modules: ['@primevue/nuxt-module'] })\n\`\`\`\n`;
       } else if (env === "cdn") {
@@ -795,42 +755,107 @@ function handleTool(name: string, args: Record<string, unknown>, data: Component
       } else {
         guide += `## Vite\n\n\`\`\`bash\nnpm install primevue @primevue/themes\n\`\`\`\n\nSetup in main.ts:\n\`\`\`typescript\nimport { createApp } from 'vue'\nimport PrimeVue from 'primevue/config'\nimport Aura from '@primevue/themes/aura'\n\nconst app = createApp(App)\napp.use(PrimeVue, { theme: { preset: Aura } })\n\`\`\`\n`;
       }
-      guide += `\nFor detailed instructions: ${BASE_URL}/installation`;
-      return { content: [{ type: "text", text: guide }] };
-    }
 
-    case "list_guides": {
-      if (!data.pages || data.pages.length === 0) {
-        return { content: [{ type: "text", text: "No guides available." }] };
-      }
+      guide += `\nFor detailed instructions: ${BASE_URL}/installation`;
+
       return {
-        content: [{
-          type: "text",
-          text: JSON.stringify({ total: data.pages.length, guides: data.pages.map((p) => ({ name: p.name, title: p.title, description: p.description })) }, null, 2),
-        }],
+        content: [{ type: "text", text: guide }],
       };
     }
+  );
 
-    case "get_guide": {
-      const content = getGuideContent(data, args.name as string, args.section as string | undefined);
-      return { content: [{ type: "text", text: content }] };
+  // ===== Guide Tools =====
+
+  server.tool(
+    "list_guides",
+    "List all available PrimeVue guides and documentation pages",
+    {},
+    async () => {
+      if (!data.pages || data.pages.length === 0) {
+        return {
+          content: [{ type: "text", text: "No guides available." }],
+        };
+      }
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(
+              {
+                total: data.pages.length,
+                guides: data.pages.map((p) => ({
+                  name: p.name,
+                  title: p.title,
+                  description: p.description,
+                })),
+              },
+              null,
+              2
+            ),
+          },
+        ],
+      };
     }
+  );
 
-    case "get_theming_info": {
-      const mode = ((args.mode as string) || "styled").toLowerCase();
+  server.tool(
+    "get_guide",
+    "Get a specific PrimeVue guide by name",
+    {
+      name: {
+        type: "string",
+        description: "Guide name",
+      },
+      section: {
+        type: "string",
+        description: "Optional section ID",
+      },
+    },
+    async ({ name, section }) => {
+      const content = getGuideContent(data, name as string, section as string | undefined);
+      return {
+        content: [{ type: "text", text: content }],
+      };
+    }
+  );
+
+  server.tool(
+    "get_theming_info",
+    "Get information about PrimeVue theming",
+    {
+      mode: {
+        type: "string",
+        description: "Theming mode: 'styled', 'unstyled', or 'passthrough'",
+      },
+    },
+    async ({ mode }) => {
+      const modeStr = ((mode as string) || "styled").toLowerCase();
       let info = `# PrimeVue Theming\n\n`;
-      if (mode === "unstyled") {
+
+      if (modeStr === "unstyled") {
         info += `## Unstyled Mode\n\nUse unstyled mode for complete control.\n\n\`\`\`typescript\napp.use(PrimeVue, { unstyled: true })\n\`\`\`\n`;
-      } else if (mode === "passthrough") {
+      } else if (modeStr === "passthrough") {
         info += `## Pass Through (PT)\n\nPT allows fine-grained control over DOM elements.\n\n\`\`\`vue\n<Button :pt="{ root: { class: 'my-class' } }" />\n\`\`\`\n`;
       } else {
         info += `## Styled Mode (Default)\n\nPre-skinned components with design tokens. Presets: Aura, Lara, Nora, Material\n\n\`\`\`typescript\nimport Aura from '@primevue/themes/aura'\napp.use(PrimeVue, { theme: { preset: Aura } })\n\`\`\`\n`;
       }
-      info += `\nFor detailed docs: ${BASE_URL}/theming`;
-      return { content: [{ type: "text", text: info }] };
-    }
 
-    case "list_composables": {
+      info += `\nFor detailed docs: ${BASE_URL}/theming`;
+
+      return {
+        content: [{ type: "text", text: info }],
+      };
+    }
+  );
+
+  // ===== Composables Tools =====
+
+  server.tool(
+    "list_composables",
+    "List all PrimeVue composables",
+    {},
+    async () => {
       const composables = [
         { name: "useToast", description: "Programmatically display toast messages", related_component: "Toast" },
         { name: "useConfirm", description: "Programmatically display confirmation dialogs", related_component: "ConfirmDialog" },
@@ -838,10 +863,23 @@ function handleTool(name: string, args: Record<string, unknown>, data: Component
         { name: "useStyle", description: "Inject custom styles", related_component: null },
         { name: "usePrimeVue", description: "Access PrimeVue configuration", related_component: null },
       ];
-      return { content: [{ type: "text", text: JSON.stringify({ total: composables.length, composables }, null, 2) }] };
-    }
 
-    case "get_composable": {
+      return {
+        content: [{ type: "text", text: JSON.stringify({ total: composables.length, composables }, null, 2) }],
+      };
+    }
+  );
+
+  server.tool(
+    "get_composable",
+    "Get detailed info about a PrimeVue composable",
+    {
+      name: {
+        type: "string",
+        description: "Composable name (e.g., 'useToast')",
+      },
+    },
+    async ({ name }) => {
       const composables: Record<string, { description: string; usage: string; example: string }> = {
         usetoast: {
           description: "useToast provides methods to display toast notifications.",
@@ -869,54 +907,143 @@ function handleTool(name: string, args: Record<string, unknown>, data: Component
           example: `primevue.config.ripple = true;`,
         },
       };
-      const normalizedName = (args.name as string).toLowerCase();
-      const composable = composables[normalizedName];
-      if (!composable) {
-        return { content: [{ type: "text", text: `Composable "${args.name}" not found. Available: useToast, useConfirm, useDialog, useStyle, usePrimeVue` }] };
-      }
-      return { content: [{ type: "text", text: JSON.stringify({ name: args.name, ...composable }, null, 2) }] };
-    }
 
-    case "list_examples": {
-      const componentFilter = args.component as string | undefined;
+      const normalizedName = (name as string).toLowerCase();
+      const composable = composables[normalizedName];
+
+      if (!composable) {
+        return {
+          content: [{ type: "text", text: `Composable "${name}" not found. Available: useToast, useConfirm, useDialog, useStyle, usePrimeVue` }],
+        };
+      }
+
+      return {
+        content: [{ type: "text", text: JSON.stringify({ name, ...composable }, null, 2) }],
+      };
+    }
+  );
+
+  // ===== Example Tools =====
+
+  server.tool(
+    "list_examples",
+    "List all available code examples",
+    {
+      component: {
+        type: "string",
+        description: "Optional component filter",
+      },
+    },
+    async ({ component }) => {
+      const componentFilter = component as string | undefined;
       const examples: { component: string; section: string; label: string; variants: string[] }[] = [];
+
       const components = componentFilter
         ? data.components.filter((c) => c.name.toLowerCase() === componentFilter.toLowerCase())
         : data.components;
+
       components.forEach((comp) => {
         comp.sections.forEach((section) => {
           if (section.examples) {
-            examples.push({ component: comp.name, section: section.id, label: section.label, variants: Object.keys(section.examples) });
+            examples.push({
+              component: comp.name,
+              section: section.id,
+              label: section.label,
+              variants: Object.keys(section.examples),
+            });
           }
         });
       });
-      return { content: [{ type: "text", text: JSON.stringify({ total: examples.length, filter: componentFilter || "all", examples }, null, 2) }] };
-    }
 
-    case "get_example": {
-      const comp = findComponent(data, args.component as string);
-      const sectionData = comp.sections.find((s) => s.id.toLowerCase() === (args.section as string).toLowerCase());
-      if (!sectionData) {
-        return { content: [{ type: "text", text: `Section "${args.section}" not found for ${comp.name}. Available: ${comp.sections.map((s) => s.id).join(", ")}` }] };
-      }
-      if (!sectionData.examples) {
-        return { content: [{ type: "text", text: `No code examples for ${comp.name} > ${sectionData.label}` }] };
-      }
-      const variant = (args.variant as string) || "basic";
-      const code = sectionData.examples[variant];
-      if (!code) {
-        return { content: [{ type: "text", text: `Variant "${variant}" not found. Available: ${Object.keys(sectionData.examples).join(", ")}` }] };
-      }
       return {
-        content: [{
-          type: "text",
-          text: JSON.stringify({ component: comp.name, section: sectionData.id, label: sectionData.label, variant, code }, null, 2),
-        }],
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify({ total: examples.length, filter: componentFilter || "all", examples }, null, 2),
+          },
+        ],
       };
     }
+  );
 
-    case "get_component_sections": {
-      const comp = findComponent(data, args.component as string);
+  server.tool(
+    "get_example",
+    "Get a specific code example",
+    {
+      component: {
+        type: "string",
+        description: "Component name",
+      },
+      section: {
+        type: "string",
+        description: "Section ID",
+      },
+      variant: {
+        type: "string",
+        description: "Example variant (default: 'basic')",
+      },
+    },
+    async ({ component, section, variant }) => {
+      const comp = findComponent(data, component as string);
+      const sectionData = comp.sections.find(
+        (s) => s.id.toLowerCase() === (section as string).toLowerCase()
+      );
+
+      if (!sectionData) {
+        const availableSections = comp.sections.map((s) => s.id).join(", ");
+        return {
+          content: [{ type: "text", text: `Section "${section}" not found for ${comp.name}. Available: ${availableSections}` }],
+        };
+      }
+
+      if (!sectionData.examples) {
+        return {
+          content: [{ type: "text", text: `No code examples for ${comp.name} > ${sectionData.label}` }],
+        };
+      }
+
+      const selectedVariant = (variant as string) || "basic";
+      const code = sectionData.examples[selectedVariant];
+
+      if (!code) {
+        const availableVariants = Object.keys(sectionData.examples).join(", ");
+        return {
+          content: [{ type: "text", text: `Variant "${selectedVariant}" not found. Available: ${availableVariants}` }],
+        };
+      }
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(
+              {
+                component: comp.name,
+                section: sectionData.id,
+                label: sectionData.label,
+                variant: selectedVariant,
+                code,
+              },
+              null,
+              2
+            ),
+          },
+        ],
+      };
+    }
+  );
+
+  server.tool(
+    "get_component_sections",
+    "Get all available sections for a component",
+    {
+      component: {
+        type: "string",
+        description: "Component name",
+      },
+    },
+    async ({ component }) => {
+      const comp = findComponent(data, component as string);
       const sections = comp.sections.map((s) => ({
         id: s.id,
         label: s.label,
@@ -924,12 +1051,31 @@ function handleTool(name: string, args: Record<string, unknown>, data: Component
         has_examples: s.examples !== null,
         example_variants: s.examples ? Object.keys(s.examples) : [],
       }));
-      return { content: [{ type: "text", text: JSON.stringify({ component: comp.name, total_sections: sections.length, sections }, null, 2) }] };
-    }
 
-    case "get_component_import": {
-      const comp = findComponent(data, args.component as string);
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify({ component: comp.name, total_sections: sections.length, sections }, null, 2),
+          },
+        ],
+      };
+    }
+  );
+
+  server.tool(
+    "get_component_import",
+    "Get the import statement for a PrimeVue component",
+    {
+      component: {
+        type: "string",
+        description: "Component name",
+      },
+    },
+    async ({ component }) => {
+      const comp = findComponent(data, component as string);
       const importSection = comp.sections.find((s) => s.id === "import");
+
       let importCode = "";
       if (importSection?.examples?.basic) {
         importCode = importSection.examples.basic;
@@ -937,130 +1083,301 @@ function handleTool(name: string, args: Record<string, unknown>, data: Component
         const pascalName = comp.name.charAt(0).toUpperCase() + comp.name.slice(1);
         importCode = `import ${pascalName} from 'primevue/${comp.name.toLowerCase()}';`;
       }
-      return { content: [{ type: "text", text: `# Import ${comp.title}\n\n\`\`\`javascript\n${importCode}\n\`\`\`\n\n**Documentation:** ${BASE_URL}/${comp.name}` }] };
-    }
 
-    case "find_components_with_feature": {
-      const feature = (args.feature as string).toLowerCase();
+      return {
+        content: [{ type: "text", text: `# Import ${comp.title}\n\n\`\`\`javascript\n${importCode}\n\`\`\`\n\n**Documentation:** ${BASE_URL}/${comp.name}` }],
+      };
+    }
+  );
+
+  // ===== Advanced Search Tools =====
+
+  server.tool(
+    "find_components_with_feature",
+    "Find components supporting a specific feature",
+    {
+      feature: {
+        type: "string",
+        description: "Feature to search for",
+      },
+    },
+    async ({ feature }) => {
+      const featureLower = (feature as string).toLowerCase();
       const matches = data.components.filter((c) =>
-        c.sections.some((s) => s.id.toLowerCase().includes(feature) || s.label.toLowerCase().includes(feature))
+        c.sections.some(
+          (s) => s.id.toLowerCase().includes(featureLower) || s.label.toLowerCase().includes(featureLower)
+        )
       );
+
       if (matches.length === 0) {
-        return { content: [{ type: "text", text: `No components found with feature "${args.feature}".` }] };
+        return {
+          content: [{ type: "text", text: `No components found with feature "${feature}".` }],
+        };
       }
+
       const results = matches.map((c) => ({
         component: c.name,
-        matching_sections: c.sections.filter((s) => s.id.toLowerCase().includes(feature) || s.label.toLowerCase().includes(feature)).map((s) => s.id),
+        matching_sections: c.sections
+          .filter((s) => s.id.toLowerCase().includes(featureLower) || s.label.toLowerCase().includes(featureLower))
+          .map((s) => s.id),
       }));
-      return { content: [{ type: "text", text: JSON.stringify({ feature: args.feature, total_matches: results.length, components: results }, null, 2) }] };
-    }
 
-    case "search_all": {
-      const query = (args.query as string).toLowerCase();
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify({ feature, total_matches: results.length, components: results }, null, 2),
+          },
+        ],
+      };
+    }
+  );
+
+  server.tool(
+    "search_all",
+    "Search across all components, guides, and props",
+    {
+      query: {
+        type: "string",
+        description: "Search query",
+      },
+    },
+    async ({ query }) => {
+      const queryLower = (query as string).toLowerCase();
+
       const componentMatches = data.components
-        .filter((c) => c.name.toLowerCase().includes(query) || c.title.toLowerCase().includes(query) || c.description.toLowerCase().includes(query))
+        .filter(
+          (c) =>
+            c.name.toLowerCase().includes(queryLower) ||
+            c.title.toLowerCase().includes(queryLower) ||
+            c.description.toLowerCase().includes(queryLower)
+        )
         .slice(0, 5)
         .map((c) => ({ name: c.name, title: c.title, description: c.description.slice(0, 100) }));
+
       const propMatches: { component: string; prop: string; type: string }[] = [];
       data.components.forEach((c) => {
         c.api.props?.forEach((p) => {
-          if (p.name.toLowerCase().includes(query)) {
+          if (p.name.toLowerCase().includes(queryLower)) {
             propMatches.push({ component: c.name, prop: p.name, type: p.type });
           }
         });
       });
+
       const guideMatches = (data.pages || [])
-        .filter((p) => p.name.toLowerCase().includes(query) || p.title.toLowerCase().includes(query))
+        .filter((p) => p.name.toLowerCase().includes(queryLower) || p.title.toLowerCase().includes(queryLower))
         .slice(0, 5)
         .map((p) => ({ name: p.name, title: p.title }));
+
       return {
-        content: [{
-          type: "text",
-          text: JSON.stringify({ query: args.query, results: { components: componentMatches, props: propMatches.slice(0, 10), guides: guideMatches } }, null, 2),
-        }],
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(
+              {
+                query,
+                results: {
+                  components: componentMatches,
+                  props: propMatches.slice(0, 10),
+                  guides: guideMatches,
+                },
+              },
+              null,
+              2
+            ),
+          },
+        ],
       };
     }
+  );
 
-    case "suggest_component": {
-      const useCase = (args.use_case as string).toLowerCase();
+  server.tool(
+    "suggest_component",
+    "Suggest components based on use case",
+    {
+      use_case: {
+        type: "string",
+        description: "Description of what you want to build",
+      },
+    },
+    async ({ use_case }) => {
+      const useCaseLower = (use_case as string).toLowerCase();
+
       const keywords: Record<string, string[]> = {
-        table: ["datatable", "treetable"], grid: ["datatable", "dataview"], list: ["listbox", "orderlist", "picklist", "dataview"],
-        tree: ["tree", "treetable", "treeselect"], form: ["inputtext", "inputnumber", "textarea", "checkbox", "select"],
-        input: ["inputtext", "inputnumber", "inputmask", "textarea", "password"], select: ["select", "multiselect", "listbox", "cascadeselect"],
-        dropdown: ["select", "multiselect"], date: ["datepicker"], calendar: ["datepicker"], file: ["fileupload"], upload: ["fileupload"],
-        image: ["image", "galleria"], gallery: ["galleria", "carousel"], dialog: ["dialog", "confirmdialog", "dynamicdialog"],
-        modal: ["dialog", "drawer"], popup: ["popover", "confirmpopup", "tooltip"], drawer: ["drawer"], sidebar: ["drawer"],
-        menu: ["menu", "menubar", "megamenu", "tieredmenu", "contextmenu", "panelmenu"], navigation: ["menubar", "breadcrumb", "tabs", "stepper"],
-        tab: ["tabs"], step: ["stepper"], wizard: ["stepper"], accordion: ["accordion"], panel: ["panel", "fieldset", "card", "splitter"],
-        card: ["card"], button: ["button", "splitbutton", "speeddial"], toggle: ["toggleswitch", "togglebutton", "checkbox"],
-        switch: ["toggleswitch"], rating: ["rating"], progress: ["progressbar", "progressspinner"], loading: ["progressspinner", "skeleton"],
-        toast: ["toast"], notification: ["toast", "message"], message: ["message", "toast"], chip: ["chip"], avatar: ["avatar"],
-        tooltip: ["tooltip"], editor: ["editor"], color: ["colorpicker"], chart: ["chart"], terminal: ["terminal"],
-        scroll: ["scrollpanel", "scrolltop", "virtualscroller"], timeline: ["timeline"], divider: ["divider"], splitter: ["splitter"], knob: ["knob"],
+        table: ["datatable", "treetable"],
+        grid: ["datatable", "dataview"],
+        list: ["listbox", "orderlist", "picklist", "dataview"],
+        tree: ["tree", "treetable", "treeselect"],
+        form: ["inputtext", "inputnumber", "textarea", "checkbox", "select"],
+        input: ["inputtext", "inputnumber", "inputmask", "textarea", "password"],
+        select: ["select", "multiselect", "listbox", "cascadeselect"],
+        dropdown: ["select", "multiselect"],
+        date: ["datepicker"],
+        calendar: ["datepicker"],
+        file: ["fileupload"],
+        upload: ["fileupload"],
+        image: ["image", "galleria"],
+        gallery: ["galleria", "carousel"],
+        dialog: ["dialog", "confirmdialog", "dynamicdialog"],
+        modal: ["dialog", "drawer"],
+        popup: ["popover", "confirmpopup", "tooltip"],
+        drawer: ["drawer"],
+        sidebar: ["drawer"],
+        menu: ["menu", "menubar", "megamenu", "tieredmenu", "contextmenu", "panelmenu"],
+        navigation: ["menubar", "breadcrumb", "tabs", "stepper"],
+        tab: ["tabs"],
+        step: ["stepper"],
+        wizard: ["stepper"],
+        accordion: ["accordion"],
+        panel: ["panel", "fieldset", "card", "splitter"],
+        card: ["card"],
+        button: ["button", "splitbutton", "speeddial"],
+        toggle: ["toggleswitch", "togglebutton", "checkbox"],
+        switch: ["toggleswitch"],
+        rating: ["rating"],
+        progress: ["progressbar", "progressspinner"],
+        loading: ["progressspinner", "skeleton"],
+        toast: ["toast"],
+        notification: ["toast", "message"],
+        message: ["message", "toast"],
+        chip: ["chip"],
+        avatar: ["avatar"],
+        tooltip: ["tooltip"],
+        editor: ["editor"],
+        color: ["colorpicker"],
+        chart: ["chart"],
+        terminal: ["terminal"],
+        scroll: ["scrollpanel", "scrolltop", "virtualscroller"],
+        timeline: ["timeline"],
+        divider: ["divider"],
+        splitter: ["splitter"],
+        knob: ["knob"],
       };
+
       const matchedComponents = new Set<string>();
+
       Object.entries(keywords).forEach(([keyword, components]) => {
-        if (useCase.includes(keyword)) components.forEach((c) => matchedComponents.add(c));
+        if (useCaseLower.includes(keyword)) {
+          components.forEach((c) => matchedComponents.add(c));
+        }
       });
+
       data.components.forEach((c) => {
-        if (c.name.toLowerCase().includes(useCase) || c.description.toLowerCase().includes(useCase)) matchedComponents.add(c.name);
+        if (c.name.toLowerCase().includes(useCaseLower) || c.description.toLowerCase().includes(useCaseLower)) {
+          matchedComponents.add(c.name);
+        }
       });
+
       const suggestions = Array.from(matchedComponents)
         .map((name) => {
           const comp = data.components.find((c) => c.name.toLowerCase() === name.toLowerCase());
-          return comp ? { name: comp.name, title: comp.title, description: comp.description, url: `${BASE_URL}/${comp.name.toLowerCase()}` } : null;
+          return comp
+            ? {
+                name: comp.name,
+                title: comp.title,
+                description: comp.description,
+                url: `${BASE_URL}/${comp.name.toLowerCase()}`,
+              }
+            : null;
         })
         .filter(Boolean)
         .slice(0, 8);
+
       if (suggestions.length === 0) {
-        return { content: [{ type: "text", text: `No specific suggestions for "${args.use_case}". Try list_components or get_form_components.` }] };
+        return {
+          content: [
+            {
+              type: "text",
+              text: `No specific suggestions for "${use_case}". Try list_components or get_form_components.`,
+            },
+          ],
+        };
       }
-      return { content: [{ type: "text", text: JSON.stringify({ use_case: args.use_case, suggestions }, null, 2) }] };
-    }
 
-    case "get_form_components": {
-      const formComponents = data.components.filter((c) => extractCategory(c) === "Form").map((c) => ({ name: c.name, title: c.title, description: c.description }));
-      return { content: [{ type: "text", text: JSON.stringify({ category: "Form Components", total: formComponents.length, components: formComponents }, null, 2) }] };
+      return {
+        content: [{ type: "text", text: JSON.stringify({ use_case, suggestions }, null, 2) }],
+      };
     }
+  );
 
-    case "get_data_components": {
-      const dataComponents = data.components.filter((c) => extractCategory(c) === "Data").map((c) => ({ name: c.name, title: c.title, description: c.description }));
-      return { content: [{ type: "text", text: JSON.stringify({ category: "Data Components", total: dataComponents.length, components: dataComponents }, null, 2) }] };
+  // ===== Category Tools =====
+
+  server.tool(
+    "get_form_components",
+    "Get all PrimeVue form input components",
+    {},
+    async () => {
+      const formComponents = data.components
+        .filter((c) => extractCategory(c) === "Form")
+        .map((c) => ({ name: c.name, title: c.title, description: c.description }));
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify({ category: "Form Components", total: formComponents.length, components: formComponents }, null, 2),
+          },
+        ],
+      };
     }
+  );
 
-    case "get_overlay_components": {
-      const overlayComponents = data.components.filter((c) => extractCategory(c) === "Overlay").map((c) => ({ name: c.name, title: c.title, description: c.description }));
-      return { content: [{ type: "text", text: JSON.stringify({ category: "Overlay Components", total: overlayComponents.length, components: overlayComponents }, null, 2) }] };
+  server.tool(
+    "get_data_components",
+    "Get all PrimeVue data display components",
+    {},
+    async () => {
+      const dataComponents = data.components
+        .filter((c) => extractCategory(c) === "Data")
+        .map((c) => ({ name: c.name, title: c.title, description: c.description }));
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify({ category: "Data Components", total: dataComponents.length, components: dataComponents }, null, 2),
+          },
+        ],
+      };
     }
+  );
 
-    default:
-      throw new Error(`Unknown tool: ${name}`);
-  }
+  server.tool(
+    "get_overlay_components",
+    "Get all PrimeVue overlay/popup components",
+    {},
+    async () => {
+      const overlayComponents = data.components
+        .filter((c) => extractCategory(c) === "Overlay")
+        .map((c) => ({ name: c.name, title: c.title, description: c.description }));
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify({ category: "Overlay Components", total: overlayComponents.length, components: overlayComponents }, null, 2),
+          },
+        ],
+      };
+    }
+  );
+
+  return server;
 }
 
 // Main entry point
 async function main() {
-  const data = await loadComponentsData();
+  try {
+    const data = await loadComponentsData();
+    const server = createServer(data);
+    const transport = new StdioServerTransport();
 
-  const server = new Server(
-    { name: "@primevue/mcp", version: "1.0.0" },
-    { capabilities: { tools: {} } }
-  );
-
-  server.setRequestHandler(ListToolsRequestSchema, async () => ({ tools }));
-
-  server.setRequestHandler(CallToolRequestSchema, async (request) => {
-    const { name, arguments: args } = request.params;
-    try {
-      return handleTool(name, args || {}, data);
-    } catch (error) {
-      return { content: [{ type: "text", text: `Error: ${error instanceof Error ? error.message : String(error)}` }] };
-    }
-  });
-
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  console.error("PrimeVue MCP Server running on stdio");
+    await server.connect(transport);
+    console.error("PrimeVue MCP Server running on stdio");
+  } catch (error) {
+    console.error("Failed to start PrimeVue MCP Server:", error);
+    process.exit(1);
+  }
 }
 
-main().catch(console.error);
+main();
