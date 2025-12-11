@@ -22,18 +22,19 @@ Add to your Claude Desktop config (`~/.claude/config.json`):
 
 ```json
 {
-  "mcpServers": {
-    "primevue": {
-      "command": "npx",
-      "args": ["@primevue/mcp"]
+    "mcpServers": {
+        "primevue": {
+            "command": "npx",
+            "args": ["@primevue/mcp"]
+        }
     }
-  }
 }
 ```
 
 ## Available Tools
 
 ### Component Tools
+
 - `list_components` - List all available PrimeVue components with their categories
 - `get_component` - Get detailed information about a specific component
 - `search_components` - Search components by name or description
@@ -52,6 +53,7 @@ Add to your Claude Desktop config (`~/.claude/config.json`):
 - `get_categories` - Get all component categories
 
 ### Guide Tools
+
 - `list_guides` - List all available guides and documentation pages
 - `get_guide` - Get a specific guide by name
 - `get_configuration` - Get PrimeVue configuration options
@@ -64,14 +66,17 @@ Add to your Claude Desktop config (`~/.claude/config.json`):
 - `get_theming_info` - Get theming information
 
 ### Composables
+
 - `list_composables` - List all PrimeVue composables
 - `get_composable` - Get detailed info about a composable
 
 ### Examples
+
 - `list_examples` - List all available code examples
 - `get_example` - Get a specific code example by component and section
 
 ### Advanced Tools
+
 - `get_component_sections` - Get all available sections/features for a component
 - `get_component_import` - Get the correct import statement
 - `find_components_with_feature` - Find components supporting a specific feature
@@ -82,6 +87,7 @@ Add to your Claude Desktop config (`~/.claude/config.json`):
 - `suggest_component` - Suggest components based on use case
 
 ### Utility Tools
+
 - `get_form_components` - Get all form input components
 - `get_data_components` - Get all data display components
 - `get_overlay_components` - Get all overlay/popup components
@@ -123,17 +129,18 @@ Or manually add to `~/.claude.json` (user-level) or `.claude/settings.json` (pro
 
 ```json
 {
-  "mcpServers": {
-    "primevue": {
-      "type": "stdio",
-      "command": "node",
-      "args": ["/path/to/primevue/packages/mcp/dist/index.js"]
+    "mcpServers": {
+        "primevue": {
+            "type": "stdio",
+            "command": "node",
+            "args": ["/path/to/primevue/packages/mcp/dist/index.js"]
+        }
     }
-  }
 }
 ```
 
 Useful commands:
+
 ```bash
 claude mcp list          # List all MCP servers
 claude mcp get primevue  # Get server details
@@ -146,12 +153,12 @@ Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_
 
 ```json
 {
-  "mcpServers": {
-    "primevue": {
-      "command": "node",
-      "args": ["/path/to/primevue/packages/mcp/dist/index.js"]
+    "mcpServers": {
+        "primevue": {
+            "command": "node",
+            "args": ["/path/to/primevue/packages/mcp/dist/index.js"]
+        }
     }
-  }
 }
 ```
 
@@ -161,12 +168,12 @@ Add to your Cursor MCP config (`.cursor/mcp.json` in your project or globally):
 
 ```json
 {
-  "mcpServers": {
-    "primevue": {
-      "command": "node",
-      "args": ["/path/to/primevue/packages/mcp/dist/index.js"]
+    "mcpServers": {
+        "primevue": {
+            "command": "node",
+            "args": ["/path/to/primevue/packages/mcp/dist/index.js"]
+        }
     }
-  }
 }
 ```
 
@@ -187,4 +194,3 @@ node dist/index.js
 ```
 
 The server uses stdio transport, so it will wait for JSON-RPC messages on stdin.
-
