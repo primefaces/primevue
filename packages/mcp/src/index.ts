@@ -1,9 +1,5 @@
-import { runPrimeMcpServer } from '@primemcp/core';
-import { readFile } from 'fs/promises';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
+import { ComponentsData, runPrimeMcpServer } from '@primeuix/mcp';
+import ComponentJson from '@primevue/mcp/data/components.json';
 
 // Vue-specific composables data
 const composables = [
@@ -53,11 +49,7 @@ runPrimeMcpServer({
     slotKey: 'slots',
     codeLanguage: 'javascript',
     compatibility: 'Vue 3.x',
-    loadComponentsData: async () => {
-        const dataPath = join(__dirname, '../data/components.json');
-        const fileContent = await readFile(dataPath, 'utf-8');
-        return JSON.parse(fileContent);
-    },
+    loadComponentsData: async () => ComponentJson as ComponentsData,
     customTools: [
         // Vue-specific: list_composables
         {
