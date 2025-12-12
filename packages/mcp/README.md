@@ -81,6 +81,7 @@ Create or edit `~/.cursor/mcp.json` in your home directory:
 ```
 
 **Option 3: Via Settings UI**
+
 1. Go to **Cursor Settings** > **Tools & Integrations**
 2. Click **New MCP Server**
 3. Add the configuration above
@@ -118,6 +119,7 @@ After adding, the MCP server will be available in both the Codex CLI and VS Code
 ### Windsurf
 
 **Option 1: Via Settings UI**
+
 1. Click **Windsurf - Settings** (bottom right) or press `Cmd+Shift+P` / `Ctrl+Shift+P`
 2. Type "Open Windsurf Settings"
 3. Navigate to **Cascade** section
@@ -171,83 +173,83 @@ After adding, restart Zed. Check the Agent Panel's settings view - a green indic
 
 ### Component Information
 
-| Tool | Description |
-|------|-------------|
-| `list_components` | List all PrimeVue components with categories |
-| `get_component` | Get detailed info about a specific component |
-| `search_components` | Search components by name or description |
-| `get_component_props` | Get all props for a component |
-| `get_component_events` | Get all events for a component |
-| `get_component_methods` | Get all methods for a component |
-| `get_component_slots` | Get all slots for a component |
-| `compare_components` | Compare two components side by side |
-| `get_categories` | Get all component categories |
+| Tool                    | Description                                  |
+| ----------------------- | -------------------------------------------- |
+| `list_components`       | List all PrimeVue components with categories |
+| `get_component`         | Get detailed info about a specific component |
+| `search_components`     | Search components by name or description     |
+| `get_component_props`   | Get all props for a component                |
+| `get_component_events`  | Get all events for a component               |
+| `get_component_methods` | Get all methods for a component              |
+| `get_component_slots`   | Get all slots for a component                |
+| `compare_components`    | Compare two components side by side          |
+| `get_categories`        | Get all component categories                 |
 
 ### Code Examples
 
-| Tool | Description |
-|------|-------------|
-| `get_usage_example` | Get code examples for a component |
-| `list_examples` | List all available code examples |
-| `get_example` | Get a specific example by component and section |
-| `generate_component_template` | Generate a basic component template |
+| Tool                          | Description                                     |
+| ----------------------------- | ----------------------------------------------- |
+| `get_usage_example`           | Get code examples for a component               |
+| `list_examples`               | List all available code examples                |
+| `get_example`                 | Get a specific example by component and section |
+| `generate_component_template` | Generate a basic component template             |
 
 ### Theming & Styling
 
-| Tool | Description |
-|------|-------------|
-| `get_component_pt` | Get Pass Through options for DOM customization |
-| `get_component_tokens` | Get design tokens (CSS variables) |
-| `get_component_styles` | Get CSS class names |
-| `get_theming_info` | Get theming information |
-| `get_theming_guide` | Get detailed theming guide |
-| `get_passthrough_guide` | Get Pass Through customization guide |
-| `get_tailwind_guide` | Get Tailwind CSS integration guide |
+| Tool                    | Description                                    |
+| ----------------------- | ---------------------------------------------- |
+| `get_component_pt`      | Get Pass Through options for DOM customization |
+| `get_component_tokens`  | Get design tokens (CSS variables)              |
+| `get_component_styles`  | Get CSS class names                            |
+| `get_theming_info`      | Get theming information                        |
+| `get_theming_guide`     | Get detailed theming guide                     |
+| `get_passthrough_guide` | Get Pass Through customization guide           |
+| `get_tailwind_guide`    | Get Tailwind CSS integration guide             |
 
 ### Documentation & Guides
 
-| Tool | Description |
-|------|-------------|
-| `list_guides` | List all guides and documentation pages |
-| `get_guide` | Get a specific guide by name |
-| `get_configuration` | Get PrimeVue configuration options |
-| `get_installation` | Get installation instructions |
-| `get_icons_guide` | Get icons usage guide |
-| `get_accessibility_guide` | Get accessibility guide |
-| `get_accessibility_info` | Get accessibility info for a component |
+| Tool                      | Description                             |
+| ------------------------- | --------------------------------------- |
+| `list_guides`             | List all guides and documentation pages |
+| `get_guide`               | Get a specific guide by name            |
+| `get_configuration`       | Get PrimeVue configuration options      |
+| `get_installation`        | Get installation instructions           |
+| `get_icons_guide`         | Get icons usage guide                   |
+| `get_accessibility_guide` | Get accessibility guide                 |
+| `get_accessibility_info`  | Get accessibility info for a component  |
 
 ### Search & Discovery
 
-| Tool | Description |
-|------|-------------|
-| `search_all` | Search across components, guides, and props |
-| `suggest_component` | Suggest components based on use case |
-| `find_by_prop` | Find components with a specific prop |
-| `find_by_event` | Find components that emit a specific event |
-| `find_components_with_feature` | Find components supporting a feature |
-| `get_related_components` | Find related components |
+| Tool                           | Description                                 |
+| ------------------------------ | ------------------------------------------- |
+| `search_all`                   | Search across components, guides, and props |
+| `suggest_component`            | Suggest components based on use case        |
+| `find_by_prop`                 | Find components with a specific prop        |
+| `find_by_event`                | Find components that emit a specific event  |
+| `find_components_with_feature` | Find components supporting a feature        |
+| `get_related_components`       | Find related components                     |
 
 ### Utilities
 
-| Tool | Description |
-|------|-------------|
-| `get_component_url` | Get the official documentation URL |
-| `get_component_import` | Get the correct import statement |
+| Tool                     | Description                               |
+| ------------------------ | ----------------------------------------- |
+| `get_component_url`      | Get the official documentation URL        |
+| `get_component_import`   | Get the correct import statement          |
 | `get_component_sections` | Get all sections/features for a component |
-| `validate_props` | Validate props for a component |
-| `export_component_docs` | Export documentation in markdown |
-| `get_form_components` | Get all form input components |
-| `get_data_components` | Get all data display components |
-| `get_overlay_components` | Get all overlay/popup components |
-| `get_performance_tips` | Get performance optimization tips |
-| `get_version_info` | Get version and compatibility info |
+| `validate_props`         | Validate props for a component            |
+| `export_component_docs`  | Export documentation in markdown          |
+| `get_form_components`    | Get all form input components             |
+| `get_data_components`    | Get all data display components           |
+| `get_overlay_components` | Get all overlay/popup components          |
+| `get_performance_tips`   | Get performance optimization tips         |
+| `get_version_info`       | Get version and compatibility info        |
 
 ### Vue Composables
 
-| Tool | Description |
-|------|-------------|
-| `list_composables` | List all PrimeVue composables |
-| `get_composable` | Get details about a specific composable |
+| Tool               | Description                             |
+| ------------------ | --------------------------------------- |
+| `list_composables` | List all PrimeVue composables           |
+| `get_composable`   | Get details about a specific composable |
 
 ## Example Prompts
 
