@@ -80,6 +80,12 @@
             "badge": "NEW"
         },
         {
+            "name": "MCP Server",
+            "icon": "pi pi-server",
+            "to": "/mcp",
+            "badge": "NEW"
+        },
+        {
             "name": "Components",
             "icon": "pi pi-compass",
             "children": [

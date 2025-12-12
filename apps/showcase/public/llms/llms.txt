@@ -21,6 +21,7 @@
 - [Contribution Guide](https://primevue.org/contribution): Welcome to the PrimeVue Contribution Guide and thank you for considering contributing.
 - [Setup](https://primevue.org/setup): Installation guides for popular development environments.
 - [LLMs.txt](https://primevue.org/llms): LLM-optimized documentation endpoints for PrimeVue components.
+- [MCP Server](https://primevue.org/mcp): Model Context Protocol (MCP) server for PrimeVue component library. Provides AI assistants with comprehensive access to PrimeVue component documentation.
 - [Accessibility](https://primevue.org/guides/accessibility): PrimeVue has WCAG 2.1 AA level compliance, refer to the accessibility documentation of each component for detailed information.
 - [Animations](https://primevue.org/guides/animations): Various PrimeVue Components utilize native CSS animations to provide an enhanced user experience. The default animations are based on the best practices recommended by the usability experts. In case you need to customize the default animations, this documentation covers the entire set of built-in animations.
 - [Dynamic Imports](https://primevue.org/guides/dynamicimports): Dynamic imports enable the loading of multiple items as needed, streamlining the import process.
@@ -29,6 +30,7 @@
 
 ## Components
 
+- [mcp](https://primevue.org/mcp): 
 - [Vue Accordion Component](https://primevue.org/accordion): Accordion groups a collection of contents in panels.
 - [Vue AnimateOnScroll Directive](https://primevue.org/animateonscroll): AnimateOnScroll is used to apply animations to elements when entering or leaving the viewport during scrolling.
 - [Vue AutoComplete Component](https://primevue.org/autocomplete): AutoComplete is an input component that provides real-time suggestions when being typed.

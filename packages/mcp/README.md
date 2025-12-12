@@ -306,12 +306,12 @@ After adding, restart Zed. Check the Agent Panel's settings view - a green indic
 
 Once installed, try asking your AI assistant:
 
-- "Show me how to use the DataTable component with sorting and filtering"
-- "What props does the Button component have?"
-- "How do I customize the Dialog component styling with Pass Through?"
-- "Compare the Select and Listbox components"
-- "What's the best component for a date picker?"
-- "Show me examples of the Toast composable"
+- "What are all the props available for the DataTable component?"
+- "Show me how to implement row selection in DataTable"
+- "How do I customize Button styles using Pass Through?"
+- "What design tokens are available for the Card component?"
+- "Find me a component for selecting multiple items from a list"
+- "Compare AutoComplete and Select components"
 
 ## Requirements
 

@@ -937,6 +937,7 @@ const GUIDE_PAGES = [
     'contribution',
     'setup',
     'llms',
+    'mcp',
     'guides/accessibility',
     'guides/animations',
     'guides/dynamicimports',
