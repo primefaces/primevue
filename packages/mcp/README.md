@@ -92,6 +92,57 @@ After adding, go to **Settings > MCP** and click the refresh button. The Compose
 
 ---
 
+### VS Code (GitHub Copilot)
+
+**Option 1: Project Configuration**
+
+Create `.vscode/mcp.json` in your project:
+
+```json
+{
+    "servers": {
+        "primevue": {
+            "command": "npx",
+            "args": ["-y", "@primevue/mcp"]
+        }
+    }
+}
+```
+
+**Option 2: User Configuration (Global)**
+
+Create or edit the MCP configuration file in your VS Code user data directory:
+
+- **macOS**: `~/Library/Application Support/Code/User/mcp.json`
+- **Windows**: `%APPDATA%\Code\User\mcp.json`
+- **Linux**: `~/.config/Code/User/mcp.json`
+
+```json
+{
+    "servers": {
+        "primevue": {
+            "command": "npx",
+            "args": ["-y", "@primevue/mcp"]
+        }
+    }
+}
+```
+
+**Option 3: Via Command Palette**
+
+1. Open Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`)
+2. Type "MCP: Add Server"
+3. Select "Command (stdio)"
+4. Enter `primevue` as the server ID
+5. Enter `npx` as the command
+6. Enter `-y,@primevue/mcp` as the arguments
+
+After adding, use Copilot in **Agent mode** to access PrimeVue tools. The MCP server will be available in GitHub Copilot Chat.
+
+> **Reference:** [VS Code MCP Documentation](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)
+
+---
+
 ### OpenAI Codex CLI
 
 **Option 1: Using the CLI**
