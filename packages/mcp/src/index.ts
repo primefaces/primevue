@@ -85,11 +85,25 @@ runPrimeMcpServer({
             parameters: {
                 name: {
                     type: 'string',
-                    description: "Composable name (e.g., 'useToast', 'useConfirm')"
+                    description: "Composable name (e.g., 'useToast', 'useConfirm')",
+                    required: true
                 }
             },
             handler: async (_data, args) => {
-                const name = (args.name as string).toLowerCase();
+                const nameArg = args?.name as string | undefined;
+
+                if (!nameArg) {
+                    return {
+                        content: [
+                            {
+                                type: 'text' as const,
+                                text: `Please provide a composable name. Available: ${composables.map((c) => c.name).join(', ')}`
+                            }
+                        ]
+                    };
+                }
+
+                const name = nameArg.toLowerCase();
                 const composable = composables.find((c) => c.name.toLowerCase() === name);
 
                 if (!composable) {
@@ -97,7 +111,7 @@ runPrimeMcpServer({
                         content: [
                             {
                                 type: 'text' as const,
-                                text: `Composable "${args.name}" not found. Available: ${composables.map((c) => c.name).join(', ')}`
+                                text: `Composable "${nameArg}" not found. Available: ${composables.map((c) => c.name).join(', ')}`
                             }
                         ]
                     };
