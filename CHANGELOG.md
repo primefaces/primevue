@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.5.3](https://github.com/primefaces/primevue/tree/4.5.3) (2025-12-10)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.5.2...4.5.3)
+
+**Fixed bugs:**
+
+- MeterGroup rendering bar not fully filled [\#8327](https://github.com/primefaces/primevue/issues/8327)
+- AutoComplete: overlay visibility timing defect [\#8324](https://github.com/primefaces/primevue/issues/8324)
+- ColorPicker: zIndex defect [\#8323](https://github.com/primefaces/primevue/issues/8323)
+- BlockUI missing method import [\#8321](https://github.com/primefaces/primevue/issues/8321)
+
 ## [4.5.2](https://github.com/primefaces/primevue/tree/4.5.2) (2025-12-08)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.5.1...4.5.2)

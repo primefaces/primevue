@@ -7,7 +7,7 @@
         <div :class="cx('meters')" :data-p="dataP" v-bind="ptm('meters')">
             <template v-for="(val, index) in value" :key="index">
                 <slot name="meter" :value="val" :index="index" :class="cx('meter')" :orientation="orientation" :size="percentValue(val.value)" :totalPercent="totalPercent">
-                    <span v-if="percent(val.value)" :class="cx('meter')" :style="meterCalculatedStyles(val)" :data-p="dataP" v-bind="getPTOptions('meter', val, index)" />
+                    <span v-if="roundedPercent(val.value)" :class="cx('meter')" :style="meterCalculatedStyles(val)" :data-p="dataP" v-bind="getPTOptions('meter', val, index)" />
                 </slot>
             </template>
         </div>
@@ -38,23 +38,25 @@ export default {
         },
         percent(meter = 0) {
             const percentOfItem = ((meter - this.min) / (this.max - this.min)) * 100;
-
-            return Math.round(Math.max(0, Math.min(100, percentOfItem)));
+            return Math.max(0, Math.min(100, percentOfItem));
+        },
+        roundedPercent(meter = 0) {
+            return Math.round(this.percent(meter));
         },
         percentValue(meter) {
-            return this.percent(meter) + '%';
+            return this.roundedPercent(meter) + '%';
         },
         meterCalculatedStyles(val) {
             return {
                 backgroundColor: val.color,
-                width: this.orientation === 'horizontal' && this.percentValue(val.value),
-                height: this.orientation === 'vertical' && this.percentValue(val.value)
+                width: this.orientation === 'horizontal' && this.percent(val.value) + '%',
+                height: this.orientation === 'vertical' && this.percent(val.value) + '%'
             };
         }
     },
     computed: {
         totalPercent() {
-            return this.percent(this.value.reduce((total, val) => total + val.value, 0));
+            return this.roundedPercent(this.value.reduce((total, val) => total + val.value, 0));
         },
         percentages() {
             let sum = 0;
