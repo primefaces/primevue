@@ -1,6 +1,6 @@
 {
     "name": "@primevue/mcp",
-    "version": "4.5.2",
+    "version": "4.5.3",
     "author": "PrimeTek Informatics",
     "description": "Model Context Protocol (MCP) server for PrimeVue component library",
     "homepage": "https://primevue.org/",
@@ -22,9 +22,6 @@
         "vue",
         "components"
     ],
-    "bin": {
-        "primevue-mcp": "./dist/index.mjs"
-    },
     "main": "./dist/index.mjs",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.mts",
@@ -47,9 +44,8 @@
     ],
     "scripts": {
         "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
-        "build:package": "pnpm run build:prebuild && tsup && pnpm run build:postbuild",
+        "build:package": "pnpm run build:prebuild && tsup",
         "build:prebuild": "node ./scripts/prebuild.mjs",
-        "build:postbuild": "node ./scripts/postbuild.mjs",
         "dev:link": "pnpm link --global && npm link"
     },
     "dependencies": {
