@@ -7,5 +7,8 @@ export default defineConfig({
     external: [/^@primeuix\/(.*)$/, /^@primevue\/(.*)$/],
     splitting: false,
     clean: true,
-    shims: true
+    shims: true,
+    banner: {
+        js: '#!/usr/bin/env node'
+    }
 });
