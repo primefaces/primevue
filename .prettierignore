@@ -8,4 +8,5 @@ node_modules
 .vscode
 .nuxt
 .output
+pnpm-publish-summary.json
 apps/showcase/components.d.ts

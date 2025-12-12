@@ -1,5 +1,6 @@
 import { ComponentsData, runPrimeMcpServer } from '@primeuix/mcp';
 import ComponentJson from '../data/components.json';
+import pkg from '../package.json';
 
 // Vue-specific composables data
 const composables = [
@@ -43,7 +44,7 @@ const composables = [
 // Run PrimeVue MCP server with core + Vue-specific tools
 runPrimeMcpServer({
     name: '@primevue/mcp',
-    version: '4.5.2',
+    version: pkg.version,
     baseUrl: 'https://primevue.org',
     frameworkName: 'PrimeVue',
     slotKey: 'slots',
