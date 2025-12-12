@@ -1,5 +1,5 @@
 import { ComponentsData, runPrimeMcpServer } from '@primeuix/mcp';
-import ComponentJson from '@primevue/mcp/data/components.json';
+import ComponentJson from '../data/components.json';
 
 // Vue-specific composables data
 const composables = [
