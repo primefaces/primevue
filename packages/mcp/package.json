@@ -1,0 +1,64 @@
+{
+    "name": "@primevue/mcp",
+    "version": "4.5.2",
+    "author": "PrimeTek Informatics",
+    "description": "Model Context Protocol (MCP) server for PrimeVue component library",
+    "homepage": "https://primevue.org/",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/primefaces/primevue.git",
+        "directory": "packages/mcp"
+    },
+    "bugs": {
+        "url": "https://github.com/primefaces/primevue/issues"
+    },
+    "keywords": [
+        "primevue",
+        "mcp",
+        "model-context-protocol",
+        "ai",
+        "llm",
+        "vue",
+        "components"
+    ],
+    "bin": {
+        "primevue-mcp": "./dist/index.mjs"
+    },
+    "main": "./dist/index.mjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.mts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.mts",
+            "import": "./dist/index.mjs",
+            "default": "./dist/index.mjs"
+        },
+        "./data/components.json": "./data/components.json"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        "data",
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "scripts": {
+        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
+        "build:package": "pnpm run build:prebuild && tsup && pnpm run build:postbuild",
+        "build:prebuild": "node ./scripts/prebuild.mjs",
+        "build:postbuild": "node ./scripts/postbuild.mjs",
+        "dev:link": "pnpm link --global && npm link"
+    },
+    "dependencies": {
+        "@primeuix/mcp": "catalog:"
+    },
+    "devDependencies": {
+        "tsup": "^8.1.0"
+    },
+    "engines": {
+        "node": ">=12.11.0"
+    }
+}
