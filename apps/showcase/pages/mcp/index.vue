@@ -26,6 +26,7 @@ import IntroductionDoc from '@/doc/mcp/IntroductionDoc.vue';
 import QuickStartDoc from '@/doc/mcp/QuickStartDoc.vue';
 import ClaudeCodeDoc from '@/doc/mcp/ClaudeCodeDoc.vue';
 import VSCodeDoc from '@/doc/mcp/VSCodeDoc.vue';
+import OpenAICodexDoc from '@/doc/mcp/OpenAICodexDoc.vue';
 import CursorDoc from '@/doc/mcp/CursorDoc.vue';
 import WindsurfDoc from '@/doc/mcp/WindsurfDoc.vue';
 import ZedDoc from '@/doc/mcp/ZedDoc.vue';
@@ -60,6 +61,11 @@ export default {
                             id: 'vscode',
                             label: 'VS Code',
                             component: VSCodeDoc
+                        },
+                        {
+                            id: 'openaicodex',
+                            label: 'OpenAI Codex',
+                            component: OpenAICodexDoc
                         },
                         {
                             id: 'cursor',
