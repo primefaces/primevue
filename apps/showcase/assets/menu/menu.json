@@ -74,16 +74,19 @@
             ]
         },
         {
-            "name": "LLMs.txt",
-            "icon": "pi pi-file",
-            "to": "/llms",
-            "badge": "NEW"
-        },
-        {
-            "name": "MCP Server",
-            "icon": "pi pi-server",
-            "to": "/mcp",
-            "badge": "NEW"
+            "name": "AI Tools",
+            "icon": "pi pi-sparkles",
+            "badge": "NEW",
+            "children": [
+                {
+                    "name": "LLMs.txt",
+                    "to": "/llms"
+                },
+                {
+                    "name": "MCP Server",
+                    "to": "/mcp"
+                }
+            ]
         },
         {
             "name": "Components",
@@ -517,7 +520,6 @@
         {
             "name": "Guides",
             "icon": "pi pi-book",
-            "badge": "NEW",
             "children": [
                 {
                     "name": "Accessibility",

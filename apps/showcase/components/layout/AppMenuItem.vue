@@ -5,7 +5,10 @@
                 <i :class="menuitem.icon"></i>
             </span>
             <span>{{ menuitem.name }}</span>
-            <i class="menu-toggle-icon pi pi-angle-down"></i>
+            <span class="menu-toggle">
+                <Tag v-if="menuitem.badge" :value="menuitem.badge"></Tag>
+                <i class="menu-toggle-icon pi pi-angle-down"></i>
+            </span>
         </button>
 
         <a v-if="menuitem.href" :href="menuitem.href" target="_blank" rel="noopener noreferrer">

@@ -73,9 +73,20 @@
                     }
                 }
 
+                .menu-toggle {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-inline-start: auto;
+
+                    .p-tag {
+                        position: static;
+                        transform: none;
+                    }
+                }
+
                 .menu-toggle-icon {
                     color: var(--text-secondary-color);
-                    margin-inline-start: auto;
                 }
 
                 &:hover {
