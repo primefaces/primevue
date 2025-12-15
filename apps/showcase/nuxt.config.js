@@ -78,7 +78,16 @@ export default defineNuxtConfig({
         }
     },
     nitro: {
-        alias
+        alias,
+        // Disable serving llms folder as static to let server route handle it
+        publicAssets: [
+            {
+                dir: 'public',
+                baseURL: '/',
+                // Exclude llms folder from static serving
+                ignore: ['llms/**']
+            }
+        ]
     },
     routeRules: {
         '/accessibility': { redirect: { to: '/guides/accessibility', statusCode: 301 } },

@@ -1,16 +1,19 @@
-import { createError } from 'h3';
+import { createError, defineEventHandler, setHeader, H3Event } from 'h3';
 import { promises as fs } from 'fs';
 import { join } from 'path';
 
-export default defineEventHandler(async (event) => {
-    const slug = event.context.params?.slug;
+export default defineEventHandler(async (event: H3Event) => {
+    const slugParam = event.context.params?.slug;
 
-    if (!slug) {
+    if (!slugParam) {
         throw createError({
             statusCode: 404,
             message: 'Not found'
         });
     }
+
+    // slug is an array in catch-all routes, join it to get the path
+    const slug = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
 
     // Try multiple possible paths for the file
     const possiblePaths = [
