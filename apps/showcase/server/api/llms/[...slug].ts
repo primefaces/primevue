@@ -20,10 +20,11 @@ export default defineEventHandler(async (event: H3Event) => {
         slug = slug + '.md';
     }
 
-    // Try multiple possible paths for the file
+    // Try multiple possible paths for the file (files moved to data/ folder)
     const possiblePaths = [
-        join(process.cwd(), 'public', 'llms', slug),
-        join(process.cwd(), '.output', 'public', 'llms', slug)
+        join(process.cwd(), 'data', slug),
+        join(process.cwd(), '.output', 'data', slug),
+        join(process.cwd(), 'apps', 'showcase', 'data', slug)
     ];
 
     let content: string | null = null;

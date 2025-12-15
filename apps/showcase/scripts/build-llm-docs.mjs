@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const DOCS_DIR = path.resolve(__dirname, '../doc');
 const PAGES_DIR = path.resolve(__dirname, '../pages');
 const API_DOC_PATH = path.resolve(__dirname, '../doc/common/apidoc/index.json');
-const OUTPUT_DIR = path.resolve(__dirname, '../public/llms');
+const OUTPUT_DIR = path.resolve(__dirname, '../data');
 const MCP_DATA_DIR = path.resolve(__dirname, '../../../packages/mcp/data');
 
 // Mapping for components where route name doesn't match API interface name
