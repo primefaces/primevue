@@ -1,6 +1,6 @@
 {
-    "id": 92,
-    "content": "PrimeVue Docs are now AI-Ready! 🎉",
+    "id": 93,
+    "content": "Introducing PrimeVue MCP Server ✨",
     "linkText": "Learn More",
-    "to": "/llms"
+    "routerLink": "/mcp"
 }
