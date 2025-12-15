@@ -125,6 +125,7 @@ Children are rendered within the boundaries of the divider where location of the
 <script setup>
 <\/script>
 ```
+
 </details>
 
 ## Login
@@ -190,6 +191,7 @@ Sample implementation of a login form using a divider with content.
 <script setup>
 <\/script>
 ```
+
 </details>
 
 ## Type
@@ -261,6 +263,7 @@ Style of the border is configured with the type property that can either be soli
 <script setup>
 <\/script>
 ```
+
 </details>
 
 ## Vertical
@@ -318,50 +321,50 @@ Vertical divider is enabled by setting the layout property as vertical .
 <script setup>
 <\/script>
 ```
+
 </details>
 
 ## Divider
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| align | HintedString<"left" \| "right" \| "top" \| "bottom" \| "center"> | - | Alignment of the content. |
-| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Specifies the orientation, valid values are 'horizontal' and 'vertical'. |
-| type | HintedString<"solid" \| "dashed" \| "dotted"> | solid | Border style type. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<DividerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name      | Type                                                             | Default    | Description                                                              |
+| --------- | ---------------------------------------------------------------- | ---------- | ------------------------------------------------------------------------ |
+| align     | HintedString<"left" \| "right" \| "top" \| "bottom" \| "center"> | -          | Alignment of the content.                                                |
+| layout    | HintedString<"horizontal" \| "vertical">                         | horizontal | Specifies the orientation, valid values are 'horizontal' and 'vertical'. |
+| type      | HintedString<"solid" \| "dashed" \| "dotted">                    | solid      | Border style type.                                                       |
+| dt        | any                                                              | -          | It generates scoped CSS variables using design tokens for the component. |
+| pt        | PassThrough<DividerPassThroughOptions>                           | -          | Used to pass attributes to DOM elements inside the component.            |
+| ptOptions | any                                                              | -          | Used to configure passthrough(pt) options of the component.              |
+| unstyled  | boolean                                                          | false      | When enabled, it removes component related styles in the core.           |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | DividerPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| Name    | Type                         | Description                                           |
+| ------- | ---------------------------- | ----------------------------------------------------- |
+| root    | DividerPassThroughOptionType | Used to pass attributes to the root's DOM element.    |
 | content | DividerPassThroughOptionType | Used to pass attributes to the content's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| hooks   | any                          | Used to manage all lifecycle hooks.                   |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-divider | Class name of the root element |
+| Class             | Description                       |
+| ----------------- | --------------------------------- |
+| p-divider         | Class name of the root element    |
 | p-divider-content | Class name of the content element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| divider.border.color | --p-divider-border-color | Border color of root |
-| divider.content.background | --p-divider-content-background | Background of content |
-| divider.content.color | --p-divider-content-color | Color of content |
-| divider.horizontal.margin | --p-divider-horizontal-margin | Margin of horizontal |
-| divider.horizontal.padding | --p-divider-horizontal-padding | Padding of horizontal |
+| Token                              | CSS Variable                           | Description                   |
+| ---------------------------------- | -------------------------------------- | ----------------------------- |
+| divider.border.color               | --p-divider-border-color               | Border color of root          |
+| divider.content.background         | --p-divider-content-background         | Background of content         |
+| divider.content.color              | --p-divider-content-color              | Color of content              |
+| divider.horizontal.margin          | --p-divider-horizontal-margin          | Margin of horizontal          |
+| divider.horizontal.padding         | --p-divider-horizontal-padding         | Padding of horizontal         |
 | divider.horizontal.content.padding | --p-divider-horizontal-content-padding | Content padding of horizontal |
-| divider.vertical.margin | --p-divider-vertical-margin | Margin of vertical |
-| divider.vertical.padding | --p-divider-vertical-padding | Padding of vertical |
-| divider.vertical.content.padding | --p-divider-vertical-content-padding | Content padding of vertical |
-
+| divider.vertical.margin            | --p-divider-vertical-margin            | Margin of vertical            |
+| divider.vertical.padding           | --p-divider-vertical-padding           | Padding of vertical           |
+| divider.vertical.content.padding   | --p-divider-vertical-content-padding   | Content padding of vertical   |

@@ -44,6 +44,7 @@ import { ref } from 'vue';
 const value = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Forms
@@ -99,6 +100,7 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Integer Only
@@ -125,6 +127,7 @@ import { ref } from 'vue';
 const value = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Mask
@@ -151,6 +154,7 @@ import { ref } from 'vue';
 const value = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Sample
@@ -245,6 +249,7 @@ const value = ref(null);
 }
 <\/style>
 ```
+
 </details>
 
 ## Sizes
@@ -277,6 +282,7 @@ const value2 = ref(null);
 const value3 = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -329,55 +335,55 @@ const value = ref(null);
 }
 <\/style>
 ```
+
 </details>
 
 ## Input Otp
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | string \| boolean | null | Specifies whether a inputotp should be checked or not. |
-| defaultValue | string \| boolean | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the component should be disabled. |
-| readonly | boolean | false | When present, it specifies that an input field is read-only. |
-| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
-| tabindex | number | - | Index of the element in tabbing order. |
-| length | number | 4 | Number of characters to initiate. |
-| mask | boolean | false | Mask pattern. |
-| integerOnly | boolean | false | When present, it specifies that an input field is integer-only. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<InputOtpPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name         | Type                                         | Default | Description                                                                    |
+| ------------ | -------------------------------------------- | ------- | ------------------------------------------------------------------------------ |
+| modelValue   | string \| boolean                            | null    | Specifies whether a inputotp should be checked or not.                         |
+| defaultValue | string \| boolean                            | -       | The default value for the input when not controlled by `modelValue` .          |
+| name         | string                                       | -       | The name attribute for the element, typically used in form submissions.        |
+| size         | HintedString<"small" \| "large">             | -       | Defines the size of the component.                                             |
+| invalid      | boolean                                      | false   | When present, it specifies that the component should have invalid state style. |
+| disabled     | boolean                                      | false   | When present, it specifies that the component should be disabled.              |
+| readonly     | boolean                                      | false   | When present, it specifies that an input field is read-only.                   |
+| variant      | null \| HintedString<"outlined" \| "filled"> | null    | Specifies the input variant of the component.                                  |
+| tabindex     | number                                       | -       | Index of the element in tabbing order.                                         |
+| length       | number                                       | 4       | Number of characters to initiate.                                              |
+| mask         | boolean                                      | false   | Mask pattern.                                                                  |
+| integerOnly  | boolean                                      | false   | When present, it specifies that an input field is integer-only.                |
+| formControl  | Record<string, any>                          | -       | Form control object, typically used for handling validation and form state.    |
+| dt           | any                                          | -       | It generates scoped CSS variables using design tokens for the component.       |
+| pt           | PassThrough<InputOtpPassThroughOptions>      | -       | Used to pass attributes to DOM elements inside the component.                  |
+| ptOptions    | any                                          | -       | Used to configure passthrough(pt) options of the component.                    |
+| unstyled     | boolean                                      | false   | When enabled, it removes component related styles in the core.                 |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | InputOtpPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| pcInputText | any | Used to pass attributes to the InputText component. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| Name        | Type                          | Description                                         |
+| ----------- | ----------------------------- | --------------------------------------------------- |
+| root        | InputOtpPassThroughOptionType | Used to pass attributes to the root's DOM element.  |
+| pcInputText | any                           | Used to pass attributes to the InputText component. |
+| hooks       | any                           | Used to manage all lifecycle hooks.                 |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-inputotp | Class name of the root element |
+| Class            | Description                     |
+| ---------------- | ------------------------------- |
+| p-inputotp       | Class name of the root element  |
 | p-inputotp-input | Class name of the input element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| inputotp.gap | --p-inputotp-gap | Gap of root |
-| inputotp.input.width | --p-inputotp-input-width | Width of input |
+| Token                   | CSS Variable                | Description                     |
+| ----------------------- | --------------------------- | ------------------------------- |
+| inputotp.gap            | --p-inputotp-gap            | Gap of root                     |
+| inputotp.input.width    | --p-inputotp-input-width    | Width of input                  |
 | inputotp.input.sm.width | --p-inputotp-input-sm-width | Width of input in small screens |
 | inputotp.input.lg.width | --p-inputotp-input-lg-width | Width of input in large screens |
-

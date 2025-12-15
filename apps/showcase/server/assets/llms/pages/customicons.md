@@ -57,4 +57,3 @@ Inline SVGs are embedded inside the dom.
 ## Video Tutorial
 
 A video tutorial to demonstrate how to customize icons.
-

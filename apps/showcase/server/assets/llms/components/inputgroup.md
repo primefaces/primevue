@@ -115,6 +115,7 @@ const toggle = (event) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Checkbox & Radio
@@ -188,6 +189,7 @@ const radioValue1 = ref('');
 const radioValue2 = ref('');
 <\/script>
 ```
+
 </details>
 
 ## Float Label
@@ -266,6 +268,7 @@ const value2 = ref(null);
 const value3 = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Ifta Label
@@ -308,6 +311,7 @@ import { ref } from 'vue';
 const value = ref(10);
 <\/script>
 ```
+
 </details>
 
 ## Multiple
@@ -348,48 +352,48 @@ Multiple add-ons can be placed inside the same group.
     </div>
 </template>
 ```
+
 </details>
 
 ## Input Group
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<InputGroupPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name      | Type                                      | Default | Description                                                              |
+| --------- | ----------------------------------------- | ------- | ------------------------------------------------------------------------ |
+| dt        | any                                       | -       | It generates scoped CSS variables using design tokens for the component. |
+| pt        | PassThrough<InputGroupPassThroughOptions> | -       | Used to pass attributes to DOM elements inside the component.            |
+| ptOptions | any                                       | -       | Used to configure passthrough(pt) options of the component.              |
+| unstyled  | boolean                                   | false   | When enabled, it removes component related styles in the core.           |
 
 ### Slots
 
-| Name | Parameters | Description |
-|------|------------|-------------|
-| [key: string] | Function |  |
+| Name          | Parameters | Description |
+| ------------- | ---------- | ----------- |
+| [key: string] | Function   |             |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | InputGroupPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| Name  | Type                            | Description                                        |
+| ----- | ------------------------------- | -------------------------------------------------- |
+| root  | InputGroupPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any                             | Used to manage all lifecycle hooks.                |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
+| Class        | Description                    |
+| ------------ | ------------------------------ |
 | p-inputgroup | Class name of the root element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| inputgroup.addon.background | --p-inputgroup-addon-background | Background of addon |
-| inputgroup.addon.border.color | --p-inputgroup-addon-border-color | Border color of addon |
-| inputgroup.addon.color | --p-inputgroup-addon-color | Color of addon |
+| Token                          | CSS Variable                       | Description            |
+| ------------------------------ | ---------------------------------- | ---------------------- |
+| inputgroup.addon.background    | --p-inputgroup-addon-background    | Background of addon    |
+| inputgroup.addon.border.color  | --p-inputgroup-addon-border-color  | Border color of addon  |
+| inputgroup.addon.color         | --p-inputgroup-addon-color         | Color of addon         |
 | inputgroup.addon.border.radius | --p-inputgroup-addon-border-radius | Border radius of addon |
-| inputgroup.addon.padding | --p-inputgroup-addon-padding | Padding of addon |
-| inputgroup.addon.min.width | --p-inputgroup-addon-min-width | Min width of addon |
-
+| inputgroup.addon.padding       | --p-inputgroup-addon-padding       | Padding of addon       |
+| inputgroup.addon.min.width     | --p-inputgroup-addon-min-width     | Min width of addon     |

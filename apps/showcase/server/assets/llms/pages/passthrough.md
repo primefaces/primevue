@@ -4,10 +4,12 @@ The Pass Through attributes is an API to access the internal DOM Structure of th
 
 ## Basic
 
-Each component has a special pt property to define an object with keys corresponding to the available DOM elements. Each value can either be a string, an object or a function that returns a string or an object to define the arbitrary properties to apply to the element such as styling, aria, data-* or custom attributes. If the value is a string or a function that returns a string, it is considered as a class definition and added to the class attribute of the element. Every component documentation has a dedicated section to document the available section names exposed via PT. Most common usage of pt is styling and customization. The class and style properties support the exact syntax of the corresponding Vue bindings like arrays, objects and conditionals. Example below styles an unstyled Panel component with Tailwind CSS library.
+Each component has a special pt property to define an object with keys corresponding to the available DOM elements. Each value can either be a string, an object or a function that returns a string or an object to define the arbitrary properties to apply to the element such as styling, aria, data-\* or custom attributes. If the value is a string or a function that returns a string, it is considered as a class definition and added to the class attribute of the element. Every component documentation has a dedicated section to document the available section names exposed via PT. Most common usage of pt is styling and customization. The class and style properties support the exact syntax of the corresponding Vue bindings like arrays, objects and conditionals. Example below styles an unstyled Panel component with Tailwind CSS library.
 
 ```vue
-<Panel header="Header" toggleable
+<Panel
+    header="Header"
+    toggleable
     :pt="{
         root: 'border border-primary rounded-xl p-4',
         header: (options) => ({
@@ -20,7 +22,8 @@ Each component has a special pt property to define an object with keys correspon
         content: { class: 'text-primary-700 dark:text-primary-200 mt-4' },
         title: 'text-xl',
         toggler: () => 'bg-primary text-primary-contrast hover:text-primary hover:bg-primary-contrast'
-    }">
+    }"
+>
     <p class="m-0">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -64,6 +67,7 @@ Each component has a special pt property to define an object with keys correspon
 <script setup>
 <\/script>
 ```
+
 </details>
 
 ## Custom CSS
@@ -71,24 +75,7 @@ Each component has a special pt property to define an object with keys correspon
 The global property has a css option to define custom css that belongs to a global pt configuration. Common use case of this feature is defining global styles and animations related to the pass through configuration.
 
 ```vue
-import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
-
-app.use(PrimeVue, {
-    pt: {
-        global: {
-            css: \`
-                .my-button {
-                    border-width: 2px;
-                }
-            \`
-        },
-        button: {
-            root: 'my-button'
-        }
-    }
-});
+import { createApp } from "vue"; import PrimeVue from "primevue/config"; const app = createApp(App); app.use(PrimeVue, { pt: { global: { css: \` .my-button { border-width: 2px; } \` }, button: { root: 'my-button' } } });
 ```
 
 ## Declarative
@@ -100,24 +87,8 @@ The declarative syntax provides an alternative to the programmatic syntax. The a
 Defines the shared pass through properties per component type. For example, with the configuration below all panel headers have the bg-primary style class and all autocomplete components have a fixed width. These settings can be overridden by a particular component as components pt property has higher precedence over global pt .
 
 ```vue
-import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
-
-app.use(PrimeVue, {
-    pt: {
-        panel: {
-            header: {
-                class: 'bg-primary text-primary-contrast'
-            }
-        },
-        autocomplete: {
-            input: {
-                root: 'w-64' // OR { class: 'w-64' }
-            }
-        }
-    }
-});
+import { createApp } from "vue"; import PrimeVue from "primevue/config"; const app = createApp(App); app.use(PrimeVue, { pt: { panel: { header: { class: 'bg-primary text-primary-contrast' } }, autocomplete: { input: { root: 'w-64' // OR { class:
+'w-64' } } } } });
 ```
 
 ## Introduction
@@ -159,6 +130,7 @@ const panelPt = ref({
 );
 <\/script>
 ```
+
 </details>
 
 ## PC Prefix
@@ -207,9 +179,9 @@ Section names prefixed with pc denote PrimeVue components, distinguishing them f
     />
 </template>
 ```
+
 </details>
 
 ## UsePassThrough
 
 An existing pass through configuration is customized with the usePassThrough utility. The first parameter is the object to customize, the second parameter is the customizations and the final parameter is the merge strategy. The mergeSections defines whether the sections from the main configuration gets added and the mergeProps controls whether to override or merge the defined props. Defaults are true for mergeSections and false for mergeProps .
-

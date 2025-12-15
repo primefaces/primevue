@@ -74,6 +74,7 @@ const events = ref([
 
 <\/script>
 ```
+
 </details>
 
 ## Basic
@@ -146,6 +147,7 @@ import { ref } from "vue";
 const events = ref(['2020', '2021', '2022', '2023']);
 <\/script>
 ```
+
 </details>
 
 ## Opposite
@@ -192,6 +194,7 @@ const events = ref([
 
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -290,66 +293,66 @@ const events = ref([
 }
 </style>
 ```
+
 </details>
 
 ## Timeline
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | any[] | - | An array of events to display. |
-| align | HintedString<"left" \| "right" \| "top" \| "bottom" \| "alternate"> | left | Position of the timeline bar relative to the content. |
-| layout | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the timeline. |
-| dataKey | string | - | Name of the field that uniquely identifies the a record in the data. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TimelinePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name      | Type                                                                | Default    | Description                                                              |
+| --------- | ------------------------------------------------------------------- | ---------- | ------------------------------------------------------------------------ |
+| value     | any[]                                                               | -          | An array of events to display.                                           |
+| align     | HintedString<"left" \| "right" \| "top" \| "bottom" \| "alternate"> | left       | Position of the timeline bar relative to the content.                    |
+| layout    | HintedString<"horizontal" \| "vertical">                            | horizontal | Orientation of the timeline.                                             |
+| dataKey   | string                                                              | -          | Name of the field that uniquely identifies the a record in the data.     |
+| dt        | any                                                                 | -          | It generates scoped CSS variables using design tokens for the component. |
+| pt        | PassThrough<TimelinePassThroughOptions>                             | -          | Used to pass attributes to DOM elements inside the component.            |
+| ptOptions | any                                                                 | -          | Used to configure passthrough(pt) options of the component.              |
+| unstyled  | boolean                                                             | false      | When enabled, it removes component related styles in the core.           |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | TimelinePassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| event | TimelinePassThroughOptionType | Used to pass attributes to the event's DOM element. |
-| eventOpposite | TimelinePassThroughOptionType | Used to pass attributes to the event opposite's DOM element. |
+| Name           | Type                          | Description                                                   |
+| -------------- | ----------------------------- | ------------------------------------------------------------- |
+| root           | TimelinePassThroughOptionType | Used to pass attributes to the root's DOM element.            |
+| event          | TimelinePassThroughOptionType | Used to pass attributes to the event's DOM element.           |
+| eventOpposite  | TimelinePassThroughOptionType | Used to pass attributes to the event opposite's DOM element.  |
 | eventSeparator | TimelinePassThroughOptionType | Used to pass attributes to the event separator's DOM element. |
-| eventMarker | TimelinePassThroughOptionType | Used to pass attributes to the event marker's DOM element. |
+| eventMarker    | TimelinePassThroughOptionType | Used to pass attributes to the event marker's DOM element.    |
 | eventConnector | TimelinePassThroughOptionType | Used to pass attributes to the event connector's DOM element. |
-| eventContent | TimelinePassThroughOptionType | Used to pass attributes to the event content's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| eventContent   | TimelinePassThroughOptionType | Used to pass attributes to the event content's DOM element.   |
+| hooks          | any                           | Used to manage all lifecycle hooks.                           |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-timeline | Class name of the root element |
-| p-timeline-event | Class name of the event element |
-| p-timeline-event-opposite | Class name of the event opposite element |
+| Class                      | Description                               |
+| -------------------------- | ----------------------------------------- |
+| p-timeline                 | Class name of the root element            |
+| p-timeline-event           | Class name of the event element           |
+| p-timeline-event-opposite  | Class name of the event opposite element  |
 | p-timeline-event-separator | Class name of the event separator element |
-| p-timeline-event-marker | Class name of the event marker element |
+| p-timeline-event-marker    | Class name of the event marker element    |
 | p-timeline-event-connector | Class name of the event connector element |
-| p-timeline-event-content | Class name of the event content element |
+| p-timeline-event-content   | Class name of the event content element   |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| timeline.event.min.height | --p-timeline-event-min-height | Min height of event |
-| timeline.horizontal.event.content.padding | --p-timeline-horizontal-event-content-padding | Event content padding of horizontal |
-| timeline.vertical.event.content.padding | --p-timeline-vertical-event-content-padding | Event content padding of vertical |
-| timeline.event.marker.size | --p-timeline-event-marker-size | Size of event marker |
-| timeline.event.marker.border.radius | --p-timeline-event-marker-border-radius | Border radius of event marker |
-| timeline.event.marker.border.width | --p-timeline-event-marker-border-width | Border width of event marker |
-| timeline.event.marker.background | --p-timeline-event-marker-background | Background of event marker |
-| timeline.event.marker.border.color | --p-timeline-event-marker-border-color | Border color of event marker |
+| Token                                       | CSS Variable                                    | Description                           |
+| ------------------------------------------- | ----------------------------------------------- | ------------------------------------- |
+| timeline.event.min.height                   | --p-timeline-event-min-height                   | Min height of event                   |
+| timeline.horizontal.event.content.padding   | --p-timeline-horizontal-event-content-padding   | Event content padding of horizontal   |
+| timeline.vertical.event.content.padding     | --p-timeline-vertical-event-content-padding     | Event content padding of vertical     |
+| timeline.event.marker.size                  | --p-timeline-event-marker-size                  | Size of event marker                  |
+| timeline.event.marker.border.radius         | --p-timeline-event-marker-border-radius         | Border radius of event marker         |
+| timeline.event.marker.border.width          | --p-timeline-event-marker-border-width          | Border width of event marker          |
+| timeline.event.marker.background            | --p-timeline-event-marker-background            | Background of event marker            |
+| timeline.event.marker.border.color          | --p-timeline-event-marker-border-color          | Border color of event marker          |
 | timeline.event.marker.content.border.radius | --p-timeline-event-marker-content-border-radius | Content border radius of event marker |
-| timeline.event.marker.content.size | --p-timeline-event-marker-content-size | Content size of event marker |
-| timeline.event.marker.content.background | --p-timeline-event-marker-content-background | Content background of event marker |
-| timeline.event.marker.content.inset.shadow | --p-timeline-event-marker-content-inset-shadow | Content inset shadow of event marker |
-| timeline.event.connector.color | --p-timeline-event-connector-color | Color of event connector |
-| timeline.event.connector.size | --p-timeline-event-connector-size | Size of event connector |
-
+| timeline.event.marker.content.size          | --p-timeline-event-marker-content-size          | Content size of event marker          |
+| timeline.event.marker.content.background    | --p-timeline-event-marker-content-background    | Content background of event marker    |
+| timeline.event.marker.content.inset.shadow  | --p-timeline-event-marker-content-inset-shadow  | Content inset shadow of event marker  |
+| timeline.event.connector.color              | --p-timeline-event-connector-color              | Color of event connector              |
+| timeline.event.connector.size               | --p-timeline-event-connector-size               | Size of event connector               |

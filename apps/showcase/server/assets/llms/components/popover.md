@@ -215,6 +215,7 @@ const getSeverity = (product) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Select Data
@@ -290,53 +291,53 @@ const selectMember = (member) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Popover
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dismissable | boolean | true | Enables to hide the overlay when outside is clicked. |
-| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| breakpoints | PopoverBreakpoints | - | Object literal to define widths per screen size. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<PopoverPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the dialog. |
+| Name          | Type                                          | Default | Description                                                                          |
+| ------------- | --------------------------------------------- | ------- | ------------------------------------------------------------------------------------ |
+| dismissable   | boolean                                       | true    | Enables to hide the overlay when outside is clicked.                                 |
+| appendTo      | HTMLElement \| HintedString<"body" \| "self"> | body    | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
+| baseZIndex    | number                                        | 0       | Base zIndex value to use in layering.                                                |
+| autoZIndex    | boolean                                       | true    | Whether to automatically manage layering.                                            |
+| breakpoints   | PopoverBreakpoints                            | -       | Object literal to define widths per screen size.                                     |
+| dt            | any                                           | -       | It generates scoped CSS variables using design tokens for the component.             |
+| pt            | PassThrough<PopoverPassThroughOptions>        | -       | Used to pass attributes to DOM elements inside the component.                        |
+| ptOptions     | any                                           | -       | Used to configure passthrough(pt) options of the component.                          |
+| unstyled      | boolean                                       | false   | When enabled, it removes component related styles in the core.                       |
+| closeOnEscape | boolean                                       | true    | Specifies if pressing escape key should hide the dialog.                             |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | PopoverPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| content | PopoverPassThroughOptionType | Used to pass attributes to the content's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
-| transition | PopoverPassThroughTransitionType | Used to control Vue Transition API. |
+| Name       | Type                             | Description                                           |
+| ---------- | -------------------------------- | ----------------------------------------------------- |
+| root       | PopoverPassThroughOptionType     | Used to pass attributes to the root's DOM element.    |
+| content    | PopoverPassThroughOptionType     | Used to pass attributes to the content's DOM element. |
+| hooks      | any                              | Used to manage all lifecycle hooks.                   |
+| transition | PopoverPassThroughTransitionType | Used to control Vue Transition API.                   |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-popover | Class name of the root element |
+| Class             | Description                       |
+| ----------------- | --------------------------------- |
+| p-popover         | Class name of the root element    |
 | p-popover-content | Class name of the content element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| popover.background | --p-popover-background | Background of root |
-| popover.border.color | --p-popover-border-color | Border color of root |
-| popover.color | --p-popover-color | Color of root |
-| popover.border.radius | --p-popover-border-radius | Border radius of root |
-| popover.shadow | --p-popover-shadow | Shadow of root |
-| popover.gutter | --p-popover-gutter | Gutter of root |
-| popover.arrow.offset | --p-popover-arrow-offset | Arrow offset of root |
-| popover.content.padding | --p-popover-content-padding | Padding of content |
-
+| Token                   | CSS Variable                | Description           |
+| ----------------------- | --------------------------- | --------------------- |
+| popover.background      | --p-popover-background      | Background of root    |
+| popover.border.color    | --p-popover-border-color    | Border color of root  |
+| popover.color           | --p-popover-color           | Color of root         |
+| popover.border.radius   | --p-popover-border-radius   | Border radius of root |
+| popover.shadow          | --p-popover-shadow          | Shadow of root        |
+| popover.gutter          | --p-popover-gutter          | Gutter of root        |
+| popover.arrow.offset    | --p-popover-arrow-offset    | Arrow offset of root  |
+| popover.content.padding | --p-popover-content-padding | Padding of content    |

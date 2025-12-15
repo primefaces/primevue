@@ -66,6 +66,7 @@ const filterStyle = computed(() => {
 })
 <\/script>
 ```
+
 </details>
 
 ## Forms
@@ -121,6 +122,7 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Input
@@ -151,6 +153,7 @@ import { ref } from 'vue';
 const value = ref(50);
 <\/script>
 ```
+
 </details>
 
 ## Range
@@ -177,6 +180,7 @@ import { ref } from 'vue';
 const value = ref([20, 80]);
 <\/script>
 ```
+
 </details>
 
 ## Step
@@ -203,6 +207,7 @@ import { ref } from 'vue';
 const value = ref(20);
 <\/script>
 ```
+
 </details>
 
 ## Vertical
@@ -229,77 +234,77 @@ import { ref } from 'vue';
 const value = ref(50);
 <\/script>
 ```
+
 </details>
 
 ## Slider
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | number \| number[] | - | Value of the component. |
-| defaultValue | number \| number[] | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| min | number | 0 | Mininum boundary value. |
-| max | number | 100 | Maximum boundary value. |
-| orientation | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the slider. |
-| step | number | 1 | Step factor to increment/decrement the value. |
-| range | boolean | false | When speficed, allows two boundary values to be picked. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the component should be disabled. |
-| tabindex | number | - | Index of the element in tabbing order. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| ariaLabel | string | - | Used to define a string that labels the element. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<SliderPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name           | Type                                     | Default    | Description                                                                                                     |
+| -------------- | ---------------------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------- |
+| modelValue     | number \| number[]                       | -          | Value of the component.                                                                                         |
+| defaultValue   | number \| number[]                       | -          | The default value for the input when not controlled by `modelValue` .                                           |
+| name           | string                                   | -          | The name attribute for the element, typically used in form submissions.                                         |
+| min            | number                                   | 0          | Mininum boundary value.                                                                                         |
+| max            | number                                   | 100        | Maximum boundary value.                                                                                         |
+| orientation    | HintedString<"horizontal" \| "vertical"> | horizontal | Orientation of the slider.                                                                                      |
+| step           | number                                   | 1          | Step factor to increment/decrement the value.                                                                   |
+| range          | boolean                                  | false      | When speficed, allows two boundary values to be picked.                                                         |
+| invalid        | boolean                                  | false      | When present, it specifies that the component should have invalid state style.                                  |
+| disabled       | boolean                                  | false      | When present, it specifies that the component should be disabled.                                               |
+| tabindex       | number                                   | -          | Index of the element in tabbing order.                                                                          |
+| ariaLabelledby | string                                   | -          | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel      | string                                   | -          | Used to define a string that labels the element.                                                                |
+| formControl    | Record<string, any>                      | -          | Form control object, typically used for handling validation and form state.                                     |
+| dt             | any                                      | -          | It generates scoped CSS variables using design tokens for the component.                                        |
+| pt             | PassThrough<SliderPassThroughOptions>    | -          | Used to pass attributes to DOM elements inside the component.                                                   |
+| ptOptions      | any                                      | -          | Used to configure passthrough(pt) options of the component.                                                     |
+| unstyled       | boolean                                  | false      | When enabled, it removes component related styles in the core.                                                  |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | SliderPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| range | SliderPassThroughOptionType | Used to pass attributes to the range's DOM element. |
-| handle | SliderPassThroughOptionType | Used to pass attributes to the handle's DOM element. |
+| Name         | Type                        | Description                                                 |
+| ------------ | --------------------------- | ----------------------------------------------------------- |
+| root         | SliderPassThroughOptionType | Used to pass attributes to the root's DOM element.          |
+| range        | SliderPassThroughOptionType | Used to pass attributes to the range's DOM element.         |
+| handle       | SliderPassThroughOptionType | Used to pass attributes to the handle's DOM element.        |
 | startHandler | SliderPassThroughOptionType | Used to pass attributes to the start handler's DOM element. |
-| endHandler | SliderPassThroughOptionType | Used to pass attributes to the end handler's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| endHandler   | SliderPassThroughOptionType | Used to pass attributes to the end handler's DOM element.   |
+| hooks        | any                         | Used to manage all lifecycle hooks.                         |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-slider | Class name of the root element |
-| p-slider-range | Class name of the range element |
+| Class           | Description                      |
+| --------------- | -------------------------------- |
+| p-slider        | Class name of the root element   |
+| p-slider-range  | Class name of the range element  |
 | p-slider-handle | Class name of the handle element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| slider.transition.duration | --p-slider-transition-duration | Transition duration of root |
-| slider.track.background | --p-slider-track-background | Background of track |
-| slider.track.border.radius | --p-slider-track-border-radius | Border radius of track |
-| slider.track.size | --p-slider-track-size | Size of track |
-| slider.range.background | --p-slider-range-background | Background of range |
-| slider.handle.width | --p-slider-handle-width | Width of handle |
-| slider.handle.height | --p-slider-handle-height | Height of handle |
-| slider.handle.border.radius | --p-slider-handle-border-radius | Border radius of handle |
-| slider.handle.background | --p-slider-handle-background | Background of handle |
-| slider.handle.hover.background | --p-slider-handle-hover-background | Hover background of handle |
-| slider.handle.content.border.radius | --p-slider-handle-content-border-radius | Content border radius of handle |
-| slider.handle.content.background | --p-slider-handle-content-background | Background of handle |
+| Token                                  | CSS Variable                               | Description                        |
+| -------------------------------------- | ------------------------------------------ | ---------------------------------- |
+| slider.transition.duration             | --p-slider-transition-duration             | Transition duration of root        |
+| slider.track.background                | --p-slider-track-background                | Background of track                |
+| slider.track.border.radius             | --p-slider-track-border-radius             | Border radius of track             |
+| slider.track.size                      | --p-slider-track-size                      | Size of track                      |
+| slider.range.background                | --p-slider-range-background                | Background of range                |
+| slider.handle.width                    | --p-slider-handle-width                    | Width of handle                    |
+| slider.handle.height                   | --p-slider-handle-height                   | Height of handle                   |
+| slider.handle.border.radius            | --p-slider-handle-border-radius            | Border radius of handle            |
+| slider.handle.background               | --p-slider-handle-background               | Background of handle               |
+| slider.handle.hover.background         | --p-slider-handle-hover-background         | Hover background of handle         |
+| slider.handle.content.border.radius    | --p-slider-handle-content-border-radius    | Content border radius of handle    |
+| slider.handle.content.background       | --p-slider-handle-content-background       | Background of handle               |
 | slider.handle.content.hover.background | --p-slider-handle-content-hover-background | Content hover background of handle |
-| slider.handle.content.width | --p-slider-handle-content-width | Content width of handle |
-| slider.handle.content.height | --p-slider-handle-content-height | Content height of handle |
-| slider.handle.content.shadow | --p-slider-handle-content-shadow | Content shadow of handle |
-| slider.handle.focus.ring.width | --p-slider-handle-focus-ring-width | Focus ring width of handle |
-| slider.handle.focus.ring.style | --p-slider-handle-focus-ring-style | Focus ring style of handle |
-| slider.handle.focus.ring.color | --p-slider-handle-focus-ring-color | Focus ring color of handle |
-| slider.handle.focus.ring.offset | --p-slider-handle-focus-ring-offset | Focus ring offset of handle |
-| slider.handle.focus.ring.shadow | --p-slider-handle-focus-ring-shadow | Focus ring shadow of handle |
-
+| slider.handle.content.width            | --p-slider-handle-content-width            | Content width of handle            |
+| slider.handle.content.height           | --p-slider-handle-content-height           | Content height of handle           |
+| slider.handle.content.shadow           | --p-slider-handle-content-shadow           | Content shadow of handle           |
+| slider.handle.focus.ring.width         | --p-slider-handle-focus-ring-width         | Focus ring width of handle         |
+| slider.handle.focus.ring.style         | --p-slider-handle-focus-ring-style         | Focus ring style of handle         |
+| slider.handle.focus.ring.color         | --p-slider-handle-focus-ring-color         | Focus ring color of handle         |
+| slider.handle.focus.ring.offset        | --p-slider-handle-focus-ring-offset        | Focus ring offset of handle        |
+| slider.handle.focus.ring.shadow        | --p-slider-handle-focus-ring-shadow        | Focus ring shadow of handle        |

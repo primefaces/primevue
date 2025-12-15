@@ -13,9 +13,9 @@ import Drawer from 'primevue/drawer';
 Screen Reader Drawer component uses complementary role by default, since any attribute is passed to the root element aria role can be changed depending on your use case and additional attributes like aria-labelledby can be added. In addition aria-modal is added since focus is kept within the drawer when opened. Trigger element also requires aria-expanded and aria-controls to be handled explicitly. Overlay Keyboard Support Key Function tab Moves focus to the next the focusable element within the drawer. shift + tab Moves focus to the previous the focusable element within the drawer. escape Closes the drawer. Close Button Keyboard Support Key Function enter Closes the drawer. space Closes the drawer.
 
 ```vue
-<Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'sbar' : null" :aria-expanded="visible"/>
+<Button label="Show" icon="pi pi-external-link" @click="visible = true" :aria-controls="visible ? 'sbar' : null" :aria-expanded="visible" />
 
-<Drawer id="sbar" v-model:visible="visible" role="region" >
+<Drawer id="sbar" v-model:visible="visible" role="region">
     <p>Content</p>
 </Drawer>
 ```
@@ -65,6 +65,7 @@ import { ref } from "vue";
 const visible = ref(false);
 <\/script>
 ```
+
 </details>
 
 ## Headless
@@ -453,6 +454,7 @@ import { ref } from "vue";
 const visible = ref(false);
 <\/script>
 ```
+
 </details>
 
 ## Position
@@ -524,6 +526,7 @@ const visibleTop = ref(false);
 const visibleBottom = ref(false);
 <\/script>
 ```
+
 </details>
 
 ## Size
@@ -558,6 +561,7 @@ import { ref } from "vue";
 const visible = ref(false);
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -614,69 +618,69 @@ import { ref } from "vue";
 const visible = ref(false);
 <\/script>
 ```
+
 </details>
 
 ## Drawer
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| visible | boolean | false | Specifies the visibility of the dialog. |
-| position | HintedString<"left" \| "right" \| "top" \| "bottom" \| "full"> | left | Specifies the position of the drawer. |
-| header | string | - | Title content of the dialog. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| dismissable | boolean | true | Whether clicking outside closes the panel. |
-| showCloseIcon | boolean | true | Whether to display a close icon inside the panel. |
-| closeButtonProps | object | - | Used to pass the custom value to read for the button inside the component. |
-| closeIcon | string | - | Icon to display in the drawer close button. |
-| modal | boolean | true | Whether to a modal layer behind the drawer. |
-| blockScroll | boolean | false | Whether background scroll should be blocked when drawer is visible. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<DrawerPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
-| closeOnEscape | boolean | true | Specifies if pressing escape key should hide the drawer. |
+| Name             | Type                                                           | Default | Description                                                                |
+| ---------------- | -------------------------------------------------------------- | ------- | -------------------------------------------------------------------------- |
+| visible          | boolean                                                        | false   | Specifies the visibility of the dialog.                                    |
+| position         | HintedString<"left" \| "right" \| "top" \| "bottom" \| "full"> | left    | Specifies the position of the drawer.                                      |
+| header           | string                                                         | -       | Title content of the dialog.                                               |
+| baseZIndex       | number                                                         | 0       | Base zIndex value to use in layering.                                      |
+| autoZIndex       | boolean                                                        | true    | Whether to automatically manage layering.                                  |
+| dismissable      | boolean                                                        | true    | Whether clicking outside closes the panel.                                 |
+| showCloseIcon    | boolean                                                        | true    | Whether to display a close icon inside the panel.                          |
+| closeButtonProps | object                                                         | -       | Used to pass the custom value to read for the button inside the component. |
+| closeIcon        | string                                                         | -       | Icon to display in the drawer close button.                                |
+| modal            | boolean                                                        | true    | Whether to a modal layer behind the drawer.                                |
+| blockScroll      | boolean                                                        | false   | Whether background scroll should be blocked when drawer is visible.        |
+| dt               | any                                                            | -       | It generates scoped CSS variables using design tokens for the component.   |
+| pt               | PassThrough<DrawerPassThroughOptions>                          | -       | Used to pass attributes to DOM elements inside the component.              |
+| ptOptions        | any                                                            | -       | Used to configure passthrough(pt) options of the component.                |
+| unstyled         | boolean                                                        | false   | When enabled, it removes component related styles in the core.             |
+| closeOnEscape    | boolean                                                        | true    | Specifies if pressing escape key should hide the drawer.                   |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | DrawerPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| header | DrawerPassThroughOptionType | Used to pass attributes to the header's DOM element. |
-| title | DrawerPassThroughOptionType | Used to pass attributes to the header content's DOM element. |
-| pcCloseButton | any | Used to pass attributes to the close button's DOM element. |
-| content | DrawerPassThroughOptionType | Used to pass attributes to the content's DOM element. |
-| footer | DrawerPassThroughOptionType | Used to pass attributes to the footer's DOM element. |
-| mask | DrawerPassThroughOptionType | Used to pass attributes to the mask's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
-| transition | DrawerPassThroughTransitionType | Used to control Vue Transition API. |
+| Name          | Type                            | Description                                                  |
+| ------------- | ------------------------------- | ------------------------------------------------------------ |
+| root          | DrawerPassThroughOptionType     | Used to pass attributes to the root's DOM element.           |
+| header        | DrawerPassThroughOptionType     | Used to pass attributes to the header's DOM element.         |
+| title         | DrawerPassThroughOptionType     | Used to pass attributes to the header content's DOM element. |
+| pcCloseButton | any                             | Used to pass attributes to the close button's DOM element.   |
+| content       | DrawerPassThroughOptionType     | Used to pass attributes to the content's DOM element.        |
+| footer        | DrawerPassThroughOptionType     | Used to pass attributes to the footer's DOM element.         |
+| mask          | DrawerPassThroughOptionType     | Used to pass attributes to the mask's DOM element.           |
+| hooks         | any                             | Used to manage all lifecycle hooks.                          |
+| transition    | DrawerPassThroughTransitionType | Used to control Vue Transition API.                          |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-drawer-mask | Class name of the mask element |
-| p-drawer | Class name of the root element |
-| p-drawer-header | Class name of the header element |
-| p-drawer-title | Class name of the title element |
+| Class                 | Description                            |
+| --------------------- | -------------------------------------- |
+| p-drawer-mask         | Class name of the mask element         |
+| p-drawer              | Class name of the root element         |
+| p-drawer-header       | Class name of the header element       |
+| p-drawer-title        | Class name of the title element        |
 | p-drawer-close-button | Class name of the close button element |
-| p-drawer-content | Class name of the content element |
+| p-drawer-content      | Class name of the content element      |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| drawer.background | --p-drawer-background | Background of root |
-| drawer.border.color | --p-drawer-border-color | Border color of root |
-| drawer.color | --p-drawer-color | Color of root |
-| drawer.shadow | --p-drawer-shadow | Shadow of root |
-| drawer.header.padding | --p-drawer-header-padding | Padding of header |
-| drawer.title.font.size | --p-drawer-title-font-size | Font size of title |
+| Token                    | CSS Variable                 | Description          |
+| ------------------------ | ---------------------------- | -------------------- |
+| drawer.background        | --p-drawer-background        | Background of root   |
+| drawer.border.color      | --p-drawer-border-color      | Border color of root |
+| drawer.color             | --p-drawer-color             | Color of root        |
+| drawer.shadow            | --p-drawer-shadow            | Shadow of root       |
+| drawer.header.padding    | --p-drawer-header-padding    | Padding of header    |
+| drawer.title.font.size   | --p-drawer-title-font-size   | Font size of title   |
 | drawer.title.font.weight | --p-drawer-title-font-weight | Font weight of title |
-| drawer.content.padding | --p-drawer-content-padding | Padding of content |
-| drawer.footer.padding | --p-drawer-footer-padding | Padding of footer |
-
+| drawer.content.padding   | --p-drawer-content-padding   | Padding of content   |
+| drawer.footer.padding    | --p-drawer-footer-padding    | Padding of footer    |

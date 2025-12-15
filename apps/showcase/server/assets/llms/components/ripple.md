@@ -11,21 +11,16 @@ Screen Reader Ripple element has the aria-hidden attribute as true so that it ge
 To start with, Ripple needs to be enabled globally. See the Configuration API for details.
 
 ```vue
-mounted() {
-    this.$primevue.config.ripple = true;
-}
+mounted() { this.$primevue.config.ripple = true; }
 ```
 
 <details>
 <summary>Composition API Example</summary>
 
 ```vue
-import { usePrimeVue } from 'primevue/config';
-
-const PrimeVue = usePrimeVue();
-
-PrimeVue.config.ripple = true;
+import { usePrimeVue } from 'primevue/config'; const PrimeVue = usePrimeVue(); PrimeVue.config.ripple = true;
 ```
+
 </details>
 
 ## Custom
@@ -59,6 +54,7 @@ Default styling of the animation adds a shade of white. This can easily be custo
 }
 </style>
 ```
+
 </details>
 
 ## Default
@@ -96,28 +92,28 @@ Ripple is enabled by adding add p-ripple class to the target and attach the dire
 }
 <\/style>
 ```
+
 </details>
 
 ## Ripple
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | RippleDirectivePassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| Name  | Type                                 | Description                                        |
+| ----- | ------------------------------------ | -------------------------------------------------- |
+| root  | RippleDirectivePassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any                                  | Used to manage all lifecycle hooks.                |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
+| Class | Description                    |
+| ----- | ------------------------------ |
 | p-ink | Class name of the root element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
+| Token             | CSS Variable          | Description        |
+| ----------------- | --------------------- | ------------------ |
 | ripple.background | --p-ripple-background | Background of root |
-

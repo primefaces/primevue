@@ -72,6 +72,7 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Download
@@ -79,19 +80,12 @@ const onFormSubmit = ({ valid }) => {
 Forms add-on is available for download on npm registry.
 
 ```vue
-# Using npm
-npm install @primevue/forms
-
-# Using yarn
-yarn add @primevue/forms
-
-# Using pnpm
-pnpm add @primevue/forms
+# Using npm npm install @primevue/forms # Using yarn yarn add @primevue/forms # Using pnpm pnpm add @primevue/forms
 ```
 
 ## Dynamic
 
-This section demonstrates how to create a dynamic form using a custom Form component. It showcases an example where form fields are generated dynamically based on the provided configuration, allowing for flexible form structures. The components named Dynamic* shown in this example are not built-in, and only available for sampling purposes. First form uses a declarative approach whereas second form goes for a programmatic approach. We suggest running this sample in StackBlitz to view the comprehensive implementation.
+This section demonstrates how to create a dynamic form using a custom Form component. It showcases an example where form fields are generated dynamically based on the provided configuration, allowing for flexible form structures. The components named Dynamic\* shown in this example are not built-in, and only available for sampling purposes. First form uses a declarative approach whereas second form goes for a programmatic approach. We suggest running this sample in StackBlitz to view the comprehensive implementation.
 
 ```vue
 <Fieldset legend="Form 1" pt:content:class="flex justify-center">
@@ -222,6 +216,7 @@ const onFormSubmit = (text, { valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Import
@@ -366,6 +361,7 @@ const onFormSubmit = ({ valid }) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## States
@@ -438,6 +434,7 @@ const onFormSubmit = ({ valid }) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Submit
@@ -534,6 +531,7 @@ const onFormSubmit = (e) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## ValidateOn
@@ -623,6 +621,7 @@ const onFormSubmit = ({ valid }) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Built In
@@ -676,11 +675,12 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## FormField
 
-The FormField is a helper component that provides validation and tracking for input elements, offering a more flexible structure to bind PrimeVue, non-PrimeVue components or native HTML elements to Form API. Additionally, with props like validateOn* , initialValue , resolver , and name , behaviors can be controlled directly from this component.
+The FormField is a helper component that provides validation and tracking for input elements, offering a more flexible structure to bind PrimeVue, non-PrimeVue components or native HTML elements to Form API. Additionally, with props like validateOn\* , initialValue , resolver , and name , behaviors can be controlled directly from this component.
 
 ```vue
 import { FormField } from '@primevue/forms';
@@ -758,6 +758,7 @@ input.error {
 }
 <\/style>
 ```
+
 </details>
 
 ## Resolver
@@ -867,6 +868,7 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -933,9 +935,9 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Styled
 
 Component does not apply any styling.
-

@@ -47,29 +47,9 @@ Before diving into the implementation details, if you would like to understand t
 The BitBucket integration is implemented by executing a custom pipe whenever the tokens file changes. 1. Add Secret Key to Repository Secrets Go to your BitBucket repository. Navigate to Repository Settings > Repository Variables . Give a name such as: THEME_DESIGNER_SECRET_KEY . Value: Your API key from Prime Theme Designer. Click Add . 2. Add the pipe configuration to your bitbucket-pipelines.yml Define the configuration parameters for the Designer API and add the pipe as a runnable script to the action. Notice that, the referenced pipe is executed as a script rather than a pipe from the BitBucket pipe registry as PrimeTek currently has no intentions to maintain an official pipe for BitBucket. You may further improve this example by building a dockerized pipe that is accessible in the BitBucket Registry to refer it with the pipe config in yml. 3. Test Integration Edit a token in Token Studio in Figma and click Push to BitBucket button to update the tokens file in your Git repository, triggering the configured BitBucket Pipe. The pipe then sends the updated file content to the Theme Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An example repository is available at BitBucket that you may use as a starter.
 
 ```vue
-image: atlassian/default-image:4
-
-pipelines:
-    default:
-        - step:
-              name: Generate Theme with Theme Designer
-              condition:
-                  changesets:
-                      includePaths:
-                          - "tokens.json"
-              script:
-                  - apt-get update && apt-get install -y jq curl unzip
-                  - git clone https://bitbucket.org/cagataycivici/figma-to-theme-code-generator.git temp-pipe
-                  - cp temp-pipe/pipe.sh ./
-                  - chmod +x pipe.sh
-                  - export DESIGNER_SECRET="\${THEME_DESIGNER_SECRET_KEY}"
-                  - export THEME_NAME="acme-theme"
-                  - export PROJECT="primevue"
-                  - export FONT_SIZE="14px"
-                  - export FONT_FAMILY="Inter Var"
-                  - export TOKENS_PATH="./tokens.json"
-                  - export OUTPUT_DIR="./acme-theme"
-                  - ./pipe.sh
+image: atlassian/default-image:4 pipelines: default: - step: name: Generate Theme with Theme Designer condition: changesets: includePaths: - "tokens.json" script: - apt-get update && apt-get install -y jq curl unzip - git clone
+https://bitbucket.org/cagataycivici/figma-to-theme-code-generator.git temp-pipe - cp temp-pipe/pipe.sh ./ - chmod +x pipe.sh - export DESIGNER_SECRET="\${THEME_DESIGNER_SECRET_KEY}" - export THEME_NAME="acme-theme" - export PROJECT="primevue" -
+export FONT_SIZE="14px" - export FONT_FAMILY="Inter Var" - export TOKENS_PATH="./tokens.json" - export OUTPUT_DIR="./acme-theme" - ./pipe.sh
 ```
 
 ## Git Hub
@@ -77,34 +57,9 @@ pipelines:
 The prime-figma-to-theme-code-generator is a GitHub Action that is available on the marketplace. 1. Add Secret Key to Repository Secrets Go to your GitHub repository. Navigate to Settings > Secrets and variables > Actions . Click New repository secret . Give a name such as: THEME_DESIGNER_SECRET_KEY . Value: Your API key from Prime Theme Designer. Click Add secret . 2. Add the action to your .github/worklows Visit the inputs documentation for more details about the parameters such as the theme-name . 3. Test Integration Edit a token in Token Studio in Figma and click Push to GitHub button to update the tokens file in your Git repository, triggering the configured GitHub Action. The GitHub Action then sends the updated file content to the Theme Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An example repository is available at GitHub that you may use as a starter.
 
 ```vue
-name: Automated Figma To Theme Code
-
-on:
-    push:
-        paths:
-            - "tokens.json"
-
-permissions:
-    contents: write
-
-jobs:
-    generate-tokens:
-        name: Generate Theme Code
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v3
-
-            - name: Generate Prime Theme
-              uses: primefaces/theme-designer-ci@1.0.0-beta.4
-              with:
-                  designer-secret: \${{ secrets.THEME_DESIGNER_SECRET_KEY }}
-                  theme-name: "acme"
-                  project: "primevue"
-                  font-size: "14px"
-                  font-family: "Inter Var"
-                  tokens-path: "tokens.json"
-                  output-dir: "./acme-theme"
+name: Automated Figma To Theme Code on: push: paths: - "tokens.json" permissions: contents: write jobs: generate-tokens: name: Generate Theme Code runs-on: ubuntu-latest steps: - name: Checkout repository uses: actions/checkout@v3 - name: Generate
+Prime Theme uses: primefaces/theme-designer-ci@1.0.0-beta.4 with: designer-secret: \${{ secrets.THEME_DESIGNER_SECRET_KEY }} theme-name: "acme" project: "primevue" font-size: "14px" font-family: "Inter Var" tokens-path: "tokens.json" output-dir:
+"./acme-theme"
 ```
 
 ## Git Lab
@@ -112,50 +67,11 @@ jobs:
 The GitLab integration is implemented by executing a script whenever the tokens file changes. 1. Add Secret Key to Repository Secrets Go to your GitLab repository. Navigate to Settings > CI/CD > Variables . Click Add variable . Give a name such as: THEME_DESIGNER_SECRET_KEY . Value: Your API key from Prime Theme Designer. Click Add variable . 2. Add the script to your project A sample script named figma-to-theme-converter.sh is available as a starter, copy and paste this script to your project. You may alter the script further per your requirements. 3. Add the script to your .gitlab-ci.yml Define the configuration parameters for the Designer API and add the script to the action. 4. Test Integration Edit a token in Token Studio in Figma and click Push to GitLab button to update the tokens file in your Git repository, triggering the configured GitLab Action. The GitLab Action then sends the updated file content to the Theme Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An example repository is available at GitLab that you may use as a starter.
 
 ```vue
-variables:
-    # Set these as GitLab CI/CD variables for security
-    DESIGNER_SECRET: \${THEME_DESIGNER_SECRET_KEY}
-    THEME_NAME: "my-custom-theme"
-    PROJECT: "primevue" # or your target project
-    TOKENS_PATH: "./tokens.json"
-    OUTPUT_DIR: "./my-custom-theme"
-    # Optional configuration
-    FONT_SIZE: "14px"
-    FONT_FAMILY: "Inter"
-
-stages:
-    - generate-theme
-
-generate_theme_tokens:
-    stage: generate-theme
-    image: ubuntu:22.04
-
-    before_script:
-        # Install required dependencies
-        - apt-get update -qq
-        - apt-get install -y -qq git curl python3 unzip
-        - git config --global --add safe.directory $CI_PROJECT_DIR
-        # Ensure we're on the correct branch and have latest changes
-        - git fetch origin
-        - git checkout $CI_COMMIT_REF_NAME
-        - git pull origin $CI_COMMIT_REF_NAME || true
-
-    script:
-        # Run the theme generator script
-        - ./figma-to-theme-converter.sh
-
-    artifacts:
-        paths:
-            - $OUTPUT_DIR/
-        expire_in: 1 week
-
-    rules:
-        # Run on main branch when tokens.json is modified
-        - if: $CI_COMMIT_BRANCH == "main"
-          changes:
-              - tokens.json
-        # Or run manually
-        - when: manual
+variables: # Set these as GitLab CI/CD variables for security DESIGNER_SECRET: \${THEME_DESIGNER_SECRET_KEY} THEME_NAME: "my-custom-theme" PROJECT: "primevue" # or your target project TOKENS_PATH: "./tokens.json" OUTPUT_DIR: "./my-custom-theme" #
+Optional configuration FONT_SIZE: "14px" FONT_FAMILY: "Inter" stages: - generate-theme generate_theme_tokens: stage: generate-theme image: ubuntu:22.04 before_script: # Install required dependencies - apt-get update -qq - apt-get install -y -qq git
+curl python3 unzip - git config --global --add safe.directory $CI_PROJECT_DIR # Ensure we're on the correct branch and have latest changes - git fetch origin - git checkout $CI_COMMIT_REF_NAME - git pull origin $CI_COMMIT_REF_NAME || true script: #
+Run the theme generator script - ./figma-to-theme-converter.sh artifacts: paths: - $OUTPUT_DIR/ expire_in: 1 week rules: # Run on main branch when tokens.json is modified - if: $CI_COMMIT_BRANCH == "main" changes: - tokens.json # Or run manually -
+when: manual
 ```
 
 ## Base
@@ -181,4 +97,3 @@ The theming architecture is based on primitive, semantic and components tokens. 
 ## Typography
 
 The components are not opinionated about the typography. Important properties such as the font family, font size, and line-height do not have design tokens since they can be inherited from the document. For preview purposes, the settings tab displays options to customize the base font and the font family of the document. These values are not available in the generated theme and need to be applied to your application at the document level.
-

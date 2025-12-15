@@ -68,27 +68,9 @@ HTML offers various element to organize content on a web page that screen reader
 ARIA refers to "Accessible Rich Internet Applications" is a suite to fill the gap where semantic HTML is inadequate. These cases are mainly related to rich UI components/widgets. Although browser support for rich UI components such as a datepicker or colorpicker has been improved over the past years many web developers still utilize UI components derived from standard HTML elements created by them or by other projects like PrimeVue. These types of components must provide keyboard and screen reader support, the latter case is where the WAI-ARIA is utilized. ARIA consists of roles, properties and attributes. Roles define what the element is mainly used for e.g. checkbox , dialog , tablist whereas States and Properties define the metadata of the element like aria-checked , aria-disabled . Consider the following case of a native checkbox. It has built-in keyboard and screen reader support.
 
 ```vue
-<input type="checkbox" value="Prime" name="ui" checked>
-
-<div class="fancy-checkbox">
-    <i class="checked-icon" v-if="checked"></i>
-</div>
-
-<span id="chk-label">Remember Me</span>
-<div class="fancy-checkbox" role="checkbox" aria-checked="false" tabindex="0" aria-labelledby="chk-label"
-    @click="toggle" @keydown="onKeyDown(event)">
-    <i class="checked-icon" v-if="checked"></i>
-</div>
-
-<label for="chkbox">Remember Me</label>
-<div class="fancy-checkbox" @click="toggle">
-    <input class="p-hidden-accessible" type="checkbox" id="chkbox" @focus="updateParentVisuals" @blur="updateParentVisuals"
-        @keydown="onKeyDown(event)">
-    <i class="checked-icon" v-if="checked"></i>
-</div>
+<input type="checkbox" value="Prime" name="ui" checked />
 ```
 
 ## WCAG
 
 Correct page structure with the aid of assistive technologies are the core ingridients for an accessible web content. HTML is based on an accessible foundation, form controls can be used by keyboard by default and semantic HTML is easier to be processed by a screen reader. WCAG refers to Web Content Accessibility Guideline , a standard managed by the WAI (Web Accessibility Initiative) of W3C (World Wide Web Consortium). WCAG consists of recommendations for making the web content more accessible. PrimeVue components aim high level of WCAG compliancy in the near future. Various countries around the globe have governmental policies regarding web accessibility as well. Most well known of these are Section 508 in the US and Web Accessibility Directive of the European Union.
-

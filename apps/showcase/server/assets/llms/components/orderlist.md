@@ -82,65 +82,65 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Order List
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | any[] | - | Value of the component. |
-| dataKey | string | - | Name of the field that uniquely identifies the a record in the data. |
-| selection | any[] | - | Selected items in the list. |
-| metaKeySelection | boolean | false | Defines whether metaKey is required or not for the selection. When true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
-| autoOptionFocus | boolean | true | Whether to focus on the first visible or selected element. |
-| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
-| listStyle | any | - | Inline style of the the list element. |
-| responsive | boolean | true | Whether the list optimizes layout based on screen size. |
-| breakpoint | string | 960px | The breakpoint to define the maximum width boundary when responsiveness is enabled. |
-| striped | boolean | false | Whether to displays rows with alternating colors. |
-| tabindex | string \| number | - | Index of the element in tabbing order. |
-| scrollHeight | string | 14rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
-| buttonProps | object | - | Used to pass all properties of the ButtonProps to the button inside the component. |
-| moveUpButtonProps | object | - | Used to pass all properties of the ButtonProps to the move up button inside the component. |
-| moveTopButtonProps | object | - | Used to pass all properties of the ButtonProps to the move top button inside the component. |
-| moveDownButtonProps | object | - | Used to pass all properties of the ButtonProps to the move down button inside the component. |
-| moveBottomButtonProps | object | - | Used to pass all properties of the ButtonProps to the move bottom button inside the component. |
-| ariaLabel | string | - | Defines a string value that labels an interactive list element. |
-| ariaLabelledby | string | - | Identifier of the underlying list element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<OrderListPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name                  | Type                                     | Default | Description                                                                                                                                                                                                                                                                         |
+| --------------------- | ---------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| modelValue            | any[]                                    | -       | Value of the component.                                                                                                                                                                                                                                                             |
+| dataKey               | string                                   | -       | Name of the field that uniquely identifies the a record in the data.                                                                                                                                                                                                                |
+| selection             | any[]                                    | -       | Selected items in the list.                                                                                                                                                                                                                                                         |
+| metaKeySelection      | boolean                                  | false   | Defines whether metaKey is required or not for the selection. When true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
+| autoOptionFocus       | boolean                                  | true    | Whether to focus on the first visible or selected element.                                                                                                                                                                                                                          |
+| focusOnHover          | boolean                                  | true    | When enabled, the focus is placed on the hovered option.                                                                                                                                                                                                                            |
+| listStyle             | any                                      | -       | Inline style of the the list element.                                                                                                                                                                                                                                               |
+| responsive            | boolean                                  | true    | Whether the list optimizes layout based on screen size.                                                                                                                                                                                                                             |
+| breakpoint            | string                                   | 960px   | The breakpoint to define the maximum width boundary when responsiveness is enabled.                                                                                                                                                                                                 |
+| striped               | boolean                                  | false   | Whether to displays rows with alternating colors.                                                                                                                                                                                                                                   |
+| tabindex              | string \| number                         | -       | Index of the element in tabbing order.                                                                                                                                                                                                                                              |
+| scrollHeight          | string                                   | 14rem   | Height of the viewport, a scrollbar is defined if height of list exceeds this value.                                                                                                                                                                                                |
+| buttonProps           | object                                   | -       | Used to pass all properties of the ButtonProps to the button inside the component.                                                                                                                                                                                                  |
+| moveUpButtonProps     | object                                   | -       | Used to pass all properties of the ButtonProps to the move up button inside the component.                                                                                                                                                                                          |
+| moveTopButtonProps    | object                                   | -       | Used to pass all properties of the ButtonProps to the move top button inside the component.                                                                                                                                                                                         |
+| moveDownButtonProps   | object                                   | -       | Used to pass all properties of the ButtonProps to the move down button inside the component.                                                                                                                                                                                        |
+| moveBottomButtonProps | object                                   | -       | Used to pass all properties of the ButtonProps to the move bottom button inside the component.                                                                                                                                                                                      |
+| ariaLabel             | string                                   | -       | Defines a string value that labels an interactive list element.                                                                                                                                                                                                                     |
+| ariaLabelledby        | string                                   | -       | Identifier of the underlying list element.                                                                                                                                                                                                                                          |
+| dt                    | any                                      | -       | It generates scoped CSS variables using design tokens for the component.                                                                                                                                                                                                            |
+| pt                    | PassThrough<OrderListPassThroughOptions> | -       | Used to pass attributes to DOM elements inside the component.                                                                                                                                                                                                                       |
+| ptOptions             | any                                      | -       | Used to configure passthrough(pt) options of the component.                                                                                                                                                                                                                         |
+| unstyled              | boolean                                  | false   | When enabled, it removes component related styles in the core.                                                                                                                                                                                                                      |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | OrderListPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| controls | OrderListPassThroughOptionType | Used to pass attributes to the controls' DOM element. |
-| pcMoveUpButton | any | Used to pass attributes to the Button component. |
-| pcMoveTopButton | any | Used to pass attributes to the Button component. |
-| pcMoveDownButton | any | Used to pass attributes to the Button component. |
-| pcMoveBottomButton | any | Used to pass attributes to the Button component. |
-| pcListbox | any | Used to pass attributes to the Listbox component. |
-| hooks | any | Used to manage all lifecycle hooks. |
-| transition | OrderListPassThroughTransitionType | Used to control Vue Transition API. |
+| Name               | Type                               | Description                                           |
+| ------------------ | ---------------------------------- | ----------------------------------------------------- |
+| root               | OrderListPassThroughOptionType     | Used to pass attributes to the root's DOM element.    |
+| controls           | OrderListPassThroughOptionType     | Used to pass attributes to the controls' DOM element. |
+| pcMoveUpButton     | any                                | Used to pass attributes to the Button component.      |
+| pcMoveTopButton    | any                                | Used to pass attributes to the Button component.      |
+| pcMoveDownButton   | any                                | Used to pass attributes to the Button component.      |
+| pcMoveBottomButton | any                                | Used to pass attributes to the Button component.      |
+| pcListbox          | any                                | Used to pass attributes to the Listbox component.     |
+| hooks              | any                                | Used to manage all lifecycle hooks.                   |
+| transition         | OrderListPassThroughTransitionType | Used to control Vue Transition API.                   |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-orderlist | Class name of the root element |
+| Class                | Description                        |
+| -------------------- | ---------------------------------- |
+| p-orderlist          | Class name of the root element     |
 | p-orderlist-controls | Class name of the controls element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| orderlist.gap | --p-orderlist-gap | Gap of root |
+| Token                  | CSS Variable               | Description     |
+| ---------------------- | -------------------------- | --------------- |
+| orderlist.gap          | --p-orderlist-gap          | Gap of root     |
 | orderlist.controls.gap | --p-orderlist-controls-gap | Gap of controls |
-

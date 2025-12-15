@@ -107,6 +107,7 @@ Classes to apply during enter and leave animations are specified using the enter
 }
 </style>
 ```
+
 </details>
 
 ## HideOnResizeDoc
@@ -196,6 +197,7 @@ When hideOnResize is enabled, the leave animation is triggered automatically whe
 <script setup>
 <\/script>
 ```
+
 </details>
 
 ## ToggleClassDoc
@@ -221,7 +223,7 @@ StyleClass has two modes, toggleClass to simply add-remove a class and enter/lea
 <script setup>
 <\/script>
 ```
+
 </details>
 
 ## Styleclass
-

@@ -13,7 +13,7 @@ import Chart from 'primevue/chart';
 Screen Reader Chart components internally use canvas element, refer to the Chart.js accessibility guide for more information. The canvas element can be customized with canvasProps property to define aria roles and properties, in addition any content inside the component is directly passed as a child of the canvas to be able to provide fallback content like a table.
 
 ```vue
-<Chart type="line" :data="data" :canvasProps="{'role': 'img', 'aria-label': 'Data'}" />
+<Chart type="line" :data="data" :canvasProps="{ role: 'img', 'aria-label': 'Data' }" />
 ```
 
 ## Basic
@@ -60,7 +60,7 @@ onMounted(() => {
 
 const chartData = ref();
 const chartOptions = ref();
-        
+
 const setChartData = () => {
     const documentStyle = getComputedStyle(document.documentElement);
 
@@ -131,6 +131,7 @@ const setChartOptions = () => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Doughnut
@@ -194,6 +195,7 @@ const setChartOptions = () => {
 };
 <\/script>
 ```
+
 </details>
 
 ## HorizontalBarDoc
@@ -201,7 +203,7 @@ const setChartOptions = () => {
 A bar chart is rendered horizontally when indexAxis option is set as y .
 
 ```vue
-<Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]"  />
+<Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]" />
 ```
 
 <details>
@@ -290,6 +292,7 @@ const setChartOptions = () => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Line
@@ -320,7 +323,7 @@ onMounted(() => {
 
 const chartData = ref();
 const chartOptions = ref();
-        
+
 const setChartData = () => {
     const documentStyle = getComputedStyle(document.documentElement);
 
@@ -382,6 +385,7 @@ const setChartOptions = () => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Line Styles
@@ -412,7 +416,7 @@ onMounted(() => {
 
 const chartData = ref();
 const chartOptions = ref();
-        
+
 const setChartData = () => {
     const documentStyle = getComputedStyle(document.documentElement);
 
@@ -483,6 +487,7 @@ const setChartOptions = () => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Multi Axis
@@ -513,7 +518,7 @@ onMounted(() => {
 
 const chartData = ref();
 const chartOptions = ref();
-        
+
 const setChartData = () => {
     const documentStyle = getComputedStyle(document.documentElement);
 
@@ -593,6 +598,7 @@ const setChartOptions = () => {
 }
 <\/script>
 ```
+
 </details>
 
 ## PieChartDoc
@@ -656,6 +662,7 @@ const setChartOptions = () => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Polar Area
@@ -686,7 +693,7 @@ onMounted(() => {
 
 const chartData = ref();
 const chartOptions = ref();
-        
+
 const setChartData = () => {
     const documentStyle = getComputedStyle(document.documentElement);
 
@@ -731,6 +738,7 @@ const setChartOptions = () => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Radar
@@ -761,7 +769,7 @@ onMounted(() => {
 
 const chartData = ref();
 const chartOptions = ref();
-        
+
 const setChartData = () => {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--p-text-color');
@@ -814,6 +822,7 @@ const setChartOptions = () => {
 }
 <\/script>
 ```
+
 </details>
 
 ## StackedBarDoc
@@ -916,6 +925,7 @@ const setChartOptions = () =>  {
 }
 <\/script>
 ```
+
 </details>
 
 ## VerticalBarDoc
@@ -923,7 +933,7 @@ const setChartOptions = () =>  {
 A bar chart or bar graph is a chart that presents grouped data with rectangular bars with lengths proportional to the values that they represent.
 
 ```vue
-<Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]"  />
+<Chart type="bar" :data="chartData" :options="chartOptions" class="h-[30rem]" />
 ```
 
 <details>
@@ -1011,39 +1021,39 @@ const setChartOptions = () => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Chart
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| type | string | - | Type of the chart. |
-| data | object | - | Data to display. |
-| options | object | - | Options to customize the chart. |
-| plugins | any[] | - | Used to custom plugins of the chart. |
-| width | number | 300 | Width of the chart in non-responsive mode. |
-| height | number | 150 | Height of the chart in non-responsive mode. |
-| canvasProps | CanvasHTMLAttributes | - | Used to pass all properties of the CanvasHTMLAttributes to canvas element inside the component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ChartPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name        | Type                                 | Default | Description                                                                                     |
+| ----------- | ------------------------------------ | ------- | ----------------------------------------------------------------------------------------------- |
+| type        | string                               | -       | Type of the chart.                                                                              |
+| data        | object                               | -       | Data to display.                                                                                |
+| options     | object                               | -       | Options to customize the chart.                                                                 |
+| plugins     | any[]                                | -       | Used to custom plugins of the chart.                                                            |
+| width       | number                               | 300     | Width of the chart in non-responsive mode.                                                      |
+| height      | number                               | 150     | Height of the chart in non-responsive mode.                                                     |
+| canvasProps | CanvasHTMLAttributes                 | -       | Used to pass all properties of the CanvasHTMLAttributes to canvas element inside the component. |
+| dt          | any                                  | -       | It generates scoped CSS variables using design tokens for the component.                        |
+| pt          | PassThrough<ChartPassThroughOptions> | -       | Used to pass attributes to DOM elements inside the component.                                   |
+| ptOptions   | any                                  | -       | Used to configure passthrough(pt) options of the component.                                     |
+| unstyled    | boolean                              | false   | When enabled, it removes component related styles in the core.                                  |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | ChartPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| Name   | Type                       | Description                                          |
+| ------ | -------------------------- | ---------------------------------------------------- |
+| root   | ChartPassThroughOptionType | Used to pass attributes to the root's DOM element.   |
 | canvas | ChartPassThroughOptionType | Used to pass attributes to the canvas's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| hooks  | any                        | Used to manage all lifecycle hooks.                  |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
+| Class   | Description                    |
+| ------- | ------------------------------ |
 | p-chart | Class name of the root element |
-

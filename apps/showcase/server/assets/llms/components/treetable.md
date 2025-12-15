@@ -78,6 +78,7 @@ const onToggle = (val) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## ContextMenuDoc
@@ -162,6 +163,7 @@ const filterNodes = (nodeList, keyToRemove) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Controlled
@@ -212,6 +214,7 @@ const toggleApplications = () => {
 }
 <\/script>
 ```
+
 </details>
 
 ## DynamicColumnsDoc
@@ -252,6 +255,7 @@ const columns = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## FilterDoc
@@ -343,6 +347,7 @@ const filterOptions = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## GridLinesDoc
@@ -382,6 +387,7 @@ onMounted(() => {
 const nodes = ref();
 <\/script>
 ```
+
 </details>
 
 ## LazyLoadDoc
@@ -389,8 +395,7 @@ const nodes = ref();
 Lazy mode is handy to deal with large datasets, instead of loading the entire data, small chunks of data is loaded by invoking corresponding callbacks everytime paging , sorting and filtering occurs. Sample below imitates lazy loading data from a remote datasource using an in-memory list and timeouts to mimic network connection. Enabling the lazy property and assigning the logical number of rows to totalRecords by doing a projection query are the key elements of the implementation so that paginator displays the UI assuming there are actually records of totalRecords size although in reality they are not present on page, only the records that are displayed on the current page exist. In addition, only the root elements should be loaded, children can be loaded on demand using nodeExpand callback.
 
 ```vue
-<TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading"
-    @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords" tableStyle="min-width: 50rem">
+<TreeTable :value="nodes" :lazy="true" :paginator="true" :rows="rows" :loading="loading" @nodeExpand="onExpand" @page="onPage" :totalRecords="totalRecords" tableStyle="min-width: 50rem">
     <Column field="name" header="Name" expander></Column>
     <Column field="size" header="Size"></Column>
     <Column field="type" header="Type"></Column>
@@ -496,6 +501,7 @@ const loadNodes = (first, rows) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Size
@@ -541,6 +547,7 @@ const sizeOptions = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -612,187 +619,187 @@ onMounted(() => {
 const nodes = ref();
 <\/script>
 ```
+
 </details>
 
 ## Tree Table
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | TreeNode[] | - | An array of treenodes. |
-| dataKey | string \| Function | "key" | Name of the field that uniquely identifies the a record in the data. |
-| expandedKeys | TreeTableExpandedKeys | - | A map of keys to represent the state of the tree expansion state in controlled mode. |
-| selectionKeys | TreeTableSelectionKeys | - | A map of keys to control the selection state. |
-| selectionMode | HintedString<"single" \| "multiple" \| "checkbox"> | - | Defines the selection mode. |
-| metaKeySelection | boolean | false | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
-| contextMenu | boolean | false | Enables context menu integration. |
-| contextMenuSelection | any | - | Selected row instance with the ContextMenu. |
-| rows | number | - | Number of rows to display per page. |
-| first | number | 0 | Index of the first row to be displayed. |
-| totalRecords | number | - | Number of total records, defaults to length of value when not defined. |
-| paginator | boolean | false | When specified as true, enables the pagination. |
-| paginatorPosition | HintedString<"top" \| "bottom" \| "both"> | bottom | Position of the paginator, options are 'top','bottom' or 'both'. |
-| alwaysShowPaginator | boolean | true | Whether to show it even there is only one page. |
-| paginatorTemplate | string | FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown | Template of the paginator. It can be customized using the template property using the predefined keys. Here are the available elements that can be placed inside a paginator in any order.  - FirstPageLink - PrevPageLink - PageLinks - NextPageLink - LastPageLink - RowsPerPageDropdown - JumpToPageDropdown - JumpToPageInput - CurrentPageReport |
-| pageLinkSize | number | 5 | Number of page links to display. |
-| rowsPerPageOptions | number[] | - | Array of integer values to display inside rows per page dropdown. |
-| currentPageReportTemplate | string | '({currentPage} of {totalPages})' | Template of the current page report element. It displays information about the pagination state.  - {currentPage} - {totalPages} - {rows} - {first} - {last} - {totalRecords} |
-| lazy | boolean | false | Defines if data is loaded and interacted with in lazy manner. |
-| loading | boolean | false | Displays a loader to indicate data load is in progress. |
-| loadingIcon | string | - | The icon to show while indicating data load is in progress. |
-| loadingMode | HintedString<"mask" \| "icon"> | mask | Loading mode display. |
-| rowHover | boolean | false | When enabled, background of the rows change on hover. |
-| autoLayout | boolean | false | Whether the cell widths scale according to their content or not. |
-| sortField | string \| Function | - | Property name or a getter function of a row data used for sorting by default. |
-| sortOrder | number | - | Order to sort the data by default. |
-| defaultSortOrder | number | 1 | Default sort order of an unsorted column. |
-| multiSortMeta | null \| TreeTableSortMeta[] | - | An array of SortMeta objects to sort the data by default in multiple sort mode. |
-| sortMode | HintedString<"single" \| "multiple"> | single | Defines whether sorting works on single column or on multiple columns. |
-| removableSort | boolean | false | When enabled, columns can have an un-sorted state. |
-| filters | TreeTableFilterMeta | - | Filters object with key-value pairs to define the filters. |
-| filterMode | HintedString<"lenient" \| "strict"> | lenient | Mode for filtering. |
-| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
-| resizableColumns | boolean | false | When enabled, columns can be resized using drag and drop. |
-| columnResizeMode | HintedString<"fit" \| "expand"> | fit | Defines whether the overall table width should change on column resize. |
-| indentation | number | 1 | Indentation factor as rem value for children nodes. |
-| showGridlines | boolean | false | Whether to show grid lines between cells. |
-| scrollable | boolean | false | When specified, enables horizontal and/or vertical scrolling. |
-| scrollHeight | HintedString<"flex"> | - | Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size. |
-| size | HintedString<"small" \| "large"> | - | Defines the size of the table. |
-| tableStyle | string \| object | - | Inline style of the table element. |
-| tableClass | string \| object | - | Style class of the table element. |
-| tableProps | any | - | Props to pass to the table element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TreeTablePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name                      | Type                                               | Default                                                                            | Description                                                                                                                                                                                                                                                                                                                                          |
+| ------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value                     | TreeNode[]                                         | -                                                                                  | An array of treenodes.                                                                                                                                                                                                                                                                                                                               |
+| dataKey                   | string \| Function                                 | "key"                                                                              | Name of the field that uniquely identifies the a record in the data.                                                                                                                                                                                                                                                                                 |
+| expandedKeys              | TreeTableExpandedKeys                              | -                                                                                  | A map of keys to represent the state of the tree expansion state in controlled mode.                                                                                                                                                                                                                                                                 |
+| selectionKeys             | TreeTableSelectionKeys                             | -                                                                                  | A map of keys to control the selection state.                                                                                                                                                                                                                                                                                                        |
+| selectionMode             | HintedString<"single" \| "multiple" \| "checkbox"> | -                                                                                  | Defines the selection mode.                                                                                                                                                                                                                                                                                                                          |
+| metaKeySelection          | boolean                                            | false                                                                              | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically.                                                                                    |
+| contextMenu               | boolean                                            | false                                                                              | Enables context menu integration.                                                                                                                                                                                                                                                                                                                    |
+| contextMenuSelection      | any                                                | -                                                                                  | Selected row instance with the ContextMenu.                                                                                                                                                                                                                                                                                                          |
+| rows                      | number                                             | -                                                                                  | Number of rows to display per page.                                                                                                                                                                                                                                                                                                                  |
+| first                     | number                                             | 0                                                                                  | Index of the first row to be displayed.                                                                                                                                                                                                                                                                                                              |
+| totalRecords              | number                                             | -                                                                                  | Number of total records, defaults to length of value when not defined.                                                                                                                                                                                                                                                                               |
+| paginator                 | boolean                                            | false                                                                              | When specified as true, enables the pagination.                                                                                                                                                                                                                                                                                                      |
+| paginatorPosition         | HintedString<"top" \| "bottom" \| "both">          | bottom                                                                             | Position of the paginator, options are 'top','bottom' or 'both'.                                                                                                                                                                                                                                                                                     |
+| alwaysShowPaginator       | boolean                                            | true                                                                               | Whether to show it even there is only one page.                                                                                                                                                                                                                                                                                                      |
+| paginatorTemplate         | string                                             | FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown | Template of the paginator. It can be customized using the template property using the predefined keys. Here are the available elements that can be placed inside a paginator in any order. - FirstPageLink - PrevPageLink - PageLinks - NextPageLink - LastPageLink - RowsPerPageDropdown - JumpToPageDropdown - JumpToPageInput - CurrentPageReport |
+| pageLinkSize              | number                                             | 5                                                                                  | Number of page links to display.                                                                                                                                                                                                                                                                                                                     |
+| rowsPerPageOptions        | number[]                                           | -                                                                                  | Array of integer values to display inside rows per page dropdown.                                                                                                                                                                                                                                                                                    |
+| currentPageReportTemplate | string                                             | '({currentPage} of {totalPages})'                                                  | Template of the current page report element. It displays information about the pagination state. - {currentPage} - {totalPages} - {rows} - {first} - {last} - {totalRecords}                                                                                                                                                                         |
+| lazy                      | boolean                                            | false                                                                              | Defines if data is loaded and interacted with in lazy manner.                                                                                                                                                                                                                                                                                        |
+| loading                   | boolean                                            | false                                                                              | Displays a loader to indicate data load is in progress.                                                                                                                                                                                                                                                                                              |
+| loadingIcon               | string                                             | -                                                                                  | The icon to show while indicating data load is in progress.                                                                                                                                                                                                                                                                                          |
+| loadingMode               | HintedString<"mask" \| "icon">                     | mask                                                                               | Loading mode display.                                                                                                                                                                                                                                                                                                                                |
+| rowHover                  | boolean                                            | false                                                                              | When enabled, background of the rows change on hover.                                                                                                                                                                                                                                                                                                |
+| autoLayout                | boolean                                            | false                                                                              | Whether the cell widths scale according to their content or not.                                                                                                                                                                                                                                                                                     |
+| sortField                 | string \| Function                                 | -                                                                                  | Property name or a getter function of a row data used for sorting by default.                                                                                                                                                                                                                                                                        |
+| sortOrder                 | number                                             | -                                                                                  | Order to sort the data by default.                                                                                                                                                                                                                                                                                                                   |
+| defaultSortOrder          | number                                             | 1                                                                                  | Default sort order of an unsorted column.                                                                                                                                                                                                                                                                                                            |
+| multiSortMeta             | null \| TreeTableSortMeta[]                        | -                                                                                  | An array of SortMeta objects to sort the data by default in multiple sort mode.                                                                                                                                                                                                                                                                      |
+| sortMode                  | HintedString<"single" \| "multiple">               | single                                                                             | Defines whether sorting works on single column or on multiple columns.                                                                                                                                                                                                                                                                               |
+| removableSort             | boolean                                            | false                                                                              | When enabled, columns can have an un-sorted state.                                                                                                                                                                                                                                                                                                   |
+| filters                   | TreeTableFilterMeta                                | -                                                                                  | Filters object with key-value pairs to define the filters.                                                                                                                                                                                                                                                                                           |
+| filterMode                | HintedString<"lenient" \| "strict">                | lenient                                                                            | Mode for filtering.                                                                                                                                                                                                                                                                                                                                  |
+| filterLocale              | string                                             | -                                                                                  | Locale to use in filtering. The default locale is the host environment's current locale.                                                                                                                                                                                                                                                             |
+| resizableColumns          | boolean                                            | false                                                                              | When enabled, columns can be resized using drag and drop.                                                                                                                                                                                                                                                                                            |
+| columnResizeMode          | HintedString<"fit" \| "expand">                    | fit                                                                                | Defines whether the overall table width should change on column resize.                                                                                                                                                                                                                                                                              |
+| indentation               | number                                             | 1                                                                                  | Indentation factor as rem value for children nodes.                                                                                                                                                                                                                                                                                                  |
+| showGridlines             | boolean                                            | false                                                                              | Whether to show grid lines between cells.                                                                                                                                                                                                                                                                                                            |
+| scrollable                | boolean                                            | false                                                                              | When specified, enables horizontal and/or vertical scrolling.                                                                                                                                                                                                                                                                                        |
+| scrollHeight              | HintedString<"flex">                               | -                                                                                  | Height of the scroll viewport in fixed pixels or the 'flex' keyword for a dynamic size.                                                                                                                                                                                                                                                              |
+| size                      | HintedString<"small" \| "large">                   | -                                                                                  | Defines the size of the table.                                                                                                                                                                                                                                                                                                                       |
+| tableStyle                | string \| object                                   | -                                                                                  | Inline style of the table element.                                                                                                                                                                                                                                                                                                                   |
+| tableClass                | string \| object                                   | -                                                                                  | Style class of the table element.                                                                                                                                                                                                                                                                                                                    |
+| tableProps                | any                                                | -                                                                                  | Props to pass to the table element.                                                                                                                                                                                                                                                                                                                  |
+| dt                        | any                                                | -                                                                                  | It generates scoped CSS variables using design tokens for the component.                                                                                                                                                                                                                                                                             |
+| pt                        | PassThrough<TreeTablePassThroughOptions>           | -                                                                                  | Used to pass attributes to DOM elements inside the component.                                                                                                                                                                                                                                                                                        |
+| ptOptions                 | any                                                | -                                                                                  | Used to configure passthrough(pt) options of the component.                                                                                                                                                                                                                                                                                          |
+| unstyled                  | boolean                                            | false                                                                              | When enabled, it removes component related styles in the core.                                                                                                                                                                                                                                                                                       |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | TreeTablePassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| loading | TreeTablePassThroughOptionType | Used to pass attributes to the loading wrapper's DOM element. |
-| mask | TreeTablePassThroughOptionType | Used to pass attributes to the mask's DOM element. |
-| loadingIcon | TreeTablePassThroughOptionType | Used to pass attributes to the loading icon's DOM element. |
-| header | TreeTablePassThroughOptionType | Used to pass attributes to the header's DOM element. |
-| pcPaginator | any | Used to pass attributes to the Paginator component. |
-| tableContainer | TreeTablePassThroughOptionType | Used to pass attributes to the table container's DOM element. |
-| table | TreeTablePassThroughOptionType | Used to pass attributes to the table's DOM element. |
-| thead | TreeTablePassThroughOptionType | Used to pass attributes to the thead's DOM element. |
-| headerRow | TreeTablePassThroughOptionType | Used to pass attributes to the header row's DOM element. |
-| tbody | TreeTablePassThroughOptionType | Used to pass attributes to the tbody's DOM element. |
-| row | TreeTablePassThroughOptionType | Used to pass attributes to the row's DOM element. |
-| emptyMessage | TreeTablePassThroughOptionType | Used to pass attributes to the empty message's DOM element. |
-| emptyMessageCell | TreeTablePassThroughOptionType | Used to pass attributes to the empty message cell's DOM element. |
-| tfoot | TreeTablePassThroughOptionType | Used to pass attributes to the tfoot's DOM element. |
-| footerRow | TreeTablePassThroughOptionType | Used to pass attributes to the footer row's DOM element. |
-| footer | TreeTablePassThroughOptionType | Used to pass attributes to the footer's DOM element. |
+| Name                  | Type                           | Description                                                           |
+| --------------------- | ------------------------------ | --------------------------------------------------------------------- |
+| root                  | TreeTablePassThroughOptionType | Used to pass attributes to the root's DOM element.                    |
+| loading               | TreeTablePassThroughOptionType | Used to pass attributes to the loading wrapper's DOM element.         |
+| mask                  | TreeTablePassThroughOptionType | Used to pass attributes to the mask's DOM element.                    |
+| loadingIcon           | TreeTablePassThroughOptionType | Used to pass attributes to the loading icon's DOM element.            |
+| header                | TreeTablePassThroughOptionType | Used to pass attributes to the header's DOM element.                  |
+| pcPaginator           | any                            | Used to pass attributes to the Paginator component.                   |
+| tableContainer        | TreeTablePassThroughOptionType | Used to pass attributes to the table container's DOM element.         |
+| table                 | TreeTablePassThroughOptionType | Used to pass attributes to the table's DOM element.                   |
+| thead                 | TreeTablePassThroughOptionType | Used to pass attributes to the thead's DOM element.                   |
+| headerRow             | TreeTablePassThroughOptionType | Used to pass attributes to the header row's DOM element.              |
+| tbody                 | TreeTablePassThroughOptionType | Used to pass attributes to the tbody's DOM element.                   |
+| row                   | TreeTablePassThroughOptionType | Used to pass attributes to the row's DOM element.                     |
+| emptyMessage          | TreeTablePassThroughOptionType | Used to pass attributes to the empty message's DOM element.           |
+| emptyMessageCell      | TreeTablePassThroughOptionType | Used to pass attributes to the empty message cell's DOM element.      |
+| tfoot                 | TreeTablePassThroughOptionType | Used to pass attributes to the tfoot's DOM element.                   |
+| footerRow             | TreeTablePassThroughOptionType | Used to pass attributes to the footer row's DOM element.              |
+| footer                | TreeTablePassThroughOptionType | Used to pass attributes to the footer's DOM element.                  |
 | columnResizeIndicator | TreeTablePassThroughOptionType | Used to pass attributes to the column resize indicator's DOM element. |
-| column | any | Used to pass attributes to the Column helper components. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| column                | any                            | Used to pass attributes to the Column helper components.              |
+| hooks                 | any                            | Used to manage all lifecycle hooks.                                   |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-treetable | Class name of the root element |
-| p-treetable-loading | Class name of the loading element |
-| p-treetable-mask | Class name of the mask element |
-| p-treetable-loading-icon | Class name of the loading icon element |
-| p-treetable-header | Class name of the header element |
-| p-treetable-paginator-[position] | Class name of the paginator element |
-| p-treetable-table-container | Class name of the table container element |
-| p-treetable-table | Class name of the table element |
-| p-treetable-thead | Class name of the thead element |
-| p-treetable-column-resizer | Class name of the column resizer element |
-| p-treetable-column-title | Class name of the column title element |
-| p-treetable-sort-icon | Class name of the sort icon element |
-| p-treetable-sort-badge | Class name of the sort badge element |
-| p-treetable-tbody | Class name of the tbody element |
-| p-treetable-node-toggle-button | Class name of the node toggle button element |
-| p-treetable-node-toggle-icon | Class name of the node toggle icon element |
-| p-treetable-node-checkbox | Class name of the node checkbox element |
-| p-treetable-empty-message | Class name of the empty message element |
-| p-treetable-tfoot | Class name of the tfoot element |
-| p-treetable-footer | Class name of the footer element |
+| Class                               | Description                                       |
+| ----------------------------------- | ------------------------------------------------- |
+| p-treetable                         | Class name of the root element                    |
+| p-treetable-loading                 | Class name of the loading element                 |
+| p-treetable-mask                    | Class name of the mask element                    |
+| p-treetable-loading-icon            | Class name of the loading icon element            |
+| p-treetable-header                  | Class name of the header element                  |
+| p-treetable-paginator-[position]    | Class name of the paginator element               |
+| p-treetable-table-container         | Class name of the table container element         |
+| p-treetable-table                   | Class name of the table element                   |
+| p-treetable-thead                   | Class name of the thead element                   |
+| p-treetable-column-resizer          | Class name of the column resizer element          |
+| p-treetable-column-title            | Class name of the column title element            |
+| p-treetable-sort-icon               | Class name of the sort icon element               |
+| p-treetable-sort-badge              | Class name of the sort badge element              |
+| p-treetable-tbody                   | Class name of the tbody element                   |
+| p-treetable-node-toggle-button      | Class name of the node toggle button element      |
+| p-treetable-node-toggle-icon        | Class name of the node toggle icon element        |
+| p-treetable-node-checkbox           | Class name of the node checkbox element           |
+| p-treetable-empty-message           | Class name of the empty message element           |
+| p-treetable-tfoot                   | Class name of the tfoot element                   |
+| p-treetable-footer                  | Class name of the footer element                  |
 | p-treetable-column-resize-indicator | Class name of the column resize indicator element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| treetable.transition.duration | --p-treetable-transition-duration | Transition duration of root |
-| treetable.border.color | --p-treetable-border-color | Border color of root |
-| treetable.header.background | --p-treetable-header-background | Background of header |
-| treetable.header.border.color | --p-treetable-header-border-color | Border color of header |
-| treetable.header.color | --p-treetable-header-color | Color of header |
-| treetable.header.border.width | --p-treetable-header-border-width | Border width of header |
-| treetable.header.padding | --p-treetable-header-padding | Padding of header |
-| treetable.header.cell.background | --p-treetable-header-cell-background | Background of header cell |
-| treetable.header.cell.hover.background | --p-treetable-header-cell-hover-background | Hover background of header cell |
-| treetable.header.cell.selected.background | --p-treetable-header-cell-selected-background | Selected background of header cell |
-| treetable.header.cell.border.color | --p-treetable-header-cell-border-color | Border color of header cell |
-| treetable.header.cell.color | --p-treetable-header-cell-color | Color of header cell |
-| treetable.header.cell.hover.color | --p-treetable-header-cell-hover-color | Hover color of header cell |
-| treetable.header.cell.selected.color | --p-treetable-header-cell-selected-color | Selected color of header cell |
-| treetable.header.cell.gap | --p-treetable-header-cell-gap | Gap of header cell |
-| treetable.header.cell.padding | --p-treetable-header-cell-padding | Padding of header cell |
-| treetable.header.cell.focus.ring.width | --p-treetable-header-cell-focus-ring-width | Focus ring width of header cell |
-| treetable.header.cell.focus.ring.style | --p-treetable-header-cell-focus-ring-style | Focus ring style of header cell |
-| treetable.header.cell.focus.ring.color | --p-treetable-header-cell-focus-ring-color | Focus ring color of header cell |
-| treetable.header.cell.focus.ring.offset | --p-treetable-header-cell-focus-ring-offset | Focus ring offset of header cell |
-| treetable.header.cell.focus.ring.shadow | --p-treetable-header-cell-focus-ring-shadow | Focus ring shadow of header cell |
-| treetable.column.title.font.weight | --p-treetable-column-title-font-weight | Font weight of column title |
-| treetable.row.background | --p-treetable-row-background | Background of row |
-| treetable.row.hover.background | --p-treetable-row-hover-background | Hover background of row |
-| treetable.row.selected.background | --p-treetable-row-selected-background | Selected background of row |
-| treetable.row.color | --p-treetable-row-color | Color of row |
-| treetable.row.hover.color | --p-treetable-row-hover-color | Hover color of row |
-| treetable.row.selected.color | --p-treetable-row-selected-color | Selected color of row |
-| treetable.row.focus.ring.width | --p-treetable-row-focus-ring-width | Focus ring width of row |
-| treetable.row.focus.ring.style | --p-treetable-row-focus-ring-style | Focus ring style of row |
-| treetable.row.focus.ring.color | --p-treetable-row-focus-ring-color | Focus ring color of row |
-| treetable.row.focus.ring.offset | --p-treetable-row-focus-ring-offset | Focus ring offset of row |
-| treetable.row.focus.ring.shadow | --p-treetable-row-focus-ring-shadow | Focus ring shadow of row |
-| treetable.body.cell.border.color | --p-treetable-body-cell-border-color | Border color of body cell |
-| treetable.body.cell.padding | --p-treetable-body-cell-padding | Padding of body cell |
-| treetable.body.cell.gap | --p-treetable-body-cell-gap | Gap of body cell |
-| treetable.body.cell.selected.border.color | --p-treetable-body-cell-selected-border-color | Selected border color of body cell |
-| treetable.footer.cell.background | --p-treetable-footer-cell-background | Background of footer cell |
-| treetable.footer.cell.border.color | --p-treetable-footer-cell-border-color | Border color of footer cell |
-| treetable.footer.cell.color | --p-treetable-footer-cell-color | Color of footer cell |
-| treetable.footer.cell.padding | --p-treetable-footer-cell-padding | Padding of footer cell |
-| treetable.column.footer.font.weight | --p-treetable-column-footer-font-weight | Font weight of column footer |
-| treetable.footer.background | --p-treetable-footer-background | Background of footer |
-| treetable.footer.border.color | --p-treetable-footer-border-color | Border color of footer |
-| treetable.footer.color | --p-treetable-footer-color | Color of footer |
-| treetable.footer.border.width | --p-treetable-footer-border-width | Border width of footer |
-| treetable.footer.padding | --p-treetable-footer-padding | Padding of footer |
-| treetable.column.resizer.width | --p-treetable-column-resizer-width | Width of column resizer |
-| treetable.resize.indicator.width | --p-treetable-resize-indicator-width | Width of resize indicator |
-| treetable.resize.indicator.color | --p-treetable-resize-indicator-color | Color of resize indicator |
-| treetable.sort.icon.color | --p-treetable-sort-icon-color | Color of sort icon |
-| treetable.sort.icon.hover.color | --p-treetable-sort-icon-hover-color | Hover color of sort icon |
-| treetable.sort.icon.size | --p-treetable-sort-icon-size | Size of sort icon |
-| treetable.loading.icon.size | --p-treetable-loading-icon-size | Size of loading icon |
-| treetable.node.toggle.button.hover.background | --p-treetable-node-toggle-button-hover-background | Hover background of node toggle button |
+| Token                                                  | CSS Variable                                               | Description                                     |
+| ------------------------------------------------------ | ---------------------------------------------------------- | ----------------------------------------------- |
+| treetable.transition.duration                          | --p-treetable-transition-duration                          | Transition duration of root                     |
+| treetable.border.color                                 | --p-treetable-border-color                                 | Border color of root                            |
+| treetable.header.background                            | --p-treetable-header-background                            | Background of header                            |
+| treetable.header.border.color                          | --p-treetable-header-border-color                          | Border color of header                          |
+| treetable.header.color                                 | --p-treetable-header-color                                 | Color of header                                 |
+| treetable.header.border.width                          | --p-treetable-header-border-width                          | Border width of header                          |
+| treetable.header.padding                               | --p-treetable-header-padding                               | Padding of header                               |
+| treetable.header.cell.background                       | --p-treetable-header-cell-background                       | Background of header cell                       |
+| treetable.header.cell.hover.background                 | --p-treetable-header-cell-hover-background                 | Hover background of header cell                 |
+| treetable.header.cell.selected.background              | --p-treetable-header-cell-selected-background              | Selected background of header cell              |
+| treetable.header.cell.border.color                     | --p-treetable-header-cell-border-color                     | Border color of header cell                     |
+| treetable.header.cell.color                            | --p-treetable-header-cell-color                            | Color of header cell                            |
+| treetable.header.cell.hover.color                      | --p-treetable-header-cell-hover-color                      | Hover color of header cell                      |
+| treetable.header.cell.selected.color                   | --p-treetable-header-cell-selected-color                   | Selected color of header cell                   |
+| treetable.header.cell.gap                              | --p-treetable-header-cell-gap                              | Gap of header cell                              |
+| treetable.header.cell.padding                          | --p-treetable-header-cell-padding                          | Padding of header cell                          |
+| treetable.header.cell.focus.ring.width                 | --p-treetable-header-cell-focus-ring-width                 | Focus ring width of header cell                 |
+| treetable.header.cell.focus.ring.style                 | --p-treetable-header-cell-focus-ring-style                 | Focus ring style of header cell                 |
+| treetable.header.cell.focus.ring.color                 | --p-treetable-header-cell-focus-ring-color                 | Focus ring color of header cell                 |
+| treetable.header.cell.focus.ring.offset                | --p-treetable-header-cell-focus-ring-offset                | Focus ring offset of header cell                |
+| treetable.header.cell.focus.ring.shadow                | --p-treetable-header-cell-focus-ring-shadow                | Focus ring shadow of header cell                |
+| treetable.column.title.font.weight                     | --p-treetable-column-title-font-weight                     | Font weight of column title                     |
+| treetable.row.background                               | --p-treetable-row-background                               | Background of row                               |
+| treetable.row.hover.background                         | --p-treetable-row-hover-background                         | Hover background of row                         |
+| treetable.row.selected.background                      | --p-treetable-row-selected-background                      | Selected background of row                      |
+| treetable.row.color                                    | --p-treetable-row-color                                    | Color of row                                    |
+| treetable.row.hover.color                              | --p-treetable-row-hover-color                              | Hover color of row                              |
+| treetable.row.selected.color                           | --p-treetable-row-selected-color                           | Selected color of row                           |
+| treetable.row.focus.ring.width                         | --p-treetable-row-focus-ring-width                         | Focus ring width of row                         |
+| treetable.row.focus.ring.style                         | --p-treetable-row-focus-ring-style                         | Focus ring style of row                         |
+| treetable.row.focus.ring.color                         | --p-treetable-row-focus-ring-color                         | Focus ring color of row                         |
+| treetable.row.focus.ring.offset                        | --p-treetable-row-focus-ring-offset                        | Focus ring offset of row                        |
+| treetable.row.focus.ring.shadow                        | --p-treetable-row-focus-ring-shadow                        | Focus ring shadow of row                        |
+| treetable.body.cell.border.color                       | --p-treetable-body-cell-border-color                       | Border color of body cell                       |
+| treetable.body.cell.padding                            | --p-treetable-body-cell-padding                            | Padding of body cell                            |
+| treetable.body.cell.gap                                | --p-treetable-body-cell-gap                                | Gap of body cell                                |
+| treetable.body.cell.selected.border.color              | --p-treetable-body-cell-selected-border-color              | Selected border color of body cell              |
+| treetable.footer.cell.background                       | --p-treetable-footer-cell-background                       | Background of footer cell                       |
+| treetable.footer.cell.border.color                     | --p-treetable-footer-cell-border-color                     | Border color of footer cell                     |
+| treetable.footer.cell.color                            | --p-treetable-footer-cell-color                            | Color of footer cell                            |
+| treetable.footer.cell.padding                          | --p-treetable-footer-cell-padding                          | Padding of footer cell                          |
+| treetable.column.footer.font.weight                    | --p-treetable-column-footer-font-weight                    | Font weight of column footer                    |
+| treetable.footer.background                            | --p-treetable-footer-background                            | Background of footer                            |
+| treetable.footer.border.color                          | --p-treetable-footer-border-color                          | Border color of footer                          |
+| treetable.footer.color                                 | --p-treetable-footer-color                                 | Color of footer                                 |
+| treetable.footer.border.width                          | --p-treetable-footer-border-width                          | Border width of footer                          |
+| treetable.footer.padding                               | --p-treetable-footer-padding                               | Padding of footer                               |
+| treetable.column.resizer.width                         | --p-treetable-column-resizer-width                         | Width of column resizer                         |
+| treetable.resize.indicator.width                       | --p-treetable-resize-indicator-width                       | Width of resize indicator                       |
+| treetable.resize.indicator.color                       | --p-treetable-resize-indicator-color                       | Color of resize indicator                       |
+| treetable.sort.icon.color                              | --p-treetable-sort-icon-color                              | Color of sort icon                              |
+| treetable.sort.icon.hover.color                        | --p-treetable-sort-icon-hover-color                        | Hover color of sort icon                        |
+| treetable.sort.icon.size                               | --p-treetable-sort-icon-size                               | Size of sort icon                               |
+| treetable.loading.icon.size                            | --p-treetable-loading-icon-size                            | Size of loading icon                            |
+| treetable.node.toggle.button.hover.background          | --p-treetable-node-toggle-button-hover-background          | Hover background of node toggle button          |
 | treetable.node.toggle.button.selected.hover.background | --p-treetable-node-toggle-button-selected-hover-background | Selected hover background of node toggle button |
-| treetable.node.toggle.button.color | --p-treetable-node-toggle-button-color | Color of node toggle button |
-| treetable.node.toggle.button.hover.color | --p-treetable-node-toggle-button-hover-color | Hover color of node toggle button |
-| treetable.node.toggle.button.selected.hover.color | --p-treetable-node-toggle-button-selected-hover-color | Selected hover color of node toggle button |
-| treetable.node.toggle.button.size | --p-treetable-node-toggle-button-size | Size of node toggle button |
-| treetable.node.toggle.button.border.radius | --p-treetable-node-toggle-button-border-radius | Border radius of node toggle button |
-| treetable.node.toggle.button.focus.ring.width | --p-treetable-node-toggle-button-focus-ring-width | Focus ring width of node toggle button |
-| treetable.node.toggle.button.focus.ring.style | --p-treetable-node-toggle-button-focus-ring-style | Focus ring style of node toggle button |
-| treetable.node.toggle.button.focus.ring.color | --p-treetable-node-toggle-button-focus-ring-color | Focus ring color of node toggle button |
-| treetable.node.toggle.button.focus.ring.offset | --p-treetable-node-toggle-button-focus-ring-offset | Focus ring offset of node toggle button |
-| treetable.node.toggle.button.focus.ring.shadow | --p-treetable-node-toggle-button-focus-ring-shadow | Focus ring shadow of node toggle button |
-| treetable.paginator.top.border.color | --p-treetable-paginator-top-border-color | Border color of paginator top |
-| treetable.paginator.top.border.width | --p-treetable-paginator-top-border-width | Border width of paginator top |
-| treetable.paginator.bottom.border.color | --p-treetable-paginator-bottom-border-color | Border color of paginator bottom |
-| treetable.paginator.bottom.border.width | --p-treetable-paginator-bottom-border-width | Border width of paginator bottom |
-
+| treetable.node.toggle.button.color                     | --p-treetable-node-toggle-button-color                     | Color of node toggle button                     |
+| treetable.node.toggle.button.hover.color               | --p-treetable-node-toggle-button-hover-color               | Hover color of node toggle button               |
+| treetable.node.toggle.button.selected.hover.color      | --p-treetable-node-toggle-button-selected-hover-color      | Selected hover color of node toggle button      |
+| treetable.node.toggle.button.size                      | --p-treetable-node-toggle-button-size                      | Size of node toggle button                      |
+| treetable.node.toggle.button.border.radius             | --p-treetable-node-toggle-button-border-radius             | Border radius of node toggle button             |
+| treetable.node.toggle.button.focus.ring.width          | --p-treetable-node-toggle-button-focus-ring-width          | Focus ring width of node toggle button          |
+| treetable.node.toggle.button.focus.ring.style          | --p-treetable-node-toggle-button-focus-ring-style          | Focus ring style of node toggle button          |
+| treetable.node.toggle.button.focus.ring.color          | --p-treetable-node-toggle-button-focus-ring-color          | Focus ring color of node toggle button          |
+| treetable.node.toggle.button.focus.ring.offset         | --p-treetable-node-toggle-button-focus-ring-offset         | Focus ring offset of node toggle button         |
+| treetable.node.toggle.button.focus.ring.shadow         | --p-treetable-node-toggle-button-focus-ring-shadow         | Focus ring shadow of node toggle button         |
+| treetable.paginator.top.border.color                   | --p-treetable-paginator-top-border-color                   | Border color of paginator top                   |
+| treetable.paginator.top.border.width                   | --p-treetable-paginator-top-border-width                   | Border width of paginator top                   |
+| treetable.paginator.bottom.border.color                | --p-treetable-paginator-bottom-border-color                | Border color of paginator bottom                |
+| treetable.paginator.bottom.border.width                | --p-treetable-paginator-bottom-border-width                | Border width of paginator bottom                |

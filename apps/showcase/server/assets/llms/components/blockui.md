@@ -64,42 +64,42 @@ const blockDocument = () => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Block U I
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| blocked | boolean | false | Controls the blocked state. |
-| fullScreen | boolean | false | When enabled, the whole document gets blocked. |
-| baseZIndex | number | 0 | Base zIndex value to use in layering. |
-| autoZIndex | boolean | true | Whether to automatically manage layering. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<BlockUIPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name       | Type                                   | Default | Description                                                              |
+| ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------------ |
+| blocked    | boolean                                | false   | Controls the blocked state.                                              |
+| fullScreen | boolean                                | false   | When enabled, the whole document gets blocked.                           |
+| baseZIndex | number                                 | 0       | Base zIndex value to use in layering.                                    |
+| autoZIndex | boolean                                | true    | Whether to automatically manage layering.                                |
+| dt         | any                                    | -       | It generates scoped CSS variables using design tokens for the component. |
+| pt         | PassThrough<BlockUIPassThroughOptions> | -       | Used to pass attributes to DOM elements inside the component.            |
+| ptOptions  | any                                    | -       | Used to configure passthrough(pt) options of the component.              |
+| unstyled   | boolean                                | false   | When enabled, it removes component related styles in the core.           |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | BlockUIPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| mask | BlockUIPassThroughOptionType | Used to pass attributes to the mask's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| Name  | Type                         | Description                                        |
+| ----- | ---------------------------- | -------------------------------------------------- |
+| root  | BlockUIPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| mask  | BlockUIPassThroughOptionType | Used to pass attributes to the mask's DOM element. |
+| hooks | any                          | Used to manage all lifecycle hooks.                |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
+| Class     | Description                    |
+| --------- | ------------------------------ |
 | p-blockui | Class name of the root element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
+| Token                 | CSS Variable              | Description           |
+| --------------------- | ------------------------- | --------------------- |
 | blockui.border.radius | --p-blockui-border-radius | Border radius of root |
-

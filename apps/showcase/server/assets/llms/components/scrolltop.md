@@ -56,38 +56,38 @@ Setting the target property to parent binds ScrollTop to its parent element that
     </div>
 </template>
 ```
+
 </details>
 
 ## Scroll Top
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| target | HintedString<"window" \| "parent"> | window | Target of the ScrollTop. |
-| threshold | number | 400 | Defines the threshold value of the vertical scroll position of the target to toggle the visibility. |
-| icon | string | - | Icon to display. |
-| behavior | string | smooth | Defines the scrolling behaviour, 'smooth' adds an animation and 'auto' scrolls with a jump. |
-| buttonProps | object | - | Used to pass all properties of the ButtonProps to the Button component. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ScrollTopPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name        | Type                                     | Default | Description                                                                                         |
+| ----------- | ---------------------------------------- | ------- | --------------------------------------------------------------------------------------------------- |
+| target      | HintedString<"window" \| "parent">       | window  | Target of the ScrollTop.                                                                            |
+| threshold   | number                                   | 400     | Defines the threshold value of the vertical scroll position of the target to toggle the visibility. |
+| icon        | string                                   | -       | Icon to display.                                                                                    |
+| behavior    | string                                   | smooth  | Defines the scrolling behaviour, 'smooth' adds an animation and 'auto' scrolls with a jump.         |
+| buttonProps | object                                   | -       | Used to pass all properties of the ButtonProps to the Button component.                             |
+| dt          | any                                      | -       | It generates scoped CSS variables using design tokens for the component.                            |
+| pt          | PassThrough<ScrollTopPassThroughOptions> | -       | Used to pass attributes to DOM elements inside the component.                                       |
+| ptOptions   | any                                      | -       | Used to configure passthrough(pt) options of the component.                                         |
+| unstyled    | boolean                                  | false   | When enabled, it removes component related styles in the core.                                      |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | any | Used to pass attributes to the root's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
-| transition | ScrollTopPassThroughTransitionType | Used to control Vue Transition API. |
+| Name       | Type                               | Description                                        |
+| ---------- | ---------------------------------- | -------------------------------------------------- |
+| root       | any                                | Used to pass attributes to the root's DOM element. |
+| hooks      | any                                | Used to manage all lifecycle hooks.                |
+| transition | ScrollTopPassThroughTransitionType | Used to control Vue Transition API.                |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-scrolltop | Class name of the root element |
+| Class            | Description                    |
+| ---------------- | ------------------------------ |
+| p-scrolltop      | Class name of the root element |
 | p-scrolltop-icon | Class name of the icon element |
-

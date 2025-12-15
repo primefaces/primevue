@@ -7,10 +7,7 @@ Application wide configuration for PrimeVue.
 Configuration is managed by the PrimeVue instance imported from primevue/config .
 
 ```vue
-import PrimeVue from 'primevue/config';
-const app = createApp(App);
-
-app.use(PrimeVue, { /* options */ });
+import PrimeVue from 'primevue/config'; const app = createApp(App); app.use(PrimeVue, { /* options */ });
 ```
 
 ## InputVariant
@@ -18,11 +15,7 @@ app.use(PrimeVue, { /* options */ });
 Input fields come in two styles, default is outlined with borders around the field whereas filled alternative adds a background color to the field. Applying p-variant-filled to an ancestor of an input enables the filled style. If you prefer to use filled inputs in the entire application, use a global container such as the document body or the application element to apply the style class. Note that in case you add it to the application element, components that are teleported to the document body such as Dialog will not be able to display filled inputs as they are not a descendant of the application root element in the DOM tree, to resolve this case set inputVariant to filled at PrimeVue configuration as well.
 
 ```vue
-import {createApp} from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
-
-app.use(PrimeVue, { inputVariant: "filled" });
+import {createApp} from "vue"; import PrimeVue from "primevue/config"; const app = createApp(App); app.use(PrimeVue, { inputVariant: "filled" });
 ```
 
 ## Pass Through
@@ -30,17 +23,7 @@ app.use(PrimeVue, { inputVariant: "filled" });
 Defines the shared pass through properties per component type. Visit the Pass Through Props documentation for more information.
 
 ```vue
-import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
-
-app.use(PrimeVue, {
-    pt: {
-        slider: {
-            handle: { class: 'bg-primary text-primary-contrast' }
-        }
-    }
-});
+import { createApp } from "vue"; import PrimeVue from "primevue/config"; const app = createApp(App); app.use(PrimeVue, { pt: { slider: { handle: { class: 'bg-primary text-primary-contrast' } } } });
 ```
 
 ## Pass Through Options
@@ -48,16 +31,7 @@ app.use(PrimeVue, {
 Used to configure the ptOptions properties of components and the usePassThrough method. The mergeSections defines whether the sections from the main configuration gets added and the mergeProps controls whether to override or merge the defined props. Defaults are true for mergeSections and false for mergeProps .
 
 ```vue
-import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
-
-app.use(PrimeVue, {
-    ptOptions: {
-        mergeSections: true,
-        mergeProps: false
-    }
-});
+import { createApp } from "vue"; import PrimeVue from "primevue/config"; const app = createApp(App); app.use(PrimeVue, { ptOptions: { mergeSections: true, mergeProps: false } });
 ```
 
 ## Ripple
@@ -65,11 +39,7 @@ app.use(PrimeVue, {
 Ripple is an optional animation for the supported components such as buttons. It is disabled by default and needs to be enabled at your app's entry file (e.g. main.js) during the PrimeVue setup.
 
 ```vue
-import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
-
-app.use(PrimeVue, { ripple: true });
+import { createApp } from "vue"; import PrimeVue from "primevue/config"; const app = createApp(App); app.use(PrimeVue, { ripple: true });
 ```
 
 ## Theme
@@ -77,21 +47,7 @@ app.use(PrimeVue, { ripple: true });
 Style mode offers theming based on a design token based architecture. See the styled mode documentation for details such as building your own theme.
 
 ```vue
-import PrimeVue from 'primevue/config';
-import Aura from '@primeuix/themes/aura';
-
-const app = createApp(App);
-
-app.use(PrimeVue, {
-    theme: {
-        preset: Aura,
-        options: {
-            prefix: 'p',
-            darkModeSelector: 'system',
-            cssLayer: false
-        }
-    }
- });
+import PrimeVue from 'primevue/config'; import Aura from '@primeuix/themes/aura'; const app = createApp(App); app.use(PrimeVue, { theme: { preset: Aura, options: { prefix: 'p', darkModeSelector: 'system', cssLayer: false } } });
 ```
 
 ## Unstyled
@@ -99,11 +55,7 @@ app.use(PrimeVue, {
 Unstyled mode instructs the components not to add any built-in style classes so that they can be styled using custom css or libraries like Tailwind and Bootstrap. Visit Unstyled mode documentation for more information.
 
 ```vue
-import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
-
-app.use(PrimeVue, { unstyled: true });
+import { createApp } from "vue"; import PrimeVue from "primevue/config"; const app = createApp(App); app.use(PrimeVue, { unstyled: true });
 ```
 
 ## ZIndex
@@ -111,18 +63,7 @@ app.use(PrimeVue, { unstyled: true });
 ZIndexes are managed automatically to make sure layering of overlay components work seamlessly when combining multiple components. Still there may be cases where you'd like to configure the configure default values such as a custom layout where header section is fixed. In a case like this, dropdown needs to be displayed below the application header but a modal dialog should be displayed above. PrimeVue configuration offers the zIndex property to customize the default values for components categories. Default values are described below and can be customized when setting up PrimeVue.
 
 ```vue
-import {createApp} from "vue";
-import PrimeVue from "primevue/config";
-const app = createApp(App);
-
-app.use(PrimeVue, {
-    zIndex: {
-        modal: 1100,        //dialog, drawer
-        overlay: 1000,      //select, popover
-        menu: 1000,         //overlay menus
-        tooltip: 1100       //tooltip
-    }
-});
+import {createApp} from "vue"; import PrimeVue from "primevue/config"; const app = createApp(App); app.use(PrimeVue, { zIndex: { modal: 1100, //dialog, drawer overlay: 1000, //select, popover menu: 1000, //overlay menus tooltip: 1100 //tooltip } });
 ```
 
 ## Nonce
@@ -134,10 +75,7 @@ The nonce value to use on dynamically generated style elements in core.
 Locale values are stored in the global configuration that becomes accessible after installing the PrimeVue.
 
 ```vue
-import PrimeVue from 'primevue/config';
-const app = createApp(App);
-
-app.use(PrimeVue);
+import PrimeVue from 'primevue/config'; const app = createApp(App); app.use(PrimeVue);
 ```
 
 ## Locale Api
@@ -151,4 +89,3 @@ Ready to use settings for locales are available at the community supported Prime
 ## Set Locale
 
 Second parameter of the use function can be used to initiate the locale during PrimeVue installation. The locale configuration is reactive so that any changes are instantly reflected in the UI. Suppose you are doing a multi language application and need to change the language dynamically.
-

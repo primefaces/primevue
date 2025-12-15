@@ -42,31 +42,30 @@ Components with the fluid option like InputText have the ability to span the ful
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<FluidPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name      | Type                                 | Default | Description                                                              |
+| --------- | ------------------------------------ | ------- | ------------------------------------------------------------------------ |
+| dt        | any                                  | -       | It generates scoped CSS variables using design tokens for the component. |
+| pt        | PassThrough<FluidPassThroughOptions> | -       | Used to pass attributes to DOM elements inside the component.            |
+| ptOptions | any                                  | -       | Used to configure passthrough(pt) options of the component.              |
+| unstyled  | boolean                              | false   | When enabled, it removes component related styles in the core.           |
 
 ### Slots
 
-| Name | Parameters | Description |
-|------|------------|-------------|
-| default | Function |  |
+| Name    | Parameters | Description |
+| ------- | ---------- | ----------- |
+| default | Function   |             |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | FluidPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| Name  | Type                       | Description                                        |
+| ----- | -------------------------- | -------------------------------------------------- |
+| root  | FluidPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any                        | Used to manage all lifecycle hooks.                |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
+| Class   | Description                    |
+| ------- | ------------------------------ |
 | p-fluid | Class name of the root element |
-

@@ -129,6 +129,7 @@ const getBadge = (user) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## DataTable
@@ -186,6 +187,7 @@ const items = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## Router
@@ -282,6 +284,7 @@ const onRightClick = (event) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -413,5 +416,5 @@ const onRightClick = (event, id) => {
 
 <\/script>
 ```
-</details>
 
+</details>

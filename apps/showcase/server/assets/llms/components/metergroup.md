@@ -49,6 +49,7 @@ const value = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## Label
@@ -80,6 +81,7 @@ const value = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## Min-Max
@@ -87,7 +89,7 @@ const value = ref([
 Boundaries are configured with the min and max values whose defaults are 0 and 100 respectively.
 
 ```vue
-<MeterGroup :value="value" :max="200"  />
+<MeterGroup :value="value" :max="200" />
 ```
 
 <details>
@@ -111,6 +113,7 @@ const value = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## Multiple
@@ -142,6 +145,7 @@ const value = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -245,6 +249,7 @@ const value = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## Vertical
@@ -276,64 +281,64 @@ const value = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## Meter Group
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | MeterItem[] | - | Current value of the metergroup. |
-| min | number | 0 | Mininum boundary value. |
-| max | number | 100 | Maximum boundary value. |
-| orientation | "horizontal" \| "vertical" | horizontal | Specifies the layout of the component, valid values are 'horizontal' and 'vertical'. |
-| labelPosition | "start" \| "end" | end | Specifies the label position of the component, valid values are 'start' and 'end'. |
-| labelOrientation | "horizontal" \| "vertical" | horizontal | Specifies the label orientation of the component, valid values are 'horizontal' and 'vertical'. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<MeterGroupPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name             | Type                                      | Default    | Description                                                                                     |
+| ---------------- | ----------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------- |
+| value            | MeterItem[]                               | -          | Current value of the metergroup.                                                                |
+| min              | number                                    | 0          | Mininum boundary value.                                                                         |
+| max              | number                                    | 100        | Maximum boundary value.                                                                         |
+| orientation      | "horizontal" \| "vertical"                | horizontal | Specifies the layout of the component, valid values are 'horizontal' and 'vertical'.            |
+| labelPosition    | "start" \| "end"                          | end        | Specifies the label position of the component, valid values are 'start' and 'end'.              |
+| labelOrientation | "horizontal" \| "vertical"                | horizontal | Specifies the label orientation of the component, valid values are 'horizontal' and 'vertical'. |
+| dt               | any                                       | -          | It generates scoped CSS variables using design tokens for the component.                        |
+| pt               | PassThrough<MeterGroupPassThroughOptions> | -          | Used to pass attributes to DOM elements inside the component.                                   |
+| ptOptions        | any                                       | -          | Used to configure passthrough(pt) options of the component.                                     |
+| unstyled         | boolean                                   | false      | When enabled, it removes component related styles in the core.                                  |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | MeterGroupPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| meters | MeterGroupPassThroughOptionType | Used to pass attributes to the meter container's DOM element. |
-| meter | MeterGroupPassThroughOptionType | Used to pass attributes to the meter's DOM element. |
-| labelList | MeterGroupPassThroughOptionType | Used to pass attributes to the label list's DOM element. |
-| label | MeterGroupPassThroughOptionType | Used to pass attributes to the label list item's DOM element. |
-| labelIcon | MeterGroupPassThroughOptionType | Used to pass attributes to the label icon type's DOM element. |
+| Name        | Type                            | Description                                                   |
+| ----------- | ------------------------------- | ------------------------------------------------------------- |
+| root        | MeterGroupPassThroughOptionType | Used to pass attributes to the root's DOM element.            |
+| meters      | MeterGroupPassThroughOptionType | Used to pass attributes to the meter container's DOM element. |
+| meter       | MeterGroupPassThroughOptionType | Used to pass attributes to the meter's DOM element.           |
+| labelList   | MeterGroupPassThroughOptionType | Used to pass attributes to the label list's DOM element.      |
+| label       | MeterGroupPassThroughOptionType | Used to pass attributes to the label list item's DOM element. |
+| labelIcon   | MeterGroupPassThroughOptionType | Used to pass attributes to the label icon type's DOM element. |
 | labelMarker | MeterGroupPassThroughOptionType | Used to pass attributes to the label list type's DOM element. |
-| labelText | MeterGroupPassThroughOptionType | Used to pass attributes to the label's DOM element. |
+| labelText   | MeterGroupPassThroughOptionType | Used to pass attributes to the label's DOM element.           |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-metergroup | Class name of the root element |
-| p-metergroup-meters | Class name of the meters element |
-| p-metergroup-meter | Class name of the meter element |
-| p-metergroup-label-list | Class name of the label list element |
-| p-metergroup-label | Class name of the label element |
-| p-metergroup-label-icon | Class name of the label icon element |
+| Class                     | Description                            |
+| ------------------------- | -------------------------------------- |
+| p-metergroup              | Class name of the root element         |
+| p-metergroup-meters       | Class name of the meters element       |
+| p-metergroup-meter        | Class name of the meter element        |
+| p-metergroup-label-list   | Class name of the label list element   |
+| p-metergroup-label        | Class name of the label element        |
+| p-metergroup-label-icon   | Class name of the label icon element   |
 | p-metergroup-label-marker | Class name of the label marker element |
-| p-metergroup-label-text | Class name of the label text element |
+| p-metergroup-label-text   | Class name of the label text element   |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| metergroup.border.radius | --p-metergroup-border-radius | Border radius of root |
-| metergroup.gap | --p-metergroup-gap | Gap of root |
-| metergroup.meters.background | --p-metergroup-meters-background | Background of meters |
-| metergroup.meters.size | --p-metergroup-meters-size | Size of meters |
-| metergroup.label.gap | --p-metergroup-label-gap | Gap of label |
-| metergroup.label.marker.size | --p-metergroup-label-marker-size | Size of label marker |
-| metergroup.label.icon.size | --p-metergroup-label-icon-size | Size of label icon |
-| metergroup.label.list.vertical.gap | --p-metergroup-label-list-vertical-gap | Vertical gap of label list |
+| Token                                | CSS Variable                             | Description                  |
+| ------------------------------------ | ---------------------------------------- | ---------------------------- |
+| metergroup.border.radius             | --p-metergroup-border-radius             | Border radius of root        |
+| metergroup.gap                       | --p-metergroup-gap                       | Gap of root                  |
+| metergroup.meters.background         | --p-metergroup-meters-background         | Background of meters         |
+| metergroup.meters.size               | --p-metergroup-meters-size               | Size of meters               |
+| metergroup.label.gap                 | --p-metergroup-label-gap                 | Gap of label                 |
+| metergroup.label.marker.size         | --p-metergroup-label-marker-size         | Size of label marker         |
+| metergroup.label.icon.size           | --p-metergroup-label-icon-size           | Size of label icon           |
+| metergroup.label.list.vertical.gap   | --p-metergroup-label-list-vertical-gap   | Vertical gap of label list   |
 | metergroup.label.list.horizontal.gap | --p-metergroup-label-list-horizontal-gap | Horizontal gap of label list |
-

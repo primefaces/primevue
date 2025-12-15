@@ -73,6 +73,7 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Quill
@@ -107,6 +108,7 @@ import { ref } from "vue";
 const value = ref('Always bet on Prime');
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -149,92 +151,92 @@ import { ref } from "vue";
 const value = ref('<div>Hello World!</div><div>PrimeVue <b>Editor</b> Rocks</div><div><br></div>');
 <\/script>
 ```
+
 </details>
 
 ## Editor
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | string | - | Value of the content. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| placeholder | string | - | Placeholder text to show when editor is empty. |
-| readonly | boolean | false | Whether to instantiate the editor to readonly mode. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| formats | any[] | - | Whitelist of formats to display, see  <a target="_blank" href="https://quilljs.com/docs/formats/">here</a>  for available options. |
-| editorStyle | any | - | Inline style of the container. |
-| modules | any | - | Modules configuration, see  <a target="_blank" href="https://quilljs.com/docs/modules/">here</a>  for available options. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<EditorPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name         | Type                                  | Default | Description                                                                                                                      |
+| ------------ | ------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| modelValue   | string                                | -       | Value of the content.                                                                                                            |
+| defaultValue | any                                   | -       | The default value for the input when not controlled by `modelValue` .                                                            |
+| name         | string                                | -       | The name attribute for the element, typically used in form submissions.                                                          |
+| placeholder  | string                                | -       | Placeholder text to show when editor is empty.                                                                                   |
+| readonly     | boolean                               | false   | Whether to instantiate the editor to readonly mode.                                                                              |
+| invalid      | boolean                               | false   | When present, it specifies that the component should have invalid state style.                                                   |
+| formats      | any[]                                 | -       | Whitelist of formats to display, see <a target="_blank" href="https://quilljs.com/docs/formats/">here</a> for available options. |
+| editorStyle  | any                                   | -       | Inline style of the container.                                                                                                   |
+| modules      | any                                   | -       | Modules configuration, see <a target="_blank" href="https://quilljs.com/docs/modules/">here</a> for available options.           |
+| formControl  | Record<string, any>                   | -       | Form control object, typically used for handling validation and form state.                                                      |
+| dt           | any                                   | -       | It generates scoped CSS variables using design tokens for the component.                                                         |
+| pt           | PassThrough<EditorPassThroughOptions> | -       | Used to pass attributes to DOM elements inside the component.                                                                    |
+| ptOptions    | any                                   | -       | Used to configure passthrough(pt) options of the component.                                                                      |
+| unstyled     | boolean                               | false   | When enabled, it removes component related styles in the core.                                                                   |
 
 ### Slots
 
-| Name | Parameters | Description |
-|------|------------|-------------|
-| toolbar | Function |  |
+| Name    | Parameters | Description |
+| ------- | ---------- | ----------- |
+| toolbar | Function   |             |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | EditorPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| toolbar | EditorPassThroughOptionType | Used to pass attributes to the toolbar's DOM element. |
-| formats | EditorPassThroughOptionType | Used to pass attributes to the formats' DOM element. |
-| header | EditorPassThroughOptionType | Used to pass attributes to the header's DOM element. |
-| option | EditorPassThroughOptionType | Used to pass attributes to the option's DOM element. |
-| bold | EditorPassThroughOptionType | Used to pass attributes to the bold's DOM element. |
-| italic | EditorPassThroughOptionType | Used to pass attributes to the italic's DOM element. |
-| underline | EditorPassThroughOptionType | Used to pass attributes to the underline's DOM element. |
-| color | EditorPassThroughOptionType | Used to pass attributes to the color's DOM element. |
+| Name       | Type                        | Description                                              |
+| ---------- | --------------------------- | -------------------------------------------------------- |
+| root       | EditorPassThroughOptionType | Used to pass attributes to the root's DOM element.       |
+| toolbar    | EditorPassThroughOptionType | Used to pass attributes to the toolbar's DOM element.    |
+| formats    | EditorPassThroughOptionType | Used to pass attributes to the formats' DOM element.     |
+| header     | EditorPassThroughOptionType | Used to pass attributes to the header's DOM element.     |
+| option     | EditorPassThroughOptionType | Used to pass attributes to the option's DOM element.     |
+| bold       | EditorPassThroughOptionType | Used to pass attributes to the bold's DOM element.       |
+| italic     | EditorPassThroughOptionType | Used to pass attributes to the italic's DOM element.     |
+| underline  | EditorPassThroughOptionType | Used to pass attributes to the underline's DOM element.  |
+| color      | EditorPassThroughOptionType | Used to pass attributes to the color's DOM element.      |
 | background | EditorPassThroughOptionType | Used to pass attributes to the background's DOM element. |
-| list | EditorPassThroughOptionType | Used to pass attributes to the list's DOM element. |
-| select | EditorPassThroughOptionType | Used to pass attributes to the select's DOM element. |
-| link | EditorPassThroughOptionType | Used to pass attributes to the link's DOM element. |
-| image | EditorPassThroughOptionType | Used to pass attributes to the image's DOM element. |
-| codeBlock | EditorPassThroughOptionType | Used to pass attributes to the code block's DOM element. |
-| clean | EditorPassThroughOptionType | Used to pass attributes to the clean's DOM element. |
-| content | EditorPassThroughOptionType | Used to pass attributes to the content's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| list       | EditorPassThroughOptionType | Used to pass attributes to the list's DOM element.       |
+| select     | EditorPassThroughOptionType | Used to pass attributes to the select's DOM element.     |
+| link       | EditorPassThroughOptionType | Used to pass attributes to the link's DOM element.       |
+| image      | EditorPassThroughOptionType | Used to pass attributes to the image's DOM element.      |
+| codeBlock  | EditorPassThroughOptionType | Used to pass attributes to the code block's DOM element. |
+| clean      | EditorPassThroughOptionType | Used to pass attributes to the clean's DOM element.      |
+| content    | EditorPassThroughOptionType | Used to pass attributes to the content's DOM element.    |
+| hooks      | any                         | Used to manage all lifecycle hooks.                      |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-editor | Class name of the root element |
+| Class            | Description                       |
+| ---------------- | --------------------------------- |
+| p-editor         | Class name of the root element    |
 | p-editor-toolbar | Class name of the toolbar element |
 | p-editor-content | Class name of the content element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| editor.toolbar.background | --p-editor-toolbar-background | Background of toolbar |
-| editor.toolbar.border.color | --p-editor-toolbar-border-color | Border color of toolbar |
-| editor.toolbar.border.radius | --p-editor-toolbar-border-radius | Border radius of toolbar |
-| editor.toolbar.item.color | --p-editor-toolbar-item-color | Color of toolbar item |
-| editor.toolbar.item.hover.color | --p-editor-toolbar-item-hover-color | Hover color of toolbar item |
-| editor.toolbar.item.active.color | --p-editor-toolbar-item-active-color | Active color of toolbar item |
-| editor.toolbar.item.padding | --p-editor-toolbar-item-padding | Padding of toolbar item |
-| editor.overlay.background | --p-editor-overlay-background | Background of overlay |
-| editor.overlay.border.color | --p-editor-overlay-border-color | Border color of overlay |
-| editor.overlay.border.radius | --p-editor-overlay-border-radius | Border radius of overlay |
-| editor.overlay.color | --p-editor-overlay-color | Color of overlay |
-| editor.overlay.shadow | --p-editor-overlay-shadow | Shadow of overlay |
-| editor.overlay.padding | --p-editor-overlay-padding | Padding of overlay |
+| Token                                  | CSS Variable                               | Description                        |
+| -------------------------------------- | ------------------------------------------ | ---------------------------------- |
+| editor.toolbar.background              | --p-editor-toolbar-background              | Background of toolbar              |
+| editor.toolbar.border.color            | --p-editor-toolbar-border-color            | Border color of toolbar            |
+| editor.toolbar.border.radius           | --p-editor-toolbar-border-radius           | Border radius of toolbar           |
+| editor.toolbar.item.color              | --p-editor-toolbar-item-color              | Color of toolbar item              |
+| editor.toolbar.item.hover.color        | --p-editor-toolbar-item-hover-color        | Hover color of toolbar item        |
+| editor.toolbar.item.active.color       | --p-editor-toolbar-item-active-color       | Active color of toolbar item       |
+| editor.toolbar.item.padding            | --p-editor-toolbar-item-padding            | Padding of toolbar item            |
+| editor.overlay.background              | --p-editor-overlay-background              | Background of overlay              |
+| editor.overlay.border.color            | --p-editor-overlay-border-color            | Border color of overlay            |
+| editor.overlay.border.radius           | --p-editor-overlay-border-radius           | Border radius of overlay           |
+| editor.overlay.color                   | --p-editor-overlay-color                   | Color of overlay                   |
+| editor.overlay.shadow                  | --p-editor-overlay-shadow                  | Shadow of overlay                  |
+| editor.overlay.padding                 | --p-editor-overlay-padding                 | Padding of overlay                 |
 | editor.overlay.option.focus.background | --p-editor-overlay-option-focus-background | Focus background of overlay option |
-| editor.overlay.option.color | --p-editor-overlay-option-color | Color of overlay option |
-| editor.overlay.option.focus.color | --p-editor-overlay-option-focus-color | Focus color of overlay option |
-| editor.overlay.option.padding | --p-editor-overlay-option-padding | Padding of overlay option |
-| editor.overlay.option.border.radius | --p-editor-overlay-option-border-radius | Border radius of overlay option |
-| editor.content.background | --p-editor-content-background | Background of content |
-| editor.content.border.color | --p-editor-content-border-color | Border color of content |
-| editor.content.color | --p-editor-content-color | Color of content |
-| editor.content.border.radius | --p-editor-content-border-radius | Border radius of content |
-
+| editor.overlay.option.color            | --p-editor-overlay-option-color            | Color of overlay option            |
+| editor.overlay.option.focus.color      | --p-editor-overlay-option-focus-color      | Focus color of overlay option      |
+| editor.overlay.option.padding          | --p-editor-overlay-option-padding          | Padding of overlay option          |
+| editor.overlay.option.border.radius    | --p-editor-overlay-option-border-radius    | Border radius of overlay option    |
+| editor.content.background              | --p-editor-content-background              | Background of content              |
+| editor.content.border.color            | --p-editor-content-border-color            | Border color of content            |
+| editor.content.color                   | --p-editor-content-color                   | Color of content                   |
+| editor.content.border.radius           | --p-editor-content-border-radius           | Border radius of content           |

@@ -58,6 +58,7 @@ const checked1 = ref(false);
 const checked2 = ref(true);
 <\/script>
 ```
+
 </details>
 
 ## Dynamic
@@ -98,6 +99,7 @@ const categories = ref([
 const selectedCategories = ref(['Marketing']);
 <\/script>
 ```
+
 </details>
 
 ## Filled
@@ -124,6 +126,7 @@ import { ref } from "vue";
 const checked = ref(false);
 <\/script>
 ```
+
 </details>
 
 ## Forms
@@ -214,6 +217,7 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Group
@@ -272,6 +276,7 @@ import { ref } from "vue";
 const pizza = ref();
 <\/script>
 ```
+
 </details>
 
 ## Indeterminate
@@ -298,6 +303,7 @@ import { ref } from "vue";
 const checked = ref(false);
 <\/script>
 ```
+
 </details>
 
 ## Invalid
@@ -305,7 +311,7 @@ const checked = ref(false);
 Invalid state is displayed using the invalid prop to indicate a failed validation. You can use this style when integrating with form validation libraries.
 
 ```vue
-<Checkbox v-model="checked" :invalid="!checked"  binary />
+<Checkbox v-model="checked" :invalid="!checked" binary />
 ```
 
 <details>
@@ -324,6 +330,7 @@ import { ref } from "vue";
 const checked = ref(false);
 <\/script>
 ```
+
 </details>
 
 ## Sizes
@@ -374,97 +381,97 @@ import { ref } from "vue";
 const size = ref();
 <\/script>
 ```
+
 </details>
 
 ## Checkbox
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | any | - | Value of the checkbox. |
-| modelValue | any | - | Value binding of the checkbox. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | Name of the input element. |
-| binary | boolean | - | Allows to select a boolean value instead of multiple values. |
-| indeterminate | boolean | - | When present, it specifies input state as indeterminate. |
-| size | "small" \| "large" | - | Defines the size of the component. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | - | When present, it specifies that the element should be disabled. |
-| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
-| readonly | boolean | - | When present, it specifies that an input field is read-only. |
-| required | boolean | - | When present, it specifies that the element is required. |
-| tabindex | number | - | Index of the element in tabbing order. |
-| trueValue | any | - | Value in checked state. |
-| falseValue | any | - | Value in unchecked state. |
-| inputId | string | - | Identifier of the underlying input element. |
-| inputClass | object | - | Style class of the input field. |
-| inputStyle | string \| object | - | Inline style of the input field. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| ariaLabel | string | - | Establishes a string value that labels the component. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<CheckboxPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name           | Type                                         | Default | Description                                                                                                     |
+| -------------- | -------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------- |
+| value          | any                                          | -       | Value of the checkbox.                                                                                          |
+| modelValue     | any                                          | -       | Value binding of the checkbox.                                                                                  |
+| defaultValue   | any                                          | -       | The default value for the input when not controlled by `modelValue` .                                           |
+| name           | string                                       | -       | Name of the input element.                                                                                      |
+| binary         | boolean                                      | -       | Allows to select a boolean value instead of multiple values.                                                    |
+| indeterminate  | boolean                                      | -       | When present, it specifies input state as indeterminate.                                                        |
+| size           | "small" \| "large"                           | -       | Defines the size of the component.                                                                              |
+| invalid        | boolean                                      | false   | When present, it specifies that the component should have invalid state style.                                  |
+| disabled       | boolean                                      | -       | When present, it specifies that the element should be disabled.                                                 |
+| variant        | null \| HintedString<"outlined" \| "filled"> | null    | Specifies the input variant of the component.                                                                   |
+| readonly       | boolean                                      | -       | When present, it specifies that an input field is read-only.                                                    |
+| required       | boolean                                      | -       | When present, it specifies that the element is required.                                                        |
+| tabindex       | number                                       | -       | Index of the element in tabbing order.                                                                          |
+| trueValue      | any                                          | -       | Value in checked state.                                                                                         |
+| falseValue     | any                                          | -       | Value in unchecked state.                                                                                       |
+| inputId        | string                                       | -       | Identifier of the underlying input element.                                                                     |
+| inputClass     | object                                       | -       | Style class of the input field.                                                                                 |
+| inputStyle     | string \| object                             | -       | Inline style of the input field.                                                                                |
+| ariaLabelledby | string                                       | -       | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel      | string                                       | -       | Establishes a string value that labels the component.                                                           |
+| formControl    | Record<string, any>                          | -       | Form control object, typically used for handling validation and form state.                                     |
+| dt             | any                                          | -       | It generates scoped CSS variables using design tokens for the component.                                        |
+| pt             | PassThrough<CheckboxPassThroughOptions>      | -       | Used to pass attributes to DOM elements inside the component.                                                   |
+| ptOptions      | any                                          | -       | Used to configure passthrough(pt) options of the component.                                                     |
+| unstyled       | boolean                                      | false   | When enabled, it removes component related styles in the core.                                                  |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | CheckboxPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| Name  | Type                          | Description                                         |
+| ----- | ----------------------------- | --------------------------------------------------- |
+| root  | CheckboxPassThroughOptionType | Used to pass attributes to the root's DOM element.  |
 | input | CheckboxPassThroughOptionType | Used to pass attributes to the input's DOM element. |
-| box | CheckboxPassThroughOptionType | Used to pass attributes to the box's DOM element. |
-| icon | CheckboxPassThroughOptionType | Used to pass attributes to the icon's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| box   | CheckboxPassThroughOptionType | Used to pass attributes to the box's DOM element.   |
+| icon  | CheckboxPassThroughOptionType | Used to pass attributes to the icon's DOM element.  |
+| hooks | any                           | Used to manage all lifecycle hooks.                 |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-checkbox | Class name of the root element |
-| p-checkbox-box | Class name of the box element |
+| Class            | Description                     |
+| ---------------- | ------------------------------- |
+| p-checkbox       | Class name of the root element  |
+| p-checkbox-box   | Class name of the box element   |
 | p-checkbox-input | Class name of the input element |
-| p-checkbox-icon | Class name of the icon element |
+| p-checkbox-icon  | Class name of the icon element  |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| checkbox.border.radius | --p-checkbox-border-radius | Border radius of root |
-| checkbox.width | --p-checkbox-width | Width of root |
-| checkbox.height | --p-checkbox-height | Height of root |
-| checkbox.background | --p-checkbox-background | Background of root |
-| checkbox.checked.background | --p-checkbox-checked-background | Checked background of root |
-| checkbox.checked.hover.background | --p-checkbox-checked-hover-background | Checked hover background of root |
-| checkbox.disabled.background | --p-checkbox-disabled-background | Disabled background of root |
-| checkbox.filled.background | --p-checkbox-filled-background | Filled background of root |
-| checkbox.border.color | --p-checkbox-border-color | Border color of root |
-| checkbox.hover.border.color | --p-checkbox-hover-border-color | Hover border color of root |
-| checkbox.focus.border.color | --p-checkbox-focus-border-color | Focus border color of root |
-| checkbox.checked.border.color | --p-checkbox-checked-border-color | Checked border color of root |
-| checkbox.checked.hover.border.color | --p-checkbox-checked-hover-border-color | Checked hover border color of root |
-| checkbox.checked.focus.border.color | --p-checkbox-checked-focus-border-color | Checked focus border color of root |
+| Token                                  | CSS Variable                               | Description                           |
+| -------------------------------------- | ------------------------------------------ | ------------------------------------- |
+| checkbox.border.radius                 | --p-checkbox-border-radius                 | Border radius of root                 |
+| checkbox.width                         | --p-checkbox-width                         | Width of root                         |
+| checkbox.height                        | --p-checkbox-height                        | Height of root                        |
+| checkbox.background                    | --p-checkbox-background                    | Background of root                    |
+| checkbox.checked.background            | --p-checkbox-checked-background            | Checked background of root            |
+| checkbox.checked.hover.background      | --p-checkbox-checked-hover-background      | Checked hover background of root      |
+| checkbox.disabled.background           | --p-checkbox-disabled-background           | Disabled background of root           |
+| checkbox.filled.background             | --p-checkbox-filled-background             | Filled background of root             |
+| checkbox.border.color                  | --p-checkbox-border-color                  | Border color of root                  |
+| checkbox.hover.border.color            | --p-checkbox-hover-border-color            | Hover border color of root            |
+| checkbox.focus.border.color            | --p-checkbox-focus-border-color            | Focus border color of root            |
+| checkbox.checked.border.color          | --p-checkbox-checked-border-color          | Checked border color of root          |
+| checkbox.checked.hover.border.color    | --p-checkbox-checked-hover-border-color    | Checked hover border color of root    |
+| checkbox.checked.focus.border.color    | --p-checkbox-checked-focus-border-color    | Checked focus border color of root    |
 | checkbox.checked.disabled.border.color | --p-checkbox-checked-disabled-border-color | Checked disabled border color of root |
-| checkbox.invalid.border.color | --p-checkbox-invalid-border-color | Invalid border color of root |
-| checkbox.shadow | --p-checkbox-shadow | Shadow of root |
-| checkbox.focus.ring.width | --p-checkbox-focus-ring-width | Focus ring width of root |
-| checkbox.focus.ring.style | --p-checkbox-focus-ring-style | Focus ring style of root |
-| checkbox.focus.ring.color | --p-checkbox-focus-ring-color | Focus ring color of root |
-| checkbox.focus.ring.offset | --p-checkbox-focus-ring-offset | Focus ring offset of root |
-| checkbox.focus.ring.shadow | --p-checkbox-focus-ring-shadow | Focus ring shadow of root |
-| checkbox.transition.duration | --p-checkbox-transition-duration | Transition duration of root |
-| checkbox.sm.width | --p-checkbox-sm-width | Sm width of root |
-| checkbox.sm.height | --p-checkbox-sm-height | Sm height of root |
-| checkbox.lg.width | --p-checkbox-lg-width | Lg width of root |
-| checkbox.lg.height | --p-checkbox-lg-height | Lg height of root |
-| checkbox.icon.size | --p-checkbox-icon-size | Size of icon |
-| checkbox.icon.color | --p-checkbox-icon-color | Color of icon |
-| checkbox.icon.checked.color | --p-checkbox-icon-checked-color | Checked color of icon |
-| checkbox.icon.checked.hover.color | --p-checkbox-icon-checked-hover-color | Checked hover color of icon |
-| checkbox.icon.disabled.color | --p-checkbox-icon-disabled-color | Disabled color of icon |
-| checkbox.icon.sm.size | --p-checkbox-icon-sm-size | Sm size of icon |
-| checkbox.icon.lg.size | --p-checkbox-icon-lg-size | Lg size of icon |
-
+| checkbox.invalid.border.color          | --p-checkbox-invalid-border-color          | Invalid border color of root          |
+| checkbox.shadow                        | --p-checkbox-shadow                        | Shadow of root                        |
+| checkbox.focus.ring.width              | --p-checkbox-focus-ring-width              | Focus ring width of root              |
+| checkbox.focus.ring.style              | --p-checkbox-focus-ring-style              | Focus ring style of root              |
+| checkbox.focus.ring.color              | --p-checkbox-focus-ring-color              | Focus ring color of root              |
+| checkbox.focus.ring.offset             | --p-checkbox-focus-ring-offset             | Focus ring offset of root             |
+| checkbox.focus.ring.shadow             | --p-checkbox-focus-ring-shadow             | Focus ring shadow of root             |
+| checkbox.transition.duration           | --p-checkbox-transition-duration           | Transition duration of root           |
+| checkbox.sm.width                      | --p-checkbox-sm-width                      | Sm width of root                      |
+| checkbox.sm.height                     | --p-checkbox-sm-height                     | Sm height of root                     |
+| checkbox.lg.width                      | --p-checkbox-lg-width                      | Lg width of root                      |
+| checkbox.lg.height                     | --p-checkbox-lg-height                     | Lg height of root                     |
+| checkbox.icon.size                     | --p-checkbox-icon-size                     | Size of icon                          |
+| checkbox.icon.color                    | --p-checkbox-icon-color                    | Color of icon                         |
+| checkbox.icon.checked.color            | --p-checkbox-icon-checked-color            | Checked color of icon                 |
+| checkbox.icon.checked.hover.color      | --p-checkbox-icon-checked-hover-color      | Checked hover color of icon           |
+| checkbox.icon.disabled.color           | --p-checkbox-icon-disabled-color           | Disabled color of icon                |
+| checkbox.icon.sm.size                  | --p-checkbox-icon-sm-size                  | Sm size of icon                       |
+| checkbox.icon.lg.size                  | --p-checkbox-icon-lg-size                  | Lg size of icon                       |

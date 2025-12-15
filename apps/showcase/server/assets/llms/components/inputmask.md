@@ -54,6 +54,7 @@ import { ref } from 'vue';
 const value = ref('');
 <\/script>
 ```
+
 </details>
 
 ## Filled
@@ -80,6 +81,7 @@ import { ref } from 'vue';
 const value = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Float Label
@@ -134,6 +136,7 @@ const value2 = ref('');
 const value3 = ref('');
 <\/script>
 ```
+
 </details>
 
 ## Fluid
@@ -160,6 +163,7 @@ import { ref } from 'vue';
 const value = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Forms
@@ -216,6 +220,7 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Ifta Label
@@ -248,6 +253,7 @@ import { ref } from 'vue';
 const value = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Invalid
@@ -277,11 +283,12 @@ const value1 = ref('');
 const value2 = ref('');
 <\/script>
 ```
+
 </details>
 
 ## Mask
 
-Mask format can be a combination of the following definitions; a for alphabetic characters, 9 for numeric characters and * for alphanumberic characters. In addition, formatting characters like ( , ) , - are also accepted.
+Mask format can be a combination of the following definitions; a for alphabetic characters, 9 for numeric characters and \* for alphanumberic characters. In addition, formatting characters like ( , ) , - are also accepted.
 
 ```vue
 <div class="flex-auto">
@@ -331,6 +338,7 @@ const value2 = ref('');
 const value3 = ref('');
 <\/script>
 ```
+
 </details>
 
 ## Optional
@@ -357,6 +365,7 @@ import { ref } from 'vue';
 const value = ref('');
 <\/script>
 ```
+
 </details>
 
 ## Sizes
@@ -389,6 +398,7 @@ const value2 = ref(null);
 const value3 = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## SlotChar
@@ -415,56 +425,56 @@ import { ref } from 'vue';
 const value = ref('');
 <\/script>
 ```
+
 </details>
 
 ## Input Mask
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | null \| string | - | Value of the component. |
-| defaultValue | null \| string | - | The default value for the input when not controlled by  `modelValue` . |
-| slotChar | string | _ | Placeholder character in mask, default is underscore. |
-| mask | string | - | Mask pattern. |
-| id | string | - | Identifier of the element. |
-| class | string \| object | - | Style class of the input field. |
-| placeholder | string | - | Placeholder text for the input. |
-| autoClear | boolean | true | Clears the incomplete value on blur. |
-| unmask | boolean | false | Defines if model sets the raw unmasked value to bound value or the formatted mask value. |
-| readonly | boolean | false | Whether the items are clickable or not. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| name | string | - | Name of the input element. |
-| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
-| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
-| fluid | boolean | null | Spans 100% width of the container when enabled. |
-| disabled | boolean | false | When present, it specifies that the component should be disabled. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<InputMaskPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name         | Type                                         | Default | Description                                                                              |
+| ------------ | -------------------------------------------- | ------- | ---------------------------------------------------------------------------------------- |
+| modelValue   | null \| string                               | -       | Value of the component.                                                                  |
+| defaultValue | null \| string                               | -       | The default value for the input when not controlled by `modelValue` .                    |
+| slotChar     | string                                       | \_      | Placeholder character in mask, default is underscore.                                    |
+| mask         | string                                       | -       | Mask pattern.                                                                            |
+| id           | string                                       | -       | Identifier of the element.                                                               |
+| class        | string \| object                             | -       | Style class of the input field.                                                          |
+| placeholder  | string                                       | -       | Placeholder text for the input.                                                          |
+| autoClear    | boolean                                      | true    | Clears the incomplete value on blur.                                                     |
+| unmask       | boolean                                      | false   | Defines if model sets the raw unmasked value to bound value or the formatted mask value. |
+| readonly     | boolean                                      | false   | Whether the items are clickable or not.                                                  |
+| invalid      | boolean                                      | false   | When present, it specifies that the component should have invalid state style.           |
+| name         | string                                       | -       | Name of the input element.                                                               |
+| size         | HintedString<"small" \| "large">             | -       | Defines the size of the component.                                                       |
+| variant      | null \| HintedString<"outlined" \| "filled"> | null    | Specifies the input variant of the component.                                            |
+| fluid        | boolean                                      | null    | Spans 100% width of the container when enabled.                                          |
+| disabled     | boolean                                      | false   | When present, it specifies that the component should be disabled.                        |
+| dt           | any                                          | -       | It generates scoped CSS variables using design tokens for the component.                 |
+| pt           | PassThrough<InputMaskPassThroughOptions>     | -       | Used to pass attributes to DOM elements inside the component.                            |
+| ptOptions    | any                                          | -       | Used to configure passthrough(pt) options of the component.                              |
+| unstyled     | boolean                                      | false   | When enabled, it removes component related styles in the core.                           |
 
 ### Emits
 
-| Name | Parameters | Description |
-|------|------------|-------------|
-| keypress | Function |  |
-| paste | Function |  |
-| complete | Function |  |
+| Name     | Parameters | Description |
+| -------- | ---------- | ----------- |
+| keypress | Function   |             |
+| paste    | Function   |             |
+| complete | Function   |             |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | InputMaskPassThroughOptionType | Used to pass attributes to the InputText component. |
-| pcInputText | any | Used to pass attributes to the InputText component. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| Name        | Type                           | Description                                         |
+| ----------- | ------------------------------ | --------------------------------------------------- |
+| root        | InputMaskPassThroughOptionType | Used to pass attributes to the InputText component. |
+| pcInputText | any                            | Used to pass attributes to the InputText component. |
+| hooks       | any                            | Used to manage all lifecycle hooks.                 |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
+| Class       | Description                    |
+| ----------- | ------------------------------ |
 | p-inputmask | Class name of the root element |
-

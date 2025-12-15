@@ -140,4 +140,3 @@ A headless PrimeVue dialog with a custom UI.
 ## Starter
 
 The Tailwind v4 and PrimeVue starter example is available to demonstrate the integration setup with an example dashboard.
-

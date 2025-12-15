@@ -34,6 +34,7 @@ Tooltip gets hidden when mouse leaves the target element by default, set autoHid
     </div>
 </template>
 ```
+
 </details>
 
 ## Custom
@@ -81,6 +82,7 @@ A tooltip sample with a custom style and content.
     </div>
 </template>
 ```
+
 </details>
 
 ## Delay
@@ -101,6 +103,7 @@ Delays to the enter and leave events are defined with showDelay and hideDelay op
     </div>
 </template>
 ```
+
 </details>
 
 ## Event
@@ -121,6 +124,7 @@ Event to display the tooltip is defined as a modifier, default event is hover.
     </div>
 </template>
 ```
+
 </details>
 
 ## Position
@@ -147,38 +151,38 @@ There are four choices to position the tooltip, default value is right and alter
     </div>
 </template>
 ```
+
 </details>
 
 ## Tooltip
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | TooltipDirectivePassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| text | TooltipDirectivePassThroughOptionType | Used to pass attributes to the text's DOM element. |
+| Name  | Type                                  | Description                                         |
+| ----- | ------------------------------------- | --------------------------------------------------- |
+| root  | TooltipDirectivePassThroughOptionType | Used to pass attributes to the root's DOM element.  |
+| text  | TooltipDirectivePassThroughOptionType | Used to pass attributes to the text's DOM element.  |
 | arrow | TooltipDirectivePassThroughOptionType | Used to pass attributes to the arrow's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| hooks | any                                   | Used to manage all lifecycle hooks.                 |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-tooltip | Class name of the root element |
+| Class           | Description                     |
+| --------------- | ------------------------------- |
+| p-tooltip       | Class name of the root element  |
 | p-tooltip-arrow | Class name of the arrow element |
-| p-tooltip-text | Class name of the text element |
+| p-tooltip-text  | Class name of the text element  |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| tooltip.max.width | --p-tooltip-max-width | Max width of root |
-| tooltip.gutter | --p-tooltip-gutter | Gutter of root |
-| tooltip.shadow | --p-tooltip-shadow | Shadow of root |
-| tooltip.padding | --p-tooltip-padding | Padding of root |
+| Token                 | CSS Variable              | Description           |
+| --------------------- | ------------------------- | --------------------- |
+| tooltip.max.width     | --p-tooltip-max-width     | Max width of root     |
+| tooltip.gutter        | --p-tooltip-gutter        | Gutter of root        |
+| tooltip.shadow        | --p-tooltip-shadow        | Shadow of root        |
+| tooltip.padding       | --p-tooltip-padding       | Padding of root       |
 | tooltip.border.radius | --p-tooltip-border-radius | Border radius of root |
-| tooltip.background | --p-tooltip-background | Background of root |
-| tooltip.color | --p-tooltip-color | Color of root |
-
+| tooltip.background    | --p-tooltip-background    | Background of root    |
+| tooltip.color         | --p-tooltip-color         | Color of root         |

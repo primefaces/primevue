@@ -31,9 +31,7 @@ Following keys are reserved in the preset scheme and cannot be used as a token n
 PrimeVue UI component use rem units, 1rem equals to the font size of the html element which is 16px by default. Use the root font-size to adjust the size of the components globally. This website uses 14px as the base so it may differ from your application if your base font size is different.
 
 ```vue
-html {
-    font-size: 14px;
-}
+html { font-size: 14px; }
 ```
 
 ## Scoped Tokens
@@ -49,22 +47,8 @@ The options property defines the how the CSS would be generated from the design 
 The theme property is used to customize the initial theme.
 
 ```vue
-import PrimeVue from 'primevue/config';
-import Aura from '@primeuix/themes/aura';
-
-const app = createApp(App);
-
-app.use(PrimeVue, {
-    // Default theme configuration
-    theme: {
-        preset: Aura,
-        options: {
-            prefix: 'p',
-            darkModeSelector: 'system',
-            cssLayer: false
-        }
-    }
- });
+import PrimeVue from 'primevue/config'; import Aura from '@primeuix/themes/aura'; const app = createApp(App); app.use(PrimeVue, { // Default theme configuration theme: { preset: Aura, options: { prefix: 'p', darkModeSelector: 'system', cssLayer:
+false } } });
 ```
 
 ## Libraries
@@ -76,16 +60,7 @@ Example layer configuration for the popular CSS libraries.
 In case PrimeVue components have visual issues in your application, a Reset CSS may be the culprit. CSS layers would be an efficient solution that involves enabling the PrimeVue layer, wrapping the Reset CSS in another layer and defining the layer order. This way, your Reset CSS does not get in the way of PrimeVue components.
 
 ```vue
-/* Order */
-@layer reset, primevue;
-
-/* Reset CSS */
-@layer reset {
-    button,
-    input {
-        /* CSS to Reset */
-    }
-}
+/* Order */ @layer reset, primevue; /* Reset CSS */ @layer reset { button, input { /* CSS to Reset */ } }
 ```
 
 ## Specificity
@@ -101,32 +76,8 @@ A token can be defined per color scheme using light and dark properties of the c
 The design tokens of a specific component is defined at components layer. Overriding components tokens is not the recommended approach if you are building your own style, building your own preset should be preferred instead. This configuration is global and applies to all card components, in case you need to customize a particular component on a page locally, view the Scoped CSS section for an example.
 
 ```vue
-const MyPreset = definePreset(Aura, {
-    components: {
-        card: {
-            colorScheme: {
-                light: {
-                    root: {
-                        background: '{surface.0}',
-                        color: '{surface.700}'
-                    },
-                    subtitle: {
-                        color: '{surface.500}'
-                    }
-                },
-                dark: {
-                    root: {
-                        background: '{surface.900}',
-                        color: '{surface.0}'
-                    },
-                    subtitle: {
-                        color: '{surface.400}'
-                    }
-                }
-            }
-        }
-    }
-});
+const MyPreset = definePreset(Aura, { components: { card: { colorScheme: { light: { root: { background: '{surface.0}', color: '{surface.700}' }, subtitle: { color: '{surface.500}' } }, dark: { root: { background: '{surface.900}', color: '{surface.0}'
+}, subtitle: { color: '{surface.400}' } } } } } });
 ```
 
 ## Define Preset
@@ -134,19 +85,8 @@ const MyPreset = definePreset(Aura, {
 The definePreset utility is used to customize an existing preset during the PrimeVue setup. The first parameter is the preset to customize and the second is the design tokens to override.
 
 ```vue
-import PrimeVue from 'primevue/config';
-import { definePreset } from '@primeuix/themes';
-import Aura from '@primeuix/themes/aura';
-
-const MyPreset = definePreset(Aura, {
-    //Your customizations, see the following sections for examples
-});
-
-app.use(PrimeVue, {
-    theme: {
-        preset: MyPreset
-    }
- });
+import PrimeVue from 'primevue/config'; import { definePreset } from '@primeuix/themes'; import Aura from '@primeuix/themes/aura'; const MyPreset = definePreset(Aura, { //Your customizations, see the following sections for examples });
+app.use(PrimeVue, { theme: { preset: MyPreset } });
 ```
 
 ## Extend
@@ -154,43 +94,9 @@ app.use(PrimeVue, {
 The theming system can be extended by adding custom design tokens and additional styles. This feature provides a high degree of customization, allowing you to adjust styles according to your needs, as you are not limited to the default tokens. The example preset configuration adds a new accent button with custom button.accent.color and button.accent.inverse.color tokens. It is also possible to add tokens globally to share them within the components.
 
 ```vue
-const MyPreset = definePreset(Aura, {
-    components: {
-        // custom button tokens and additional style
-        button: {
-            extend: {
-                accent: {
-                    color: '#f59e0b',
-                    inverseColor: '#ffffff'
-                }
-            }
-        css: ({ dt }) => \`
-.p-button-accent {
-    background: \${dt('button.accent.color')};
-    color: \${dt('button.accent.inverse.color')};
-    transition-duration: \${dt('my.transition.fast')};
-}
-\`
-        }
-    },
-    // common tokens and styles
-    extend: {
-        my: {
-            transition: {
-                slow: '0.75s'
-                normal: '0.5s'
-                fast: '0.25s'
-            },
-            imageDisplay: 'block' 
-        }
-    },
-    css: ({ dt }) => \`
-        /* Global CSS */
-        img {
-            display: \${dt('my.image.display')};
-        }
-    \`
-});
+const MyPreset = definePreset(Aura, { components: { // custom button tokens and additional style button: { extend: { accent: { color: '#f59e0b', inverseColor: '#ffffff' } } css: ({ dt }) => \` .p-button-accent { background:
+\${dt('button.accent.color')}; color: \${dt('button.accent.inverse.color')}; transition-duration: \${dt('my.transition.fast')}; } \` } }, // common tokens and styles extend: { my: { transition: { slow: '0.75s' normal: '0.5s' fast: '0.25s' },
+imageDisplay: 'block' } }, css: ({ dt }) => \` /* Global CSS */ img { display: \${dt('my.image.display')}; } \` });
 ```
 
 ## Focus Ring
@@ -198,16 +104,7 @@ const MyPreset = definePreset(Aura, {
 Focus ring defines the outline width, style, color and offset. Let's use a thicker ring with the primary color for the outline.
 
 ```vue
-const MyPreset = definePreset(Aura, {
-    semantic: {
-        focusRing: {
-            width: '2px',
-            style: 'dashed',
-            color: '{primary.color}',
-            offset: '1px'
-        }
-    }
-});
+const MyPreset = definePreset(Aura, { semantic: { focusRing: { width: '2px', style: 'dashed', color: '{primary.color}', offset: '1px' } } });
 ```
 
 ## Font
@@ -219,22 +116,7 @@ There is no design for fonts as UI components inherit their font settings from t
 The design tokens of the form input components are derived from the form.field token group. This customization example changes border color to primary on hover. Any component that depends on this semantic token such as dropdown.hover.border.color and textarea.hover.border.color would receive the change.
 
 ```vue
-const MyPreset = definePreset(Aura, {
-    semantic: {
-        colorScheme: {
-            light: {
-                formField: {
-                    hoverBorderColor: '{primary.color}'
-                }
-            },
-            dark: {
-                formField: {
-                    hoverBorderColor: '{primary.color}'
-                }
-            }
-        }
-    }
-});
+const MyPreset = definePreset(Aura, { semantic: { colorScheme: { light: { formField: { hoverBorderColor: '{primary.color}' } }, dark: { formField: { hoverBorderColor: '{primary.color}' } } } } });
 ```
 
 ## Noir
@@ -242,53 +124,10 @@ const MyPreset = definePreset(Aura, {
 The noir mode is the nickname of a variant that uses surface tones as the primary and requires and additional colorScheme configuration to implement. A sample preset configuration with black and white variants as the primary color;
 
 ```vue
-const Noir = definePreset(Aura, {
-    semantic: {
-        primary: {
-            50: '{zinc.50}',
-            100: '{zinc.100}',
-            200: '{zinc.200}',
-            300: '{zinc.300}',
-            400: '{zinc.400}',
-            500: '{zinc.500}',
-            600: '{zinc.600}',
-            700: '{zinc.700}',
-            800: '{zinc.800}',
-            900: '{zinc.900}',
-            950: '{zinc.950}'
-        },
-        colorScheme: {
-            light: {
-                primary: {
-                    color: '{zinc.950}',
-                    inverseColor: '#ffffff',
-                    hoverColor: '{zinc.900}',
-                    activeColor: '{zinc.800}'
-                },
-                highlight: {
-                    background: '{zinc.950}',
-                    focusBackground: '{zinc.700}',
-                    color: '#ffffff',
-                    focusColor: '#ffffff'
-                }
-            },
-            dark: {
-                primary: {
-                    color: '{zinc.50}',
-                    inverseColor: '{zinc.950}',
-                    hoverColor: '{zinc.100}',
-                    activeColor: '{zinc.200}'
-                },
-                highlight: {
-                    background: 'rgba(250, 250, 250, .16)',
-                    focusBackground: 'rgba(250, 250, 250, .24)',
-                    color: 'rgba(255,255,255,.87)',
-                    focusColor: 'rgba(255,255,255,.87)'
-                }
-            }
-        }
-    }
-});
+const Noir = definePreset(Aura, { semantic: { primary: { 50: '{zinc.50}', 100: '{zinc.100}', 200: '{zinc.200}', 300: '{zinc.300}', 400: '{zinc.400}', 500: '{zinc.500}', 600: '{zinc.600}', 700: '{zinc.700}', 800: '{zinc.800}', 900: '{zinc.900}', 950:
+'{zinc.950}' }, colorScheme: { light: { primary: { color: '{zinc.950}', inverseColor: '#ffffff', hoverColor: '{zinc.900}', activeColor: '{zinc.800}' }, highlight: { background: '{zinc.950}', focusBackground: '{zinc.700}', color: '#ffffff',
+focusColor: '#ffffff' } }, dark: { primary: { color: '{zinc.50}', inverseColor: '{zinc.950}', hoverColor: '{zinc.100}', activeColor: '{zinc.200}' }, highlight: { background: 'rgba(250, 250, 250, .16)', focusBackground: 'rgba(250, 250, 250, .24)',
+color: 'rgba(255,255,255,.87)', focusColor: 'rgba(255,255,255,.87)' } } } } });
 ```
 
 ## Primary
@@ -296,23 +135,8 @@ const Noir = definePreset(Aura, {
 The primary defines the main color palette, default value maps to the emerald primitive token. Let's setup to use indigo instead.
 
 ```vue
-const MyPreset = definePreset(Aura, {
-    semantic: {
-        primary: {
-            50: '{indigo.50}',
-            100: '{indigo.100}',
-            200: '{indigo.200}',
-            300: '{indigo.300}',
-            400: '{indigo.400}',
-            500: '{indigo.500}',
-            600: '{indigo.600}',
-            700: '{indigo.700}',
-            800: '{indigo.800}',
-            900: '{indigo.900}',
-            950: '{indigo.950}'
-        }
-    }
-});
+const MyPreset = definePreset(Aura, { semantic: { primary: { 50: '{indigo.50}', 100: '{indigo.100}', 200: '{indigo.200}', 300: '{indigo.300}', 400: '{indigo.400}', 500: '{indigo.500}', 600: '{indigo.600}', 700: '{indigo.700}', 800: '{indigo.800}',
+900: '{indigo.900}', 950: '{indigo.950}' } } });
 ```
 
 ## Surface
@@ -320,44 +144,9 @@ const MyPreset = definePreset(Aura, {
 The color scheme palette that varies between light and dark modes is specified with the surface tokens. Example below uses zinc for light mode and slategray for dark mode. With this setting, light mode, would have a grayscale tone and dark mode would include bluish tone.
 
 ```vue
-const MyPreset = definePreset(Aura, {
-    semantic: {
-        colorScheme: {
-            light: {
-                surface: {
-                    0: '#ffffff',
-                    50: '{zinc.50}',
-                    100: '{zinc.100}',
-                    200: '{zinc.200}',
-                    300: '{zinc.300}',
-                    400: '{zinc.400}',
-                    500: '{zinc.500}',
-                    600: '{zinc.600}',
-                    700: '{zinc.700}',
-                    800: '{zinc.800}',
-                    900: '{zinc.900}',
-                    950: '{zinc.950}'
-                }
-            },
-            dark: {
-                surface: {
-                    0: '#ffffff',
-                    50: '{slate.50}',
-                    100: '{slate.100}',
-                    200: '{slate.200}',
-                    300: '{slate.300}',
-                    400: '{slate.400}',
-                    500: '{slate.500}',
-                    600: '{slate.600}',
-                    700: '{slate.700}',
-                    800: '{slate.800}',
-                    900: '{slate.900}',
-                    950: '{slate.950}'
-                }
-            }
-        }
-    }
-});
+const MyPreset = definePreset(Aura, { semantic: { colorScheme: { light: { surface: { 0: '#ffffff', 50: '{zinc.50}', 100: '{zinc.100}', 200: '{zinc.200}', 300: '{zinc.300}', 400: '{zinc.400}', 500: '{zinc.500}', 600: '{zinc.600}', 700: '{zinc.700}',
+800: '{zinc.800}', 900: '{zinc.900}', 950: '{zinc.950}' } }, dark: { surface: { 0: '#ffffff', 50: '{slate.50}', 100: '{slate.100}', 200: '{slate.200}', 300: '{slate.300}', 400: '{slate.400}', 500: '{slate.500}', 600: '{slate.600}', 700:
+'{slate.700}', 800: '{slate.800}', 900: '{slate.900}', 950: '{slate.950}' } } } } });
 ```
 
 ## D T
@@ -365,44 +154,9 @@ const MyPreset = definePreset(Aura, {
 The $dt function returns the information about a token like the full path and value. This would be useful if you need to access tokens programmatically.
 
 ```vue
-import { $dt } from '@primeuix/themes';
-
-const duration = $dt('transition.duration');
-/*
-    duration: {
-        name: '--transition-duration',
-        variable: 'var(--p-transition-duration)',
-        value: '0.2s'
-    }
-*/
-
-const primaryColor = $dt('primary.color');
-/*
-    primaryColor: {
-        name: '--primary-color',
-        variable: 'var(--p-primary-color)',
-        value: {
-        light: {
-            value: '#10b981',
-            paths: {
-                name: 'semantic.primary.color',
-                binding: {
-                    name: 'primitive.emerald.500'
-                }
-            }
-        },
-        dark: {
-            value: '#34d399',
-            paths: {
-                name: 'semantic.primary.color',
-                binding: {
-                    name: 'primitive.emerald.400'
-                }
-            }
-        }
-    }
-}
-*/
+import { $dt } from '@primeuix/themes'; const duration = $dt('transition.duration'); /* duration: { name: '--transition-duration', variable: 'var(--p-transition-duration)', value: '0.2s' } */ const primaryColor = $dt('primary.color'); /*
+primaryColor: { name: '--primary-color', variable: 'var(--p-primary-color)', value: { light: { value: '#10b981', paths: { name: 'semantic.primary.color', binding: { name: 'primitive.emerald.500' } } }, dark: { value: '#34d399', paths: { name:
+'semantic.primary.color', binding: { name: 'primitive.emerald.400' } } } } } */
 ```
 
 ## Palette
@@ -410,13 +164,7 @@ const primaryColor = $dt('primary.color');
 Returns shades and tints of a given color from 50 to 950 as an object.
 
 ```vue
-import { palette } from '@primeuix/themes';
-
-// custom color
-const values1 = palette('#10b981');
-
-// copy an existing token set
-const primaryColor = palette('{blue}');
+import { palette } from '@primeuix/themes'; // custom color const values1 = palette('#10b981'); // copy an existing token set const primaryColor = palette('{blue}');
 ```
 
 ## Update Preset
@@ -424,27 +172,8 @@ const primaryColor = palette('{blue}');
 Merges the provided tokens to the current preset, an example would be changing the primary color palette dynamically.
 
 ```vue
-import { updatePreset } from '@primeuix/themes';
-
-const changePrimaryColor() {
-    updatePreset({
-        semantic: {
-            primary: {
-                50: '{indigo.50}',
-                100: '{indigo.100}',
-                200: '{indigo.200}',
-                300: '{indigo.300}',
-                400: '{indigo.400}',
-                500: '{indigo.500}',
-                600: '{indigo.600}',
-                700: '{indigo.700}',
-                800: '{indigo.800}',
-                900: '{indigo.900}',
-                950: '{indigo.950}'
-            }
-        }
-    })
-}
+import { updatePreset } from '@primeuix/themes'; const changePrimaryColor() { updatePreset({ semantic: { primary: { 50: '{indigo.50}', 100: '{indigo.100}', 200: '{indigo.200}', 300: '{indigo.300}', 400: '{indigo.400}', 500: '{indigo.500}', 600:
+'{indigo.600}', 700: '{indigo.700}', 800: '{indigo.800}', 900: '{indigo.900}', 950: '{indigo.950}' } } }) }
 ```
 
 ## Update Primary Palette
@@ -452,23 +181,8 @@ const changePrimaryColor() {
 Updates the primary colors, this is a shorthand to do the same update using updatePreset .
 
 ```vue
-import { updatePrimaryPalette } from '@primeuix/themes';
-
-const changePrimaryColor() {
-    updatePrimaryPalette({
-        50: '{indigo.50}',
-        100: '{indigo.100}',
-        200: '{indigo.200}',
-        300: '{indigo.300}',
-        400: '{indigo.400}',
-        500: '{indigo.500}',
-        600: '{indigo.600}',
-        700: '{indigo.700}',
-        800: '{indigo.800}',
-        900: '{indigo.900}',
-        950: '{indigo.950}'
-    });
-}
+import { updatePrimaryPalette } from '@primeuix/themes'; const changePrimaryColor() { updatePrimaryPalette({ 50: '{indigo.50}', 100: '{indigo.100}', 200: '{indigo.200}', 300: '{indigo.300}', 400: '{indigo.400}', 500: '{indigo.500}', 600:
+'{indigo.600}', 700: '{indigo.700}', 800: '{indigo.800}', 900: '{indigo.900}', 950: '{indigo.950}' }); }
 ```
 
 ## Update Surface Palette
@@ -476,38 +190,8 @@ const changePrimaryColor() {
 Updates the surface colors, this is a shorthand to do the same update using updatePreset .
 
 ```vue
-import { updateSurfacePalette } from '@primeuix/themes';
-
-const changeSurfaces() {
-    //changes surfaces both in light and dark mode
-    updateSurfacePalette({
-        50: '{zinc.50}',
-        // ...
-        950: '{zinc.950}'
-    });
-}
-
-const changeLightSurfaces() {
-    //changes surfaces only in light
-    updateSurfacePalette({
-        light: {
-            50: '{zinc.50}',
-            // ...
-            950: '{zinc.950}'
-        }
-    });
-}
-
-const changeDarkSurfaces() {
-    //changes surfaces only in dark mode
-    updateSurfacePalette({
-        dark: {
-            50: '{zinc.50}',
-            // ...
-            950: '{zinc.950}'
-        }
-    });
-}
+import { updateSurfacePalette } from '@primeuix/themes'; const changeSurfaces() { //changes surfaces both in light and dark mode updateSurfacePalette({ 50: '{zinc.50}', // ... 950: '{zinc.950}' }); } const changeLightSurfaces() { //changes surfaces
+only in light updateSurfacePalette({ light: { 50: '{zinc.50}', // ... 950: '{zinc.950}' } }); } const changeDarkSurfaces() { //changes surfaces only in dark mode updateSurfacePalette({ dark: { 50: '{zinc.50}', // ... 950: '{zinc.950}' } }); }
 ```
 
 ## Use Preset
@@ -515,10 +199,5 @@ const changeDarkSurfaces() {
 Replaces the current presets entirely, common use case is changing the preset dynamically at runtime.
 
 ```vue
-import { usePreset } from '@primeuix/themes';
-
-const onButtonClick() {
-    usePreset(MyPreset);
-}
+import { usePreset } from '@primeuix/themes'; const onButtonClick() { usePreset(MyPreset); }
 ```
-

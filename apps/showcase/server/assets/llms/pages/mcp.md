@@ -11,14 +11,7 @@ Add the PrimeVue MCP server using the CLI. After adding, start a new session and
 Create .cursor/mcp.json in your project or ~/.cursor/mcp.json for global configuration.
 
 ```vue
-{
-    "mcpServers": {
-        "primevue": {
-            "command": "npx",
-            "args": ["-y", "@primevue/mcp"]
-        }
-    }
-}
+{ "mcpServers": { "primevue": { "command": "npx", "args": ["-y", "@primevue/mcp"] } } }
 ```
 
 ## Example Prompts
@@ -26,12 +19,8 @@ Create .cursor/mcp.json in your project or ~/.cursor/mcp.json for global configu
 Once installed, try asking your AI assistant:
 
 ```vue
-"What are all the props available for the DataTable component?"
-"Show me how to implement row selection in DataTable"
-"How do I customize Button styles using Pass Through?"
-"What design tokens are available for the Card component?"
-"Find me a component for selecting multiple items from a list"
-"Compare AutoComplete and Select components"
+"What are all the props available for the DataTable component?" "Show me how to implement row selection in DataTable" "How do I customize Button styles using Pass Through?" "What design tokens are available for the Card component?" "Find me a
+component for selecting multiple items from a list" "Compare AutoComplete and Select components"
 ```
 
 ## Introduction
@@ -55,14 +44,7 @@ Component Information Tools for exploring and understanding PrimeVue components.
 Create .vscode/mcp.json in your project or ~/Library/Application Support/Code/User/mcp.json for global configuration.
 
 ```vue
-{
-    "servers": {
-        "primevue": {
-            "command": "npx",
-            "args": ["-y", "@primevue/mcp"]
-        }
-    }
-}
+{ "servers": { "primevue": { "command": "npx", "args": ["-y", "@primevue/mcp"] } } }
 ```
 
 ## Windsurf
@@ -70,14 +52,7 @@ Create .vscode/mcp.json in your project or ~/Library/Application Support/Code/Us
 Edit ~/.codeium/windsurf/mcp_config.json to add the PrimeVue MCP server.
 
 ```vue
-{
-    "mcpServers": {
-        "primevue": {
-            "command": "npx",
-            "args": ["-y", "@primevue/mcp"]
-        }
-    }
-}
+{ "mcpServers": { "primevue": { "command": "npx", "args": ["-y", "@primevue/mcp"] } } }
 ```
 
 ## Zed
@@ -85,15 +60,5 @@ Edit ~/.codeium/windsurf/mcp_config.json to add the PrimeVue MCP server.
 Add to your Zed settings at ~/.config/zed/settings.json (Linux) or ~/Library/Application Support/Zed/settings.json (macOS).
 
 ```vue
-{
-    "context_servers": {
-        "primevue": {
-            "command": {
-                "path": "npx",
-                "args": ["-y", "@primevue/mcp"]
-            }
-        }
-    }
-}
+{ "context_servers": { "primevue": { "command": { "path": "npx", "args": ["-y", "@primevue/mcp"] } } } }
 ```
-

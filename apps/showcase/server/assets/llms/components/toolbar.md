@@ -102,49 +102,49 @@ A customized toolbar with navigation bar functionality.
 <script setup>
 <\/script>
 ```
+
 </details>
 
 ## Toolbar
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| ariaLabelledby | string | - | Defines a string value that labels an interactive element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<ToolbarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name           | Type                                   | Default | Description                                                              |
+| -------------- | -------------------------------------- | ------- | ------------------------------------------------------------------------ |
+| ariaLabelledby | string                                 | -       | Defines a string value that labels an interactive element.               |
+| dt             | any                                    | -       | It generates scoped CSS variables using design tokens for the component. |
+| pt             | PassThrough<ToolbarPassThroughOptions> | -       | Used to pass attributes to DOM elements inside the component.            |
+| ptOptions      | any                                    | -       | Used to configure passthrough(pt) options of the component.              |
+| unstyled       | boolean                                | false   | When enabled, it removes component related styles in the core.           |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | ToolbarPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| start | ToolbarPassThroughOptionType | Used to pass attributes to the start's DOM element. |
+| Name   | Type                         | Description                                          |
+| ------ | ---------------------------- | ---------------------------------------------------- |
+| root   | ToolbarPassThroughOptionType | Used to pass attributes to the root's DOM element.   |
+| start  | ToolbarPassThroughOptionType | Used to pass attributes to the start's DOM element.  |
 | center | ToolbarPassThroughOptionType | Used to pass attributes to the center's DOM element. |
-| end | ToolbarPassThroughOptionType | Used to pass attributes to the right's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| end    | ToolbarPassThroughOptionType | Used to pass attributes to the right's DOM element.  |
+| hooks  | any                          | Used to manage all lifecycle hooks.                  |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-toolbar | Class name of the root element |
-| p-toolbar-start | Class name of the start element |
+| Class            | Description                      |
+| ---------------- | -------------------------------- |
+| p-toolbar        | Class name of the root element   |
+| p-toolbar-start  | Class name of the start element  |
 | p-toolbar-center | Class name of the center element |
-| p-toolbar-end | Class name of the end element |
+| p-toolbar-end    | Class name of the end element    |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| toolbar.background | --p-toolbar-background | Background of root |
-| toolbar.border.color | --p-toolbar-border-color | Border color of root |
+| Token                 | CSS Variable              | Description           |
+| --------------------- | ------------------------- | --------------------- |
+| toolbar.background    | --p-toolbar-background    | Background of root    |
+| toolbar.border.color  | --p-toolbar-border-color  | Border color of root  |
 | toolbar.border.radius | --p-toolbar-border-radius | Border radius of root |
-| toolbar.color | --p-toolbar-color | Color of root |
-| toolbar.gap | --p-toolbar-gap | Gap of root |
-| toolbar.padding | --p-toolbar-padding | Padding of root |
-
+| toolbar.color         | --p-toolbar-color         | Color of root         |
+| toolbar.gap           | --p-toolbar-gap           | Gap of root           |
+| toolbar.padding       | --p-toolbar-padding       | Padding of root       |

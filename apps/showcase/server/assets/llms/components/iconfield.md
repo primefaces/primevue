@@ -99,6 +99,7 @@ const value2 = ref(null);
 const value3 = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Ifta Label
@@ -137,6 +138,7 @@ import { ref } from 'vue';
 const value = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Sizes
@@ -191,6 +193,7 @@ const value2 = ref(null);
 const value3 = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -233,37 +236,37 @@ import { ref } from 'vue';
 const value = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Icon Field
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<IconFieldPassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name      | Type                                          | Default | Description                                                              |
+| --------- | --------------------------------------------- | ------- | ------------------------------------------------------------------------ |
+| dt        | any                                           | -       | It generates scoped CSS variables using design tokens for the component. |
+| pt        | PassThrough<IconFieldPassThroughOptions<any>> | -       | Used to pass attributes to DOM elements inside the component.            |
+| ptOptions | any                                           | -       | Used to configure passthrough(pt) options of the component.              |
+| unstyled  | boolean                                       | false   | When enabled, it removes component related styles in the core.           |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | IconFieldPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| Name  | Type                              | Description                                        |
+| ----- | --------------------------------- | -------------------------------------------------- |
+| root  | IconFieldPassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
+| hooks | any                               | Used to manage all lifecycle hooks.                |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
+| Class       | Description                    |
+| ----------- | ------------------------------ |
 | p-iconfield | Class name of the root element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
+| Token                | CSS Variable             | Description   |
+| -------------------- | ------------------------ | ------------- |
 | iconfield.icon.color | --p-iconfield-icon-color | Color of icon |
-

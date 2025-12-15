@@ -51,6 +51,7 @@ import { ref } from 'vue';
 const value = ref(50);
 <\/script>
 ```
+
 </details>
 
 ## Disabled
@@ -77,6 +78,7 @@ import { ref } from 'vue';
 const value = ref(50);
 <\/script>
 ```
+
 </details>
 
 ## Forms
@@ -134,6 +136,7 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Min/Max
@@ -160,6 +163,7 @@ import { ref } from 'vue';
 const value = ref(10);
 <\/script>
 ```
+
 </details>
 
 ## Reactive
@@ -194,6 +198,7 @@ import { ref } from 'vue';
 const value = ref(0);
 <\/script>
 ```
+
 </details>
 
 ## ReadOnly
@@ -220,6 +225,7 @@ import { ref } from 'vue';
 const value = ref(50);
 <\/script>
 ```
+
 </details>
 
 ## Size
@@ -246,6 +252,7 @@ import { ref } from 'vue';
 const value = ref(60);
 <\/script>
 ```
+
 </details>
 
 ## Step
@@ -272,6 +279,7 @@ import { ref } from 'vue';
 const value = ref(40);
 <\/script>
 ```
+
 </details>
 
 ## Stroke
@@ -298,6 +306,7 @@ import { ref } from 'vue';
 const value = ref(40);
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -324,72 +333,72 @@ import { ref } from 'vue';
 const value = ref(60);
 <\/script>
 ```
+
 </details>
 
 ## Knob
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | number | - | Value of the component. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| size | number | 100 | Size of the component in pixels. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the component should be disabled. |
-| readonly | boolean | false | When present, it specifies that the component value cannot be edited. |
-| step | number | 1 | Step factor to increment/decrement the value. |
-| min | number | 0 | Mininum boundary value. |
-| max | number | 100 | Maximum boundary value. |
-| valueColor | string | $dt('knob.value.background') | Background of the value. |
-| rangeColor | string | $dt('knob.range.background') | Background color of the range. |
-| textColor | string | $dt('knob.text.color') | Color of the value text. |
-| strokeWidth | number | 14 | Width of the knob stroke. |
-| showValue | boolean | true | Whether the show the value inside the knob. |
-| valueTemplate | string \| Function | '{value}' | Template string of the value. |
-| tabindex | number | 0 | Index of the element in tabbing order. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| ariaLabel | string | - | Used to define a string that labels the element. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<KnobPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name           | Type                                | Default                      | Description                                                                                                     |
+| -------------- | ----------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| modelValue     | number                              | -                            | Value of the component.                                                                                         |
+| defaultValue   | any                                 | -                            | The default value for the input when not controlled by `modelValue` .                                           |
+| name           | string                              | -                            | The name attribute for the element, typically used in form submissions.                                         |
+| size           | number                              | 100                          | Size of the component in pixels.                                                                                |
+| invalid        | boolean                             | false                        | When present, it specifies that the component should have invalid state style.                                  |
+| disabled       | boolean                             | false                        | When present, it specifies that the component should be disabled.                                               |
+| readonly       | boolean                             | false                        | When present, it specifies that the component value cannot be edited.                                           |
+| step           | number                              | 1                            | Step factor to increment/decrement the value.                                                                   |
+| min            | number                              | 0                            | Mininum boundary value.                                                                                         |
+| max            | number                              | 100                          | Maximum boundary value.                                                                                         |
+| valueColor     | string                              | $dt('knob.value.background') | Background of the value.                                                                                        |
+| rangeColor     | string                              | $dt('knob.range.background') | Background color of the range.                                                                                  |
+| textColor      | string                              | $dt('knob.text.color')       | Color of the value text.                                                                                        |
+| strokeWidth    | number                              | 14                           | Width of the knob stroke.                                                                                       |
+| showValue      | boolean                             | true                         | Whether the show the value inside the knob.                                                                     |
+| valueTemplate  | string \| Function                  | '{value}'                    | Template string of the value.                                                                                   |
+| tabindex       | number                              | 0                            | Index of the element in tabbing order.                                                                          |
+| ariaLabelledby | string                              | -                            | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| ariaLabel      | string                              | -                            | Used to define a string that labels the element.                                                                |
+| formControl    | Record<string, any>                 | -                            | Form control object, typically used for handling validation and form state.                                     |
+| dt             | any                                 | -                            | It generates scoped CSS variables using design tokens for the component.                                        |
+| pt             | PassThrough<KnobPassThroughOptions> | -                            | Used to pass attributes to DOM elements inside the component.                                                   |
+| ptOptions      | any                                 | -                            | Used to configure passthrough(pt) options of the component.                                                     |
+| unstyled       | boolean                             | false                        | When enabled, it removes component related styles in the core.                                                  |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | KnobPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| svg | KnobPassThroughOptionType | Used to pass attributes to the svg's DOM element. |
+| Name  | Type                      | Description                                         |
+| ----- | ------------------------- | --------------------------------------------------- |
+| root  | KnobPassThroughOptionType | Used to pass attributes to the root's DOM element.  |
+| svg   | KnobPassThroughOptionType | Used to pass attributes to the svg's DOM element.   |
 | range | KnobPassThroughOptionType | Used to pass attributes to the range's DOM element. |
-| value | KnobPassThroughOptionType | Used to pass attributes to the value' DOM element. |
-| text | KnobPassThroughOptionType | Used to pass attributes to the text's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| value | KnobPassThroughOptionType | Used to pass attributes to the value' DOM element.  |
+| text  | KnobPassThroughOptionType | Used to pass attributes to the text's DOM element.  |
+| hooks | any                       | Used to manage all lifecycle hooks.                 |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-knob | Class name of the root element |
+| Class        | Description                     |
+| ------------ | ------------------------------- |
+| p-knob       | Class name of the root element  |
 | p-knob-range | Class name of the range element |
 | p-knob-value | Class name of the value element |
-| p-knob-text | Class name of the text element |
+| p-knob-text  | Class name of the text element  |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
+| Token                    | CSS Variable                 | Description                 |
+| ------------------------ | ---------------------------- | --------------------------- |
 | knob.transition.duration | --p-knob-transition-duration | Transition duration of root |
-| knob.focus.ring.width | --p-knob-focus-ring-width | Focus ring width of root |
-| knob.focus.ring.style | --p-knob-focus-ring-style | Focus ring style of root |
-| knob.focus.ring.color | --p-knob-focus-ring-color | Focus ring color of root |
-| knob.focus.ring.offset | --p-knob-focus-ring-offset | Focus ring offset of root |
-| knob.focus.ring.shadow | --p-knob-focus-ring-shadow | Focus ring shadow of root |
-| knob.value.background | --p-knob-value-background | Background of value |
-| knob.range.background | --p-knob-range-background | Background of range |
-| knob.text.color | --p-knob-text-color | Color of text |
-
+| knob.focus.ring.width    | --p-knob-focus-ring-width    | Focus ring width of root    |
+| knob.focus.ring.style    | --p-knob-focus-ring-style    | Focus ring style of root    |
+| knob.focus.ring.color    | --p-knob-focus-ring-color    | Focus ring color of root    |
+| knob.focus.ring.offset   | --p-knob-focus-ring-offset   | Focus ring offset of root   |
+| knob.focus.ring.shadow   | --p-knob-focus-ring-shadow   | Focus ring shadow of root   |
+| knob.value.background    | --p-knob-value-background    | Background of value         |
+| knob.range.background    | --p-knob-range-background    | Background of range         |
+| knob.text.color          | --p-knob-text-color          | Color of text               |

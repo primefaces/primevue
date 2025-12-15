@@ -80,6 +80,7 @@ const expandNode = (node) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## EventsDoc
@@ -87,8 +88,17 @@ const expandNode = (node) => {
 An event is provided for each type of user interaction such as expand, collapse and selection.
 
 ```vue
-<Tree v-model:selectionKeys="selectedKey" :value="nodes" selectionMode="single" :metaKeySelection="false"
-    @nodeSelect="onNodeSelect" @nodeUnselect="onNodeUnselect" @nodeExpand="onNodeExpand" @nodeCollapse="onNodeCollapse" class="w-full md:w-[30rem]"></Tree>
+<Tree
+    v-model:selectionKeys="selectedKey"
+    :value="nodes"
+    selectionMode="single"
+    :metaKeySelection="false"
+    @nodeSelect="onNodeSelect"
+    @nodeUnselect="onNodeUnselect"
+    @nodeExpand="onNodeExpand"
+    @nodeCollapse="onNodeCollapse"
+    class="w-full md:w-[30rem]"
+></Tree>
 ```
 
 <details>
@@ -133,6 +143,7 @@ const onNodeCollapse = (node) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## FilterDoc
@@ -166,6 +177,7 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## LazyDoc
@@ -249,6 +261,7 @@ const initiateNodes = () => {
 };
 <\/script>
 ```
+
 </details>
 
 ## TemplateDoc
@@ -310,131 +323,131 @@ const nodes = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## Tree
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| value | TreeNode[] | - | An array of treenodes. |
-| expandedKeys | TreeExpandedKeys | - | A map of keys to represent the expansion state in controlled mode. |
-| selectionKeys | TreeSelectionKeys | - | A map of keys to control the selection state. |
-| selectionMode | HintedString<"single" \| "multiple" \| "checkbox"> | - | Defines the selection mode. |
-| metaKeySelection | boolean | false | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
-| loading | boolean | false | Whether to display loading indicator. |
-| loadingIcon | string | - | Icon to display when tree is loading. |
-| loadingMode | HintedString<"mask" \| "icon"> | mask | Loading mode display. |
-| filter | boolean | false | When specified, displays an input field to filter the items. |
-| filterBy | string \| Function | label | When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names. |
-| filterMode | HintedString<"lenient" \| "strict"> | lenient | Mode for filtering. |
-| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
-| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
-| highlightOnSelect | boolean | false | Highlights automatically the first item. |
-| scrollHeight | HintedString<"flex"> | - | Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size. |
-| draggableNodes | boolean | null | Whether the nodes are draggable. |
-| droppableNodes | boolean | null | Whether the nodes are droppable. |
-| draggableScope | string \| string[] | null | Scope of the draggable nodes to match a droppableScope. |
-| droppableScope | string \| string[] | null | Scope of the droppable nodes to match a draggableScope. |
-| validateDrop | boolean | false | When enabled, drop can be accepted or rejected based on condition defined at node-drop. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying menu element. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TreePassThroughOptions<any>> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name              | Type                                               | Default | Description                                                                                                                                                                                                                                                       |
+| ----------------- | -------------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value             | TreeNode[]                                         | -       | An array of treenodes.                                                                                                                                                                                                                                            |
+| expandedKeys      | TreeExpandedKeys                                   | -       | A map of keys to represent the expansion state in controlled mode.                                                                                                                                                                                                |
+| selectionKeys     | TreeSelectionKeys                                  | -       | A map of keys to control the selection state.                                                                                                                                                                                                                     |
+| selectionMode     | HintedString<"single" \| "multiple" \| "checkbox"> | -       | Defines the selection mode.                                                                                                                                                                                                                                       |
+| metaKeySelection  | boolean                                            | false   | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
+| loading           | boolean                                            | false   | Whether to display loading indicator.                                                                                                                                                                                                                             |
+| loadingIcon       | string                                             | -       | Icon to display when tree is loading.                                                                                                                                                                                                                             |
+| loadingMode       | HintedString<"mask" \| "icon">                     | mask    | Loading mode display.                                                                                                                                                                                                                                             |
+| filter            | boolean                                            | false   | When specified, displays an input field to filter the items.                                                                                                                                                                                                      |
+| filterBy          | string \| Function                                 | label   | When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names.                                                                             |
+| filterMode        | HintedString<"lenient" \| "strict">                | lenient | Mode for filtering.                                                                                                                                                                                                                                               |
+| filterPlaceholder | string                                             | -       | Placeholder text to show when filter input is empty.                                                                                                                                                                                                              |
+| filterLocale      | string                                             | -       | Locale to use in filtering. The default locale is the host environment's current locale.                                                                                                                                                                          |
+| highlightOnSelect | boolean                                            | false   | Highlights automatically the first item.                                                                                                                                                                                                                          |
+| scrollHeight      | HintedString<"flex">                               | -       | Height of the scroll viewport in fixed units or the 'flex' keyword for a dynamic size.                                                                                                                                                                            |
+| draggableNodes    | boolean                                            | null    | Whether the nodes are draggable.                                                                                                                                                                                                                                  |
+| droppableNodes    | boolean                                            | null    | Whether the nodes are droppable.                                                                                                                                                                                                                                  |
+| draggableScope    | string \| string[]                                 | null    | Scope of the draggable nodes to match a droppableScope.                                                                                                                                                                                                           |
+| droppableScope    | string \| string[]                                 | null    | Scope of the droppable nodes to match a draggableScope.                                                                                                                                                                                                           |
+| validateDrop      | boolean                                            | false   | When enabled, drop can be accepted or rejected based on condition defined at node-drop.                                                                                                                                                                           |
+| ariaLabel         | string                                             | -       | Defines a string value that labels an interactive element.                                                                                                                                                                                                        |
+| ariaLabelledby    | string                                             | -       | Identifier of the underlying menu element.                                                                                                                                                                                                                        |
+| dt                | any                                                | -       | It generates scoped CSS variables using design tokens for the component.                                                                                                                                                                                          |
+| pt                | PassThrough<TreePassThroughOptions<any>>           | -       | Used to pass attributes to DOM elements inside the component.                                                                                                                                                                                                     |
+| ptOptions         | any                                                | -       | Used to configure passthrough(pt) options of the component.                                                                                                                                                                                                       |
+| unstyled          | boolean                                            | false   | When enabled, it removes component related styles in the core.                                                                                                                                                                                                    |
 
 ### Slots
 
-| Name | Parameters | Description |
-|------|------------|-------------|
-| [key: string] | Function |  |
+| Name          | Parameters | Description |
+| ------------- | ---------- | ----------- |
+| [key: string] | Function   |             |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | TreePassThroughOptionType<T> | Used to pass attributes to the root's DOM element. |
-| pcFilterContainer | any | Used to pass attributes to the IconField component. |
-| pcFilterInput | any | Used to pass attributes to the InputText component. |
-| pcFilterIconContainer | any | Used to pass attributes to the InputIcon component. |
-| filterIcon | TreePassThroughOptionType<T> | Used to pass attributes to the filter icon's DOM element. |
-| wrapper | TreePassThroughOptionType<T> | Used to pass attributes to the wrapper's DOM element. |
-| rootChildren | TreePassThroughOptionType<T> | Used to pass attributes to the root children's DOM element. |
-| node | TreePassThroughOptionType<T> | Used to pass attributes to the node's DOM element. |
-| nodeContent | TreePassThroughOptionType<T> | Used to pass attributes to the node content's DOM element. |
-| nodeToggleButton | TreePassThroughOptionType<T> | Used to pass attributes to the node toggle button's DOM element. |
-| nodeToggleIcon | TreePassThroughOptionType<T> | Used to pass attributes to the node toggle icon's DOM element. |
-| pcNodeCheckbox | TreePassThroughOptionType<T> | Used to pass attributes to the checkbox's DOM element. |
-| nodeIcon | TreePassThroughOptionType<T> | Used to pass attributes to the node icon's DOM element. |
-| nodeLabel | TreePassThroughOptionType<T> | Used to pass attributes to the node label's DOM element. |
-| nodeChildren | TreePassThroughOptionType<T> | Used to pass attributes to the node children's DOM element. |
-| mask | TreePassThroughOptionType<T> | Used to pass attributes to the mask's DOM element. |
-| loadingIcon | TreePassThroughOptionType<T> | Used to pass attributes to the loading icon's DOM element. |
-| emptyMessage | TreePassThroughOptionType<T> | Used to pass attributes to the empty message's DOM element. |
-| dropPoint | TreePassThroughOptionType<T> | Used to pass attributes to the drop point's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| Name                  | Type                         | Description                                                      |
+| --------------------- | ---------------------------- | ---------------------------------------------------------------- |
+| root                  | TreePassThroughOptionType<T> | Used to pass attributes to the root's DOM element.               |
+| pcFilterContainer     | any                          | Used to pass attributes to the IconField component.              |
+| pcFilterInput         | any                          | Used to pass attributes to the InputText component.              |
+| pcFilterIconContainer | any                          | Used to pass attributes to the InputIcon component.              |
+| filterIcon            | TreePassThroughOptionType<T> | Used to pass attributes to the filter icon's DOM element.        |
+| wrapper               | TreePassThroughOptionType<T> | Used to pass attributes to the wrapper's DOM element.            |
+| rootChildren          | TreePassThroughOptionType<T> | Used to pass attributes to the root children's DOM element.      |
+| node                  | TreePassThroughOptionType<T> | Used to pass attributes to the node's DOM element.               |
+| nodeContent           | TreePassThroughOptionType<T> | Used to pass attributes to the node content's DOM element.       |
+| nodeToggleButton      | TreePassThroughOptionType<T> | Used to pass attributes to the node toggle button's DOM element. |
+| nodeToggleIcon        | TreePassThroughOptionType<T> | Used to pass attributes to the node toggle icon's DOM element.   |
+| pcNodeCheckbox        | TreePassThroughOptionType<T> | Used to pass attributes to the checkbox's DOM element.           |
+| nodeIcon              | TreePassThroughOptionType<T> | Used to pass attributes to the node icon's DOM element.          |
+| nodeLabel             | TreePassThroughOptionType<T> | Used to pass attributes to the node label's DOM element.         |
+| nodeChildren          | TreePassThroughOptionType<T> | Used to pass attributes to the node children's DOM element.      |
+| mask                  | TreePassThroughOptionType<T> | Used to pass attributes to the mask's DOM element.               |
+| loadingIcon           | TreePassThroughOptionType<T> | Used to pass attributes to the loading icon's DOM element.       |
+| emptyMessage          | TreePassThroughOptionType<T> | Used to pass attributes to the empty message's DOM element.      |
+| dropPoint             | TreePassThroughOptionType<T> | Used to pass attributes to the drop point's DOM element.         |
+| hooks                 | any                          | Used to manage all lifecycle hooks.                              |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-tree | Class name of the root element |
-| p-tree-mask | Class name of the mask element |
-| p-tree-loading-icon | Class name of the loading icon element |
-| p-tree-filter-input | Class name of the filter input element |
-| p-tree-root | Class name of the wrapper element |
-| p-tree-root-children | Class name of the root children element |
-| p-tree-node | Class name of the node element |
-| p-tree-node-content | Class name of the node content element |
+| Class                     | Description                                  |
+| ------------------------- | -------------------------------------------- |
+| p-tree                    | Class name of the root element               |
+| p-tree-mask               | Class name of the mask element               |
+| p-tree-loading-icon       | Class name of the loading icon element       |
+| p-tree-filter-input       | Class name of the filter input element       |
+| p-tree-root               | Class name of the wrapper element            |
+| p-tree-root-children      | Class name of the root children element      |
+| p-tree-node               | Class name of the node element               |
+| p-tree-node-content       | Class name of the node content element       |
 | p-tree-node-toggle-button | Class name of the node toggle button element |
-| p-tree-node-toggle-icon | Class name of the node toggle icon element |
-| p-tree-node-checkbox | Class name of the node checkbox element |
-| p-tree-node-icon | Class name of the node icon element |
-| p-tree-node-label | Class name of the node label element |
-| p-tree-node-children | Class name of the node children element |
+| p-tree-node-toggle-icon   | Class name of the node toggle icon element   |
+| p-tree-node-checkbox      | Class name of the node checkbox element      |
+| p-tree-node-icon          | Class name of the node icon element          |
+| p-tree-node-label         | Class name of the node label element         |
+| p-tree-node-children      | Class name of the node children element      |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| tree.background | --p-tree-background | Background of root |
-| tree.color | --p-tree-color | Color of root |
-| tree.padding | --p-tree-padding | Padding of root |
-| tree.gap | --p-tree-gap | Gap of root |
-| tree.indent | --p-tree-indent | Indent of root |
-| tree.transition.duration | --p-tree-transition-duration | Transition duration of root |
-| tree.node.padding | --p-tree-node-padding | Padding of node |
-| tree.node.border.radius | --p-tree-node-border-radius | Border radius of node |
-| tree.node.hover.background | --p-tree-node-hover-background | Hover background of node |
-| tree.node.selected.background | --p-tree-node-selected-background | Selected background of node |
-| tree.node.color | --p-tree-node-color | Color of node |
-| tree.node.hover.color | --p-tree-node-hover-color | Hover color of node |
-| tree.node.selected.color | --p-tree-node-selected-color | Selected color of node |
-| tree.node.focus.ring.width | --p-tree-node-focus-ring-width | Focus ring width of node |
-| tree.node.focus.ring.style | --p-tree-node-focus-ring-style | Focus ring style of node |
-| tree.node.focus.ring.color | --p-tree-node-focus-ring-color | Focus ring color of node |
-| tree.node.focus.ring.offset | --p-tree-node-focus-ring-offset | Focus ring offset of node |
-| tree.node.focus.ring.shadow | --p-tree-node-focus-ring-shadow | Focus ring shadow of node |
-| tree.node.gap | --p-tree-node-gap | Gap of node |
-| tree.node.icon.color | --p-tree-node-icon-color | Color of node icon |
-| tree.node.icon.hover.color | --p-tree-node-icon-hover-color | Hover color of node icon |
-| tree.node.icon.selected.color | --p-tree-node-icon-selected-color | Selected color of node icon |
-| tree.node.toggle.button.border.radius | --p-tree-node-toggle-button-border-radius | Border radius of node toggle button |
-| tree.node.toggle.button.size | --p-tree-node-toggle-button-size | Size of node toggle button |
-| tree.node.toggle.button.hover.background | --p-tree-node-toggle-button-hover-background | Hover background of node toggle button |
+| Token                                             | CSS Variable                                          | Description                                     |
+| ------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------- |
+| tree.background                                   | --p-tree-background                                   | Background of root                              |
+| tree.color                                        | --p-tree-color                                        | Color of root                                   |
+| tree.padding                                      | --p-tree-padding                                      | Padding of root                                 |
+| tree.gap                                          | --p-tree-gap                                          | Gap of root                                     |
+| tree.indent                                       | --p-tree-indent                                       | Indent of root                                  |
+| tree.transition.duration                          | --p-tree-transition-duration                          | Transition duration of root                     |
+| tree.node.padding                                 | --p-tree-node-padding                                 | Padding of node                                 |
+| tree.node.border.radius                           | --p-tree-node-border-radius                           | Border radius of node                           |
+| tree.node.hover.background                        | --p-tree-node-hover-background                        | Hover background of node                        |
+| tree.node.selected.background                     | --p-tree-node-selected-background                     | Selected background of node                     |
+| tree.node.color                                   | --p-tree-node-color                                   | Color of node                                   |
+| tree.node.hover.color                             | --p-tree-node-hover-color                             | Hover color of node                             |
+| tree.node.selected.color                          | --p-tree-node-selected-color                          | Selected color of node                          |
+| tree.node.focus.ring.width                        | --p-tree-node-focus-ring-width                        | Focus ring width of node                        |
+| tree.node.focus.ring.style                        | --p-tree-node-focus-ring-style                        | Focus ring style of node                        |
+| tree.node.focus.ring.color                        | --p-tree-node-focus-ring-color                        | Focus ring color of node                        |
+| tree.node.focus.ring.offset                       | --p-tree-node-focus-ring-offset                       | Focus ring offset of node                       |
+| tree.node.focus.ring.shadow                       | --p-tree-node-focus-ring-shadow                       | Focus ring shadow of node                       |
+| tree.node.gap                                     | --p-tree-node-gap                                     | Gap of node                                     |
+| tree.node.icon.color                              | --p-tree-node-icon-color                              | Color of node icon                              |
+| tree.node.icon.hover.color                        | --p-tree-node-icon-hover-color                        | Hover color of node icon                        |
+| tree.node.icon.selected.color                     | --p-tree-node-icon-selected-color                     | Selected color of node icon                     |
+| tree.node.toggle.button.border.radius             | --p-tree-node-toggle-button-border-radius             | Border radius of node toggle button             |
+| tree.node.toggle.button.size                      | --p-tree-node-toggle-button-size                      | Size of node toggle button                      |
+| tree.node.toggle.button.hover.background          | --p-tree-node-toggle-button-hover-background          | Hover background of node toggle button          |
 | tree.node.toggle.button.selected.hover.background | --p-tree-node-toggle-button-selected-hover-background | Selected hover background of node toggle button |
-| tree.node.toggle.button.color | --p-tree-node-toggle-button-color | Color of node toggle button |
-| tree.node.toggle.button.hover.color | --p-tree-node-toggle-button-hover-color | Hover color of node toggle button |
-| tree.node.toggle.button.selected.hover.color | --p-tree-node-toggle-button-selected-hover-color | Selected hover color of node toggle button |
-| tree.node.toggle.button.focus.ring.width | --p-tree-node-toggle-button-focus-ring-width | Focus ring width of node toggle button |
-| tree.node.toggle.button.focus.ring.style | --p-tree-node-toggle-button-focus-ring-style | Focus ring style of node toggle button |
-| tree.node.toggle.button.focus.ring.color | --p-tree-node-toggle-button-focus-ring-color | Focus ring color of node toggle button |
-| tree.node.toggle.button.focus.ring.offset | --p-tree-node-toggle-button-focus-ring-offset | Focus ring offset of node toggle button |
-| tree.node.toggle.button.focus.ring.shadow | --p-tree-node-toggle-button-focus-ring-shadow | Focus ring shadow of node toggle button |
-| tree.loading.icon.size | --p-tree-loading-icon-size | Size of loading icon |
-| tree.filter.margin | --p-tree-filter-margin | Margin of filter |
-
+| tree.node.toggle.button.color                     | --p-tree-node-toggle-button-color                     | Color of node toggle button                     |
+| tree.node.toggle.button.hover.color               | --p-tree-node-toggle-button-hover-color               | Hover color of node toggle button               |
+| tree.node.toggle.button.selected.hover.color      | --p-tree-node-toggle-button-selected-hover-color      | Selected hover color of node toggle button      |
+| tree.node.toggle.button.focus.ring.width          | --p-tree-node-toggle-button-focus-ring-width          | Focus ring width of node toggle button          |
+| tree.node.toggle.button.focus.ring.style          | --p-tree-node-toggle-button-focus-ring-style          | Focus ring style of node toggle button          |
+| tree.node.toggle.button.focus.ring.color          | --p-tree-node-toggle-button-focus-ring-color          | Focus ring color of node toggle button          |
+| tree.node.toggle.button.focus.ring.offset         | --p-tree-node-toggle-button-focus-ring-offset         | Focus ring offset of node toggle button         |
+| tree.node.toggle.button.focus.ring.shadow         | --p-tree-node-toggle-button-focus-ring-shadow         | Focus ring shadow of node toggle button         |
+| tree.loading.icon.size                            | --p-tree-loading-icon-size                            | Size of loading icon                            |
+| tree.filter.margin                                | --p-tree-filter-margin                                | Margin of filter                                |

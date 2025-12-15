@@ -70,6 +70,7 @@ Any content such as an image can be placed inside an Inplace.
 
 <\/script>
 ```
+
 </details>
 
 ## Input
@@ -116,6 +117,7 @@ import { ref } from "vue";
 const text = ref();
 <\/script>
 ```
+
 </details>
 
 ## Lazy
@@ -167,53 +169,53 @@ const loadData = () => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Inplace
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| active | boolean | false | Whether the content is displayed or not. |
-| disabled | boolean | false | When present, it specifies that the element should be disabled. |
-| displayProps | HTMLAttributes | - | Used to pass all properties of the HTMLDivElement to display container. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<InplacePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name         | Type                                   | Default | Description                                                              |
+| ------------ | -------------------------------------- | ------- | ------------------------------------------------------------------------ |
+| active       | boolean                                | false   | Whether the content is displayed or not.                                 |
+| disabled     | boolean                                | false   | When present, it specifies that the element should be disabled.          |
+| displayProps | HTMLAttributes                         | -       | Used to pass all properties of the HTMLDivElement to display container.  |
+| dt           | any                                    | -       | It generates scoped CSS variables using design tokens for the component. |
+| pt           | PassThrough<InplacePassThroughOptions> | -       | Used to pass attributes to DOM elements inside the component.            |
+| ptOptions    | any                                    | -       | Used to configure passthrough(pt) options of the component.              |
+| unstyled     | boolean                                | false   | When enabled, it removes component related styles in the core.           |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | InplacePassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| Name    | Type                         | Description                                           |
+| ------- | ---------------------------- | ----------------------------------------------------- |
+| root    | InplacePassThroughOptionType | Used to pass attributes to the root's DOM element.    |
 | display | InplacePassThroughOptionType | Used to pass attributes to the display's DOM element. |
 | content | InplacePassThroughOptionType | Used to pass attributes to the content's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| hooks   | any                          | Used to manage all lifecycle hooks.                   |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-inplace | Class name of the root element |
+| Class             | Description                       |
+| ----------------- | --------------------------------- |
+| p-inplace         | Class name of the root element    |
 | p-inplace-display | Class name of the display element |
 | p-inplace-content | Class name of the content element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| inplace.padding | --p-inplace-padding | Padding of root |
-| inplace.border.radius | --p-inplace-border-radius | Border radius of root |
-| inplace.focus.ring.width | --p-inplace-focus-ring-width | Focus ring width of root |
-| inplace.focus.ring.style | --p-inplace-focus-ring-style | Focus ring style of root |
-| inplace.focus.ring.color | --p-inplace-focus-ring-color | Focus ring color of root |
-| inplace.focus.ring.offset | --p-inplace-focus-ring-offset | Focus ring offset of root |
-| inplace.focus.ring.shadow | --p-inplace-focus-ring-shadow | Focus ring shadow of root |
-| inplace.transition.duration | --p-inplace-transition-duration | Transition duration of root |
+| Token                            | CSS Variable                         | Description                 |
+| -------------------------------- | ------------------------------------ | --------------------------- |
+| inplace.padding                  | --p-inplace-padding                  | Padding of root             |
+| inplace.border.radius            | --p-inplace-border-radius            | Border radius of root       |
+| inplace.focus.ring.width         | --p-inplace-focus-ring-width         | Focus ring width of root    |
+| inplace.focus.ring.style         | --p-inplace-focus-ring-style         | Focus ring style of root    |
+| inplace.focus.ring.color         | --p-inplace-focus-ring-color         | Focus ring color of root    |
+| inplace.focus.ring.offset        | --p-inplace-focus-ring-offset        | Focus ring offset of root   |
+| inplace.focus.ring.shadow        | --p-inplace-focus-ring-shadow        | Focus ring shadow of root   |
+| inplace.transition.duration      | --p-inplace-transition-duration      | Transition duration of root |
 | inplace.display.hover.background | --p-inplace-display-hover-background | Hover background of display |
-| inplace.display.hover.color | --p-inplace-display-hover-color | Hover color of display |
-
+| inplace.display.hover.color      | --p-inplace-display-hover-color      | Hover color of display      |

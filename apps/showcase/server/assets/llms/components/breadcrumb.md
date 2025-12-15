@@ -76,6 +76,7 @@ const items = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -117,5 +118,5 @@ const home = ref({ icon: 'pi pi-home' });
 const items = ref([{ icon: 'pi pi-sitemap' }, { icon: 'pi pi-book' }, { icon: 'pi pi-wallet' }, { icon: 'pi pi-shopping-bag' }, { icon: 'pi pi-calculator' }]);
 <\/script>
 ```
-</details>
 
+</details>

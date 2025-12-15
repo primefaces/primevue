@@ -73,6 +73,7 @@ Card provides header , title , subtitle , content and footer as the named templa
 <script setup>
 <\/script>
 ```
+
 </details>
 
 ## Basic
@@ -95,54 +96,53 @@ A simple Card is created with a title property along with the content as childre
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<CardPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name      | Type                                | Default | Description                                                              |
+| --------- | ----------------------------------- | ------- | ------------------------------------------------------------------------ |
+| dt        | any                                 | -       | It generates scoped CSS variables using design tokens for the component. |
+| pt        | PassThrough<CardPassThroughOptions> | -       | Used to pass attributes to DOM elements inside the component.            |
+| ptOptions | any                                 | -       | Used to configure passthrough(pt) options of the component.              |
+| unstyled  | boolean                             | false   | When enabled, it removes component related styles in the core.           |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | CardPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| header | CardPassThroughOptionType | Used to pass attributes to the header's DOM element. |
-| body | CardPassThroughOptionType | Used to pass attributes to the body's DOM element. |
-| caption | CardPassThroughOptionType | Used to pass attributes to the caption's DOM element. |
-| title | CardPassThroughOptionType | Used to pass attributes to the title's DOM element. |
+| Name     | Type                      | Description                                            |
+| -------- | ------------------------- | ------------------------------------------------------ |
+| root     | CardPassThroughOptionType | Used to pass attributes to the root's DOM element.     |
+| header   | CardPassThroughOptionType | Used to pass attributes to the header's DOM element.   |
+| body     | CardPassThroughOptionType | Used to pass attributes to the body's DOM element.     |
+| caption  | CardPassThroughOptionType | Used to pass attributes to the caption's DOM element.  |
+| title    | CardPassThroughOptionType | Used to pass attributes to the title's DOM element.    |
 | subtitle | CardPassThroughOptionType | Used to pass attributes to the subtitle's DOM element. |
-| content | CardPassThroughOptionType | Used to pass attributes to the content's DOM element. |
-| footer | CardPassThroughOptionType | Used to pass attributes to the footer's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| content  | CardPassThroughOptionType | Used to pass attributes to the content's DOM element.  |
+| footer   | CardPassThroughOptionType | Used to pass attributes to the footer's DOM element.   |
+| hooks    | any                       | Used to manage all lifecycle hooks.                    |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-card | Class name of the root element |
-| p-card-header | Class name of the header element |
-| p-card-body | Class name of the body element |
-| p-card-caption | Class name of the caption element |
-| p-card-title | Class name of the title element |
+| Class           | Description                        |
+| --------------- | ---------------------------------- |
+| p-card          | Class name of the root element     |
+| p-card-header   | Class name of the header element   |
+| p-card-body     | Class name of the body element     |
+| p-card-caption  | Class name of the caption element  |
+| p-card-title    | Class name of the title element    |
 | p-card-subtitle | Class name of the subtitle element |
-| p-card-content | Class name of the content element |
-| p-card-footer | Class name of the footer element |
+| p-card-content  | Class name of the content element  |
+| p-card-footer   | Class name of the footer element   |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| card.background | --p-card-background | Background of root |
-| card.border.radius | --p-card-border-radius | Border radius of root |
-| card.color | --p-card-color | Color of root |
-| card.shadow | --p-card-shadow | Shadow of root |
-| card.body.padding | --p-card-body-padding | Padding of body |
-| card.body.gap | --p-card-body-gap | Gap of body |
-| card.caption.gap | --p-card-caption-gap | Gap of caption |
-| card.title.font.size | --p-card-title-font-size | Font size of title |
-| card.title.font.weight | --p-card-title-font-weight | Font weight of title |
-| card.subtitle.color | --p-card-subtitle-color | Color of subtitle |
-
+| Token                  | CSS Variable               | Description           |
+| ---------------------- | -------------------------- | --------------------- |
+| card.background        | --p-card-background        | Background of root    |
+| card.border.radius     | --p-card-border-radius     | Border radius of root |
+| card.color             | --p-card-color             | Color of root         |
+| card.shadow            | --p-card-shadow            | Shadow of root        |
+| card.body.padding      | --p-card-body-padding      | Padding of body       |
+| card.body.gap          | --p-card-body-gap          | Gap of body           |
+| card.caption.gap       | --p-card-caption-gap       | Gap of caption        |
+| card.title.font.size   | --p-card-title-font-size   | Font size of title    |
+| card.title.font.weight | --p-card-title-font-weight | Font weight of title  |
+| card.subtitle.color    | --p-card-subtitle-color    | Color of subtitle     |

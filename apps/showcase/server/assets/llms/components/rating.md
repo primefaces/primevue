@@ -44,6 +44,7 @@ import { ref } from 'vue';
 const value = ref(5);
 <\/script>
 ```
+
 </details>
 
 ## Forms
@@ -99,6 +100,7 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Number of Stars
@@ -125,6 +127,7 @@ import { ref } from 'vue';
 const value = ref(5);
 <\/script>
 ```
+
 </details>
 
 ## ReadOnly
@@ -151,6 +154,7 @@ import { ref } from 'vue';
 const value = ref(3);
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -191,65 +195,65 @@ import { ref } from 'vue';
 const value = ref(null);
 <\/script>
 ```
+
 </details>
 
 ## Rating
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | number | - | Value of the rating. |
-| defaultValue | number | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | Name of the element. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the element should be disabled. |
-| readonly | boolean | false | When present, it specifies that component is read-only. |
-| stars | number | 5 | Number of stars. |
-| onIcon | string | - | Icon for the on state. |
-| offIcon | string | - | Icon for the off state. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<RatingPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name         | Type                                  | Default | Description                                                                    |
+| ------------ | ------------------------------------- | ------- | ------------------------------------------------------------------------------ |
+| modelValue   | number                                | -       | Value of the rating.                                                           |
+| defaultValue | number                                | -       | The default value for the input when not controlled by `modelValue` .          |
+| name         | string                                | -       | Name of the element.                                                           |
+| invalid      | boolean                               | false   | When present, it specifies that the component should have invalid state style. |
+| disabled     | boolean                               | false   | When present, it specifies that the element should be disabled.                |
+| readonly     | boolean                               | false   | When present, it specifies that component is read-only.                        |
+| stars        | number                                | 5       | Number of stars.                                                               |
+| onIcon       | string                                | -       | Icon for the on state.                                                         |
+| offIcon      | string                                | -       | Icon for the off state.                                                        |
+| formControl  | Record<string, any>                   | -       | Form control object, typically used for handling validation and form state.    |
+| dt           | any                                   | -       | It generates scoped CSS variables using design tokens for the component.       |
+| pt           | PassThrough<RatingPassThroughOptions> | -       | Used to pass attributes to DOM elements inside the component.                  |
+| ptOptions    | any                                   | -       | Used to configure passthrough(pt) options of the component.                    |
+| unstyled     | boolean                               | false   | When enabled, it removes component related styles in the core.                 |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | RatingPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| option | RatingPassThroughOptionType | Used to pass attributes to the option's DOM element. |
-| onIcon | RatingPassThroughOptionType | Used to pass attributes to the on icon's DOM element. |
-| offIcon | RatingPassThroughOptionType | Used to pass attributes to the off icon's DOM element. |
+| Name                       | Type                        | Description                                                                 |
+| -------------------------- | --------------------------- | --------------------------------------------------------------------------- |
+| root                       | RatingPassThroughOptionType | Used to pass attributes to the root's DOM element.                          |
+| option                     | RatingPassThroughOptionType | Used to pass attributes to the option's DOM element.                        |
+| onIcon                     | RatingPassThroughOptionType | Used to pass attributes to the on icon's DOM element.                       |
+| offIcon                    | RatingPassThroughOptionType | Used to pass attributes to the off icon's DOM element.                      |
 | hiddenOptionInputContainer | RatingPassThroughOptionType | Used to pass attributes to the hidden option input container's DOM element. |
-| hiddenOptionInput | RatingPassThroughOptionType | Used to pass attributes to the hidden option input's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| hiddenOptionInput          | RatingPassThroughOptionType | Used to pass attributes to the hidden option input's DOM element.           |
+| hooks                      | any                         | Used to manage all lifecycle hooks.                                         |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-rating | Class name of the root element |
-| p-rating-option | Class name of the option element |
-| p-rating-on-icon | Class name of the on icon element |
+| Class             | Description                        |
+| ----------------- | ---------------------------------- |
+| p-rating          | Class name of the root element     |
+| p-rating-option   | Class name of the option element   |
+| p-rating-on-icon  | Class name of the on icon element  |
 | p-rating-off-icon | Class name of the off icon element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| rating.gap | --p-rating-gap | Gap of root |
+| Token                      | CSS Variable                   | Description                 |
+| -------------------------- | ------------------------------ | --------------------------- |
+| rating.gap                 | --p-rating-gap                 | Gap of root                 |
 | rating.transition.duration | --p-rating-transition-duration | Transition duration of root |
-| rating.focus.ring.width | --p-rating-focus-ring-width | Focus ring width of root |
-| rating.focus.ring.style | --p-rating-focus-ring-style | Focus ring style of root |
-| rating.focus.ring.color | --p-rating-focus-ring-color | Focus ring color of root |
-| rating.focus.ring.offset | --p-rating-focus-ring-offset | Focus ring offset of root |
-| rating.focus.ring.shadow | --p-rating-focus-ring-shadow | Focus ring shadow of root |
-| rating.icon.size | --p-rating-icon-size | Size of icon |
-| rating.icon.color | --p-rating-icon-color | Color of icon |
-| rating.icon.hover.color | --p-rating-icon-hover-color | Hover color of icon |
-| rating.icon.active.color | --p-rating-icon-active-color | Active color of icon |
-
+| rating.focus.ring.width    | --p-rating-focus-ring-width    | Focus ring width of root    |
+| rating.focus.ring.style    | --p-rating-focus-ring-style    | Focus ring style of root    |
+| rating.focus.ring.color    | --p-rating-focus-ring-color    | Focus ring color of root    |
+| rating.focus.ring.offset   | --p-rating-focus-ring-offset   | Focus ring offset of root   |
+| rating.focus.ring.shadow   | --p-rating-focus-ring-shadow   | Focus ring shadow of root   |
+| rating.icon.size           | --p-rating-icon-size           | Size of icon                |
+| rating.icon.color          | --p-rating-icon-color          | Color of icon               |
+| rating.icon.hover.color    | --p-rating-icon-hover-color    | Hover color of icon         |
+| rating.icon.active.color   | --p-rating-icon-active-color   | Active color of icon        |

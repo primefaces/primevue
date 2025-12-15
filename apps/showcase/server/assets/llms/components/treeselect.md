@@ -57,6 +57,7 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Clear Icon
@@ -89,6 +90,7 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Disabled
@@ -121,6 +123,7 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Filled
@@ -153,6 +156,7 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Filter
@@ -188,6 +192,7 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Float Label
@@ -248,6 +253,7 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Fluid
@@ -280,6 +286,7 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Forms
@@ -336,6 +343,7 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Ifta Label
@@ -374,6 +382,7 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Invalid
@@ -409,6 +418,7 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Lazy
@@ -488,6 +498,7 @@ const initiateNodes = () => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Multiple
@@ -520,6 +531,7 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Sizes
@@ -558,6 +570,7 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -616,138 +629,138 @@ onMounted(() => {
 });
 <\/script>
 ```
+
 </details>
 
 ## Tree Select
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | any | - | Value of the component. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| options | TreeNode[] | - | An array of treenodes. |
-| expandedKeys | any | - | A map of keys to represent the expansion state in controlled mode. |
-| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
-| clearIcon | string | - | Icon to display in clear button. |
-| scrollHeight | string | 20rem | Height of the viewport, a scrollbar is defined if height of list exceeds this value. |
-| selectionMode | HintedString<"single" \| "multiple" \| "checkbox"> | - | Defines the selection mode. |
-| fluid | boolean | null | Spans 100% width of the container when enabled. |
-| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. |
-| display | HintedString<"comma" \| "chip"> | comma | Defines how the selected items are displayed. |
-| selectedItemsLabel | string | null | Label to display after exceeding max selected labels. |
-| maxSelectedLabels | number | - | Decides how many selected item labels to show at most. |
-| metaKeySelection | boolean | false | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
-| loading | boolean | false | Whether to display loading indicator. |
-| loadingIcon | string | - | Icon to display when tree is loading. |
-| loadingMode | HintedString<"mask" \| "icon"> | mask | Loading mode display. |
-| filter | boolean | false | When specified, displays an input field to filter the items. |
-| filterBy | string \| Function | label | When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names. |
-| filterMode | HintedString<"lenient" \| "strict"> | lenient | Mode for filtering. |
-| filterPlaceholder | string | - | Placeholder text to show when filter input is empty. |
-| filterLocale | string | - | Locale to use in filtering. The default locale is the host environment's current locale. |
-| emptyMessage | string | No available options | Text to display when there are no options available. Defaults to value from PrimeVue locale configuration. |
-| placeholder | string | - | Label to display when there are no selections. |
-| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the component should be disabled. |
-| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
-| tabindex | string | - | Index of the element in tabbing order. |
-| inputId | string | - | Identifier of the underlying input element. |
-| inputClass | string \| object | - | Style class of the input field. |
-| inputStyle | object | - | Inline style of the input field. |
-| inputProps | InputHTMLAttributes | - | Used to pass all properties of the HTMLInputElement to the focusable input element inside the component. |
-| panelClass | any | - | Style class of the overlay panel. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| ariaLabel | string | - | Establishes a string value that labels the component. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<TreeSelectPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name               | Type                                               | Default              | Description                                                                                                                                                                                                                                                       |
+| ------------------ | -------------------------------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| modelValue         | any                                                | -                    | Value of the component.                                                                                                                                                                                                                                           |
+| defaultValue       | any                                                | -                    | The default value for the input when not controlled by `modelValue` .                                                                                                                                                                                             |
+| name               | string                                             | -                    | The name attribute for the element, typically used in form submissions.                                                                                                                                                                                           |
+| options            | TreeNode[]                                         | -                    | An array of treenodes.                                                                                                                                                                                                                                            |
+| expandedKeys       | any                                                | -                    | A map of keys to represent the expansion state in controlled mode.                                                                                                                                                                                                |
+| showClear          | boolean                                            | false                | When enabled, a clear icon is displayed to clear the value.                                                                                                                                                                                                       |
+| clearIcon          | string                                             | -                    | Icon to display in clear button.                                                                                                                                                                                                                                  |
+| scrollHeight       | string                                             | 20rem                | Height of the viewport, a scrollbar is defined if height of list exceeds this value.                                                                                                                                                                              |
+| selectionMode      | HintedString<"single" \| "multiple" \| "checkbox"> | -                    | Defines the selection mode.                                                                                                                                                                                                                                       |
+| fluid              | boolean                                            | null                 | Spans 100% width of the container when enabled.                                                                                                                                                                                                                   |
+| appendTo           | HTMLElement \| HintedString<"body" \| "self">      | body                 | A valid query selector or an HTMLElement to specify where the overlay gets attached.                                                                                                                                                                              |
+| display            | HintedString<"comma" \| "chip">                    | comma                | Defines how the selected items are displayed.                                                                                                                                                                                                                     |
+| selectedItemsLabel | string                                             | null                 | Label to display after exceeding max selected labels.                                                                                                                                                                                                             |
+| maxSelectedLabels  | number                                             | -                    | Decides how many selected item labels to show at most.                                                                                                                                                                                                            |
+| metaKeySelection   | boolean                                            | false                | Defines how multiple items can be selected, when true metaKey needs to be pressed to select or unselect an item and when set to false selection of each item can be toggled individually. On touch enabled devices, metaKeySelection is turned off automatically. |
+| loading            | boolean                                            | false                | Whether to display loading indicator.                                                                                                                                                                                                                             |
+| loadingIcon        | string                                             | -                    | Icon to display when tree is loading.                                                                                                                                                                                                                             |
+| loadingMode        | HintedString<"mask" \| "icon">                     | mask                 | Loading mode display.                                                                                                                                                                                                                                             |
+| filter             | boolean                                            | false                | When specified, displays an input field to filter the items.                                                                                                                                                                                                      |
+| filterBy           | string \| Function                                 | label                | When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names.                                                                             |
+| filterMode         | HintedString<"lenient" \| "strict">                | lenient              | Mode for filtering.                                                                                                                                                                                                                                               |
+| filterPlaceholder  | string                                             | -                    | Placeholder text to show when filter input is empty.                                                                                                                                                                                                              |
+| filterLocale       | string                                             | -                    | Locale to use in filtering. The default locale is the host environment's current locale.                                                                                                                                                                          |
+| emptyMessage       | string                                             | No available options | Text to display when there are no options available. Defaults to value from PrimeVue locale configuration.                                                                                                                                                        |
+| placeholder        | string                                             | -                    | Label to display when there are no selections.                                                                                                                                                                                                                    |
+| size               | HintedString<"small" \| "large">                   | -                    | Defines the size of the component.                                                                                                                                                                                                                                |
+| invalid            | boolean                                            | false                | When present, it specifies that the component should have invalid state style.                                                                                                                                                                                    |
+| disabled           | boolean                                            | false                | When present, it specifies that the component should be disabled.                                                                                                                                                                                                 |
+| variant            | null \| HintedString<"outlined" \| "filled">       | null                 | Specifies the input variant of the component.                                                                                                                                                                                                                     |
+| tabindex           | string                                             | -                    | Index of the element in tabbing order.                                                                                                                                                                                                                            |
+| inputId            | string                                             | -                    | Identifier of the underlying input element.                                                                                                                                                                                                                       |
+| inputClass         | string \| object                                   | -                    | Style class of the input field.                                                                                                                                                                                                                                   |
+| inputStyle         | object                                             | -                    | Inline style of the input field.                                                                                                                                                                                                                                  |
+| inputProps         | InputHTMLAttributes                                | -                    | Used to pass all properties of the HTMLInputElement to the focusable input element inside the component.                                                                                                                                                          |
+| panelClass         | any                                                | -                    | Style class of the overlay panel.                                                                                                                                                                                                                                 |
+| ariaLabelledby     | string                                             | -                    | Establishes relationships between the component and label(s) where its value should be one or more element IDs.                                                                                                                                                   |
+| ariaLabel          | string                                             | -                    | Establishes a string value that labels the component.                                                                                                                                                                                                             |
+| formControl        | Record<string, any>                                | -                    | Form control object, typically used for handling validation and form state.                                                                                                                                                                                       |
+| dt                 | any                                                | -                    | It generates scoped CSS variables using design tokens for the component.                                                                                                                                                                                          |
+| pt                 | PassThrough<TreeSelectPassThroughOptions>          | -                    | Used to pass attributes to DOM elements inside the component.                                                                                                                                                                                                     |
+| ptOptions          | any                                                | -                    | Used to configure passthrough(pt) options of the component.                                                                                                                                                                                                       |
+| unstyled           | boolean                                            | false                | When enabled, it removes component related styles in the core.                                                                                                                                                                                                    |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | TreeSelectPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| labelContainer | TreeSelectPassThroughOptionType | Used to pass attributes to the label container's DOM element. |
-| label | TreeSelectPassThroughOptionType | Used to pass attributes to the label's DOM element. |
-| clearIcon | TreeSelectPassThroughOptionType | Used to pass attributes to the clear icon's DOM element. |
-| chipItem | TreeSelectPassThroughOptionType | Used to pass attributes to the chip's DOM element. |
-| pcChip | any | Used to pass attributes to the Chip. |
-| dropdown | TreeSelectPassThroughOptionType | Used to pass attributes to the dropdown's DOM element. |
-| dropdownIcon | TreeSelectPassThroughOptionType | Used to pass attributes to the dropdown icon's DOM element. |
-| panel | TreeSelectPassThroughOptionType | Used to pass attributes to the panel's DOM element. |
-| treeContainer | TreeSelectPassThroughOptionType | Used to pass attributes to the tree container's DOM element. |
-| pcTree | any | Used to pass attributes to Tree component. |
-| emptyMessage | TreeSelectPassThroughOptionType | Used to pass attributes to the empty message's DOM element. |
-| hiddenInputContainer | TreeSelectPassThroughOptionType | Used to pass attributes to the hidden input container's DOM element. |
-| hiddenInput | TreeSelectPassThroughOptionType | Used to pass attributes to the hidden input's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
-| transition | TreeSelectPassThroughTransitionType | Used to control Vue Transition API. |
+| Name                 | Type                                | Description                                                          |
+| -------------------- | ----------------------------------- | -------------------------------------------------------------------- |
+| root                 | TreeSelectPassThroughOptionType     | Used to pass attributes to the root's DOM element.                   |
+| labelContainer       | TreeSelectPassThroughOptionType     | Used to pass attributes to the label container's DOM element.        |
+| label                | TreeSelectPassThroughOptionType     | Used to pass attributes to the label's DOM element.                  |
+| clearIcon            | TreeSelectPassThroughOptionType     | Used to pass attributes to the clear icon's DOM element.             |
+| chipItem             | TreeSelectPassThroughOptionType     | Used to pass attributes to the chip's DOM element.                   |
+| pcChip               | any                                 | Used to pass attributes to the Chip.                                 |
+| dropdown             | TreeSelectPassThroughOptionType     | Used to pass attributes to the dropdown's DOM element.               |
+| dropdownIcon         | TreeSelectPassThroughOptionType     | Used to pass attributes to the dropdown icon's DOM element.          |
+| panel                | TreeSelectPassThroughOptionType     | Used to pass attributes to the panel's DOM element.                  |
+| treeContainer        | TreeSelectPassThroughOptionType     | Used to pass attributes to the tree container's DOM element.         |
+| pcTree               | any                                 | Used to pass attributes to Tree component.                           |
+| emptyMessage         | TreeSelectPassThroughOptionType     | Used to pass attributes to the empty message's DOM element.          |
+| hiddenInputContainer | TreeSelectPassThroughOptionType     | Used to pass attributes to the hidden input container's DOM element. |
+| hiddenInput          | TreeSelectPassThroughOptionType     | Used to pass attributes to the hidden input's DOM element.           |
+| hooks                | any                                 | Used to manage all lifecycle hooks.                                  |
+| transition           | TreeSelectPassThroughTransitionType | Used to control Vue Transition API.                                  |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-treeselect | Class name of the root element |
+| Class                        | Description                               |
+| ---------------------------- | ----------------------------------------- |
+| p-treeselect                 | Class name of the root element            |
 | p-treeselect-label-container | Class name of the label container element |
-| p-treeselect-label | Class name of the label element |
-| p-select-clear-icon | Class name of the clear icon element |
-| p-treeselect-chip-item | Class name of the chip item element |
-| p-treeselect-chip | Class name of the chip element |
-| p-treeselect-dropdown | Class name of the dropdown element |
-| p-treeselect-dropdown-icon | Class name of the dropdown icon element |
-| p-treeselect-overlay | Class name of the panel element |
-| p-treeselect-tree-container | Class name of the tree container element |
-| p-treeselect-empty-message | Class name of the empty message element |
+| p-treeselect-label           | Class name of the label element           |
+| p-select-clear-icon          | Class name of the clear icon element      |
+| p-treeselect-chip-item       | Class name of the chip item element       |
+| p-treeselect-chip            | Class name of the chip element            |
+| p-treeselect-dropdown        | Class name of the dropdown element        |
+| p-treeselect-dropdown-icon   | Class name of the dropdown icon element   |
+| p-treeselect-overlay         | Class name of the panel element           |
+| p-treeselect-tree-container  | Class name of the tree container element  |
+| p-treeselect-empty-message   | Class name of the empty message element   |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| treeselect.background | --p-treeselect-background | Background of root |
-| treeselect.disabled.background | --p-treeselect-disabled-background | Disabled background of root |
-| treeselect.filled.background | --p-treeselect-filled-background | Filled background of root |
-| treeselect.filled.hover.background | --p-treeselect-filled-hover-background | Filled hover background of root |
-| treeselect.filled.focus.background | --p-treeselect-filled-focus-background | Filled focus background of root |
-| treeselect.border.color | --p-treeselect-border-color | Border color of root |
-| treeselect.hover.border.color | --p-treeselect-hover-border-color | Hover border color of root |
-| treeselect.focus.border.color | --p-treeselect-focus-border-color | Focus border color of root |
-| treeselect.invalid.border.color | --p-treeselect-invalid-border-color | Invalid border color of root |
-| treeselect.color | --p-treeselect-color | Color of root |
-| treeselect.disabled.color | --p-treeselect-disabled-color | Disabled color of root |
-| treeselect.placeholder.color | --p-treeselect-placeholder-color | Placeholder color of root |
+| Token                                | CSS Variable                             | Description                       |
+| ------------------------------------ | ---------------------------------------- | --------------------------------- |
+| treeselect.background                | --p-treeselect-background                | Background of root                |
+| treeselect.disabled.background       | --p-treeselect-disabled-background       | Disabled background of root       |
+| treeselect.filled.background         | --p-treeselect-filled-background         | Filled background of root         |
+| treeselect.filled.hover.background   | --p-treeselect-filled-hover-background   | Filled hover background of root   |
+| treeselect.filled.focus.background   | --p-treeselect-filled-focus-background   | Filled focus background of root   |
+| treeselect.border.color              | --p-treeselect-border-color              | Border color of root              |
+| treeselect.hover.border.color        | --p-treeselect-hover-border-color        | Hover border color of root        |
+| treeselect.focus.border.color        | --p-treeselect-focus-border-color        | Focus border color of root        |
+| treeselect.invalid.border.color      | --p-treeselect-invalid-border-color      | Invalid border color of root      |
+| treeselect.color                     | --p-treeselect-color                     | Color of root                     |
+| treeselect.disabled.color            | --p-treeselect-disabled-color            | Disabled color of root            |
+| treeselect.placeholder.color         | --p-treeselect-placeholder-color         | Placeholder color of root         |
 | treeselect.invalid.placeholder.color | --p-treeselect-invalid-placeholder-color | Invalid placeholder color of root |
-| treeselect.shadow | --p-treeselect-shadow | Shadow of root |
-| treeselect.padding.x | --p-treeselect-padding-x | Padding x of root |
-| treeselect.padding.y | --p-treeselect-padding-y | Padding y of root |
-| treeselect.border.radius | --p-treeselect-border-radius | Border radius of root |
-| treeselect.focus.ring.width | --p-treeselect-focus-ring-width | Focus ring width of root |
-| treeselect.focus.ring.style | --p-treeselect-focus-ring-style | Focus ring style of root |
-| treeselect.focus.ring.color | --p-treeselect-focus-ring-color | Focus ring color of root |
-| treeselect.focus.ring.offset | --p-treeselect-focus-ring-offset | Focus ring offset of root |
-| treeselect.focus.ring.shadow | --p-treeselect-focus-ring-shadow | Focus ring shadow of root |
-| treeselect.transition.duration | --p-treeselect-transition-duration | Transition duration of root |
-| treeselect.sm.font.size | --p-treeselect-sm-font-size | Sm font size of root |
-| treeselect.sm.padding.x | --p-treeselect-sm-padding-x | Sm padding x of root |
-| treeselect.sm.padding.y | --p-treeselect-sm-padding-y | Sm padding y of root |
-| treeselect.lg.font.size | --p-treeselect-lg-font-size | Lg font size of root |
-| treeselect.lg.padding.x | --p-treeselect-lg-padding-x | Lg padding x of root |
-| treeselect.lg.padding.y | --p-treeselect-lg-padding-y | Lg padding y of root |
-| treeselect.dropdown.width | --p-treeselect-dropdown-width | Width of dropdown |
-| treeselect.dropdown.color | --p-treeselect-dropdown-color | Color of dropdown |
-| treeselect.overlay.background | --p-treeselect-overlay-background | Background of overlay |
-| treeselect.overlay.border.color | --p-treeselect-overlay-border-color | Border color of overlay |
-| treeselect.overlay.border.radius | --p-treeselect-overlay-border-radius | Border radius of overlay |
-| treeselect.overlay.color | --p-treeselect-overlay-color | Color of overlay |
-| treeselect.overlay.shadow | --p-treeselect-overlay-shadow | Shadow of overlay |
-| treeselect.tree.padding | --p-treeselect-tree-padding | Padding of tree |
-| treeselect.clear.icon.color | --p-treeselect-clear-icon-color | Color of clear icon |
-| treeselect.empty.message.padding | --p-treeselect-empty-message-padding | Padding of empty message |
-| treeselect.chip.border.radius | --p-treeselect-chip-border-radius | Border radius of chip |
-
+| treeselect.shadow                    | --p-treeselect-shadow                    | Shadow of root                    |
+| treeselect.padding.x                 | --p-treeselect-padding-x                 | Padding x of root                 |
+| treeselect.padding.y                 | --p-treeselect-padding-y                 | Padding y of root                 |
+| treeselect.border.radius             | --p-treeselect-border-radius             | Border radius of root             |
+| treeselect.focus.ring.width          | --p-treeselect-focus-ring-width          | Focus ring width of root          |
+| treeselect.focus.ring.style          | --p-treeselect-focus-ring-style          | Focus ring style of root          |
+| treeselect.focus.ring.color          | --p-treeselect-focus-ring-color          | Focus ring color of root          |
+| treeselect.focus.ring.offset         | --p-treeselect-focus-ring-offset         | Focus ring offset of root         |
+| treeselect.focus.ring.shadow         | --p-treeselect-focus-ring-shadow         | Focus ring shadow of root         |
+| treeselect.transition.duration       | --p-treeselect-transition-duration       | Transition duration of root       |
+| treeselect.sm.font.size              | --p-treeselect-sm-font-size              | Sm font size of root              |
+| treeselect.sm.padding.x              | --p-treeselect-sm-padding-x              | Sm padding x of root              |
+| treeselect.sm.padding.y              | --p-treeselect-sm-padding-y              | Sm padding y of root              |
+| treeselect.lg.font.size              | --p-treeselect-lg-font-size              | Lg font size of root              |
+| treeselect.lg.padding.x              | --p-treeselect-lg-padding-x              | Lg padding x of root              |
+| treeselect.lg.padding.y              | --p-treeselect-lg-padding-y              | Lg padding y of root              |
+| treeselect.dropdown.width            | --p-treeselect-dropdown-width            | Width of dropdown                 |
+| treeselect.dropdown.color            | --p-treeselect-dropdown-color            | Color of dropdown                 |
+| treeselect.overlay.background        | --p-treeselect-overlay-background        | Background of overlay             |
+| treeselect.overlay.border.color      | --p-treeselect-overlay-border-color      | Border color of overlay           |
+| treeselect.overlay.border.radius     | --p-treeselect-overlay-border-radius     | Border radius of overlay          |
+| treeselect.overlay.color             | --p-treeselect-overlay-color             | Color of overlay                  |
+| treeselect.overlay.shadow            | --p-treeselect-overlay-shadow            | Shadow of overlay                 |
+| treeselect.tree.padding              | --p-treeselect-tree-padding              | Padding of tree                   |
+| treeselect.clear.icon.color          | --p-treeselect-clear-icon-color          | Color of clear icon               |
+| treeselect.empty.message.padding     | --p-treeselect-empty-message-padding     | Padding of empty message          |
+| treeselect.chip.border.radius        | --p-treeselect-chip-border-radius        | Border radius of chip             |

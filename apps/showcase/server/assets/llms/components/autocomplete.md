@@ -59,6 +59,7 @@ const search = (event) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Disabled
@@ -83,6 +84,7 @@ When disabled is present, the element cannot be edited and focused.
 
 <\/script>
 ```
+
 </details>
 
 ## Dropdown
@@ -116,6 +118,7 @@ const search = (event) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Filled
@@ -147,6 +150,7 @@ const search = (event) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Float Label
@@ -206,6 +210,7 @@ const search = (event) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Fluid
@@ -237,6 +242,7 @@ const search = (event) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Force Selection
@@ -283,6 +289,7 @@ const search = (event) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Forms
@@ -364,6 +371,7 @@ const onFormSubmit = ({ valid }) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Group
@@ -453,6 +461,7 @@ const search = (event) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Ifta Label
@@ -490,6 +499,7 @@ const search = (event) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Invalid
@@ -524,6 +534,7 @@ const search = (event) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Multiple
@@ -564,6 +575,7 @@ const search = (event) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Objects
@@ -610,6 +622,7 @@ const search = (event) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Sizes
@@ -647,6 +660,7 @@ const search = () => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -723,6 +737,7 @@ const search = (event) => {
 }
 <\/script>
 ```
+
 </details>
 
 ## Virtual Scroll
@@ -730,8 +745,7 @@ const search = (event) => {
 Virtual Scrolling is a performant way to render large lists. Configuration of the scroll behavior is defined with virtualScrollerOptions that requires itemSize as the mandatory value to set the height of an item. Visit VirtualScroller documentation for more information about the configuration API.
 
 ```vue
-<AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems"
-    :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
+<AutoComplete v-model="selectedItem" :suggestions="filteredItems" @complete="searchItems" :virtualScrollerOptions="{ itemSize: 38 }" optionLabel="label" dropdown />
 ```
 
 <details>
@@ -767,191 +781,191 @@ const searchItems = (event) => {
 };
 <\/script>
 ```
+
 </details>
 
 ## Auto Complete
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| modelValue | any | - | Value of the component. |
-| defaultValue | any | - | The default value for the input when not controlled by  `modelValue` . |
-| name | string | - | The name attribute for the element, typically used in form submissions. |
-| suggestions | any[] | - | An array of suggestions to display. |
-| optionLabel | string \| Function | - | Property name or getter function to use as the label of an option. |
-| optionDisabled | string \| Function | - | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined. |
-| optionGroupLabel | string \| Function | - | Property name or getter function to use as the label of an option group. |
-| optionGroupChildren | string \| Function | - | Property name or getter function that refers to the children options of option group. |
-| typeahead | boolean | true | whether typeahead is active or not. |
-| scrollHeight | string | 14rem | Maximum height of the suggestions overlay. |
-| dropdown | boolean | false | Displays a button next to the input field when enabled. |
-| dropdownMode | HintedString<"blank" \| "current"> | blank | Specifies the behavior dropdown button. Default 'blank' mode sends an empty string and 'current' mode sends the input value. |
-| multiple | boolean | false | Specifies if multiple values can be selected. |
-| showClear | boolean | false | When enabled, a clear icon is displayed to clear the value. |
-| placeholder | string | - | Default text to display when no option is selected. |
-| loading | boolean | false | Whether the autocomplete is in loading state. |
-| size | HintedString<"small" \| "large"> | - | Defines the size of the component. |
-| invalid | boolean | false | When present, it specifies that the component should have invalid state style. |
-| disabled | boolean | false | When present, it specifies that the component should be disabled. |
-| variant | null \| HintedString<"outlined" \| "filled"> | null | Specifies the input variant of the component. |
-| dataKey | string | - | A property to uniquely identify an option. |
-| minLength | number | 1 | Minimum number of characters to initiate a search. |
-| delay | number | 300 | Delay between keystrokes to wait before sending a query. |
-| appendTo | HTMLElement \| HintedString<"body" \| "self"> | body | A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself. |
-| forceSelection | boolean | false | When present, autocomplete clears the manual input if it does not match of the suggestions to force only accepting values from the suggestions. |
-| completeOnFocus | boolean | false | Whether to run a query when input receives focus. |
-| inputId | string | - | Identifier of the underlying input element. |
-| inputStyle | object | - | Inline style of the input field. |
-| inputClass | string \| object | - | Style class of the input field. |
-| panelStyle | object | - | Inline style of the overlay. |
-| panelClass | string \| object | - | Style class of the overlay. |
-| overlayStyle | object | - | Inline style of the overlay overlay. |
-| overlayClass | string \| object | - | Style class of the overlay overlay. |
-| dropdownIcon | string | - | Icon to display in the dropdown. |
-| dropdownClass | string \| object | - | Style class of the dropdown button. |
-| loadingIcon | string | - | Icon to display in loading state. |
-| loader | string | - | Icon to display in loading state. |
-| removeTokenIcon | string | - | Icon to display in chip remove action. |
-| chipIcon | string | - | Icon to display in chip remove action. |
-| virtualScrollerOptions | any | - | Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it. |
-| autoOptionFocus | boolean | false | Whether to focus on the first visible or selected element when the overlay is shown. |
-| selectOnFocus | boolean | false | When enabled, the focused option is selected. |
-| focusOnHover | boolean | true | When enabled, the focus is placed on the hovered option. |
-| searchLocale | string | - | Locale to use in searching. The default locale is the host environment's current locale. |
-| searchMessage | string | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration. |
-| selectionMessage | string | '{0} items selected' | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration. |
-| emptySelectionMessage | string | No selected item | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration. |
-| emptySearchMessage | string | No results found | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration. |
-| showEmptyMessage | boolean | true | When enabled, empty search message will be visible. |
-| tabindex | string \| number | - | Index of the element in tabbing order. |
-| fluid | boolean | null | Spans 100% width of the container when enabled. |
-| ariaLabel | string | - | Defines a string value that labels an interactive element. |
-| ariaLabelledby | string | - | Identifier of the underlying input element. |
-| formControl | Record<string, any> | - | Form control object, typically used for handling validation and form state. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<AutoCompletePassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name                   | Type                                          | Default                     | Description                                                                                                                                                           |
+| ---------------------- | --------------------------------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| modelValue             | any                                           | -                           | Value of the component.                                                                                                                                               |
+| defaultValue           | any                                           | -                           | The default value for the input when not controlled by `modelValue` .                                                                                                 |
+| name                   | string                                        | -                           | The name attribute for the element, typically used in form submissions.                                                                                               |
+| suggestions            | any[]                                         | -                           | An array of suggestions to display.                                                                                                                                   |
+| optionLabel            | string \| Function                            | -                           | Property name or getter function to use as the label of an option.                                                                                                    |
+| optionDisabled         | string \| Function                            | -                           | Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.                                                        |
+| optionGroupLabel       | string \| Function                            | -                           | Property name or getter function to use as the label of an option group.                                                                                              |
+| optionGroupChildren    | string \| Function                            | -                           | Property name or getter function that refers to the children options of option group.                                                                                 |
+| typeahead              | boolean                                       | true                        | whether typeahead is active or not.                                                                                                                                   |
+| scrollHeight           | string                                        | 14rem                       | Maximum height of the suggestions overlay.                                                                                                                            |
+| dropdown               | boolean                                       | false                       | Displays a button next to the input field when enabled.                                                                                                               |
+| dropdownMode           | HintedString<"blank" \| "current">            | blank                       | Specifies the behavior dropdown button. Default 'blank' mode sends an empty string and 'current' mode sends the input value.                                          |
+| multiple               | boolean                                       | false                       | Specifies if multiple values can be selected.                                                                                                                         |
+| showClear              | boolean                                       | false                       | When enabled, a clear icon is displayed to clear the value.                                                                                                           |
+| placeholder            | string                                        | -                           | Default text to display when no option is selected.                                                                                                                   |
+| loading                | boolean                                       | false                       | Whether the autocomplete is in loading state.                                                                                                                         |
+| size                   | HintedString<"small" \| "large">              | -                           | Defines the size of the component.                                                                                                                                    |
+| invalid                | boolean                                       | false                       | When present, it specifies that the component should have invalid state style.                                                                                        |
+| disabled               | boolean                                       | false                       | When present, it specifies that the component should be disabled.                                                                                                     |
+| variant                | null \| HintedString<"outlined" \| "filled">  | null                        | Specifies the input variant of the component.                                                                                                                         |
+| dataKey                | string                                        | -                           | A property to uniquely identify an option.                                                                                                                            |
+| minLength              | number                                        | 1                           | Minimum number of characters to initiate a search.                                                                                                                    |
+| delay                  | number                                        | 300                         | Delay between keystrokes to wait before sending a query.                                                                                                              |
+| appendTo               | HTMLElement \| HintedString<"body" \| "self"> | body                        | A valid query selector or an HTMLElement to specify where the overlay gets attached. Special keywords are 'body' for document body and 'self' for the element itself. |
+| forceSelection         | boolean                                       | false                       | When present, autocomplete clears the manual input if it does not match of the suggestions to force only accepting values from the suggestions.                       |
+| completeOnFocus        | boolean                                       | false                       | Whether to run a query when input receives focus.                                                                                                                     |
+| inputId                | string                                        | -                           | Identifier of the underlying input element.                                                                                                                           |
+| inputStyle             | object                                        | -                           | Inline style of the input field.                                                                                                                                      |
+| inputClass             | string \| object                              | -                           | Style class of the input field.                                                                                                                                       |
+| panelStyle             | object                                        | -                           | Inline style of the overlay.                                                                                                                                          |
+| panelClass             | string \| object                              | -                           | Style class of the overlay.                                                                                                                                           |
+| overlayStyle           | object                                        | -                           | Inline style of the overlay overlay.                                                                                                                                  |
+| overlayClass           | string \| object                              | -                           | Style class of the overlay overlay.                                                                                                                                   |
+| dropdownIcon           | string                                        | -                           | Icon to display in the dropdown.                                                                                                                                      |
+| dropdownClass          | string \| object                              | -                           | Style class of the dropdown button.                                                                                                                                   |
+| loadingIcon            | string                                        | -                           | Icon to display in loading state.                                                                                                                                     |
+| loader                 | string                                        | -                           | Icon to display in loading state.                                                                                                                                     |
+| removeTokenIcon        | string                                        | -                           | Icon to display in chip remove action.                                                                                                                                |
+| chipIcon               | string                                        | -                           | Icon to display in chip remove action.                                                                                                                                |
+| virtualScrollerOptions | any                                           | -                           | Whether to use the virtualScroller feature. The properties of VirtualScroller component can be used like an object in it.                                             |
+| autoOptionFocus        | boolean                                       | false                       | Whether to focus on the first visible or selected element when the overlay is shown.                                                                                  |
+| selectOnFocus          | boolean                                       | false                       | When enabled, the focused option is selected.                                                                                                                         |
+| focusOnHover           | boolean                                       | true                        | When enabled, the focus is placed on the hovered option.                                                                                                              |
+| searchLocale           | string                                        | -                           | Locale to use in searching. The default locale is the host environment's current locale.                                                                              |
+| searchMessage          | string                                        | '{0} results are available' | Text to be displayed in hidden accessible field when filtering returns any results. Defaults to value from PrimeVue locale configuration.                             |
+| selectionMessage       | string                                        | '{0} items selected'        | Text to be displayed in hidden accessible field when options are selected. Defaults to value from PrimeVue locale configuration.                                      |
+| emptySelectionMessage  | string                                        | No selected item            | Text to be displayed in hidden accessible field when any option is not selected. Defaults to value from PrimeVue locale configuration.                                |
+| emptySearchMessage     | string                                        | No results found            | Text to display when filtering does not return any results. Defaults to value from PrimeVue locale configuration.                                                     |
+| showEmptyMessage       | boolean                                       | true                        | When enabled, empty search message will be visible.                                                                                                                   |
+| tabindex               | string \| number                              | -                           | Index of the element in tabbing order.                                                                                                                                |
+| fluid                  | boolean                                       | null                        | Spans 100% width of the container when enabled.                                                                                                                       |
+| ariaLabel              | string                                        | -                           | Defines a string value that labels an interactive element.                                                                                                            |
+| ariaLabelledby         | string                                        | -                           | Identifier of the underlying input element.                                                                                                                           |
+| formControl            | Record<string, any>                           | -                           | Form control object, typically used for handling validation and form state.                                                                                           |
+| dt                     | any                                           | -                           | It generates scoped CSS variables using design tokens for the component.                                                                                              |
+| pt                     | PassThrough<AutoCompletePassThroughOptions>   | -                           | Used to pass attributes to DOM elements inside the component.                                                                                                         |
+| ptOptions              | any                                           | -                           | Used to configure passthrough(pt) options of the component.                                                                                                           |
+| unstyled               | boolean                                       | false                       | When enabled, it removes component related styles in the core.                                                                                                        |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | AutoCompletePassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| pcInputText | any | Used to pass attributes to the InputText component. |
-| inputMultiple | AutoCompletePassThroughOptionType | Used to pass attributes to the input multiple's DOM element. |
-| chipItem | AutoCompletePassThroughOptionType | Used to pass attributes to the chip's DOM element. |
-| pcChip | any | Used to pass attributes to the Chip. |
-| chipIcon | AutoCompletePassThroughOptionType | Used to pass attributes to the chip icon's DOM element. |
-| input | AutoCompletePassThroughOptionType | Used to pass attributes to the input chip's DOM element. |
-| inputChip | AutoCompletePassThroughOptionType | Used to pass attributes to the input chip's DOM element. |
-| loader | AutoCompletePassThroughOptionType | Used to pass attributes to the loader's DOM element. |
-| clearIcon | AutoCompletePassThroughOptionType | Used to pass attributes to the clear icon's DOM element. |
-| dropdown | AutoCompletePassThroughOptionType | Used to pass attributes to the dropdown's DOM element. |
-| dropdownIcon | AutoCompletePassThroughOptionType | Used to pass attributes to the dropdown icon's DOM element. |
-| overlay | AutoCompletePassThroughOptionType | Used to pass attributes to the overlay's DOM element. |
-| virtualScroller | any | Used to pass attributes to the VirtualScroller component. |
-| listContainer | AutoCompletePassThroughOptionType | Used to pass attributes to the list container's DOM element. |
-| list | AutoCompletePassThroughOptionType | Used to pass attributes to the list's DOM element. |
-| optionGroup | AutoCompletePassThroughOptionType | Used to pass attributes to the option group's DOM element. |
-| option | AutoCompletePassThroughOptionType | Used to pass attributes to the option's DOM element. |
-| emptyMessage | AutoCompletePassThroughOptionType | Used to pass attributes to the empty message's DOM element. |
-| searchResultMessage | AutoCompletePassThroughOptionType | Used to pass attributes to the search result message's DOM element. |
-| selectedMessage | AutoCompletePassThroughOptionType | Used to pass attributes to the selected message's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
-| transition | AutoCompletePassThroughTransitionType | Used to control Vue Transition API. |
+| Name                | Type                                  | Description                                                         |
+| ------------------- | ------------------------------------- | ------------------------------------------------------------------- |
+| root                | AutoCompletePassThroughOptionType     | Used to pass attributes to the root's DOM element.                  |
+| pcInputText         | any                                   | Used to pass attributes to the InputText component.                 |
+| inputMultiple       | AutoCompletePassThroughOptionType     | Used to pass attributes to the input multiple's DOM element.        |
+| chipItem            | AutoCompletePassThroughOptionType     | Used to pass attributes to the chip's DOM element.                  |
+| pcChip              | any                                   | Used to pass attributes to the Chip.                                |
+| chipIcon            | AutoCompletePassThroughOptionType     | Used to pass attributes to the chip icon's DOM element.             |
+| input               | AutoCompletePassThroughOptionType     | Used to pass attributes to the input chip's DOM element.            |
+| inputChip           | AutoCompletePassThroughOptionType     | Used to pass attributes to the input chip's DOM element.            |
+| loader              | AutoCompletePassThroughOptionType     | Used to pass attributes to the loader's DOM element.                |
+| clearIcon           | AutoCompletePassThroughOptionType     | Used to pass attributes to the clear icon's DOM element.            |
+| dropdown            | AutoCompletePassThroughOptionType     | Used to pass attributes to the dropdown's DOM element.              |
+| dropdownIcon        | AutoCompletePassThroughOptionType     | Used to pass attributes to the dropdown icon's DOM element.         |
+| overlay             | AutoCompletePassThroughOptionType     | Used to pass attributes to the overlay's DOM element.               |
+| virtualScroller     | any                                   | Used to pass attributes to the VirtualScroller component.           |
+| listContainer       | AutoCompletePassThroughOptionType     | Used to pass attributes to the list container's DOM element.        |
+| list                | AutoCompletePassThroughOptionType     | Used to pass attributes to the list's DOM element.                  |
+| optionGroup         | AutoCompletePassThroughOptionType     | Used to pass attributes to the option group's DOM element.          |
+| option              | AutoCompletePassThroughOptionType     | Used to pass attributes to the option's DOM element.                |
+| emptyMessage        | AutoCompletePassThroughOptionType     | Used to pass attributes to the empty message's DOM element.         |
+| searchResultMessage | AutoCompletePassThroughOptionType     | Used to pass attributes to the search result message's DOM element. |
+| selectedMessage     | AutoCompletePassThroughOptionType     | Used to pass attributes to the selected message's DOM element.      |
+| hooks               | any                                   | Used to manage all lifecycle hooks.                                 |
+| transition          | AutoCompletePassThroughTransitionType | Used to control Vue Transition API.                                 |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-autocomplete | Class name of the root element |
-| p-autocomplete-input | Class name of the input element |
+| Class                         | Description                              |
+| ----------------------------- | ---------------------------------------- |
+| p-autocomplete                | Class name of the root element           |
+| p-autocomplete-input          | Class name of the input element          |
 | p-autocomplete-input-multiple | Class name of the input multiple element |
-| p-autocomplete-clear-icon | Class name of the clear icon element |
-| p-autocomplete-chip-item | Class name of the chip item element |
-| p-autocomplete-chip | Class name of the chip element |
-| p-autocomplete-chip-icon | Class name of the chip icon element |
-| p-autocomplete-input-chip | Class name of the input chip element |
-| p-autocomplete-loader | Class name of the loader element |
-| p-autocomplete-dropdown | Class name of the dropdown element |
-| p-autocomplete-overlay | Class name of the panel element |
-| p-autocomplete-list | Class name of the list element |
+| p-autocomplete-clear-icon     | Class name of the clear icon element     |
+| p-autocomplete-chip-item      | Class name of the chip item element      |
+| p-autocomplete-chip           | Class name of the chip element           |
+| p-autocomplete-chip-icon      | Class name of the chip icon element      |
+| p-autocomplete-input-chip     | Class name of the input chip element     |
+| p-autocomplete-loader         | Class name of the loader element         |
+| p-autocomplete-dropdown       | Class name of the dropdown element       |
+| p-autocomplete-overlay        | Class name of the panel element          |
+| p-autocomplete-list           | Class name of the list element           |
 | p-autocomplete-list-container | Class name of the list container element |
-| p-autocomplete-option-group | Class name of the option group element |
-| p-autocomplete-option | Class name of the option element |
-| p-autocomplete-empty-message | Class name of the empty message element |
+| p-autocomplete-option-group   | Class name of the option group element   |
+| p-autocomplete-option         | Class name of the option element         |
+| p-autocomplete-empty-message  | Class name of the empty message element  |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| autocomplete.background | --p-autocomplete-background | Background of root |
-| autocomplete.disabled.background | --p-autocomplete-disabled-background | Disabled background of root |
-| autocomplete.filled.background | --p-autocomplete-filled-background | Filled background of root |
-| autocomplete.filled.hover.background | --p-autocomplete-filled-hover-background | Filled hover background of root |
-| autocomplete.filled.focus.background | --p-autocomplete-filled-focus-background | Filled focus background of root |
-| autocomplete.border.color | --p-autocomplete-border-color | Border color of root |
-| autocomplete.hover.border.color | --p-autocomplete-hover-border-color | Hover border color of root |
-| autocomplete.focus.border.color | --p-autocomplete-focus-border-color | Focus border color of root |
-| autocomplete.invalid.border.color | --p-autocomplete-invalid-border-color | Invalid border color of root |
-| autocomplete.color | --p-autocomplete-color | Color of root |
-| autocomplete.disabled.color | --p-autocomplete-disabled-color | Disabled color of root |
-| autocomplete.placeholder.color | --p-autocomplete-placeholder-color | Placeholder color of root |
-| autocomplete.invalid.placeholder.color | --p-autocomplete-invalid-placeholder-color | Invalid placeholder color of root |
-| autocomplete.shadow | --p-autocomplete-shadow | Shadow of root |
-| autocomplete.padding.x | --p-autocomplete-padding-x | Padding x of root |
-| autocomplete.padding.y | --p-autocomplete-padding-y | Padding y of root |
-| autocomplete.border.radius | --p-autocomplete-border-radius | Border radius of root |
-| autocomplete.focus.ring.width | --p-autocomplete-focus-ring-width | Focus ring width of root |
-| autocomplete.focus.ring.style | --p-autocomplete-focus-ring-style | Focus ring style of root |
-| autocomplete.focus.ring.color | --p-autocomplete-focus-ring-color | Focus ring color of root |
-| autocomplete.focus.ring.offset | --p-autocomplete-focus-ring-offset | Focus ring offset of root |
-| autocomplete.focus.ring.shadow | --p-autocomplete-focus-ring-shadow | Focus ring shadow of root |
-| autocomplete.transition.duration | --p-autocomplete-transition-duration | Transition duration of root |
-| autocomplete.overlay.background | --p-autocomplete-overlay-background | Background of overlay |
-| autocomplete.overlay.border.color | --p-autocomplete-overlay-border-color | Border color of overlay |
-| autocomplete.overlay.border.radius | --p-autocomplete-overlay-border-radius | Border radius of overlay |
-| autocomplete.overlay.color | --p-autocomplete-overlay-color | Color of overlay |
-| autocomplete.overlay.shadow | --p-autocomplete-overlay-shadow | Shadow of overlay |
-| autocomplete.list.padding | --p-autocomplete-list-padding | Padding of list |
-| autocomplete.list.gap | --p-autocomplete-list-gap | Gap of list |
-| autocomplete.option.focus.background | --p-autocomplete-option-focus-background | Focus background of option |
-| autocomplete.option.selected.background | --p-autocomplete-option-selected-background | Selected background of option |
+| Token                                         | CSS Variable                                      | Description                         |
+| --------------------------------------------- | ------------------------------------------------- | ----------------------------------- |
+| autocomplete.background                       | --p-autocomplete-background                       | Background of root                  |
+| autocomplete.disabled.background              | --p-autocomplete-disabled-background              | Disabled background of root         |
+| autocomplete.filled.background                | --p-autocomplete-filled-background                | Filled background of root           |
+| autocomplete.filled.hover.background          | --p-autocomplete-filled-hover-background          | Filled hover background of root     |
+| autocomplete.filled.focus.background          | --p-autocomplete-filled-focus-background          | Filled focus background of root     |
+| autocomplete.border.color                     | --p-autocomplete-border-color                     | Border color of root                |
+| autocomplete.hover.border.color               | --p-autocomplete-hover-border-color               | Hover border color of root          |
+| autocomplete.focus.border.color               | --p-autocomplete-focus-border-color               | Focus border color of root          |
+| autocomplete.invalid.border.color             | --p-autocomplete-invalid-border-color             | Invalid border color of root        |
+| autocomplete.color                            | --p-autocomplete-color                            | Color of root                       |
+| autocomplete.disabled.color                   | --p-autocomplete-disabled-color                   | Disabled color of root              |
+| autocomplete.placeholder.color                | --p-autocomplete-placeholder-color                | Placeholder color of root           |
+| autocomplete.invalid.placeholder.color        | --p-autocomplete-invalid-placeholder-color        | Invalid placeholder color of root   |
+| autocomplete.shadow                           | --p-autocomplete-shadow                           | Shadow of root                      |
+| autocomplete.padding.x                        | --p-autocomplete-padding-x                        | Padding x of root                   |
+| autocomplete.padding.y                        | --p-autocomplete-padding-y                        | Padding y of root                   |
+| autocomplete.border.radius                    | --p-autocomplete-border-radius                    | Border radius of root               |
+| autocomplete.focus.ring.width                 | --p-autocomplete-focus-ring-width                 | Focus ring width of root            |
+| autocomplete.focus.ring.style                 | --p-autocomplete-focus-ring-style                 | Focus ring style of root            |
+| autocomplete.focus.ring.color                 | --p-autocomplete-focus-ring-color                 | Focus ring color of root            |
+| autocomplete.focus.ring.offset                | --p-autocomplete-focus-ring-offset                | Focus ring offset of root           |
+| autocomplete.focus.ring.shadow                | --p-autocomplete-focus-ring-shadow                | Focus ring shadow of root           |
+| autocomplete.transition.duration              | --p-autocomplete-transition-duration              | Transition duration of root         |
+| autocomplete.overlay.background               | --p-autocomplete-overlay-background               | Background of overlay               |
+| autocomplete.overlay.border.color             | --p-autocomplete-overlay-border-color             | Border color of overlay             |
+| autocomplete.overlay.border.radius            | --p-autocomplete-overlay-border-radius            | Border radius of overlay            |
+| autocomplete.overlay.color                    | --p-autocomplete-overlay-color                    | Color of overlay                    |
+| autocomplete.overlay.shadow                   | --p-autocomplete-overlay-shadow                   | Shadow of overlay                   |
+| autocomplete.list.padding                     | --p-autocomplete-list-padding                     | Padding of list                     |
+| autocomplete.list.gap                         | --p-autocomplete-list-gap                         | Gap of list                         |
+| autocomplete.option.focus.background          | --p-autocomplete-option-focus-background          | Focus background of option          |
+| autocomplete.option.selected.background       | --p-autocomplete-option-selected-background       | Selected background of option       |
 | autocomplete.option.selected.focus.background | --p-autocomplete-option-selected-focus-background | Selected focus background of option |
-| autocomplete.option.color | --p-autocomplete-option-color | Color of option |
-| autocomplete.option.focus.color | --p-autocomplete-option-focus-color | Focus color of option |
-| autocomplete.option.selected.color | --p-autocomplete-option-selected-color | Selected color of option |
-| autocomplete.option.selected.focus.color | --p-autocomplete-option-selected-focus-color | Selected focus color of option |
-| autocomplete.option.padding | --p-autocomplete-option-padding | Padding of option |
-| autocomplete.option.border.radius | --p-autocomplete-option-border-radius | Border radius of option |
-| autocomplete.option.group.background | --p-autocomplete-option-group-background | Background of option group |
-| autocomplete.option.group.color | --p-autocomplete-option-group-color | Color of option group |
-| autocomplete.option.group.font.weight | --p-autocomplete-option-group-font-weight | Font weight of option group |
-| autocomplete.option.group.padding | --p-autocomplete-option-group-padding | Padding of option group |
-| autocomplete.dropdown.width | --p-autocomplete-dropdown-width | Width of dropdown |
-| autocomplete.dropdown.sm.width | --p-autocomplete-dropdown-sm-width | Sm width of dropdown |
-| autocomplete.dropdown.lg.width | --p-autocomplete-dropdown-lg-width | Lg width of dropdown |
-| autocomplete.dropdown.border.color | --p-autocomplete-dropdown-border-color | Border color of dropdown |
-| autocomplete.dropdown.hover.border.color | --p-autocomplete-dropdown-hover-border-color | Hover border color of dropdown |
-| autocomplete.dropdown.active.border.color | --p-autocomplete-dropdown-active-border-color | Active border color of dropdown |
-| autocomplete.dropdown.border.radius | --p-autocomplete-dropdown-border-radius | Border radius of dropdown |
-| autocomplete.dropdown.focus.ring.width | --p-autocomplete-dropdown-focus-ring-width | Focus ring width of dropdown |
-| autocomplete.dropdown.focus.ring.style | --p-autocomplete-dropdown-focus-ring-style | Focus ring style of dropdown |
-| autocomplete.dropdown.focus.ring.color | --p-autocomplete-dropdown-focus-ring-color | Focus ring color of dropdown |
-| autocomplete.dropdown.focus.ring.offset | --p-autocomplete-dropdown-focus-ring-offset | Focus ring offset of dropdown |
-| autocomplete.dropdown.focus.ring.shadow | --p-autocomplete-dropdown-focus-ring-shadow | Focus ring shadow of dropdown |
-| autocomplete.dropdown.background | --p-autocomplete-dropdown-background | Background of dropdown |
-| autocomplete.dropdown.hover.background | --p-autocomplete-dropdown-hover-background | Hover background of dropdown |
-| autocomplete.dropdown.active.background | --p-autocomplete-dropdown-active-background | Active background of dropdown |
-| autocomplete.dropdown.color | --p-autocomplete-dropdown-color | Color of dropdown |
-| autocomplete.dropdown.hover.color | --p-autocomplete-dropdown-hover-color | Hover color of dropdown |
-| autocomplete.dropdown.active.color | --p-autocomplete-dropdown-active-color | Active color of dropdown |
-| autocomplete.chip.border.radius | --p-autocomplete-chip-border-radius | Border radius of chip |
-| autocomplete.chip.focus.background | --p-autocomplete-chip-focus-background | Focus background of chip |
-| autocomplete.chip.focus.color | --p-autocomplete-chip-focus-color | Focus color of chip |
-| autocomplete.empty.message.padding | --p-autocomplete-empty-message-padding | Padding of empty message |
-
+| autocomplete.option.color                     | --p-autocomplete-option-color                     | Color of option                     |
+| autocomplete.option.focus.color               | --p-autocomplete-option-focus-color               | Focus color of option               |
+| autocomplete.option.selected.color            | --p-autocomplete-option-selected-color            | Selected color of option            |
+| autocomplete.option.selected.focus.color      | --p-autocomplete-option-selected-focus-color      | Selected focus color of option      |
+| autocomplete.option.padding                   | --p-autocomplete-option-padding                   | Padding of option                   |
+| autocomplete.option.border.radius             | --p-autocomplete-option-border-radius             | Border radius of option             |
+| autocomplete.option.group.background          | --p-autocomplete-option-group-background          | Background of option group          |
+| autocomplete.option.group.color               | --p-autocomplete-option-group-color               | Color of option group               |
+| autocomplete.option.group.font.weight         | --p-autocomplete-option-group-font-weight         | Font weight of option group         |
+| autocomplete.option.group.padding             | --p-autocomplete-option-group-padding             | Padding of option group             |
+| autocomplete.dropdown.width                   | --p-autocomplete-dropdown-width                   | Width of dropdown                   |
+| autocomplete.dropdown.sm.width                | --p-autocomplete-dropdown-sm-width                | Sm width of dropdown                |
+| autocomplete.dropdown.lg.width                | --p-autocomplete-dropdown-lg-width                | Lg width of dropdown                |
+| autocomplete.dropdown.border.color            | --p-autocomplete-dropdown-border-color            | Border color of dropdown            |
+| autocomplete.dropdown.hover.border.color      | --p-autocomplete-dropdown-hover-border-color      | Hover border color of dropdown      |
+| autocomplete.dropdown.active.border.color     | --p-autocomplete-dropdown-active-border-color     | Active border color of dropdown     |
+| autocomplete.dropdown.border.radius           | --p-autocomplete-dropdown-border-radius           | Border radius of dropdown           |
+| autocomplete.dropdown.focus.ring.width        | --p-autocomplete-dropdown-focus-ring-width        | Focus ring width of dropdown        |
+| autocomplete.dropdown.focus.ring.style        | --p-autocomplete-dropdown-focus-ring-style        | Focus ring style of dropdown        |
+| autocomplete.dropdown.focus.ring.color        | --p-autocomplete-dropdown-focus-ring-color        | Focus ring color of dropdown        |
+| autocomplete.dropdown.focus.ring.offset       | --p-autocomplete-dropdown-focus-ring-offset       | Focus ring offset of dropdown       |
+| autocomplete.dropdown.focus.ring.shadow       | --p-autocomplete-dropdown-focus-ring-shadow       | Focus ring shadow of dropdown       |
+| autocomplete.dropdown.background              | --p-autocomplete-dropdown-background              | Background of dropdown              |
+| autocomplete.dropdown.hover.background        | --p-autocomplete-dropdown-hover-background        | Hover background of dropdown        |
+| autocomplete.dropdown.active.background       | --p-autocomplete-dropdown-active-background       | Active background of dropdown       |
+| autocomplete.dropdown.color                   | --p-autocomplete-dropdown-color                   | Color of dropdown                   |
+| autocomplete.dropdown.hover.color             | --p-autocomplete-dropdown-hover-color             | Hover color of dropdown             |
+| autocomplete.dropdown.active.color            | --p-autocomplete-dropdown-active-color            | Active color of dropdown            |
+| autocomplete.chip.border.radius               | --p-autocomplete-chip-border-radius               | Border radius of chip               |
+| autocomplete.chip.focus.background            | --p-autocomplete-chip-focus-background            | Focus background of chip            |
+| autocomplete.chip.focus.color                 | --p-autocomplete-chip-focus-color                 | Focus color of chip                 |
+| autocomplete.empty.message.padding            | --p-autocomplete-empty-message-padding            | Padding of empty message            |

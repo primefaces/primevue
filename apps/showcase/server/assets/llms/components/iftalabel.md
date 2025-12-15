@@ -53,52 +53,52 @@ import { ref } from 'vue';
 const value = ref('');
 <\/script>
 ```
+
 </details>
 
 ## Ifta Label
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<IftaLabelPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name      | Type                                     | Default | Description                                                              |
+| --------- | ---------------------------------------- | ------- | ------------------------------------------------------------------------ |
+| dt        | any                                      | -       | It generates scoped CSS variables using design tokens for the component. |
+| pt        | PassThrough<IftaLabelPassThroughOptions> | -       | Used to pass attributes to DOM elements inside the component.            |
+| ptOptions | any                                      | -       | Used to configure passthrough(pt) options of the component.              |
+| unstyled  | boolean                                  | false   | When enabled, it removes component related styles in the core.           |
 
 ### Slots
 
-| Name | Parameters | Description |
-|------|------------|-------------|
-| default | Function |  |
+| Name    | Parameters | Description |
+| ------- | ---------- | ----------- |
+| default | Function   |             |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | IftaLabelPassThroughOptionType | Used to pass attributes to the root's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| Name  | Type                           | Description                                        |
+| ----- | ------------------------------ | -------------------------------------------------- |
+| root  | IftaLabelPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| hooks | any                            | Used to manage all lifecycle hooks.                |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
+| Class       | Description                    |
+| ----------- | ------------------------------ |
 | p-iftalabel | Class name of the root element |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| iftalabel.color | --p-iftalabel-color | Color of root |
-| iftalabel.focus.color | --p-iftalabel-focus-color | Focus color of root |
-| iftalabel.invalid.color | --p-iftalabel-invalid-color | Invalid color of root |
-| iftalabel.transition.duration | --p-iftalabel-transition-duration | Transition duration of root |
-| iftalabel.position.x | --p-iftalabel-position-x | Position x of root |
-| iftalabel.top | --p-iftalabel-top | Top of root |
-| iftalabel.font.size | --p-iftalabel-font-size | Font size of root |
-| iftalabel.font.weight | --p-iftalabel-font-weight | Font weight of root |
-| iftalabel.input.padding.top | --p-iftalabel-input-padding-top | Padding top of input |
-| iftalabel.input.padding.bottom | --p-iftalabel-input-padding-bottom | Padding bottom of input |
-
+| Token                          | CSS Variable                       | Description                 |
+| ------------------------------ | ---------------------------------- | --------------------------- |
+| iftalabel.color                | --p-iftalabel-color                | Color of root               |
+| iftalabel.focus.color          | --p-iftalabel-focus-color          | Focus color of root         |
+| iftalabel.invalid.color        | --p-iftalabel-invalid-color        | Invalid color of root       |
+| iftalabel.transition.duration  | --p-iftalabel-transition-duration  | Transition duration of root |
+| iftalabel.position.x           | --p-iftalabel-position-x           | Position x of root          |
+| iftalabel.top                  | --p-iftalabel-top                  | Top of root                 |
+| iftalabel.font.size            | --p-iftalabel-font-size            | Font size of root           |
+| iftalabel.font.weight          | --p-iftalabel-font-weight          | Font weight of root         |
+| iftalabel.input.padding.top    | --p-iftalabel-input-padding-top    | Padding top of input        |
+| iftalabel.input.padding.bottom | --p-iftalabel-input-padding-bottom | Padding bottom of input     |

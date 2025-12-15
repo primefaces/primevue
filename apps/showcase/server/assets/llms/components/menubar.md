@@ -104,6 +104,7 @@ const items = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## Router
@@ -197,6 +198,7 @@ const items = ref([
 ]);
 <\/script>
 ```
+
 </details>
 
 ## Template
@@ -301,5 +303,5 @@ const items = ref([
 ]);
 <\/script>
 ```
-</details>
 
+</details>

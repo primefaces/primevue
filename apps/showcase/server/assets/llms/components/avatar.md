@@ -6,7 +6,7 @@ Avatar represents people using icons, labels and images.
 
 ```javascript
 import Avatar from 'primevue/avatar';
-import AvatarGroup from 'primevue/avatargroup';   //Optional for grouping
+import AvatarGroup from 'primevue/avatargroup'; //Optional for grouping
 ```
 
 ## Accessibility
@@ -49,6 +49,7 @@ Grouping is available by wrapping multiple Avatar components inside an AvatarGro
 
 <\/script>
 ```
+
 </details>
 
 ## Icon
@@ -104,6 +105,7 @@ A font icon is displayed as an Avatar with the icon property.
 
 <\/script>
 ```
+
 </details>
 
 ## Image
@@ -155,6 +157,7 @@ Use the image property to display an image as an Avatar.
 
 <\/script>
 ```
+
 </details>
 
 ## Label
@@ -208,67 +211,67 @@ A letter Avatar is defined with the label property.
 
 <\/script>
 ```
+
 </details>
 
 ## Avatar
 
 ### Props
 
-| Name | Type | Default | Description |
-|------|------|---------|-------------|
-| label | string | - | Defines the text to display. |
-| icon | string | - | Defines the icon to display. |
-| image | string | - | Defines the image to display. |
-| size | HintedString<"large" \| "normal" \| "xlarge"> | normal | Size of the element. |
-| shape | HintedString<"square" \| "circle"> | square | Shape of the element. |
-| ariaLabel | string | - | Establishes a string value that labels the component. |
-| ariaLabelledby | string | - | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
-| dt | any | - | It generates scoped CSS variables using design tokens for the component. |
-| pt | PassThrough<AvatarPassThroughOptions> | - | Used to pass attributes to DOM elements inside the component. |
-| ptOptions | any | - | Used to configure passthrough(pt) options of the component. |
-| unstyled | boolean | false | When enabled, it removes component related styles in the core. |
+| Name           | Type                                          | Default | Description                                                                                                     |
+| -------------- | --------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------- |
+| label          | string                                        | -       | Defines the text to display.                                                                                    |
+| icon           | string                                        | -       | Defines the icon to display.                                                                                    |
+| image          | string                                        | -       | Defines the image to display.                                                                                   |
+| size           | HintedString<"large" \| "normal" \| "xlarge"> | normal  | Size of the element.                                                                                            |
+| shape          | HintedString<"square" \| "circle">            | square  | Shape of the element.                                                                                           |
+| ariaLabel      | string                                        | -       | Establishes a string value that labels the component.                                                           |
+| ariaLabelledby | string                                        | -       | Establishes relationships between the component and label(s) where its value should be one or more element IDs. |
+| dt             | any                                           | -       | It generates scoped CSS variables using design tokens for the component.                                        |
+| pt             | PassThrough<AvatarPassThroughOptions>         | -       | Used to pass attributes to DOM elements inside the component.                                                   |
+| ptOptions      | any                                           | -       | Used to configure passthrough(pt) options of the component.                                                     |
+| unstyled       | boolean                                       | false   | When enabled, it removes component related styles in the core.                                                  |
 
 ## Pass Through Options
 
-| Name | Type | Description |
-|------|------|-------------|
-| root | AvatarPassThroughOptionType | Used to pass attributes to the root's DOM element. |
+| Name  | Type                        | Description                                         |
+| ----- | --------------------------- | --------------------------------------------------- |
+| root  | AvatarPassThroughOptionType | Used to pass attributes to the root's DOM element.  |
 | label | AvatarPassThroughOptionType | Used to pass attributes to the label's DOM element. |
-| icon | AvatarPassThroughOptionType | Used to pass attributes to the icon's DOM element. |
+| icon  | AvatarPassThroughOptionType | Used to pass attributes to the icon's DOM element.  |
 | image | AvatarPassThroughOptionType | Used to pass attributes to the image's DOM element. |
-| hooks | any | Used to manage all lifecycle hooks. |
+| hooks | any                         | Used to manage all lifecycle hooks.                 |
 
 ## Theming
 
 ### CSS Classes
 
-| Class | Description |
-|-------|-------------|
-| p-avatar | Class name of the root element |
+| Class          | Description                     |
+| -------------- | ------------------------------- |
+| p-avatar       | Class name of the root element  |
 | p-avatar-label | Class name of the label element |
-| p-avatar-icon | Class name of the icon element |
+| p-avatar-icon  | Class name of the icon element  |
 
 ### Design Tokens
 
-| Token | CSS Variable | Description |
-|-------|--------------|-------------|
-| avatar.width | --p-avatar-width | Width of root |
-| avatar.height | --p-avatar-height | Height of root |
-| avatar.font.size | --p-avatar-font-size | Font size of root |
-| avatar.background | --p-avatar-background | Background of root |
-| avatar.color | --p-avatar-color | Color of root |
-| avatar.border.radius | --p-avatar-border-radius | Border radius of root |
-| avatar.icon.size | --p-avatar-icon-size | Size of icon |
+| Token                     | CSS Variable                  | Description           |
+| ------------------------- | ----------------------------- | --------------------- |
+| avatar.width              | --p-avatar-width              | Width of root         |
+| avatar.height             | --p-avatar-height             | Height of root        |
+| avatar.font.size          | --p-avatar-font-size          | Font size of root     |
+| avatar.background         | --p-avatar-background         | Background of root    |
+| avatar.color              | --p-avatar-color              | Color of root         |
+| avatar.border.radius      | --p-avatar-border-radius      | Border radius of root |
+| avatar.icon.size          | --p-avatar-icon-size          | Size of icon          |
 | avatar.group.border.color | --p-avatar-group-border-color | Border color of group |
-| avatar.group.offset | --p-avatar-group-offset | Offset of group |
-| avatar.lg.width | --p-avatar-lg-width | Width of lg |
-| avatar.lg.height | --p-avatar-lg-height | Height of lg |
-| avatar.lg.font.size | --p-avatar-lg-font-size | Font size of lg |
-| avatar.lg.icon.size | --p-avatar-lg-icon-size | Icon size of lg |
-| avatar.lg.group.offset | --p-avatar-lg-group-offset | Group offset of lg |
-| avatar.xl.width | --p-avatar-xl-width | Width of xl |
-| avatar.xl.height | --p-avatar-xl-height | Height of xl |
-| avatar.xl.font.size | --p-avatar-xl-font-size | Font size of xl |
-| avatar.xl.icon.size | --p-avatar-xl-icon-size | Icon size of xl |
-| avatar.xl.group.offset | --p-avatar-xl-group-offset | Group offset of xl |
-
+| avatar.group.offset       | --p-avatar-group-offset       | Offset of group       |
+| avatar.lg.width           | --p-avatar-lg-width           | Width of lg           |
+| avatar.lg.height          | --p-avatar-lg-height          | Height of lg          |
+| avatar.lg.font.size       | --p-avatar-lg-font-size       | Font size of lg       |
+| avatar.lg.icon.size       | --p-avatar-lg-icon-size       | Icon size of lg       |
+| avatar.lg.group.offset    | --p-avatar-lg-group-offset    | Group offset of lg    |
+| avatar.xl.width           | --p-avatar-xl-width           | Width of xl           |
+| avatar.xl.height          | --p-avatar-xl-height          | Height of xl          |
+| avatar.xl.font.size       | --p-avatar-xl-font-size       | Font size of xl       |
+| avatar.xl.icon.size       | --p-avatar-xl-icon-size       | Icon size of xl       |
+| avatar.xl.group.offset    | --p-avatar-xl-group-offset    | Group offset of xl    |
