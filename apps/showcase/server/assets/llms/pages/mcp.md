@@ -27,12 +27,12 @@ component for selecting multiple items from a list" "Compare AutoComplete and Se
 
 Model Context Protocol (MCP) is an open standard that enables AI models to connect with external tools and data sources . The PrimeVue MCP server provides AI assistants with comprehensive access to: Component documentation including props , events , slots , and methods Theming and styling with Pass Through and design tokens Code examples and usage patterns Accessibility information Installation and configuration guides
 
-## Quick Start
+## OpenAI Codex
 
-The easiest way to use this MCP server is with npx - no installation required:
+Add the PrimeVue MCP server using the CLI or edit ~/.codex/config.toml directly.
 
 ```vue
-npx @primevue/mcp
+# Using the CLI codex mcp add primevue -- npx -y @primevue/mcp # Or edit ~/.codex/config.toml [mcp_servers.primevue] command = "npx" args = ["-y", "@primevue/mcp"]
 ```
 
 ## Tools
