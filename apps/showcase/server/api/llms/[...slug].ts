@@ -1,6 +1,4 @@
 import { createError, defineEventHandler, setHeader, H3Event } from 'h3';
-import { promises as fs } from 'fs';
-import { join } from 'path';
 
 export default defineEventHandler(async (event: H3Event) => {
     const slugParam = event.context.params?.slug;
@@ -15,39 +13,33 @@ export default defineEventHandler(async (event: H3Event) => {
     // slug is an array in catch-all routes, join it to get the path
     let slug = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
 
-    // Add .md extension if not present (since proxy strips it)
+    // Add .md extension if not present (since rewrite strips it)
     if (!slug.endsWith('.md')) {
         slug = slug + '.md';
     }
 
-    // Try multiple possible paths for the file (files moved to data/ folder)
-    const possiblePaths = [
-        join(process.cwd(), 'data', slug),
-        join(process.cwd(), '.output', 'data', slug),
-        join(process.cwd(), 'apps', 'showcase', 'data', slug)
-    ];
+    // Use Nuxt's useStorage to access server assets
+    const storage = useStorage('assets:server');
 
-    let content: string | null = null;
+    try {
+        const content = await storage.getItem(`llms/${slug}`);
 
-    for (const filePath of possiblePaths) {
-        try {
-            content = await fs.readFile(filePath, 'utf-8');
-            break;
-        } catch {
-            // Try next path
+        if (!content) {
+            throw createError({
+                statusCode: 404,
+                message: `File not found: ${slug}`
+            });
         }
-    }
 
-    if (!content) {
+        // Set Content-Type to text/plain for ChatGPT compatibility
+        setHeader(event, 'Content-Type', 'text/plain; charset=utf-8');
+        setHeader(event, 'Cache-Control', 'public, max-age=3600');
+
+        return content;
+    } catch (error: any) {
         throw createError({
             statusCode: 404,
             message: `File not found: ${slug}`
         });
     }
-
-    // Set Content-Type to text/plain for ChatGPT compatibility
-    setHeader(event, 'Content-Type', 'text/plain; charset=utf-8');
-    setHeader(event, 'Cache-Control', 'public, max-age=3600');
-
-    return content;
 });
