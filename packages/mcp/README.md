@@ -6,14 +6,6 @@ Model Context Protocol (MCP) server for PrimeVue component library. Provides AI 
 
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open standard that enables AI models to connect with external tools and data sources. By installing this MCP server, your AI assistant gains deep knowledge of PrimeVue components and can provide accurate, up-to-date information while helping you build Vue.js applications.
 
-## Quick Start
-
-The easiest way to use this MCP server is with `npx` - no installation required:
-
-```bash
-npx @primevue/mcp
-```
-
 ## Installation
 
 ### Claude Code

@@ -23,7 +23,6 @@
 <script>
 import DocCopyMarkdown from '@/components/doc/DocCopyMarkdown.vue';
 import IntroductionDoc from '@/doc/mcp/IntroductionDoc.vue';
-import QuickStartDoc from '@/doc/mcp/QuickStartDoc.vue';
 import ClaudeCodeDoc from '@/doc/mcp/ClaudeCodeDoc.vue';
 import VSCodeDoc from '@/doc/mcp/VSCodeDoc.vue';
 import OpenAICodexDoc from '@/doc/mcp/OpenAICodexDoc.vue';
@@ -42,11 +41,6 @@ export default {
                     id: 'introduction',
                     label: 'Introduction',
                     component: IntroductionDoc
-                },
-                {
-                    id: 'quickstart',
-                    label: 'Quick Start',
-                    component: QuickStartDoc
                 },
                 {
                     id: 'installation',
