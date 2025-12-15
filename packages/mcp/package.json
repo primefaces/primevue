@@ -1,6 +1,6 @@
 {
     "name": "@primevue/mcp",
-    "version": "0.0.1-alpha.7",
+    "version": "0.0.1-alpha.8",
     "author": "PrimeTek Informatics",
     "description": "Model Context Protocol (MCP) server for PrimeVue component library",
     "homepage": "https://primevue.org/",
@@ -23,16 +23,17 @@
         "components"
     ],
     "bin": {
-        "primevue-mcp": "./dist/index.mjs"
+        "primevue-mcp": "./dist/index.js"
     },
-    "main": "./dist/index.mjs",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.mts",
+    "type": "module",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
     "exports": {
         ".": {
-            "types": "./dist/index.d.mts",
-            "import": "./dist/index.mjs",
-            "default": "./dist/index.mjs"
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
         }
     },
     "publishConfig": {

@@ -1,8 +1,8 @@
 {
-    "publishedPackages": [
-        {
-            "name": "@primevue/mcp",
-            "version": "0.0.1-alpha.3"
-        }
-    ]
+	"publishedPackages": [
+		{
+			"name": "@primevue/mcp",
+			"version": "0.0.1-alpha.8"
+		}
+	]
 }
