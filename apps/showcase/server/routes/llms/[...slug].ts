@@ -1,7 +1,6 @@
 import { createError } from 'h3';
 import { promises as fs } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { join } from 'path';
 
 export default defineEventHandler(async (event) => {
     const slug = event.context.params?.slug;
@@ -16,8 +15,7 @@ export default defineEventHandler(async (event) => {
     // Try multiple possible paths for the file
     const possiblePaths = [
         join(process.cwd(), 'public', 'llms', slug),
-        join(process.cwd(), '.output', 'public', 'llms', slug),
-        join(process.cwd(), 'apps', 'showcase', 'public', 'llms', slug)
+        join(process.cwd(), '.output', 'public', 'llms', slug)
     ];
 
     let content: string | null = null;
