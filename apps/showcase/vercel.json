@@ -1,13 +1,8 @@
 {
-  "headers": [
+  "rewrites": [
     {
-      "source": "/llms/(.*).md",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/plain; charset=utf-8"
-        }
-      ]
+      "source": "/llms/:path*.md",
+      "destination": "/api/llms/:path*"
     }
   ]
 }

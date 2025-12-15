@@ -13,7 +13,12 @@ export default defineEventHandler(async (event: H3Event) => {
     }
 
     // slug is an array in catch-all routes, join it to get the path
-    const slug = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
+    let slug = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
+
+    // Add .md extension if not present (since proxy strips it)
+    if (!slug.endsWith('.md')) {
+        slug = slug + '.md';
+    }
 
     // Try multiple possible paths for the file
     const possiblePaths = [
