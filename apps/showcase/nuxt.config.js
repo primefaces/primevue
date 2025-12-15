@@ -30,7 +30,7 @@ const nestedPagePaths = {
 
 const markdownRedirects = (() => {
     const rules = {};
-    const llmsDir = path.resolve(__dirname, 'public/llms');
+    const llmsDir = path.resolve(__dirname, 'server/assets/llms');
 
     try {
         // Add nested path redirects
