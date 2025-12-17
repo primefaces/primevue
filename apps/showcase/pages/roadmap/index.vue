@@ -75,7 +75,7 @@
                         <div class="flex-1 flex gap-4 flex-col">
                             <div class="p-4 bg-surface-0 dark:bg-surface-900 rounded border-indigo-500 border-l-4">
                                 <h2 class="text-lg font-bold mt-0 mb-2">UI Kit v4</h2>
-                                <p class="mt-0 leading-normal">Migration from Token Studio to Figma Variables.</p>
+                                <p class="mt-0 leading-normal">Migration from Tokens Studio to Figma Variables.</p>
                             </div>
                         </div>
                         <div class="flex-1 flex gap-4 flex-col">
