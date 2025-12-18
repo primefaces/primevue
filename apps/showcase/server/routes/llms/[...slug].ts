@@ -13,8 +13,9 @@ export default defineEventHandler(async (event: H3Event) => {
     // slug is an array in catch-all routes, join it to get the path
     let slug = Array.isArray(slugParam) ? slugParam.join('/') : slugParam;
 
-    // Add .md extension if not present (since rewrite strips it)
-    if (!slug.endsWith('.md')) {
+    // Add .md extension if no extension present (since rewrite strips it)
+    // But don't add .md to .txt files which should be served as-is
+    if (!slug.endsWith('.md') && !slug.endsWith('.txt')) {
         slug = slug + '.md';
     }
 
