@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.5.4](https://github.com/primefaces/primevue/tree/4.5.4) (2025-12-18)
+
+[Full Changelog](https://github.com/primefaces/primevue/compare/4.5.3...4.5.4)
+
+**Fixed bugs:**
+
+- Handle animationcancel events in StyleClass transitions [\#8341](https://github.com/primefaces/primevue/issues/8341)
+- Bug - LLMs.txt 404 [\#8338](https://github.com/primefaces/primevue/issues/8338)
+- New package: @primevue/mcp [\#8332](https://github.com/primefaces/primevue/issues/8332)
+- ChatGPT has issues on fetching LLM.md [\#8330](https://github.com/primefaces/primevue/issues/8330)
+
 ## [4.5.3](https://github.com/primefaces/primevue/tree/4.5.3) (2025-12-10)
 
 [Full Changelog](https://github.com/primefaces/primevue/compare/4.5.2...4.5.3)
