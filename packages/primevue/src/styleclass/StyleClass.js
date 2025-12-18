@@ -39,8 +39,8 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
         },
         enter(target, el, binding) {
             if (binding.value.enterActiveClass) {
-                if (!target.$_pstyleclass_animating) {
-                    target.$_pstyleclass_animating = true;
+                if (!target.$_pstyleclass_enter_animating) {
+                    target.$_pstyleclass_enter_animating = true;
 
                     if (binding.value.enterActiveClass.includes('slidedown')) {
                         target.style.height = '0px';
@@ -64,15 +64,22 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
                         }
 
                         target.removeEventListener('animationend', target.$p_styleclass_enterlistener);
+                        target.removeEventListener('animationcancel', target.$p_styleclass_entercancellistener);
 
                         if (binding.value.enterActiveClass.includes('slidedown')) {
                             target.style.maxHeight = '';
                         }
 
-                        target.$_pstyleclass_animating = false;
+                        target.$_pstyleclass_enter_animating = false;
+                    };
+
+                    target.$p_styleclass_entercancellistener = () => {
+                        target.removeEventListener('animationcancel', target.$p_styleclass_entercancellistener);
+                        target.$_pstyleclass_enter_animating = false;
                     };
 
                     target.addEventListener('animationend', target.$p_styleclass_enterlistener);
+                    target.addEventListener('animationcancel', target.$p_styleclass_entercancellistener);
                 }
             } else {
                 if (binding.value.enterFromClass) {
@@ -94,8 +101,8 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
         },
         leave(target, binding) {
             if (binding.value.leaveActiveClass) {
-                if (!target.$_pstyleclass_animating) {
-                    target.$_pstyleclass_animating = true;
+                if (!target.$_pstyleclass_leave_animating) {
+                    target.$_pstyleclass_leave_animating = true;
                     addClass(target, binding.value.leaveActiveClass);
 
                     if (binding.value.leaveFromClass) {
@@ -110,10 +117,17 @@ const StyleClass = BaseStyleClass.extend('styleclass', {
                         }
 
                         target.removeEventListener('animationend', target.$p_styleclass_leavelistener);
-                        target.$_pstyleclass_animating = false;
+                        target.removeEventListener('animationcancel', target.$p_styleclass_leavecancellistener);
+                        target.$_pstyleclass_leave_animating = false;
+                    };
+
+                    target.$p_styleclass_leavecancellistener = () => {
+                        target.removeEventListener('animationcancel', target.$p_styleclass_leavecancellistener);
+                        target.$_pstyleclass_leave_animating = false;
                     };
 
                     target.addEventListener('animationend', target.$p_styleclass_leavelistener);
+                    target.addEventListener('animationcancel', target.$p_styleclass_leavecancellistener);
                 }
             } else {
                 if (binding.value.leaveFromClass) {
