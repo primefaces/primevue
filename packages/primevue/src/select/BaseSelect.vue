@@ -1,4 +1,5 @@
 <script>
+import { isArray } from '@primeuix/utils/object';
 import BaseInput from '@primevue/core/baseinput';
 import SelectStyle from 'primevue/select/style';
 
@@ -24,8 +25,11 @@ export default {
             default: 'contains'
         },
         filterFields: {
-            type: Array,
-            default: null
+            type: [Array, Boolean],
+            default: null,
+            validator(value) {
+                return isArray(value) || value === false;
+            }
         },
         editable: Boolean,
         placeholder: {
