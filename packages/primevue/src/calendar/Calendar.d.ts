@@ -118,10 +118,4 @@ export declare type CalendarEmits = EmitFn<CalendarEmitsOptions> & DatePicker.Da
  */
 declare const Calendar: DefineComponent<CalendarProps, CalendarSlots, CalendarEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Calendar: DefineComponent<CalendarProps, CalendarSlots, CalendarEmits>;
-    }
-}
-
 export default Calendar;

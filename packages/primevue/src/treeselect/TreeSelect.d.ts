@@ -601,10 +601,4 @@ export interface TreeSelectMethods {
  */
 declare const TreeSelect: DefineComponent<TreeSelectProps, TreeSelectSlots, TreeSelectEmits, TreeSelectMethods>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        TreeSelect: DefineComponent<TreeSelectProps, TreeSelectSlots, TreeSelectEmits, TreeSelectMethods>;
-    }
-}
-
 export default TreeSelect;
