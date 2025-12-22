@@ -1081,20 +1081,30 @@ export default {
             }
         },
         toggleRowWithCheckbox(event) {
-            const rowData = event.data;
+            const { originalEvent, index, data: rowData } = event;
+            const rowIndex = this.d_first + index;
 
-            if (this.isSelected(rowData)) {
-                const selectionIndex = this.findIndexInSelection(rowData);
-                const _selection = this.selection.filter((val, i) => i != selectionIndex);
-
-                this.$emit('update:selection', _selection);
-                this.$emit('row-unselect', { originalEvent: event.originalEvent, data: rowData, index: event.index, type: 'checkbox' });
+            if (this.selectionMode !== 'single' && originalEvent?.shiftKey && this.anchorRowIndex != null) {
+                clearSelection();
+                this.rangeRowIndex = rowIndex;
+                this.selectRange(originalEvent, 'checkbox');
             } else {
-                let _selection = this.selection ? [...this.selection] : [];
+                if (this.isSelected(rowData)) {
+                    const selectionIndex = this.findIndexInSelection(rowData);
+                    const _selection = this.selection.filter((val, i) => i != selectionIndex);
 
-                _selection = [..._selection, rowData];
-                this.$emit('update:selection', _selection);
-                this.$emit('row-select', { originalEvent: event.originalEvent, data: rowData, index: event.index, type: 'checkbox' });
+                    this.$emit('update:selection', _selection);
+                    this.$emit('row-unselect', { originalEvent, data: rowData, index, type: 'checkbox' });
+                } else {
+                    let _selection = this.selection ? [...this.selection] : [];
+
+                    _selection = [..._selection, rowData];
+                    this.$emit('update:selection', _selection);
+                    this.$emit('row-select', { originalEvent, data: rowData, index, type: 'checkbox' });
+                }
+
+                this.anchorRowIndex = rowIndex;
+                this.rangeRowIndex = rowIndex;
             }
         },
         toggleRowsWithCheckbox(event) {
@@ -1174,7 +1184,7 @@ export default {
         equals(data1, data2) {
             return this.compareSelectionBy === 'equals' ? data1 === data2 : equals(data1, data2, this.dataKey);
         },
-        selectRange(event) {
+        selectRange(event, type = 'row') {
             let rangeStart, rangeEnd;
 
             if (this.rangeRowIndex > this.anchorRowIndex) {
@@ -1200,7 +1210,7 @@ export default {
                 let rangeRowData = value[i];
 
                 _selection.push(rangeRowData);
-                this.$emit('row-select', { originalEvent: event, data: rangeRowData, type: 'row' });
+                this.$emit('row-select', { originalEvent: event, data: rangeRowData, type });
             }
 
             this.$emit('update:selection', _selection);
