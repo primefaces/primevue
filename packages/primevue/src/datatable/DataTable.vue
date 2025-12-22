@@ -1097,21 +1097,31 @@ export default {
                 this.$emit('row-select', { originalEvent: event.originalEvent, data: rowData, index: event.index, type: 'checkbox' });
             }
         },
+        getSelectableColumn() {
+            return this.columns.find((column) => ['multiple', 'single'].includes(column.props?.selectionMode));
+        },
         toggleRowsWithCheckbox(event) {
             if (this.selectAll !== null) {
                 this.$emit('select-all-change', event);
             } else {
                 const { originalEvent, checked } = event;
+                const isSelectable = this.getSelectableColumn()?.props?.selectable;
                 let _selection = [];
-
+                let returnSelection = [];
                 if (checked) {
                     _selection = this.frozenValue ? [...this.frozenValue, ...this.processedData] : this.processedData;
-                    this.$emit('row-select-all', { originalEvent, data: _selection });
+                    returnSelection  = Object.keys(_selection).map((key) => {
+                        const currentRow = _selection[key]
+                        if (isSelectable?.(currentRow, key) || isEmpty(isSelectable)){
+                            return currentRow
+                        }
+                    }).filter(Boolean);
+                    this.$emit('row-select-all', { originalEvent, data: returnSelection });
                 } else {
                     this.$emit('row-unselect-all', { originalEvent });
                 }
 
-                this.$emit('update:selection', _selection);
+                this.$emit('update:selection', returnSelection);
             }
         },
         isSingleSelectionMode() {
@@ -2117,8 +2127,9 @@ export default {
                 return this.selectAll;
             } else {
                 const val = this.frozenValue ? [...this.frozenValue, ...this.processedData] : this.processedData;
-
-                return isNotEmpty(val) && this.selection && Array.isArray(this.selection) && val.every((v) => this.selection.some((s) => this.equals(s, v)));
+                const isSelectable = this.getSelectableColumn()?.props?.selectable;
+                const isSelectVals = val.filter((v, index) => isSelectable?.(v, index) || isEmpty(isSelectable));
+                return isNotEmpty(isSelectVals) && this.selection && Array.isArray(this.selection) && isSelectVals.every((v) => this.selection.some((s) => this.equals(s, v)));
             }
         },
         groupRowSortField() {
