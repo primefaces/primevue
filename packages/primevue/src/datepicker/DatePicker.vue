@@ -2174,16 +2174,21 @@ export default {
             return date;
         },
         getWeekNumber(date) {
-            let checkDate = new Date(date.getTime());
+    const d = new Date(Date.UTC(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate()
+    ));
 
-            checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
-            let time = checkDate.getTime();
+    const dayNum = d.getUTCDay() || 7;
 
-            checkDate.setMonth(0);
-            checkDate.setDate(1);
+    // ISO week date: Thursday determines the year
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
 
-            return Math.floor(Math.round((time - checkDate.getTime()) / 86400000) / 7) + 1;
-        },
+    const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+
+    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+}
         onDateCellKeydown(event, date, groupIndex) {
             event.preventDefault();
             const cellContent = event.currentTarget;
