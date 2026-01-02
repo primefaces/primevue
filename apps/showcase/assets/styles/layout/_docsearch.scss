@@ -1,7 +1,7 @@
 .DocSearch-Button {
     border-radius: 6px;
     border: 1px solid var(--border-color);
-    height: 2rem;
+    height: 1.75rem;
     background-color: var(--card-background);
     margin: 0;
     transition: outline-color .2s, border-color .2s;
@@ -15,8 +15,8 @@
     }
 
     .DocSearch-Search-Icon {
-        width: 1rem;
-        height: 1rem;
+        width: 0.875rem;
+        height: 0.875rem;
     }
 
     .DocSearch-Button-Keys {
@@ -42,30 +42,27 @@
             width: auto;
             font-family: inherit;
             box-shadow: none;
+            align-items: center;
 
             &:first-child {
-                font-size: 0.75rem;
-                line-height: normal;
+                font-size: 0.625rem;
             }
 
             &:last-child {
-                justify-content: start;
+                font-size: 0.625rem;
+                display: inline-flex;
                 align-items: center;
-                font-size: 0.75rem;
-                position: relative;
                 
                 &::before {
                     content: "\e90d";
                     display: flex;
                     color: var(--text-color);
                     font-family: "primeicons";
-                    font-size: .4rem;
+                    font-size: .375rem;
                     opacity: .7;
                     margin-right: 2px;
-                    height: 13.5px;
                     align-items: center;
                     font-weight: 700;
-
                 }
             }
         }        
@@ -124,7 +121,7 @@
 .DocSearch-Button-Placeholder {
     text-align: center;
     display: inline-block;
-    font-size: .875rem;
+    font-size: .75rem;
 }
 
 :root {

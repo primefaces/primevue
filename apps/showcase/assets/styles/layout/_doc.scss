@@ -1,7 +1,7 @@
 @mixin mark() {
     border-radius: 6px;
     padding: 2px 6px;
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 500;
     font-style: normal;
     background: var(--mark-background);
@@ -38,11 +38,11 @@
             background-color: transparent;
             border: 0 none;
             display: block;
-            padding-block: 0 1rem;
-            padding-inline: 2rem;
+            padding-block: 0.875rem;
+            padding-inline: 1.75rem;
             text-align: center;
             color: var(--text-color);
-            font-size: 1rem;
+            font-size: 0.875rem;
             letter-spacing: 1px;
             cursor: pointer;
             margin: 0;
@@ -91,10 +91,10 @@
 }
 
 .doc-intro {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 
     p {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
         margin: 0;
 
         a {
@@ -112,10 +112,10 @@
     align-items: center;
     scroll-margin-top: 6.5rem;
 
-    >a {
+    > a {
         color: var(--primary-text-color);
         opacity: 0.7;
-        margin-inline-start: 1rem;
+        margin-inline-start: 0.875rem;
         display: none;
         transition: outline-color 0.2s, border-color 0.2s, opacity 0.2s;
         outline-color: transparent;
@@ -144,7 +144,7 @@
 
 .doc-section-description {
     >p {
-        font-size: 1.125rem;
+        font-size: 1rem;
 
         i {
             @include mark();
@@ -156,7 +156,7 @@
     }
 
     li {
-        font-size: 1.125rem;
+        font-size: 1rem;
 
         i {
             @include mark();
@@ -170,7 +170,7 @@
 
 .doc-notification {
     line-height: 1.5;
-    padding: 1rem;
+    padding: 0.875rem;
     font-weight: 500;
     border-radius: 10px;
     background: var(--mark-background);
@@ -180,17 +180,17 @@
 
 .doc-section-nav-container {
     position: sticky;
-    top: 6rem;
+    top: 5.25rem;
     right: 0;
-    width: 14rem;
+    width: 12.25rem;
     margin: 0;
     padding-block: 0.25rem;
     padding-inline: 0;
-    margin-inline-start: 4rem;
+    margin-inline-start: 3.5rem;
     display: flex;
     flex-direction: column;
     align-self: flex-start;
-    max-height: calc(100vh - 14rem);
+    max-height: calc(100vh - 12.25rem);
 }
 
 .doc-section-nav {
@@ -215,13 +215,13 @@
             display: flex;
 
             button {
-                font-size: 1rem;
+                font-size: 0.875rem;
                 text-align: start;
                 background: transparent;
                 margin: 0;
                 border: 0 none;
-                padding-block: 0.25rem;
-                padding-inline: 1rem;
+                padding-block: .125rem;
+                padding-inline: 0.875rem;
                 color: var(--text-secondary-color);
                 white-space: nowrap;
                 min-width: 0;
@@ -259,7 +259,7 @@
 
             .navbar-item {
                 .navbar-item-content {
-                    padding-inline-start: 1rem;
+                    padding-inline-start: 0.875rem;
                 }
             }
         }
@@ -338,6 +338,7 @@
     width: 100%;
     min-width: 960px;
     margin-bottom: 1.5rem;
+    font-size: 0.875rem;
 
     th {
         border-bottom: 1px solid var(--border-color);

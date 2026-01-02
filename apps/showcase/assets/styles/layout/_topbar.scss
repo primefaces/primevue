@@ -15,15 +15,15 @@
 }
 
 .layout-topbar-inner {
-    height: 4rem;
-    padding: 0 4rem;
+    height: 3.625rem;
+    padding: 0 3.625rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     .layout-topbar-logo-container {
         width: 250px;
-        margin-inline-end: 4rem;
+        margin-inline-end: 3.625rem;
     }
 
     .layout-topbar-logo,
@@ -75,8 +75,8 @@
             justify-content: center;
             flex-shrink: 0;
             border: 1px solid var(--border-color);
-            width: 2rem;
-            height: 2rem;
+            width: 1.75rem;
+            height: 1.75rem;
             transition: outline-color .2s, border-color .2s;
             border-radius: 6px;
             margin: 0;
@@ -93,6 +93,7 @@
 
             i,
             span {
+                font-size: 0.875rem;
                 color: var(--text-color);
             }
         }
@@ -109,8 +110,8 @@
             position: absolute;
             top: calc(100% + 2px);
             inset-inline-end: 0;
-            width: 18rem;
-            padding: .75rem;
+            width: 16rem;
+            padding: .625rem;
             background-color: var(--overlay-background);
             border-radius: 6px;
             border: 1px solid var(--border-color);
@@ -124,7 +125,7 @@
             }
 
             .config-panel-label {
-                font-size: .875rem;
+                font-size: .75rem;
                 color: var(--text-secondary-color);
                 font-weight: 600;
                 line-height: 1;
@@ -206,7 +207,7 @@
 
                 a {
                     display: inline-flex;
-                    padding: 0.5rem .75rem;
+                    padding: 0.25rem .625rem;
                     border-radius: 6px;
                     width: 100%;
                     overflow: hidden;
