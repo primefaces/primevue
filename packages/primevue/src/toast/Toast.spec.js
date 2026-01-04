@@ -1,9 +1,16 @@
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
 import Toast from './Toast.vue';
+import { vi } from 'vitest';
+import { ZIndex } from '@primeuix/utils/zindex';
 
 describe('Toast.vue', () => {
     let wrapper;
+
+
+    vi.mock('@primeuix/utils/zindex');
+
+    const SUCCESS_MESSAGE = { severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 }
 
     beforeEach(() => {
         wrapper = mount(Toast, {
@@ -16,17 +23,22 @@ describe('Toast.vue', () => {
             },
             data() {
                 return {
-                    messages: [{ severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 }]
+                    messages: [SUCCESS_MESSAGE]
                 };
             }
         });
     });
 
+    afterEach(() => {
+        vi.resetAllMocks();
+    });
+
+
     it('should exist', () => {
         expect(wrapper.find('.p-toast.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-toast-message').classes()).toContain('p-toast-message-success');
-        expect(wrapper.find('.p-toast-summary').text()).toBe('Success Message');
-        expect(wrapper.find('.p-toast-detail').text()).toBe('Message Content');
+        expect(wrapper.find('.p-toast-summary').text()).toBe(SUCCESS_MESSAGE.summary);
+        expect(wrapper.find('.p-toast-detail').text()).toBe(SUCCESS_MESSAGE.detail);
     });
 
     it('should show grouped toast', async () => {
@@ -36,7 +48,7 @@ describe('Toast.vue', () => {
     });
 
     it('should close toast', async () => {
-        await wrapper.vm.remove({ message: { severity: 'success', summary: 'Success Message', detail: 'Message Content', life: 3000 }, type: 'close' });
+        await wrapper.vm.remove({ message: SUCCESS_MESSAGE, type: 'close' });
 
         expect(wrapper.emitted()['close'][0][0].message).not.toBe({});
         expect(wrapper.find('.p-toast-message').exists()).toBe(false);
@@ -74,6 +86,26 @@ describe('Toast.vue', () => {
         await wrapper.vm.onRemoveGroup('br');
 
         expect(wrapper.findAll('.p-toast-message').length).toBe(0);
+    });
+
+    describe('ZIndex usage', () => {
+        it('should reset z-index after 200ms of all messages cleared', async () => {
+            await wrapper.vm.onRemove(SUCCESS_MESSAGE);
+            await wrapper.vm.onLeave();
+
+            await new Promise((res) => { setTimeout(res, 300) });
+            expect(ZIndex.clear).toHaveBeenCalledOnce();
+        });
+
+        it('should not reset z-index if a new message comes in within 200ms of all messages cleared', async () => {
+            await wrapper.vm.onRemove(SUCCESS_MESSAGE);
+            await wrapper.vm.onLeave();
+            await wrapper.vm.onAdd(SUCCESS_MESSAGE);
+            await wrapper.vm.onEnter();
+
+            await new Promise((res) => { setTimeout(res, 300) });
+            expect(ZIndex.clear).toHaveBeenCalledTimes(0);
+        });
     });
 
     describe('custom icons', () => {
