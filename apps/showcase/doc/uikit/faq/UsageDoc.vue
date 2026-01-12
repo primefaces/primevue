@@ -10,9 +10,10 @@
             </li>
             <li>
                 <div class="font-bold">How to change theme?</div>
-                <p>After exporting your tokens as Figma Variables using the Themes option in Tokens Studio, theme switching must be handled using Figma's native <b>Mode Switching</b> feature.</p>
-                <p>The Theme Switcher within the Tokens Studio plugin will no longer function once themes are bound to a Variable Collection — this applies to PrimeOne as well.</p>
-                <p>Therefore, to switch between Light and Dark modes, you should always use Figma's built-in Mode Switching interface.</p>
+                <p>
+                    To enable theme switching in PrimeOne, you need to set up the Variable modes. Select the layers you want to switch between Light or Dark. Then, under Appearance, use the Apply variable modes icon to assign both the Semantic and
+                    Component modes to the target theme.
+                </p>
             </li>
         </ul>
     </DocSectionText>
