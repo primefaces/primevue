@@ -15,7 +15,7 @@
                 <DesignTokenField v-model="$appState.designer.theme.preset.semantic.formField.transitionDuration" label="Transition Duration" />
             </div>
         </section>
-        <section class="grid grid-cols-4 mb-3 gap-x-2 gap-y-3">
+        <section class="grid grid-cols-4 mb-3 gap-x-2 gap-y-3" v-if="$appState.designer.theme.preset.semantic.formField.shadow">
             <div class="flex flex-col gap-1">
                 <DesignTokenField v-model="$appState.designer.theme.preset.semantic.formField.shadow" label="Shadow" />
             </div>

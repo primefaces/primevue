@@ -10,6 +10,9 @@
             <div class="flex flex-col gap-1">
                 <DesignTokenField v-model="$colorScheme.formField.iconColor" label="Icon Color" type="color" />
             </div>
+            <div class="flex flex-col gap-1" v-if="$colorScheme.formField.shadow">
+                <DesignTokenField v-model="$colorScheme.formField.shadow" label="Shadow" />
+            </div>
             <div class="flex flex-col gap-1">
                 <DesignTokenField v-model="$colorScheme.formField.borderColor" label="Border Color" type="color" />
             </div>
