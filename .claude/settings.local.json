@@ -1,7 +1,5 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(tree:*)"
-    ]
-  }
+    "permissions": {
+        "allow": ["Bash(tree:*)"]
+    }
 }
