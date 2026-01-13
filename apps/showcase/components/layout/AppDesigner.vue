@@ -248,17 +248,27 @@ export default {
         resolveColor(token) {
             if (token && token.startsWith('{') && token.endsWith('}')) {
                 let cssVariable = $dt(token).variable.slice(4, -1);
-                return getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
+                let color = getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
+                return this.removeAlphaTransparency(color);
             } else {
-                return token;
+                return this.removeAlphaTransparency(token);
             }
         },
         resolveColorPlain(color) {
+            let resolvedValue;
             if (color && color.startsWith('{') && color.endsWith('}')) {
-                return $dt(color).variable;
+                resolvedValue = $dt(color).variable;
             } else {
-                return color;
+                resolvedValue = color;
             }
+
+            return this.removeAlphaTransparency(resolvedValue);
+        },
+        removeAlphaTransparency(color) {
+            if (color && color.match(/^#[0-9a-fA-F]{8}$/)) {
+                return color.slice(0, 7);
+            }
+            return color;
         }
     },
     computed: {
