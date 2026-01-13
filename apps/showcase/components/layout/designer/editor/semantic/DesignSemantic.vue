@@ -69,6 +69,8 @@
 <script>
 import EventBus from '@/app/AppEventBus';
 
+const SEMANTIC_ORDER = ['primary', 'surface', 'focusRing', 'formField', 'list', 'navigation', 'overlay', 'content', 'mask'];
+
 export default {
     inject: ['designerService'],
     methods: {
@@ -108,11 +110,19 @@ export default {
         },
         getObjects(obj) {
             const objects = {};
+            const keys = Object.keys(obj).filter((key) => this.isObject(obj[key]));
 
-            for (const key in obj) {
-                if (obj.hasOwnProperty(key) && this.isObject(obj[key])) {
-                    objects[key] = obj[key];
-                }
+            keys.sort((a, b) => {
+                const indexA = SEMANTIC_ORDER.indexOf(a);
+                const indexB = SEMANTIC_ORDER.indexOf(b);
+                const orderA = indexA === -1 ? SEMANTIC_ORDER.length : indexA;
+                const orderB = indexB === -1 ? SEMANTIC_ORDER.length : indexB;
+
+                return orderA - orderB;
+            });
+
+            for (const key of keys) {
+                objects[key] = obj[key];
             }
 
             return objects;
