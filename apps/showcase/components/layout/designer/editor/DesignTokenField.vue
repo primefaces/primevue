@@ -25,7 +25,7 @@
                             maxlength: 100,
                             class: [
                                 'border text-zinc-950 dark:text-white rounded-lg py-2 px-2 w-full text-xs',
-                                { 'pr-6': type === 'color', 'border-red-500 dark:border-red-400 bg-red-50 dark:bg-red-500/30': invalid, 'border-surface-300 dark:border-surface-600': !invalid }
+                                { 'pr-6': isColorType, 'border-red-500 dark:border-red-400 bg-red-50 dark:bg-red-500/30': invalid, 'border-surface-300 dark:border-surface-600': !invalid }
                             ]
                         }
                     },
@@ -47,7 +47,7 @@
                     </div>
                 </template>
             </AutoComplete>
-            <div v-if="type === 'color'" class="absolute right-[4px] top-1/2 -mt-2 w-4 h-4 rounded-md border border-surface-300 dark:border-surface-600" :style="{ backgroundColor: previewColor }"></div>
+            <div v-if="isColorType" class="absolute right-[4px] top-1/2 -mt-2 w-4 h-4 rounded-md border border-surface-300 dark:border-surface-600" :style="{ backgroundColor: previewColor }"></div>
         </div>
     </div>
 </template>
@@ -64,7 +64,7 @@ export default {
             type: String,
             default: undefined
         },
-        type: {
+        name: {
             type: String,
             default: undefined
         },
@@ -225,6 +225,13 @@ export default {
         }
     },
     computed: {
+        isColorType() {
+            if (!this.name) return false;
+            const lowerName = this.name.toLowerCase();
+            const colorShades = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950'];
+
+            return lowerName.includes('color') || lowerName.includes('background') || colorShades.includes(this.name);
+        },
         previewColor() {
             const tokenValue = typeof this.modelValue === 'object' ? this.modelValue.label : this.modelValue;
 

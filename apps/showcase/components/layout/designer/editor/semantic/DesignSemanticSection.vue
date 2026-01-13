@@ -3,7 +3,7 @@
         <div v-if="!root" class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0 capitalize">{{ sectionName }}</div>
         <div v-if="hasPrimitiveTokens" class="grid grid-cols-4 gap-x-2 gap-y-3">
             <template v-for="(t_value, t_name) in primitiveTokens" :key="t_name">
-                <DesignTokenField v-model="tokens[t_name]" :label="camelCaseToSpaces(t_name)" :type="isColor(t_name) ? 'color' : null" :path="path + '.' + t_name" :switchable="switchable" />
+                <DesignTokenField v-model="tokens[t_name]" :name="t_name" :label="camelCaseToSpaces(t_name)" :path="path + '.' + t_name" :switchable="switchable" />
             </template>
         </div>
         <template v-if="hasNestedTokens">
@@ -32,9 +32,6 @@ export default {
     methods: {
         camelCaseToSpaces(val) {
             return val.replace(/([a-z])([A-Z])/g, '$1 $2');
-        },
-        isColor(val) {
-            return val.toLowerCase().includes('color') || val.toLowerCase().includes('background');
         },
         isObject(val) {
             return val !== null && typeof val === 'object';

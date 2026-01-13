@@ -9,7 +9,7 @@
                             <Fieldset v-if="hasCommonPrimitives" legend="General" :toggleable="true">
                                 <div class="grid grid-cols-4 gap-x-2 gap-y-3">
                                     <template v-for="(value, name) in commonPrimitives" :key="name">
-                                        <DesignTokenField v-model="tokens[name]" :label="camelCaseToSpaces(name)" :type="isColor(name) ? 'color' : null" />
+                                        <DesignTokenField v-model="tokens[name]" :name="name" :label="camelCaseToSpaces(name)" />
                                     </template>
                                 </div>
                             </Fieldset>
@@ -35,7 +35,7 @@
                                     <Fieldset v-if="hasLightPrimitives" legend="General" :toggleable="true">
                                         <div class="grid grid-cols-4 gap-x-2 gap-y-3">
                                             <template v-for="(value, name) in lightPrimitives" :key="name">
-                                                <DesignTokenField v-model="lightTokens[name]" :label="camelCaseToSpaces(name)" :type="isColor(name) ? 'color' : null" />
+                                                <DesignTokenField v-model="lightTokens[name]" :name="name" :label="camelCaseToSpaces(name)" />
                                             </template>
                                         </div>
                                     </Fieldset>
@@ -49,7 +49,7 @@
                                     <Fieldset v-if="hasDarkPrimitives" legend="General" :toggleable="true">
                                         <div class="grid grid-cols-4 gap-x-2 gap-y-3">
                                             <template v-for="(value, name) in darkPrimitives" :key="name">
-                                                <DesignTokenField v-model="darkTokens[name]" :label="camelCaseToSpaces(name)" :type="isColor(name) ? 'color' : null" />
+                                                <DesignTokenField v-model="darkTokens[name]" :name="name" :label="camelCaseToSpaces(name)" />
                                             </template>
                                         </div>
                                     </Fieldset>
@@ -94,9 +94,6 @@ export default {
         },
         isObject(val) {
             return val !== null && typeof val === 'object';
-        },
-        isColor(val) {
-            return val.toLowerCase().includes('color') || val.toLowerCase().includes('background');
         },
         getPrimitives(obj) {
             const primitives = {};
