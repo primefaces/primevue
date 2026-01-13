@@ -255,14 +255,11 @@ export default {
             }
         },
         resolveColorPlain(color) {
-            let resolvedValue;
             if (color && color.startsWith('{') && color.endsWith('}')) {
-                resolvedValue = $dt(color).variable;
+                return $dt(color).variable;
             } else {
-                resolvedValue = color;
+                return color;
             }
-
-            return this.removeAlphaTransparency(resolvedValue);
         },
         removeAlphaTransparency(color) {
             if (color && color.match(/^#[0-9a-fA-F]{8}$/)) {
