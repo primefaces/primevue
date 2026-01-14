@@ -9,7 +9,7 @@
             <div class="doc-main">
                 <div class="doc-intro">
                     <h1>Designer</h1>
-                    <p>Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to theme code, cloud storage, and migration assistant.</p>
+                    <p>Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, Figma to theme code, cloud storage, and migration assistant.</p>
                 </div>
                 <DocSections :docs="docs" />
             </div>

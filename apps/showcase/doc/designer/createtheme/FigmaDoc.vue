@@ -15,7 +15,7 @@
         </p>
         <b class="mb-4 block">Manual Flow</b>
         <p>
-            Instead of generating themes directly from Figma using the PrimeUI plugin, for quick prototyping purposes, you may also choose to use to manually export a tokens json file and then upload it to the designer. Note that, this flow would get tedious and repetitive in active
+            Instead of generating themes directly from Figma using the plugin, for quick prototyping purposes, you may also choose to use to manually export a tokens json file and then upload it to the Theme Designer. Note that, this flow would get tedious and repetitive in active
             development cycles when compared to an automated flow.
         </p>
         <p>
