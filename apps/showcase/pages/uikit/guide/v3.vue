@@ -7,6 +7,7 @@
 
         <div class="doc">
             <div class="doc-main">
+                <div class="doc-notification"><b>Legacy Notice:</b> UI Kit v3 is deprecated due to its dependency on the Tokens Studio Plugin. We strongly recommend migrating to UI Kit v4, which uses native Figma variables for significantly improved performance and eliminates third-party dependencies.</div>
                 <div class="doc-intro">
                     <h1>PrimeOne Guide</h1>
                     <p>PrimeOne is a strong UI component library gets even better with a great Figma UI Kit. That's what PrimeOne is PrimeTek's official Figma UI Kit, built to work seamlessly with the Prime UI Suites.</p>

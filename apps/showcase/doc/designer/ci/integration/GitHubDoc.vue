@@ -20,7 +20,7 @@
 
         <h4>3. Test Integration</h4>
         <p>
-            Edit a token in Token Studio in Figma and click <b>Push to GitHub</b> button to update the tokens file in your Git repository, triggering the configured GitHub Action. The GitHub Action then sends the updated file content to the Theme
+            Edit a token in Tokens Studio in Figma and click <b>Push to GitHub</b> button to update the tokens file in your Git repository, triggering the configured GitHub Action. The GitHub Action then sends the updated file content to the Theme
             Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An
             <a href="https://github.com/primefaces/theme-designer-ci-test" target="_blank" rel="noopener noreferrer">example repository</a> is available at GitHub that you may use as a starter.
         </p>
