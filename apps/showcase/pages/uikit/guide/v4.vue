@@ -8,7 +8,7 @@
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
-                    <h1>PrimeOne Guide</h1>
+                    <h1>PrimeOne Guide | 4.0</h1>
                     <p>PrimeOne is a strong UI component library gets even better with a great Figma UI Kit. That's what PrimeOne is PrimeTek's official Figma UI Kit, built to work seamlessly with the Prime UI Suites.</p>
                 </div>
                 <DocSections :docs="docs" />
@@ -19,23 +19,23 @@
 </template>
 
 <script>
-import AddingPrimeIconsDoc from '@/doc/uikit/AddingPrimeIconsDoc.vue';
-import CIPipelineDoc from '@/doc/uikit/CIPipelineDoc.vue';
-import CollectionsDoc from '@/doc/uikit/CollectionsDoc.vue';
-import ImportantNoticeDoc from '@/doc/uikit/ImportantNoticeDoc.vue';
-import LimitationsDoc from '@/doc/uikit/LimitationsDoc.vue';
-import OverviewDoc from '@/doc/uikit/OverviewDoc.vue';
-import ResourcesDoc from '@/doc/uikit/ResourcesDoc.vue';
-import SupportDoc from '@/doc/uikit/SupportDoc.vue';
-import UpdatePrimeOneDoc from '@/doc/uikit/UpdatePrimeOneDoc.vue';
-import ComponentsDoc from '@/doc/uikit/faq/ComponentsDoc.vue';
-import LicenceDoc from '@/doc/uikit/faq/LicenceDoc.vue';
-import RoadmapDoc from '@/doc/uikit/faq/RoadmapDoc.vue';
-import UpdatesDoc from '@/doc/uikit/faq/UpdatesDoc.vue';
-import UsageDoc from '@/doc/uikit/faq/UsageDoc.vue';
-import EnablingDoc from '@/doc/uikit/installation/EnablingDoc.vue';
-import ImportingDoc from '@/doc/uikit/installation/ImportingDoc.vue';
-import PublishingDoc from '@/doc/uikit/installation/PublishingDoc.vue';
+import AddingPrimeIconsDoc from '@/doc/uikit/common/AddingPrimeIconsDoc.vue';
+import LicenceDoc from '@/doc/uikit/common/faq/LicenceDoc.vue';
+import RoadmapDoc from '@/doc/uikit/common/faq/RoadmapDoc.vue';
+import EnablingDoc from '@/doc/uikit/common/installation/EnablingDoc.vue';
+import ImportingDoc from '@/doc/uikit/common/installation/ImportingDoc.vue';
+import PublishingDoc from '@/doc/uikit/common/installation/PublishingDoc.vue';
+import OverviewDoc from '@/doc/uikit/common/OverviewDoc.vue';
+import SupportDoc from '@/doc/uikit/common/SupportDoc.vue';
+import UpdatePrimeOneDoc from '@/doc/uikit/common/UpdatePrimeOneDoc.vue';
+import CIPipelineDoc from '@/doc/uikit/v4/CIPipelineDoc.vue';
+import CollectionsDoc from '@/doc/uikit/v4/CollectionsDoc.vue';
+import ComponentsDoc from '@/doc/uikit/v4/faq/ComponentsDoc.vue';
+import UpdatesDoc from '@/doc/uikit/v4/faq/UpdatesDoc.vue';
+import UsageDoc from '@/doc/uikit/v4/faq/UsageDoc.vue';
+import ImportantNoticeDoc from '@/doc/uikit/v4/ImportantNoticeDoc.vue';
+import LimitationsDoc from '@/doc/uikit/v4/LimitationsDoc.vue';
+import ResourcesDoc from '@/doc/uikit/v4/ResourcesDoc.vue';
 
 export default {
     data() {

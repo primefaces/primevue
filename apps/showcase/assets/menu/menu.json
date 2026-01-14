@@ -590,8 +590,12 @@
                     "to": "/uikit"
                 },
                 {
-                    "name": "Guide",
-                    "to": "/uikit/guide"
+                    "name": "Guide v4",
+                    "to": "/uikit/guide/v4"
+                },
+                {
+                    "name": "Guide v3",
+                    "to": "/uikit/guide/v3"
                 }
             ]
         },
