@@ -83,6 +83,7 @@ export default defineNuxtConfig({
     routeRules: {
         '/accessibility': { redirect: { to: '/guides/accessibility', statusCode: 301 } },
         '/installation': { redirect: { to: '/vite', statusCode: 301 } },
+        '/uikit/guide': { redirect: { to: '/uikit/guide/v3', statusCode: 301 } },
         ...markdownRedirects
     },
     primevue: {
