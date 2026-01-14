@@ -22,11 +22,11 @@
             Open the <NuxtLink to="/uikit">PrimeOne UI Kit</NuxtLink> in which you've modified tokens. In the PrimeUI Theme Generator plugin, click the <i>Export</i> option to export all variable collections.
         </p>
         <div class="pl-8 pr-4 pt-4 bg-surface-0 dark:bg-surface-900 rounded-2xl border border-surface mb-4" style="max-width: 48rem">
-            <img alt="Designer Dashboard" src="https://primefaces.org/cdn/designer/tokens-studio.png" class="w-full" />
+            <img alt="Designer Dashboard" src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/designer/figma-plugin.png" class="w-full" />
         </div>
         <p>When creating a new theme at Theme Designer, choose the <i>Import Figma Variables</i> option and import the json file.</p>
         <div class="pl-8 pr-4 pt-4 bg-surface-0 dark:bg-surface-900 rounded-2xl border border-surface mb-4" style="max-width: 48rem">
-            <img alt="Designer Dashboard" src="https://primefaces.org/cdn/designer/guide-create.png" class="w-full" />
+            <img alt="Designer Dashboard" src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/designer/guide-create.png" class="w-full" />
         </div>
 
         <!-- class="mb-4 block">Video Tutorial</b>

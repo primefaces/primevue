@@ -13,7 +13,7 @@
             <div class="card !mb-8" style="border-radius: 50px">
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
-                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue UI Kit" src="https://primefaces.org/cdn/designer/feature-1.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue UI Kit" src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/designer/feature-1.png" class="w-full" />
                     </div>
                     <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">POWERFUL</div>
@@ -85,13 +85,13 @@
                         </ul>
                     </div>
                     <div class="w-full md:w-6/12">
-                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://primefaces.org/cdn/designer/feature-2.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/designer/feature-2.png" class="w-full" />
                     </div>
                 </div>
 
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
-                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://primefaces.org/cdn/designer/feature-3.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/designer/feature-3.png" class="w-full" />
                     </div>
                     <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">INTELLIGENT</div>
@@ -131,7 +131,7 @@
                         </ul>
                     </div>
                     <div class="w-full md:w-6/12">
-                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="Tokens Support" src="https://primefaces.org/cdn/designer/feature-4.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="Tokens Support" src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/designer/feature-4.png" class="w-full" />
                     </div>
                 </div>
             </div>
@@ -416,9 +416,7 @@ export default {
     },
     computed: {
         coverImage() {
-            const image = this.$appState.darkTheme ? 'hero-dark.png' : 'hero.png';
-
-            return 'https://primefaces.org/cdn/designer/' + image;
+            return this.$appState.darkTheme ? 'https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/designer/hero-dark.png' : 'https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/designer/hero.png';
         }
     }
 };

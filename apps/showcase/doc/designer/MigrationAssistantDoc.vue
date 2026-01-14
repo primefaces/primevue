@@ -7,7 +7,7 @@
             take a note of them before migration and then visit the components to replace the placeholder values with actual values of your choice. These types of newly added tokens would be highlighed in Editor.
         </p>
         <div class="px-8 pt-8 bg-surface-0 dark:bg-surface-900 rounded-2xl border border-surface" style="max-width: 48rem">
-            <img alt="Designer Dashboard" src="https://primefaces.org/cdn/designer/guide-migration.png" class="w-full" />
+            <img alt="Designer Dashboard" src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/designer/guide-migration.png" class="w-full" />
         </div>
     </DocSectionText>
 </template>
