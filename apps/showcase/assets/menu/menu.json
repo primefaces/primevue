@@ -612,6 +612,10 @@
                     "to": "/designer/guide"
                 },
                 {
+                    "name": "Figma Plugin",
+                    "href": "https://www.figma.com/community/plugin/1592914021886732603"
+                },
+                {
                     "name": "CI Pipeline",
                     "to": "/designer/ci"
                 }
