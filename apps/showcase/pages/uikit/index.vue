@@ -138,8 +138,7 @@
                             <i>This feature requires a <NuxtLink to="/designer" class="doc-link">Theme Designer</NuxtLink> subscription.</i>
                         </p>
                         <p class="mb-4 text-lg">
-                            Bridge the gap between design and development with our powerful Figma sync technology. Fully integrated with the PrimeVue Figma UI Kit, get started in no time by importing your design token file. Save countless hours in
-                            your workflow by eliminating manual theme creation from Figma designs.
+                            Sync design tokens from Figma to theme code with ease. Export token.json to the Visual Editor or generate and sync themes directly to your repository via the Figma plugin, eliminating manual steps and speeding up your workflow.
                         </p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">

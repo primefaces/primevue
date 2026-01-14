@@ -27,7 +27,7 @@
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Entire Token Set</span>
+                                <span class="font-bold">Entire Collections</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
@@ -54,8 +54,7 @@
                         <div class="text-primary font-bold mb-2">AUTOMATED</div>
                         <div class="text-5xl font-bold mb-4">Figma to Theme Code</div>
                         <p class="mb-4 text-lg">
-                            Bridge the gap between design and development with our powerful Figma sync technology. Fully integrated with the PrimeVue Figma UI Kit, get started in no time by importing your design token file. Save countless hours in
-                            your workflow by eliminating manual theme creation from Figma designs.
+                            Sync design tokens from Figma to theme code with ease. Export token.json to the Visual Editor or generate and sync themes directly to your repository via the Figma plugin, eliminating manual steps and speeding up your workflow.
                         </p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
