@@ -7,7 +7,7 @@
 
         <div class="doc">
             <div class="doc-main">
-                <div class="doc-notification"><b>UI Kit v4 Users:</b> You may ignore this documentation and use the <a href="https://www.figma.com/community/plugin/1592914021886732603" target="_blank" rel="noopener noreferrer" class="hover:underline font-bold">PrimeUI Theme Generator</a> Figma plugin instead, which provides built-in synchronization capabilities that automate the theme generation process.
+                <div class="doc-notification"><b>UI Kit v4 Users:</b> You may ignore this documentation and use the <a href="https://www.figma.com/community/plugin/1592914021886732603/primeui-theme-generator" target="_blank" rel="noopener noreferrer" class="hover:underline font-bold">PrimeUI Theme Generator</a> Figma plugin instead, which provides built-in synchronization capabilities that automate the theme generation process.
                 </div>
                 <div class="doc-notification"><b>UI Kit v3 Users:</b> Follow the CI pipeline configuration below to integrate with Figma via the Tokens Studio plugin.</div>
                 <div class="doc-intro">

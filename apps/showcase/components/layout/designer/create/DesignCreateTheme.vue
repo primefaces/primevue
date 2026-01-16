@@ -6,7 +6,7 @@
 
     <section class="mb-6">
         <div class="text-lg font-semibold mb-2">Foundation</div>
-        <span class="block text-muted-color leading-6 mb-4">Start by choosing a built-in theme as a foundation, or import your own design by uploading a tokens.json file created with <a href="https://www.figma.com/community/plugin/1592914021886732603" target="_blank" rel="noopener noreferrer" class="hover:underline font-medium">PrimeUI Theme Generator</a> Figma plugin.</span>
+        <span class="block text-muted-color leading-6 mb-4">Start by choosing a built-in theme as a foundation, or import your own design by uploading a tokens.json file created with <a href="https://www.figma.com/community/plugin/1592914021886732603/primeui-theme-generator" target="_blank" rel="noopener noreferrer" class="hover:underline font-medium">PrimeUI Theme Generator</a> Figma plugin.</span>
         <div class="flex flex-col">
             <div class="flex flex-col gap-4 border border-surface-200 dark:border-surface-700 rounded-md p-4">
                 <div class="flex items-center gap-2">
@@ -48,7 +48,7 @@
                     </svg>
                     <span class="font-semibold"> Import Figma Variables </span>
                 </div>
-                <span class="text-muted-color leading-6">Export the token.json file using the <a href="https://www.figma.com/community/plugin/1592914021886732603" target="_blank" rel="noopener noreferrer" class="hover:underline font-medium">PrimeUI Theme Generator</a> Figma plugin and import the exported file to the Visual Editor.</span>
+                <span class="text-muted-color leading-6">Export the token.json file using the <a href="https://www.figma.com/community/plugin/1592914021886732603/primeui-theme-generator" target="_blank" rel="noopener noreferrer" class="hover:underline font-medium">PrimeUI Theme Generator</a> Figma plugin and import the exported file to the Visual Editor.</span>
                 <div class="flex justify-between">
                     <FileUpload mode="basic" pt:root:class="!justify-start" @select="onFileSelect($event)" />
                     <button type="button" @click="createThemeFromFigma" class="btn-design">Create</button>
@@ -72,7 +72,7 @@ using the Figma plugin. This automated workflow eliminates manual export/import
 steps, optimizes the theme generation process.
                 </span>
                 <div class="flex justify-end">
-                    <a href="https://www.figma.com/community/plugin/1592914021886732603" target="_blank" rel="noopener noreferrer" class="btn-design">Learn More</a>
+                    <a href="https://www.figma.com/community/plugin/1592914021886732603/primeui-theme-generator" target="_blank" rel="noopener noreferrer" class="btn-design">Learn More</a>
                 </div>
             </div>
         </div>
