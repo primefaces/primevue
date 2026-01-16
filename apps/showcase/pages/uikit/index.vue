@@ -335,7 +335,7 @@
                 <div class="grid grid-cols-12 gap-4 text-lg">
                     <div class="col-span-12 lg:col-span-4 px-2 lg:px-8">
                         <div class="leading-normal mb-2 font-bold">What do I get when I purchase a license?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">You'll be able to download two Figma files for light and dark themes.</p>
+                        <p class="mt-0 mb-12 p-0 leading-normal">You'll be able to download the Figma file of PrimeOne UI Kit.</p>
 
                         <div class="leading-normal mb-2 font-bold">Is there a recurring fee or is the license perpetual?</div>
                         <p class="mt-0 mb-12 p-0 leading-normal">UI Kit license is perpetual so requires one time payment with 1 year free updates, not subscription based.</p>
