@@ -31,6 +31,11 @@ describe('Timeline.vue', () => {
         expect(wrapper.findAll('.p-timeline-event-separator').length).toBe(4);
     });
 
+    it('should use ordered list structure for accessibility', () => {
+        expect(wrapper.find('ol.p-timeline').exists()).toBe(true);
+        expect(wrapper.findAll('li.p-timeline-event').length).toBe(4);
+    });
+
     it('should align right', async () => {
         await wrapper.setProps({ align: 'right' });
 
