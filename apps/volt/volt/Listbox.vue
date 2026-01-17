@@ -10,19 +10,21 @@
             <SearchIcon class="text-surface-400" />
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Listbox>
 </template>
 
 <script setup lang="ts">
 import SearchIcon from '@primevue/icons/search';
-import Listbox, { type ListboxPassThroughOptions, type ListboxProps } from 'primevue/listbox';
+import Listbox, { type ListboxPassThroughOptions, type ListboxProps, type ListboxSlots } from 'primevue/listbox';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ ListboxProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ ListboxSlots {}
+defineSlots<Slots>();
 
 const theme = ref<ListboxPassThroughOptions>({
     root: `group bg-surface-0 dark:bg-surface-950 text-surface-700 dark:text-surface-0

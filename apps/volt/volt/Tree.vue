@@ -14,7 +14,7 @@
             <SearchIcon class="text-surface-400" />
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Tree>
 </template>
@@ -23,12 +23,14 @@
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import SearchIcon from '@primevue/icons/search';
-import Tree, { type TreePassThroughOptions, type TreeProps } from 'primevue/tree';
+import Tree, { type TreePassThroughOptions, type TreeProps, type TreeSlots } from 'primevue/tree';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ TreeProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ TreeSlots {}
+defineSlots<Slots>();
 
 const theme = ref<TreePassThroughOptions>({
     root: `bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0 p-4

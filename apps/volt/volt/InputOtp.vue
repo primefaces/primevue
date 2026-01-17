@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </InputOtp>
 </template>
 
 <script setup lang="ts">
-import InputOtp, { type InputOtpPassThroughOptions, type InputOtpProps } from 'primevue/inputotp';
+import InputOtp, { type InputOtpPassThroughOptions, type InputOtpProps, type InputOtpSlots } from 'primevue/inputotp';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ InputOtpProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ InputOtpSlots {}
+defineSlots<Slots>();
 
 const theme = ref<InputOtpPassThroughOptions>({
     root: `flex items-center gap-2`,

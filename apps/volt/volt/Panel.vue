@@ -15,7 +15,7 @@
             </SecondaryButton>
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Panel>
 </template>
@@ -23,13 +23,15 @@
 <script setup lang="ts">
 import MinusIcon from '@primevue/icons/minus';
 import PlusIcon from '@primevue/icons/plus';
-import Panel, { type PanelPassThroughOptions, type PanelProps } from 'primevue/panel';
+import Panel, { type PanelPassThroughOptions, type PanelProps, type PanelSlots } from 'primevue/panel';
 import { ref } from 'vue';
 import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ PanelProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ PanelSlots {}
+defineSlots<Slots>();
 
 const theme = ref<PanelPassThroughOptions>({
     root: `border border-surface-200 dark:border-surface-700 rounded-md

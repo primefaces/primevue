@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Breadcrumb>
 </template>
 
 <script setup lang="ts">
-import Breadcrumb, { type BreadcrumbPassThroughOptions, type BreadcrumbProps } from 'primevue/breadcrumb';
+import Breadcrumb, { type BreadcrumbPassThroughOptions, type BreadcrumbProps, type BreadcrumbSlots } from 'primevue/breadcrumb';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ BreadcrumbProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ BreadcrumbSlots {}
+defineSlots<Slots>();
 
 const theme = ref<BreadcrumbPassThroughOptions>({
     root: `bg-surface-0 dark:bg-surface-900 p-4 overflow-x-auto`,

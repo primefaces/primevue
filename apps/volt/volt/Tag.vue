@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Tag>
 </template>
 
 <script setup lang="ts">
-import Tag, { type TagPassThroughOptions, type TagProps } from 'primevue/tag';
+import Tag, { type TagPassThroughOptions, type TagProps, type TagSlots } from 'primevue/tag';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ TagProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ TagSlots {}
+defineSlots<Slots>();
 
 const theme = ref<TagPassThroughOptions>({
     root: `inline-flex items-center justify-center text-sm font-bold py-1 px-2 rounded-md gap-1 p-rounded:rounded-2xl
