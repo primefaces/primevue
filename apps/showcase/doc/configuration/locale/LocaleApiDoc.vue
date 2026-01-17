@@ -130,23 +130,23 @@
                     </tr>
                     <tr>
                         <td>dayNames</td>
-                        <td>['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'</td>
+                        <td>['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']</td>
                     </tr>
                     <tr>
                         <td>dayNamesShort</td>
-                        <td>['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'</td>
+                        <td>['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']</td>
                     </tr>
                     <tr>
                         <td>dayNamesMin</td>
-                        <td>['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'</td>
+                        <td>['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']</td>
                     </tr>
                     <tr>
                         <td>monthNames</td>
-                        <td>['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'</td>
+                        <td>['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']</td>
                     </tr>
                     <tr>
                         <td>monthNamesShort</td>
-                        <td>['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'</td>
+                        <td>['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']</td>
                     </tr>
                     <tr>
                         <td>chooseYear</td>
