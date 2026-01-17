@@ -17,46 +17,7 @@
                 </div>
             </TabPanel>
             <TabPanel value="1">
-                <Accordion :value="['0', '1']" multiple>
-                    <AccordionPanel value="0">
-                        <AccordionHeader>Common</AccordionHeader>
-                        <AccordionContent>
-                            <div>
-                                <form @keydown="onKeyDown" class="flex flex-col gap-3">
-                                    <DesignGeneral />
-                                    <DesignFormField />
-                                    <DesignList />
-                                    <DesignNavigation />
-                                    <DesignOverlay />
-                                </form>
-                            </div>
-                        </AccordionContent>
-                    </AccordionPanel>
-
-                    <AccordionPanel value="1">
-                        <AccordionHeader>Color Scheme</AccordionHeader>
-                        <AccordionContent>
-                            <Tabs :value="activeColorScheme" @update:value="onColorSchemeChange">
-                                <TabList>
-                                    <Tab value="cs-0">Light</Tab>
-                                    <Tab value="cs-1">Dark</Tab>
-                                </TabList>
-                                <TabPanels class="!px-0">
-                                    <TabPanel value="cs-0">
-                                        <form @keydown="onKeyDown">
-                                            <DesignCS :value="$appState.designer.theme.preset.semantic.colorScheme.light" />
-                                        </form>
-                                    </TabPanel>
-                                    <TabPanel value="cs-1">
-                                        <form @keydown="onKeyDown">
-                                            <DesignCS :value="$appState.designer.theme.preset.semantic.colorScheme.dark" />
-                                        </form>
-                                    </TabPanel>
-                                </TabPanels>
-                            </Tabs>
-                        </AccordionContent>
-                    </AccordionPanel>
-                </Accordion>
+                <DesignSemantic />
             </TabPanel>
             <TabPanel value="2">
                 <form v-if="isComponentRoute" @keydown="onKeyDown">
@@ -74,8 +35,6 @@
 </template>
 
 <script>
-import EventBus from '@/app/AppEventBus';
-
 export default {
     props: {
         deferred: {
@@ -99,18 +58,11 @@ export default {
                 this.designerService.applyTheme(this.$appState.designer.theme);
                 event.preventDefault();
             }
-        },
-        onColorSchemeChange(value) {
-            if (value === 'cs-0') EventBus.emit('dark-mode-toggle', { dark: false });
-            else if (value === 'cs-1') EventBus.emit('dark-mode-toggle', { dark: true });
         }
     },
     computed: {
         isComponentRoute() {
             return this.$appState.designer.theme.preset?.components[this.$route.name] != null;
-        },
-        activeColorScheme() {
-            return this.$appState.darkTheme ? 'cs-1' : 'cs-0';
         }
     }
 };

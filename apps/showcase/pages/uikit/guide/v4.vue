@@ -8,7 +8,7 @@
         <div class="doc">
             <div class="doc-main">
                 <div class="doc-intro">
-                    <h1>PrimeOne Guide</h1>
+                    <h1>PrimeOne Guide | 4.0</h1>
                     <p>PrimeOne is a strong UI component library gets even better with a great Figma UI Kit. That's what PrimeOne is PrimeTek's official Figma UI Kit, built to work seamlessly with the Prime UI Suites.</p>
                 </div>
                 <DocSections :docs="docs" />
@@ -19,24 +19,23 @@
 </template>
 
 <script>
-import AddingPrimeIconsDoc from '@/doc/uikit/AddingPrimeIconsDoc.vue';
-import OverviewDoc from '@/doc/uikit/OverviewDoc.vue';
-import ResourcesDoc from '@/doc/uikit/ResourcesDoc.vue';
-import SupportDoc from '@/doc/uikit/SupportDoc.vue';
-import TokenSetsDoc from '@/doc/uikit/TokenSetsDoc.vue';
-import UpdatePrimeOneDoc from '@/doc/uikit/UpdatePrimeOneDoc.vue';
-import ComponentsDoc from '@/doc/uikit/faq/ComponentsDoc.vue';
-import LicenceDoc from '@/doc/uikit/faq/LicenceDoc.vue';
-import RoadmapDoc from '@/doc/uikit/faq/RoadmapDoc.vue';
-import TokensDoc from '@/doc/uikit/faq/TokensDoc.vue';
-import UpdatesDoc from '@/doc/uikit/faq/UpdatesDoc.vue';
-import UsageDoc from '@/doc/uikit/faq/UsageDoc.vue';
-import EnablingDoc from '@/doc/uikit/installation/EnablingDoc.vue';
-import ImportingDoc from '@/doc/uikit/installation/ImportingDoc.vue';
-import PublishingDoc from '@/doc/uikit/installation/PublishingDoc.vue';
-import DesignChangesDoc from '@/doc/uikit/workflow/DesignChangesDoc.vue';
-import TokensStudioSetupDoc from '@/doc/uikit/workflow/TokensStudioSetupDoc.vue';
-import CIPipelineDoc from '@/doc/uikit/workflow/CIPipelineDoc.vue';
+import AddingPrimeIconsDoc from '@/doc/uikit/common/AddingPrimeIconsDoc.vue';
+import LicenceDoc from '@/doc/uikit/common/faq/LicenceDoc.vue';
+import RoadmapDoc from '@/doc/uikit/common/faq/RoadmapDoc.vue';
+import EnablingDoc from '@/doc/uikit/common/installation/EnablingDoc.vue';
+import ImportingDoc from '@/doc/uikit/common/installation/ImportingDoc.vue';
+import PublishingDoc from '@/doc/uikit/common/installation/PublishingDoc.vue';
+import OverviewDoc from '@/doc/uikit/common/OverviewDoc.vue';
+import SupportDoc from '@/doc/uikit/common/SupportDoc.vue';
+import UpdatePrimeOneDoc from '@/doc/uikit/common/UpdatePrimeOneDoc.vue';
+import CIPipelineDoc from '@/doc/uikit/v4/CIPipelineDoc.vue';
+import CollectionsDoc from '@/doc/uikit/v4/CollectionsDoc.vue';
+import ComponentsDoc from '@/doc/uikit/v4/faq/ComponentsDoc.vue';
+import UpdatesDoc from '@/doc/uikit/v4/faq/UpdatesDoc.vue';
+import UsageDoc from '@/doc/uikit/v4/faq/UsageDoc.vue';
+import ImportantNoticeDoc from '@/doc/uikit/v4/ImportantNoticeDoc.vue';
+import LimitationsDoc from '@/doc/uikit/v4/LimitationsDoc.vue';
+import ResourcesDoc from '@/doc/uikit/v4/ResourcesDoc.vue';
 
 export default {
     data() {
@@ -46,6 +45,11 @@ export default {
                     id: 'overview',
                     label: 'Overview',
                     component: OverviewDoc
+                },
+                {
+                    id: 'important-notice',
+                    label: 'Important Notice',
+                    component: ImportantNoticeDoc
                 },
                 {
                     id: 'resources',
@@ -74,32 +78,14 @@ export default {
                     ]
                 },
                 {
-                    id: 'suggested-workflow',
-                    label: 'Suggested Workflow',
-                    description:
-                        "PrimeOne uses Tokens Studio as its primary tool for design token management. To leverage the benefits of Figma Variables, these variables have also been exported from Tokens Studio and included in the file. This setup, while powerful, can make design changes somewhat complex and less fluid due to the way the tools interact. Although the provided guide outlines the recommended steps, we acknowledge that the workflow may feel unintuitive or slow at times. We’re actively exploring improvements, and in the meantime, suggest following the guide as a baseline while adapting it to your team's needs where necessary.",
-                    children: [
-                        {
-                            id: 'tokens-studio-setup',
-                            label: 'Tokens Studio Setup',
-                            component: TokensStudioSetupDoc
-                        },
-                        {
-                            id: 'ci-pipeline',
-                            label: 'CI Pipeline',
-                            component: CIPipelineDoc
-                        },
-                        {
-                            id: 'designchanges',
-                            label: 'Design Changes',
-                            component: DesignChangesDoc
-                        }
-                    ]
+                    id: 'collections',
+                    label: 'Collections',
+                    component: CollectionsDoc
                 },
                 {
-                    id: 'tokensets',
-                    label: 'Token Sets',
-                    component: TokenSetsDoc
+                    id: 'ci-pipeline',
+                    label: 'CI Pipeline',
+                    component: CIPipelineDoc
                 },
                 {
                     id: 'update-primeone',
@@ -126,11 +112,6 @@ export default {
                             component: ComponentsDoc
                         },
                         {
-                            id: 'tokens',
-                            label: 'Tokens',
-                            component: TokensDoc
-                        },
-                        {
                             id: 'updates',
                             label: 'Updates',
                             component: UpdatesDoc
@@ -146,6 +127,11 @@ export default {
                             component: LicenceDoc
                         }
                     ]
+                },
+                {
+                    id: 'limitations',
+                    label: 'Limitations',
+                    component: LimitationsDoc
                 },
                 {
                     id: 'support',

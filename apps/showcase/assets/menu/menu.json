@@ -590,8 +590,12 @@
                     "to": "/uikit"
                 },
                 {
-                    "name": "Guide",
-                    "to": "/uikit/guide"
+                    "name": "Guide v4",
+                    "to": "/uikit/guide/v4"
+                },
+                {
+                    "name": "Guide v3",
+                    "to": "/uikit/guide/v3"
                 }
             ]
         },
@@ -606,6 +610,10 @@
                 {
                     "name": "Guide",
                     "to": "/designer/guide"
+                },
+                {
+                    "name": "Figma Plugin",
+                    "href": "https://www.figma.com/community/plugin/1592914021886732603"
                 },
                 {
                     "name": "CI Pipeline",

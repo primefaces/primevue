@@ -1,27 +1,32 @@
 <template>
     <section>
-        <div class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0 capitalize">{{ sectionName }}</div>
-        <div class="grid grid-cols-4 gap-x-2 gap-y-3">
-            <template v-for="(t_value, t_name) in tokens" :key="t_name">
-                <DesignTokenField v-if="!isObject(t_value)" v-model="tokens[t_name]" :name="t_name" :label="camelCaseToSpaces(t_name)" :componentKey="componentKey" :path="path + '.' + t_name" switchable />
+        <div v-if="!root" class="text-sm mb-1 font-semibold text-surface-950 dark:text-surface-0 capitalize">{{ sectionName }}</div>
+        <div v-if="hasPrimitiveTokens" class="grid grid-cols-4 gap-x-2 gap-y-3">
+            <template v-for="(t_value, t_name) in primitiveTokens" :key="t_name">
+                <DesignTokenField v-model="tokens[t_name]" :name="t_name" :label="camelCaseToSpaces(t_name)" :path="path + '.' + t_name" :switchable="switchable" />
             </template>
         </div>
         <template v-if="hasNestedTokens">
-            <DesignComponentSection v-for="(n_value, n_name) in nestedTokens" :key="n_name" :componentKey="componentKey" :path="path + '.' + n_name" class="mt-3" switchable />
+            <DesignSemanticSection v-for="(n_value, n_name) in nestedTokens" :key="n_name" :path="path + '.' + n_name" :switchable="switchable" class="mt-3" />
         </template>
     </section>
 </template>
 
 <script>
 export default {
+    name: 'DesignSemanticSection',
     props: {
-        componentKey: {
-            type: null,
+        path: {
+            type: String,
             default: null
         },
-        path: {
-            type: null,
-            default: null
+        root: {
+            type: Boolean,
+            default: false
+        },
+        switchable: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
@@ -56,16 +61,34 @@ export default {
     computed: {
         sectionName() {
             const names = this.path.split('.');
+            const filtered = names.filter((n) => n !== 'colorScheme' && n !== 'light' && n !== 'dark');
+            const lastPart = filtered[filtered.length - 1];
 
-            return names
-                .filter((n) => n !== 'colorScheme' && n !== 'light' && n !== 'dark')
-                .map((n) => this.capitalize(this.camelCaseToSpaces(n)))
-                .join(' ');
+            return this.capitalize(this.camelCaseToSpaces(lastPart));
         },
         tokens() {
-            const source = this.$appState.designer.theme.preset.components[this.componentKey];
+            const source = this.$appState.designer.theme.preset.semantic;
 
             return this.getObjectProperty(source, this.path);
+        },
+        primitiveTokens() {
+            const primitives = {};
+            const obj = this.tokens;
+
+            for (const key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    const value = obj[key];
+
+                    if (!this.isObject(value)) {
+                        primitives[key] = value;
+                    }
+                }
+            }
+
+            return primitives;
+        },
+        hasPrimitiveTokens() {
+            return Object.keys(this.primitiveTokens).length > 0;
         },
         nestedTokens() {
             const groups = {};

@@ -6,14 +6,14 @@
         </Head>
 
         <div>
-            <div style="border-radius: 50px; max-height: 500px" class="overflow-hidden mb-8 flex items-center">
+            <div style="border-radius: 50px" class="overflow-hidden mb-8 flex items-center">
                 <img alt="PrimeVue Figma UI Kit" :src="coverImage" class="w-full" />
             </div>
 
             <div class="card !mb-8" style="border-radius: 50px">
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
-                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue UI Kit" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-figma.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue UI Kit" src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/uikit/uikit-figma.png" class="w-full" />
                     </div>
                     <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">UP-TO-DATE</div>
@@ -74,17 +74,17 @@
                         </ul>
                     </div>
                     <div class="w-full md:w-6/12">
-                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-system.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/uikit/uikit-system.png" class="w-full" />
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
-                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-themes.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/uikit/uikit-themes.png" class="w-full" />
                     </div>
                     <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">DARK MODE</div>
                         <div class="text-5xl font-bold mb-4">Two Themes</div>
-                        <p class="mb-4 text-lg">PrimeOne is designed based on Aura Light and Aura Dark themes. Easily change the themes of your designs using Figma's Swap Library feature or Tokens Studio Sets.</p>
+                        <p class="mb-4 text-lg">PrimeOne is designed based on Aura Light and Aura Dark themes. Easily change the themes of your designs using Figma's native variable modes.</p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
                             <li class="flex items-center w-6/12 p-4">
@@ -100,18 +100,18 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" class="w-full md:w-6/12">
-                        <div class="text-primary font-bold mb-2">TOKENS STUDIO</div>
-                        <div class="text-5xl font-bold mb-4">Tokens Support</div>
-                        <p class="mb-4 text-lg">Empower yourself with unprecedented control over your designs. Tokens Studio integration unlocks a whole new level of flexibility, allowing you to create and manage design tokens seamlessly.</p>
+                        <div class="text-primary font-bold mb-2">VARIABLE MANAGEMENT</div>
+                        <div class="text-5xl font-bold mb-4">Variables Support</div>
+                        <p class="mb-4 text-lg">Empower yourself with unprecedented control over your designs. Native Figma Variables unlock a whole new level of flexibility, allowing you to create, manage, and apply design tokens seamlessly—without relying on external plugins.</p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Countless Design Tokens</span>
+                                <span class="font-bold">Countless Variables</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Light and Dark Sets</span>
+                                <span class="font-bold">Light and Dark Modes</span>
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
@@ -119,17 +119,17 @@
                             </li>
                             <li class="flex items-center w-6/12 p-4">
                                 <i class="pi pi-check-circle text-green-600 mr-2"></i>
-                                <span class="font-bold">Primitive, Semantic and Component Tokens</span>
+                                <span class="font-bold">Primitive, Semantic and Component Collections</span>
                             </li>
                         </ul>
                     </div>
                     <div class="w-full md:w-6/12">
-                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="Tokens Support" src="https://primefaces.org/cdn/primevue/images/uikit/uikit-tokens.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" alt="Tokens Support" src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/uikit/uikit-tokens.png" class="w-full" />
                     </div>
                 </div>
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20">
                     <div class="w-full md:w-6/12">
-                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://primefaces.org/cdn/designer/feature-2.png" class="w-full" />
+                        <img v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-l-4 animate-duration-1000' }" alt="PrimeVue Designer" src="https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/designer/feature-2.png" class="w-full" />
                     </div>
                     <div v-animateonscroll.once="{ enterClass: 'animate-enter fade-in-10 slide-in-from-r-4 animate-duration-1000' }" class="w-full md:w-6/12">
                         <div class="text-primary font-bold mb-2">AUTOMATED</div>
@@ -138,8 +138,7 @@
                             <i>This feature requires a <NuxtLink to="/designer" class="doc-link">Theme Designer</NuxtLink> subscription.</i>
                         </p>
                         <p class="mb-4 text-lg">
-                            Bridge the gap between design and development with our powerful Figma sync technology. Fully integrated with the PrimeVue Figma UI Kit, get started in no time by importing your design token file. Save countless hours in
-                            your workflow by eliminating manual theme creation from Figma designs.
+                            Sync design tokens from Figma to theme code with ease. Export token.json to the Visual Editor or generate and sync themes directly to your repository via the Figma plugin, eliminating manual steps and speeding up your workflow.
                         </p>
 
                         <ul class="flex flex-wrap m-0 p-0 text-lg">
@@ -172,28 +171,28 @@
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row gap-6 md:gap-6 mb-8">
-                <a
-                    href="https://www.figma.com/design/JRSFCni27PU4TrqOjoWeOA/Preview-%7C PrimeOne-|-3.1.0?node-id=806-36648&t=CpfshQ7laurr043o-1"
-                    class="p-8 w-full md:w-6/12 bg-white flex flex-col items-center border-2 border-transparent hover:border-primary transition-colors duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style="border-radius: 50px"
-                >
-                    <span class="text-gray-900 text-4xl font-bold mb-8">Preview Light</span>
-                    <img alt="Figma Light" src="https://primefaces.org/cdn/primevue/images/uikit/logo-figma-light.svg" class="w-16" />
-                </a>
-                <a
-                    href="https://www.figma.com/design/ybRv6Rx2vGo9vQR0KRRt6G/Preview-%7C-Dark-%7C PrimeOne-|-3.1.0?node-id=6738-55117&t=XXwVln6ycpiKPlSS-1"
-                    class="p-8 w-full md:w-6/12 bg-gray-900 flex flex-col items-center border-2 border-transparent hover:border-primary transition-colors duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style="border-radius: 50px"
-                >
-                    <span class="text-white text-4xl font-bold mb-8">Preview Dark</span>
-                    <img alt="Figma Dark" src="https://primefaces.org/cdn/primevue/images/uikit/logo-figma-dark.svg" class="w-16" />
-                </a>
-            </div>
+            <a
+                href="https://www.figma.com/design/JRSFCni27PU4TrqOjoWeOA/Preview-%7C PrimeOne-|-3.1.0?node-id=806-36648&t=CpfshQ7laurr043o-1"
+                class="flex flex-col md:flex-row items-center justify-center gap-8 p-12 mb-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 border-2 border-transparent hover:border-primary transition-colors duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="border-radius: 50px"
+            >
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <span class="text-primary font-semibold text-sm uppercase tracking-wider mb-2">Figma UI Kit</span>
+                    <span class="text-gray-900 dark:text-white text-5xl md:text-6xl font-bold mb-3">Preview</span>
+                    <p class="text-gray-600 dark:text-gray-300 text-lg max-w-2xl">Explore our complete design system with all components, variants, and interactive elements in Figma</p>
+                </div>
+                <div class="flex items-center justify-center">
+                    <svg width="80" height="80" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 300c27.6 0 50-22.4 50-50v-50H50c-27.6 0-50 22.4-50 50s22.4 50 50 50z" fill="#0acf83"/>
+                        <path d="M0 150c0-27.6 22.4-50 50-50h50v100H50c-27.6 0-50-22.4-50-50z" fill="#a259ff"/>
+                        <path d="M0 50C0 22.4 22.4 0 50 0h50v100H50C22.4 100 0 77.6 0 50z" fill="#f24e1e"/>
+                        <path d="M100 0h50c27.6 0 50 22.4 50 50s-22.4 50-50 50h-50V0z" fill="#ff7262"/>
+                        <path d="M200 150c0 27.6-22.4 50-50 50s-50-22.4-50-50 22.4-50 50-50 50 22.4 50 50z" fill="#1abcfe"/>
+                    </svg>
+                </div>
+            </a>
 
             <div class="card !mb-8" style="border-radius: 50px">
                 <div class="font-bold text-5xl mb-6 text-center">Pricing</div>
@@ -228,7 +227,7 @@
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Tokens Studio Support</span>
+                                        <span>Variables Support</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -270,7 +269,7 @@
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Tokens Studio Support</span>
+                                        <span>Variables Support</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -312,7 +311,7 @@
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                                        <span>Tokens Studio Support</span>
+                                        <span>Variables Support</span>
                                     </li>
                                     <li class="flex items-center mb-4">
                                         <i class="pi pi-check-circle text-green-500 mr-2"></i>
@@ -336,7 +335,7 @@
                 <div class="grid grid-cols-12 gap-4 text-lg">
                     <div class="col-span-12 lg:col-span-4 px-2 lg:px-8">
                         <div class="leading-normal mb-2 font-bold">What do I get when I purchase a license?</div>
-                        <p class="mt-0 mb-12 p-0 leading-normal">You'll be able to download two Figma files for light and dark themes.</p>
+                        <p class="mt-0 mb-12 p-0 leading-normal">You'll be able to download the Figma file of PrimeOne UI Kit.</p>
 
                         <div class="leading-normal mb-2 font-bold">Is there a recurring fee or is the license perpetual?</div>
                         <p class="mt-0 mb-12 p-0 leading-normal">UI Kit license is perpetual so requires one time payment with 1 year free updates, not subscription based.</p>
@@ -387,9 +386,7 @@
 export default {
     computed: {
         coverImage() {
-            const image = this.$appState.darkTheme ? 'images/uikit/primeone-cover-dark.jpeg' : 'images/uikit/primeone-cover-light.jpeg';
-
-            return 'https://primefaces.org/cdn/primevue/' + image;
+            return this.$appState.darkTheme ? 'https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/uikit/primeone-cover-dark.jpg' : 'https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/common.images/uikit/primeone-cover-light.jpg';
         }
     }
 };

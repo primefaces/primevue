@@ -7,8 +7,11 @@
 
         <div class="doc">
             <div class="doc-main">
+                <div class="doc-notification"><b>UI Kit v4 Users:</b> You may ignore this documentation and use the <a href="https://www.figma.com/community/plugin/1592914021886732603/primeui-theme-generator" target="_blank" rel="noopener noreferrer" class="hover:underline font-bold">PrimeUI Theme Generator</a> Figma plugin instead, which provides built-in synchronization capabilities that automate the theme generation process.
+                </div>
+                <div class="doc-notification"><b>UI Kit v3 Users:</b> Follow the CI pipeline configuration below to integrate with Figma via the Tokens Studio plugin.</div>
                 <div class="doc-intro">
-                    <h1>Figma to Theme Code CI Pipeline</h1>
+                    <h1>Figma to Theme Code CI Pipeline (UI Kit v3 Only)</h1>
                     <p>Automate the conversion of Figma design tokens to theme code using CI pipelines and the theme designer API.</p>
                 </div>
                 <DocSections :docs="docs" />
@@ -55,7 +58,7 @@ export default {
                 {
                     id: 'integration',
                     label: '3) Integration',
-                    description: `Once the Token Studio Sync Provider is running and you have obtained a Secret Key for the Designer API, you can connect your repository to the Theme Designer API to automatically generate themes whenever the tokens file changes via your CI pipeline. For GitHub, PrimeTek provides an official GitHub Action available on the GitHub Marketplace, while for GitLab and Bitbucket, sample implementations are provided as references for building your own integration.`,
+                    description: `Once the Tokens Studio Sync Provider is running and you have obtained a Secret Key for the Designer API, you can connect your repository to the Theme Designer API to automatically generate themes whenever the tokens file changes via your CI pipeline. For GitHub, PrimeTek provides an official GitHub Action available on the GitHub Marketplace, while for GitLab and Bitbucket, sample implementations are provided as references for building your own integration.`,
                     children: [
                         {
                             id: 'github',

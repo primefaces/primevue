@@ -9,7 +9,7 @@
             <div class="doc-main">
                 <div class="doc-intro">
                     <h1>Designer</h1>
-                    <p>Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to theme code, cloud storage, and migration assistant.</p>
+                    <p>Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, Figma to theme code, cloud storage, and migration assistant.</p>
                 </div>
                 <DocSections :docs="docs" />
             </div>
@@ -24,7 +24,7 @@ import FigmaDoc from '@/doc/designer/createtheme/FigmaDoc.vue';
 import DashboardDoc from '@/doc/designer/DashboardDoc.vue';
 import CustomTokensDoc from '@/doc/designer/editor/CustomTokensDoc.vue';
 import IntelligentCompletionDoc from '@/doc/designer/editor/IntelligentCompletionDoc.vue';
-import TokenSetsDoc from '@/doc/designer/editor/TokenSetsDoc.vue';
+import TokenCollectionsDoc from '@/doc/designer/editor/TokenCollectionsDoc.vue';
 import TypographyDoc from '@/doc/designer/editor/TypographyDoc.vue';
 import LicenseDoc from '@/doc/designer/LicenseDoc.vue';
 import LimitationsDoc from '@/doc/designer/LimitationsDoc.vue';
@@ -72,9 +72,9 @@ export default {
                     label: 'Editor',
                     children: [
                         {
-                            id: 'tokensets',
-                            label: 'Token Sets',
-                            component: TokenSetsDoc
+                            id: 'tokencollections',
+                            label: 'Token Collections',
+                            component: TokenCollectionsDoc
                         },
                         {
                             id: 'customtokens',
