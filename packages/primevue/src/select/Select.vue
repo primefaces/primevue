@@ -993,7 +993,7 @@ export default {
         visibleOptions() {
             const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
 
-            if (this.filterValue) {
+            if (this.filterValue && this.filterFields !== false) {
                 const filteredOptions = FilterService.filter(options, this.searchFields, this.filterValue, this.filterMatchMode, this.filterLocale);
 
                 if (this.optionGroupLabel) {
