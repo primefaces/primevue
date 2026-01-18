@@ -141,10 +141,4 @@ export declare type SkeletonEmits = EmitFn<SkeletonEmitsOptions>;
  */
 declare const Skeleton: DefineComponent<SkeletonProps, SkeletonSlots, SkeletonEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Skeleton: DefineComponent<SkeletonProps, SkeletonSlots, SkeletonEmits>;
-    }
-}
-
 export default Skeleton;

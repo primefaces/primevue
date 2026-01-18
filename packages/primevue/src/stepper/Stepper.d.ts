@@ -165,10 +165,4 @@ export declare type StepperEmits = EmitFn<StepperEmitsOptions>;
  */
 declare const Stepper: DefineComponent<StepperProps, StepperSlots, StepperEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Stepper: DefineComponent<StepperProps, StepperSlots, StepperEmits>;
-    }
-}
-
 export default Stepper;

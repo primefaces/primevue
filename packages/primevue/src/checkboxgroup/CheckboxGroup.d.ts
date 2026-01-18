@@ -151,10 +151,4 @@ export declare type CheckboxGroupEmits = EmitFn<CheckboxGroupEmitsOptions>;
  */
 declare const CheckboxGroup: DefineComponent<CheckboxGroupProps, CheckboxGroupSlots, CheckboxGroupEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        CheckboxGroup: DefineComponent<CheckboxGroupProps, CheckboxGroupSlots, CheckboxGroupEmits>;
-    }
-}
-
 export default CheckboxGroup;

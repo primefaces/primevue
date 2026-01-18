@@ -300,10 +300,4 @@ export declare type PanelEmits = EmitFn<PanelEmitsOptions>;
  */
 declare const Panel: DefineComponent<PanelProps, PanelSlots, PanelEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Panel: DefineComponent<PanelProps, PanelSlots, PanelEmits>;
-    }
-}
-
 export default Panel;
