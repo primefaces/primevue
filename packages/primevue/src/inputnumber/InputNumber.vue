@@ -125,7 +125,9 @@ export default {
         return {
             // @deprecated
             d_modelValue: this.d_value,
-            focused: false
+            focused: false,
+            undoStack: [],
+            redoStack: []
         };
     },
     watch: {
@@ -345,6 +347,8 @@ export default {
                 let currentValue = this.parseValue(this.$refs.input.$el.value) || 0;
                 let newValue = this.validateValue(this.addWithPrecision(currentValue, step));
 
+                this.pushUndoState(this.$refs.input.$el.value);
+                this.redoStack = [];
                 this.updateInput(newValue, null, 'spin');
                 this.updateModel(event, newValue);
 
@@ -422,7 +426,16 @@ export default {
                 return;
             }
 
-            if (event.altKey || event.ctrlKey || event.metaKey) {
+            const hasModifier = event.altKey || event.ctrlKey || event.metaKey;
+            const undoRedoAction = this.getUndoRedoAction(event);
+
+            if (undoRedoAction) {
+                this.handleUndoRedo(event, undoRedoAction);
+
+                return;
+            }
+
+            if (hasModifier) {
                 this.isSpecialChar = true;
                 this.lastValue = this.$refs.input.$el.value;
 
@@ -595,6 +608,12 @@ export default {
                 return;
             }
 
+            const undoRedoAction = this.getUndoRedoAction(event);
+
+            if (undoRedoAction) {
+                return;
+            }
+
             let char = event.key;
             let isDecimalSign = this.isDecimalSign(char);
             const isMinusSign = this.isMinusSign(char);
@@ -627,6 +646,8 @@ export default {
             }
         },
         onClearClick(event) {
+            this.pushUndoState(this.$refs.input.$el.value);
+            this.redoStack = [];
             this.updateModel(event, null);
             this.$refs.input.$el.focus();
         },
@@ -847,6 +868,8 @@ export default {
             let newValue = null;
 
             if (valueStr != null) {
+                this.pushUndoState(currentValue);
+                this.redoStack = [];
                 newValue = this.parseValue(valueStr);
                 newValue = !newValue && !this.allowEmpty ? 0 : newValue;
                 this.updateInput(newValue, insertedValueStr, operation, valueStr);
@@ -1033,6 +1056,51 @@ export default {
         },
         minBoundry() {
             return this.d_value <= this.min;
+        },
+        getUndoRedoAction(event) {
+            if (!event.ctrlKey && !event.metaKey) return null;
+
+            const key = event.key;
+            const isZ = key === 'z' || key === 'Z';
+            const isY = key === 'y' || key === 'Y';
+
+            if (isZ && event.shiftKey) return 'redo';
+            if (isZ) return 'undo';
+            if (isY) return 'redo';
+
+            return null;
+        },
+        handleUndoRedo(event, action) {
+            event.preventDefault?.();
+
+            const input = this.$refs.input?.$el;
+
+            if (!input) return;
+
+            const currentValue = input.value;
+            const stack = action === 'undo' ? this.undoStack : this.redoStack;
+            const nextValue = stack.pop();
+
+            if (nextValue === undefined) return;
+
+            if (action === 'undo') this.redoStack.push(currentValue);
+            else this.undoStack.push(currentValue);
+
+            input.value = nextValue;
+            this.updateModel(event, this.parseValue(nextValue));
+        },
+        pushUndoState(value) {
+            if (value === undefined) return;
+
+            const lastValue = this.undoStack[this.undoStack.length - 1];
+
+            if (lastValue !== value) {
+                this.undoStack.push(value);
+
+                if (this.undoStack.length > 50) {
+                    this.undoStack.shift();
+                }
+            }
         }
     },
     computed: {
