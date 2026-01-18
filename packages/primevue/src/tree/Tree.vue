@@ -94,10 +94,32 @@ export default {
     watch: {
         expandedKeys(newValue) {
             this.d_expandedKeys = newValue;
+        },
+        droppableNodes() {
+            this.handleDragDropServiceState();
+        },
+        draggableNodes() {
+            this.handleDragDropServiceState();
         }
     },
     mounted() {
-        if (this.droppableNodes) {
+        this.handleDragDropServiceState();
+    },
+    beforeUnmount() {
+        this.cleanupDragDropService();
+    },
+    methods: {
+        handleDragDropServiceState() {
+            const needsDragDropService = this.draggableNodes || this.droppableNodes;
+
+            if (needsDragDropService) {
+                this.initializeDragDropService();
+            } else {
+                this.cleanupDragDropService();
+            }
+        },
+        initializeDragDropService() {
+            if (!this.dragDropService) {
             this.dragDropService = useTreeDragDropService();
 
             this.dragStartCleanup = this.dragDropService.onDragStart((event) => {
@@ -116,16 +138,24 @@ export default {
             });
         }
     },
-    beforeUnmount() {
+        cleanupDragDropService() {
         if (this.dragStartCleanup) {
             this.dragStartCleanup();
+                this.dragStartCleanup = null;
         }
 
         if (this.dragStopCleanup) {
             this.dragStopCleanup();
-        }
-    },
-    methods: {
+                this.dragStopCleanup = null;
+            }
+
+            this.dragDropService = null;
+            this.dragNode = null;
+            this.dragNodeSubNodes = null;
+            this.dragNodeIndex = null;
+            this.dragNodeScope = null;
+            this.dragHover = false;
+        },
         onNodeToggle(node) {
             const key = node.key;
 
