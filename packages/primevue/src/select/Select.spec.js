@@ -366,3 +366,38 @@ describe('filter checks', () => {
         expect(wrapper.findAll('.p-select-option').length).toBe(2);
     });
 });
+
+describe('filter label persistence checks', () => {
+    let wrapper;
+
+    beforeEach(async () => {
+        wrapper = mount(Select, {
+            global: {
+                plugins: [PrimeVue],
+                stubs: {
+                    teleport: true
+                }
+            },
+            props: {
+                filter: true,
+                options: [
+                    { name: 'France', code: 'FR' },
+                    { name: 'Germany', code: 'DE' },
+                    { name: 'United States', code: 'US' }
+                ],
+                optionLabel: 'name',
+                optionValue: 'code',
+                modelValue: 'FR',
+                placeholder: 'Select a Country'
+            }
+        });
+    });
+
+    it('should keep selected label when filtered out', async () => {
+        expect(wrapper.find('.p-select-label').text()).toBe('France');
+
+        await wrapper.setData({ filterValue: 'United' });
+
+        expect(wrapper.find('.p-select-label').text()).toBe('France');
+    });
+});

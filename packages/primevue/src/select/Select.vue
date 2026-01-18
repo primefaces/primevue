@@ -1019,15 +1019,20 @@ export default {
         hasSelectedOption() {
             return this.$filled;
         },
-        label() {
-            const selectedOptionIndex = this.findSelectedOptionIndex();
+        selectedOption() {
+            const options = this.optionGroupLabel ? this.flatOptions(this.options) : this.options || [];
 
-            return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : this.placeholder || 'p-emptylabel';
+            return options.find((option) => !this.isOptionGroup(option) && this.isSelected(option));
+        },
+        label() {
+            const selectedOption = this.selectedOption;
+
+            return selectedOption ? this.getOptionLabel(selectedOption) : this.placeholder || 'p-emptylabel';
         },
         editableInputValue() {
-            const selectedOptionIndex = this.findSelectedOptionIndex();
+            const selectedOption = this.selectedOption;
 
-            return selectedOptionIndex !== -1 ? this.getOptionLabel(this.visibleOptions[selectedOptionIndex]) : this.d_value || '';
+            return selectedOption ? this.getOptionLabel(selectedOption) : this.d_value || '';
         },
         equalityKey() {
             return this.optionValue ? null : this.dataKey;
