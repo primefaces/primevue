@@ -9,6 +9,7 @@
         :disabled="disabled"
         :unstyled="unstyled"
         :pt="ptm('pcJumpToPageDropdown')"
+        :appendTo="appendTo"
         data-pc-group-section="pagedropdown"
     >
         <template v-if="templates['jumptopagedropdownicon']" #dropdownicon="slotProps">
@@ -30,7 +31,11 @@ export default {
         page: Number,
         pageCount: Number,
         disabled: Boolean,
-        templates: null
+        templates: null,
+        appendTo: {
+            type: [String, Object],
+            default: 'body'
+        }
     },
     methods: {
         onChange(value) {
