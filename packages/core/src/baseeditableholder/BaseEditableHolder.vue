@@ -98,8 +98,8 @@ export default {
             this.formField.onChange?.({ originalEvent: event, value });
         },
         // @todo move to @primeuix/utils
-        findNonEmpty(...values) {
-            return values.find(isNotEmpty);
+        findNonNullish(...values) {
+            return values.find((v) => v != null && v !== undefined);
         }
     },
     computed: {
@@ -107,7 +107,7 @@ export default {
             return isNotEmpty(this.d_value);
         },
         $invalid() {
-            return !this.$formNovalidate && this.findNonEmpty(this.invalid, this.$pcFormField?.$field?.invalid, this.$pcForm?.getFieldState(this.$formName)?.invalid);
+            return !this.$formNovalidate && this.findNonNullish(this.invalid, this.$pcFormField?.$field?.invalid, this.$pcForm?.getFieldState(this.$formName)?.invalid);
         },
         $formName() {
             return !this.$formNovalidate ? this.name || this.$formControl?.name : undefined;
@@ -119,10 +119,10 @@ export default {
             return this.$formControl?.novalidate;
         },
         $formDefaultValue() {
-            return this.findNonEmpty(this.d_value, this.$pcFormField?.initialValue, this.$pcForm?.initialValues?.[this.$formName]);
+            return this.findNonNullish(this.d_value, this.$pcFormField?.initialValue, this.$pcForm?.initialValues?.[this.$formName]);
         },
         $formValue() {
-            return this.findNonEmpty(this.$pcFormField?.$field?.value, this.$pcForm?.getFieldState(this.$formName)?.value);
+            return this.findNonNullish(this.$pcFormField?.$field?.value, this.$pcForm?.getFieldState(this.$formName)?.value);
         },
         controlled() {
             return this.$inProps.hasOwnProperty('modelValue') || (!this.$inProps.hasOwnProperty('modelValue') && !this.$inProps.hasOwnProperty('defaultValue'));
