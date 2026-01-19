@@ -241,6 +241,7 @@ export default {
 
                 if (node.children) {
                     let childNodes = [...node.children];
+                    node.originalChildren = childNodes;
 
                     node.children = [];
 
