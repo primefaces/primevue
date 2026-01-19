@@ -249,6 +249,16 @@ export interface ButtonSlots {
         class: string;
     }): VNode[];
     /**
+     * Custom label template.
+     * @param {Object} scope - label slot's params.
+     */
+    label(scope: {
+        /**
+         * Style class of the label.
+         */
+        class: string;
+    }): VNode[];
+    /**
      * Custom loading icon template.
      * @param {Object} scope - loading icon slot's params.
      */
