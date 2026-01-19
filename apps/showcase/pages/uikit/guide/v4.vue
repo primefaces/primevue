@@ -28,7 +28,7 @@ import PublishingDoc from '@/doc/uikit/common/installation/PublishingDoc.vue';
 import OverviewDoc from '@/doc/uikit/common/OverviewDoc.vue';
 import SupportDoc from '@/doc/uikit/common/SupportDoc.vue';
 import UpdatePrimeOneDoc from '@/doc/uikit/common/UpdatePrimeOneDoc.vue';
-import CIPipelineDoc from '@/doc/uikit/v4/CIPipelineDoc.vue';
+import PrimeUIFigmaPluginDoc from '@/doc/uikit/v4/PrimeUIFigmaPluginDoc.vue';
 import CollectionsDoc from '@/doc/uikit/v4/CollectionsDoc.vue';
 import ComponentsDoc from '@/doc/uikit/v4/faq/ComponentsDoc.vue';
 import UpdatesDoc from '@/doc/uikit/v4/faq/UpdatesDoc.vue';
@@ -83,9 +83,9 @@ export default {
                     component: CollectionsDoc
                 },
                 {
-                    id: 'ci-pipeline',
-                    label: 'CI Pipeline',
-                    component: CIPipelineDoc
+                    id: 'primeui-figma-plugin',
+                    label: 'PrimeUI Figma Plugin',
+                    component: PrimeUIFigmaPluginDoc
                 },
                 {
                     id: 'update-primeone',
