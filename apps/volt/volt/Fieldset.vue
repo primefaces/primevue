@@ -11,7 +11,7 @@
             <MinusIcon v-else :class="theme.toggleIcon" />
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Fieldset>
 </template>
@@ -19,12 +19,14 @@
 <script setup lang="ts">
 import MinusIcon from '@primevue/icons/minus';
 import PlusIcon from '@primevue/icons/plus';
-import Fieldset, { type FieldsetPassThroughOptions, type FieldsetProps } from 'primevue/fieldset';
+import Fieldset, { type FieldsetPassThroughOptions, type FieldsetProps, type FieldsetSlots } from 'primevue/fieldset';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ FieldsetProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ FieldsetSlots {}
+defineSlots<Slots>();
 
 const theme = ref<FieldsetPassThroughOptions>({
     root: `border border-surface-200 dark:border-surface-700 rounded-md
