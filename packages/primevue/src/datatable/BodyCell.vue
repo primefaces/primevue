@@ -41,7 +41,7 @@
         />
         <component v-else-if="column.children && column.children.body && !column.children.editor && d_editing" :is="column.children.body" :data="editingRowData" :column="column" :field="field" :index="rowIndex" :frozenRow="frozenRow" />
         <template v-else-if="columnProp('selectionMode')">
-            <DTRadioButton v-if="columnProp('selectionMode') === 'single'" :value="rowData" :name="name" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" :column="column" :index="index" :unstyled="unstyled" :pt="pt" />
+            <DTRadioButton v-if="columnProp('selectionMode') === 'single'" :value="rowData" :name="name" :checked="selected" @change="toggleRowWithRadio($event, rowIndex)" :column="column" :disabled="isSelectionModeDisabled" :index="index" :unstyled="unstyled" :pt="pt" />
             <DTCheckbox
                 v-else-if="columnProp('selectionMode') === 'multiple'"
                 :value="rowData"
@@ -50,6 +50,7 @@
                 :aria-selected="selected ? true : undefined"
                 @change="toggleRowWithCheckbox($event, rowIndex)"
                 :column="column"
+                :disabled="isSelectionModeDisabled"
                 :index="index"
                 :unstyled="unstyled"
                 :pt="pt"
@@ -134,7 +135,7 @@
 
 <script>
 import { getAttribute, getFirstFocusableElement, getNextElementSibling, getOuterWidth, getPreviousElementSibling, invokeElementMethod } from '@primeuix/utils/dom';
-import { resolveFieldData } from '@primeuix/utils/object';
+import { isEmpty, resolveFieldData } from '@primeuix/utils/object';
 import BaseComponent from '@primevue/core/basecomponent';
 import { getVNodeProp } from '@primevue/core/utils';
 import BarsIcon from '@primevue/icons/bars';
@@ -575,6 +576,9 @@ export default {
         },
         cancelButtonAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.cancelEdit : undefined;
+        },
+        isSelectionModeDisabled() {
+            return isEmpty(this.column.props?.selectable) ? false : !this.column.props?.selectable(this.rowData, this.rowIndex);
         }
     },
     components: {
