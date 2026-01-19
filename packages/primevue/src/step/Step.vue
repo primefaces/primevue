@@ -35,20 +35,21 @@ export default {
     },
     mounted() {
         if (this.$el && this.$pcStepList) {
+            this.update();
+        }
+    },
+    updated() {
+        this.update();
+    },
+    methods: {
+        update() {
             let index = findIndexInList(this.$el, find(this.$pcStepper.$el, '[data-pc-name="step"]'));
             let activeIndex = findIndexInList(findSingle(this.$pcStepper.$el, '[data-pc-name="step"][data-p-active="true"]'), find(this.$pcStepper.$el, '[data-pc-name="step"]'));
             let stepLen = find(this.$pcStepper.$el, '[data-pc-name="step"]').length;
 
             this.isSeparatorVisible = index !== stepLen - 1;
             this.isCompleted = index < activeIndex;
-        }
-    },
-    updated() {
-        let index = findIndexInList(this.$el, find(this.$pcStepper.$el, '[data-pc-name="step"]'));
-        let activeIndex = findIndexInList(findSingle(this.$pcStepper.$el, '[data-pc-name="step"][data-p-active="true"]'), find(this.$pcStepper.$el, '[data-pc-name="step"]'));
-        this.isCompleted = index < activeIndex;
-    },
-    methods: {
+        },
         getPTOptions(key) {
             const _ptm = key === 'root' ? this.ptmi : this.ptm;
 
