@@ -71,14 +71,15 @@ const BaseDirective = {
     _loadStyles: (instance = {}, binding, vnode) => {
         const config = BaseDirective._getConfig(binding, vnode);
         const useStyleOptions = { nonce: config?.csp?.nonce };
+        const styleContainer = config?.styleContainer;
 
-        BaseDirective._loadCoreStyles(instance, useStyleOptions);
-        BaseDirective._loadThemeStyles(instance, useStyleOptions);
-        BaseDirective._loadScopedThemeStyles(instance, useStyleOptions);
+        BaseDirective._loadCoreStyles(instance, { ...useStyleOptions, styleContainer });
+        BaseDirective._loadThemeStyles(instance, { ...useStyleOptions, styleContainer });
+        BaseDirective._loadScopedThemeStyles(instance, { ...useStyleOptions, styleContainer });
 
         BaseDirective._removeThemeListeners(instance);
 
-        instance.$loadStyles = () => BaseDirective._loadThemeStyles(instance, useStyleOptions);
+        instance.$loadStyles = () => BaseDirective._loadThemeStyles(instance, { ...useStyleOptions, styleContainer });
 
         BaseDirective._themeChangeListener(instance.$loadStyles);
     },
