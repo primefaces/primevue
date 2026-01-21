@@ -222,7 +222,7 @@ export default {
             }
         },
         onKeyDown(event) {
-            if (event.code === 'Escape' && this.closeOnEscape) {
+            if (event.code === 'Escape' && this.closeOnEscape && !event.isComposing) {
                 this.close();
             }
         },
