@@ -340,10 +340,4 @@ export declare type InputChipsEmits = EmitFn<InputChipsEmitsOptions>;
  */
 declare const InputChips: DefineComponent<InputChipsProps, InputChipsSlots, InputChipsEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        InputChips: DefineComponent<InputChipsProps, InputChipsSlots, InputChipsEmits>;
-    }
-}
-
 export default InputChips;

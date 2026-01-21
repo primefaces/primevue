@@ -196,10 +196,4 @@ export declare type InplaceEmits = EmitFn<InplaceEmitsOptions>;
  */
 declare const Inplace: DefineComponent<InplaceProps, InplaceSlots, InplaceEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Inplace: DefineComponent<InplaceProps, InplaceSlots, InplaceEmits>;
-    }
-}
-
 export default Inplace;

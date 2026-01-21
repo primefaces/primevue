@@ -277,10 +277,4 @@ export declare type SelectButtonEmits = EmitFn<SelectButtonEmitsOptions>;
  */
 declare const SelectButton: DefineComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        SelectButton: DefineComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits>;
-    }
-}
-
 export default SelectButton;

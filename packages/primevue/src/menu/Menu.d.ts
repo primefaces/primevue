@@ -373,10 +373,4 @@ export interface MenuMethods {
  */
 declare const Menu: DefineComponent<MenuProps, MenuSlots, MenuEmits, MenuMethods>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Menu: DefineComponent<MenuProps, MenuSlots, MenuEmits, MenuMethods>;
-    }
-}
-
 export default Menu;

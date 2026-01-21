@@ -540,10 +540,4 @@ export declare type GalleriaEmits = EmitFn<GalleriaEmitsOptions>;
  */
 declare const Galleria: DefineComponent<GalleriaProps, GalleriaSlots, GalleriaEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Galleria: DefineComponent<GalleriaProps, GalleriaSlots, GalleriaEmits>;
-    }
-}
-
 export default Galleria;

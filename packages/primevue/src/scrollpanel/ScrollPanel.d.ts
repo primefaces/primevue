@@ -166,10 +166,4 @@ export declare type ScrollPanelEmits = EmitFn<ScrollPanelEmitsOptions>;
  */
 declare const ScrollPanel: DefineComponent<ScrollPanelProps, ScrollPanelSlots, ScrollPanelEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        ScrollPanel: DefineComponent<ScrollPanelProps, ScrollPanelSlots, ScrollPanelEmits>;
-    }
-}
-
 export default ScrollPanel;

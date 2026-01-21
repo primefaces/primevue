@@ -367,10 +367,4 @@ export declare type OrganizationChartEmits = EmitFn<OrganizationChartEmitsOption
  */
 declare const OrganizationChart: DefineComponent<OrganizationChartProps, OrganizationChartSlots, OrganizationChartEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        OrganizationChart: DefineComponent<OrganizationChartProps, OrganizationChartSlots, OrganizationChartEmits>;
-    }
-}
-
 export default OrganizationChart;

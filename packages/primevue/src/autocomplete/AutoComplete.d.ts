@@ -900,10 +900,4 @@ export declare type AutoCompleteEmits = EmitFn<AutoCompleteEmitsOptions>;
  */
 declare const AutoComplete: DefineComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        AutoComplete: DefineComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits>;
-    }
-}
-
 export default AutoComplete;

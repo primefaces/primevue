@@ -257,10 +257,4 @@ export declare type InputMaskEmits = EmitFn<InputMaskEmitsOptions>;
  */
 declare const InputMask: DefineComponent<InputMaskProps, InputMaskSlots, InputMaskEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        InputMask: DefineComponent<InputMaskProps, InputMaskSlots, InputMaskEmits>;
-    }
-}
-
 export default InputMask;

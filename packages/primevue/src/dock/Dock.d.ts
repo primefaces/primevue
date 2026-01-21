@@ -322,10 +322,4 @@ export declare type DockEmits = EmitFn<DockEmitsOptions>;
  */
 declare const Dock: DefineComponent<DockProps, DockSlots, DockEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Dock: DefineComponent<DockProps, DockSlots, DockEmits>;
-    }
-}
-
 export default Dock;

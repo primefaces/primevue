@@ -202,10 +202,4 @@ export interface ChartMethods {
  */
 declare const Chart: DefineComponent<ChartProps, ChartSlots, ChartEmits, ChartMethods>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Chart: DefineComponent<ChartProps, ChartSlots, ChartEmits, ChartMethods>;
-    }
-}
-
 export default Chart;

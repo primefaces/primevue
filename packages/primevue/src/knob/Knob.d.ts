@@ -272,10 +272,4 @@ export declare type KnobEmits = EmitFn<KnobEmitsOptions>;
  */
 declare const Knob: DefineComponent<KnobProps, KnobSlots, KnobEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Knob: DefineComponent<KnobProps, KnobSlots, KnobEmits>;
-    }
-}
-
 export default Knob;

@@ -369,10 +369,4 @@ export declare type ToastEmits = EmitFn<ToastEmitsOptions>;
  */
 declare const Toast: DefineComponent<ToastProps, ToastSlots, ToastEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Toast: DefineComponent<ToastProps, ToastSlots, ToastEmits>;
-    }
-}
-
 export default Toast;

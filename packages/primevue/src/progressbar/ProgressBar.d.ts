@@ -137,10 +137,4 @@ export declare type ProgressBarEmits = EmitFn<ProgressBarEmitsOptions>;
  */
 declare const ProgressBar: DefineComponent<ProgressBarProps, ProgressBarSlots, ProgressBarEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        ProgressBar: DefineComponent<ProgressBarProps, ProgressBarSlots, ProgressBarEmits>;
-    }
-}
-
 export default ProgressBar;

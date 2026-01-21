@@ -652,10 +652,4 @@ export declare type CascadeSelectEmits = EmitFn<CascadeSelectEmitsOptions>;
  */
 declare const CascadeSelect: DefineComponent<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        CascadeSelect: DefineComponent<CascadeSelectProps, CascadeSelectSlots, CascadeSelectEmits>;
-    }
-}
-
 export default CascadeSelect;

@@ -934,10 +934,4 @@ export declare type TreeTableEmits = EmitFn<TreeTableEmitsOptions>;
  */
 declare const TreeTable: DefineComponent<TreeTableProps, TreeTableSlots, TreeTableEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        TreeTable: DefineComponent<TreeTableProps, TreeTableSlots, TreeTableEmits>;
-    }
-}
-
 export default TreeTable;

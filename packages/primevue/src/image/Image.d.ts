@@ -351,10 +351,4 @@ export interface ImageMethods {}
  */
 declare const Image: DefineComponent<ImageProps, ImageSlots, ImageEmits, ImageMethods>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Image: DefineComponent<ImageProps, ImageSlots, ImageEmits, ImageMethods>;
-    }
-}
-
 export default Image;

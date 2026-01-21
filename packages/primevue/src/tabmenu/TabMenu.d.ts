@@ -269,10 +269,4 @@ export declare type TabMenuEmits = EmitFn<TabMenuEmitsOptions>;
  */
 declare const TabMenu: DefineComponent<TabMenuProps, TabMenuSlots, TabMenuEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        TabMenu: DefineComponent<TabMenuProps, TabMenuSlots, TabMenuEmits>;
-    }
-}
-
 export default TabMenu;

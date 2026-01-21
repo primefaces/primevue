@@ -330,10 +330,4 @@ export interface FormInstance {
  */
 declare const Form: DefineComponent<FormProps, FormSlots, FormEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Form: DefineComponent<FormProps, FormSlots, FormEmits>;
-    }
-}
-
 export default Form;

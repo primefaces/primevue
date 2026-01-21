@@ -230,10 +230,4 @@ export declare type TimelineEmits = EmitFn<TimelineEmitsOptions>;
  */
 declare const Timeline: DefineComponent<TimelineProps, TimelineSlots, TimelineEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Timeline: DefineComponent<TimelineProps, TimelineSlots, TimelineEmits>;
-    }
-}
-
 export default Timeline;

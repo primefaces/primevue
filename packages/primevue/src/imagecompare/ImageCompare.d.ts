@@ -140,10 +140,4 @@ export declare type ImageCompareEmits = EmitFn<ImageCompareEmitsOptions>;
  */
 declare const ImageCompare: DefineComponent<ImageCompareProps, ImageCompareSlots, ImageCompareEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        ImageCompare: DefineComponent<ImageCompareProps, ImageCompareSlots, ImageCompareEmits>;
-    }
-}
-
 export default ImageCompare;

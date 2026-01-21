@@ -242,10 +242,4 @@ export declare type MessageEmits = EmitFn<MessageEmitsOptions>;
  */
 declare const Message: DefineComponent<MessageProps, MessageSlots, MessageEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Message: DefineComponent<MessageProps, MessageSlots, MessageEmits>;
-    }
-}
-
 export default Message;

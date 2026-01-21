@@ -247,10 +247,4 @@ export interface SplitterMethods {
  */
 declare const Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEmits, SplitterMethods>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Splitter: DefineComponent<SplitterProps, SplitterSlots, SplitterEmits, SplitterMethods>;
-    }
-}
-
 export default Splitter;

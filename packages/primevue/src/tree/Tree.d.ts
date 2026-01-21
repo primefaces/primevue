@@ -705,10 +705,4 @@ export declare type TreeEmits = EmitFn<TreeEmitsOptions>;
  */
 declare const Tree: DefineComponent<TreeProps, TreeSlots, TreeEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Tree: DefineComponent<TreeProps, TreeSlots, TreeEmits>;
-    }
-}
-
 export default Tree;

@@ -176,10 +176,4 @@ export declare type InputTextEmits = EmitFn<InputTextEmitsOptions>;
  */
 declare const InputText: DefineComponent<InputTextProps, InputTextSlots, InputTextEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        InputText: DefineComponent<InputTextProps, InputTextSlots, InputTextEmits>;
-    }
-}
-
 export default InputText;
