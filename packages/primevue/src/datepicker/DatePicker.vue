@@ -630,7 +630,6 @@ export default {
             handler(newValue) {
                 this.updateCurrentMetaData();
                 this.rawValue = typeof newValue === 'string' ? this.parseValue(newValue) : newValue;
-
                 if (!this.typeUpdate && !this.inline && this.input) {
                     this.input.value = this.formatValue(this.rawValue);
                 }
@@ -691,7 +690,13 @@ export default {
                 this.initFocusableCell();
             }
         } else {
-            this.input.value = this.inputFieldValue;
+            // Handle d_value from forms if it differs from modelValue
+            if (this.d_value !== undefined && this.d_value !== this.modelValue) {
+                this.rawValue = typeof this.d_value === 'string' ? this.parseValue(this.d_value) : this.d_value;
+                this.input.value = this.formatValue(this.rawValue);
+            } else {
+                this.input.value = this.inputFieldValue;
+            }
 
             if (this.$refs.clearIcon?.$el?.style) {
                 this.$refs.clearIcon.$el.style.display = !this.$filled ? 'none' : 'block';
