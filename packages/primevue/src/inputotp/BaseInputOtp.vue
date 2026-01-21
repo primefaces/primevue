@@ -25,6 +25,10 @@ export default {
         integerOnly: {
             type: Boolean,
             default: false
+        },
+        autofocus: {
+            type: Boolean,
+            default: null
         }
     },
     style: InputOtpStyle,
