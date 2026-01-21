@@ -593,8 +593,12 @@ export default {
                 window.addEventListener('resize', this.resizeListener);
                 window.addEventListener('orientationchange', this.resizeListener);
 
-                this.resizeObserver = new ResizeObserver(() => {
-                    this.onResize();
+                this.resizeObserver = new ResizeObserver((entries) => {
+                    if (!this.initialized && isVisible(this.element)) {
+                        this.viewInit();
+                    } else {
+                        this.onResize();
+                    }
                 });
                 this.resizeObserver.observe(this.element);
             }
