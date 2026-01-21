@@ -48,7 +48,7 @@ export default {
                     this.chart = null;
                 }
 
-                if (module && module.default) {
+                if (module && module.default && this.$refs.canvas) {
                     this.chart = new module.default(this.$refs.canvas, {
                         type: this.type,
                         data: this.data,
