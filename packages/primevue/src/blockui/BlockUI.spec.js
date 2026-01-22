@@ -1,6 +1,15 @@
 import { mount } from '@vue/test-utils';
 import PrimeVue from 'primevue/config';
-import { beforeEach, expect } from 'vitest';
+import { beforeEach, expect, vi } from 'vitest';
+
+vi.mock('@primeuix/utils/dom', async (importOriginal) => {
+    const actual = await importOriginal();
+
+    return {
+        ...actual,
+        hasCSSAnimation: () => 1
+    };
+});
 import BlockUI from './BlockUI.vue';
 
 let wrapper = null;
@@ -67,5 +76,20 @@ describe('BlockUI.vue', () => {
 
         expect(wrapper.vm.isBlocked).toBe(false);
         expect(wrapper.emitted().unblock.length).toBe(1);
+    });
+
+    it('When unblock is called, mask should be removed on animationend', async () => {
+        await wrapper.setProps({ blocked: true });
+
+        const mask = wrapper.vm.mask;
+
+        expect(mask).not.toBe(null);
+        expect(wrapper.element.querySelector('.p-blockui-mask')).not.toBe(null);
+
+        await wrapper.setProps({ blocked: false });
+        mask.dispatchEvent(new Event('animationend'));
+
+        expect(wrapper.element.querySelector('.p-blockui-mask')).toBe(null);
+        expect(wrapper.vm.isBlocked).toBe(false);
     });
 });
