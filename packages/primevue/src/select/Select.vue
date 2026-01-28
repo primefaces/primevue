@@ -450,7 +450,7 @@ export default {
                     if (!metaKey && isPrintableCharacter(event.key)) {
                         !this.overlayVisible && this.show();
                         !this.editable && this.searchOptions(event, event.key);
-                        this.filter && (this.filterValue = event.key);
+                        !this.editable && this.filter && (this.filterValue = event.key);
                     }
 
                     break;
@@ -715,7 +715,7 @@ export default {
             this.$attrSelector && el.setAttribute(this.$attrSelector, '');
 
             setTimeout(() => {
-                this.autoFilterFocus && this.filter && focus(this.$refs.filterInput.$el);
+                this.autoFilterFocus && this.filter && !this.editable && focus(this.$refs.filterInput.$el);
                 this.autoUpdateModel();
             }, 1);
         },
