@@ -24753,6 +24753,14 @@
                             "description": "Whether to hide the overlay on date selection is completed when selectionMode is range."
                         },
                         {
+                            "name": "preserveViewOnRangeStart",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "boolean",
+                            "default": "false",
+                            "description": "Whether to preserve the current visible months when selecting the start date in range mode with multiple months displayed.\nBy default, when numberOfMonths > 1 and you select a start date from the second (or later) visible month,\nthe calendar view jumps so that the selected month becomes the first visible month.\nWhen this property is enabled, the view remains stable during the initial selection, preventing the jump.\nOnce the range is complete (both start and end dates are selected), normal view behavior resumes."
+                        },
+                        {
                             "name": "timeSeparator",
                             "optional": true,
                             "readonly": false,
