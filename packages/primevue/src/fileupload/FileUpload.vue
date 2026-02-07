@@ -137,24 +137,25 @@ export default {
             let files = event.dataTransfer ? event.dataTransfer.files : event.target.files;
 
             for (let file of files) {
-                if (!this.isFileSelected(file) && !this.isFileLimitExceeded()) {
-                    if (this.validate(file)) {
-                        if (this.isImage(file)) {
-                            file.objectURL = window.URL.createObjectURL(file);
-                        }
+                if (!this.isFileSelected(file)) {
+                    if (!this.isFileLimitReached()) {
+                        if (this.validate(file)) {
+                            if (this.isImage(file)) {
+                                file.objectURL = window.URL.createObjectURL(file);
+                            }
 
-                        this.files.push(file);
+                            this.files.push(file);
+                        }
+                    } else {
+                        this.showInvalidFileLimitMessage();
+                        break;
                     }
                 }
             }
 
             this.$emit('select', { originalEvent: event, files: this.files });
 
-            if (this.fileLimit) {
-                this.checkFileLimit();
-            }
-
-            if (this.auto && this.hasFiles && !this.isFileLimitExceeded()) {
+            if (this.auto && this.hasFiles) {
                 this.uploader();
             }
 
@@ -312,8 +313,10 @@ export default {
         },
         onDragOver(event) {
             if (!this.disabled && (!this.hasFiles || this.multiple)) {
-                !this.isUnstyled && addClass(this.$refs.content, 'p-fileupload-highlight');
-                this.$refs.content.setAttribute('data-p-highlight', true);
+                if (!this.isFileLimitReached()) {
+                    !this.isUnstyled && addClass(this.$refs.content, 'p-fileupload-highlight');
+                    this.$refs.content.setAttribute('data-p-highlight', true);
+                }
                 event.stopPropagation();
                 event.preventDefault();
             }
@@ -381,8 +384,11 @@ export default {
 
             return `${formattedSize} ${sizes[i]}`;
         },
+        isFileLimitReached() {
+            return this.fileLimit && this.fileLimit <= this.files.length + this.uploadedFileCount;
+        },
         isFileLimitExceeded() {
-            if (this.fileLimit && this.fileLimit <= this.files.length + this.uploadedFileCount && this.focused) {
+            if (this.isFileLimitReached() && this.focused) {
                 this.focused = false;
             }
 
@@ -390,8 +396,11 @@ export default {
         },
         checkFileLimit() {
             if (this.isFileLimitExceeded()) {
-                this.messages.push(this.invalidFileLimitMessage.replace('{0}', this.fileLimit.toString()));
+                this.showInvalidFileLimitMessage();
             }
+        },
+        showInvalidFileLimitMessage() {
+            this.messages.push(this.invalidFileLimitMessage.replace('{0}', this.fileLimit.toString()));
         },
         onMessageClose() {
             this.messages = null;
