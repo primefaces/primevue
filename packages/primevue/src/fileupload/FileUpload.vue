@@ -313,10 +313,8 @@ export default {
         },
         onDragOver(event) {
             if (!this.disabled && (!this.hasFiles || this.multiple)) {
-                if (!this.isFileLimitReached()) {
-                    !this.isUnstyled && addClass(this.$refs.content, 'p-fileupload-highlight');
-                    this.$refs.content.setAttribute('data-p-highlight', true);
-                }
+                !this.isUnstyled && addClass(this.$refs.content, 'p-fileupload-highlight');
+                this.$refs.content.setAttribute('data-p-highlight', true);
                 event.stopPropagation();
                 event.preventDefault();
             }
