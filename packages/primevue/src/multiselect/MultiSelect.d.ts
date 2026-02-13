@@ -315,7 +315,7 @@ export interface MultiSelectContext {
 /**
  * Defines valid properties in MultiSelect component.
  */
-export interface MultiSelectProps {
+export interface MultiSelectProps<T = any> {
     /**
      * Value of the component.
      */
@@ -331,7 +331,7 @@ export interface MultiSelectProps {
     /**
      * An array of select items to display as the available options.
      */
-    options?: any[] | undefined;
+    options?: T[] | undefined;
     /**
      * Property name or getter function to use as the label of an option.
      */
