@@ -23,7 +23,7 @@
             :aria-controls="overlayVisible ? panelId : undefined"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
-            inputmode="none"
+            inputmode="none
             :disabled="disabled"
             :readonly="!manualInput || readonly"
             :tabindex="0"
@@ -1215,7 +1215,7 @@ export default {
         },
         onYearDropdownChange(value) {
             this.currentYear = parseInt(value);
-            this.$emit('year-change', { month: this.currentMonth + 1, year: this.currentYear });
+            this.$emit('year-change', { month: this.currentMonth, year: this.currentYear });
         },
         onDateSelect(event, dateMeta) {
             if (this.disabled || !dateMeta.selectable) {
@@ -1854,7 +1854,7 @@ export default {
             } else {
                 this.currentYear = year.value;
                 this.currentView = 'month';
-                this.$emit('year-change', { month: this.currentMonth + 1, year: this.currentYear });
+                this.$emit('year-change', { month: this.currentMonth, year: this.currentYear });
             }
 
             setTimeout(this.updateFocus, 0);
