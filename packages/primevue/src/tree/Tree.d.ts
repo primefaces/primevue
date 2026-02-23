@@ -95,6 +95,11 @@ export interface TreeFilterEvent {
      * Filter value
      */
     value: string;
+    /**
+     * Filtered tree nodes after applying the filter.
+     * When the filter is empty, this contains the original unfiltered nodes.
+     */
+    filteredNodes: TreeNode[];
 }
 
 /**
