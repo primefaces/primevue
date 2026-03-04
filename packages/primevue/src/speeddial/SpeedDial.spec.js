@@ -88,7 +88,7 @@ describe('SpeedDial.vue', () => {
     });
 
     it('should have mask', async () => {
-        await wrapper.setProps({ mask: true });
+        await wrapper.setProps({ mask: true, visible: true });
 
         expect(wrapper.find('.p-speeddial-mask').exists()).toBe(true);
     });

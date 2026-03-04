@@ -628,8 +628,8 @@ export default {
         modelValue: {
             immediate: true,
             handler(newValue) {
-                this.updateCurrentMetaData();
                 this.rawValue = typeof newValue === 'string' ? this.parseValue(newValue) : newValue;
+                this.updateCurrentMetaData();
 
                 if (!this.typeUpdate && !this.inline && this.input) {
                     this.input.value = this.formatValue(this.rawValue);
