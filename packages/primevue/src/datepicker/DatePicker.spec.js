@@ -118,4 +118,95 @@ describe('DatePicker.vue', () => {
 
         expect(wrapper.find('.p-datepicker-decade').text()).toBe('1980 - 1989');
     });
+
+    it('should preserve view when selecting start date in range mode with preserveViewOnRangeStart enabled', async () => {
+        const startMonth = 5; // June
+        const startYear = 2024;
+
+        await wrapper.setProps({
+            inline: true,
+            selectionMode: 'range',
+            numberOfMonths: 2,
+            preserveViewOnRangeStart: true,
+            modelValue: null
+        });
+
+        // Set the initial view to a specific month
+        wrapper.vm.currentMonth = startMonth;
+        wrapper.vm.currentYear = startYear;
+        await wrapper.vm.$nextTick();
+
+        const initialMonth = wrapper.vm.currentMonth;
+        const initialYear = wrapper.vm.currentYear;
+
+        // Simulate internal selection flow: updateModel sets rawValue before watcher runs
+        const startDate = new Date(startYear, startMonth + 1, 15); // July 15, 2024
+
+        wrapper.vm.rawValue = [startDate, null];
+        wrapper.vm.updateCurrentMetaData();
+        await wrapper.vm.$nextTick();
+
+        // The view should NOT have jumped - currentMonth and currentYear should remain the same
+        expect(wrapper.vm.currentMonth).toBe(initialMonth);
+        expect(wrapper.vm.currentYear).toBe(initialYear);
+    });
+
+    it('should update view when selecting start date in range mode without preserveViewOnRangeStart', async () => {
+        const startMonth = 5; // June
+        const startYear = 2024;
+
+        await wrapper.setProps({
+            inline: true,
+            selectionMode: 'range',
+            numberOfMonths: 2,
+            preserveViewOnRangeStart: false,
+            modelValue: null
+        });
+
+        // Set the initial view to a specific month
+        wrapper.vm.currentMonth = startMonth;
+        wrapper.vm.currentYear = startYear;
+        await wrapper.vm.$nextTick();
+
+        // Simulate internal selection flow: updateModel sets rawValue before watcher runs
+        const startDate = new Date(startYear, startMonth + 1, 15); // July 15, 2024
+
+        wrapper.vm.rawValue = [startDate, null];
+        wrapper.vm.updateCurrentMetaData();
+        await wrapper.vm.$nextTick();
+
+        // The view SHOULD have jumped to show the selected month as the first month
+        expect(wrapper.vm.currentMonth).toBe(startMonth + 1); // July
+        expect(wrapper.vm.currentYear).toBe(startYear);
+    });
+
+    it('should update view when range selection is complete even with preserveViewOnRangeStart enabled', async () => {
+        const startMonth = 5; // June
+        const startYear = 2024;
+
+        await wrapper.setProps({
+            inline: true,
+            selectionMode: 'range',
+            numberOfMonths: 2,
+            preserveViewOnRangeStart: true,
+            modelValue: null
+        });
+
+        // Set the initial view to a specific month
+        wrapper.vm.currentMonth = startMonth;
+        wrapper.vm.currentYear = startYear;
+        await wrapper.vm.$nextTick();
+
+        // Simulate completing a range selection (both dates set)
+        const startDate = new Date(startYear, startMonth + 1, 15); // July 15, 2024
+        const endDate = new Date(startYear, startMonth + 1, 20); // July 20, 2024
+
+        wrapper.vm.rawValue = [startDate, endDate];
+        wrapper.vm.updateCurrentMetaData();
+        await wrapper.vm.$nextTick();
+
+        // When both dates are set, the view should update normally
+        expect(wrapper.vm.currentMonth).toBe(startMonth + 1); // July
+        expect(wrapper.vm.currentYear).toBe(startYear);
+    });
 });
