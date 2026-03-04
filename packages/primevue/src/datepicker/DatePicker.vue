@@ -1934,7 +1934,9 @@ export default {
         },
         parseDateTime(text) {
             let date;
-            let parts = text.match(/(?:(.+?) )?(\d{2}:\d{2}(?::\d{2})?)(?: (am|pm))?/);
+            const amLabel = this.$primevue.config.locale.am.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+            const pmLabel = this.$primevue.config.locale.pm.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+            let parts = text.match(new RegExp(`(?:(.+?) )?(\\d{2}:\\d{2}(?::\\d{2})?)(?:\\s+(${amLabel}|${pmLabel}))?`, 'i'));
 
             if (this.timeOnly) {
                 date = new Date();
