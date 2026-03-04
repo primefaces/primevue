@@ -1,4 +1,5 @@
 {
     "main": "./DynamicDialogEventBus.js",
-    "module": "./DynamicDialogEventBus.js"
+    "module": "./DynamicDialogEventBus.js",
+    "types": "./DynamicDialogEventBus.d.ts"
 }
