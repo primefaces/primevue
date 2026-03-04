@@ -63,7 +63,7 @@ export interface FormFieldPassThroughAttributes {
 }
 
 /**
- * Resolver options for Form component.
+ * Resolver options for FormField component.
  */
 export interface FormFieldResolverOptions {
     /**
@@ -77,7 +77,7 @@ export interface FormFieldResolverOptions {
 }
 
 /**
- * Defines valid properties in Form component.
+ * Defines valid properties in FormField component.
  */
 export interface FormFieldProps {
     /**
@@ -141,7 +141,7 @@ export interface FormFieldProps {
 }
 
 /**
- * Defines valid slots in Form component.
+ * Defines valid slots in FormField component.
  */
 export interface FormFieldSlots {
     /**
@@ -195,11 +195,11 @@ export interface FormFieldSlots {
 }
 
 /**
- * Defines valid emits in Form component.
+ * Defines valid emits in FormField component.
  */
 export interface FormFieldEmitsOptions {}
 
-export declare type FormEmits = EmitFn<FormFieldEmitsOptions>;
+export declare type FormFieldEmits = EmitFn<FormFieldEmitsOptions>;
 
 /**
  * **PrimeVue - FormField**
@@ -213,11 +213,11 @@ export declare type FormEmits = EmitFn<FormFieldEmitsOptions>;
  * @group Component
  *
  */
-declare const FormField: DefineComponent<FormFieldProps, FormFieldSlots, FormEmits>;
+declare const FormField: DefineComponent<FormFieldProps, FormFieldSlots, FormFieldEmits>;
 
 declare module 'vue' {
     export interface GlobalComponents {
-        FormField: DefineComponent<FormFieldProps, FormFieldSlots, FormEmits>;
+        FormField: DefineComponent<FormFieldProps, FormFieldSlots, FormFieldEmits>;
     }
 }
 
