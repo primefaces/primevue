@@ -16,7 +16,7 @@ import type { PaginatorPassThroughOptionType } from 'primevue/paginator';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { RowPassThroughOptionType } from 'primevue/row';
 import type { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from 'primevue/virtualscroller';
-import { InputHTMLAttributes, TableHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, InputHTMLAttributes, TableHTMLAttributes, TransitionProps, VNode, VNodeProps } from 'vue';
 
 export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes | string) | string | null | undefined;
 
@@ -1479,7 +1479,7 @@ export interface DataTableSlots<T = any> {
 /**
  * Defines valid emits in Datatable component.
  */
-export interface DataTableEmitsOptions<T = any> {
+export interface DataTableEmitsOptions<T = any, F extends DataTableFilterMeta = DataTableFilterMeta> {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.
@@ -1527,9 +1527,9 @@ export interface DataTableEmitsOptions<T = any> {
     'update:expandedRowGroups'(value: T[] | DataTableExpandedRows): void;
     /**
      * Emitted when the filters changes.
-     * @param {DataTableFilterMeta} value - New value.
+     * @param {F} value - New value.
      */
-    'update:filters'(value: DataTableFilterMeta): void;
+    'update:filters'(value: F): void;
     /**
      * Emitted when the editingRows changes.
      * @param {DataTableEditingRows} value - New value.
@@ -1695,11 +1695,19 @@ export interface DataTableMethods {
  * @group Component
  *
  */
-declare const DataTable: DefineComponent<DataTableProps, DataTableSlots, DataTableEmits, DataTableMethods>;
+declare const DataTable: {
+    new <F extends DataTableFilterMeta = DataTableFilterMeta>(
+        props: Omit<DataTableProps, 'filters'> & { filters?: F }
+    ): {
+        $props: Omit<DataTableProps, 'filters'> & { filters?: F } & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: DataTableSlots;
+        $emit: EmitFn<DataTableEmitsOptions<any, F>>;
+    } & DataTableMethods;
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DataTable: DefineComponent<DataTableProps, DataTableSlots, DataTableEmits, DataTableMethods>;
+        DataTable: typeof DataTable;
     }
 }
 
