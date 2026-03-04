@@ -37,7 +37,19 @@ export default {
     load(style, options = {}, transform = (cs) => cs) {
         const computedStyle = transform(Css`${style}`);
 
-        return isNotEmpty(computedStyle) ? useStyle(minifyCSS(computedStyle), { name: this.name, ...options }) : {};
+        if (isNotEmpty(computedStyle)) {
+            const css = minifyCSS(computedStyle);
+
+            if (options._styleCollect) {
+                options._styleCollect(options.name || this.name, css);
+
+                return {};
+            }
+
+            return useStyle(css, { name: this.name, ...options });
+        }
+
+        return {};
     },
     loadCSS(options = {}) {
         return this.load(this.css, options);
