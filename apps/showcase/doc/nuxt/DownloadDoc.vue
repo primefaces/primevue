@@ -17,14 +17,17 @@ export default {
 # Using npm
 npm install primevue @primeuix/themes
 npm install --save-dev @primevue/nuxt-module
+npm exec nuxi prepare
 
 # Using yarn
 yarn add primevue @primeuix/themes
 yarn add --dev @primevue/nuxt-module
+yarn exec nuxi prepare
 
 # Using pnpm
 pnpm add primevue @primeuix/themes
 pnpm add -D @primevue/nuxt-module
+pnpm exec nuxi prepare
 `
             }
         };
