@@ -175,6 +175,10 @@ export default {
             }
         },
         onPaste(event) {
+            if(this.readonly) {
+                return;
+            }
+
             let paste = event.clipboardData.getData('text');
 
             if (paste.length) {
