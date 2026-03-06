@@ -89,21 +89,26 @@
             </SecondaryButton>
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </DatePicker>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import CalendarIcon from '@primevue/icons/calendar';
 import ChevronDownIcon from '@primevue/icons/chevrondown';
 import ChevronLeftIcon from '@primevue/icons/chevronleft';
 import ChevronRightIcon from '@primevue/icons/chevronright';
 import ChevronUpIcon from '@primevue/icons/chevronup';
-import DatePicker from 'primevue/datepicker';
+import DatePicker, { type DatePickerProps, type DatePickerSlots } from 'primevue/datepicker';
 import { ref } from 'vue';
 import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
+
+interface Props extends /* @vue-ignore */ DatePickerProps {}
+defineProps<Props>();
+interface Slots extends /* @vue-ignore */ DatePickerSlots {}
+defineSlots<Slots>();
 
 const theme = ref({
     root: `inline-flex max-w-full relative p-fluid:flex`,

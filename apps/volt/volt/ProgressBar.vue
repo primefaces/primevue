@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </ProgressBar>
 </template>
 
 <script setup lang="ts">
-import ProgressBar, { type ProgressBarPassThroughOptions, type ProgressBarProps } from 'primevue/progressbar';
+import ProgressBar, { type ProgressBarPassThroughOptions, type ProgressBarProps, type ProgressBarSlots } from 'primevue/progressbar';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ ProgressBarProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ ProgressBarSlots {}
+defineSlots<Slots>();
 
 const theme = ref<ProgressBarPassThroughOptions>({
     root: `relative overflow-hidden h-5 bg-surface-200 dark:bg-surface-700 rounded-md`,
