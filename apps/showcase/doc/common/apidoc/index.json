@@ -76092,6 +76092,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Filter value"
+                        },
+                        {
+                            "name": "filteredNodes",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeNode[]",
+                            "default": "",
+                            "description": "Filtered tree nodes after applying the filter.\nWhen the filter is empty, this contains the original unfiltered nodes."
                         }
                     ],
                     "methods": []
@@ -78308,6 +78316,19 @@
                             ],
                             "returnType": "void",
                             "description": "Callback to invoke when a node is collapsed."
+                        },
+                        {
+                            "name": "filter",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "TreeFilterEvent",
+                                    "description": "Custom filter event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke on filter input."
                         }
                     ]
                 },

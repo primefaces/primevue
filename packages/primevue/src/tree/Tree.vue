@@ -233,7 +233,7 @@ export default {
                 event.preventDefault();
             }
 
-            this.$emit('filter', { originalEvent: event, value: event.target.value });
+            this.$emit('filter', { originalEvent: event, value: event.target.value, filteredNodes: this.valueToRender });
         },
         findFilteredNodes(node, paramsWithoutNode) {
             if (node) {
