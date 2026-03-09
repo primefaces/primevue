@@ -116,6 +116,8 @@ export default {
             this.$el.setAttribute('data-p-resizing', true);
         },
         onResize(event, step, isKeyDown) {
+            if (!this.prevPanelElement || !this.nextPanelElement) return;
+
             let newPos, newPrevPanelSize, newNextPanelSize;
 
             if (isKeyDown) {
