@@ -269,7 +269,7 @@ export default {
 
             if (!this.touchEndListener) {
                 this.touchEndListener = (event) => {
-                    this.resizeEnd(event);
+                    this.onResizeEnd(event);
                     this.unbindTouchListeners();
                 };
 
