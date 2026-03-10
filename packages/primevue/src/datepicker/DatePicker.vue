@@ -2957,21 +2957,30 @@ export default {
                         propValue = propValue[0];
                     } else {
                         const start = this.parseValueForComparison(propValue[0]);
-                        let lastVisibleMonth = new Date(start.getFullYear(), start.getMonth() + this.numberOfMonths, 1);
+                        
+                        if (start) {
+                            let lastVisibleMonth = new Date(start.getFullYear(), start.getMonth() + this.numberOfMonths, 1);
 
-                        if (propValue[1] < lastVisibleMonth) {
-                            propValue = propValue[0];
+                            if (propValue[1] < lastVisibleMonth) {
+                                propValue = propValue[0];
+                            } else {
+                                const end = this.parseValueForComparison(propValue[1]);
+
+                                if (end) {
+                                    propValue = new Date(end.getFullYear(), end.getMonth() - this.numberOfMonths + 1, 1);
+                                } else {
+                                    propValue = propValue[1];
+                                }
+                            }
                         } else {
-                            const end = this.parseValueForComparison(propValue[1]);
-
-                            propValue = new Date(end.getFullYear(), end.getMonth() - this.numberOfMonths + 1, 1);
+                            propValue = propValue[0];
                         }
                     }
                 } else if (this.isMultipleSelection()) {
                     propValue = propValue[propValue.length - 1];
                 }
             }
-
+            
             if (propValue && typeof propValue !== 'string') {
                 return propValue;
             } else {
