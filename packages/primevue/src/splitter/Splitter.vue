@@ -56,6 +56,15 @@ export default {
     },
     mounted() {
         this.initializePanels();
+        this._lastPanelCount = this.panels.length;
+    },
+    updated() {
+        const currentPanelCount = this.panels.length;
+
+        if (currentPanelCount !== this._lastPanelCount) {
+            this._lastPanelCount = currentPanelCount;
+            this.initializePanels();
+        }
     },
     beforeUnmount() {
         this.clear();
