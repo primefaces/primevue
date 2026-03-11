@@ -15,7 +15,7 @@ import type { InputIconPassThroughOptions } from 'primevue/inputicon';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from 'primevue/virtualscroller';
-import { TransitionProps, VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, TransitionProps, VNode, VNodeProps } from 'vue';
 
 export declare type MultiSelectPassThroughOptionType = MultiSelectPassThroughAttributes | ((options: MultiSelectPassThroughMethodOptions) => MultiSelectPassThroughAttributes | string) | string | null | undefined;
 
@@ -315,7 +315,7 @@ export interface MultiSelectContext {
 /**
  * Defines valid properties in MultiSelect component.
  */
-export interface MultiSelectProps {
+export interface MultiSelectProps<T = any> {
     /**
      * Value of the component.
      */
@@ -331,27 +331,27 @@ export interface MultiSelectProps {
     /**
      * An array of select items to display as the available options.
      */
-    options?: any[] | undefined;
+    options?: T[] | undefined;
     /**
      * Property name or getter function to use as the label of an option.
      */
-    optionLabel?: string | ((data: any) => string) | undefined;
+    optionLabel?: string | ((data: T) => string) | undefined;
     /**
      * Property name or getter function to use as the value of an option, defaults to the option itself when not defined.
      */
-    optionValue?: string | ((data: any) => any) | undefined;
+    optionValue?: string | ((data: T) => any) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
      */
-    optionDisabled?: string | ((data: any) => boolean) | undefined;
+    optionDisabled?: string | ((data: T) => boolean) | undefined;
     /**
      * Property name or getter function to use as the label of an option group.
      */
-    optionGroupLabel?: string | ((data: any) => string) | undefined;
+    optionGroupLabel?: string | ((data: T) => string) | undefined;
     /**
      * Property name or getter function that refers to the children options of option group.
      */
-    optionGroupChildren?: string | ((data: any) => any[]) | undefined;
+    optionGroupChildren?: string | ((data: T) => any[]) | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
      * @defaultValue 14rem
@@ -604,7 +604,7 @@ export interface MultiSelectProps {
 /**
  * Defines valid slots in MultiSelect component.
  */
-export interface MultiSelectSlots {
+export interface MultiSelectSlots<T = any> {
     /**
      * Custom value template.
      * @param {Object} scope - value slot's params.
@@ -647,7 +647,7 @@ export interface MultiSelectSlots {
         /**
          * Displayed options
          */
-        options: any[];
+        options: T[];
     }): VNode[];
     /**
      * Custom footer template.
@@ -661,7 +661,7 @@ export interface MultiSelectSlots {
         /**
          * Displayed options
          */
-        options: any[];
+        options: T[];
     }): VNode[];
     /**
      * Custom option template.
@@ -671,7 +671,7 @@ export interface MultiSelectSlots {
         /**
          * Option instance
          */
-        option: any;
+        option: T;
         /**
          * Selection state
          */
@@ -689,7 +689,7 @@ export interface MultiSelectSlots {
         /**
          * Option instance
          */
-        option: any;
+        option: T;
         /**
          * Index of the option
          */
@@ -736,7 +736,7 @@ export interface MultiSelectSlots {
         /**
          * Options of the loader items for virtualscroller
          */
-        options: any[];
+        options: T[];
     }): VNode[];
     /**
      * @deprecated since v4.0. Use 'chipicon' slot instead.
@@ -938,11 +938,19 @@ export interface MultiSelectMethods {
  * @group Component
  *
  */
-declare const MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits, MultiSelectMethods>;
+declare const MultiSelect: {
+    new <T = any>(
+        props: MultiSelectProps<T>
+    ): {
+        $props: MultiSelectProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: MultiSelectSlots<T>;
+        $emit: EmitFn<MultiSelectEmitsOptions>;
+    } & MultiSelectMethods;
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        MultiSelect: DefineComponent<MultiSelectProps, MultiSelectSlots, MultiSelectEmits, MultiSelectMethods>;
+        MultiSelect: typeof MultiSelect;
     }
 }
 
