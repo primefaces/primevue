@@ -972,7 +972,7 @@ export interface DataTableProps<T = any> {
     /**
      * Property name or a getter function of a row data used for sorting by default
      */
-    sortField?: keyof T | ((item: NoInfer<T>) => string) | undefined;
+    sortField?: HintedString<keyof T & string> | ((item: NoInfer<T>) => string) | undefined;
     /**
      * Order to sort the data by default.
      */
@@ -1696,12 +1696,12 @@ export interface DataTableMethods {
  *
  */
 declare const DataTable: {
-    new <F extends DataTableFilterMeta = DataTableFilterMeta>(
-        props: Omit<DataTableProps, 'filters'> & { filters?: F }
+    new <T = any, F extends DataTableFilterMeta = DataTableFilterMeta>(
+        props: Omit<DataTableProps<T>, 'filters'> & { filters?: F }
     ): {
-        $props: Omit<DataTableProps, 'filters'> & { filters?: F } & VNodeProps & AllowedComponentProps & ComponentCustomProps;
-        $slots: DataTableSlots;
-        $emit: EmitFn<DataTableEmitsOptions<any, F>>;
+        $props: Omit<DataTableProps<T>, 'filters'> & { filters?: F } & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: DataTableSlots<T>;
+        $emit: EmitFn<DataTableEmitsOptions<T, F>>;
     } & DataTableMethods;
 };
 
