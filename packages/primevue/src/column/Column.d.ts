@@ -18,7 +18,7 @@ import type { PassThroughOptions } from 'primevue/passthrough';
 import type { RadioButtonPassThroughOptionType } from 'primevue/radiobutton';
 import type { SelectPassThroughOptionType } from 'primevue/select';
 import type { VirtualScrollerLoaderOptions } from 'primevue/virtualscroller';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type ColumnPassThroughOptionType = ColumnPassThroughAttributes | ((options: ColumnPassThroughMethodOptions) => ColumnPassThroughAttributes | string) | string | null | undefined;
 
@@ -640,7 +640,7 @@ export interface ColumnContext {
 /**
  * Defines valid slots in Column component.
  */
-export interface ColumnSlots {
+export interface ColumnSlots<T = any> {
     /**
      * Custom body template for DataTable.
      * @param {Object} scope - body slot's params.
@@ -649,11 +649,11 @@ export interface ColumnSlots {
         /**
          * Row data.
          */
-        data: any;
+        data: T;
         /**
          * Row node data.
          */
-        node: any;
+        node: T;
         /**
          * Column node.
          */
@@ -661,7 +661,7 @@ export interface ColumnSlots {
         /**
          * Column field.
          */
-        field: string | ((item: any) => string) | undefined;
+        field: string | ((item: T) => string) | undefined;
         /**
          * Row index.
          */
@@ -689,11 +689,11 @@ export interface ColumnSlots {
         /**
          * Row data.
          */
-        data: any;
+        data: T;
         /**
          * Row node data.
          */
-        node: any;
+        node: T;
         /**
          * Column node.
          */
@@ -749,7 +749,7 @@ export interface ColumnSlots {
         /**
          * Row data.
          */
-        data: any;
+        data: T;
         /**
          * Column node.
          */
@@ -884,7 +884,7 @@ export interface ColumnSlots {
         /**
          * Row data.
          */
-        data: any;
+        data: T;
         /**
          * Column node.
          */
@@ -1033,13 +1033,21 @@ export declare type ColumnEmits = EmitFn<ColumnEmitsOptions>;
  * @group Component
  *
  */
-declare const Column: DefineComponent<ColumnProps, ColumnSlots, ColumnEmits>;
+declare const Column: {
+    new <T = any>(
+        props: ColumnProps & { of?: readonly T[] | T[] | null }
+    ): {
+        $props: ColumnProps & { of?: readonly T[] | T[] | null } & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: ColumnSlots<T>;
+        $emit: EmitFn<ColumnEmitsOptions>;
+    };
+};
 
 export type ColumnNode = { props: ColumnProps };
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Column: DefineComponent<ColumnProps, ColumnSlots, ColumnEmits>;
+        Column: typeof Column;
     }
 }
 
