@@ -97,6 +97,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
         }
     },
     timer: undefined,
+    hideTimer: undefined,
     methods: {
         bindEvents(el, options) {
             const modifiers = el.$_ptooltipModifiers;
@@ -246,6 +247,8 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             ZIndex.set('tooltip', tooltipElement, el.$_ptooltipZIndex);
         },
         show(el, options, showDelay) {
+            clearTimeout(this.hideTimer);
+
             if (showDelay !== undefined) {
                 this.timer = setTimeout(() => this.tooltipActions(el, options), showDelay);
                 el.$_ptooltipPendingShow = true;
@@ -264,7 +267,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             el.$_ptooltipPendingShow = false;
 
             if (hideDelay !== undefined) {
-                setTimeout(() => this.tooltipRemoval(el), hideDelay);
+                this.hideTimer = setTimeout(() => this.tooltipRemoval(el), hideDelay);
             } else {
                 this.tooltipRemoval(el);
             }
