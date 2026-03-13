@@ -13,7 +13,7 @@ import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { TieredMenuPassThroughOptions, TieredMenuRouterBindProps } from 'primevue/tieredmenu';
-import { ButtonHTMLAttributes, VNode } from 'vue';
+import { AllowedComponentProps, ButtonHTMLAttributes, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type SplitButtonPassThroughOptionType = SplitButtonPassThroughAttributes | ((options: SplitButtonPassThroughMethodOptions) => SplitButtonPassThroughAttributes | string) | string | null | undefined;
 
@@ -113,7 +113,7 @@ export interface SplitButtonState {
 /**
  * Defines valid properties in SplitButton component.
  */
-export interface SplitButtonProps {
+export interface SplitButtonProps<T extends MenuItem = MenuItem> {
     /**
      * Text of the button.
      */
@@ -125,7 +125,7 @@ export interface SplitButtonProps {
     /**
      * MenuModel instance to define the overlay items.
      */
-    model?: MenuItem[] | undefined;
+    model?: T[] | undefined;
     /**
      * Whether to automatically manage layering.
      * @defaultValue true
@@ -233,7 +233,7 @@ export interface SplitButtonProps {
 /**
  * Defines valid slots in SplitButton component.
  */
-export interface SplitButtonSlots {
+export interface SplitButtonSlots<T extends MenuItem = MenuItem> {
     /**
      * Button part of the content can easily be customized with the default slot instead of using the built-in modes.
      */
@@ -281,7 +281,7 @@ export interface SplitButtonSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Style class of the item icon element.
          */
@@ -295,7 +295,7 @@ export interface SplitButtonSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Label property of the menuitem
          */
@@ -336,11 +336,19 @@ export declare type SplitButtonEmits = EmitFn<SplitButtonEmitsOptions>;
  * @group Component
  *
  */
-declare const SplitButton: DefineComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits>;
+declare const SplitButton: {
+    new <T extends MenuItem = MenuItem>(
+        props: SplitButtonProps<T>
+    ): {
+        $props: SplitButtonProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: SplitButtonSlots<T>;
+        $emit: EmitFn<SplitButtonEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        SplitButton: DefineComponent<SplitButtonProps, SplitButtonSlots, SplitButtonEmits>;
+        SplitButton: typeof SplitButton;
     }
 }
 
