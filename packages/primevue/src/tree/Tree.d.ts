@@ -14,7 +14,7 @@ import type { InputIconPassThroughOptions } from 'primevue/inputicon';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { TreeNode } from 'primevue/treenode';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type TreePassThroughOptionType<T = any> = TreePassThroughAttributes | ((options: TreePassThroughMethodOptions<T>) => TreePassThroughAttributes | string) | string | null | undefined;
 
@@ -324,11 +324,11 @@ export interface TreeContext {
 /**
  * Defines valid properties in Tree component.
  */
-export interface TreeProps {
+export interface TreeProps<T extends TreeNode = TreeNode> {
     /**
      * An array of treenodes.
      */
-    value?: TreeNode[] | undefined;
+    value?: T[] | undefined;
     /**
      * A map of keys to represent the expansion state in controlled mode.
      */
@@ -370,7 +370,7 @@ export interface TreeProps {
      * When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names.
      * @defaultValue label
      */
-    filterBy?: string | ((node: TreeNode) => string) | undefined;
+    filterBy?: string | ((node: T) => string) | undefined;
     /**
      * Mode for filtering.
      * @defaultValue lenient
@@ -450,7 +450,7 @@ export interface TreeProps {
 /**
  * Defines valid slots in Tree component.
  */
-export interface TreeSlots {
+export interface TreeSlots<T extends TreeNode = TreeNode> {
     /**
      * Default content slot.
      */
@@ -458,7 +458,7 @@ export interface TreeSlots {
         /**
          * Tree node instance
          */
-        node: TreeNode;
+        node: T;
         /**
          * Selection state
          */
@@ -508,7 +508,7 @@ export interface TreeSlots {
         /**
          * Tree node instance
          */
-        node: TreeNode;
+        node: T;
         /**
          * Expanded state of the node
          */
@@ -523,7 +523,7 @@ export interface TreeSlots {
         /**
          * Tree node instance
          */
-        node: TreeNode;
+        node: T;
         /**
          * Expanded state of the node
          */
@@ -537,7 +537,7 @@ export interface TreeSlots {
         /**
          * Tree node instance
          */
-        node: TreeNode;
+        node: T;
         /**
          * Expanded state of the node
          */
@@ -551,7 +551,7 @@ export interface TreeSlots {
         /**
          * Tree node instance
          */
-        node: TreeNode;
+        node: T;
         /**
          * Style class of the icon.
          */
@@ -615,7 +615,7 @@ export interface TreeSlots {
      * Optional slots.
      * @todo
      */
-    [key: string]: (node: any) => VNode[];
+    [key: string]: (node: T) => VNode[];
 }
 
 /**
@@ -703,11 +703,19 @@ export declare type TreeEmits = EmitFn<TreeEmitsOptions>;
  * @group Component
  *
  */
-declare const Tree: DefineComponent<TreeProps, TreeSlots, TreeEmits>;
+declare const Tree: {
+    new <T extends TreeNode = TreeNode>(
+        props: TreeProps<T>
+    ): {
+        $props: TreeProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: TreeSlots<T>;
+        $emit: EmitFn<TreeEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Tree: DefineComponent<TreeProps, TreeSlots, TreeEmits>;
+        Tree: typeof Tree;
     }
 }
 
