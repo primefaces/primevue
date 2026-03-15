@@ -11,7 +11,7 @@
 - [Custom Icons](https://primevue.org/customicons): PrimeVue components can be used with any icon library using the templating features.
 - [Forms](https://primevue.org/forms): The PrimeVue Forms library provides comprehensive form state management with built-in validation support.
 - [Auto Import](https://primevue.org/autoimport): On-demand PrimeVue components with auto imports and tree-shaking.
-- [Install PrimeVue with CND](https://primevue.org/cdn): Setting up PrimeVue in a project using CDN.
+- [Install PrimeVue with CDN](https://primevue.org/cdn): Setting up PrimeVue in a project using CDN.
 - [Install PrimeVue with Laravel](https://primevue.org/laravel): Setting up PrimeVue in a Laravel project.
 - [Install PrimeVue with Nuxt](https://primevue.org/nuxt): Setting up PrimeVue in a Nuxt project.
 - [Install PrimeVue with Vite](https://primevue.org/vite): Setting up PrimeVue in a Vite project.
