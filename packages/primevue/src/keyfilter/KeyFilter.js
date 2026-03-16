@@ -14,6 +14,7 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
             target.$_pkeyfilterValidateOnly = options.value?.validateOnly || false;
         }
 
+        target.$_pkeyfilterLastValidValue = target.value || '';
         this.bindEvents(target);
 
         target.setAttribute('data-pd-keyfilter', true);
@@ -31,6 +32,7 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
             target.$_pkeyfilterValidateOnly = options.value?.validateOnly || false;
         }
 
+        target.$_pkeyfilterLastValidValue = target.value || '';
         this.bindEvents(target);
     },
     unmounted(el, options) {
@@ -63,29 +65,77 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
         },
         bindEvents(el) {
             el.$_keyfilterKeydownEvent = (event) => this.onKeydown(event, el);
+            el.$_keyfilterBeforeInputEvent = (event) => this.onBeforeInput(event, el);
             el.$_keyfilterPasteEvent = (event) => this.onPaste(event, el);
-            el.$_keyfilterInputEvent = (event) => this.onInput(event, el);
+            el.$_keyfilterInputEvent = () => this.syncValue(el);
+            el.$_keyfilterCompositionEndEvent = () => this.syncValue(el);
 
             el.addEventListener('keypress', el.$_keyfilterKeydownEvent);
+            el.addEventListener('beforeinput', el.$_keyfilterBeforeInputEvent);
             el.addEventListener('paste', el.$_keyfilterPasteEvent);
-            el.addEventListener('input', el.$_keyfilterInputEvent);
+            el.addEventListener('input', el.$_keyfilterInputEvent, true);
+            el.addEventListener('compositionend', el.$_keyfilterCompositionEndEvent);
         },
         unbindEvents(el) {
             el.removeEventListener('keypress', el.$_keyfilterKeydownEvent);
+            el.removeEventListener('beforeinput', el.$_keyfilterBeforeInputEvent);
             el.removeEventListener('paste', el.$_keyfilterPasteEvent);
-            el.removeEventListener('input', el.$_keyfilterInputEvent);
+            el.removeEventListener('input', el.$_keyfilterInputEvent, true);
+            el.removeEventListener('compositionend', el.$_keyfilterCompositionEndEvent);
 
             el.$_keyfilterKeydownEvent = null;
+            el.$_keyfilterBeforeInputEvent = null;
             el.$_keyfilterPasteEvent = null;
             el.$_keyfilterInputEvent = null;
+            el.$_keyfilterCompositionEndEvent = null;
         },
-        onInput(event, target) {
+        syncValue(target) {
+            if (this.isInputValueValid(target.value, target)) {
+                target.$_pkeyfilterLastValidValue = target.value;
+            } else {
+                target.value = target.$_pkeyfilterLastValidValue || '';
+            }
+        },
+        onBeforeInput(event, target) {
+            if (!this.shouldValidateBeforeInput(event)) {
+                return;
+            }
+
             const regex = this.getRegex(target);
 
-            if (regex && !regex.test(target.value)) {
-                // remove invalid character e.g. ~ "
-                target.value = target.value.slice(0, -1);
+            if (regex === '') {
+                return;
             }
+
+            const nextValue = this.getUpdatedValue(target, event.data || '');
+
+            if (!this.isInputValueValid(nextValue, target)) {
+                event.preventDefault();
+            }
+        },
+        shouldValidateBeforeInput(event) {
+            const inputType = event.inputType || '';
+
+            return event.cancelable && (inputType === 'insertText' || inputType === 'insertCompositionText' || inputType === 'insertFromComposition');
+        },
+        getUpdatedValue(target, value) {
+            const selectionStart = target.selectionStart ?? target.value.length;
+            const selectionEnd = target.selectionEnd ?? selectionStart;
+
+            return `${target.value.substring(0, selectionStart)}${value}${target.value.substring(selectionEnd)}`;
+        },
+        isInputValueValid(value, target) {
+            const regex = this.getRegex(target);
+
+            if (!regex) {
+                return true;
+            }
+
+            if (target.$_pkeyfilterValidateOnly) {
+                return regex.test(value);
+            }
+
+            return [...value].every((char) => regex.test(char));
         },
         onKeydown(event, target) {
             if (event.ctrlKey || event.altKey || event.metaKey || event.key === 'Tab') {
