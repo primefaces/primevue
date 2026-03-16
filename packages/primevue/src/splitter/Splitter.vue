@@ -114,6 +114,8 @@ export default {
             this.$emit('resizestart', { originalEvent: event, sizes: this.panelSizes });
             this.$refs.gutter[index].setAttribute('data-p-gutter-resizing', true);
             this.$el.setAttribute('data-p-resizing', true);
+            this.$el.classList.add('p-splitter-resizing');
+            this.$refs.gutter[index].classList.add('p-splitter-gutter-resizing');
         },
         onResize(event, step, isKeyDown) {
             let newPos, newPrevPanelSize, newNextPanelSize;
@@ -162,6 +164,8 @@ export default {
             this.$emit('resizeend', { originalEvent: event, sizes: this.panelSizes });
             this.$refs.gutter.forEach((gutter) => gutter.setAttribute('data-p-gutter-resizing', false));
             this.$el.setAttribute('data-p-resizing', false);
+            this.$el.classList.remove('p-splitter-resizing');
+            this.$refs.gutter.forEach((gutter) => gutter.classList.remove('p-splitter-gutter-resizing'));
             this.clear();
         },
         repeat(event, index, step) {
