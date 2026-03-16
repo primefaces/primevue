@@ -67,7 +67,9 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
             el.$_keyfilterKeydownEvent = (event) => this.onKeydown(event, el);
             el.$_keyfilterBeforeInputEvent = (event) => this.onBeforeInput(event, el);
             el.$_keyfilterPasteEvent = (event) => this.onPaste(event, el);
+            // Keep Vue's model in sync by restoring invalid IME text before bubble-phase listeners run.
             el.$_keyfilterInputEvent = () => this.syncValue(el);
+            // IME composition can bypass beforeinput cancellation, so validate again when composition finishes.
             el.$_keyfilterCompositionEndEvent = () => this.syncValue(el);
 
             el.addEventListener('keypress', el.$_keyfilterKeydownEvent);
@@ -101,6 +103,7 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
                 return;
             }
 
+            // Block cancelable direct insertions early; non-cancelable IME paths are handled by syncValue.
             const regex = this.getRegex(target);
 
             if (regex === '') {
