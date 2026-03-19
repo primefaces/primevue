@@ -190,8 +190,10 @@ const FilterService = {
             if (value === undefined || value === null) {
                 return false;
             }
-
-            return value.toDateString() === filter.toDateString();
+            
+            const valueAsDate = new Date(value);
+            const filterAsDate = new Date(filter);
+            return valueAsDate.toDateString() === filterAsDate.toDateString();
         },
         dateIsNot(value, filter) {
             if (filter === undefined || filter === null) {
@@ -202,7 +204,9 @@ const FilterService = {
                 return false;
             }
 
-            return value.toDateString() !== filter.toDateString();
+            const valueAsDate = new Date(value);
+            const filterAsDate = new Date(filter);
+            return valueAsDate.toDateString() !== filterAsDate.toDateString();
         },
         dateBefore(value, filter) {
             if (filter === undefined || filter === null) {
@@ -213,7 +217,9 @@ const FilterService = {
                 return false;
             }
 
-            return value.getTime() < filter.getTime();
+            const valueAsDate = new Date(value);
+            const filterAsDate = new Date(filter);
+            return valueAsDate.getTime() < filterAsDate.getTime();
         },
         dateAfter(value, filter) {
             if (filter === undefined || filter === null) {
@@ -224,7 +230,9 @@ const FilterService = {
                 return false;
             }
 
-            return value.getTime() > filter.getTime();
+            const valueAsDate = new Date(value);
+            const filterAsDate = new Date(filter);
+            return valueAsDate.getTime() > filterAsDate.getTime();
         }
     },
     register(rule, fn) {
