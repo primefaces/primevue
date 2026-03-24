@@ -172,7 +172,7 @@
             </div>
 
             <a
-                href="https://www.figma.com/design/JRSFCni27PU4TrqOjoWeOA/Preview-%7C PrimeOne-|-3.1.0?node-id=806-36648&t=CpfshQ7laurr043o-1"
+                href="https://www.figma.com/design/iKOqMjb5gBhqMQ0bZyzD0Y/Preview-%7C-PrimeOne-%7C-4.0.0?node-id=806-36648&t=PfCXfPrG4kKRW1jB-1"
                 class="flex flex-col md:flex-row items-center justify-center gap-8 p-12 mb-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950 dark:to-purple-950 border-2 border-transparent hover:border-primary transition-colors duration-300"
                 target="_blank"
                 rel="noopener noreferrer"
