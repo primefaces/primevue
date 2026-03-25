@@ -13,7 +13,7 @@ import type { ChipPassThroughOptions } from 'primevue/chip';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from 'primevue/virtualscroller';
-import { TransitionProps, VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, TransitionProps, VNode, VNodeProps } from 'vue';
 
 export declare type AutoCompletePassThroughOptionType = AutoCompletePassThroughAttributes | ((options: AutoCompletePassThroughMethodOptions) => AutoCompletePassThroughAttributes | string) | string | null | undefined;
 
@@ -86,7 +86,7 @@ export interface AutoCompleteChangeEvent {
  * Custom item select event.
  * @see {@link AutoCompleteEmitsOptions['item-select']}
  */
-export interface AutoCompleteOptionSelectEvent {
+export interface AutoCompleteOptionSelectEvent<T = any> {
     /**
      * Browser event
      */
@@ -94,7 +94,7 @@ export interface AutoCompleteOptionSelectEvent {
     /**
      * Selected item
      */
-    value: any;
+    value: T;
 }
 
 /**
@@ -102,7 +102,7 @@ export interface AutoCompleteOptionSelectEvent {
  * @see {@link AutoCompleteEmitsOptions['item-unselect']}
  * @extends AutoCompleteOptionSelectEvent
  */
-export interface AutoCompleteOptionUnselectEvent extends AutoCompleteOptionSelectEvent {}
+export interface AutoCompleteOptionUnselectEvent<T = any> extends AutoCompleteOptionSelectEvent<T> {}
 
 /**
  * Custom dropdown click event.
@@ -316,7 +316,7 @@ export interface AutoCompleteContext {
 /**
  * Defines valid properties in AutoComplete component.
  */
-export interface AutoCompleteProps {
+export interface AutoCompleteProps<T = any> {
     /**
      * Value of the component.
      */
@@ -332,23 +332,23 @@ export interface AutoCompleteProps {
     /**
      * An array of suggestions to display.
      */
-    suggestions?: any[];
+    suggestions?: T[];
     /**
      * Property name or getter function to use as the label of an option.
      */
-    optionLabel?: string | ((data: any) => string) | undefined;
+    optionLabel?: string | ((data: T) => string) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
      */
-    optionDisabled?: string | ((data: any) => boolean) | undefined;
+    optionDisabled?: string | ((data: T) => boolean) | undefined;
     /**
      * Property name or getter function to use as the label of an option group.
      */
-    optionGroupLabel?: string | ((data: any) => string) | undefined;
+    optionGroupLabel?: string | ((data: T) => string) | undefined;
     /**
      * Property name or getter function that refers to the children options of option group.
      */
-    optionGroupChildren?: string | ((data: any) => any[]) | undefined;
+    optionGroupChildren?: string | ((data: T) => any[]) | undefined;
     /**
      * whether typeahead is active or not.
      * @defaultValue true
@@ -585,7 +585,7 @@ export interface AutoCompleteProps {
  * Defines valid slots in AutoComplete component.
  * @todo Next release we should complete types for all slots
  */
-export interface AutoCompleteSlots {
+export interface AutoCompleteSlots<T = any> {
     /**
      * Custom chip template.
      * @param {Object} scope - chip slot's params.
@@ -617,7 +617,7 @@ export interface AutoCompleteSlots {
         /**
          * Displayed options
          */
-        suggestions: any[];
+        suggestions: T[];
     }): VNode[];
     /**
      * Custom footer template of panel.
@@ -631,7 +631,7 @@ export interface AutoCompleteSlots {
         /**
          * Displayed options
          */
-        suggestions: any[];
+        suggestions: T[];
     }): VNode[];
     /**
      * Custom option template.
@@ -641,7 +641,7 @@ export interface AutoCompleteSlots {
         /**
          * Option instance
          */
-        option: any;
+        option: T;
         /**
          * Index of the option
          */
@@ -655,7 +655,7 @@ export interface AutoCompleteSlots {
         /**
          * Option instance
          */
-        option: any;
+        option: T;
         /**
          * Index of the option
          */
@@ -694,7 +694,7 @@ export interface AutoCompleteSlots {
         /**
          * Options of the loader items for virtualscroller
          */
-        options: any[];
+        options: T[];
     }): VNode[];
     /**
      * Custom empty template when there is no data to display.
@@ -804,7 +804,7 @@ export interface AutoCompleteSlots {
 /**
  * Defines valid emits in AutoComplete component.
  */
-export interface AutoCompleteEmitsOptions {
+export interface AutoCompleteEmitsOptions<T = any> {
     /**
      * Emitted when the value changes.
      * @param {*} value - New value.
@@ -835,23 +835,23 @@ export interface AutoCompleteEmitsOptions {
      * Callback to invoke when a suggestion is selected.
      * @param {AutoCompleteOptionSelectEvent} event - Custom option select event.
      */
-    'item-select'(event: AutoCompleteOptionSelectEvent): void;
+    'item-select'(event: AutoCompleteOptionSelectEvent<T>): void;
     /**
      * @deprecated since v4.0. Use 'option-unselect' emit.
      * Callback to invoke when a selected value is removed.
      * @param {AutoCompleteOptionUnselectEvent} event - Custom option unselect event.
      */
-    'item-unselect'(event: AutoCompleteOptionUnselectEvent): void;
+    'item-unselect'(event: AutoCompleteOptionUnselectEvent<T>): void;
     /**
      * Callback to invoke when a suggestion is selected.
      * @param {AutoCompleteOptionSelectEvent} event - Custom option select event.
      */
-    'option-select'(event: AutoCompleteOptionSelectEvent): void;
+    'option-select'(event: AutoCompleteOptionSelectEvent<T>): void;
     /**
      * Callback to invoke when a selected value is removed.
      * @param {AutoCompleteOptionUnselectEvent} event - Custom option unselect event.
      */
-    'option-unselect'(event: AutoCompleteOptionUnselectEvent): void;
+    'option-unselect'(event: AutoCompleteOptionUnselectEvent<T>): void;
     /**
      * Callback to invoke to when dropdown button is clicked.
      * @param {AutoCompleteDropdownClickEvent} event - Custom dropdown click event.
@@ -884,7 +884,7 @@ export interface AutoCompleteEmitsOptions {
     hide(): void;
 }
 
-export declare type AutoCompleteEmits = EmitFn<AutoCompleteEmitsOptions>;
+export declare type AutoCompleteEmits<T = any> = EmitFn<AutoCompleteEmitsOptions<T>>;
 
 /**
  * **PrimeVue - AutoComplete**
@@ -898,11 +898,19 @@ export declare type AutoCompleteEmits = EmitFn<AutoCompleteEmitsOptions>;
  * @group Component
  *
  */
-declare const AutoComplete: DefineComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits>;
+declare const AutoComplete: {
+    new <T = any>(
+        props: AutoCompleteProps<T>
+    ): {
+        $props: AutoCompleteProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: AutoCompleteSlots<T>;
+        $emit: EmitFn<AutoCompleteEmitsOptions<T>>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        AutoComplete: DefineComponent<AutoCompleteProps, AutoCompleteSlots, AutoCompleteEmits>;
+        AutoComplete: typeof AutoComplete;
     }
 }
 
