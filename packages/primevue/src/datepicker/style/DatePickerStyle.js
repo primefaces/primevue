@@ -5,6 +5,21 @@ const inlineStyles = {
     root: ({ props }) => ({ position: props.appendTo === 'self' || props.showClear ? 'relative' : undefined })
 };
 
+const css = () => `
+.p-datepicker-day-cell:focus,
+.p-datepicker-day-cell:focus-visible {
+    outline: none;
+}
+
+.p-datepicker-day-cell:focus-visible .p-datepicker-day {
+    outline-width: var(--p-datepicker-date-focus-ring-width);
+    outline-style: var(--p-datepicker-date-focus-ring-style);
+    outline-color: var(--p-datepicker-date-focus-ring-color);
+    outline-offset: var(--p-datepicker-date-focus-ring-offset);
+    box-shadow: var(--p-datepicker-date-focus-ring-shadow);
+}
+`;
+
 const classes = {
     root: ({ instance, state }) => [
         'p-datepicker p-component p-inputwrapper',
@@ -101,6 +116,7 @@ const classes = {
 
 export default BaseStyle.extend({
     name: 'datepicker',
+    css,
     style,
     classes,
     inlineStyles
