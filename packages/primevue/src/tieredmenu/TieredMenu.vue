@@ -142,7 +142,7 @@ export default {
             if (this.popup) {
                 this.$emit('before-show');
                 this.visible = true;
-                this.target = this.target || event.currentTarget;
+                this.target = event.currentTarget;
                 this.relatedTarget = event.relatedTarget || null;
             }
 
@@ -159,6 +159,7 @@ export default {
 
             isFocus && focus(this.relatedTarget || this.target || this.menubar);
             this.dirty = false;
+            this.target = null;
         },
         onFocus(event) {
             this.focused = true;
