@@ -57,6 +57,7 @@ export default {
         };
     },
     resizeObserver: undefined,
+    inkBarObserver: undefined,
     watch: {
         showNavigators(newValue) {
             newValue ? this.bindResizeObserver() : this.unbindResizeObserver();
@@ -65,12 +66,14 @@ export default {
             flush: 'post',
             handler() {
                 this.updateInkBar();
+                this.bindInkBarObserver();
             }
         }
     },
     mounted() {
         setTimeout(() => {
             this.updateInkBar();
+            this.bindInkBarObserver();
         }, 150);
 
         if (this.showNavigators) {
@@ -83,6 +86,7 @@ export default {
     },
     beforeUnmount() {
         this.unbindResizeObserver();
+        this.unbindInkBarObserver();
     },
     methods: {
         onScroll(event) {
@@ -120,6 +124,21 @@ export default {
         unbindResizeObserver() {
             this.resizeObserver?.unobserve(this.$refs.list);
             this.resizeObserver = undefined;
+        },
+        bindInkBarObserver() {
+            this.unbindInkBarObserver();
+
+            const { content } = this.$refs;
+            const activeTab = findSingle(content, '[data-pc-name="tab"][data-p-active="true"]');
+
+            if (activeTab) {
+                this.inkBarObserver = new ResizeObserver(() => this.updateInkBar());
+                this.inkBarObserver.observe(activeTab);
+            }
+        },
+        unbindInkBarObserver() {
+            this.inkBarObserver?.disconnect();
+            this.inkBarObserver = undefined;
         },
         updateInkBar() {
             const { content, inkbar, tabs } = this.$refs;
