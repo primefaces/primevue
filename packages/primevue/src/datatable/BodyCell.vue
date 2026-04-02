@@ -155,6 +155,11 @@ export default {
     hostName: 'DataTable',
     extends: BaseComponent,
     emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'row-toggle', 'radio-change', 'checkbox-change', 'editing-meta-change'],
+    inject: {
+        $pcDataTable: {
+            default: undefined
+        }
+    },
     props: {
         rowData: {
             type: Object,
@@ -546,7 +551,7 @@ export default {
             return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject] : [columnStyle, bodyStyle];
         },
         loading() {
-            return this.getVirtualScrollerProp('loading');
+            return this.getVirtualScrollerProp('loading') || (this.column.children?.loading && this.$pcDataTable?.loading);
         },
         loadingOptions() {
             const getLoaderOptions = this.getVirtualScrollerProp('getLoaderOptions');
