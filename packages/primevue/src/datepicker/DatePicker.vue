@@ -2959,7 +2959,7 @@ export default {
                         const start = this.parseValueForComparison(propValue[0]);
                         let lastVisibleMonth = new Date(start.getFullYear(), start.getMonth() + this.numberOfMonths, 1);
 
-                        if (propValue[1] < lastVisibleMonth) {
+                        if (!propValue[1] || propValue[1] < lastVisibleMonth) {
                             propValue = propValue[0];
                         } else {
                             const end = this.parseValueForComparison(propValue[1]);
