@@ -29,4 +29,10 @@ coverage
 # Custom
 api-generator/typedoc.json
 apps/showcase/components.d.ts
+
+.claude
+.report
+.agents
+docs/plans
+docs/superpowers
 CLAUDE.md
