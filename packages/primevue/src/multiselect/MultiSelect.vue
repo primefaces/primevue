@@ -30,7 +30,8 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <template v-if="chipSelectedItems">
+                        <template v-if="loading && (!options || options.length === 0)">{{ placeholder || 'empty' }}</template>
+                        <template v-else-if="chipSelectedItems">
                             <span>{{ label }}</span>
                         </template>
                         <template v-else>
@@ -1075,7 +1076,9 @@ export default {
             let label;
 
             if (this.d_value && this.d_value.length) {
-                if (isNotEmpty(this.maxSelectedLabels) && this.d_value.length > this.maxSelectedLabels) {
+                if (this.loading && (!this.options || this.options.length === 0)) {
+                    label = this.placeholder;
+                } else if (isNotEmpty(this.maxSelectedLabels) && this.d_value.length > this.maxSelectedLabels) {
                     return this.getSelectedItemsLabel();
                 } else {
                     label = '';
