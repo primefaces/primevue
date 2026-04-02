@@ -737,10 +737,11 @@ export default {
                     if (this.focusedOptionIndex !== -1) {
                         if (this.multiple && event.shiftKey) {
                             this.onOptionSelectRange(event, this.focusedOptionIndex);
-                            event.preventDefault();
                         } else {
                             this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
                         }
+
+                        event.preventDefault();
                     }
 
                     this.hide();
