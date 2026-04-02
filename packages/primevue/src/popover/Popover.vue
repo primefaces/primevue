@@ -56,6 +56,7 @@ export default {
     styleElement: null,
     overlayEventListener: null,
     documentKeydownListener: null,
+    contentResizeObserver: null,
     beforeUnmount() {
         if (this.dismissable) {
             this.unbindOutsideClickListener();
@@ -68,6 +69,7 @@ export default {
 
         this.destroyStyle();
         this.unbindResizeListener();
+        this.unbindContentResizeListener();
         this.target = null;
 
         if (this.container && this.autoZIndex) {
@@ -123,6 +125,7 @@ export default {
                 }
             };
 
+            this.bindContentResizeListener();
             this.focus();
             OverlayEventBus.on('overlay-click', this.overlayEventListener);
             this.$emit('show');
@@ -136,6 +139,7 @@ export default {
             this.unbindScrollListener();
             this.unbindResizeListener();
             this.unbindDocumentKeyDownListener();
+            this.unbindContentResizeListener();
             OverlayEventBus.off('overlay-click', this.overlayEventListener);
             this.overlayEventListener = null;
             this.$emit('hide');
@@ -256,6 +260,23 @@ export default {
             if (this.resizeListener) {
                 window.removeEventListener('resize', this.resizeListener);
                 this.resizeListener = null;
+            }
+        },
+        bindContentResizeListener() {
+            if (!this.contentResizeObserver) {
+                this.contentResizeObserver = new ResizeObserver(() => {
+                    if (this.visible) {
+                        this.alignOverlay();
+                    }
+                });
+
+                this.contentResizeObserver.observe(this.container);
+            }
+        },
+        unbindContentResizeListener() {
+            if (this.contentResizeObserver) {
+                this.contentResizeObserver.disconnect();
+                this.contentResizeObserver = null;
             }
         },
         isTargetClicked(event) {
