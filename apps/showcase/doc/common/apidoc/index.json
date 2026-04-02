@@ -39537,7 +39537,7 @@
                             "name": "class",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "ClassValue",
                             "default": ""
                         },
                         {
@@ -39858,7 +39858,7 @@
                             "name": "autocomplete",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "InputAutoCompleteAttribute",
                             "default": ""
                         },
                         {
@@ -44268,6 +44268,19 @@
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "",
                             "deprecated": "since v4.0. Use submenulabel slot instead.\nCustom submenu header template."
+                        },
+                        {
+                            "name": "submenulabel",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n }",
+                                    "description": "submenulabel slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom submenu label template."
                         }
                     ]
                 },
@@ -53162,7 +53175,7 @@
                             "name": "class",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "ClassValue",
                             "default": ""
                         },
                         {
@@ -53483,7 +53496,7 @@
                             "name": "autocomplete",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "InputAutoCompleteAttribute",
                             "default": ""
                         },
                         {
@@ -70855,7 +70868,7 @@
                             "name": "class",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "ClassValue",
                             "default": ""
                         },
                         {
