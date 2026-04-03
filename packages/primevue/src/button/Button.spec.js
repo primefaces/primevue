@@ -6,7 +6,16 @@ describe('Button.vue', () => {
         const wrapper = mount(Button);
 
         expect(wrapper.find('.p-button.p-component').exists()).toBe(true);
+    });
+
+    it('renders label when label prop is provided', () => {
+        const label = 'Save';
+        const wrapper = mount(Button, {
+            props: { label }
+        });
+
         expect(wrapper.find('.p-button-label').exists()).toBe(true);
+        expect(wrapper.find('.p-button-label').text()).toBe(label);
     });
 });
 

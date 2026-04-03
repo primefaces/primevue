@@ -46,13 +46,21 @@ describe('DatePicker.vue', () => {
     });
 
     it('should calculate the correct view date when in range mode', async () => {
-        const dateOne = new Date();
-        const dateTwo = new Date();
+        const dateOne = new Date(2026, 1, 10, 8, 30, 0);
+        const dateTwo = new Date(2026, 1, 15, 8, 30, 0);
 
-        dateTwo.setFullYear(dateOne.getFullYear(), dateOne.getMonth(), dateOne.getDate() + 1);
         await wrapper.setProps({ selectionMode: 'range', showTime: true, modelValue: [dateOne, dateTwo] });
 
-        expect(wrapper.vm.viewDate).toEqual(dateTwo);
+        expect(wrapper.vm.viewDate).toEqual(dateOne);
+    });
+
+    it('should shift the view date when range end is outside visible months', async () => {
+        const dateOne = new Date(2026, 0, 10, 8, 30, 0);
+        const dateTwo = new Date(2026, 2, 12, 8, 30, 0);
+
+        await wrapper.setProps({ selectionMode: 'range', showTime: true, numberOfMonths: 2, modelValue: [dateOne, dateTwo] });
+
+        expect(wrapper.vm.viewDate).toEqual(new Date(2026, 1, 1));
     });
 
     it('should open a year view when there is selected date (fix: #6203)', async () => {
