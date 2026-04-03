@@ -520,6 +520,8 @@ export default {
                 originalEvent: event,
                 target: this.overlay
             });
+
+            this.selfClick = false;
         },
         onContentMouseDown() {
             this.selfClick = true;
