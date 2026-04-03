@@ -606,6 +606,7 @@ export default {
         },
         onClearClick(event) {
             this.updateModel(event, null);
+            this.$emit('clear');
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
