@@ -399,7 +399,8 @@ export default {
         'update:editingRows',
         'row-edit-init',
         'row-edit-save',
-        'row-edit-cancel'
+        'row-edit-cancel',
+        'update:totalRecords'
     ],
     provide() {
         return {
@@ -483,6 +484,9 @@ export default {
             handler: function (newValue) {
                 this.d_filters = this.cloneFilters(newValue);
             }
+        },
+        totalRecordsLength(newValue) {
+            this.$emit('update:totalRecords', newValue);
         }
     },
     mounted() {
