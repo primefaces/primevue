@@ -35,7 +35,7 @@
                             <span>{{ label }}</span>
                         </template>
                         <template v-else>
-                            <span v-for="(item, idx) of d_value" :key="`chip-${optionValue ? item : getLabelByValue(item)}_${idx}`" :class="cx('chipItem')" v-bind="ptm('chipItem')">
+                            <span v-for="(item, idx) of d_value" :key="`chip-${getLabelByValue(item)}_${idx}`" :class="cx('chipItem')" v-bind="ptm('chipItem')">
                                 <slot name="chip" :value="item" :removeCallback="(event) => removeOption(event, item)">
                                     <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
                                     <Chip :class="cx('pcChip')" :label="getLabelByValue(item)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('pcChip')">
