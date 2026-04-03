@@ -1934,7 +1934,10 @@ export default {
         },
         parseDateTime(text) {
             let date;
-            let parts = text.match(/(?:(.+?) )?(\d{2}:\d{2}(?::\d{2})?)(?: (am|pm))?/);
+            const amLabel = this.$primevue.config.locale.am;
+            const pmLabel = this.$primevue.config.locale.pm;
+            const ampmPattern = `${amLabel}|${pmLabel}|am|pm`;
+            let parts = text.match(new RegExp(`(?:(.+?) )?(\\d{2}:\\d{2}(?::\\d{2})?)(?:\\s+(${ampmPattern}))?`, 'i'));
 
             if (this.timeOnly) {
                 date = new Date();
@@ -1957,7 +1960,7 @@ export default {
                 throw 'Invalid Time';
             }
 
-            this.pm = ampm === this.$primevue.config.locale.pm || ampm === this.$primevue.config.locale.pm.toLowerCase();
+            this.pm = ampm.toLowerCase() === this.$primevue.config.locale.pm.toLowerCase() || ampm.toLowerCase() === 'pm';
             let time = this.parseTime(timeString);
 
             value.setHours(time.hour);
