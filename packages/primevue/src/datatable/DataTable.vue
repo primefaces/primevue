@@ -2076,7 +2076,7 @@ export default {
             return this.filters && Object.keys(this.filters).length > 0 && this.filters.constructor === Object;
         },
         processedData() {
-            let data = this.value || [];
+            let data = (this.value || []).filter((item) => item != null);
 
             if (!this.lazy && !this.virtualScrollerOptions?.lazy) {
                 if (data && data.length) {
