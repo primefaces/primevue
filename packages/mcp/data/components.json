@@ -39377,7 +39377,7 @@
         {
             "name": "cdn",
             "path": "cdn",
-            "title": "Install PrimeVue with CND",
+            "title": "Install PrimeVue with CDN",
             "description": "Setting up PrimeVue in a project using CDN.",
             "sections": [
                 {
