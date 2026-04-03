@@ -57,6 +57,13 @@ export default {
     mounted() {
         this.initializePanels();
     },
+    watch: {
+        'panels.length'() {
+            this.$nextTick(() => {
+                this.initializePanels();
+            });
+        }
+    },
     beforeUnmount() {
         this.clear();
         this.unbindMouseListeners();
