@@ -46,7 +46,8 @@ export default {
         this.mask = null;
 
         if (this.container) {
-            ZIndex.clear(this.container);
+            const el = typeof this.container.nodeType === 'number' ? this.container : this.container.$el;
+            if (el) ZIndex.clear(el);
             this.container = null;
         }
     },
