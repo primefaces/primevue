@@ -144,10 +144,4 @@ export declare type AccordionContentEmits = EmitFn<AccordionContentEmitsOptions>
  */
 declare const AccordionContent: DefineComponent<AccordionContentProps, AccordionContentSlots, AccordionContentEmits>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        AccordionContent: DefineComponent<AccordionContentProps, AccordionContentSlots, AccordionContentEmits>;
-    }
-}
-
 export default AccordionContent;

@@ -824,10 +824,4 @@ export interface SelectMethods {
  */
 declare const Select: DefineComponent<SelectProps, SelectSlots, SelectEmits, SelectMethods>;
 
-declare module 'vue' {
-    export interface GlobalComponents {
-        Select: DefineComponent<SelectProps, SelectSlots, SelectEmits, SelectMethods>;
-    }
-}
-
 export default Select;
