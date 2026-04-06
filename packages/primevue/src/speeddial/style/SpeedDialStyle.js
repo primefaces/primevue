@@ -29,7 +29,12 @@ const classes = {
         }
     ],
     list: 'p-speeddial-list',
-    item: 'p-speeddial-item',
+    item: ({ item }) => [
+        'p-speeddial-item',
+        {
+            'p-disabled': item && (typeof item.disabled === 'function' ? item.disabled() : item.disabled)
+        }
+    ],
     action: 'p-speeddial-action',
     actionIcon: 'p-speeddial-action-icon',
     mask: 'p-speeddial-mask p-overlay-mask'

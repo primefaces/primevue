@@ -28,10 +28,12 @@
                 <li
                     v-if="isItemVisible(item)"
                     :id="`${$id}_${index}`"
-                    :class="cx('item', { id: `${$id}_${index}` })"
+                    :class="cx('item', { id: `${$id}_${index}`, item })"
                     :style="getItemStyle(index)"
                     role="none"
+                    :aria-disabled="isItemDisabled(item)"
                     :data-p-active="isItemActive(`${$id}_${index}`)"
+                    :data-p-disabled="isItemDisabled(item) || false"
                     v-bind="getPTOptions(`${$id}_${index}`, 'item')"
                 >
                     <template v-if="!$slots.item">
@@ -41,7 +43,7 @@
                             role="menuitem"
                             :class="cx('pcAction', { item })"
                             :aria-label="item.label"
-                            :disabled="disabled"
+                            :disabled="disabled || isItemDisabled(item)"
                             :unstyled="unstyled"
                             @click="onItemClick($event, item)"
                             v-bind="actionButtonProps"
@@ -66,7 +68,7 @@
 
 <script>
 import { $dt } from '@primeuix/styled';
-import { find, findSingle, focus, hasClass } from '@primeuix/utils/dom';
+import { find, findSingle, focus } from '@primeuix/utils/dom';
 import PlusIcon from '@primevue/icons/plus';
 import Button from 'primevue/button';
 import Ripple from 'primevue/ripple';
@@ -135,6 +137,12 @@ export default {
             this.$emit('blur', event);
         },
         onItemClick(e, item) {
+            if (this.isItemDisabled(item)) {
+                e.preventDefault();
+
+                return;
+            }
+
             if (item.command) {
                 item.command({ originalEvent: e, item });
             }
@@ -323,7 +331,7 @@ export default {
         },
         changeFocusedOptionIndex(index) {
             const items = find(this.container, '[data-pc-section="item"]');
-            const filteredItems = [...items].filter((item) => !hasClass(findSingle(item, 'a'), 'p-disabled'));
+            const filteredItems = [...items].filter((item) => item.getAttribute('data-p-disabled') !== 'true');
 
             if (filteredItems[index]) {
                 this.focusedOptionIndex = filteredItems[index].getAttribute('id');
@@ -334,7 +342,7 @@ export default {
         },
         findPrevOptionIndex(index) {
             const items = find(this.container, '[data-pc-section="item"]');
-            const filteredItems = [...items].filter((item) => !hasClass(findSingle(item, 'a'), 'p-disabled'));
+            const filteredItems = [...items].filter((item) => item.getAttribute('data-p-disabled') !== 'true');
             const newIndex = index === -1 ? filteredItems[filteredItems.length - 1].id : index;
             let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
 
@@ -344,7 +352,7 @@ export default {
         },
         findNextOptionIndex(index) {
             const items = find(this.container, '[data-pc-section="item"]');
-            const filteredItems = [...items].filter((item) => !hasClass(findSingle(item, 'a'), 'p-disabled'));
+            const filteredItems = [...items].filter((item) => item.getAttribute('data-p-disabled') !== 'true');
             const newIndex = index === -1 ? filteredItems[0].id : index;
             let matchedOptionIndex = filteredItems.findIndex((link) => link.getAttribute('id') === newIndex);
 
@@ -434,6 +442,9 @@ export default {
         },
         isItemVisible(item) {
             return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
+        },
+        isItemDisabled(item) {
+            return typeof item.disabled === 'function' ? item.disabled() : !!item.disabled;
         },
         isItemActive(id) {
             return id === this.focusedOptionId;
