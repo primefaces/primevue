@@ -450,7 +450,15 @@ export default {
                     if (!metaKey && isPrintableCharacter(event.key)) {
                         !this.overlayVisible && this.show();
                         !this.editable && this.searchOptions(event, event.key);
-                        this.filter && (this.filterValue = event.key);
+
+                        if (this.filter) {
+                            this.$nextTick(() => {
+                                if (this.$refs.filterInput) {
+                                    focus(this.$refs.filterInput.$el);
+                                    console.log(this.filterValue);
+                                }
+                            });
+                        }
                     }
 
                     break;
