@@ -128,7 +128,7 @@ export interface PopoverProps {
      * Base zIndex value to use in layering.
      * @defaultValue 0
      */
-    baseZIndex?: number;
+    baseZIndex?: number | undefined;
     /**
      * Whether to automatically manage layering.
      * @defaultValue true

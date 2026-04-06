@@ -116,7 +116,7 @@ export default {
             this.bindResizeListener();
 
             if (this.autoZIndex) {
-                ZIndex.set('overlay', el, this.baseZIndex + this.$primevue.config.zIndex.overlay);
+                ZIndex.set('overlay', el, this.baseZIndex || this.$primevue.config.zIndex.overlay);
             }
 
             this.overlayEventListener = (e) => {

@@ -416,7 +416,7 @@ export default {
         },
         onEnter(el) {
             if (this.autoZIndex) {
-                ZIndex.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
+                ZIndex.set('menu', el, this.baseZIndex || this.$primevue.config.zIndex.menu);
             }
 
             addStyle(el, { position: 'absolute', top: '0' });
