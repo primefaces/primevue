@@ -14859,6 +14859,22 @@
                             "description": "Used to pass attributes to the row toggler icon's DOM element."
                         },
                         {
+                            "name": "nodeToggleButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the node toggle button's DOM element."
+                        },
+                        {
+                            "name": "nodeToggleIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the node toggle icon's DOM element."
+                        },
+                        {
                             "name": "bodyCell",
                             "optional": true,
                             "readonly": false,
@@ -14889,6 +14905,14 @@
                             "type": "any",
                             "default": "",
                             "description": "Used to pass attributes to the checkbox's DOM element."
+                        },
+                        {
+                            "name": "pcNodeCheckbox",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Used to pass attributes to the node checkbox's DOM element."
                         },
                         {
                             "name": "pcRowEditorInit",
