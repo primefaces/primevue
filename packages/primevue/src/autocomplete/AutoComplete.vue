@@ -814,7 +814,8 @@ export default {
 
             this.$emit('show');
         },
-        onOverlayLeave() {
+        onOverlayLeave(el) {
+            el.style.pointerEvents = 'none';
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
