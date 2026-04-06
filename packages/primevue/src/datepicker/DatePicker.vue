@@ -628,7 +628,7 @@ export default {
         modelValue: {
             immediate: true,
             handler(newValue) {
-                this.rawValue = typeof newValue === 'string' ? this.parseValue(newValue) : newValue;
+                this.rawValue = typeof newValue === 'string' ? this.safeParse(newValue) : newValue;
                 this.updateCurrentMetaData();
 
                 if (!this.typeUpdate && !this.inline && this.input) {
@@ -1922,6 +1922,15 @@ export default {
             }
 
             return value;
+        },
+        safeParse(value) {
+            try {
+                return this.parseValue(value);
+            } catch (e) {
+                const date = new Date(value);
+
+                return !isNaN(date.getTime()) ? (this.isSingleSelection() ? date : [date]) : null;
+            }
         },
         parseValueForComparison(value) {
             if (typeof value === 'string') {
