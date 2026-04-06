@@ -613,7 +613,7 @@ export default {
             }
         },
         onPaste(event) {
-            if (this.readonly) {
+            if (this.readonly || this.disabled) {
                 return;
             }
 
