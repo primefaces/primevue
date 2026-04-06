@@ -551,7 +551,7 @@ export default {
             return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject] : [columnStyle, bodyStyle];
         },
         loading() {
-            return this.getVirtualScrollerProp('loading') || (this.column.children?.loading && this.$pcDataTable?.loading);
+            return this.column.children?.loading && (this.getVirtualScrollerProp('loading') || this.$pcDataTable?.loading);
         },
         loadingOptions() {
             const getLoaderOptions = this.getVirtualScrollerProp('getLoaderOptions');
