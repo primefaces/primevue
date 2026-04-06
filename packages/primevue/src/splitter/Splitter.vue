@@ -6,7 +6,6 @@
                 v-if="i !== panels.length - 1"
                 ref="gutter"
                 :class="cx('gutter')"
-                role="separator"
                 tabindex="-1"
                 @mousedown="onGutterMouseDown($event, i)"
                 @touchstart="onGutterTouchStart($event, i)"
@@ -16,7 +15,7 @@
                 :data-p="dataP"
                 v-bind="ptm('gutter')"
             >
-                <div :class="cx('gutterHandle')" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" :data-p="dataP" v-bind="ptm('gutterHandle')"></div>
+                <div :class="cx('gutterHandle')" role="separator" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" :data-p="dataP" v-bind="ptm('gutterHandle')"></div>
             </div>
         </template>
     </div>
