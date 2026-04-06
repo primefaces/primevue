@@ -2709,6 +2709,10 @@ export default {
             if (cell) {
                 cell.tabIndex = '0';
 
+                if (!this.preventFocus && this.overlay && !this.overlay.contains(document.activeElement)) {
+                    cell.focus();
+                }
+
                 this.preventFocus = false;
             }
         },
