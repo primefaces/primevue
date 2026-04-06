@@ -39,7 +39,6 @@
                             </a>
                         </template>
                         <component v-else :is="templates.item" :item="processedItem.item" :hasSubmenu="!!getItemProp(processedItem, 'items')" :label="getItemLabel(processedItem)" :props="getMenuItemProps(processedItem, index)"></component>
-                        {{ !!getItemProp(processedItem, 'items') }}
                     </div>
                     <TieredMenuSub
                         v-if="isItemVisible(processedItem) && isItemGroup(processedItem)"
