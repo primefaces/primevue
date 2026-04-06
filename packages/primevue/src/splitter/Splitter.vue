@@ -57,6 +57,15 @@ export default {
     mounted() {
         this.initializePanels();
     },
+    updated() {
+        if (!this.dragging && this.panelSizes) {
+            let needsUpdate = this.panels.some((panel, i) => this.getPanelSize(panel) !== this.panelSizes[i]);
+
+            if (needsUpdate) {
+                this.initializePanels();
+            }
+        }
+    },
     watch: {
         'panels.length'() {
             this.$nextTick(() => {
@@ -72,6 +81,11 @@ export default {
         isSplitterPanel(child) {
             return child.type.name === 'SplitterPanel';
         },
+        getPanelSize(panel) {
+            let size = panel.props && isNotEmpty(panel.props.size) ? panel.props.size : null;
+
+            return size ?? 100 / this.panels.length;
+        },
         initializePanels() {
             if (this.panels && this.panels.length) {
                 let initialized = false;
@@ -85,8 +99,7 @@ export default {
                     let _panelSizes = [];
 
                     this.panels.map((panel, i) => {
-                        let panelInitialSize = panel.props && isNotEmpty(panel.props.size) ? panel.props.size : null;
-                        let panelSize = panelInitialSize ?? 100 / this.panels.length;
+                        let panelSize = this.getPanelSize(panel);
 
                         _panelSizes[i] = panelSize;
                         children[i].style.flexBasis = 'calc(' + panelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
