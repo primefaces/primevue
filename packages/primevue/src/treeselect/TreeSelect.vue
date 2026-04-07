@@ -89,6 +89,7 @@
                             @node-collapse="$emit('node-collapse', $event)"
                             @node-select="onNodeSelect"
                             @node-unselect="onNodeUnselect"
+                            @filter="$emit('filter', $event)"
                             @click.stop
                             :level="0"
                             :unstyled="unstyled"
@@ -147,7 +148,7 @@ export default {
     name: 'TreeSelect',
     extends: BaseTreeSelect,
     inheritAttrs: false,
-    emits: ['before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur', 'update:expandedKeys'],
+    emits: ['before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'filter', 'focus', 'blur', 'update:expandedKeys'],
     inject: {
         $pcFluid: { default: null }
     },

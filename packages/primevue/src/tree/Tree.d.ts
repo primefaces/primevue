@@ -95,6 +95,10 @@ export interface TreeFilterEvent {
      * Filter value
      */
     value: string;
+    /**
+     * Filtered nodes
+     */
+    filteredNodes: TreeNode[];
 }
 
 /**
