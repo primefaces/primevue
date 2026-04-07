@@ -455,7 +455,6 @@ export default {
                             this.$nextTick(() => {
                                 if (this.$refs.filterInput) {
                                     focus(this.$refs.filterInput.$el);
-                                    console.log(this.filterValue);
                                 }
                             });
                         }
