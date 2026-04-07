@@ -1651,11 +1651,11 @@ export default {
             const convertedHour = this.convertTo24Hour(hour, pm);
 
             if (this.isRangeSelection()) {
-                value = this.rawValue[1] || this.rawValue[0];
+                value = this.rawValue ? this.rawValue[1] || this.rawValue[0] : value;
             }
 
             if (this.isMultipleSelection()) {
-                value = this.rawValue[this.rawValue.length - 1];
+                value = this.rawValue ? this.rawValue[this.rawValue.length - 1] : value;
             }
 
             const valueDateString = value ? value.toDateString() : null;
@@ -1786,11 +1786,11 @@ export default {
             let value = this.viewDate;
 
             if (this.isRangeSelection()) {
-                value = this.rawValue[this.focusedDateIndex] || this.rawValue[0];
+                value = this.rawValue ? this.rawValue[this.focusedDateIndex] || this.rawValue[0] : value;
             }
 
             if (this.isMultipleSelection()) {
-                value = this.rawValue[this.rawValue.length - 1];
+                value = this.rawValue ? this.rawValue[this.rawValue.length - 1] : value;
             }
 
             value = value ? new Date(value.getTime()) : new Date();
@@ -1806,9 +1806,9 @@ export default {
             value.setSeconds(this.currentSecond);
 
             if (this.isRangeSelection()) {
-                if (this.focusedDateIndex === 1 && this.rawValue[1]) {
+                if (this.rawValue && this.focusedDateIndex === 1 && this.rawValue[1]) {
                     value = [this.rawValue[0], value];
-                } else if (this.focusedDateIndex === 0) {
+                } else if (this.rawValue && this.focusedDateIndex === 0) {
                     value = [value, this.rawValue[1]];
                 } else {
                     value = [value, null];
@@ -1816,7 +1816,7 @@ export default {
             }
 
             if (this.isMultipleSelection()) {
-                value = [...this.rawValue.slice(0, -1), value];
+                value = this.rawValue ? [...this.rawValue.slice(0, -1), value] : [value];
             }
 
             this.updateModel(value);
