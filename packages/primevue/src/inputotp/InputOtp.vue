@@ -6,7 +6,7 @@
                     :value="tokens[i - 1]"
                     :type="inputType"
                     :class="cx('pcInputText')"
-                    :name="$formName"
+                    :name="$formName ? $formName + '_' + (i - 1) : undefined"
                     :inputmode="inputMode"
                     :variant="variant"
                     :readonly="readonly"
