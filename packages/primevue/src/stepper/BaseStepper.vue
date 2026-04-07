@@ -19,7 +19,8 @@ export default {
     provide() {
         return {
             $pcStepper: this,
-            $parentInstance: this
+            $parentInstance: this,
+            $pcStepItem: null, //shadow any ancestor StepItem so nested steppers don’t see it
         };
     }
 };
