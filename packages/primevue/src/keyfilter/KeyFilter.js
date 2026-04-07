@@ -65,21 +65,38 @@ const KeyFilter = BaseKeyFilter.extend('keyfilter', {
             el.$_keyfilterKeydownEvent = (event) => this.onKeydown(event, el);
             el.$_keyfilterPasteEvent = (event) => this.onPaste(event, el);
             el.$_keyfilterInputEvent = (event) => this.onInput(event, el);
+            el.$_keyfilterCompositionStartEvent = (event) => this.onCompositionStart(event, el);
+            el.$_keyfilterCompositionEndEvent = (event) => this.onCompositionEnd(event, el);
 
             el.addEventListener('keypress', el.$_keyfilterKeydownEvent);
             el.addEventListener('paste', el.$_keyfilterPasteEvent);
             el.addEventListener('input', el.$_keyfilterInputEvent);
+            el.addEventListener('compositionstart', el.$_keyfilterCompositionStartEvent);
+            el.addEventListener('compositionend', el.$_keyfilterCompositionEndEvent);
         },
         unbindEvents(el) {
             el.removeEventListener('keypress', el.$_keyfilterKeydownEvent);
             el.removeEventListener('paste', el.$_keyfilterPasteEvent);
             el.removeEventListener('input', el.$_keyfilterInputEvent);
+            el.removeEventListener('compositionstart', el.$_keyfilterCompositionStartEvent);
+            el.removeEventListener('compositionend', el.$_keyfilterCompositionEndEvent);
 
             el.$_keyfilterKeydownEvent = null;
             el.$_keyfilterPasteEvent = null;
             el.$_keyfilterInputEvent = null;
+            el.$_keyfilterCompositionStartEvent = null;
+            el.$_keyfilterCompositionEndEvent = null;
+        },
+        onCompositionStart(event, target) {
+            target.$_pkeyfilterComposing = true;
+        },
+        onCompositionEnd(event, target) {
+            target.$_pkeyfilterComposing = false;
+            this.onInput(event, target);
         },
         onInput(event, target) {
+            if (target.$_pkeyfilterComposing) return;
+
             const regex = this.getRegex(target);
 
             if (regex && !regex.test(target.value)) {
