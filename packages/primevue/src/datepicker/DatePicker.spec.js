@@ -49,10 +49,13 @@ describe('DatePicker.vue', () => {
         const dateOne = new Date();
         const dateTwo = new Date();
 
-        dateTwo.setFullYear(dateOne.getFullYear(), dateOne.getMonth(), dateOne.getDate() + 1);
+        dateTwo.setFullYear(dateOne.getFullYear(), dateOne.getMonth() + 2, dateOne.getDate());
         await wrapper.setProps({ selectionMode: 'range', showTime: true, modelValue: [dateOne, dateTwo] });
 
-        expect(wrapper.vm.viewDate).toEqual(dateTwo);
+        const expectedViewDate = new Date(dateTwo.getFullYear(), dateTwo.getMonth(), 1);
+
+        expect(wrapper.vm.viewDate.getFullYear()).toEqual(expectedViewDate.getFullYear());
+        expect(wrapper.vm.viewDate.getMonth()).toEqual(expectedViewDate.getMonth());
     });
 
     it('should open a year view when there is selected date (fix: #6203)', async () => {

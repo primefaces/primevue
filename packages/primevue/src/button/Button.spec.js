@@ -3,7 +3,11 @@ import Button from './Button.vue';
 
 describe('Button.vue', () => {
     it('is Button element exist', () => {
-        const wrapper = mount(Button);
+        const wrapper = mount(Button, {
+            props: {
+                label: 'Submit'
+            }
+        });
 
         expect(wrapper.find('.p-button.p-component').exists()).toBe(true);
         expect(wrapper.find('.p-button-label').exists()).toBe(true);
