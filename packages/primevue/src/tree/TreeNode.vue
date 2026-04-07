@@ -441,6 +441,7 @@ export default {
                             value: this.rootNodes,
                             dragNode: dragNode,
                             dropNode: this.node,
+                            dropPosition: position,
                             index: this.index,
                             accept: () => {
                                 const updatedNodes = this.insertNodeOnDrop();
@@ -450,6 +451,7 @@ export default {
                                     value: updatedNodes,
                                     dragNode: dragNode,
                                     dropNode: this.node,
+                                    dropPosition: position,
                                     index: this.index
                                 });
                             }
@@ -462,6 +464,7 @@ export default {
                             value: updatedNodes,
                             dragNode: dragNode,
                             dropNode: this.node,
+                            dropPosition: position,
                             index: this.index
                         });
                     }
