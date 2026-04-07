@@ -156,7 +156,7 @@ importers:
         version: 19.0.0
       nuxt:
         specifier: catalog:app
-        version: 3.15.4(@parcel/watcher@2.5.6)(@types/node@25.5.2)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.4(jiti@1.21.7))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.60.1)(sass@1.45.0)(srvx@0.11.15)(terser@5.46.1)(typescript@5.7.3)(vite@6.0.11(@types/node@25.5.2)(jiti@1.21.7)(lightningcss@1.32.0)(sass@1.45.0)(terser@5.46.1)(yaml@2.8.3))(vue-tsc@2.1.10(typescript@5.7.3))(yaml@2.8.3)
+        version: 3.15.4(@parcel/watcher@2.5.6)(@types/node@25.5.2)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.4(jiti@1.21.7))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.60.1)(sass@1.45.0)(terser@5.46.1)(typescript@5.7.3)(vite@6.0.11(@types/node@25.5.2)(jiti@1.21.7)(lightningcss@1.32.0)(sass@1.45.0)(terser@5.46.1)(yaml@2.8.3))(vue-tsc@2.1.10(typescript@5.7.3))(yaml@2.8.3)
       postcss:
         specifier: ^8.4.31
         version: 8.5.8
@@ -211,7 +211,7 @@ importers:
         version: 19.0.0
       nuxt:
         specifier: catalog:app
-        version: 3.15.4(@parcel/watcher@2.5.6)(@types/node@25.5.2)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.4(jiti@2.6.1))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.60.1)(sass@1.45.0)(srvx@0.11.15)(terser@5.46.1)(typescript@5.7.3)(vite@6.0.11(@types/node@25.5.2)(jiti@2.6.1)(lightningcss@1.32.0)(sass@1.45.0)(terser@5.46.1)(yaml@2.8.3))(vue-tsc@2.2.12(typescript@5.7.3))(yaml@2.8.3)
+        version: 3.15.4(@parcel/watcher@2.5.6)(@types/node@25.5.2)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.4(jiti@2.6.1))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.60.1)(sass@1.45.0)(terser@5.46.1)(typescript@5.7.3)(vite@6.0.11(@types/node@25.5.2)(jiti@2.6.1)(lightningcss@1.32.0)(sass@1.45.0)(terser@5.46.1)(yaml@2.8.3))(vue-tsc@2.2.12(typescript@5.7.3))(yaml@2.8.3)
       postcss:
         specifier: ^8.4.31
         version: 8.5.8
@@ -351,7 +351,7 @@ importers:
         version: 3.21.2
       '@nuxt/test-utils':
         specifier: ^3
-        version: 3.23.0(@vue/test-utils@2.4.6)(crossws@0.4.4(srvx@0.11.15))(jsdom@19.0.0)(magicast@0.3.5)(typescript@5.7.3)(vitest@3.2.4(@types/node@25.5.2)(jiti@2.6.1)(jsdom@19.0.0)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))
+        version: 3.23.0(@vue/test-utils@2.4.6)(jsdom@19.0.0)(magicast@0.3.5)(typescript@5.7.3)(vitest@3.2.4(@types/node@25.5.2)(jiti@2.6.1)(jsdom@19.0.0)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))
       '@primeuix/themes':
         specifier: 'catalog:'
         version: 2.0.3
@@ -363,7 +363,7 @@ importers:
         version: 0.6.2(magicast@0.3.5)
       nuxt:
         specifier: catalog:app
-        version: 3.15.4(@parcel/watcher@2.5.6)(@types/node@25.5.2)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.4(jiti@2.6.1))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@3.30.0)(srvx@0.11.15)(terser@5.46.1)(typescript@5.7.3)(vite@7.3.2(@types/node@25.5.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))(vue-tsc@2.1.10(typescript@5.7.3))(yaml@2.8.3)
+        version: 3.15.4(@parcel/watcher@2.5.6)(@types/node@25.5.2)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.4(jiti@2.6.1))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@3.30.0)(terser@5.46.1)(typescript@5.7.3)(vite@7.3.2(@types/node@25.5.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))(vue-tsc@2.1.10(typescript@5.7.3))(yaml@2.8.3)
       vitest:
         specifier: ^3.0.7
         version: 3.2.4(@types/node@25.5.2)(jiti@2.6.1)(jsdom@19.0.0)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3)
@@ -3546,14 +3546,6 @@ packages:
   crossws@0.3.5:
     resolution: {integrity: sha512-ojKiDvcmByhwa8YYqbQI/hg7MEU0NC03+pSdEq4ZUnZR9xXpwk7E43SMNGkn+JxJGPFtNvQ48+vV2p+P1ml5PA==}
 
-  crossws@0.4.4:
-    resolution: {integrity: sha512-w6c4OdpRNnudVmcgr7brb/+/HmYjMQvYToO/oTrprTwxRUiom3LYWU1PMWuD006okbUWpII1Ea9/+kwpUfmyRg==}
-    peerDependencies:
-      srvx: '>=0.7.1'
-    peerDependenciesMeta:
-      srvx:
-        optional: true
-
   css-declaration-sorter@6.4.1:
     resolution: {integrity: sha512-rtdthzxKuyq6IzqX6jEcIzQF/YqccluefyCYheovBOLhFT/drQA9zj/UbRAa9J7C0o6EG6u3E6g+vKkay7/k3g==}
     engines: {node: ^10 || ^12 || >=14}
@@ -3723,8 +3715,8 @@ packages:
     resolution: {integrity: sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==}
     engines: {node: '>=12'}
 
-  defu@6.1.6:
-    resolution: {integrity: sha512-f8mefEW4WIVg4LckePx3mALjQSPQgFlg9U8yaPdlsbdYcHQyj9n2zL2LJEA52smeYxOvmd/nB7TpMtHGMTHcug==}
+  defu@6.1.7:
+    resolution: {integrity: sha512-7z22QmUWiQ/2d0KkdYmANbRUVABpZ9SNYyH5vx6PZ+nE5bcC0l7uFvEfHlyld/HcGBFTL536ClDt3DEcSlEJAQ==}
 
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
@@ -8970,13 +8962,13 @@ snapshots:
       confbox: 0.2.4
       consola: 3.4.2
       debug: 4.4.3
-      defu: 6.1.6
+      defu: 6.1.7
       exsolve: 1.0.8
       fuse.js: 7.3.0
       fzf: 0.5.2
       giget: 3.2.0
       jiti: 2.6.1
-      listhen: 1.9.1(srvx@0.11.15)
+      listhen: 1.9.1
       nypm: 0.6.5
       ofetch: 1.5.1
       ohash: 2.0.11
@@ -9289,7 +9281,7 @@ snapshots:
     dependencies:
       c12: 2.0.4(magicast@0.3.5)
       consola: 3.4.2
-      defu: 6.1.6
+      defu: 6.1.7
       destr: 2.0.5
       globby: 14.1.0
       ignore: 7.0.5
@@ -9311,38 +9303,11 @@ snapshots:
       - magicast
       - supports-color
 
-  '@nuxt/kit@3.21.2':
-    dependencies:
-      c12: 3.3.4(magicast@0.5.2)
-      consola: 3.4.2
-      defu: 6.1.6
-      destr: 2.0.5
-      errx: 0.1.0
-      exsolve: 1.0.8
-      ignore: 7.0.5
-      jiti: 2.6.1
-      klona: 2.0.6
-      knitwork: 1.3.0
-      mlly: 1.8.2
-      ohash: 2.0.11
-      pathe: 2.0.3
-      pkg-types: 2.3.0
-      rc9: 3.0.1
-      scule: 1.3.0
-      semver: 7.7.4
-      tinyglobby: 0.2.15
-      ufo: 1.6.3
-      unctx: 2.5.0
-      untyped: 2.0.0
-    transitivePeerDependencies:
-      - magicast
-    optional: true
-
   '@nuxt/kit@3.21.2(magicast@0.3.5)':
     dependencies:
       c12: 3.3.4(magicast@0.3.5)
       consola: 3.4.2
-      defu: 6.1.6
+      defu: 6.1.7
       destr: 2.0.5
       errx: 0.1.0
       exsolve: 1.0.8
@@ -9369,7 +9334,7 @@ snapshots:
       '@nuxt/kit': 3.21.2(magicast@0.3.5)
       citty: 0.1.6
       consola: 3.4.2
-      defu: 6.1.6
+      defu: 6.1.7
       magic-regexp: 0.8.0
       mlly: 1.8.2
       nuxi: 3.34.0
@@ -9386,14 +9351,14 @@ snapshots:
   '@nuxt/schema@3.15.4':
     dependencies:
       consola: 3.4.2
-      defu: 6.1.6
+      defu: 6.1.7
       pathe: 2.0.3
       std-env: 3.10.0
 
   '@nuxt/schema@3.21.2':
     dependencies:
       '@vue/shared': 3.5.32
-      defu: 6.1.6
+      defu: 6.1.7
       pathe: 2.0.3
       pkg-types: 2.3.0
       std-env: 4.0.0
@@ -9407,20 +9372,20 @@ snapshots:
       rc9: 3.0.1
       std-env: 4.0.0
 
-  '@nuxt/test-utils@3.23.0(@vue/test-utils@2.4.6)(crossws@0.4.4(srvx@0.11.15))(jsdom@19.0.0)(magicast@0.3.5)(typescript@5.7.3)(vitest@3.2.4(@types/node@25.5.2)(jiti@2.6.1)(jsdom@19.0.0)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))':
+  '@nuxt/test-utils@3.23.0(@vue/test-utils@2.4.6)(jsdom@19.0.0)(magicast@0.3.5)(typescript@5.7.3)(vitest@3.2.4(@types/node@25.5.2)(jiti@2.6.1)(jsdom@19.0.0)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))':
     dependencies:
       '@clack/prompts': 1.0.0-alpha.9
       '@nuxt/kit': 3.21.2(magicast@0.3.5)
       c12: 3.3.4(magicast@0.3.5)
       consola: 3.4.2
-      defu: 6.1.6
+      defu: 6.1.7
       destr: 2.0.5
       estree-walker: 3.0.3
       exsolve: 1.0.8
       fake-indexeddb: 6.2.5
       get-port-please: 3.2.0
       h3: 1.15.11
-      h3-next: h3@2.0.1-rc.20(crossws@0.4.4(srvx@0.11.15))
+      h3-next: h3@2.0.1-rc.20
       local-pkg: 1.1.2
       magic-string: 0.30.21
       node-fetch-native: 1.6.7
@@ -9435,7 +9400,7 @@ snapshots:
       tinyexec: 1.0.4
       ufo: 1.6.3
       unplugin: 2.3.11
-      vitest-environment-nuxt: 1.0.1(@vue/test-utils@2.4.6)(crossws@0.4.4(srvx@0.11.15))(jsdom@19.0.0)(magicast@0.3.5)(typescript@5.7.3)(vitest@3.2.4(@types/node@25.5.2)(jiti@2.6.1)(jsdom@19.0.0)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))
+      vitest-environment-nuxt: 1.0.1(@vue/test-utils@2.4.6)(jsdom@19.0.0)(magicast@0.3.5)(typescript@5.7.3)(vitest@3.2.4(@types/node@25.5.2)(jiti@2.6.1)(jsdom@19.0.0)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))
       vue: 3.5.32(typescript@5.7.3)
     optionalDependencies:
       '@vue/test-utils': 2.4.6
@@ -9455,7 +9420,7 @@ snapshots:
       autoprefixer: 10.4.27(postcss@8.5.8)
       consola: 3.4.2
       cssnano: 7.1.4(postcss@8.5.8)
-      defu: 6.1.6
+      defu: 6.1.7
       esbuild: 0.24.2
       escape-string-regexp: 5.0.0
       externality: 1.0.2
@@ -9514,7 +9479,7 @@ snapshots:
       autoprefixer: 10.4.27(postcss@8.5.8)
       consola: 3.4.2
       cssnano: 7.1.4(postcss@8.5.8)
-      defu: 6.1.6
+      defu: 6.1.7
       esbuild: 0.24.2
       escape-string-regexp: 5.0.0
       externality: 1.0.2
@@ -9573,7 +9538,7 @@ snapshots:
       autoprefixer: 10.4.27(postcss@8.5.8)
       consola: 3.4.2
       cssnano: 7.1.4(postcss@8.5.8)
-      defu: 6.1.6
+      defu: 6.1.7
       esbuild: 0.24.2
       escape-string-regexp: 5.0.0
       externality: 1.0.2
@@ -11039,7 +11004,7 @@ snapshots:
     dependencies:
       chokidar: 4.0.3
       confbox: 0.1.8
-      defu: 6.1.6
+      defu: 6.1.7
       dotenv: 16.6.1
       giget: 1.2.5
       jiti: 2.6.1
@@ -11056,7 +11021,7 @@ snapshots:
     dependencies:
       chokidar: 5.0.0
       confbox: 0.2.4
-      defu: 6.1.6
+      defu: 6.1.7
       dotenv: 17.4.1
       exsolve: 1.0.8
       giget: 3.2.0
@@ -11073,7 +11038,7 @@ snapshots:
     dependencies:
       chokidar: 5.0.0
       confbox: 0.2.4
-      defu: 6.1.6
+      defu: 6.1.7
       dotenv: 17.4.1
       exsolve: 1.0.8
       giget: 3.2.0
@@ -11338,10 +11303,6 @@ snapshots:
     dependencies:
       uncrypto: 0.1.3
 
-  crossws@0.4.4(srvx@0.11.15):
-    optionalDependencies:
-      srvx: 0.11.15
-
   css-declaration-sorter@6.4.1(postcss@8.5.8):
     dependencies:
       postcss: 8.5.8
@@ -11528,7 +11489,7 @@ snapshots:
 
   define-lazy-prop@3.0.0: {}
 
-  defu@6.1.6: {}
+  defu@6.1.7: {}
 
   delayed-stream@1.0.0: {}
 
@@ -12352,7 +12313,7 @@ snapshots:
     dependencies:
       citty: 0.1.6
       consola: 3.4.2
-      defu: 6.1.6
+      defu: 6.1.7
       node-fetch-native: 1.6.7
       nypm: 0.5.4
       pathe: 2.0.3
@@ -12447,7 +12408,7 @@ snapshots:
     dependencies:
       cookie-es: 1.2.3
       crossws: 0.3.5
-      defu: 6.1.6
+      defu: 6.1.7
       destr: 2.0.5
       iron-webcrypto: 1.2.1
       node-mock-http: 1.0.4
@@ -12455,12 +12416,10 @@ snapshots:
       ufo: 1.6.3
       uncrypto: 0.1.3
 
-  h3@2.0.1-rc.20(crossws@0.4.4(srvx@0.11.15)):
+  h3@2.0.1-rc.20:
     dependencies:
       rou3: 0.8.1
       srvx: 0.11.15
-    optionalDependencies:
-      crossws: 0.4.4(srvx@0.11.15)
 
   has-flag@4.0.0: {}
 
@@ -12886,14 +12845,14 @@ snapshots:
     dependencies:
       uc.micro: 2.1.0
 
-  listhen@1.9.1(srvx@0.11.15):
+  listhen@1.9.1:
     dependencies:
       '@parcel/watcher': 2.5.6
       '@parcel/watcher-wasm': 2.5.6
       citty: 0.2.2
       consola: 3.4.2
-      crossws: 0.4.4(srvx@0.11.15)
-      defu: 6.1.6
+      crossws: 0.3.5
+      defu: 6.1.7
       get-port-please: 3.2.0
       h3: 1.15.11
       http-shutdown: 1.2.2
@@ -12906,8 +12865,6 @@ snapshots:
       ufo: 1.6.3
       untun: 0.1.3
       uqr: 0.1.3
-    transitivePeerDependencies:
-      - srvx
 
   load-tsconfig@0.2.5: {}
 
@@ -13102,7 +13059,7 @@ snapshots:
       autoprefixer: 10.4.27(postcss@8.5.8)
       citty: 0.1.6
       cssnano: 7.1.4(postcss@8.5.8)
-      defu: 6.1.6
+      defu: 6.1.7
       esbuild: 0.24.2
       jiti: 1.21.7
       mlly: 1.8.2
@@ -13153,7 +13110,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  nitropack@2.13.3(srvx@0.11.15):
+  nitropack@2.13.3:
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.2
       '@rollup/plugin-alias': 6.0.0(rollup@4.60.1)
@@ -13175,7 +13132,7 @@ snapshots:
       croner: 10.0.1
       crossws: 0.3.5
       db0: 0.3.4
-      defu: 6.1.6
+      defu: 6.1.7
       destr: 2.0.5
       dot-prop: 10.1.0
       esbuild: 0.27.7
@@ -13191,7 +13148,7 @@ snapshots:
       jiti: 2.6.1
       klona: 2.0.6
       knitwork: 1.3.0
-      listhen: 1.9.1(srvx@0.11.15)
+      listhen: 1.9.1
       magic-string: 0.30.21
       magicast: 0.5.2
       mime: 4.1.0
@@ -13253,7 +13210,6 @@ snapshots:
       - react-native-b4a
       - rolldown
       - sqlite3
-      - srvx
       - supports-color
       - uploadthing
 
@@ -13299,7 +13255,7 @@ snapshots:
 
   nuxi@3.34.0: {}
 
-  nuxt@3.15.4(@parcel/watcher@2.5.6)(@types/node@25.5.2)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.4(jiti@1.21.7))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.60.1)(sass@1.45.0)(srvx@0.11.15)(terser@5.46.1)(typescript@5.7.3)(vite@6.0.11(@types/node@25.5.2)(jiti@1.21.7)(lightningcss@1.32.0)(sass@1.45.0)(terser@5.46.1)(yaml@2.8.3))(vue-tsc@2.1.10(typescript@5.7.3))(yaml@2.8.3):
+  nuxt@3.15.4(@parcel/watcher@2.5.6)(@types/node@25.5.2)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.4(jiti@1.21.7))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.60.1)(sass@1.45.0)(terser@5.46.1)(typescript@5.7.3)(vite@6.0.11(@types/node@25.5.2)(jiti@1.21.7)(lightningcss@1.32.0)(sass@1.45.0)(terser@5.46.1)(yaml@2.8.3))(vue-tsc@2.1.10(typescript@5.7.3))(yaml@2.8.3):
     dependencies:
       '@nuxt/cli': 3.34.0(@nuxt/schema@3.15.4)(cac@6.7.14)(magicast@0.3.5)
       '@nuxt/devalue': 2.0.2
@@ -13319,7 +13275,7 @@ snapshots:
       compatx: 0.1.8
       consola: 3.4.2
       cookie-es: 1.2.3
-      defu: 6.1.6
+      defu: 6.1.7
       destr: 2.0.5
       devalue: 5.7.0
       errx: 0.1.0
@@ -13337,7 +13293,7 @@ snapshots:
       magic-string: 0.30.21
       mlly: 1.8.2
       nanotar: 0.2.1
-      nitropack: 2.13.3(srvx@0.11.15)
+      nitropack: 2.13.3
       nypm: 0.5.4
       ofetch: 1.5.1
       ohash: 1.1.6
@@ -13411,7 +13367,6 @@ snapshots:
       - sass
       - sass-embedded
       - sqlite3
-      - srvx
       - stylelint
       - stylus
       - sugarss
@@ -13428,7 +13383,7 @@ snapshots:
       - xml2js
       - yaml
 
-  nuxt@3.15.4(@parcel/watcher@2.5.6)(@types/node@25.5.2)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.4(jiti@2.6.1))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@3.30.0)(srvx@0.11.15)(terser@5.46.1)(typescript@5.7.3)(vite@7.3.2(@types/node@25.5.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))(vue-tsc@2.1.10(typescript@5.7.3))(yaml@2.8.3):
+  nuxt@3.15.4(@parcel/watcher@2.5.6)(@types/node@25.5.2)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.4(jiti@2.6.1))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@3.30.0)(terser@5.46.1)(typescript@5.7.3)(vite@7.3.2(@types/node@25.5.2)(jiti@2.6.1)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))(vue-tsc@2.1.10(typescript@5.7.3))(yaml@2.8.3):
     dependencies:
       '@nuxt/cli': 3.34.0(@nuxt/schema@3.15.4)(cac@6.7.14)(magicast@0.3.5)
       '@nuxt/devalue': 2.0.2
@@ -13448,7 +13403,7 @@ snapshots:
       compatx: 0.1.8
       consola: 3.4.2
       cookie-es: 1.2.3
-      defu: 6.1.6
+      defu: 6.1.7
       destr: 2.0.5
       devalue: 5.7.0
       errx: 0.1.0
@@ -13466,7 +13421,7 @@ snapshots:
       magic-string: 0.30.21
       mlly: 1.8.2
       nanotar: 0.2.1
-      nitropack: 2.13.3(srvx@0.11.15)
+      nitropack: 2.13.3
       nypm: 0.5.4
       ofetch: 1.5.1
       ohash: 1.1.6
@@ -13540,7 +13495,6 @@ snapshots:
       - sass
       - sass-embedded
       - sqlite3
-      - srvx
       - stylelint
       - stylus
       - sugarss
@@ -13557,7 +13511,7 @@ snapshots:
       - xml2js
       - yaml
 
-  nuxt@3.15.4(@parcel/watcher@2.5.6)(@types/node@25.5.2)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.4(jiti@2.6.1))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.60.1)(sass@1.45.0)(srvx@0.11.15)(terser@5.46.1)(typescript@5.7.3)(vite@6.0.11(@types/node@25.5.2)(jiti@2.6.1)(lightningcss@1.32.0)(sass@1.45.0)(terser@5.46.1)(yaml@2.8.3))(vue-tsc@2.2.12(typescript@5.7.3))(yaml@2.8.3):
+  nuxt@3.15.4(@parcel/watcher@2.5.6)(@types/node@25.5.2)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.4(jiti@2.6.1))(ioredis@5.10.1)(lightningcss@1.32.0)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.60.1)(sass@1.45.0)(terser@5.46.1)(typescript@5.7.3)(vite@6.0.11(@types/node@25.5.2)(jiti@2.6.1)(lightningcss@1.32.0)(sass@1.45.0)(terser@5.46.1)(yaml@2.8.3))(vue-tsc@2.2.12(typescript@5.7.3))(yaml@2.8.3):
     dependencies:
       '@nuxt/cli': 3.34.0(@nuxt/schema@3.15.4)(cac@6.7.14)(magicast@0.3.5)
       '@nuxt/devalue': 2.0.2
@@ -13577,7 +13531,7 @@ snapshots:
       compatx: 0.1.8
       consola: 3.4.2
       cookie-es: 1.2.3
-      defu: 6.1.6
+      defu: 6.1.7
       destr: 2.0.5
       devalue: 5.7.0
       errx: 0.1.0
@@ -13595,7 +13549,7 @@ snapshots:
       magic-string: 0.30.21
       mlly: 1.8.2
       nanotar: 0.2.1
-      nitropack: 2.13.3(srvx@0.11.15)
+      nitropack: 2.13.3
       nypm: 0.5.4
       ofetch: 1.5.1
       ohash: 1.1.6
@@ -13669,7 +13623,6 @@ snapshots:
       - sass
       - sass-embedded
       - sqlite3
-      - srvx
       - stylelint
       - stylus
       - sugarss
@@ -14368,12 +14321,12 @@ snapshots:
 
   rc9@2.1.2:
     dependencies:
-      defu: 6.1.6
+      defu: 6.1.7
       destr: 2.0.5
 
   rc9@3.0.1:
     dependencies:
-      defu: 6.1.6
+      defu: 6.1.7
       destr: 2.0.5
 
   react-is@17.0.2: {}
@@ -14679,7 +14632,7 @@ snapshots:
 
   serve-placeholder@2.0.2:
     dependencies:
-      defu: 6.1.6
+      defu: 6.1.7
 
   serve-static@2.2.1:
     dependencies:
@@ -15215,7 +15168,7 @@ snapshots:
       chalk: 5.6.2
       citty: 0.1.6
       consola: 3.4.2
-      defu: 6.1.6
+      defu: 6.1.7
       esbuild: 0.19.12
       globby: 13.2.2
       hookable: 5.5.3
@@ -15251,7 +15204,7 @@ snapshots:
   unenv@1.10.0:
     dependencies:
       consola: 3.4.2
-      defu: 6.1.6
+      defu: 6.1.7
       mime: 3.0.0
       node-fetch-native: 1.6.7
       pathe: 1.1.2
@@ -15385,7 +15338,7 @@ snapshots:
       vue: 3.5.32(typescript@5.7.3)
     optionalDependencies:
       '@babel/parser': 7.29.2
-      '@nuxt/kit': 3.21.2
+      '@nuxt/kit': 3.21.2(magicast@0.3.5)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -15524,7 +15477,7 @@ snapshots:
       '@babel/standalone': 7.29.2
       '@babel/types': 7.29.0
       citty: 0.1.6
-      defu: 6.1.6
+      defu: 6.1.7
       jiti: 2.6.1
       knitwork: 1.3.0
       scule: 1.3.0
@@ -15534,7 +15487,7 @@ snapshots:
   untyped@2.0.0:
     dependencies:
       citty: 0.1.6
-      defu: 6.1.6
+      defu: 6.1.7
       jiti: 2.6.1
       knitwork: 1.3.0
       scule: 1.3.0
@@ -15886,9 +15839,9 @@ snapshots:
       terser: 5.46.1
       yaml: 2.8.3
 
-  vitest-environment-nuxt@1.0.1(@vue/test-utils@2.4.6)(crossws@0.4.4(srvx@0.11.15))(jsdom@19.0.0)(magicast@0.3.5)(typescript@5.7.3)(vitest@3.2.4(@types/node@25.5.2)(jiti@2.6.1)(jsdom@19.0.0)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3)):
+  vitest-environment-nuxt@1.0.1(@vue/test-utils@2.4.6)(jsdom@19.0.0)(magicast@0.3.5)(typescript@5.7.3)(vitest@3.2.4(@types/node@25.5.2)(jiti@2.6.1)(jsdom@19.0.0)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3)):
     dependencies:
-      '@nuxt/test-utils': 3.23.0(@vue/test-utils@2.4.6)(crossws@0.4.4(srvx@0.11.15))(jsdom@19.0.0)(magicast@0.3.5)(typescript@5.7.3)(vitest@3.2.4(@types/node@25.5.2)(jiti@2.6.1)(jsdom@19.0.0)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))
+      '@nuxt/test-utils': 3.23.0(@vue/test-utils@2.4.6)(jsdom@19.0.0)(magicast@0.3.5)(typescript@5.7.3)(vitest@3.2.4(@types/node@25.5.2)(jiti@2.6.1)(jsdom@19.0.0)(lightningcss@1.32.0)(terser@5.46.1)(yaml@2.8.3))
     transitivePeerDependencies:
       - '@cucumber/cucumber'
       - '@jest/globals'
