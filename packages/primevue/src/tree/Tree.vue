@@ -94,10 +94,27 @@ export default {
     watch: {
         expandedKeys(newValue) {
             this.d_expandedKeys = newValue;
+        },
+        droppableNodes(newValue) {
+            if (newValue) {
+                this.initDragDropService();
+            } else {
+                this.cleanupDragDropService();
+            }
         }
     },
     mounted() {
         if (this.droppableNodes) {
+            this.initDragDropService();
+        }
+    },
+    beforeUnmount() {
+        this.cleanupDragDropService();
+    },
+    methods: {
+        initDragDropService() {
+            if (this.dragDropService) return;
+
             this.dragDropService = useTreeDragDropService();
 
             this.dragStartCleanup = this.dragDropService.onDragStart((event) => {
@@ -114,18 +131,20 @@ export default {
                 this.dragNodeScope = null;
                 this.dragHover = false;
             });
-        }
-    },
-    beforeUnmount() {
-        if (this.dragStartCleanup) {
-            this.dragStartCleanup();
-        }
+        },
+        cleanupDragDropService() {
+            if (this.dragStartCleanup) {
+                this.dragStartCleanup();
+                this.dragStartCleanup = null;
+            }
 
-        if (this.dragStopCleanup) {
-            this.dragStopCleanup();
-        }
-    },
-    methods: {
+            if (this.dragStopCleanup) {
+                this.dragStopCleanup();
+                this.dragStopCleanup = null;
+            }
+
+            this.dragDropService = null;
+        },
         onNodeToggle(node) {
             const key = node.key;
 
