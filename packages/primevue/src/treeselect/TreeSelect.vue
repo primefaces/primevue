@@ -87,6 +87,7 @@
                             :metaKeySelection="metaKeySelection"
                             @node-expand="$emit('node-expand', $event)"
                             @node-collapse="$emit('node-collapse', $event)"
+                            @filter="$emit('filter', $event)"
                             @node-select="onNodeSelect"
                             @node-unselect="onNodeUnselect"
                             @click.stop
@@ -147,7 +148,7 @@ export default {
     name: 'TreeSelect',
     extends: BaseTreeSelect,
     inheritAttrs: false,
-    emits: ['before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur', 'update:expandedKeys'],
+    emits: ['before-show', 'before-hide', 'change', 'show', 'hide', 'node-select', 'node-unselect', 'node-expand', 'node-collapse', 'focus', 'blur', 'update:expandedKeys', 'filter'],
     inject: {
         $pcFluid: { default: null }
     },
