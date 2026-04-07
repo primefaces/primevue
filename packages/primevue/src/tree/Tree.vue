@@ -289,35 +289,33 @@ export default {
             this.dragNodeSubNodes.splice(this.dragNodeIndex, 1);
             this.$emit('update:value', event.nodes);
         },
-        allowDrop(dragNode, dropNode, dragNodeScope) {
-            if (!dragNode) {
-                //prevent random html elements to be dragged
-                return false;
-            } else if (this.isValidDragScope(dragNodeScope)) {
-                let allow = true;
-
-                if (dropNode) {
-                    if (dragNode === dropNode) {
-                        allow = false;
-                    } else {
-                        let parent = dropNode.parent;
-
-                        while (parent != null) {
-                            if (parent === dragNode) {
-                                allow = false;
-
-                                break;
-                            }
-
-                            parent = parent.parent;
-                        }
-                    }
-                }
-
-                return allow;
-            } else {
+        isDescendantOf(node, target) {
+            if (!node || !node.children) {
                 return false;
             }
+
+            for (let child of node.children) {
+                if (child === target || this.isDescendantOf(child, target)) {
+                    return true;
+                }
+            }
+
+            return false;
+        },
+        allowDrop(dragNode, dropNode, dragNodeScope) {
+            if (!dragNode) {
+                return false;
+            }
+
+            if (!this.isValidDragScope(dragNodeScope)) {
+                return false;
+            }
+
+            if (dropNode && (dragNode === dropNode || this.isDescendantOf(dragNode, dropNode))) {
+                return false;
+            }
+
+            return true;
         },
         allowNodeDrop(dropNode) {
             return this.allowDrop(this.dragNode, dropNode, this.dragNodeScope);
