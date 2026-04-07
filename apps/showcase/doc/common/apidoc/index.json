@@ -76176,6 +76176,14 @@
                             "description": "Dropped node"
                         },
                         {
+                            "name": "dropPosition",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "0 | 1 | -1",
+                            "default": "",
+                            "description": "Drop position relative to the drop node.\n-1: before the target node (as sibling)\n 0: into the target node (as child)\n 1: after the target node (as sibling)"
+                        },
+                        {
                             "name": "index",
                             "optional": false,
                             "readonly": false,
