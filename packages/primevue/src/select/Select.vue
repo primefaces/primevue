@@ -506,6 +506,8 @@ export default {
             focus(focusableEl);
         },
         onOptionSelect(event, option, isHide = true) {
+            if (!this.overlayVisible) return;
+
             const value = this.getOptionValue(option);
             this.updateModel(event, value);
             isHide && this.hide(true);
