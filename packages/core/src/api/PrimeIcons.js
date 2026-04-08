@@ -114,6 +114,7 @@ const PrimeIcons = {
     EURO: 'pi pi-euro',
     EXCLAMATION_CIRCLE: 'pi pi-exclamation-circle',
     EXCLAMATION_TRIANGLE: 'pi pi-exclamation-triangle',
+    EXPAND: 'pi pi-expand',
     EXTERNAL_LINK: 'pi pi-external-link',
     EYE: 'pi pi-eye',
     EYE_SLASH: 'pi pi-eye-slash',
