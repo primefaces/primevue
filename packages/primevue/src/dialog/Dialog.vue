@@ -145,7 +145,7 @@ export default {
             this.bindGlobalListeners();
 
             if (this.autoZIndex) {
-                ZIndex.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
+                ZIndex.set('modal', this.mask, this.baseZIndex || this.$primevue.config.zIndex.modal);
             }
         },
         onAfterEnter() {

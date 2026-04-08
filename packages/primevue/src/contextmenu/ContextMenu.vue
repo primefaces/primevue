@@ -363,7 +363,7 @@ export default {
             this.position();
 
             if (this.autoZIndex) {
-                ZIndex.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
+                ZIndex.set('menu', el, this.baseZIndex || this.$primevue.config.zIndex.menu);
             }
         },
         onAfterEnter() {
