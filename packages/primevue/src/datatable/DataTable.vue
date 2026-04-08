@@ -1764,10 +1764,14 @@ export default {
             }
 
             if (Object.keys(state).length) {
-                storage.setItem(this.stateKey, JSON.stringify(state));
-            }
+                const serializedState = JSON.stringify(state);
 
-            this.$emit('state-save', state);
+                if (serializedState !== this._lastSavedState) {
+                    storage.setItem(this.stateKey, serializedState);
+                    this._lastSavedState = serializedState;
+                    this.$emit('state-save', state);
+                }
+            }
         },
         restoreState() {
             const storage = this.getStorage();
