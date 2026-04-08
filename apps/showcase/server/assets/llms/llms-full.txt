@@ -1,6 +1,6 @@
 # PrimeVue Documentation
 
-Generated: 2025-12-18
+Generated: 2026-04-08
 
 ---
 
@@ -1736,7 +1736,7 @@ Watch the short video tutorial from Çağatay Çivici to setup PrimeVue in style
 
 # Terms and Conditions
 
-Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, figma to theme code, cloud storage, and migration assistant.
+Theme Designer is the ultimate tool to customize and design your own themes featuring a visual editor, Figma to theme code, cloud storage, and migration assistant.
 
 ## Dashboard
 
@@ -1756,15 +1756,15 @@ Prime UI libraries continue to evolve with each version. New tokens are likely t
 
 ## Overview
 
-The theming api is open and source freely available with an extensive documentation. Theme Designer is a tool build on top of this theming api with important features to make theming easier. Designer consists of 4 key features; The visual editor provides a UI to edit the complete set of tokens. The figma to theme code generator is extremely useful to automate the design to code process and integrates seamlessly with the Figma UI Kit. The themes are saved in the cloud storage to be accessible from anywhere and any device and finally the migration assistant automatically updates your themes to the latest library version.
+The theming api is open and source freely available with an extensive documentation. Theme Designer is a tool build on top of this theming api with important features to make theming easier. Designer consists of 4 key features; The visual editor provides a UI to edit the complete set of tokens. The Figma to theme code generator is extremely useful to automate the design to code process and integrates seamlessly with the Figma UI Kit. The themes are saved in the cloud storage to be accessible from anywhere and any device and finally the migration assistant automatically updates your themes to the latest library version.
 
 ## Designer Api
 
-Theme Designer public endpoint is hosted at PrimeUI Store. Get a Secret Key Visit the PrimeUI Store . Purchase an Extended License of Theme Designer. Navigate to your account settings . Generate a secret key for CI/CD integration. Authentication Define a Authentication: Bearer request headerto configure your secret key. Parameters The request type must be POST . Name Type Required Description name string yes Name of the theme to be generated. tokens json yes Content of the json file exported from Figma. project string yes Name of the project, possible values are "primeng" or "primevue". config.font_size string no Font size for theme preview in visual editor at website, defaults to "14px". config.font_family string no Font family for theme preview in visual editor at website, defaults to "Inter Var" Example Response A successful response returns a zip file containing the source code of the generated theme preset. The content-type header of this type of response is application/zip . Error Handling When theme generation fails, a json response is returned with application/json content-type header. The response contains an error object with code and message .
+Theme Designer public endpoint is hosted at PrimeUI Store. Get a Secret Key Visit the PrimeUI Store . Purchase an Extended License of Theme Designer. Navigate to your account settings . Generate a secret key for CI/CD integration. Authentication Define a Authentication: Bearer request header to configure your secret key. Parameters The request type must be POST . Name Type Required Description name string yes Name of the theme to be generated. tokens json yes Content of the json file exported from Figma. project string yes Name of the project, possible values are "primeng" or "primevue". config.font_size string no Font size for theme preview in visual editor at website, defaults to "14px". config.font_family string no Font family for theme preview in visual editor at website, defaults to "Inter Var" Example Response A successful response returns a zip file containing the source code of the generated theme preset. The content-type header of this type of response is application/zip . Error Handling When theme generation fails, a json response is returned with application/json content-type header. The response contains an error object with code and message .
 
 ## Figma
 
-Token Studio in Figma is the starting point of a continuous integration pipeline. You can connect a remote repository to sync your tokens data so that changes are saved remotely instead of locally. Token Studio offers various remote storage options such as GitHub , GitLab and Bitbucket . Refer to these documentations based on your environment before proceeding to the integrations in the next section.
+Tokens Studio in Figma is the starting point of a continuous integration pipeline. You can connect a remote repository to sync your tokens data so that changes are saved remotely instead of locally. Tokens Studio offers various remote storage options such as GitHub , GitLab and Bitbucket . Refer to these documentations based on your environment before proceeding to the integrations in the next section.
 
 ## Live Preview
 
@@ -1772,7 +1772,7 @@ After your CI pipeline completes successfully, your theme also becomes available
 
 ## Overview
 
-The Figma UI Kit and the theming api is fully synchorized, meaning the design tokens in Figma map to the corresponding properties in a theme preset. The Theme Designer offers a feature to create a theme by uploading a tokens.json file that is exported from the Token Studio plugin in Figma. Once the theme is converted, it can either be edited further in the visual editor or downloaded as a zip file to access the full code. Visit the Figma section at the designer documentation for more information. Manually exporting the tokens file from Figma and uploading it to the online designer tool may quickly become tedious in active development cycles. As a solution, theme designer provides a remote API that can be integrated into your CI pipeline.
+The Figma UI Kit and the theming api is fully synchorized, meaning the design tokens in Figma map to the corresponding properties in a theme preset. The Theme Designer offers a feature to create a theme by uploading a tokens.json file that is exported from the Tokens Studio plugin in Figma. Once the theme is converted, it can either be edited further in the visual editor or downloaded as a zip file to access the full code. Visit the Figma section at the designer documentation for more information. Manually exporting the tokens file from Figma and uploading it to the online designer tool may quickly become tedious in active development cycles. As a solution, theme designer provides a remote API that can be integrated into your CI pipeline.
 
 ## Video Tutorial
 
@@ -1780,7 +1780,7 @@ Before diving into the implementation details, if you would like to understand t
 
 ## Bitbucket
 
-The BitBucket integration is implemented by executing a custom pipe whenever the tokens file changes. 1. Add Secret Key to Repository Secrets Go to your BitBucket repository. Navigate to Repository Settings > Repository Variables . Give a name such as: THEME_DESIGNER_SECRET_KEY . Value: Your API key from Prime Theme Designer. Click Add . 2. Add the pipe configuration to your bitbucket-pipelines.yml Define the configuration parameters for the Designer API and add the pipe as a runnable script to the action. Notice that, the referenced pipe is executed as a script rather than a pipe from the BitBucket pipe registry as PrimeTek currently has no intentions to maintain an official pipe for BitBucket. You may further improve this example by building a dockerized pipe that is accessible in the BitBucket Registry to refer it with the pipe config in yml. 3. Test Integration Edit a token in Token Studio in Figma and click Push to BitBucket button to update the tokens file in your Git repository, triggering the configured BitBucket Pipe. The pipe then sends the updated file content to the Theme Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An example repository is available at BitBucket that you may use as a starter.
+The BitBucket integration is implemented by executing a custom pipe whenever the tokens file changes. 1. Add Secret Key to Repository Secrets Go to your BitBucket repository. Navigate to Repository Settings > Repository Variables . Give a name such as: THEME_DESIGNER_SECRET_KEY . Value: Your API key from Prime Theme Designer. Click Add . 2. Add the pipe configuration to your bitbucket-pipelines.yml Define the configuration parameters for the Designer API and add the pipe as a runnable script to the action. Notice that, the referenced pipe is executed as a script rather than a pipe from the BitBucket pipe registry as PrimeTek currently has no intentions to maintain an official pipe for BitBucket. You may further improve this example by building a dockerized pipe that is accessible in the BitBucket Registry to refer it with the pipe config in yml. 3. Test Integration Edit a token in Tokens Studio in Figma and click Push to BitBucket button to update the tokens file in your Git repository, triggering the configured BitBucket Pipe. The pipe then sends the updated file content to the Theme Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An example repository is available at BitBucket that you may use as a starter.
 
 ```vue
 image: atlassian/default-image:4
@@ -1810,7 +1810,7 @@ pipelines:
 
 ## Git Hub
 
-The prime-figma-to-theme-code-generator is a GitHub Action that is available on the marketplace. 1. Add Secret Key to Repository Secrets Go to your GitHub repository. Navigate to Settings > Secrets and variables > Actions . Click New repository secret . Give a name such as: THEME_DESIGNER_SECRET_KEY . Value: Your API key from Prime Theme Designer. Click Add secret . 2. Add the action to your .github/worklows Visit the inputs documentation for more details about the parameters such as the theme-name . 3. Test Integration Edit a token in Token Studio in Figma and click Push to GitHub button to update the tokens file in your Git repository, triggering the configured GitHub Action. The GitHub Action then sends the updated file content to the Theme Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An example repository is available at GitHub that you may use as a starter.
+The prime-figma-to-theme-code-generator is a GitHub Action that is available on the marketplace. 1. Add Secret Key to Repository Secrets Go to your GitHub repository. Navigate to Settings > Secrets and variables > Actions . Click New repository secret . Give a name such as: THEME_DESIGNER_SECRET_KEY . Value: Your API key from Prime Theme Designer. Click Add secret . 2. Add the action to your .github/worklows Visit the inputs documentation for more details about the parameters such as the theme-name . 3. Test Integration Edit a token in Tokens Studio in Figma and click Push to GitHub button to update the tokens file in your Git repository, triggering the configured GitHub Action. The GitHub Action then sends the updated file content to the Theme Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An example repository is available at GitHub that you may use as a starter.
 
 ```vue
 name: Automated Figma To Theme Code
@@ -1845,7 +1845,7 @@ jobs:
 
 ## Git Lab
 
-The GitLab integration is implemented by executing a script whenever the tokens file changes. 1. Add Secret Key to Repository Secrets Go to your GitLab repository. Navigate to Settings > CI/CD > Variables . Click Add variable . Give a name such as: THEME_DESIGNER_SECRET_KEY . Value: Your API key from Prime Theme Designer. Click Add variable . 2. Add the script to your project A sample script named figma-to-theme-converter.sh is available as a starter, copy and paste this script to your project. You may alter the script further per your requirements. 3. Add the script to your .gitlab-ci.yml Define the configuration parameters for the Designer API and add the script to the action. 4. Test Integration Edit a token in Token Studio in Figma and click Push to GitLab button to update the tokens file in your Git repository, triggering the configured GitLab Action. The GitLab Action then sends the updated file content to the Theme Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An example repository is available at GitLab that you may use as a starter.
+The GitLab integration is implemented by executing a script whenever the tokens file changes. 1. Add Secret Key to Repository Secrets Go to your GitLab repository. Navigate to Settings > CI/CD > Variables . Click Add variable . Give a name such as: THEME_DESIGNER_SECRET_KEY . Value: Your API key from Prime Theme Designer. Click Add variable . 2. Add the script to your project A sample script named figma-to-theme-converter.sh is available as a starter, copy and paste this script to your project. You may alter the script further per your requirements. 3. Add the script to your .gitlab-ci.yml Define the configuration parameters for the Designer API and add the script to the action. 4. Test Integration Edit a token in Tokens Studio in Figma and click Push to GitLab button to update the tokens file in your Git repository, triggering the configured GitLab Action. The GitLab Action then sends the updated file content to the Theme Designer API, receives the generated theme code, and commits the resulting changes back to your repository. An example repository is available at GitLab that you may use as a starter.
 
 ```vue
 variables:
@@ -1900,7 +1900,7 @@ In the new theme section, all of the built-in themes are available to use as the
 
 ## Figma
 
-The Figma UI Kit and the theming api is fully synchorized, meaning the design tokens in Figma map to the CSS variables in the code. The mapping is created via the Token Studio at Figma which allows exporting a single json file. The Designer is able to interpret this file and transform it to an actual theme. In case your UI Kit version is older, the transformation process marks the missing tokens and recommends an auto migration via the migration assistant. This is an automated workflow and eliminates the manual design to code during the handoff process. If you have UI designers in your team, the recommended approach is using Figma for the actual design process and utilizing the designer for transformation, preview and download purposes. CI Pipeline Recommended approach is setting up the CI Pipeline flow as manually exporting the tokens file from Figma and uploading it to the online designer tool may quickly become tedious in active development cycles. As a solution, theme designer provides a remote API that can be integrated into your flow. Visit the CI Pipeline documentation for comprehensive information and examples for GitHub, GitLab and BitBucket. Manual Flow Instead of setting a CI pipeline, for quick prototyping purposes, you may also choose to use to manually export a tokens json file and then upload it to the designer. Note that, this flow would get tedious and repetitive in active development cycles when compared to an automated CI pipeline. Open the PrimeOne UI Kit in which you've modified tokens. In the Tokens Studio plugin, navigate to the Tools menu and select Export to file/folder. When the Export tokens modal appears, make sure the Single file tab is selected. Check the All tokens sets option, then click Export . In case you utilize custom tokens, create a new token set named custom and define your tokens under this set to make sure they are also exported to the theme code. When creating a new theme at Theme Designer, choose the Import Figma Tokens option and import the json file. Video Tutorial A tutorial is available demonstrating how the handoff process can be automated between the design team and the development team. -->
+For teams with UI designers, we recommend using PrimeOne Figma UI Kit for the design phase and utilizing the Theme Designer service to automate code generation during handoff. This workflow eliminates manual design-to-code translation, reducing implementation time and ensuring consistency between design and production. UI Kit v4 Automated Flow Recommended approach is using the PrimeUI Theme Generator Figma plugin which provides built-in synchronization capabilities that automate the theme generation process. Visit the plugin website to learn more about this workflow. Manual Flow Instead of generating themes directly from Figma using the plugin, for quick prototyping purposes, you may also choose to use to manually export a tokens json file and then upload it to the Theme Designer. Note that, this flow would get tedious and repetitive in active development cycles when compared to an automated flow. Open the PrimeOne UI Kit in which you've modified tokens. In the PrimeUI Theme Generator plugin, click the Export option to export all variable collections. When creating a new theme at Theme Designer, choose the Import Figma Variables option and import the json file. UI Kit v3 (Deprecated) CI Pipeline Recommended approach is setting up the CI Pipeline flow as manually exporting the tokens file from Figma and uploading it to the online designer tool may quickly become tedious in active development cycles. As a solution, theme designer provides a remote API that can be integrated into your flow. Visit the CI Pipeline documentation for comprehensive information and examples for GitHub, GitLab and BitBucket. Manual Flow Instead of setting a CI pipeline, for quick prototyping purposes, you may also choose to use to manually export a tokens json file and then upload it to the designer. Note that, this flow would get tedious and repetitive in active development cycles when compared to an automated CI pipeline. Open the PrimeOne UI Kit in which you've modified tokens. In the Tokens Studio plugin, navigate to the Tools menu and select Export to file/folder. When the Export tokens modal appears, make sure the Single file tab is selected. Check the All tokens sets option, then click Export . In case you utilize custom tokens, create a new token set named custom and define your tokens under this set to make sure they are also exported to the theme code. When creating a new theme at Theme Designer, choose the Import Figma Variables option and import the json file.
 
 ## Custom Tokens
 
@@ -1910,9 +1910,9 @@ Custom tokens allow bringing in your own design tokens to the theme to go beyond
 
 The editor is packed with features for improved user experience. The input fields in the editor are capable of displaying a color preview when the value is a color, and beginning the value with a curly brace opens up the autocompletion feature to list the available tokens to choose from. The pi-sort-alt symbol over the input, transfers the token between the common tokens and color scheme specific tokens so that you are able to define tokens based on light and dark mode as well.
 
-## Token Sets
+## Token Collections
 
-The theming architecture is based on primitive, semantic and components tokens. The visual editor, displays a dedicated section for each set. For basic purposes such as customizing the primary and surface colors, primitive and semantic sections would be more than enough. The component tokens are displayed per route so navigate to the component page first to view the tokens of the specific component.
+The theming architecture is based on primitive, semantic and components tokens. The visual editor, displays a dedicated section for each collection. For basic purposes such as customizing the primary and surface colors, primitive and semantic sections would be more than enough. The component tokens are displayed per route so navigate to the component page first to view the tokens of the specific component.
 
 ## Typography
 
@@ -2077,25 +2077,13 @@ PrimeOne uses PrimeIcons, the official icon library by PrimeTek. To use it effec
 
 PrimeOne is the official Figma library of UI components designed to match the implementations in the Prime UI Suites. The current iteration of PrimeOne is structured around the Aura Light and Aura Dark themes.
 
-## Resources
-
-PrimeOne for Figma takes full advantage of powerful Figma features such as components, variants, auto layout, styles, interactivity, and design tokens via Tokens Studio. If you're new to Figma or want to get the most out of PrimeOne, we recommend exploring the following resources: Tokens Studio Documentation - PrimeOne uses Tokens Studio for design token management. Visit the official docs to understand how it works and how to use it effectively. Figma's Best Practice Guides - Learn how to work efficiently with components, variants, and layouts. Figma's Official YouTube Channel - Tutorials and feature walkthroughs from the Figma team. Figmalion Newsletter - Stay updated with curated insights from the Figma community.
-
 ## Support
 
 The community gathers on GitHub Discussions and Discord to ask questions, share ideas, and discuss the technology. For direct inquiries or suggestions, feel free to contact us at contact@primetek.com.tr .
 
-## Token Sets
-
-Primitive This set contains the most foundational tokens, such as base colors and border radius, elements that are considered “primitive” by nature. Semantic Includes essential system-wide tokens like primary, surface, and other shared design values It also defines tokens used across multiple component groups. For example, tokens under {form.field.*} are referenced by component-level tokens in InputText, MultiSelect, Checkbox, and other form components, enabling consistent styling across the board. Component These tokens are defined specifically for each component to allow deep customization While we've aimed to create dedicated tokens for every component state, many of them still reference the semantic or primitive tokens, allowing you to make global updates from a single place when needed. App Tokens in this set are not part of the PrimeUIX system. They are intended for values defined in your own application. The same applies to tokens used in our UI library showcases. For example, there is no dedicated font size token in PrimeUIX because font styles are not part of the design system. UI components inherit their font settings from the application. Custom If you're using the Figma to Theme feature and want your newly created custom tokens to appear in your Theme Designer themes, place them in this set. Even if you're not using the Theme Designer, we still recommend creating a separate set — or using the existing “Custom” set — for your own tokens. Making changes to the default sets, especially deleting tokens or altering reference values, can lead to inconsistencies with the library tokens and cause additional work during development.
-
 ## Update Prime One
 
 When a new version of PrimeOne is released, follow the steps below to update your files: Download the latest version of PrimeOne from PrimeStore. Unzip the file and upload it to your Figma workspace. Publish the newly uploaded file as a library. In all consumer files, use Swap Library to point to the new version. Once the transition is complete, you can safely unpublish the old PrimeOne library Before each update, it's a good idea to review the Changelog on the Get Started page of the PrimeOne Figma file. Keep in mind that while Swap Library will update most components, any customized components may require manual review and adjustment.
-
-## Components
-
-How to change base font size? The base font size used in PrimeOne is 14px. Similar to how rem works in CSS, this is controlled by the {app.font.size} token located under the "app" set in Tokens Studio. When you change the value of this token, all size calculations will adjust accordingly based on the new value. To apply this change, you need to use the “Apply” function in Tokens Studio. However, we do not recommend using the “ Apply to Document ” option if the change affects the entire library, as it may lead to unexpected errors. Instead, go page by page and review the updates carefully before applying changes. Also note: not all token values in the library may be linked to {app.font.size} . So it's important to check components individually. After completing each page, verify the updated values under Local Variables and make manual adjustments if needed. Alternatively, you can use Export Styles & Variables to Figma in Tokens Studio to sync the updated values.
 
 ## Licence
 
@@ -2104,18 +2092,6 @@ Will purchasing a PrimeBlocks license include access to PrimeOne components? No.
 ## Roadmap
 
 Are there plans to add a Tailwind theme to the UI Kit? At this time, we do not plan to include Tailwind theme support in the Figma UI Kit.
-
-## Tokens
-
-Is Tokens Studio too slow? This might be caused by using the wrong Apply method when pushing your changes. Since PrimeOne is a large file, using Apply to Document can result in very long processing times. We recommend using Apply to Selection or Apply to Page instead for better performance.
-
-## Updates
-
-Will there be a completely new Figma file with each update, or will the current PrimeOne file be modified and versioned? Each update will come as a new Figma file—an updated version of the previous one. You can seamlessly transition to the new version in your consumer files using Figma's Swap Library feature. Will the PrimeOne UI Kit stay in sync with ongoing updates to the Prime UI Libraries? The PrimeOne UI Kit does not update in real time alongside the libraries. However, we regularly release updates to bridge the gap and ensure alignment with key changes. How will users receive new components when they're added? New components will be included in future updates to the UI Kit. Please note that these updates may not coincide immediately with library changes and may take some time to roll out. How frequently is the PrimeOne UI Kit updated? We don't follow a fixed release schedule. Updates are made as needed, based on significant changes or additions to the Prime UI libraries.
-
-## Usage
-
-What should we do after purchasing? I can't publish the Preview file? The Preview file is view-only , so it can't be published. To use the library, download the .fig file from PrimeStore and import it into your Figma workspace. Once imported, you'll be able to open the file and publish it as a library for use in your projects. How to change theme? After exporting your tokens as Figma Variables using the Themes option in Tokens Studio, theme switching must be handled using Figma's native Mode Switching feature. The Theme Switcher within the Tokens Studio plugin will no longer function once themes are bound to a Variable Collection — this applies to PrimeOne as well. Therefore, to switch between Light and Dark modes, you should always use Figma's built-in Mode Switching interface.
 
 ## Enabling
 
@@ -2129,6 +2105,30 @@ Download the latest .fig UI Kit - From your PrimeStore panel, download the lates
 
 To make PrimeOne available as a shared library: Open the imported PrimeOne .fig file. Go to Assets Manage Libraries Click "Publish..." to share PrimeOne with your team, then confirm by clicking the "Publish" button in the modal.
 
+## Resources
+
+PrimeOne for Figma takes full advantage of powerful Figma features such as components, variants, auto layout, styles, interactivity, and design tokens via Tokens Studio. If you're new to Figma or want to get the most out of PrimeOne, we recommend exploring the following resources: Tokens Studio Documentation - PrimeOne uses Tokens Studio for design token management. Visit the official docs to understand how it works and how to use it effectively. Figma's Best Practice Guides - Learn how to work efficiently with components, variants, and layouts. Figma's Official YouTube Channel - Tutorials and feature walkthroughs from the Figma team. Figmalion Newsletter - Stay updated with curated insights from the Figma community.
+
+## Token Sets
+
+Primitive This set contains the most foundational tokens, such as base colors and border radius, elements that are considered “primitive” by nature. Semantic Includes essential system-wide tokens like primary, surface, and other shared design values It also defines tokens used across multiple component groups. For example, tokens under {form.field.*} are referenced by component-level tokens in InputText, MultiSelect, Checkbox, and other form components, enabling consistent styling across the board. Component These tokens are defined specifically for each component to allow deep customization While we've aimed to create dedicated tokens for every component state, many of them still reference the semantic or primitive tokens, allowing you to make global updates from a single place when needed. App Tokens in this set are not part of the PrimeUIX system. They are intended for values defined in your own application. The same applies to tokens used in our UI library showcases. For example, there is no dedicated font size token in PrimeUIX because font styles are not part of the design system. UI components inherit their font settings from the application. Custom If you're using the Figma to Theme feature and want your newly created custom tokens to appear in your Theme Designer themes, place them in this set. Even if you're not using the Theme Designer, we still recommend creating a separate set — or using the existing “Custom” set — for your own tokens. Making changes to the default sets, especially deleting tokens or altering reference values, can lead to inconsistencies with the library tokens and cause additional work during development.
+
+## Components
+
+How to change base font size? The base font size used in PrimeOne is 14px. Similar to how rem works in CSS, this is controlled by the {app.font.size} token located under the "app" set in Tokens Studio. When you change the value of this token, all size calculations will adjust accordingly based on the new value. To apply this change, you need to use the “Apply” function in Tokens Studio. However, we do not recommend using the “ Apply to Document ” option if the change affects the entire library, as it may lead to unexpected errors. Instead, go page by page and review the updates carefully before applying changes. Also note: not all token values in the library may be linked to {app.font.size} . So it's important to check components individually. After completing each page, verify the updated values under Local Variables and make manual adjustments if needed. Alternatively, you can use Export Styles & Variables to Figma in Tokens Studio to sync the updated values.
+
+## Tokens
+
+Is Tokens Studio too slow? This might be caused by using the wrong Apply method when pushing your changes. Since PrimeOne is a large file, using Apply to Document can result in very long processing times. We recommend using Apply to Selection or Apply to Page instead for better performance.
+
+## Updates
+
+Will there be a completely new Figma file with each update, or will the current PrimeOne file be modified and versioned? Each update will come as a new Figma file—an updated version of the previous one. You can seamlessly transition to the new version in your consumer files using Figma's Swap Library feature. Will the PrimeOne UI Kit stay in sync with ongoing updates to the Prime UI Libraries? The PrimeOne UI Kit does not update in real time alongside the libraries. However, we regularly release updates to bridge the gap and ensure alignment with key changes. How will users receive new components when they're added? New components will be included in future updates to the UI Kit. Please note that these updates may not coincide immediately with library changes and may take some time to roll out. How frequently is the PrimeOne UI Kit updated? We don't follow a fixed release schedule. Updates are made as needed, based on significant changes or additions to the Prime UI libraries.
+
+## Usage
+
+What should we do after purchasing? I can't publish the Preview file? The Preview file is view-only , so it can't be published. To use the library, download the .fig file from PrimeStore and import it into your Figma workspace. Once imported, you'll be able to open the file and publish it as a library for use in your projects. How to change theme? After exporting your tokens as Figma Variables using the Themes option in Tokens Studio, theme switching must be handled using Figma's native Mode Switching feature. The Theme Switcher within the Tokens Studio plugin will no longer function once themes are bound to a Variable Collection — this applies to PrimeOne as well. Therefore, to switch between Light and Dark modes, you should always use Figma's built-in Mode Switching interface.
+
 ## C I Pipeline
 
 Theme Designer offers an API that can be utilized to implement continuos integration pipelines to automate figma to theme code generation whenever you push updates to the repository from Figma. Visit the CI Pipeline documentation for comprehensive information.
@@ -2140,6 +2140,38 @@ Change on Tokens Studio The first step when planning a design change is to ident
 ## Tokens Studio Setup
 
 Set sync provider via Tokens Studio - Figma plugins are limited to sharing a maximum of 100KB of data through their APIs. Because PrimeOne's token data exceeds this limit, using tokens locally within your Figma file may lead to performance issues. To avoid this, you should first configure and switch to a remote sync provider. You can follow the official Tokens Studio guide for setting up remote storage. Push tokens to your sync provider - Once you've successfully switched to your new sync provider, push the token data from your local file to the new provider to ensure everything stays in sync. Set Base Font Size to {app.font.size} in Tokens Studio Settings - PrimeOne uses a base font size of 14px, aligning with the default in Prime UI libraries. In Tokens Studio, go to the Settings tab and set the Base font size to {app.font.size} . If you wish to change this value, you can update the corresponding token in the app set.
+
+## Collections
+
+Primitive This collection contains the most foundational variables, such as base colors and border radius, elements that are considered “primitive” by nature. Semantic Common & Semantic Color Scheme Includes essential system-wide variables like primary, surface, and other shared design values It also defines variables used across multiple component groups. For example, variables under form/field are referenced by component-level variables in InputText, MultiSelect, Checkbox, and other form components, enabling consistent styling across the board. Component Common & Component Color Scheme These variables are defined specifically for each component to allow deep customization. While we've aimed to create dedicated variables for every component state, many of them still reference the semantic or primitive variables, allowing you to make global updates from a single place when needed. App Variables in this collection are not part of the PrimeUIX system. They are intended for values defined in your own application. The same applies to variables used in our UI library showcases. For example, there is no dedicated font size variable in PrimeUIX because font styles are not part of the design system. UI components inherit their font settings from the application. Custom If you're using the Figma to Theme feature and want your newly created custom variables to appear in your Theme Designer themes, place them in this collection. Even if you're not using the Theme Designer, we still recommend creating a separate collection — or using the existing “Custom” collection — for your own variables. Making changes to the default collections, especially deleting variables or altering reference values, can lead to inconsistencies with the library variables and cause additional work during development.
+
+## Important Notice
+
+Starting from PrimeOne UI Kit version 4.0, the Tokens Studio plugin is no longer used. We've fully migrated to Figma's native variable features, which now power the system. If you prefer to continue working with Tokens Studio, please use PrimeOne UI Kit version 3.2, which still supports the plugin.
+
+## Limitations
+
+Current known technical limitations are listed at this section. Multiple-value variables - Figma currently supports only a single value per variable. For this reason, multi-value tokens defined in PrimeUIX—such as padding or margin, which can contain multiple values—are represented in Figma as separate variables for each side (top/right/bottom/left) or axis (x/y), unlike the combined multi-value CSS definitions in PrimeUIX. Calculations - Since Figma does not yet allow calculations within variable definitions, values that rely on expressions like calc() cannot function dynamically. In these cases, any adjustments you make may require manual updates. Focus Rings - In Tokens Studio, focus rings could be positioned by calculating the outer stroke distance using expressions such as focus.ring.width + focus.ring.offset. Since Figma Variables do not support arithmetic operations, these calculations cannot be reproduced. As a result, focus ring width values are no longer dynamically linked and must be handled as static values. Color Mix - Figma Variables do not currently support color mix modifiers. Values in PrimeUIX that rely on color mixing have therefore been converted into raw hex values when brought into Figma Variables.
+
+## Prime U I Figma Plugin
+
+PrimeUI Theme Generator Figma plugin is the official tool developed by PrimeTek that provides built-in synchronization capabilities to automate the theme code generation process. Visit the plugin website to learn more about this workflow.
+
+## Resources
+
+PrimeOne for Figma takes full advantage of powerful Figma features such as components, variants, auto layout, styles, prototypes, and variables. If you're new to Figma or want to get the most out of PrimeOne, we recommend exploring the following resources: Variables - PrimeOne uses Figma Variables for design token management. Visit the official docs to understand how it works and how to use it effectively. Figma's Best Practice Guides - Learn how to work efficiently with components, variants, and layouts. Figma's Official YouTube Channel - Tutorials and feature walkthroughs from the Figma team. Figmalion Newsletter - Stay updated with curated insights from the Figma community.
+
+## Components
+
+How to change base font size? The base font size used in PrimeOne is 14px. Similar to how rem works in CSS, this is controlled by the scale/* variables located under the "Primitive" collection in Variables. When you change the values of these variables, all size calculations will adjust accordingly. Note that not all variables in the library may be linked to scale/* variables. So it's essential to check components individually.
+
+## Updates
+
+Will there be a completely new Figma file with each update, or will the current PrimeOne file be modified and versioned? Each update will come as a new Figma file—an updated version of the previous one. You can seamlessly transition to the new version in your consumer files using Figma's Swap Library feature. Will the PrimeOne UI Kit stay in sync with ongoing updates to the Prime UI Libraries? The PrimeOne UI Kit does not update in real time alongside the libraries. However, we regularly release updates to bridge the gap and ensure alignment with key changes. How will users receive new components when they're added? New components will be included in future updates to the UI Kit. Please note that these updates may not coincide immediately with library changes and may take some time to roll out. How frequently is the PrimeOne UI Kit updated? We don't follow a fixed release schedule. Updates are made as needed, based on significant changes or additions to the Prime UI libraries.
+
+## Usage
+
+What should we do after purchasing? I can't publish the Preview file? The Preview file is view-only , so it can't be published. To use the library, download the .fig file from PrimeStore and import it into your Figma workspace. Once imported, you'll be able to open the file and publish it as a library for use in your projects. How to change theme? To enable theme switching in PrimeOne, you need to set up the Variable modes. Select the layers you want to switch between Light or Dark. Then, under Appearance, use the Apply variable modes icon to assign both the Semantic and Component modes to the target theme.
 
 ---
 
@@ -9496,7 +9528,7 @@ const onFormSubmit = ({ valid }) => {
 
 ## Group
 
-Multiple checkboxes can be grouped together.
+Multiple checkboxes can be grouped by binding each one to the same model. Alternatively, a CheckboxGroup wrapper can be used to group checkboxes. In this case, the v-model should be defined on the CheckboxGroup , not on the individual checkboxes. When a Checkbox is inside a CheckboxGroup, it reads and writes the group's value instead of its own.
 
 **Basic Usage:**
 
@@ -23016,7 +23048,7 @@ const value3 = ref(null);
 | aria-valuenow | Numberish | - | Defines the current value for a range widget. |
 | aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
 | innerHTML | string | - |  |
-| class | any | - |  |
+| class | ClassValue | - |  |
 | style | StyleValue | - |  |
 | accesskey | string | - |  |
 | contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |
@@ -23061,7 +23093,7 @@ const value3 = ref(null);
 | part | string | - |  |
 | accept | string | - |  |
 | alt | string | - |  |
-| autocomplete | string | - |  |
+| autocomplete | InputAutoCompleteAttribute | - |  |
 | autofocus | Booleanish | - |  |
 | capture | boolean \| "user" \| "environment" | - |  |
 | checked | any[] \| Set<any> \| Booleanish | - |  |
@@ -29643,7 +29675,7 @@ const value = ref(null);
 | aria-valuenow | Numberish | - | Defines the current value for a range widget. |
 | aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
 | innerHTML | string | - |  |
-| class | any | - |  |
+| class | ClassValue | - |  |
 | style | StyleValue | - |  |
 | accesskey | string | - |  |
 | contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |
@@ -29688,7 +29720,7 @@ const value = ref(null);
 | part | string | - |  |
 | accept | string | - |  |
 | alt | string | - |  |
-| autocomplete | string | - |  |
+| autocomplete | InputAutoCompleteAttribute | - |  |
 | capture | boolean \| "user" \| "environment" | - |  |
 | checked | any[] \| Set<any> \| Booleanish | - |  |
 | crossorigin | string | - |  |
@@ -37830,7 +37862,7 @@ const value3 = ref(null);
 | aria-valuenow | Numberish | - | Defines the current value for a range widget. |
 | aria-valuetext | string | - | Defines the human readable text alternative of aria-valuenow for a range widget. |
 | innerHTML | string | - |  |
-| class | any | - |  |
+| class | ClassValue | - |  |
 | style | StyleValue | - |  |
 | accesskey | string | - |  |
 | contenteditable | Booleanish \| "inherit" \| "plaintext-only" | - |  |

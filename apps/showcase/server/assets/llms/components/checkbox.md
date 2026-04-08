@@ -222,7 +222,7 @@ const onFormSubmit = ({ valid }) => {
 
 ## Group
 
-Multiple checkboxes can be grouped together.
+Multiple checkboxes can be grouped by binding each one to the same model. Alternatively, a CheckboxGroup wrapper can be used to group checkboxes. In this case, the v-model should be defined on the CheckboxGroup , not on the individual checkboxes. When a Checkbox is inside a CheckboxGroup, it reads and writes the group's value instead of its own.
 
 ```vue
 <div class="card flex flex-wrap justify-center gap-4">
