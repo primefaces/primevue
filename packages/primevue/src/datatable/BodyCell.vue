@@ -313,7 +313,7 @@ export default {
         bindDocumentEditListener() {
             if (!this.documentEditListener) {
                 this.documentEditListener = (event) => {
-                    this.selfClick = this.$el && this.$el.contains(event.target);
+                    this.selfClick = this.$el && (this.$el.contains(event.target) || event.target.closest('[data-pc-section="overlay"]'));
 
                     if (this.editCompleteTimeout) {
                         clearTimeout(this.editCompleteTimeout);
