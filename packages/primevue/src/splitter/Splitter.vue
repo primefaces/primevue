@@ -15,7 +15,18 @@
                 :data-p="dataP"
                 v-bind="ptm('gutter')"
             >
-                <div :class="cx('gutterHandle')" role="separator" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" :data-p="dataP" v-bind="ptm('gutterHandle')"></div>
+                <div
+                    :class="cx('gutterHandle')"
+                    role="separator"
+                    tabindex="0"
+                    :style="[gutterStyle]"
+                    :aria-orientation="layout"
+                    :aria-valuenow="prevSize"
+                    @keyup="onGutterKeyUp"
+                    @keydown="onGutterKeyDown($event, i)"
+                    :data-p="dataP"
+                    v-bind="ptm('gutterHandle')"
+                ></div>
             </div>
         </template>
     </div>
@@ -56,20 +67,9 @@ export default {
     mounted() {
         this.initializePanels();
     },
-    updated() {
-        if (!this.dragging && this.panelSizes) {
-            let needsUpdate = this.panels.some((panel, i) => this.getPanelSize(panel) !== this.panelSizes[i]);
-
-            if (needsUpdate) {
-                this.initializePanels();
-            }
-        }
-    },
     watch: {
-        'panels.length'() {
-            this.$nextTick(() => {
-                this.initializePanels();
-            });
+        panelSizeConfig() {
+            this.initializePanels();
         }
     },
     beforeUnmount() {
@@ -400,6 +400,10 @@ export default {
             });
 
             return panels;
+        },
+        panelSizeConfig() {
+            // programmatic changes
+            return this.panels.map((panel) => this.getPanelSize(panel)).join(',');
         },
         gutterStyle() {
             if (this.horizontal) return { width: this.gutterSize + 'px' };
