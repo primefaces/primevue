@@ -283,6 +283,9 @@ export default {
             handler(newValue) {
                 this.d_rowExpanded = this.dataKey ? newValue?.[resolveFieldData(this.rowData, this.dataKey)] !== undefined : newValue?.some((d) => this.equals(this.rowData, d));
             }
+        },
+        rowData(newValue) {
+            this.d_rowExpanded = this.dataKey ? this.expandedRows?.[resolveFieldData(newValue, this.dataKey)] !== undefined : this.expandedRows?.some((d) => this.equals(newValue, d));
         }
     },
     methods: {
