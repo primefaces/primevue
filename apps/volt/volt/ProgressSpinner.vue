@@ -5,7 +5,7 @@
         :ptOptions="{ mergeProps: ptViewMerge }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </ProgressSpinner>
 </template>
@@ -13,13 +13,16 @@
 <script setup lang="ts">
 import ProgressSpinner, {
     type ProgressSpinnerPassThroughOptions,
-    type ProgressSpinnerProps
-} from 'primevue/progressspinner'
-import { ref } from 'vue'
-import { ptViewMerge } from './utils'
+    type ProgressSpinnerProps,
+    type ProgressSpinnerSlots
+} from 'primevue/progressspinner';
+import { ref } from 'vue';
+import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ ProgressSpinnerProps {}
 defineProps<Props>()
+interface Slots extends /* @vue-ignore */ ProgressSpinnerSlots {}
+defineSlots<Slots>();
 
 const theme = ref<ProgressSpinnerPassThroughOptions>({
     root: `relative mx-auto w-28 h-28 inline-block before:block before:pt-full`,

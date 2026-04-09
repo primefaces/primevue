@@ -14,20 +14,22 @@
             </SecondaryButton>
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Drawer>
 </template>
 
 <script setup lang="ts">
 import TimesIcon from '@primevue/icons/times';
-import Drawer, { type DrawerPassThroughOptions, type DrawerProps } from 'primevue/drawer';
+import Drawer, { type DrawerPassThroughOptions, type DrawerProps, type DrawerSlots } from 'primevue/drawer';
 import { ref } from 'vue';
 import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ DrawerProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ DrawerSlots {}
+defineSlots<Slots>();
 
 const theme = ref<DrawerPassThroughOptions>({
     root: `flex flex-col pointer-events-auto relative

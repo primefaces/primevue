@@ -8,18 +8,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Popover>
 </template>
 
 <script setup lang="ts">
-import Popover, { type PopoverPassThroughOptions, type PopoverProps } from 'primevue/popover';
+import Popover, { type PopoverPassThroughOptions, type PopoverProps, type PopoverSlots } from 'primevue/popover';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ PopoverProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ PopoverSlots {}
+defineSlots<Slots>();
 
 const theme = ref<PopoverPassThroughOptions>({
     root: `mt-[10px] p-flipped:-mt-[10px] p-flipped:mb-[10px]

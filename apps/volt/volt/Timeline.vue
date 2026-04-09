@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Timeline>
 </template>
 
 <script setup lang="ts">
-import Timeline, { type TimelinePassThroughOptions, type TimelineProps } from 'primevue/timeline';
+import Timeline, { type TimelinePassThroughOptions, type TimelineProps, type TimelineSlots } from 'primevue/timeline';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ TimelineProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ TimelineSlots {}
+defineSlots<Slots>();
 
 const theme = ref<TimelinePassThroughOptions>({
     root: `flex flex-col flex-grow
