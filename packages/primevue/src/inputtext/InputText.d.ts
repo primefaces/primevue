@@ -152,12 +152,12 @@ export interface InputTextEmitsOptions {
      * Emitted when the value changes.
      * @param {string} value - New value.
      */
-    'update:modelValue'(value: string | undefined): void;
+    'update:modelValue'(value: string): void;
     /**
      * Emitted when the value changes in uncontrolled mode.
      * @param {string} value - New value.
      */
-    'value-change'(value: string | undefined): void;
+    'value-change'(value: string): void;
 }
 
 export declare type InputTextEmits = EmitFn<InputTextEmitsOptions>;
