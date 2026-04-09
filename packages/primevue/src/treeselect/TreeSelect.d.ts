@@ -13,7 +13,7 @@ import type { ChipPassThroughOptions } from 'primevue/chip';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { TreeExpandedKeys, TreeFilterEvent, TreePassThroughOptions } from 'primevue/tree';
 import type { TreeNode } from 'primevue/treenode';
-import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, InputHTMLAttributes, TransitionProps, VNode, VNodeProps } from 'vue';
 
 export declare type TreeSelectPassThroughOptionType = TreeSelectPassThroughAttributes | ((options: TreeSelectPassThroughMethodOptions) => TreeSelectPassThroughAttributes | string) | string | null | undefined;
 
@@ -172,15 +172,15 @@ export interface TreeSelectState {
 /**
  * Defines valid properties in TreeSelect component.
  */
-export interface TreeSelectProps {
+export interface TreeSelectProps<T extends TreeNode = TreeNode> {
     /**
      * Value of the component.
      */
-    modelValue?: TreeNode | any;
+    modelValue?: T | any;
     /**
      * The default value for the input when not controlled by `modelValue`.
      */
-    defaultValue?: TreeNode | any;
+    defaultValue?: T | any;
     /**
      * The name attribute for the element, typically used in form submissions.
      */
@@ -188,7 +188,7 @@ export interface TreeSelectProps {
     /**
      * An array of treenodes.
      */
-    options?: TreeNode[] | undefined;
+    options?: T[] | undefined;
     /**
      * A map of keys to represent the expansion state in controlled mode.
      */
@@ -264,7 +264,7 @@ export interface TreeSelectProps {
      * When filtering is enabled, filterBy decides which field or fields (comma separated) to search against. A callable taking a TreeNode can be provided instead of a list of field names.
      * @defaultValue label
      */
-    filterBy?: string | ((node: TreeNode) => string) | undefined;
+    filterBy?: string | ((node: T) => string) | undefined;
     /**
      * Mode for filtering.
      * @defaultValue lenient
@@ -366,7 +366,7 @@ export interface TreeSelectProps {
 /**
  * Defines valid slots in TreeSelect component.
  */
-export interface TreeSelectSlots {
+export interface TreeSelectSlots<T extends TreeNode = TreeNode> {
     /**
      * Custom value template.
      * @param {Object} scope - value slot's params.
@@ -375,7 +375,7 @@ export interface TreeSelectSlots {
         /**
          * Selected value
          */
-        value: TreeNode | any;
+        value: T | any;
         /**
          * Placeholder
          */
@@ -389,7 +389,7 @@ export interface TreeSelectSlots {
         /**
          * Current node
          */
-        node: TreeNode | any;
+        node: T;
         /**
          * Selection state
          */
@@ -407,11 +407,11 @@ export interface TreeSelectSlots {
         /**
          * Selected value
          */
-        value: TreeNode | any;
+        value: T | any;
         /**
          * An array of treenodes.
          */
-        options: TreeNode[];
+        options: T[];
     }): VNode[];
     /**
      * Custom footer template.
@@ -421,11 +421,11 @@ export interface TreeSelectSlots {
         /**
          * Selected value
          */
-        value: TreeNode | any;
+        value: T | any;
         /**
          * An array of treenodes.
          */
-        options: TreeNode[];
+        options: T[];
     }): VNode[];
     /**
      * Custom empty template.
@@ -461,11 +461,11 @@ export interface TreeSelectSlots {
         /**
          * Node instance
          */
-        node: TreeNode | any;
+        node: T;
         /**
          * Expanded state of the node
          */
-        expanded: TreeNode[];
+        expanded: T[];
     }): VNode[];
     /**
      * Custom item toggle icon template.
@@ -475,11 +475,11 @@ export interface TreeSelectSlots {
         /**
          * Node instance
          */
-        node: TreeNode | any;
+        node: T;
         /**
          * Expanded state of the node
          */
-        expanded: TreeNode[];
+        expanded: T[];
     }): VNode[];
     /**
      * Custom item checkbox icon template.
@@ -604,11 +604,19 @@ export interface TreeSelectMethods {
  * @group Component
  *
  */
-declare const TreeSelect: DefineComponent<TreeSelectProps, TreeSelectSlots, TreeSelectEmits, TreeSelectMethods>;
+declare const TreeSelect: {
+    new <T extends TreeNode = TreeNode>(
+        props: TreeSelectProps<T>
+    ): {
+        $props: TreeSelectProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: TreeSelectSlots<T>;
+        $emit: EmitFn<TreeSelectEmitsOptions>;
+    } & TreeSelectMethods;
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TreeSelect: DefineComponent<TreeSelectProps, TreeSelectSlots, TreeSelectEmits, TreeSelectMethods>;
+        TreeSelect: typeof TreeSelect;
     }
 }
 
