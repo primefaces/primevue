@@ -77,35 +77,51 @@ export default {
             this.$emit('block');
         },
         unblock() {
-            if (this.mask) {
-                !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave-active');
+            const currentMask = this.mask;
+
+            if (currentMask) {
+                !this.isUnstyled && addClass(currentMask, 'p-overlay-mask-leave-active');
 
                 const handleAnimationEnd = () => {
                     clearTimeout(fallbackTimer);
-                    this.mask.removeEventListener('animationend', handleAnimationEnd);
-                    this.mask.removeEventListener('webkitAnimationEnd', handleAnimationEnd);
+                    currentMask.removeEventListener('animationend', handleAnimationEnd);
+                    currentMask.removeEventListener('webkitAnimationEnd', handleAnimationEnd);
+                    this.removeMask(currentMask);
                 };
 
                 const fallbackTimer = setTimeout(() => {
-                    this.removeMask();
+                    this.removeMask(currentMask);
                 }, 300);
 
-                if (hasCSSAnimation(this.mask) > 0) {
-                    this.mask.addEventListener('animationend', handleAnimationEnd);
-                    this.mask.addEventListener('webkitAnimationEnd', handleAnimationEnd);
+                if (hasCSSAnimation(currentMask) > 0) {
+                    currentMask.addEventListener('animationend', handleAnimationEnd);
+                    currentMask.addEventListener('webkitAnimationEnd', handleAnimationEnd);
                 }
             } else {
                 this.removeMask();
             }
         },
-        removeMask() {
-            ZIndex.clear(this.mask);
+        removeMask(mask = this.mask) {
+            if (!mask) {
+                this.isBlocked = false;
+                this.$emit('unblock');
+                return;
+            }
 
-            if (this.fullScreen) {
-                document.body.removeChild(this.mask);
+            ZIndex.clear(mask);
+
+            const isDocumentMask = mask.parentNode === document.body;
+
+            if (mask.parentNode) {
+                mask.parentNode.removeChild(mask);
+            }
+
+            if (isDocumentMask) {
                 unblockBodyScroll();
-            } else {
-                this.$refs.container?.removeChild(this.mask);
+            }
+
+            if (this.mask === mask) {
+                this.mask = null;
             }
 
             this.isBlocked = false;
