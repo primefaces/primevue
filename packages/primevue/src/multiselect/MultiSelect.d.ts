@@ -315,7 +315,7 @@ export interface MultiSelectContext {
 /**
  * Defines valid properties in MultiSelect component.
  */
-export interface MultiSelectProps<T = any> {
+export interface MultiSelectProps<T = any, C = T> {
     /**
      * Value of the component.
      */
@@ -335,15 +335,15 @@ export interface MultiSelectProps<T = any> {
     /**
      * Property name or getter function to use as the label of an option.
      */
-    optionLabel?: string | ((data: T) => string) | undefined;
+    optionLabel?: string | ((data: C) => string) | undefined;
     /**
      * Property name or getter function to use as the value of an option, defaults to the option itself when not defined.
      */
-    optionValue?: string | ((data: T) => any) | undefined;
+    optionValue?: string | ((data: C) => any) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
      */
-    optionDisabled?: string | ((data: T) => boolean) | undefined;
+    optionDisabled?: string | ((data: C) => boolean) | undefined;
     /**
      * Property name or getter function to use as the label of an option group.
      */
@@ -351,7 +351,7 @@ export interface MultiSelectProps<T = any> {
     /**
      * Property name or getter function that refers to the children options of option group.
      */
-    optionGroupChildren?: string | ((data: T) => any[]) | undefined;
+    optionGroupChildren?: string | ((data: T) => C[]) | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
      * @defaultValue 14rem
@@ -604,7 +604,7 @@ export interface MultiSelectProps<T = any> {
 /**
  * Defines valid slots in MultiSelect component.
  */
-export interface MultiSelectSlots<T = any> {
+export interface MultiSelectSlots<T = any, C = T> {
     /**
      * Custom value template.
      * @param {Object} scope - value slot's params.
@@ -671,7 +671,7 @@ export interface MultiSelectSlots<T = any> {
         /**
          * Option instance
          */
-        option: T;
+        option: C;
         /**
          * Selection state
          */
@@ -939,6 +939,20 @@ export interface MultiSelectMethods {
  *
  */
 declare const MultiSelect: {
+    new <T = any, C = T>(
+        props: MultiSelectProps<T, C> & { optionGroupChildren: (data: T) => C[] }
+    ): {
+        $props: MultiSelectProps<T, C> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: MultiSelectSlots<T, C>;
+        $emit: EmitFn<MultiSelectEmitsOptions>;
+    } & MultiSelectMethods;
+    new <T = any>(
+        props: MultiSelectProps<T, any> & { optionGroupChildren: string }
+    ): {
+        $props: MultiSelectProps<T, any> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: MultiSelectSlots<T, any>;
+        $emit: EmitFn<MultiSelectEmitsOptions>;
+    } & MultiSelectMethods;
     new <T = any>(
         props: MultiSelectProps<T>
     ): {

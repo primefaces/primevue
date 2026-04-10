@@ -290,7 +290,7 @@ export interface SelectContext {
 /**
  * Defines valid properties in Select component.
  */
-export interface SelectProps<T = any> {
+export interface SelectProps<T = any, C = T> {
     /**
      * Value of the component.
      */
@@ -310,15 +310,15 @@ export interface SelectProps<T = any> {
     /**
      * Property name or getter function to use as the label of an option.
      */
-    optionLabel?: string | ((data: T) => string) | undefined;
+    optionLabel?: string | ((data: C) => string) | undefined;
     /**
      * Property name or getter function to use as the value of an option, defaults to the option itself when not defined.
      */
-    optionValue?: string | ((data: T) => any) | undefined;
+    optionValue?: string | ((data: C) => any) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
      */
-    optionDisabled?: string | ((data: T) => boolean) | undefined;
+    optionDisabled?: string | ((data: C) => boolean) | undefined;
     /**
      * Property name or getter function to use as the label of an option group.
      */
@@ -326,7 +326,7 @@ export interface SelectProps<T = any> {
     /**
      * Property name or getter function that refers to the children options of option group.
      */
-    optionGroupChildren?: string | ((data: T) => any[]) | undefined;
+    optionGroupChildren?: string | ((data: T) => C[]) | undefined;
     /**
      * Height of the viewport, a scrollbar is defined if height of list exceeds this value.
      * @defaultValue 14rem
@@ -576,7 +576,7 @@ export interface SelectProps<T = any> {
 /**
  * Defines valid slots in Select component.
  */
-export interface SelectSlots<T = any> {
+export interface SelectSlots<T = any, C = T> {
     /**
      * Custom value template.
      * @param {Object} scope - value slot's params.
@@ -627,7 +627,7 @@ export interface SelectSlots<T = any> {
         /**
          * Option instance
          */
-        option: T;
+        option: C;
         /**
          * Selection state
          */
@@ -823,6 +823,20 @@ export interface SelectMethods {
  *
  */
 declare const Select: {
+    new <T = any, C = T>(
+        props: SelectProps<T, C> & { optionGroupChildren: (data: T) => C[] }
+    ): {
+        $props: SelectProps<T, C> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: SelectSlots<T, C>;
+        $emit: EmitFn<SelectEmitsOptions>;
+    } & SelectMethods;
+    new <T = any>(
+        props: SelectProps<T, any> & { optionGroupChildren: string }
+    ): {
+        $props: SelectProps<T, any> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: SelectSlots<T, any>;
+        $emit: EmitFn<SelectEmitsOptions>;
+    } & SelectMethods;
     new <T = any>(
         props: SelectProps<T>
     ): {

@@ -258,7 +258,7 @@ export interface ListboxContext {
 /**
  * Defines valid properties in Listbox component.
  */
-export interface ListboxProps<T = any> {
+export interface ListboxProps<T = any, C = T> {
     /**
      * Value of the component.
      */
@@ -278,15 +278,15 @@ export interface ListboxProps<T = any> {
     /**
      * Property name or getter function to use as the label of an option.
      */
-    optionLabel?: string | ((data: T) => string) | undefined;
+    optionLabel?: string | ((data: C) => string) | undefined;
     /**
      * Property name or getter function to use as the value of an option, defaults to the option itself when not defined.
      */
-    optionValue?: string | ((data: T) => any) | undefined;
+    optionValue?: string | ((data: C) => any) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
      */
-    optionDisabled?: string | ((data: T) => boolean) | undefined;
+    optionDisabled?: string | ((data: C) => boolean) | undefined;
     /**
      * Property name or getter function to use as the label of an option group.
      */
@@ -294,7 +294,7 @@ export interface ListboxProps<T = any> {
     /**
      * Property name or getter function that refers to the children options of option group.
      */
-    optionGroupChildren?: string | ((data: T) => any[]) | undefined;
+    optionGroupChildren?: string | ((data: T) => C[]) | undefined;
     /**
      * Inline style of inner list element.
      */
@@ -460,7 +460,7 @@ export interface ListboxProps<T = any> {
 /**
  * Defines valid slots in Listbox component.
  */
-export interface ListboxSlots<T = any> {
+export interface ListboxSlots<T = any, C = T> {
     /**
      * Custom header template.
      * @param {Object} scope - header slot's params.
@@ -497,7 +497,7 @@ export interface ListboxSlots<T = any> {
         /**
          * Option instance
          */
-        option: T;
+        option: C;
         /**
          * Selection state
          */
@@ -637,6 +637,20 @@ export declare type ListboxEmits = EmitFn<ListboxEmitsOptions>;
  *
  */
 declare const Listbox: {
+    new <T = any, C = T>(
+        props: ListboxProps<T, C> & { optionGroupChildren: (data: T) => C[] }
+    ): {
+        $props: ListboxProps<T, C> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: ListboxSlots<T, C>;
+        $emit: EmitFn<ListboxEmitsOptions>;
+    };
+    new <T = any>(
+        props: ListboxProps<T, any> & { optionGroupChildren: string }
+    ): {
+        $props: ListboxProps<T, any> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: ListboxSlots<T, any>;
+        $emit: EmitFn<ListboxEmitsOptions>;
+    };
     new <T = any>(
         props: ListboxProps<T>
     ): {
