@@ -58,6 +58,7 @@ export default {
     },
     resizeObserver: undefined,
     inkBarObserver: undefined,
+    mountTimer: undefined,
     watch: {
         showNavigators(newValue) {
             newValue ? this.bindResizeObserver() : this.unbindResizeObserver();
@@ -71,7 +72,8 @@ export default {
         }
     },
     mounted() {
-        setTimeout(() => {
+        this.mountTimer = setTimeout(() => {
+            this.mountTimer = undefined;
             this.updateInkBar();
             this.bindInkBarObserver();
         }, 150);
@@ -85,6 +87,7 @@ export default {
         this.showNavigators && this.updateButtonState();
     },
     beforeUnmount() {
+        clearTimeout(this.mountTimer);
         this.unbindResizeObserver();
         this.unbindInkBarObserver();
     },
