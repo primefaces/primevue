@@ -316,7 +316,7 @@ export interface AutoCompleteContext {
 /**
  * Defines valid properties in AutoComplete component.
  */
-export interface AutoCompleteProps<T = any> {
+export interface AutoCompleteProps<T = any, C = T> {
     /**
      * Value of the component.
      */
@@ -336,11 +336,11 @@ export interface AutoCompleteProps<T = any> {
     /**
      * Property name or getter function to use as the label of an option.
      */
-    optionLabel?: string | ((data: T) => string) | undefined;
+    optionLabel?: string | ((data: C) => string) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
      */
-    optionDisabled?: string | ((data: T) => boolean) | undefined;
+    optionDisabled?: string | ((data: C) => boolean) | undefined;
     /**
      * Property name or getter function to use as the label of an option group.
      */
@@ -348,7 +348,7 @@ export interface AutoCompleteProps<T = any> {
     /**
      * Property name or getter function that refers to the children options of option group.
      */
-    optionGroupChildren?: string | ((data: T) => any[]) | undefined;
+    optionGroupChildren?: string | ((data: T) => C[]) | undefined;
     /**
      * whether typeahead is active or not.
      * @defaultValue true
@@ -585,7 +585,7 @@ export interface AutoCompleteProps<T = any> {
  * Defines valid slots in AutoComplete component.
  * @todo Next release we should complete types for all slots
  */
-export interface AutoCompleteSlots<T = any> {
+export interface AutoCompleteSlots<T = any, C = T> {
     /**
      * Custom chip template.
      * @param {Object} scope - chip slot's params.
@@ -641,7 +641,7 @@ export interface AutoCompleteSlots<T = any> {
         /**
          * Option instance
          */
-        option: T;
+        option: C;
         /**
          * Index of the option
          */
@@ -899,6 +899,20 @@ export declare type AutoCompleteEmits<T = any> = EmitFn<AutoCompleteEmitsOptions
  *
  */
 declare const AutoComplete: {
+    new <T = any, C = T>(
+        props: AutoCompleteProps<T, C> & { optionGroupChildren: (data: T) => C[] }
+    ): {
+        $props: AutoCompleteProps<T, C> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: AutoCompleteSlots<T, C>;
+        $emit: EmitFn<AutoCompleteEmitsOptions<T>>;
+    };
+    new <T = any>(
+        props: AutoCompleteProps<T, any> & { optionGroupChildren: string }
+    ): {
+        $props: AutoCompleteProps<T, any> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: AutoCompleteSlots<T, any>;
+        $emit: EmitFn<AutoCompleteEmitsOptions<T>>;
+    };
     new <T = any>(
         props: AutoCompleteProps<T>
     ): {
