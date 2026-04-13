@@ -2,10 +2,13 @@ import ToastEventBus from 'primevue/toasteventbus';
 import { PrimeVueToastSymbol } from 'primevue/usetoast';
 
 export default {
-    install: (app) => {
+    install: (app, options = {}) => {
+        let defaults = options || {};
+
         const ToastService = {
             add: (message) => {
-                ToastEventBus.emit('add', message);
+                const merged = Object.assign({}, defaults, message);
+                ToastEventBus.emit('add', merged);
             },
             remove: (message) => {
                 ToastEventBus.emit('remove', message);
@@ -15,7 +18,11 @@ export default {
             },
             removeAllGroups: () => {
                 ToastEventBus.emit('remove-all-groups');
-            }
+            },
+            setOptions: (opts) => {
+                defaults = Object.assign({}, defaults, opts);
+            },
+            getOptions: () => ({ ...defaults })
         };
 
         app.config.globalProperties.$toast = ToastService;
