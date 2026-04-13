@@ -337,7 +337,7 @@ export default {
         },
         bindDocumentDragListener() {
             this.documentDragListener = (event) => {
-                if (this.dragging) {
+                if (this.dragging && this.container) {
                     let width = getOuterWidth(this.container);
                     let height = getOuterHeight(this.container);
                     let deltaX = event.pageX - this.lastPageX;
