@@ -684,34 +684,34 @@ export default {
         onColumnResizeEnd() {
             let delta = isRTL(this.$el) ? this.lastResizeHelperX - this.$refs.resizeHelper.offsetLeft : this.$refs.resizeHelper.offsetLeft - this.lastResizeHelperX;
             let columnWidth = this.resizeColumnElement.offsetWidth;
-            let newColumnWidth = columnWidth + delta;
-            let minWidth = this.resizeColumnElement.style.minWidth || 15;
+            const minWidth = this.resizeColumnElement.style.minWidth || 15;
+            const useMin = columnWidth + delta < parseInt(minWidth, 10)
+            const newColumnWidth = useMin ? minWidth : columnWidth + delta;
+            const difference = useMin ? minWidth - columnWidth : delta;
 
-            if (columnWidth + delta > parseInt(minWidth, 10)) {
-                if (this.columnResizeMode === 'fit') {
-                    let nextColumn = this.resizeColumnElement.nextElementSibling;
-                    let nextColumnWidth = nextColumn.offsetWidth - delta;
+            if (this.columnResizeMode === 'fit') {
+                let nextColumn = this.resizeColumnElement.nextElementSibling;
+                let nextColumnWidth = nextColumn.offsetWidth - difference;
 
-                    if (newColumnWidth > 15 && nextColumnWidth > 15) {
-                        this.resizeTableCells(newColumnWidth, nextColumnWidth);
-                    }
-                } else if (this.columnResizeMode === 'expand') {
-                    const tableWidth = this.$refs.table.offsetWidth + delta + 'px';
-
-                    const updateTableWidth = (el) => {
-                        !!el && (el.style.width = el.style.minWidth = tableWidth);
-                    };
-
-                    // Reasoning: resize table cells before updating the table width so that it can use existing computed cell widths and adjust only the one column.
-                    this.resizeTableCells(newColumnWidth);
-                    updateTableWidth(this.$refs.table);
+                if (newColumnWidth > 15 && nextColumnWidth > 15) {
+                    this.resizeTableCells(newColumnWidth, nextColumnWidth);
                 }
+            } else if (this.columnResizeMode === 'expand') {
+                const tableWidth = `${this.$refs.table.offsetWidth + difference}px`;
 
-                this.$emit('column-resize-end', {
-                    element: this.resizeColumnElement,
-                    delta: delta
-                });
+                const updateTableWidth = (el) => {
+                    !!el && (el.style.width = el.style.minWidth = tableWidth);
+                };
+
+                // Reasoning: resize table cells before updating the table width so that it can use existing computed cell widths and adjust only the one column.
+                this.resizeTableCells(newColumnWidth);
+                updateTableWidth(this.$refs.table);
             }
+
+            this.$emit('column-resize-end', {
+                element: this.resizeColumnElement,
+                delta: difference
+            });
 
             this.$refs.resizeHelper.style.display = 'none';
             this.resizeColumn = null;
