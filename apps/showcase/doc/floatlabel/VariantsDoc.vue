@@ -61,8 +61,8 @@ export default {
 <\/script>
 `,
                 composition: `
-<div class="card flex flex-wrap justify-center items-end gap-4">
-    <div class="card flex flex-wrap justify-center gap-4">
+<template>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
         <FloatLabel variant="in">
             <InputText id="in_label" v-model="value1" autocomplete="off" />
             <label for="in_label">In Label</label>
