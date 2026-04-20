@@ -111,7 +111,14 @@ export default {
 
         window.addEventListener('scroll', this.onScroll, { passive: true });
 
-        this.ad = this.ads[Math.floor(Math.random() * 5)];
+        // this.ad = this.ads[Math.floor(Math.random() * 5)];
+        this.ad = {
+            lightImage: 'https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/store.images/discount/apr26/primestore-spring-2026-sm.jpg',
+            darkImage: 'https://fqjltiegiezfetthbags.supabase.co/storage/v1/object/public/store.images/discount/apr26/primestore-spring-2026-sm.jpg',
+            title: 'Spring Sale',
+            details: 'Spring Sale is here. 50% OFF everything at PrimeStore and PrimeBlocks.',
+            href: 'https://primeui.store/'
+        };
     },
     beforeUnmount() {
         window.removeEventListener('scroll', this.onScroll, { passive: true });
