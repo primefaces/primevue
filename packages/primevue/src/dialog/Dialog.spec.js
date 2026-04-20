@@ -122,3 +122,96 @@ describe('maximizable', () => {
         expect(icon.classes()).toContain('pi-facebook');
     });
 });
+
+describe('ariaLabelledById', () => {
+    it('should not set aria-labelledby when showHeader is false', async () => {
+        const wrapper = mount(Dialog, {
+            global: {
+                plugins: [PrimeVue],
+                stubs: {
+                    teleport: true
+                }
+            },
+            props: {
+                visible: false,
+                showHeader: false,
+                header: 'Test Header'
+            },
+            data() {
+                return {
+                    containerVisible: true
+                };
+            }
+        });
+
+        await wrapper.setProps({ visible: true });
+
+        const dialog = wrapper.find('[role="dialog"]');
+
+        expect(dialog.attributes('aria-labelledby')).toBeUndefined();
+    });
+
+    it('should set aria-labelledby when showHeader is true and header prop is provided', async () => {
+        const wrapper = mount(Dialog, {
+            global: {
+                plugins: [PrimeVue],
+                stubs: {
+                    teleport: true
+                }
+            },
+            props: {
+                visible: false,
+                showHeader: true,
+                header: 'Test Header'
+            },
+            data() {
+                return {
+                    containerVisible: true
+                };
+            }
+        });
+
+        await wrapper.setProps({ visible: true });
+
+        const dialog = wrapper.find('[role="dialog"]');
+
+        const ariaLabelledBy = dialog.attributes('aria-labelledby');
+
+        expect(ariaLabelledBy).toContain('_header');
+
+        const headerSpan = wrapper.find(`#${ariaLabelledBy}`);
+
+        expect(headerSpan.text()).toBe('Test Header');
+    });
+
+    it('should provide id to custom header slot', async () => {
+        const wrapper = mount(Dialog, {
+            global: {
+                plugins: [PrimeVue],
+                stubs: {
+                    teleport: true
+                }
+            },
+            props: {
+                visible: false
+            },
+            slots: {
+                header: `<template #header="{ headerId }"><h2 :id="headerId">Custom Header</h2></template>`
+            },
+            data() {
+                return {
+                    containerVisible: true
+                };
+            }
+        });
+
+        await wrapper.setProps({ visible: true });
+
+        const dialog = wrapper.find('[role="dialog"]');
+        const ariaLabelledBy = dialog.attributes('aria-labelledby');
+        const headerSpan = wrapper.find(`#${ariaLabelledBy}`);
+
+        expect(ariaLabelledBy).toContain('_header');
+        expect(headerSpan.attributes('id')).toBe(ariaLabelledBy);
+    });
+});

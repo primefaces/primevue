@@ -6,7 +6,7 @@
                     <slot v-if="$slots.container" name="container" :closeCallback="close" :maximizeCallback="(event) => maximize(event)" :initDragCallback="initDrag"></slot>
                     <template v-else>
                         <div v-if="showHeader" :ref="headerContainerRef" :class="cx('header')" @mousedown="initDrag" v-bind="ptm('header')">
-                            <slot name="header" :class="cx('title')">
+                            <slot name="header" :class="cx('title')" :headerId="ariaLabelledById">
                                 <span v-if="header" :id="ariaLabelledById" :class="cx('title')" v-bind="ptm('title')">{{ header }}</span>
                             </slot>
                             <div :class="cx('headerActions')" v-bind="ptm('headerActions')">
@@ -404,7 +404,7 @@ export default {
             return this.maximized ? (this.minimizeIcon ? 'span' : 'WindowMinimizeIcon') : this.maximizeIcon ? 'span' : 'WindowMaximizeIcon';
         },
         ariaLabelledById() {
-            return this.header != null || this.$attrs['aria-labelledby'] !== null ? this.$id + '_header' : null;
+            return this.showHeader && (this.header != null || this.$slots.header || this.$attrs['aria-labelledby'] !== null) ? this.$id + '_header' : null;
         },
         closeAriaLabel() {
             return this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : undefined;
