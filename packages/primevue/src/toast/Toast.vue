@@ -36,6 +36,7 @@ import BaseToast from './BaseToast.vue';
 import ToastMessage from './ToastMessage.vue';
 
 var messageIdx = 0;
+var zIndexClearTimeout = undefined;
 
 export default {
     name: 'Toast',
@@ -105,12 +106,14 @@ export default {
         },
         onEnter() {
             if (this.autoZIndex) {
+                if(zIndexClearTimeout) { clearTimeout(zIndexClearTimeout) }
                 ZIndex.set('modal', this.$refs.container, this.baseZIndex || this.$primevue.config.zIndex.modal);
             }
         },
         onLeave() {
             if (this.$refs.container && this.autoZIndex && isEmpty(this.messages)) {
-                setTimeout(() => {
+                zIndexClearTimeout = setTimeout(() => {
+                    console.error('timeout executed');
                     ZIndex.clear(this.$refs.container);
                 }, 200);
             }
