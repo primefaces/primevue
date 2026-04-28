@@ -96,7 +96,6 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             target.$_ptooltipScrollHandler = null;
         }
     },
-    timer: undefined,
     methods: {
         bindEvents(el, options) {
             const modifiers = el.$_ptooltipModifiers;
@@ -225,6 +224,7 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             }
 
             el.$_ptooltipPendingShow = false;
+            this.remove(el);
             let tooltipElement = this.create(el, options);
 
             this.align(el);
@@ -246,8 +246,11 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             ZIndex.set('tooltip', tooltipElement, el.$_ptooltipZIndex);
         },
         show(el, options, showDelay) {
+            clearTimeout(el.$_ptooltipShowTimer);
+            clearTimeout(el.$_ptooltipHideTimer);
+
             if (showDelay !== undefined) {
-                this.timer = setTimeout(() => this.tooltipActions(el, options), showDelay);
+                el.$_ptooltipShowTimer = setTimeout(() => this.tooltipActions(el, options), showDelay);
                 el.$_ptooltipPendingShow = true;
             } else {
                 this.tooltipActions(el, options);
@@ -260,11 +263,12 @@ const Tooltip = BaseTooltip.extend('tooltip', {
             window.removeEventListener('resize', el.$_pWindowResizeEvent);
         },
         hide(el, hideDelay) {
-            clearTimeout(this.timer);
+            clearTimeout(el.$_ptooltipShowTimer);
+            clearTimeout(el.$_ptooltipHideTimer);
             el.$_ptooltipPendingShow = false;
 
             if (hideDelay !== undefined) {
-                setTimeout(() => this.tooltipRemoval(el), hideDelay);
+                el.$_ptooltipHideTimer = setTimeout(() => this.tooltipRemoval(el), hideDelay);
             } else {
                 this.tooltipRemoval(el);
             }

@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } 
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ChipPassThroughOptions } from 'primevue/chip';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import type { TreeExpandedKeys, TreePassThroughOptions } from 'primevue/tree';
+import type { TreeExpandedKeys, TreeFilterEvent, TreePassThroughOptions } from 'primevue/tree';
 import type { TreeNode } from 'primevue/treenode';
 import { InputHTMLAttributes, TransitionProps, VNode } from 'vue';
 
@@ -568,6 +568,11 @@ export interface TreeSelectEmitsOptions {
      * @param {TreeNode} node - Node instance.
      */
     'node-collapse'(node: TreeNode): void;
+    /**
+     * Callback to invoke on filter input.
+     * @param {TreeFilterEvent} event - Custom filter event.
+     */
+    filter(event: TreeFilterEvent): void;
 }
 
 export declare type TreeSelectEmits = EmitFn<TreeSelectEmitsOptions>;

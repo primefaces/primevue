@@ -46,7 +46,7 @@ export default {
         this.mask = null;
 
         if (this.container) {
-            ZIndex.clear(this.container);
+            ZIndex.clear(this.container.$el || this.container);
             this.container = null;
         }
     },

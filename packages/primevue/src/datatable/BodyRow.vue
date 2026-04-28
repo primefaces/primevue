@@ -283,6 +283,9 @@ export default {
             handler(newValue) {
                 this.d_rowExpanded = this.dataKey ? newValue?.[resolveFieldData(this.rowData, this.dataKey)] !== undefined : newValue?.some((d) => this.equals(this.rowData, d));
             }
+        },
+        rowData(newValue) {
+            this.d_rowExpanded = this.dataKey ? this.expandedRows?.[resolveFieldData(newValue, this.dataKey)] !== undefined : this.expandedRows?.some((d) => this.equals(newValue, d));
         }
     },
     methods: {
@@ -507,7 +510,7 @@ export default {
             return [this.cx('row', { rowData: this.rowData, index: this.rowIndex, columnSelectionMode }), rowStyleClass];
         },
         rowTabindex() {
-            if (this.selection === null && (this.selectionMode === 'single' || this.selectionMode === 'multiple')) {
+            if ((this.selection === null || (Array.isArray(this.selection) && this.selection.length === 0)) && (this.selectionMode === 'single' || this.selectionMode === 'multiple')) {
                 return this.rowIndex === 0 ? 0 : -1;
             }
 

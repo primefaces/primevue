@@ -94,10 +94,27 @@ export default {
     watch: {
         expandedKeys(newValue) {
             this.d_expandedKeys = newValue;
+        },
+        droppableNodes(newValue) {
+            if (newValue) {
+                this.initDragDropService();
+            } else {
+                this.cleanupDragDropService();
+            }
         }
     },
     mounted() {
         if (this.droppableNodes) {
+            this.initDragDropService();
+        }
+    },
+    beforeUnmount() {
+        this.cleanupDragDropService();
+    },
+    methods: {
+        initDragDropService() {
+            if (this.dragDropService) return;
+
             this.dragDropService = useTreeDragDropService();
 
             this.dragStartCleanup = this.dragDropService.onDragStart((event) => {
@@ -114,18 +131,20 @@ export default {
                 this.dragNodeScope = null;
                 this.dragHover = false;
             });
-        }
-    },
-    beforeUnmount() {
-        if (this.dragStartCleanup) {
-            this.dragStartCleanup();
-        }
+        },
+        cleanupDragDropService() {
+            if (this.dragStartCleanup) {
+                this.dragStartCleanup();
+                this.dragStartCleanup = null;
+            }
 
-        if (this.dragStopCleanup) {
-            this.dragStopCleanup();
-        }
-    },
-    methods: {
+            if (this.dragStopCleanup) {
+                this.dragStopCleanup();
+                this.dragStopCleanup = null;
+            }
+
+            this.dragDropService = null;
+        },
         onNodeToggle(node) {
             const key = node.key;
 
@@ -233,7 +252,7 @@ export default {
                 event.preventDefault();
             }
 
-            this.$emit('filter', { originalEvent: event, value: event.target.value });
+            this.$emit('filter', { originalEvent: event, value: event.target.value, filteredNodes: this.valueToRender });
         },
         findFilteredNodes(node, paramsWithoutNode) {
             if (node) {
@@ -289,35 +308,33 @@ export default {
             this.dragNodeSubNodes.splice(this.dragNodeIndex, 1);
             this.$emit('update:value', event.nodes);
         },
-        allowDrop(dragNode, dropNode, dragNodeScope) {
-            if (!dragNode) {
-                //prevent random html elements to be dragged
-                return false;
-            } else if (this.isValidDragScope(dragNodeScope)) {
-                let allow = true;
-
-                if (dropNode) {
-                    if (dragNode === dropNode) {
-                        allow = false;
-                    } else {
-                        let parent = dropNode.parent;
-
-                        while (parent != null) {
-                            if (parent === dragNode) {
-                                allow = false;
-
-                                break;
-                            }
-
-                            parent = parent.parent;
-                        }
-                    }
-                }
-
-                return allow;
-            } else {
+        isDescendantOf(node, target) {
+            if (!node || !node.children) {
                 return false;
             }
+
+            for (let child of node.children) {
+                if (child === target || this.isDescendantOf(child, target)) {
+                    return true;
+                }
+            }
+
+            return false;
+        },
+        allowDrop(dragNode, dropNode, dragNodeScope) {
+            if (!dragNode) {
+                return false;
+            }
+
+            if (!this.isValidDragScope(dragNodeScope)) {
+                return false;
+            }
+
+            if (dropNode && (dragNode === dropNode || this.isDescendantOf(dragNode, dropNode))) {
+                return false;
+            }
+
+            return true;
         },
         allowNodeDrop(dropNode) {
             return this.allowDrop(this.dragNode, dropNode, this.dragNodeScope);

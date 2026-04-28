@@ -46,15 +46,21 @@ export default {
         };
     },
     mounted() {
-        if (this.$el) {
-            let stepElements = find(this.$pcStepper.$el, '[data-pc-name="step"]');
-            let stepPanelEl = findSingle(this.isVertical ? this.$pcStepItem?.$el : this.$pcStepList?.$el, '[data-pc-name="step"]');
-            let stepPanelIndex = findIndexInList(stepPanelEl, stepElements);
-
-            this.isSeparatorVisible = this.isVertical && stepPanelIndex !== stepElements.length - 1;
-        }
+        this.updateSeparator();
+    },
+    updated() {
+        this.updateSeparator();
     },
     methods: {
+        updateSeparator() {
+            if (this.$el) {
+                let stepElements = find(this.$pcStepper.$el, '[data-pc-name="step"]');
+                let stepPanelEl = findSingle(this.isVertical ? this.$pcStepItem?.$el : this.$pcStepList?.$el, '[data-pc-name="step"]');
+                let stepPanelIndex = findIndexInList(stepPanelEl, stepElements);
+
+                this.isSeparatorVisible = this.isVertical && stepPanelIndex !== stepElements.length - 1;
+            }
+        },
         getPTOptions(key) {
             const _ptm = key === 'root' ? this.ptmi : this.ptm;
 

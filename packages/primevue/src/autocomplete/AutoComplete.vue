@@ -606,6 +606,7 @@ export default {
         },
         onClearClick(event) {
             this.updateModel(event, null);
+            this.$emit('clear');
         },
         onOverlayClick(event) {
             OverlayEventBus.emit('overlay-click', {
@@ -737,10 +738,11 @@ export default {
                     if (this.focusedOptionIndex !== -1) {
                         if (this.multiple && event.shiftKey) {
                             this.onOptionSelectRange(event, this.focusedOptionIndex);
-                            event.preventDefault();
                         } else {
                             this.onOptionSelect(event, this.visibleOptions[this.focusedOptionIndex]);
                         }
+
+                        event.preventDefault();
                     }
 
                     this.hide();
@@ -812,7 +814,8 @@ export default {
 
             this.$emit('show');
         },
-        onOverlayLeave() {
+        onOverlayLeave(el) {
+            el.style.pointerEvents = 'none';
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();

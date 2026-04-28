@@ -70,7 +70,7 @@ export default {
             }
 
             if (this.autoZIndex) {
-                ZIndex.set('modal', this.mask, this.baseZIndex + this.$primevue.config.zIndex.modal);
+                ZIndex.set('modal', this.mask, this.baseZIndex || this.$primevue.config.zIndex.modal);
             }
 
             this.isBlocked = true;

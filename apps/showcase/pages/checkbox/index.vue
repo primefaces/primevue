@@ -4,7 +4,7 @@
         header="Checkbox"
         description="Checkbox is an extension to standard checkbox element with theming."
         :componentDocs="docs"
-        :apiDocs="['Checkbox']"
+        :apiDocs="['Checkbox', 'CheckboxGroup']"
         :ptTabComponent="ptComponent"
         :themingDocs="themingDoc"
     />

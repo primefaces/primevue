@@ -1,4 +1,4 @@
-# Install PrimeVue with CND
+# Install PrimeVue with CDN
 
 Setting up PrimeVue in a project using CDN.
 

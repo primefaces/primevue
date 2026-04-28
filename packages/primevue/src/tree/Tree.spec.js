@@ -61,6 +61,46 @@ describe('Tree.vue', () => {
         expect(wrapper.emitted('filter')[0][0].value).toEqual(key);
     });
 
+    it('emits filteredNodes in filter event payload', async () => {
+        const nodes = [
+            {
+                key: '0',
+                label: 'Documents',
+                children: [
+                    { key: '0-0', label: 'Work' },
+                    { key: '0-1', label: 'Home' }
+                ]
+            },
+            {
+                key: '1',
+                label: 'Downloads',
+                children: []
+            }
+        ];
+
+        wrapper = mount(Tree, {
+            props: {
+                value: nodes,
+                filter: true,
+                filterBy: 'label',
+                filterMode: 'lenient'
+            }
+        });
+
+        let searchField = wrapper.find('input.p-inputtext');
+
+        searchField.element.value = 'Work';
+
+        await searchField.trigger('keyup', { key: 'k' });
+
+        expect(wrapper.emitted('filter')).toBeTruthy();
+
+        const filterEvent = wrapper.emitted('filter')[0][0];
+
+        expect(filterEvent.filteredNodes).toBeDefined();
+        expect(Array.isArray(filterEvent.filteredNodes)).toBe(true);
+    });
+
     it('should render icon', ({ expect }) => {
         expect(wrapper.find('span.pi-inbox').exists()).toBeTruthy();
         expect(wrapper.find('span.pi-inbox').classes('p-tree-node-icon')).toBeTruthy();

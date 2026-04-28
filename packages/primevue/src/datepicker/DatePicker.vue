@@ -628,8 +628,8 @@ export default {
         modelValue: {
             immediate: true,
             handler(newValue) {
+                this.rawValue = typeof newValue === 'string' ? this.safeParse(newValue) : newValue;
                 this.updateCurrentMetaData();
-                this.rawValue = typeof newValue === 'string' ? this.parseValue(newValue) : newValue;
 
                 if (!this.typeUpdate && !this.inline && this.input) {
                     this.input.value = this.formatValue(this.rawValue);
@@ -1215,7 +1215,7 @@ export default {
         },
         onYearDropdownChange(value) {
             this.currentYear = parseInt(value);
-            this.$emit('year-change', { month: this.currentMonth + 1, year: this.currentYear });
+            this.$emit('year-change', { month: this.currentMonth, year: this.currentYear });
         },
         onDateSelect(event, dateMeta) {
             if (this.disabled || !dateMeta.selectable) {
@@ -1651,11 +1651,11 @@ export default {
             const convertedHour = this.convertTo24Hour(hour, pm);
 
             if (this.isRangeSelection()) {
-                value = this.rawValue[1] || this.rawValue[0];
+                value = this.rawValue ? this.rawValue[1] || this.rawValue[0] : value;
             }
 
             if (this.isMultipleSelection()) {
-                value = this.rawValue[this.rawValue.length - 1];
+                value = this.rawValue ? this.rawValue[this.rawValue.length - 1] : value;
             }
 
             const valueDateString = value ? value.toDateString() : null;
@@ -1786,11 +1786,11 @@ export default {
             let value = this.viewDate;
 
             if (this.isRangeSelection()) {
-                value = this.rawValue[this.focusedDateIndex] || this.rawValue[0];
+                value = this.rawValue ? this.rawValue[this.focusedDateIndex] || this.rawValue[0] : value;
             }
 
             if (this.isMultipleSelection()) {
-                value = this.rawValue[this.rawValue.length - 1];
+                value = this.rawValue ? this.rawValue[this.rawValue.length - 1] : value;
             }
 
             value = value ? new Date(value.getTime()) : new Date();
@@ -1806,9 +1806,9 @@ export default {
             value.setSeconds(this.currentSecond);
 
             if (this.isRangeSelection()) {
-                if (this.focusedDateIndex === 1 && this.rawValue[1]) {
+                if (this.rawValue && this.focusedDateIndex === 1 && this.rawValue[1]) {
                     value = [this.rawValue[0], value];
-                } else if (this.focusedDateIndex === 0) {
+                } else if (this.rawValue && this.focusedDateIndex === 0) {
                     value = [value, this.rawValue[1]];
                 } else {
                     value = [value, null];
@@ -1816,7 +1816,7 @@ export default {
             }
 
             if (this.isMultipleSelection()) {
-                value = [...this.rawValue.slice(0, -1), value];
+                value = this.rawValue ? [...this.rawValue.slice(0, -1), value] : [value];
             }
 
             this.updateModel(value);
@@ -1854,7 +1854,7 @@ export default {
             } else {
                 this.currentYear = year.value;
                 this.currentView = 'month';
-                this.$emit('year-change', { month: this.currentMonth + 1, year: this.currentYear });
+                this.$emit('year-change', { month: this.currentMonth, year: this.currentYear });
             }
 
             setTimeout(this.updateFocus, 0);
@@ -1923,6 +1923,15 @@ export default {
 
             return value;
         },
+        safeParse(value) {
+            try {
+                return this.parseValue(value);
+            } catch (e) {
+                const date = new Date(value);
+
+                return !isNaN(date.getTime()) ? (this.isSingleSelection() ? date : [date]) : null;
+            }
+        },
         parseValueForComparison(value) {
             if (typeof value === 'string') {
                 const parsedValue = this.parseValue(value);
@@ -1934,7 +1943,10 @@ export default {
         },
         parseDateTime(text) {
             let date;
-            let parts = text.match(/(?:(.+?) )?(\d{2}:\d{2}(?::\d{2})?)(?: (am|pm))?/);
+            const amLabel = this.$primevue.config.locale.am;
+            const pmLabel = this.$primevue.config.locale.pm;
+            const ampmPattern = `${amLabel}|${pmLabel}|am|pm`;
+            let parts = text.match(new RegExp(`(?:(.+?) )?(\\d{2}:\\d{2}(?::\\d{2})?)(?:\\s+(${ampmPattern}))?`, 'i'));
 
             if (this.timeOnly) {
                 date = new Date();
@@ -1957,7 +1969,7 @@ export default {
                 throw 'Invalid Time';
             }
 
-            this.pm = ampm === this.$primevue.config.locale.pm || ampm === this.$primevue.config.locale.pm.toLowerCase();
+            this.pm = ampm.toLowerCase() === this.$primevue.config.locale.pm.toLowerCase() || ampm.toLowerCase() === 'pm';
             let time = this.parseTime(timeString);
 
             value.setHours(time.hour);
@@ -2697,6 +2709,10 @@ export default {
             if (cell) {
                 cell.tabIndex = '0';
 
+                if (!this.preventFocus && this.overlay && !this.overlay.contains(document.activeElement)) {
+                    cell.focus();
+                }
+
                 this.preventFocus = false;
             }
         },
@@ -2959,7 +2975,7 @@ export default {
                         const start = this.parseValueForComparison(propValue[0]);
                         let lastVisibleMonth = new Date(start.getFullYear(), start.getMonth() + this.numberOfMonths, 1);
 
-                        if (propValue[1] < lastVisibleMonth) {
+                        if (!propValue[1] || propValue[1] < lastVisibleMonth) {
                             propValue = propValue[0];
                         } else {
                             const end = this.parseValueForComparison(propValue[1]);

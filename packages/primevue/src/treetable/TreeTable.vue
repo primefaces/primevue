@@ -495,29 +495,26 @@ export default {
             return this.sortNodesSingle(nodes);
         },
         sortNodesSingle(nodes) {
-            let _nodes = [...nodes];
             const comparer = localeComparator();
 
-            _nodes.sort((node1, node2) => {
-                const value1 = resolveFieldData(node1.data, this.d_sortField);
-                const value2 = resolveFieldData(node2.data, this.d_sortField);
+            return [...nodes]
+                .sort((node1, node2) => {
+                    const value1 = resolveFieldData(node1.data, this.d_sortField);
+                    const value2 = resolveFieldData(node2.data, this.d_sortField);
 
-                return sort(value1, value2, this.d_sortOrder, comparer);
-            });
-
-            return _nodes;
+                    return sort(value1, value2, this.d_sortOrder, comparer);
+                })
+                .map((node) => (node.children && node.children.length ? { ...node, children: this.sortNodesSingle(node.children) } : node));
         },
         sortMultiple(nodes) {
             return this.sortNodesMultiple(nodes);
         },
         sortNodesMultiple(nodes) {
-            let _nodes = [...nodes];
-
-            _nodes.sort((node1, node2) => {
-                return this.multisortField(node1, node2, 0);
-            });
-
-            return _nodes;
+            return [...nodes]
+                .sort((node1, node2) => {
+                    return this.multisortField(node1, node2, 0);
+                })
+                .map((node) => (node.children && node.children.length ? { ...node, children: this.sortNodesMultiple(node.children) } : node));
         },
         multisortField(node1, node2, index) {
             const value1 = resolveFieldData(node1.data, this.d_multiSortMeta[index].field);

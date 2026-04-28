@@ -199,9 +199,22 @@ export interface TabPanelContext {
  */
 export interface TabPanelSlots {
     /**
-     * Custom content template.
+     * Custom content template. Slot attributes can be used when asChild prop is true.
      */
-    default(): VNode[];
+    default(scope: {
+        /**
+         * Style class of the tabpanel.
+         */
+        class: string;
+        /**
+         * Whether the tab is active.
+         */
+        active: boolean;
+        /**
+         * Accessibility attributes.
+         */
+        a11yAttrs: any;
+    }): VNode[];
     /**
      * Custom header template.
      * @deprecated since v4. Only supported by TabView.

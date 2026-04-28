@@ -6,7 +6,6 @@
                 v-if="i !== panels.length - 1"
                 ref="gutter"
                 :class="cx('gutter')"
-                role="separator"
                 tabindex="-1"
                 @mousedown="onGutterMouseDown($event, i)"
                 @touchstart="onGutterTouchStart($event, i)"
@@ -16,7 +15,18 @@
                 :data-p="dataP"
                 v-bind="ptm('gutter')"
             >
-                <div :class="cx('gutterHandle')" tabindex="0" :style="[gutterStyle]" :aria-orientation="layout" :aria-valuenow="prevSize" @keyup="onGutterKeyUp" @keydown="onGutterKeyDown($event, i)" :data-p="dataP" v-bind="ptm('gutterHandle')"></div>
+                <div
+                    :class="cx('gutterHandle')"
+                    role="separator"
+                    tabindex="0"
+                    :style="[gutterStyle]"
+                    :aria-orientation="layout"
+                    :aria-valuenow="prevSize"
+                    @keyup="onGutterKeyUp"
+                    @keydown="onGutterKeyDown($event, i)"
+                    :data-p="dataP"
+                    v-bind="ptm('gutterHandle')"
+                ></div>
             </div>
         </template>
     </div>
@@ -57,6 +67,11 @@ export default {
     mounted() {
         this.initializePanels();
     },
+    watch: {
+        panelSizeConfig() {
+            this.initializePanels();
+        }
+    },
     beforeUnmount() {
         this.clear();
         this.unbindMouseListeners();
@@ -64,6 +79,11 @@ export default {
     methods: {
         isSplitterPanel(child) {
             return child.type.name === 'SplitterPanel';
+        },
+        getPanelSize(panel) {
+            let size = panel.props && isNotEmpty(panel.props.size) ? panel.props.size : null;
+
+            return size ?? 100 / this.panels.length;
         },
         initializePanels() {
             if (this.panels && this.panels.length) {
@@ -78,8 +98,7 @@ export default {
                     let _panelSizes = [];
 
                     this.panels.map((panel, i) => {
-                        let panelInitialSize = panel.props && isNotEmpty(panel.props.size) ? panel.props.size : null;
-                        let panelSize = panelInitialSize ?? 100 / this.panels.length;
+                        let panelSize = this.getPanelSize(panel);
 
                         _panelSizes[i] = panelSize;
                         children[i].style.flexBasis = 'calc(' + panelSize + '% - ' + (this.panels.length - 1) * this.gutterSize + 'px)';
@@ -381,6 +400,10 @@ export default {
             });
 
             return panels;
+        },
+        panelSizeConfig() {
+            // programmatic changes
+            return this.panels.map((panel) => this.getPanelSize(panel)).join(',');
         },
         gutterStyle() {
             if (this.horizontal) return { width: this.gutterSize + 'px' };

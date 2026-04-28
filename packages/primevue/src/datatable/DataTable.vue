@@ -399,7 +399,8 @@ export default {
         'update:editingRows',
         'row-edit-init',
         'row-edit-save',
-        'row-edit-cancel'
+        'row-edit-cancel',
+        'update:totalRecords'
     ],
     provide() {
         return {
@@ -483,6 +484,9 @@ export default {
             handler: function (newValue) {
                 this.d_filters = this.cloneFilters(newValue);
             }
+        },
+        totalRecordsLength(newValue) {
+            this.$emit('update:totalRecords', newValue);
         }
     },
     mounted() {
@@ -1770,10 +1774,14 @@ export default {
             }
 
             if (Object.keys(state).length) {
-                storage.setItem(this.stateKey, JSON.stringify(state));
-            }
+                const serializedState = JSON.stringify(state);
 
-            this.$emit('state-save', state);
+                if (serializedState !== this._lastSavedState) {
+                    storage.setItem(this.stateKey, serializedState);
+                    this._lastSavedState = serializedState;
+                    this.$emit('state-save', state);
+                }
+            }
         },
         restoreState() {
             const storage = this.getStorage();

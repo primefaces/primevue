@@ -8,7 +8,7 @@
             <div class="doc-intro">
                 <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                     <div class="flex-1">
-                        <h1>Install PrimeVue with CND</h1>
+                        <h1>Install PrimeVue with CDN</h1>
                         <p>Setting up PrimeVue in a project using CDN.</p>
                     </div>
                     <DocCopyMarkdown docType="page" class="flex-shrink-0" />

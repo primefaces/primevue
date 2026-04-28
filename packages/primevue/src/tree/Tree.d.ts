@@ -95,6 +95,10 @@ export interface TreeFilterEvent {
      * Filter value
      */
     value: string;
+    /**
+     * Filtered nodes
+     */
+    filteredNodes: TreeNode[];
 }
 
 /**
@@ -118,6 +122,13 @@ export interface TreeNodeDropEvent {
      * Dropped node
      */
     dropNode: TreeNode;
+    /**
+     * Drop position relative to the drop node.
+     * -1: before the target node (as sibling)
+     *  0: into the target node (as child)
+     *  1: after the target node (as sibling)
+     */
+    dropPosition: -1 | 0 | 1;
     /**
      * Index of the dropped node
      */

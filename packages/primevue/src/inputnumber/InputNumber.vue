@@ -216,8 +216,13 @@ export default {
         },
         getDecimalExpression() {
             const formatter = new Intl.NumberFormat(this.locale, { ...this.getOptions(), useGrouping: false });
+            const formatted = formatter.format(1.1);
 
-            return new RegExp(`[${formatter.format(1.1).replace(this._currency, '').trim().replace(this._numeral, '')}]`, 'g');
+            if (formatted === formatter.format(1)) {
+                return new RegExp(`[]`, 'g');
+            }
+
+            return new RegExp(`[${formatted.replace(this._currency, '').trim().replace(this._numeral, '')}]`, 'g');
         },
         getGroupingExpression() {
             const formatter = new Intl.NumberFormat(this.locale, { useGrouping: true });
@@ -608,7 +613,7 @@ export default {
             }
         },
         onPaste(event) {
-            if (this.readonly) {
+            if (this.readonly || this.disabled) {
                 return;
             }
 

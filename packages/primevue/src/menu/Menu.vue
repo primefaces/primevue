@@ -267,7 +267,7 @@ export default {
             this.bindScrollListener();
 
             if (this.autoZIndex) {
-                ZIndex.set('menu', el, this.baseZIndex + this.$primevue.config.zIndex.menu);
+                ZIndex.set('menu', el, this.baseZIndex || this.$primevue.config.zIndex.menu);
             }
 
             if (this.popup) {

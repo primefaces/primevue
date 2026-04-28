@@ -651,7 +651,7 @@
                     "methods": []
                 },
                 "FormFieldResolverOptions": {
-                    "description": "Resolver options for Form component.",
+                    "description": "Resolver options for FormField component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -674,7 +674,7 @@
                     "methods": []
                 },
                 "FormFieldProps": {
-                    "description": "Defines valid properties in Form component.",
+                    "description": "Defines valid properties in FormField component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -784,7 +784,7 @@
                     "methods": []
                 },
                 "FormFieldSlots": {
-                    "description": "Defines valid slots in Form component.",
+                    "description": "Defines valid slots in FormField component.",
                     "relatedProp": "",
                     "props": [
                         {
@@ -798,7 +798,7 @@
                     "methods": []
                 },
                 "FormFieldEmitsOptions": {
-                    "description": "Defines valid emits in Form component.",
+                    "description": "Defines valid emits in FormField component.",
                     "relatedProp": "",
                     "props": [],
                     "methods": []
@@ -821,19 +821,19 @@
                     "props": []
                 },
                 "FormFieldResolverOptions": {
-                    "description": "Resolver options for Form component.",
+                    "description": "Resolver options for FormField component.",
                     "props": []
                 },
                 "FormFieldProps": {
-                    "description": "Defines valid properties in Form component.",
+                    "description": "Defines valid properties in FormField component.",
                     "props": []
                 },
                 "FormFieldSlots": {
-                    "description": "Defines valid slots in Form component.",
+                    "description": "Defines valid slots in FormField component.",
                     "props": []
                 },
                 "FormFieldEmitsOptions": {
-                    "description": "Defines valid emits in Form component.",
+                    "description": "Defines valid emits in FormField component.",
                     "props": []
                 }
             }
@@ -844,7 +844,7 @@
                 "FormFieldPassThroughOptionType": {
                     "values": "FormFieldPassThroughAttributes | (options: FormFieldPassThroughMethodOptions) => undefined | string | null | undefined"
                 },
-                "FormEmits": {
+                "FormFieldEmits": {
                     "values": "EmitFn<FormFieldEmitsOptions>"
                 }
             }
@@ -14859,6 +14859,22 @@
                             "description": "Used to pass attributes to the row toggler icon's DOM element."
                         },
                         {
+                            "name": "nodeToggleButton",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the node toggle button's DOM element."
+                        },
+                        {
+                            "name": "nodeToggleIcon",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "ColumnPassThroughOptionType",
+                            "default": "",
+                            "description": "Used to pass attributes to the node toggle icon's DOM element."
+                        },
+                        {
                             "name": "bodyCell",
                             "optional": true,
                             "readonly": false,
@@ -14889,6 +14905,14 @@
                             "type": "any",
                             "default": "",
                             "description": "Used to pass attributes to the checkbox's DOM element."
+                        },
+                        {
+                            "name": "pcNodeCheckbox",
+                            "optional": true,
+                            "readonly": false,
+                            "type": "any",
+                            "default": "",
+                            "description": "Used to pass attributes to the node checkbox's DOM element."
                         },
                         {
                             "name": "pcRowEditorInit",
@@ -39537,7 +39561,7 @@
                             "name": "class",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "ClassValue",
                             "default": ""
                         },
                         {
@@ -39858,7 +39882,7 @@
                             "name": "autocomplete",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "InputAutoCompleteAttribute",
                             "default": ""
                         },
                         {
@@ -44268,6 +44292,19 @@
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
                             "description": "",
                             "deprecated": "since v4.0. Use submenulabel slot instead.\nCustom submenu header template."
+                        },
+                        {
+                            "name": "submenulabel",
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">item</span>: <span class=\"doc-option-parameter-type\">MenuItem</span>, <span class=\"doc-option-parameter-type\">// Menuitem instance</span>\n }",
+                                    "description": "submenulabel slot's params."
+                                }
+                            ],
+                            "returnType": "VNode<RendererNode, RendererElement, Object>[]",
+                            "description": "Custom submenu label template."
                         }
                     ]
                 },
@@ -53162,7 +53199,7 @@
                             "name": "class",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "ClassValue",
                             "default": ""
                         },
                         {
@@ -53483,7 +53520,7 @@
                             "name": "autocomplete",
                             "optional": true,
                             "readonly": false,
-                            "type": "string",
+                            "type": "InputAutoCompleteAttribute",
                             "default": ""
                         },
                         {
@@ -68717,9 +68754,15 @@
                     "methods": [
                         {
                             "name": "default",
-                            "parameters": [],
+                            "parameters": [
+                                {
+                                    "name": "scope",
+                                    "optional": false,
+                                    "type": "{\n  \t <span class=\"ml-3 doc-option-parameter-name\">class</span>: <span class=\"doc-option-parameter-type\">string</span>, <span class=\"doc-option-parameter-type\">// Style class of the tabpanel.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">active</span>: <span class=\"doc-option-parameter-type\">boolean</span>, <span class=\"doc-option-parameter-type\">// Whether the tab is active.</span>\n  \t <span class=\"ml-3 doc-option-parameter-name\">a11yAttrs</span>: <span class=\"doc-option-parameter-type\">any</span>, <span class=\"doc-option-parameter-type\">// Accessibility attributes.</span>\n }"
+                                }
+                            ],
                             "returnType": "VNode<RendererNode, RendererElement, Object>[]",
-                            "description": "Custom content template."
+                            "description": "Custom content template. Slot attributes can be used when asChild prop is true."
                         },
                         {
                             "name": "header",
@@ -70855,7 +70898,7 @@
                             "name": "class",
                             "optional": true,
                             "readonly": false,
-                            "type": "any",
+                            "type": "ClassValue",
                             "default": ""
                         },
                         {
@@ -76092,6 +76135,14 @@
                             "type": "string",
                             "default": "",
                             "description": "Filter value"
+                        },
+                        {
+                            "name": "filteredNodes",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "TreeNode[]",
+                            "default": "",
+                            "description": "Filtered nodes"
                         }
                     ],
                     "methods": []
@@ -76131,6 +76182,14 @@
                             "type": "TreeNode",
                             "default": "",
                             "description": "Dropped node"
+                        },
+                        {
+                            "name": "dropPosition",
+                            "optional": false,
+                            "readonly": false,
+                            "type": "0 | 1 | -1",
+                            "default": "",
+                            "description": "Drop position relative to the drop node.\n-1: before the target node (as sibling)\n 0: into the target node (as child)\n 1: after the target node (as sibling)"
                         },
                         {
                             "name": "index",
@@ -78308,6 +78367,19 @@
                             ],
                             "returnType": "void",
                             "description": "Callback to invoke when a node is collapsed."
+                        },
+                        {
+                            "name": "filter",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "optional": false,
+                                    "type": "TreeFilterEvent",
+                                    "description": "Custom filter event."
+                                }
+                            ],
+                            "returnType": "void",
+                            "description": "Callback to invoke on filter input."
                         }
                     ]
                 },

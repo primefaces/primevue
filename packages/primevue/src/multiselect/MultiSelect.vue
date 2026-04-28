@@ -30,11 +30,12 @@
                         {{ label || 'empty' }}
                     </template>
                     <template v-else-if="display === 'chip'">
-                        <template v-if="chipSelectedItems">
+                        <template v-if="loading && (!options || options.length === 0)">{{ placeholder || 'empty' }}</template>
+                        <template v-else-if="chipSelectedItems">
                             <span>{{ label }}</span>
                         </template>
                         <template v-else>
-                            <span v-for="(item, idx) of d_value" :key="`chip-${optionValue ? item : getLabelByValue(item)}_${idx}`" :class="cx('chipItem')" v-bind="ptm('chipItem')">
+                            <span v-for="(item, idx) of d_value" :key="`chip-${getLabelByValue(item)}_${idx}`" :class="cx('chipItem')" v-bind="ptm('chipItem')">
                                 <slot name="chip" :value="item" :removeCallback="(event) => removeOption(event, item)">
                                     <!-- TODO: removetokenicon and removeTokenIcon  deprecated since v4.0. Use chipicon slot and chipIcon prop-->
                                     <Chip :class="cx('pcChip')" :label="getLabelByValue(item)" :removeIcon="chipIcon || removeTokenIcon" removable :unstyled="unstyled" @remove="removeOption($event, item)" :pt="ptm('pcChip')">
@@ -756,7 +757,8 @@ export default {
 
             this.$emit('show');
         },
-        onOverlayLeave() {
+        onOverlayLeave(el) {
+            el.style.pointerEvents = 'none';
             this.unbindOutsideClickListener();
             this.unbindScrollListener();
             this.unbindResizeListener();
@@ -1075,7 +1077,9 @@ export default {
             let label;
 
             if (this.d_value && this.d_value.length) {
-                if (isNotEmpty(this.maxSelectedLabels) && this.d_value.length > this.maxSelectedLabels) {
+                if (this.loading && (!this.options || this.options.length === 0)) {
+                    label = this.placeholder;
+                } else if (isNotEmpty(this.maxSelectedLabels) && this.d_value.length > this.maxSelectedLabels) {
                     return this.getSelectedItemsLabel();
                 } else {
                     label = '';

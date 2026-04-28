@@ -6,7 +6,7 @@
                     :value="tokens[i - 1]"
                     :type="inputType"
                     :class="cx('pcInputText')"
-                    :name="$formName"
+                    :name="$formName ? $formName + '_' + (i - 1) : undefined"
                     :inputmode="inputMode"
                     :variant="variant"
                     :readonly="readonly"
@@ -175,6 +175,10 @@ export default {
             }
         },
         onPaste(event) {
+            if (this.readonly || this.disabled) {
+                return;
+            }
+
             let paste = event.clipboardData.getData('text');
 
             if (paste.length) {

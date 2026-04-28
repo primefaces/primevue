@@ -155,6 +155,11 @@ export default {
     hostName: 'DataTable',
     extends: BaseComponent,
     emits: ['cell-edit-init', 'cell-edit-complete', 'cell-edit-cancel', 'row-edit-init', 'row-edit-save', 'row-edit-cancel', 'row-toggle', 'radio-change', 'checkbox-change', 'editing-meta-change'],
+    inject: {
+        $pcDataTable: {
+            default: undefined
+        }
+    },
     props: {
         rowData: {
             type: Object,
@@ -308,7 +313,7 @@ export default {
         bindDocumentEditListener() {
             if (!this.documentEditListener) {
                 this.documentEditListener = (event) => {
-                    this.selfClick = this.$el && this.$el.contains(event.target);
+                    this.selfClick = this.$el && (this.$el.contains(event.target) || event.target.closest('[data-pc-section="overlay"]') || event.target.closest('[data-pc-section="panel"]'));
 
                     if (this.editCompleteTimeout) {
                         clearTimeout(this.editCompleteTimeout);
@@ -546,7 +551,7 @@ export default {
             return this.columnProp('frozen') ? [columnStyle, bodyStyle, this.styleObject] : [columnStyle, bodyStyle];
         },
         loading() {
-            return this.getVirtualScrollerProp('loading');
+            return this.column.children?.loading && (this.getVirtualScrollerProp('loading') || this.$pcDataTable?.loading);
         },
         loadingOptions() {
             const getLoaderOptions = this.getVirtualScrollerProp('getLoaderOptions');

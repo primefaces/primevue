@@ -191,6 +191,14 @@ const FilterService = {
                 return false;
             }
 
+            if (typeof value === 'string') {
+                value = new Date(value);
+            }
+
+            if (typeof filter === 'string') {
+                filter = new Date(filter);
+            }
+
             return value.toDateString() === filter.toDateString();
         },
         dateIsNot(value, filter) {
@@ -200,6 +208,14 @@ const FilterService = {
 
             if (value === undefined || value === null) {
                 return false;
+            }
+
+            if (typeof value === 'string') {
+                value = new Date(value);
+            }
+
+            if (typeof filter === 'string') {
+                filter = new Date(filter);
             }
 
             return value.toDateString() !== filter.toDateString();
@@ -213,6 +229,14 @@ const FilterService = {
                 return false;
             }
 
+            if (typeof value === 'string') {
+                value = new Date(value);
+            }
+
+            if (typeof filter === 'string') {
+                filter = new Date(filter);
+            }
+
             return value.getTime() < filter.getTime();
         },
         dateAfter(value, filter) {
@@ -222,6 +246,14 @@ const FilterService = {
 
             if (value === undefined || value === null) {
                 return false;
+            }
+
+            if (typeof value === 'string') {
+                value = new Date(value);
+            }
+
+            if (typeof filter === 'string') {
+                filter = new Date(filter);
             }
 
             return value.getTime() > filter.getTime();
