@@ -143,6 +143,7 @@ export default {
             }
 
             this.visible = false;
+            this.confirmation = null;
         },
         reject() {
             if (this.confirmation.reject) {
@@ -150,6 +151,7 @@ export default {
             }
 
             this.visible = false;
+            this.confirmation = null;
         },
         onHide() {
             if (this.confirmation.onHide) {
@@ -157,6 +159,7 @@ export default {
             }
 
             this.visible = false;
+            this.confirmation = null;
         },
         onAcceptKeydown(event) {
             if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
