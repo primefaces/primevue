@@ -53,8 +53,7 @@ export default defineNuxtModule<ModuleOptions>({
         const hasTheme = options?.theme !== 'none' && (importTheme || options?.theme) && !options?.unstyled;
 
         nuxt.options.runtimeConfig.public.primevue = {
-            ...moduleOptions,
-            ...registered
+            ...moduleOptions
         };
 
         //nuxt.options.build.transpile.push('nuxt');
