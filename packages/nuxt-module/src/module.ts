@@ -129,7 +129,21 @@ export default defineNuxtPlugin((nuxtApp) => {
     Theme.clearLoadedStyleNames();
     const collected = new Map();
     nuxtApp.ssrContext.event.context._primevueStyles = collected;
-    ssrCollect = { _styleCollect: (name, css) => collected.set(name, css) };
+    ssrCollect = {
+      // \`first: true\` mirrors useStyle's prepend path — 'layer-order' must
+      // reach the SSR HTML before any @layer primevue {} block, otherwise
+      // CSS first-mention semantics lock primevue in as the lowest layer.
+      _styleCollect: (name, css, opts) => {
+        if (opts && opts.first) {
+          const rest = Array.from(collected.entries()).filter(([k]) => k !== name);
+          collected.clear();
+          collected.set(name, css);
+          for (const [k, v] of rest) collected.set(k, v);
+        } else {
+          collected.set(name, css);
+        }
+      }
+    };
   }
 
   usePrimeVue && vueApp.use(PrimeVue, { ...options, ...pt, ...theme, ...ssrCollect });

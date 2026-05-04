@@ -41,7 +41,7 @@ export default {
             const css = minifyCSS(computedStyle);
 
             if (options._styleCollect) {
-                options._styleCollect(options.name || this.name, css);
+                options._styleCollect(options.name || this.name, css, options);
 
                 return {};
             }
