@@ -379,7 +379,7 @@ export default {
             }
         },
         onUpButtonKeyDown(event) {
-            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
+            if (event.key === 'Space' || event.key === 'Enter' || event.code === 'NumpadEnter') {
                 this.repeat(event, null, 1);
             }
         },
@@ -406,7 +406,7 @@ export default {
             }
         },
         onDownButtonKeyDown(event) {
-            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'NumpadEnter') {
+            if (event.key === 'Space' || event.key === 'Enter' || event.code === 'NumpadEnter') {
                 this.repeat(event, null, -1);
             }
         },
@@ -441,7 +441,9 @@ export default {
             let selectionRange = selectionEnd - selectionStart;
             let inputValue = event.target.value;
             let newValueStr = null;
-            const code = event.code || event.key;
+
+            // Will be empty string on Android and some ChromeOS devices
+            const code = event.code === '' ? event.key : (event.code ?? event.key);
 
             switch (code) {
                 case 'ArrowUp':
@@ -604,7 +606,7 @@ export default {
             let isDecimalSign = this.isDecimalSign(char);
             const isMinusSign = this.isMinusSign(char);
 
-            if (event.code !== 'Enter') {
+            if (event.key !== 'Enter') {
                 event.preventDefault();
             }
 
