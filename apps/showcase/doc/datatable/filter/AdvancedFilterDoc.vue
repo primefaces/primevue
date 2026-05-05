@@ -54,7 +54,7 @@
                         </div>
                     </template>
                     <template #filter="{ filterModel }">
-                        <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any">
+                        <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" appendTo="self">
                             <template #option="slotProps">
                                 <div class="flex items-center gap-2">
                                     <img :alt="slotProps.option.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${slotProps.option.image}`" style="width: 32px" />
@@ -85,7 +85,7 @@
                         <Tag :value="data.status" :severity="getSeverity(data.status)" />
                     </template>
                     <template #filter="{ filterModel }">
-                        <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" showClear>
+                        <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" showClear appendTo="self">
                             <template #option="slotProps">
                                 <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
                             </template>
@@ -195,7 +195,7 @@ export default {
             </div>
         </template>
         <template #filter="{ filterModel }">
-            <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any">
+            <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" appendTo="self">
                 <template #option="slotProps">
                     <div class="flex items-center gap-2">
                         <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
@@ -226,7 +226,7 @@ export default {
             <Tag :value="data.status" :severity="getSeverity(data.status)" />
         </template>
         <template #filter="{ filterModel }">
-            <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" showClear>
+            <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" showClear appendTo="self">
                 <template #option="slotProps">
                     <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
                 </template>
@@ -310,7 +310,7 @@ export default {
                     </div>
                 </template>
                 <template #filter="{ filterModel }">
-                    <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any">
+                    <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" appendTo="self">
                         <template #option="slotProps">
                             <div class="flex items-center gap-2">
                                 <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
@@ -341,7 +341,7 @@ export default {
                     <Tag :value="data.status" :severity="getSeverity(data.status)" />
                 </template>
                 <template #filter="{ filterModel }">
-                    <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" showClear>
+                    <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" showClear appendTo="self">
                         <template #option="slotProps">
                             <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
                         </template>
@@ -517,7 +517,7 @@ export default {
                     </div>
                 </template>
                 <template #filter="{ filterModel }">
-                    <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any">
+                    <MultiSelect v-model="filterModel.value" :options="representatives" optionLabel="name" placeholder="Any" appendTo="self">
                         <template #option="slotProps">
                             <div class="flex items-center gap-2">
                                 <img :alt="slotProps.option.name" :src="\`https://primefaces.org/cdn/primevue/images/avatar/\${slotProps.option.image}\`" style="width: 32px" />
@@ -548,7 +548,7 @@ export default {
                     <Tag :value="data.status" :severity="getSeverity(data.status)" />
                 </template>
                 <template #filter="{ filterModel }">
-                    <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" showClear>
+                    <Select v-model="filterModel.value" :options="statuses" placeholder="Select One" showClear appendTo="self">
                         <template #option="slotProps">
                             <Tag :value="slotProps.option" :severity="getSeverity(slotProps.option)" />
                         </template>
