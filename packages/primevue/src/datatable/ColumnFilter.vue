@@ -539,9 +539,7 @@ export default {
             this.bindResizeListener();
 
             this.overlayEventListener = (e) => {
-                if (!this.isOutsideClicked(e.target)) {
-                    this.selfClick = true;
-                }
+                this.selfClick = true;
             };
 
             OverlayEventBus.on('overlay-click', this.overlayEventListener);
@@ -567,7 +565,8 @@ export default {
             this.overlay = el;
         },
         isOutsideClicked(target) {
-            return !this.isTargetClicked(target) && this.overlay && !(this.overlay.isSameNode(target) || this.overlay.contains(target));
+            const insideAnyOverlay = target.closest('[data-pc-section="panel"], [data-pc-section="overlay"]');
+            return !this.isTargetClicked(target) && this.overlay && !(this.overlay.isSameNode(target) || this.overlay.contains(target)) && !insideAnyOverlay;
         },
         isTargetClicked(target) {
             return this.$refs.icon && (this.$refs.icon.$el.isSameNode(target) || this.$refs.icon.$el.contains(target));
@@ -578,8 +577,9 @@ export default {
                     if (this.overlayVisible && !this.selfClick && this.isOutsideClicked(event.target)) {
                         this.overlayVisible = false;
                     }
-
-                    this.selfClick = false;
+                    setTimeout(() => {
+                        this.selfClick = false;
+                    }, 0);
                 };
 
                 document.addEventListener('click', this.outsideClickListener, true);
