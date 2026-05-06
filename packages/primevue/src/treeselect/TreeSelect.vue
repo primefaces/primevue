@@ -448,6 +448,10 @@ export default {
             });
 
             this.selfClick = true;
+
+            setTimeout(() => {
+                this.selfClick = false;
+            }, 0);
         },
         onOverlayKeydown(event) {
             if (event.code === 'Escape') this.hide();
