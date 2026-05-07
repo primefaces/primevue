@@ -3,7 +3,7 @@
         <component v-if="templates.container" :is="templates.container" :message="message" :closeCallback="onCloseClick" />
         <div v-else :class="[cx('messageContent'), message.contentStyleClass]" v-bind="ptm('messageContent')">
             <template v-if="!templates.message">
-                <component :is="templates.messageicon ? templates.messageicon : templates.icon ? templates.icon : iconComponent && iconComponent.name ? iconComponent : 'span'" :class="cx('messageIcon')" v-bind="ptm('messageIcon')" />
+                <component :is="templates.messageicon ? templates.messageicon : templates.icon ? templates.icon : iconComponent && iconComponent.name ? iconComponent : 'span'" :class="cx('messageIcon')" :message="message" v-bind="ptm('messageIcon')" />
                 <div :class="cx('messageText')" :data-p="dataP" v-bind="ptm('messageText')">
                     <span :class="cx('summary')" :data-p="dataP" v-bind="ptm('summary')">{{ message.summary }}</span>
                     <div v-if="message.detail" :class="cx('detail')" :data-p="dataP" v-bind="ptm('detail')">{{ message.detail }}</div>
