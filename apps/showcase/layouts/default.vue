@@ -1,6 +1,6 @@
 <template>
     <div :class="containerClass" :data-p-theme="$appState.theme">
-        <AppNews />
+        <!--<AppNews />-->
         <AppTopBar @menubutton-click="onMenuButtonClick" />
         <Transition name="px-modal">
             <div v-if="sidebarActive" class="layout-mask" @click="onMaskClick"></div>
