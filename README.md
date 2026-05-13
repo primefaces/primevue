@@ -6,6 +6,8 @@
 
 # PrimeVue MonoRepo
 
+English | [中文](./README.zh-CN.md)
+
 PrimeVue is a rich set of open source UI Components for Vue. See [PrimeVue homepage](https://primevue.org/) for live showcase and documentation.
 
 ## Packages
