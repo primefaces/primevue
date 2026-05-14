@@ -355,6 +355,8 @@ export default {
             });
         },
         propagateDown(node, check, selectionKeys) {
+            if (node.selectable === false) return;
+
             if (check) selectionKeys[this.nodeKey(node)] = { checked: true, partialChecked: false };
             else delete selectionKeys[this.nodeKey(node)];
 
@@ -369,20 +371,21 @@ export default {
             let _selectionKeys = { ...event.selectionKeys };
             let checkedChildCount = 0;
             let childPartialSelected = false;
+            let selectableChildren = this.node.children.filter((child) => child.selectable !== false);
 
-            for (let child of this.node.children) {
+            for (let child of selectableChildren) {
                 if (_selectionKeys[this.nodeKey(child)] && _selectionKeys[this.nodeKey(child)].checked) checkedChildCount++;
                 else if (_selectionKeys[this.nodeKey(child)] && _selectionKeys[this.nodeKey(child)].partialChecked) childPartialSelected = true;
             }
 
-            if (check && checkedChildCount === this.node.children.length) {
+            if (check && checkedChildCount === selectableChildren.length && selectableChildren.length > 0) {
                 _selectionKeys[this.nodeKey(this.node)] = { checked: true, partialChecked: false };
             } else {
                 if (!check) {
                     delete _selectionKeys[this.nodeKey(this.node)];
                 }
 
-                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length)) _selectionKeys[this.nodeKey(this.node)] = { checked: false, partialChecked: true };
+                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== selectableChildren.length)) _selectionKeys[this.nodeKey(this.node)] = { checked: false, partialChecked: true };
                 else _selectionKeys[this.nodeKey(this.node)] = { checked: false, partialChecked: false };
             }
 
@@ -397,20 +400,21 @@ export default {
             let _selectionKeys = { ...event.selectionKeys };
             let checkedChildCount = 0;
             let childPartialSelected = false;
+            let selectableChildren = this.node.children.filter((child) => child.selectable !== false);
 
-            for (let child of this.node.children) {
+            for (let child of selectableChildren) {
                 if (_selectionKeys[this.nodeKey(child)] && _selectionKeys[this.nodeKey(child)].checked) checkedChildCount++;
                 else if (_selectionKeys[this.nodeKey(child)] && _selectionKeys[this.nodeKey(child)].partialChecked) childPartialSelected = true;
             }
 
-            if (check && checkedChildCount === this.node.children.length) {
+            if (check && checkedChildCount === selectableChildren.length && selectableChildren.length > 0) {
                 _selectionKeys[this.nodeKey(this.node)] = { checked: true, partialChecked: false };
             } else {
                 if (!check) {
                     delete _selectionKeys[this.nodeKey(this.node)];
                 }
 
-                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== this.node.children.length)) _selectionKeys[this.nodeKey(this.node)] = { checked: false, partialChecked: true };
+                if (childPartialSelected || (checkedChildCount > 0 && checkedChildCount !== selectableChildren.length)) _selectionKeys[this.nodeKey(this.node)] = { checked: false, partialChecked: true };
                 else _selectionKeys[this.nodeKey(this.node)] = { checked: false, partialChecked: false };
             }
 
