@@ -52,6 +52,9 @@ export default {
             if (newValue !== oldValue) {
                 this.updateValue();
             }
+        },
+        d_value(newValue) {
+            this.updateValue(false);
         }
     },
     mounted() {
