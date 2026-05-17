@@ -480,6 +480,7 @@ export default {
             if (this.$el) {
                 if (this.d_value == null) {
                     this.$el.value = '';
+                    this.clearBuffer(0, this.len);
                     updateModel && this.updateModelValue('');
                 } else {
                     this.$el.value = this.d_value;
