@@ -70,7 +70,8 @@ export default {
     data() {
         return {
             visible: false,
-            confirmation: null
+            confirmation: null,
+            closing: false
         };
     },
     mounted() {
@@ -81,6 +82,7 @@ export default {
 
             if (options.group === this.group) {
                 this.confirmation = options;
+                this.closing = false;
 
                 if (this.confirmation.onShow) {
                     this.confirmation.onShow();
@@ -104,6 +106,12 @@ export default {
     },
     methods: {
         accept() {
+            if (this.closing) {
+                return;
+            }
+
+            this.closing = true;
+
             if (this.confirmation.accept) {
                 this.confirmation.accept();
             }
@@ -111,6 +119,12 @@ export default {
             this.visible = false;
         },
         reject() {
+            if (this.closing) {
+                return;
+            }
+
+            this.closing = true;
+
             if (this.confirmation.reject) {
                 this.confirmation.reject();
             }
