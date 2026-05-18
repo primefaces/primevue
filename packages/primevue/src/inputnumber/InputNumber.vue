@@ -704,11 +704,18 @@ export default {
 
             if (sign.isMinusSign) {
                 const isNewMinusSign = minusCharIndex === -1;
+                const prefixLength = (this.prefixChar || '').length;
 
-                if (selectionStart === 0 || selectionStart === currencyCharIndex + 1) {
+                if (selectionStart === 0 || selectionStart === currencyCharIndex + 1 || (isNewMinusSign && prefixLength > 0 && selectionStart === prefixLength)) {
                     newValueStr = inputValue;
 
-                    if (isNewMinusSign || selectionEnd !== 0) {
+                    if (isNewMinusSign) {
+                        if (prefixLength > 0 && selectionStart === prefixLength) {
+                            newValueStr = '-' + inputValue;
+                        } else {
+                            newValueStr = this.insertText(inputValue, text, 0, selectionEnd);
+                        }
+                    } else if (selectionEnd !== 0) {
                         newValueStr = this.insertText(inputValue, text, 0, selectionEnd);
                     }
 
