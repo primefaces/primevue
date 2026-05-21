@@ -18,17 +18,19 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         steps:
             - name: Verify Linked Issue
-              uses: hattan/verify-linked-issue-action@v1.1.5
+              uses: hattan/verify-linked-issue-action@2d8e2e47a462cc7b07ba5e6cab6f9d57bd36672e # v1.1.5
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
                   message: 'Thanks a lot for your contribution! But, PR does not seem to be linked to any issues. Please [manually link to an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-or-branch-to-an-issue-using-the-issue-sidebar) or mention it in the description using #<issue_id>.'
 
-            - uses: actions/checkout@v4
-            - uses: pnpm/action-setup@v4
+            - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+              with:
+                persist-credentials: false
+            - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
               with:
                   version: 9.6.0
-            - uses: actions/setup-node@v4
+            - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
               with:
                   node-version: 18
                   cache: 'pnpm'
@@ -57,26 +59,26 @@ jobs:
 
             - name: Add Code Format Fail Comment
               if: always() && steps.codeFormat.outcome == 'failure'
-              uses: thollander/actions-comment-pull-request@v1
+              uses: thollander/actions-comment-pull-request@8a3fad13c20088e9eb0805666b9fe49509d2fec8 # v1
               with:
                   message: |
                       Thanks a lot for your contribution! But, PR does not seem to fit our code format standards. Please run the 'npm run format' command and commit the changes.
 
             - name: Add Unit Test Fail Comment
               if: always() && steps.unitTest.outcome == 'failure'
-              uses: thollander/actions-comment-pull-request@v2
+              uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2
               with:
                   message: |
                       Thanks a lot for your contribution! But, Unit tests failed. You can check the unit tests with the command 'npm run test:unit' and commit the changes.
 
             - name: Add Label
               if: ${{ failure() }}
-              uses: actions-ecosystem/action-add-labels@v1
+              uses: actions-ecosystem/action-add-labels@18f1af5e3544586314bbe15c0273249c770b2daf # v1
               with:
                   labels: 'Resolution: Needs Revision'
 
             - name: Remove Label
-              uses: actions-ecosystem/action-remove-labels@v1
+              uses: actions-ecosystem/action-remove-labels@2ce5d41b4b6aa8503e285553f75ed56e0a40bae0 # v1
               if: ${{ success() }}
               with:
                   labels: 'Resolution: Needs Revision'
