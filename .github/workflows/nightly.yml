@@ -15,11 +15,14 @@ jobs:
 
         strategy:
             matrix:
-                node-version: [18, 20]
+                node-version: [18, 20, 22, 24]
+            fail-fast: false
 
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
+              with:
+                  persist-credentials: false
 
             - name: Install pnpm
               uses: pnpm/action-setup@v4
