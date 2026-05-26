@@ -1969,7 +1969,7 @@ export default {
                 throw 'Invalid Time';
             }
 
-            this.pm = ampm.toLowerCase() === this.$primevue.config.locale.pm.toLowerCase() || ampm.toLowerCase() === 'pm';
+            this.pm = !!ampm && (ampm.toLowerCase() === this.$primevue.config.locale.pm.toLowerCase() || ampm.toLowerCase() === 'pm');
             let time = this.parseTime(timeString);
 
             value.setHours(time.hour);
