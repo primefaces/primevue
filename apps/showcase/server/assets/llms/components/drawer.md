@@ -636,7 +636,7 @@ const visible = ref(false);
 | showCloseIcon    | boolean                                                        | true    | Whether to display a close icon inside the panel.                          |
 | closeButtonProps | object                                                         | -       | Used to pass the custom value to read for the button inside the component. |
 | closeIcon        | string                                                         | -       | Icon to display in the drawer close button.                                |
-| modal            | boolean                                                        | true    | Whether to a modal layer behind the drawer.                                |
+| modal            | boolean                                                        | true    | Whether to display a modal layer behind the drawer.                                |
 | blockScroll      | boolean                                                        | false   | Whether background scroll should be blocked when drawer is visible.        |
 | dt               | any                                                            | -       | It generates scoped CSS variables using design tokens for the component.   |
 | pt               | PassThrough<DrawerPassThroughOptions>                          | -       | Used to pass attributes to DOM elements inside the component.              |

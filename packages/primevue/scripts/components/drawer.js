@@ -39,7 +39,7 @@ const DrawerProps = [
         name: 'modal',
         type: 'boolean',
         default: 'true',
-        description: 'Whether to a modal layer behind the sidebar.'
+        description: 'Whether to display a modal layer behind the drawer.'
     },
     {
         name: 'ariaCloseLabel',

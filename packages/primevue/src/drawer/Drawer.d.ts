@@ -172,7 +172,7 @@ export interface DrawerProps {
      */
     closeIcon?: string | undefined;
     /**
-     * Whether to a modal layer behind the drawer.
+     * Whether to display a modal layer behind the drawer.
      * @defaultValue true
      */
     modal?: boolean | undefined;
