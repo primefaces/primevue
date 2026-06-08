@@ -25,6 +25,10 @@ describe('Chip.vue', () => {
         expect(wrapper.find('.p-chip-remove-icon').exists()).toBe(true);
     });
 
+    it('should not set aria-label on root when label is visible', () => {
+        expect(wrapper.find('.p-chip.p-component').attributes('aria-label')).toBeUndefined();
+    });
+
     it('should close icon work', async () => {
         await wrapper.find('.p-chip-remove-icon').trigger('click');
 

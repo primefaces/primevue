@@ -1,5 +1,5 @@
 <template>
-    <div v-if="visible" :class="cx('root')" :aria-label="label" v-bind="ptmi('root')" :data-p="dataP">
+    <div v-if="visible" :class="cx('root')" v-bind="ptmi('root')" :data-p="dataP">
         <slot>
             <img v-if="image" :src="image" v-bind="ptm('image')" :class="cx('image')" />
             <component v-else-if="$slots.icon" :is="$slots.icon" :class="cx('icon')" v-bind="ptm('icon')" />
