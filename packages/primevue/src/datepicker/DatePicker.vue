@@ -1082,6 +1082,10 @@ export default {
             }
         },
         bindScrollListener() {
+            if (this.appendTo === 'self') {
+                return;
+            }
+
             if (!this.scrollHandler) {
                 this.scrollHandler = new ConnectedOverlayScrollHandler(this.$refs.container, () => {
                     if (this.overlayVisible) {
