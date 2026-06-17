@@ -15,8 +15,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: cannot replicate
-        uses: actions-cool/issues-helper@v3
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         with:
-          actions: "close-issues"
-          labels: "Resolution: Cannot Replicate"
-          inactive-day: 20
+          script: |
+            const label = "Resolution: Cannot Replicate";
+            const inactiveDays = 20;
+            const cutoff = Date.now() - inactiveDays * 24 * 60 * 60 * 1000;
+
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: label,
+              per_page: 100
+            });
+
+            for (const issue of issues) {
+              if (issue.pull_request) continue;
+              if (new Date(issue.updated_at).getTime() > cutoff) continue;
+
+              core.info(`Closing inactive issue #${issue.number}`);
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: "closed"
+              });
+            }
