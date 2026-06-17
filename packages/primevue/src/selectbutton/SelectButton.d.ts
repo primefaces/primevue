@@ -9,7 +9,7 @@
  */
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 // import { ToggleButtonPassThroughOptions } from 'primevue/togglebutton';
 import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 
@@ -120,7 +120,7 @@ export interface SelectButtonState {
 /**
  * Defines valid properties in SelectButton component.
  */
-export interface SelectButtonProps {
+export interface SelectButtonProps<T = any> {
     /**
      * Value of the component.
      */
@@ -136,19 +136,19 @@ export interface SelectButtonProps {
     /**
      * An array of selectitems to display as the available options.
      */
-    options?: any[] | undefined;
+    options?: T[] | undefined;
     /**
      * Property name or getter function to use as the label of an option.
      */
-    optionLabel?: string | ((data: any) => string) | undefined;
+    optionLabel?: string | ((data: T) => string) | undefined;
     /**
      * Property name or getter function to use as the value of an option, defaults to the option itself when not defined.
      */
-    optionValue?: string | ((data: any) => any) | undefined;
+    optionValue?: string | ((data: T) => any) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
      */
-    optionDisabled?: string | ((data: any) => boolean) | undefined;
+    optionDisabled?: string | ((data: T) => boolean) | undefined;
     /**
      * When specified, allows selecting multiple values.
      * @defaultValue false
@@ -214,7 +214,7 @@ export interface SelectButtonProps {
 /**
  * Defines valid slots in SelectButton component.
  */
-export interface SelectButtonSlots {
+export interface SelectButtonSlots<T = any> {
     /**
      * Custom content for each option.
      * @param {Object} scope - option slot's params.
@@ -223,7 +223,7 @@ export interface SelectButtonSlots {
         /**
          * Option instance
          */
-        option: any;
+        option: T;
         /**
          * Index of the option
          */
@@ -275,11 +275,19 @@ export declare type SelectButtonEmits = EmitFn<SelectButtonEmitsOptions>;
  * @group Component
  *
  */
-declare const SelectButton: DefineComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits>;
+declare const SelectButton: {
+    new <T = any>(
+        props: SelectButtonProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps
+    ): {
+        $props: SelectButtonProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: SelectButtonSlots<T>;
+        $emit: SelectButtonEmits;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        SelectButton: DefineComponent<SelectButtonProps, SelectButtonSlots, SelectButtonEmits>;
+        SelectButton: typeof SelectButton;
     }
 }
 
