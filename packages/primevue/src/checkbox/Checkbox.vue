@@ -41,6 +41,12 @@ export default {
     name: 'Checkbox',
     extends: BaseCheckbox,
     inheritAttrs: false,
+    props: {
+        indeterminateReadOnly: {
+            type: Boolean,
+            default: false
+        }
+    },
     emits: ['change', 'focus', 'blur', 'update:indeterminate'],
     inject: {
         $pcCheckboxGroup: {
@@ -89,7 +95,7 @@ export default {
                     else newModelValue = value ? [...value, this.value] : [this.value];
                 }
 
-                if (this.d_indeterminate) {
+                if (this.indeterminateReadOnly === false && this.d_indeterminate) {
                     this.d_indeterminate = false;
                     this.$emit('update:indeterminate', this.d_indeterminate);
                 }
