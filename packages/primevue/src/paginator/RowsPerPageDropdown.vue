@@ -9,6 +9,7 @@
         :disabled="disabled"
         :unstyled="unstyled"
         :pt="ptm('pcRowPerPageDropdown')"
+        :appendTo="appendTo"
         data-pc-group-section="pagedropdown"
     >
         <template v-if="templates['rowsperpagedropdownicon']" #dropdownicon="slotProps">
@@ -30,7 +31,11 @@ export default {
         options: Array,
         rows: Number,
         disabled: Boolean,
-        templates: null
+        templates: null,
+        appendTo: {
+            type: [String, Object],
+            default: 'body'
+        }
     },
     methods: {
         onChange(value) {

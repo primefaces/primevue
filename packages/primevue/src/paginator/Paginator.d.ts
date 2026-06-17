@@ -7,7 +7,7 @@
  * @module paginator
  *
  */
-import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevue/core';
+import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { DropdownPassThroughOptions } from 'primevue/dropdown';
 import type { InputNumberPassThroughOptions } from 'primevue/inputnumber';
@@ -270,6 +270,16 @@ export interface PaginatorProps {
      * @defaultValue true
      */
     alwaysShow?: boolean | undefined;
+    /**
+     * A valid query selector or an HTMLElement to specify where the rows per page dropdown overlay gets appended.
+     * @defaultValue body
+     */
+    rowsPerPageDropdownAppendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
+    /**
+     * A valid query selector or an HTMLElement to specify where the jump to page dropdown overlay gets appended.
+     * @defaultValue body
+     */
+    jumpToPageDropdownAppendTo?: HintedString<'body' | 'self'> | undefined | HTMLElement;
     /**
      * It generates scoped CSS variables using design tokens for the component.
      */
