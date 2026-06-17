@@ -6,9 +6,14 @@
  * @todo 'use' is not a valid name for a module. Next release will change.
  */
 import type { ToastMessageOptions } from 'primevue/toast';
-import { Plugin } from 'vue';
+import type { App } from 'vue';
 
-declare const plugin: Plugin;
+export type ToastServiceOptions = Partial<ToastMessageOptions>;
+
+declare const plugin: {
+    install(app: App, options?: ToastServiceOptions): void;
+};
+
 export default plugin;
 
 /**
@@ -37,6 +42,15 @@ export interface ToastServiceMethods {
      * Clears all the messages.
      */
     removeAllGroups(): void;
+    /**
+     * Sets default options for the toast service.
+     * @param {ToastServiceOptions} opts - Options to merge with defaults.
+     */
+    setOptions(opts: ToastServiceOptions): void;
+    /**
+     * Returns the current default options.
+     */
+    getOptions(): ToastServiceOptions;
 }
 
 declare module 'vue' {
