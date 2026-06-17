@@ -1,6 +1,6 @@
 <template>
     <DocSectionText v-bind="$attrs">
-        <p>Multiple messages are displayed by passing an array to the <i>show</i> method.</p>
+        <p>Multiple messages can be displayed by calling the <i>add</i> method repeatedly.</p>
     </DocSectionText>
     <div class="card flex justify-center">
         <Button label="Multiple" @click="showMultiple()" />
