@@ -351,7 +351,7 @@ export default {
             return { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadStyle: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
         },
         $styleOptions() {
-            return { nonce: this.$primevueConfig?.csp?.nonce };
+            return { nonce: this.$primevueConfig?.csp?.nonce, styleContainer: this.$primevueConfig?.styleContainer };
         },
         $primevueConfig() {
             return this.$primevue?.config;

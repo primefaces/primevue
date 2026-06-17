@@ -7,6 +7,7 @@ export interface PrimeVueConfiguration {
      */
     inputStyle?: 'filled' | 'outlined' | undefined;
     inputVariant?: 'filled' | 'outlined' | undefined;
+    styleContainer?: HTMLElement | ShadowRoot;
     locale?: PrimeVueLocaleOptions;
     filterMatchModeOptions?: any;
     zIndex?: PrimeVueZIndexOptions;
