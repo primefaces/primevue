@@ -19,6 +19,7 @@ export interface ModuleOptions {
     components?: ConstructsType;
     directives?: ConstructsType;
     composables?: Omit<ConstructsType, 'prefix'>;
+    injectPluginManually?: boolean;
 }
 
 export interface PrimeVueOptions extends PrimeVueConfiguration {}
