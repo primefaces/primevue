@@ -26,6 +26,7 @@ import MonthPickerDoc from '@/doc/datepicker/MonthPickerDoc.vue';
 import MultipleDoc from '@/doc/datepicker/MultipleDoc.vue';
 import MultipleMonthsDoc from '@/doc/datepicker/MultipleMonthsDoc.vue';
 import RangeDoc from '@/doc/datepicker/RangeDoc.vue';
+import RangeWithMultipleMonthsDoc from '@/doc/datepicker/RangeWithMultipleMonthsDoc.vue';
 import SizesDoc from '@/doc/datepicker/SizesDoc.vue';
 import TimeDoc from '@/doc/datepicker/TimeDoc.vue';
 import YearPickerDoc from '@/doc/datepicker/YearPickerDoc.vue';
@@ -80,6 +81,11 @@ export default {
                     id: 'range',
                     label: 'Range',
                     component: RangeDoc
+                },
+                {
+                    id: 'rangewithmultiplemonths',
+                    label: 'Range with Multiple Months',
+                    component: RangeWithMultipleMonthsDoc
                 },
                 {
                     id: 'button',

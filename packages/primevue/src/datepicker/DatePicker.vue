@@ -1860,10 +1860,24 @@ export default {
             setTimeout(this.updateFocus, 0);
         },
         updateCurrentMetaData() {
+            // When preserveViewOnRangeStart is enabled and we're selecting the start date of a range
+            // with multiple months visible, don't update the view position to prevent jumping
+            const shouldPreserveView =
+                this.preserveViewOnRangeStart &&
+                this.isRangeSelection() &&
+                this.numberOfMonths > 1 &&
+                Array.isArray(this.rawValue) &&
+                this.rawValue.length >= 1 &&
+                this.rawValue[0] &&
+                !this.rawValue[1] &&
+                this.currentMonth !== null; // Only preserve if already initialized
+
             const viewDate = this.viewDate;
 
-            this.currentMonth = viewDate.getMonth();
-            this.currentYear = viewDate.getFullYear();
+            if (!shouldPreserveView) {
+                this.currentMonth = viewDate.getMonth();
+                this.currentYear = viewDate.getFullYear();
+            }
 
             if (this.showTime || this.timeOnly) {
                 let timeDate = viewDate;

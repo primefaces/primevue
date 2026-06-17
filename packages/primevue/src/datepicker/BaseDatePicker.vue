@@ -147,6 +147,10 @@ export default {
             type: Boolean,
             default: false
         },
+        preserveViewOnRangeStart: {
+            type: Boolean,
+            default: false
+        },
         timeSeparator: {
             type: String,
             default: ':'
