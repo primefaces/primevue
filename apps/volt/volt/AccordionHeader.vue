@@ -7,16 +7,16 @@
         }"
     >
         <template #toggleicon="{ active }">
-            <ChevronDownIcon v-if="active" />
-            <ChevronUpIcon v-else />
+            <ChevronUpIcon v-if="active" />
+            <ChevronDownIcon v-else />
         </template>
         <slot></slot>
     </AccordionHeader>
 </template>
 
 <script setup lang="ts">
-import ChevronUpIcon from '@primevue/icons/chevrondown';
-import ChevronDownIcon from '@primevue/icons/chevronup';
+import ChevronDownIcon from '@primevue/icons/chevrondown';
+import ChevronUpIcon from '@primevue/icons/chevronup';
 import AccordionHeader, { type AccordionHeaderPassThroughOptions, type AccordionHeaderProps } from 'primevue/accordionheader';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
