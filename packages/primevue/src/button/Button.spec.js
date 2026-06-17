@@ -10,7 +10,16 @@ describe('Button.vue', () => {
         });
 
         expect(wrapper.find('.p-button.p-component').exists()).toBe(true);
+        expect(wrapper.find('.p-button-label').exists()).toBe(false);
+    });
+
+    it('should render label when label prop is provided', () => {
+        const wrapper = mount(Button, {
+            props: { label: 'Submit' }
+        });
+
         expect(wrapper.find('.p-button-label').exists()).toBe(true);
+        expect(wrapper.find('.p-button-label').text()).toBe('Submit');
     });
 });
 
