@@ -22,6 +22,10 @@ export default {
             type: Boolean,
             default: false
         },
+        hideMinutes: {
+            type: Boolean,
+            default: false
+        },
         showOtherMonths: {
             type: Boolean,
             default: true

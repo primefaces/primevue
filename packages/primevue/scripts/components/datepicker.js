@@ -24,6 +24,12 @@ const DatePickerProps = [
         description: 'When enabled, displays the calendar as inline instead of an overlay.'
     },
     {
+        name: 'hideMinutes',
+        type: 'boolean',
+        default: 'false',
+        description: 'When enabled, hides the minutes input in the time picker.'
+    },
+    {
         name: 'showOtherMonths',
         type: 'boolean',
         default: 'true',
