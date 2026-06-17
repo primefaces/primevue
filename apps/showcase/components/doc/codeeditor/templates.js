@@ -37,7 +37,7 @@ const getVueApp = (props = {}, sourceType) => {
     let extFilesSource = extFiles ? extFiles[sourceType.language] : {};
     let element = '',
         imports = '',
-        themeSwitchCode = '';
+        themeSwitchCode;
 
     if (deps !== null && component !== null) {
         imports += `import ${component} from 'primevue/${component.toLowerCase()}';
