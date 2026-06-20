@@ -1,6 +1,6 @@
 <template>
     <component v-if="!asChild" :is="as" :class="cx('root')" role="presentation" :data-p-active="active" :data-p-disabled="isStepDisabled" :data-p="dataP" v-bind="getPTOptions('root')">
-        <button :id="id" :class="cx('header')" role="tab" type="button" :tabindex="isStepDisabled ? -1 : undefined" :aria-controls="ariaControls" :disabled="isStepDisabled" @click="onStepClick" :data-p="dataP" v-bind="getPTOptions('header')">
+        <button :id="id" :class="cx('header')" role="tab" type="button" :tabindex="isStepDisabled ? -1 : undefined" :disabled="isStepDisabled" @click="onStepClick" :data-p="dataP" v-bind="getPTOptions('header')">
             <span :class="cx('number')" :data-p="dataP" v-bind="getPTOptions('number')">{{ activeValue }}</span>
             <span :class="cx('title')" :data-p="dataP" v-bind="getPTOptions('title')">
                 <slot />
@@ -95,7 +95,6 @@ export default {
                     'aria-selected': this.active,
                     role: 'tab',
                     tabindex: this.disabled ? -1 : undefined,
-                    'aria-controls': this.ariaControls,
                     'data-pc-section': 'header',
                     disabled: this.isStepDisabled,
                     onClick: this.onStepClick
