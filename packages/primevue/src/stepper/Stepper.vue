@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" role="tablist" v-bind="ptmi('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')">
         <slot v-if="$slots.start" name="start" />
         <slot />
         <slot v-if="$slots.end" name="end" />

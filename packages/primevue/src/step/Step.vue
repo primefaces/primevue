@@ -1,5 +1,5 @@
 <template>
-    <component v-if="!asChild" :is="as" :class="cx('root')" :aria-current="active ? 'step' : undefined" role="presentation" :data-p-active="active" :data-p-disabled="isStepDisabled" :data-p="dataP" v-bind="getPTOptions('root')">
+    <component v-if="!asChild" :is="as" :class="cx('root')" role="presentation" :data-p-active="active" :data-p-disabled="isStepDisabled" :data-p="dataP" v-bind="getPTOptions('root')">
         <button :id="id" :class="cx('header')" role="tab" type="button" :tabindex="isStepDisabled ? -1 : undefined" :aria-controls="ariaControls" :disabled="isStepDisabled" @click="onStepClick" :data-p="dataP" v-bind="getPTOptions('header')">
             <span :class="cx('number')" :data-p="dataP" v-bind="getPTOptions('number')">{{ activeValue }}</span>
             <span :class="cx('title')" :data-p="dataP" v-bind="getPTOptions('title')">
@@ -84,7 +84,6 @@ export default {
             return {
                 root: {
                     role: 'presentation',
-                    'aria-current': this.active ? 'step' : undefined,
                     'data-pc-name': 'step',
                     'data-pc-section': 'root',
                     'data-p-disabled': this.isStepDisabled,
@@ -92,8 +91,10 @@ export default {
                 },
                 header: {
                     id: this.id,
+                    'aria-current': this.active ? 'step' : undefined,
+                    'aria-selected': this.active,
                     role: 'tab',
-                    taindex: this.disabled ? -1 : undefined,
+                    tabindex: this.disabled ? -1 : undefined,
                     'aria-controls': this.ariaControls,
                     'data-pc-section': 'header',
                     disabled: this.isStepDisabled,
