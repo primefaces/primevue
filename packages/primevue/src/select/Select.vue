@@ -296,7 +296,7 @@ export default {
         getPTOptions(key) {
             return this.ptm(key, {
                 context: {
-                    option: this.visibleOptions.findIndex((option) => this.isValidSelectedOption(option)),
+                    option: this.visibleOptions.find((option) => this.isValidSelectedOption(option)),
                     index: this.findSelectedOptionIndex(),
                     selected: true,
                     focused: false,
