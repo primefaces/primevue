@@ -1,5 +1,5 @@
 <template>
-    <RadioButton :modelValue="checked" :binary="true" :disabled="$attrs.disabled" :name="name" @change="onChange" :unstyled="unstyled" :pt="getColumnPT('pcRowRadiobutton')" />
+    <RadioButton :modelValue="checked" :binary="true" :disabled="disabled" :name="name" @change="onChange" :unstyled="unstyled" :pt="getColumnPT('pcRowRadiobutton')" />
 </template>
 
 <script>
@@ -20,6 +20,10 @@ export default {
         index: {
             type: Number,
             default: null
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
@@ -34,7 +38,7 @@ export default {
                 context: {
                     index: this.index,
                     checked: this.checked,
-                    disabled: this.$attrs.disabled
+                    disabled: this.disabled
                 }
             };
 
@@ -44,7 +48,7 @@ export default {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo:
         },
         onChange(event) {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 this.$emit('change', {
                     originalEvent: event,
                     data: this.value
