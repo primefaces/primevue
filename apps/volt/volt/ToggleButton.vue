@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </ToggleButton>
 </template>
 
 <script setup lang="ts">
-import ToggleButton, { type ToggleButtonPassThroughOptions, type ToggleButtonProps } from 'primevue/togglebutton';
+import ToggleButton, { type ToggleButtonPassThroughOptions, type ToggleButtonProps, type ToggleButtonSlots } from 'primevue/togglebutton';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ ToggleButtonProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ ToggleButtonSlots {}
+defineSlots<Slots>();
 
 const theme = ref<ToggleButtonPassThroughOptions>({
     root: `inline-flex items-center justify-center overflow-hidden relative cursor-pointer select-none

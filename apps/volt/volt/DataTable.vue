@@ -40,7 +40,7 @@
             <SpinnerIcon class="animate-spin text-[2rem] w-8 h-8" />
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </DataTable>
 </template>
@@ -51,13 +51,15 @@ import AngleDoubleRightIcon from '@primevue/icons/angledoubleright';
 import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
 import SpinnerIcon from '@primevue/icons/spinner';
-import DataTable, { type DataTablePassThroughOptions, type DataTableProps } from 'primevue/datatable';
+import DataTable, { type DataTablePassThroughOptions, type DataTableProps, type DataTableSlots } from 'primevue/datatable';
 import { ref } from 'vue';
 import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ DataTableProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ DataTableSlots {}
+defineSlots<Slots>();
 
 const theme = ref<DataTablePassThroughOptions>({
     root: `relative p-flex-scrollable:flex p-flex-scrollable:flex-col p-flex-scrollable:h-full`,

@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Button>
 </template>
 
 <script setup lang="ts">
-import Button, { type ButtonPassThroughOptions, type ButtonProps } from 'primevue/button';
+import Button, { type ButtonPassThroughOptions, type ButtonProps, type ButtonSlots } from 'primevue/button';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ ButtonProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ ButtonSlots {}
+defineSlots<Slots>();
 
 const theme = ref<ButtonPassThroughOptions>({
     root: `inline-flex cursor-pointer select-none items-center justify-center overflow-hidden relative

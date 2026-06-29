@@ -8,18 +8,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Menu>
 </template>
 
 <script setup lang="ts">
-import Menu, { type MenuPassThroughOptions, type MenuProps } from 'primevue/menu';
+import Menu, { type MenuPassThroughOptions, type MenuProps, type MenuSlots } from 'primevue/menu';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ MenuProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ MenuSlots {}
+defineSlots<Slots>();
 
 const theme = ref<MenuPassThroughOptions>({
     root: `bg-surface-0 dark:bg-surface-900 

@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </StepPanel>
 </template>
 
 <script setup lang="ts">
-import StepPanel, { type StepPanelPassThroughOptions, type StepPanelProps } from 'primevue/steppanel';
+import StepPanel, { type StepPanelPassThroughOptions, type StepPanelProps, type StepPanelSlots } from 'primevue/steppanel';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ StepPanelProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ StepPanelSlots {}
+defineSlots<Slots>();
 
 const theme = ref<StepPanelPassThroughOptions>({
     root: `bg-surface-0 dark:bg-surface-900 text-surface-700 dark:text-surface-0 p-vertical:flex p-vertical:flex-auto`,

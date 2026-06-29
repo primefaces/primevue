@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Inplace>
 </template>
 
 <script setup lang="ts">
-import Inplace, { type InplacePassThroughOptions, type InplaceProps } from 'primevue/inplace';
+import Inplace, { type InplacePassThroughOptions, type InplaceProps, type InplaceSlots } from 'primevue/inplace';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ InplaceProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ InplaceSlots {}
+defineSlots<Slots>();
 
 const theme = ref<InplacePassThroughOptions>({
     root: ``,
