@@ -2,7 +2,6 @@ import { addComponent, addImports } from '@nuxt/kit';
 import { isNotEmpty, isString, resolve } from '@primeuix/utils/object';
 import type { MetaType } from '@primevue/metadata';
 import { components, composables, directives } from '@primevue/metadata';
-import type { PrimeVueConfiguration } from 'primevue/config';
 import type { ConstructsType, ModuleOptions, ResolvePathOptions } from './types';
 import { Utils } from './utils';
 
@@ -102,8 +101,6 @@ function registerServices(resolvePath: any, registered: any) {
 }
 
 function registerStyles(resolvePath: any, registered: any, moduleOptions: ModuleOptions) {
-    const options: PrimeVueConfiguration = moduleOptions.options || {};
-
     const styles: MetaType[] = [
         {
             name: 'BaseStyle',
@@ -111,32 +108,6 @@ function registerStyles(resolvePath: any, registered: any, moduleOptions: Module
             from: resolvePath({ name: 'BaseStyle', as: 'BaseStyle', from: '@primevue/core/base/style', type: 'style' })
         }
     ];
-
-    if (!options?.unstyled) {
-        // !moduleOptions.autoImport && !options?.unstyled
-        if (isNotEmpty(registered?.components)) {
-            styles.push({
-                name: 'BaseComponentStyle',
-                as: 'BaseComponentStyle',
-                from: resolvePath({ name: 'BaseComponentStyle', as: 'BaseComponentStyle', from: '@primevue/core/basecomponent/style', type: 'style' })
-            });
-        }
-
-        [registered.components, registered.directives]
-            .flat()
-            .reduce((acc: any[], citem: any) => (acc.some((item) => item.as.toLowerCase() === citem.as.toLowerCase()) ? acc : [...acc, citem]), [])
-            .forEach((item: any) => {
-                if (item.from.toLowerCase().includes('badgedirective')) {
-                    return;
-                }
-
-                styles.push({
-                    name: `${item.as}Style`,
-                    as: `${item.as}Style`,
-                    from: resolvePath({ name: `${item.as}Style`, as: `${item.as}Style`, from: `${item.from.toLowerCase()}/style`, type: 'style' })
-                });
-            });
-    }
 
     return styles;
 }

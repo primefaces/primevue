@@ -82,6 +82,11 @@ export default {
     },
     created() {
         this._hook('onCreated');
+
+        // During SSR, beforeMount doesn't fire, so trigger full style loading here
+        if (this.$styleOptions._styleCollect) {
+            this._loadStyles();
+        }
     },
     beforeMount() {
         // @deprecated - remove in v5
@@ -351,7 +356,7 @@ export default {
             return { classes: undefined, inlineStyles: undefined, load: () => {}, loadCSS: () => {}, loadStyle: () => {}, ...(this._getHostInstance(this) || {}).$style, ...this.$options.style };
         },
         $styleOptions() {
-            return { nonce: this.$primevueConfig?.csp?.nonce };
+            return { nonce: this.$primevueConfig?.csp?.nonce, _styleCollect: this.$primevueConfig?._styleCollect };
         },
         $primevueConfig() {
             return this.$primevue?.config;
