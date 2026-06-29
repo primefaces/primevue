@@ -716,6 +716,430 @@ describe('DataTable.vue', () => {
         expect(wrapper.emitted()['update:selection'][0][0]).toEqual([]);
     });
 
+    it('should select range with shift+checkbox from first to last', async () => {
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: smallData,
+                selection: [],
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple" />
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                `
+            }
+        });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: false }, 
+            data: smallData[0], 
+            index: 0 
+        });
+
+        expect(wrapper.emitted()['update:selection'][0][0]).toEqual([smallData[0]]);
+
+        await wrapper.setProps({ selection: [smallData[0]] });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: smallData[2], 
+            index: 2 
+        });
+
+        const finalSelection = wrapper.emitted()['update:selection'][1][0];
+
+        expect(finalSelection.length).toBe(3);
+        expect(finalSelection.length).toBe(3);
+        expect(finalSelection).toEqual([smallData[0], smallData[1], smallData[2]]);
+    });
+
+    it('should select range with shift+checkbox from last to first', async () => {
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: smallData,
+                selection: [],
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple" />
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                `
+            }
+        });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: false }, 
+            data: smallData[2], 
+            index: 2 
+        });
+
+        await wrapper.setProps({ selection: [smallData[2]] });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: smallData[0], 
+            index: 0 
+        });
+
+        const finalSelection = wrapper.emitted()['update:selection'][1][0];
+
+        expect(finalSelection.length).toBe(3);
+        expect(finalSelection.length).toBe(3);
+        expect(finalSelection).toEqual([smallData[0], smallData[1], smallData[2]]);
+    });
+
+    it('should update range when shift+clicking different rows sequentially', async () => {
+        const testData = [
+            { id: '1', name: 'Item 1' },
+            { id: '2', name: 'Item 2' },
+            { id: '3', name: 'Item 3' },
+            { id: '4', name: 'Item 4' },
+            { id: '5', name: 'Item 5' }
+        ];
+        
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: testData,
+                selection: [],
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple" />
+                    <Column field="name" header="Name"></Column>
+                `
+            }
+        });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: false }, 
+            data: testData[0], 
+            index: 0 
+        });
+
+        let selection = wrapper.emitted()['update:selection'][0][0];
+
+        expect(selection).toEqual([testData[0]]);
+        await wrapper.setProps({ selection });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: testData[4], 
+            index: 4 
+        });
+
+        selection = wrapper.emitted()['update:selection'][1][0];
+
+        expect(selection.length).toBe(5);
+        expect(selection).toEqual([testData[0], testData[1], testData[2], testData[3], testData[4]]);
+        await wrapper.setProps({ selection });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: testData[2], 
+            index: 2 
+        });
+
+        selection = wrapper.emitted()['update:selection'][2][0];
+
+        expect(selection.length).toBe(3);
+        expect(selection).toEqual([testData[0], testData[1], testData[2]]);
+    });
+
+    it('should handle shift+checkbox when anchor is not set', async () => {
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: smallData,
+                selection: [],
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple" />
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                `
+            }
+        });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: smallData[1], 
+            index: 1 
+        });
+
+        const selection = wrapper.emitted()['update:selection'][0][0];
+
+        expect(selection.length).toBe(1);
+        expect(selection).toEqual([smallData[1]]);
+    });
+
+    it('should emit correct events during shift+checkbox range selection', async () => {
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: smallData,
+                selection: [],
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple" />
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                `
+            }
+        });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: false }, 
+            data: smallData[0], 
+            index: 0 
+        });
+
+        expect(wrapper.emitted()['row-select'][0][0].type).toBe('checkbox');
+        expect(wrapper.emitted()['row-select'][0][0].data).toEqual(smallData[0]);
+
+        await wrapper.setProps({ selection: [smallData[0]] });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: smallData[2], 
+            index: 2 
+        });
+
+        const rowSelectEvents = wrapper.emitted()['row-select'];
+
+        expect(rowSelectEvents.length).toBeGreaterThanOrEqual(3);        
+        const rangeSelectEvents = rowSelectEvents.slice(1);
+
+        rangeSelectEvents.forEach(event => {
+            expect(event[0].type).toBe('checkbox');
+        });
+    });
+
+    it('should handle checkbox already selected in range', async () => {
+        const testData = [
+            { id: '1', name: 'Item 1' },
+            { id: '2', name: 'Item 2' },
+            { id: '3', name: 'Item 3' },
+            { id: '4', name: 'Item 4' },
+            { id: '5', name: 'Item 5' }
+        ];
+        
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: testData,
+                selection: [],
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple" />
+                    <Column field="name" header="Name"></Column>
+                `
+            }
+        });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: false }, 
+            data: testData[0], 
+            index: 0 
+        });
+
+        let selection = wrapper.emitted()['update:selection'][0][0];
+
+        expect(selection).toEqual([testData[0]]);
+        await wrapper.setProps({ selection });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: testData[4], 
+            index: 4 
+        });
+
+        selection = wrapper.emitted()['update:selection'][1][0];
+
+        expect(selection.length).toBe(5);
+        expect(selection).toEqual(testData);
+        await wrapper.setProps({ selection });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: testData[2], 
+            index: 2 
+        });
+
+        selection = wrapper.emitted()['update:selection'][2][0];
+
+        expect(selection.length).toBe(3);
+        expect(selection).toEqual([testData[0], testData[1], testData[2]]);
+    });
+
+    it('should maintain anchor when using shift+checkbox multiple times', async () => {
+        const testData = [
+            { id: '1', name: 'Item 1' },
+            { id: '2', name: 'Item 2' },
+            { id: '3', name: 'Item 3' },
+            { id: '4', name: 'Item 4' },
+            { id: '5', name: 'Item 5' }
+        ];
+        
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: testData,
+                selection: [],
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple" />
+                    <Column field="name" header="Name"></Column>
+                `
+            }
+        });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: false }, 
+            data: testData[1], 
+            index: 1 
+        });
+
+        let selection = wrapper.emitted()['update:selection'][0][0];
+
+        await wrapper.setProps({ selection });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: testData[3], 
+            index: 3 
+        });
+
+        selection = wrapper.emitted()['update:selection'][1][0];
+
+        expect(selection).toEqual([testData[1], testData[2], testData[3]]);
+        await wrapper.setProps({ selection });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: testData[4], 
+            index: 4 
+        });
+
+        selection = wrapper.emitted()['update:selection'][2][0];
+
+        expect(selection).toEqual([testData[1], testData[2], testData[3], testData[4]]);
+        await wrapper.setProps({ selection });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: testData[0], 
+            index: 0 
+        });
+
+        selection = wrapper.emitted()['update:selection'][3][0];
+
+        expect(selection).toEqual([testData[0], testData[1]]);
+    });
+
+    it('should update anchor when clicking without shift after range selection', async () => {
+        wrapper = mount(DataTable, {
+            global: {
+                plugins: [PrimeVue],
+                components: {
+                    Column
+                }
+            },
+            props: {
+                value: smallData,
+                selection: [],
+            },
+            slots: {
+                default: `
+                    <Column selectionMode="multiple" />
+                    <Column field="code" header="Code"></Column>
+                    <Column field="name" header="Name"></Column>
+                `
+            }
+        });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: false }, 
+            data: smallData[0], 
+            index: 0 
+        });
+
+        await wrapper.setProps({ selection: [smallData[0]] });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: smallData[2], 
+            index: 2 
+        });
+
+        let selection = wrapper.emitted()['update:selection'][1][0];
+
+        await wrapper.setProps({ selection });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: false }, 
+            data: smallData[1], 
+            index: 1 
+        });
+
+        selection = wrapper.emitted()['update:selection'][2][0];
+
+        await wrapper.setProps({ selection });
+
+        await wrapper.vm.toggleRowWithCheckbox({ 
+            originalEvent: { shiftKey: true }, 
+            data: smallData[2], 
+            index: 2 
+        });
+
+        selection = wrapper.emitted()['update:selection'][3][0];
+
+        expect(selection).toEqual([smallData[1], smallData[2]]);
+    });
+
     // scrolling
     it('should scrolling', async () => {
         await wrapper.setProps({ scrollable: true });
