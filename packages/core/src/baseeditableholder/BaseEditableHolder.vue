@@ -86,6 +86,12 @@ export default {
         }
     },
     formField: {},
+    beforeUnmount() {
+        // PATCHED: unregister field and clear form state on unmount
+        if (this.$formName) {
+            this.$pcForm?.unregister?.(this.$formName)
+        }
+    },
     methods: {
         writeValue(value, event) {
             if (this.controlled) {

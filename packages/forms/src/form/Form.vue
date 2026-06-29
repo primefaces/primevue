@@ -46,6 +46,7 @@ export default {
             submit,
             register,
             onSubmit,
+            unregister: $form.unregister, // PATCHED: expose unregister method to child form components
             onReset,
             ...omit($form, ['handleSubmit', 'handleReset'])
         };
