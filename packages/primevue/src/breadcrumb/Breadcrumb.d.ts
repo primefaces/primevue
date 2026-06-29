@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevu
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type BreadcrumbPassThroughOptionType = BreadcrumbPassThroughAttributes | ((options: BreadcrumbPassThroughMethodOptions) => BreadcrumbPassThroughAttributes | string) | string | null | undefined;
 
@@ -131,15 +131,15 @@ export interface BreadcrumbRouterBindProps {
 /**
  * Defines valid properties in Breadcrumb component.
  */
-export interface BreadcrumbProps {
+export interface BreadcrumbProps<T extends MenuItem = MenuItem> {
     /**
      * An array of menuitems.
      */
-    model?: MenuItem[] | undefined;
+    model?: T[] | undefined;
     /**
      * Configuration for the home icon.
      */
-    home?: MenuItem | undefined;
+    home?: T | undefined;
     /**
      * Defines a string value that labels an interactive element.
      */
@@ -172,7 +172,7 @@ export interface BreadcrumbProps {
 /**
  * Defines valid slots in Breadcrumb component.
  */
-export interface BreadcrumbSlots {
+export interface BreadcrumbSlots<T extends MenuItem = MenuItem> {
     /**
      * Custom item template.
      * @param {Object} scope - item slot's params.
@@ -181,7 +181,7 @@ export interface BreadcrumbSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Label property of the menuitem
          */
@@ -203,7 +203,7 @@ export interface BreadcrumbSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Style class of the item icon element.
          */
@@ -230,11 +230,19 @@ export declare type BreadcrumbEmits = EmitFn<BreadcrumbEmitsOptions>;
  * @group Component
  *
  */
-declare const Breadcrumb: DefineComponent<BreadcrumbProps, BreadcrumbSlots, BreadcrumbEmits>;
+declare const Breadcrumb: {
+    new <T extends MenuItem = MenuItem>(
+        props: BreadcrumbProps<T>
+    ): {
+        $props: BreadcrumbProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: BreadcrumbSlots<T>;
+        $emit: EmitFn<BreadcrumbEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Breadcrumb: DefineComponent<BreadcrumbProps, BreadcrumbSlots, BreadcrumbEmits>;
+        Breadcrumb: typeof Breadcrumb;
     }
 }
 

@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevu
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type StepsPassThroughOptionType = StepsPassThroughAttributes | ((options: StepsPassThroughMethodOptions) => StepsPassThroughAttributes | string) | string | null | undefined;
 
@@ -133,7 +133,7 @@ export interface StepsRouterBindProps {
 /**
  * Defines valid properties in Steps component.
  */
-export interface StepsProps {
+export interface StepsProps<T extends MenuItem = MenuItem> {
     /**
      * Unique identifier of the element.
      */
@@ -141,7 +141,7 @@ export interface StepsProps {
     /**
      * An array of menuitems.
      */
-    model?: MenuItem[] | undefined;
+    model?: T[] | undefined;
     /**
      * Whether the items are clickable or not.
      * @defaultValue true
@@ -176,7 +176,7 @@ export interface StepsProps {
 /**
  * Defines valid slots in Steps component.
  */
-export interface StepsSlots {
+export interface StepsSlots<T extends MenuItem = MenuItem> {
     /**
      * Custom item template.
      * @param {Object} scope - item slot's params.
@@ -185,7 +185,7 @@ export interface StepsSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Current active state of the menuitem
          */
@@ -224,11 +224,19 @@ export declare type StepsEmits = EmitFn<StepsEmitsOptions>;
  * @group Component
  *
  */
-declare const Steps: DefineComponent<StepsProps, StepsSlots, StepsEmits>;
+declare const Steps: {
+    new <T extends MenuItem = MenuItem>(
+        props: StepsProps<T>
+    ): {
+        $props: StepsProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: StepsSlots<T>;
+        $emit: EmitFn<StepsEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Steps: DefineComponent<StepsProps, StepsSlots, StepsEmits>;
+        Steps: typeof Steps;
     }
 }
 

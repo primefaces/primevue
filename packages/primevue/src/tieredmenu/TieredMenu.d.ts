@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } 
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { TransitionProps, VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, TransitionProps, VNode, VNodeProps } from 'vue';
 
 export declare type TieredMenuPassThroughOptionType<T = any> = TieredMenuPassThroughAttributes | ((options: TieredMenuPassThroughMethodOptions<T>) => TieredMenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -216,11 +216,11 @@ export interface TieredMenuRouterBindProps {
 /**
  * Defines valid properties in TieredMenuMenu component.
  */
-export interface TieredMenuProps {
+export interface TieredMenuProps<T extends MenuItem = MenuItem> {
     /**
      * An array of menuitems.
      */
-    model?: MenuItem[] | undefined;
+    model?: T[] | undefined;
     /**
      * Defines if menu would displayed as a popup.
      * @defaultValue false
@@ -287,7 +287,7 @@ export interface TieredMenuProps {
 /**
  * Defines valid slots in TieredMenuMenu component.
  */
-export interface TieredMenuSlots {
+export interface TieredMenuSlots<T extends MenuItem = MenuItem> {
     /**
      * Custom content for each item.
      * @param {Object} scope - item slot's params.
@@ -296,7 +296,7 @@ export interface TieredMenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Label property of the menuitem
          */
@@ -328,7 +328,7 @@ export interface TieredMenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Style class of the item icon element.
          */
@@ -413,11 +413,19 @@ export interface TieredMenuMethods {
  * @group Component
  *
  */
-declare const TieredMenu: DefineComponent<TieredMenuProps, TieredMenuSlots, TieredMenuEmits, TieredMenuMethods>;
+declare const TieredMenu: {
+    new <T extends MenuItem = MenuItem>(
+        props: TieredMenuProps<T>
+    ): {
+        $props: TieredMenuProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: TieredMenuSlots<T>;
+        $emit: EmitFn<TieredMenuEmitsOptions>;
+    } & TieredMenuMethods;
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TieredMenu: DefineComponent<TieredMenuProps, TieredMenuSlots, TieredMenuEmits, TieredMenuMethods>;
+        TieredMenu: typeof TieredMenu;
     }
 }
 
