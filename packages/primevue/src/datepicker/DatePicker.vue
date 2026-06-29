@@ -642,6 +642,21 @@ export default {
                 }
             }
         },
+        // FIX: sync rawValue and input display when d_value changes via Form initialValues
+        d_value: {
+            immediate: true,
+            handler(newValue) {
+                if (newValue === this.modelValue) return;
+                this.rawValue = typeof newValue === 'string' ? this.safeParse(newValue) : newValue;
+                this.updateCurrentMetaData();
+                if (!this.inline && this.input) {
+                    this.input.value = this.formatValue(this.rawValue);
+                }
+                if (this.$refs.clearIcon?.$el?.style) {
+                    this.$refs.clearIcon.$el.style.display = isEmpty(newValue) ? 'none' : 'block';
+                }
+            }
+        },
         showTime() {
             this.updateCurrentMetaData();
         },
