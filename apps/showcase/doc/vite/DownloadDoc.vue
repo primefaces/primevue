@@ -19,6 +19,9 @@ yarn add primevue @primeuix/themes
 
 # Using pnpm
 pnpm add primevue @primeuix/themes
+
+# Using deno
+deno add primevue @primeuix/themes
 `
             }
         };
