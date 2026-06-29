@@ -73,8 +73,10 @@ export default {
         }
     },
     beforeUnmount() {
+        this.clearTimer();
         this.clear();
         this.unbindMouseListeners();
+        this.unbindTouchListeners();
     },
     methods: {
         isSplitterPanel(child) {
@@ -135,6 +137,8 @@ export default {
             this.$el.setAttribute('data-p-resizing', true);
         },
         onResize(event, step, isKeyDown) {
+            if (!this.prevPanelElement || !this.nextPanelElement) return;
+
             let newPos, newPrevPanelSize, newNextPanelSize;
 
             if (isKeyDown) {
@@ -288,7 +292,7 @@ export default {
 
             if (!this.touchEndListener) {
                 this.touchEndListener = (event) => {
-                    this.resizeEnd(event);
+                    this.onResizeEnd(event);
                     this.unbindTouchListeners();
                 };
 
