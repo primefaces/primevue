@@ -77,13 +77,18 @@ export default {
             this.$emit('block');
         },
         unblock() {
+            this.isBlocked = false;
+            this.$emit('unblock');
+
             if (this.mask) {
+                this.mask.style.pointerEvents = 'none';
                 !this.isUnstyled && addClass(this.mask, 'p-overlay-mask-leave-active');
 
                 const handleAnimationEnd = () => {
                     clearTimeout(fallbackTimer);
                     this.mask.removeEventListener('animationend', handleAnimationEnd);
                     this.mask.removeEventListener('webkitAnimationEnd', handleAnimationEnd);
+                    this.removeMask();
                 };
 
                 const fallbackTimer = setTimeout(() => {
@@ -99,6 +104,10 @@ export default {
             }
         },
         removeMask() {
+            if (!this.mask) {
+                return;
+            }
+
             ZIndex.clear(this.mask);
 
             if (this.fullScreen) {
@@ -108,8 +117,7 @@ export default {
                 this.$refs.container?.removeChild(this.mask);
             }
 
-            this.isBlocked = false;
-            this.$emit('unblock');
+            this.mask = null;
         }
     }
 };
