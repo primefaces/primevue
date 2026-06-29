@@ -366,3 +366,47 @@ describe('filter checks', () => {
         expect(wrapper.findAll('.p-select-option').length).toBe(2);
     });
 });
+
+describe('disable client filter checks', () => {
+    let wrapper;
+
+    beforeEach(async () => {
+        wrapper = mount(Select, {
+            global: {
+                plugins: [PrimeVue],
+                stubs: {
+                    teleport: true
+                }
+            },
+            props: {
+                filter: true,
+                filterFields: false,
+                options: [
+                    { name: 'Australia', code: 'AU' },
+                    { name: 'Brazil', code: 'BR' },
+                    { name: 'China', code: 'CN' },
+                    { name: 'Egypt', code: 'EG' },
+                    { name: 'France', code: 'FR' },
+                    { name: 'Germany', code: 'DE' },
+                    { name: 'India', code: 'IN' },
+                    { name: 'Japan', code: 'JP' },
+                    { name: 'Spain', code: 'ES' },
+                    { name: 'United States', code: 'US' }
+                ],
+                optionLabel: 'name'
+            }
+        });
+
+        await wrapper.trigger('click');
+    });
+
+    it('should not filter options when filterFields is false', async () => {
+        const filterInput = wrapper.find('.p-select-filter');
+
+        expect(filterInput.exists()).toBe(true);
+
+        await wrapper.setData({ filterValue: 'c' });
+
+        expect(wrapper.findAll('.p-select-option').length).toBe(10);
+    });
+});
