@@ -16,9 +16,9 @@ Please give us a chance to release a fix before going public. If you haven't hea
 
 ## Supported Versions
 
-| Version | Status |
-| --- | --- |
-| 4.x | Security fixes only |
+| Version          | Status                |
+| ---------------- | --------------------- |
+| 4.x              | Security fixes only   |
 | Earlier releases | End of life, no fixes |
 
 This repository is where security maintenance for the MIT-licensed PrimeVue releases happens. It does not accept feature requests, new functionality, or general bug reports. See the [README](./README.md) for where active development continues.
