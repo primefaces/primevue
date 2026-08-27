@@ -1,8 +1,8 @@
 # PrimeVue
 
 > [!WARNING]
-> **This repository is in security maintenance.** New development happens at [PrimeUI](https://primeui.dev/nextchapter).
-> New issues are disabled. Security reports go through [SECURITY.md](./SECURITY.md).
+> **This repository is no longer under active development and receives security fixes only.** PrimeVue continues as part of [PrimeUI](https://primeui.dev/nextchapter).
+> Issues here are read-only. Bug reports and feature requests belong at PrimeUI; for security vulnerabilities, see [SECURITY.md](./SECURITY.md).
 
 ### The next chapter has begun.
 
