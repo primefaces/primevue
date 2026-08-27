@@ -1,10 +1,12 @@
 # PrimeVue
 
+> [!WARNING]
+> **This repository is in security maintenance.** New development happens at [PrimeUI](https://primeui.dev/nextchapter).
+> New issues are disabled. Security reports go through [SECURITY.md](./SECURITY.md).
+
 ### The next chapter has begun.
 
 After years as an open source library, PrimeVue enters its next chapter as part of **PrimeUI**, a sustainable foundation for the libraries you rely on.
-
-This repository remains open for security maintenance of the MIT-licensed releases.
 
 ## What this means
 
@@ -12,7 +14,7 @@ This repository remains open for security maintenance of the MIT-licensed releas
 Every release published under the MIT license stays exactly as it is. Your existing projects are unaffected. Nothing is taken away.
 
 **Security updates continue here.**
-We will publish fixes for security vulnerabilities affecting the MIT-licensed releases. This repository is not accepting feature requests, new functionality, or general bug reports. Please report security issues to contact@primetek.com.tr rather than opening a public issue.
+We keep publishing security fixes for the MIT-licensed releases. How to report one is in [SECURITY.md](./SECURITY.md).
 
 **Development continues at a new home.**
 Active development, new releases, and everything ahead now live under PrimeUI.
