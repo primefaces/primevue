@@ -687,7 +687,7 @@ export interface TreeEmitsOptions {
      * Callback to invoke on filter input.
      * @param {TreeFilterEvent} event - Custom filter event.
      */
-    'filter'(event: TreeFilterEvent): void;
+    filter(event: TreeFilterEvent): void;
     /**
      * Callback to invoke on drag enter.
      * @param {TreeDragEnterEvent} event - Custom drag enter event.
