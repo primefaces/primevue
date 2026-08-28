@@ -1,5 +1,5 @@
 <template>
-    <Checkbox :modelValue="checked" :binary="true" :disabled="$attrs.disabled" :aria-label="checkboxAriaLabel" @change="onChange" :unstyled="unstyled" :pt="getColumnPT('pcRowCheckbox')">
+    <Checkbox :modelValue="checked" :binary="true" :disabled="disabled" :aria-label="checkboxAriaLabel" @change="onChange" :unstyled="unstyled" :pt="getColumnPT('pcRowCheckbox')">
         <template #icon="slotProps">
             <component v-if="rowCheckboxIconTemplate" :is="rowCheckboxIconTemplate" :checked="slotProps.checked" :class="slotProps.class" />
             <CheckIcon v-else-if="!rowCheckboxIconTemplate && slotProps.checked" :class="slotProps.class" v-bind="getColumnPT('pcRowCheckbox.icon')" />
@@ -29,6 +29,10 @@ export default {
         index: {
             type: Number,
             default: null
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
@@ -43,7 +47,7 @@ export default {
                 context: {
                     index: this.index,
                     checked: this.checked,
-                    disabled: this.$attrs.disabled
+                    disabled: this.disabled
                 }
             };
 
@@ -53,7 +57,7 @@ export default {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo:
         },
         onChange(event) {
-            if (!this.$attrs.disabled) {
+            if (!this.disabled) {
                 this.$emit('change', {
                     originalEvent: event,
                     data: this.value
