@@ -16,6 +16,8 @@ export interface FilterMatchModeOptions {
     readonly DATE_IS_NOT: string;
     readonly DATE_BEFORE: string;
     readonly DATE_AFTER: string;
+    readonly DATE_EQUALS_AND_AFTER: string;
+    readonly DATE_EQUALS_AND_BEFORE: string;
 }
 
 export declare const FilterMatchMode: FilterMatchModeOptions;
@@ -46,6 +48,8 @@ export declare namespace FilterService {
         dateIsNot(value: any, filter: string): boolean;
         dateBefore(value: any, filter: string): boolean;
         dateAfter(value: any, filter: string): boolean;
+        dateEqualsAndAfter(value: any, filter: string): boolean;
+        dateEqualsAndBefore(value: any, filter: string): boolean;
     }
     export function register(rule: string, fn: (...arg: any[]) => boolean): void;
 }
