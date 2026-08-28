@@ -82,6 +82,7 @@ export default {
 
                 const handleAnimationEnd = () => {
                     clearTimeout(fallbackTimer);
+                    this.removeMask();
                     this.mask.removeEventListener('animationend', handleAnimationEnd);
                     this.mask.removeEventListener('webkitAnimationEnd', handleAnimationEnd);
                 };
