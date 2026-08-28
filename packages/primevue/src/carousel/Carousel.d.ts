@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevu
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type CarouselPassThroughOptionType = CarouselPassThroughAttributes | ((options: CarouselPassThroughMethodOptions) => CarouselPassThroughAttributes | string) | string | null | undefined;
 
@@ -248,11 +248,11 @@ export interface CarouselResponsiveOptions {
 /**
  * Defines valid properties in Carousel component.
  */
-export interface CarouselProps {
+export interface CarouselProps<T = any> {
     /**
      * An array of objects to display.
      */
-    value?: any | undefined;
+    value?: T[] | undefined;
     /**
      * Index of the first item.
      * @defaultValue 0
@@ -349,7 +349,7 @@ export interface CarouselProps {
 /**
  * Defines valid slots in Carousel slots.
  */
-export interface CarouselSlots {
+export interface CarouselSlots<T = any> {
     /**
      * Custom content for each item.
      * @param {Object} scope - item slot's params.
@@ -358,7 +358,7 @@ export interface CarouselSlots {
         /**
          * Data of the component
          */
-        data: any;
+        data: T;
         /**
          * Index of the item
          */
@@ -411,11 +411,19 @@ export declare type CarouselEmits = EmitFn<CarouselEmitsOptions>;
  * @group Component
  *
  */
-declare const Carousel: DefineComponent<CarouselProps, CarouselSlots, CarouselEmits>;
+declare const Carousel: {
+    new <T = any>(
+        props: CarouselProps<T>
+    ): {
+        $props: CarouselProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: CarouselSlots<T>;
+        $emit: EmitFn<CarouselEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Carousel: DefineComponent<CarouselProps, CarouselSlots, CarouselEmits>;
+        Carousel: typeof Carousel;
     }
 }
 

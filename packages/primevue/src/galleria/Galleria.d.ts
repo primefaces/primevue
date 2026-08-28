@@ -10,7 +10,7 @@
 import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { ButtonHTMLAttributes, HTMLAttributes, TransitionProps, VNode } from 'vue';
+import { AllowedComponentProps, ButtonHTMLAttributes, ComponentCustomProps, HTMLAttributes, TransitionProps, VNode, VNodeProps } from 'vue';
 
 export declare type GalleriaPassThroughOptionType = GalleriaPassThroughAttributes | ((options: GalleriaPassThroughMethodOptions) => GalleriaPassThroughAttributes | string) | string | null | undefined;
 
@@ -270,7 +270,7 @@ export interface GalleriaContext {
 /**
  * Defines valid properties in Galleria component.
  */
-export interface GalleriaProps {
+export interface GalleriaProps<T = any> {
     /**
      * Unique identifier of the element.
      */
@@ -278,7 +278,7 @@ export interface GalleriaProps {
     /**
      * An array of objects to display.
      */
-    value?: any[];
+    value?: T[];
     /**
      * Index of the first item.
      * @defaultValue 0
@@ -429,7 +429,7 @@ export interface GalleriaProps {
 /**
  * Defines valid slots in Galleria slots.
  */
-export interface GalleriaSlots {
+export interface GalleriaSlots<T = any> {
     /**
      * Custom header template.
      */
@@ -446,7 +446,7 @@ export interface GalleriaSlots {
         /**
          * Item instance
          */
-        item: any;
+        item: T;
     }): VNode[];
     /**
      * Custom caption template.
@@ -456,7 +456,7 @@ export interface GalleriaSlots {
         /**
          * Item instance
          */
-        item: any;
+        item: T;
     }): VNode[];
     /**
      * Custom indicator template.
@@ -484,7 +484,7 @@ export interface GalleriaSlots {
         /**
          * Item instance
          */
-        item: any;
+        item: T;
     }): VNode[];
     /**
      * Custom close icon template.
@@ -538,11 +538,19 @@ export declare type GalleriaEmits = EmitFn<GalleriaEmitsOptions>;
  * @group Component
  *
  */
-declare const Galleria: DefineComponent<GalleriaProps, GalleriaSlots, GalleriaEmits>;
+declare const Galleria: {
+    new <T = any>(
+        props: GalleriaProps<T>
+    ): {
+        $props: GalleriaProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: GalleriaSlots<T>;
+        $emit: EmitFn<GalleriaEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Galleria: DefineComponent<GalleriaProps, GalleriaSlots, GalleriaEmits>;
+        Galleria: typeof Galleria;
     }
 }
 
