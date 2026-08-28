@@ -14,7 +14,7 @@ import type { InputIconPassThroughOptions } from 'primevue/inputicon';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { VirtualScrollerItemOptions, VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from 'primevue/virtualscroller';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type ListboxPassThroughOptionType<T = any> = ListboxPassThroughAttributes | ((options: ListboxPassThroughMethodOptions<T>) => ListboxPassThroughAttributes | string) | string | null | undefined;
 
@@ -258,7 +258,7 @@ export interface ListboxContext {
 /**
  * Defines valid properties in Listbox component.
  */
-export interface ListboxProps {
+export interface ListboxProps<T = any, C = T> {
     /**
      * Value of the component.
      */
@@ -274,27 +274,27 @@ export interface ListboxProps {
     /**
      * An array of selectitems to display as the available options.
      */
-    options?: any[] | undefined;
+    options?: T[] | undefined;
     /**
      * Property name or getter function to use as the label of an option.
      */
-    optionLabel?: string | ((data: any) => string) | undefined;
+    optionLabel?: string | ((data: C) => string) | undefined;
     /**
      * Property name or getter function to use as the value of an option, defaults to the option itself when not defined.
      */
-    optionValue?: string | ((data: any) => any) | undefined;
+    optionValue?: string | ((data: C) => any) | undefined;
     /**
      * Property name or getter function to use as the disabled flag of an option, defaults to false when not defined.
      */
-    optionDisabled?: string | ((data: any) => boolean) | undefined;
+    optionDisabled?: string | ((data: C) => boolean) | undefined;
     /**
      * Property name or getter function to use as the label of an option group.
      */
-    optionGroupLabel?: string | ((data: any) => string) | undefined;
+    optionGroupLabel?: string | ((data: T) => string) | undefined;
     /**
      * Property name or getter function that refers to the children options of option group.
      */
-    optionGroupChildren?: string | ((data: any) => any[]) | undefined;
+    optionGroupChildren?: string | ((data: T) => C[]) | undefined;
     /**
      * Inline style of inner list element.
      */
@@ -460,7 +460,7 @@ export interface ListboxProps {
 /**
  * Defines valid slots in Listbox component.
  */
-export interface ListboxSlots {
+export interface ListboxSlots<T = any, C = T> {
     /**
      * Custom header template.
      * @param {Object} scope - header slot's params.
@@ -473,7 +473,7 @@ export interface ListboxSlots {
         /**
          * Displayed options
          */
-        options: any[];
+        options: T[];
     }): VNode[];
     /**
      * Custom footer template.
@@ -487,7 +487,7 @@ export interface ListboxSlots {
         /**
          * Displayed options
          */
-        options: any[];
+        options: T[];
     }): VNode[];
     /**
      * Custom option template.
@@ -497,7 +497,7 @@ export interface ListboxSlots {
         /**
          * Option instance
          */
-        option: any;
+        option: C;
         /**
          * Selection state
          */
@@ -515,7 +515,7 @@ export interface ListboxSlots {
         /**
          * Option instance
          */
-        option: any;
+        option: T;
         /**
          * Index of the option
          */
@@ -562,7 +562,7 @@ export interface ListboxSlots {
         /**
          * Options of the loader items for virtualscroller
          */
-        options: any[];
+        options: T[];
     }): VNode[];
     /**
      * Custom filter icon template.
@@ -636,11 +636,33 @@ export declare type ListboxEmits = EmitFn<ListboxEmitsOptions>;
  * @group Component
  *
  */
-declare const Listbox: DefineComponent<ListboxProps, ListboxSlots, ListboxEmits>;
+declare const Listbox: {
+    new <T = any, C = T>(
+        props: ListboxProps<T, C> & { optionGroupChildren: (data: T) => C[] }
+    ): {
+        $props: ListboxProps<T, C> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: ListboxSlots<T, C>;
+        $emit: EmitFn<ListboxEmitsOptions>;
+    };
+    new <T = any>(
+        props: ListboxProps<T, any> & { optionGroupChildren: string }
+    ): {
+        $props: ListboxProps<T, any> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: ListboxSlots<T, any>;
+        $emit: EmitFn<ListboxEmitsOptions>;
+    };
+    new <T = any>(
+        props: ListboxProps<T>
+    ): {
+        $props: ListboxProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: ListboxSlots<T>;
+        $emit: EmitFn<ListboxEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Listbox: DefineComponent<ListboxProps, ListboxSlots, ListboxEmits>;
+        Listbox: typeof Listbox;
     }
 }
 
