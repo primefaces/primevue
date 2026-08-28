@@ -3,7 +3,7 @@
  * https://github.com/vueuse
  */
 import { isClient, isExist, setAttribute, setAttributes } from '@primeuix/utils/dom';
-import { getCurrentInstance, nextTick, onMounted, readonly, ref, watch } from 'vue';
+import { getCurrentInstance, isRef, nextTick, onMounted, readonly, ref, watch } from 'vue';
 
 function tryOnMounted(fn, sync = true) {
     if (getCurrentInstance() && getCurrentInstance().components) onMounted(fn);
@@ -57,20 +57,28 @@ export function useStyle(css, options = {}) {
             first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value);
             setAttribute(styleRef.value, 'data-primevue-style-id', _name);
             setAttributes(styleRef.value, _styleProps);
-            styleRef.value.onload = (event) => onStyleLoaded?.(event, { name: _name });
+            if (onStyleLoaded) {
+                styleRef.value.onload = (event) => onStyleLoaded(event, { name: _name });
+            }
+
             onStyleMounted?.(_name);
         }
 
         if (isLoaded.value) return;
 
-        stop = watch(
-            cssRef,
-            (value) => {
-                styleRef.value.textContent = value;
-                onStyleUpdated?.(_name);
-            },
-            { immediate: true }
-        );
+        if (isRef(css)) {
+            stop = watch(
+                cssRef,
+                (value) => {
+                    styleRef.value.textContent = value;
+                    onStyleUpdated?.(_name);
+                },
+                { immediate: true }
+            );
+        } else {
+            styleRef.value.textContent = cssRef.value;
+            onStyleUpdated?.(_name);
+        }
 
         isLoaded.value = true;
     };
