@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } 
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PaginatorPassThroughOptionType } from 'primevue/paginator';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type DataViewPassThroughOptionType = DataViewPassThroughAttributes | ((options: DataViewPassThroughMethodOptions) => DataViewPassThroughAttributes | string) | string | null | undefined;
 
@@ -261,7 +261,7 @@ export interface DataViewProps<T = unknown> {
 /**
  * Defines valid slots in DataView component.
  */
-export interface DataViewSlots {
+export interface DataViewSlots<T = unknown> {
     /**
      * Custom header template.
      */
@@ -357,7 +357,7 @@ export interface DataViewSlots {
         /**
          * Value of the component
          */
-        items: any;
+        items: T[];
     }): VNode[];
     /**
      * Custom list template.
@@ -367,7 +367,7 @@ export interface DataViewSlots {
         /**
          * Value of the component
          */
-        items: any;
+        items: T[];
     }): VNode[];
 }
 
@@ -406,11 +406,19 @@ export declare type DataViewEmits = EmitFn<DataViewEmitsOptions>;
  * @group Component
  *
  */
-declare const DataView: DefineComponent<DataViewProps, DataViewSlots, DataViewEmits>;
+declare const DataView: {
+    new <T = unknown>(
+        props: DataViewProps<T>
+    ): {
+        $props: DataViewProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: DataViewSlots<T>;
+        $emit: EmitFn<DataViewEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DataView: DefineComponent<DataViewProps, DataViewSlots, DataViewEmits>;
+        DataView: typeof DataView;
     }
 }
 
