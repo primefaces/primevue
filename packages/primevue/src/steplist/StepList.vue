@@ -1,5 +1,5 @@
 <template>
-    <div :class="cx('root')" v-bind="ptmi('root')">
+    <div :class="cx('root')" v-bind="ptmi('root')" role="tablist">
         <slot />
     </div>
 </template>
