@@ -54,7 +54,7 @@ export default {
     hueView: null,
     hueHandle: null,
     watch: {
-        modelValue: {
+        d_value: {
             immediate: true,
             handler(newValue) {
                 this.hsbValue = this.toHSB(newValue);
