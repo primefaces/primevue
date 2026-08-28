@@ -71,7 +71,7 @@
                     :id="panelId"
                     :class="[cx('panel'), panelClass]"
                     :style="panelStyle"
-                    :role="inline ? null : 'dialog'"
+                    :role="inline ? 'application' : 'dialog'"
                     :aria-modal="inline ? null : 'true'"
                     :aria-label="$primevue.config.locale.chooseDate"
                     @click="onOverlayClick"
@@ -191,22 +191,22 @@
                                 </div>
                                 <table v-if="currentView === 'date'" :class="cx('dayView')" role="grid" v-bind="ptm('dayView')">
                                     <thead v-bind="ptm('tableHeader')">
-                                        <tr v-bind="ptm('tableHeaderRow')">
-                                            <th v-if="showWeek" scope="col" :class="cx('weekHeader')" v-bind="ptm('weekHeader', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tableheadercell">
+                                        <tr role="row"  v-bind="ptm('tableHeaderRow')">
+                                            <th v-if="showWeek" scope="col" :class="cx('weekHeader')" role="gridcell" v-bind="ptm('weekHeader', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tableheadercell">
                                                 <slot name="weekheaderlabel">
                                                     <span v-bind="ptm('weekHeaderLabel', { context: { disabled: showWeek } })" data-pc-group-section="tableheadercelllabel">
                                                         {{ weekHeaderLabel }}
                                                     </span>
                                                 </slot>
                                             </th>
-                                            <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" v-bind="ptm('tableHeaderCell')" data-pc-group-section="tableheadercell" :class="cx('weekDayCell')">
+                                            <th v-for="weekDay of weekDays" :key="weekDay" scope="col" :abbr="weekDay" role="gridcell" v-bind="ptm('tableHeaderCell')" data-pc-group-section="tableheadercell" :class="cx('weekDayCell')">
                                                 <span :class="cx('weekDay')" v-bind="ptm('weekDay')" data-pc-group-section="tableheadercelllabel">{{ weekDay }}</span>
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody v-bind="ptm('tableBody')">
-                                        <tr v-for="(week, i) of month.dates" :key="week[0].day + '' + week[0].month" v-bind="ptm('tableBodyRow')">
-                                            <td v-if="showWeek" :class="cx('weekNumber')" v-bind="ptm('weekNumber')" data-pc-group-section="tablebodycell">
+                                        <tr v-for="(week, i) of month.dates" :key="week[0].day + '' + week[0].month" role="row" v-bind="ptm('tableBodyRow')">
+                                            <td v-if="showWeek" :class="cx('weekNumber')" role="gridcell" v-bind="ptm('weekNumber')" data-pc-group-section="tablebodycell">
                                                 <span :class="cx('weekLabelContainer')" v-bind="ptm('weekLabelContainer', { context: { disabled: showWeek } })" :data-p-disabled="showWeek" data-pc-group-section="tablebodycelllabel">
                                                     <slot name="weeklabel" :weekNumber="month.weekNumbers[i]">
                                                         <span v-if="month.weekNumbers[i] < 10" style="visibility: hidden" v-bind="ptm('weekLabel')">0</span>
@@ -217,8 +217,11 @@
                                             <td
                                                 v-for="date of week"
                                                 :key="date.day + '' + date.month"
+                                                :aria-disabled="!date.selectable"
                                                 :aria-label="date.day"
+                                                :aria-selected="isSelected(date)"
                                                 :class="cx('dayCell', { date })"
+                                                role="gridcell"
                                                 v-bind="
                                                     ptm('dayCell', {
                                                         context: {
@@ -241,8 +244,6 @@
                                                     @click="onDateSelect($event, date)"
                                                     draggable="false"
                                                     @keydown="onDateCellKeydown($event, date, groupIndex)"
-                                                    :aria-selected="isSelected(date)"
-                                                    :aria-disabled="!date.selectable"
                                                     v-bind="
                                                         ptm('day', {
                                                             context: {
