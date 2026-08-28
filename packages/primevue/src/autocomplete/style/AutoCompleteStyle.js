@@ -24,7 +24,8 @@ const classes = {
         'p-autocomplete-input-multiple',
         {
             'p-variant-filled': instance.$variant === 'filled',
-            'p-disabled': props.disabled
+            'p-disabled': props.disabled,
+            'p-component': true
         }
     ],
     clearIcon: 'p-autocomplete-clear-icon',
