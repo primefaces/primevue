@@ -82,6 +82,7 @@
                 :style="scrollHeight !== 'flex' ? { height: scrollHeight } : undefined"
                 :scrollHeight="scrollHeight !== 'flex' ? undefined : '100%'"
                 :disabled="virtualScrollerDisabled"
+                :getItemSize="getItemSize"
                 loaderDisabled
                 inline
                 autoSize
@@ -242,7 +243,7 @@
                         <tbody
                             v-if="hasSpacerStyle(slotProps.spacerStyle)"
                             :class="cx('virtualScrollerSpacer')"
-                            :style="{ height: `calc(${slotProps.spacerStyle.height} - ${slotProps.rows.length * slotProps.itemSize}px)` }"
+                            :style="{ height: `calc(${slotProps.spacerStyle.height} - ${getRenderedWindowSize(slotProps)}px)` }"
                             v-bind="ptm('virtualScrollerSpacer')"
                         ></tbody>
                         <DTTableFooter :columnGroup="footerColumnGroup" :columns="slotProps.columns" :pt="pt" />
@@ -423,7 +424,8 @@ export default {
             d_editingMeta: {},
             d_filters: this.cloneFilters(this.filters),
             d_columns: new HelperSet({ type: 'Column' }),
-            d_columnGroups: new HelperSet({ type: 'ColumnGroup' })
+            d_columnGroups: new HelperSet({ type: 'ColumnGroup' }),
+            d_rowGroupHeaderHeight: 0
         };
     },
     rowTouched: false,
@@ -499,6 +501,8 @@ export default {
         if (this.editMode === 'row' && this.dataKey && !this.d_editingRowKeys) {
             this.updateEditingRowKeys(this.editingRows);
         }
+
+        this.updateRowGroupHeaderHeight();
     },
     beforeUnmount() {
         this.unbindColumnResizeEvents();
@@ -515,6 +519,8 @@ export default {
         if (this.editMode === 'row' && this.dataKey && !this.d_editingRowKeys) {
             this.updateEditingRowKeys(this.editingRows);
         }
+
+        this.updateRowGroupHeaderHeight();
     },
     methods: {
         columnProp(col, prop) {
@@ -2045,6 +2051,40 @@ export default {
         },
         hasSpacerStyle(style) {
             return isNotEmpty(style);
+        },
+        updateRowGroupHeaderHeight() {
+            if (this.rowGroupMode !== 'subheader' || !this.groupRowsBy || this.virtualScrollerDisabled) {
+                return;
+            }
+
+            const header = this.$refs.table && findSingle(this.$refs.table, 'tr.p-datatable-row-group-header');
+
+            if (header) {
+                const height = getOuterHeight(header);
+
+                if (height && height !== this.d_rowGroupHeaderHeight) {
+                    this.d_rowGroupHeaderHeight = height;
+                }
+            }
+        },
+        getRenderedWindowSize(slotProps) {
+            if (!slotProps || !slotProps.rows || !slotProps.rows.length) {
+                return 0;
+            }
+
+            const fn = this.getItemSize;
+
+            if (typeof fn !== 'function') {
+                return slotProps.rows.length * slotProps.itemSize;
+            }
+
+            let total = 0;
+
+            for (let i = 0; i < slotProps.rows.length; i++) {
+                total += fn(slotProps.getItemOptions(i).index);
+            }
+
+            return total;
         }
     },
     computed: {
@@ -2110,6 +2150,32 @@ export default {
             const data = this.processedData;
 
             return !data || data.length === 0;
+        },
+        getItemSize() {
+            const baseSize = (this.virtualScrollerOptions && this.virtualScrollerOptions.itemSize) || 0;
+            const groupRowsBy = this.groupRowsBy;
+            const subheader = this.rowGroupMode === 'subheader' && !!groupRowsBy;
+
+            if (!subheader) {
+                return null;
+            }
+
+            const items = this.processedData;
+            const expandable = this.expandableRowGroups;
+            const expandedGroups = this.expandedRowGroups;
+            const headerHeight = this.d_rowGroupHeaderHeight;
+
+            return (index) => {
+                if (!items || index < 0 || index >= items.length) {
+                    return baseSize;
+                }
+
+                const groupValue = resolveFieldData(items[index], groupRowsBy);
+                const isFirstOfGroup = index === 0 || resolveFieldData(items[index - 1], groupRowsBy) !== groupValue;
+                const isExpanded = !expandable || (expandedGroups && expandedGroups.indexOf(groupValue) > -1);
+
+                return (isFirstOfGroup ? headerHeight : 0) + (isExpanded ? baseSize : 0);
+            };
         },
         paginatorTop() {
             return this.paginator && (this.paginatorPosition !== 'bottom' || this.paginatorPosition === 'both');

@@ -71,6 +71,7 @@ export default {
     },
     element: null,
     content: null,
+    cumulativeSizes: null,
     lastScrollPos: null,
     scrollTimeout: null,
     resizeTimeout: null,
@@ -102,6 +103,10 @@ export default {
             deep: true
         },
         itemSize() {
+            this.init();
+            this.calculateAutoSize();
+        },
+        getItemSize() {
             this.init();
             this.calculateAutoSize();
         },
@@ -152,9 +157,83 @@ export default {
         init() {
             if (!this.disabled) {
                 this.setSize();
+                this.buildCumulativeSizes();
                 this.calculateOptions();
                 this.setSpacerSize();
             }
+        },
+        buildCumulativeSizes() {
+            if (typeof this.getItemSize !== 'function' || this.isBoth() || this.isHorizontal()) {
+                this.cumulativeSizes = null;
+
+                return;
+            }
+
+            const items = this.items || [];
+            const sizes = new Array(items.length + 1);
+
+            sizes[0] = 0;
+
+            for (let i = 0; i < items.length; i++) {
+                sizes[i + 1] = sizes[i] + this.getItemSize(i);
+            }
+
+            this.cumulativeSizes = sizes;
+        },
+        getItemOffset(index) {
+            if (this.cumulativeSizes) {
+                const i = Math.max(0, Math.min(index, this.cumulativeSizes.length - 1));
+
+                return this.cumulativeSizes[i];
+            }
+
+            return index * this.itemSize;
+        },
+        getIndexAtOffset(offset) {
+            if (!this.cumulativeSizes) {
+                return Math.floor(offset / (this.itemSize || offset));
+            }
+
+            const sizes = this.cumulativeSizes;
+
+            if (offset <= 0) return 0;
+
+            const last = sizes.length - 1;
+
+            if (offset >= sizes[last]) return Math.max(0, last - 1);
+
+            let lo = 0;
+            let hi = last;
+
+            while (lo < hi) {
+                const mid = (lo + hi) >>> 1;
+
+                if (sizes[mid + 1] <= offset) lo = mid + 1;
+                else hi = mid;
+            }
+
+            return lo;
+        },
+        getLastByCumulative(first, numToleratedItems) {
+            if (!this.cumulativeSizes) return this.getLast(first);
+
+            const sizes = this.cumulativeSizes;
+            const contentPos = this.getContentPosition();
+            const contentHeight = this.element ? this.element.offsetHeight - contentPos.top : 0;
+            const startOffset = sizes[Math.min(first, sizes.length - 1)];
+            const target = startOffset + contentHeight + 2 * numToleratedItems * this.itemSize;
+
+            let lo = first;
+            let hi = sizes.length - 1;
+
+            while (lo < hi) {
+                const mid = (lo + hi) >>> 1;
+
+                if (sizes[mid] < target) lo = mid + 1;
+                else hi = mid;
+            }
+
+            return lo;
         },
         isVertical() {
             return this.orientation === 'vertical';
@@ -194,7 +273,15 @@ export default {
                     isRangeChanged = newFirst.rows !== first.rows || newFirst.cols !== first.cols;
                 } else {
                     newFirst = calculateFirst(index, numToleratedItems);
-                    horizontal ? scrollTo(calculateCoord(newFirst, itemSize, contentPos.left), scrollTop) : scrollTo(scrollLeft, calculateCoord(newFirst, itemSize, contentPos.top));
+
+                    if (horizontal) {
+                        scrollTo(calculateCoord(newFirst, itemSize, contentPos.left), scrollTop);
+                    } else if (this.cumulativeSizes) {
+                        scrollTo(scrollLeft, this.getItemOffset(newFirst) + contentPos.top);
+                    } else {
+                        scrollTo(scrollLeft, calculateCoord(newFirst, itemSize, contentPos.top));
+                    }
+
                     isScrollChanged = this.lastScrollPos !== (horizontal ? scrollLeft : scrollTop);
                     isRangeChanged = newFirst !== first;
                 }
@@ -224,7 +311,8 @@ export default {
                             }
                         } else {
                             if (viewport.first - first > index) {
-                                const pos = (viewport.first - 1) * this.itemSize;
+                                const target = viewport.first - 1;
+                                const pos = !horizontal && this.cumulativeSizes ? this.getItemOffset(target) : target * this.itemSize;
 
                                 horizontal ? scrollTo(pos, 0) : scrollTo(0, pos);
                             }
@@ -238,7 +326,8 @@ export default {
                             }
                         } else {
                             if (viewport.last - first <= index + 1) {
-                                const pos = (viewport.first + 1) * this.itemSize;
+                                const target = viewport.first + 1;
+                                const pos = !horizontal && this.cumulativeSizes ? this.getItemOffset(target) : target * this.itemSize;
 
                                 horizontal ? scrollTo(pos, 0) : scrollTo(0, pos);
                             }
@@ -266,7 +355,7 @@ export default {
                 } else {
                     const scrollPos = horizontal ? scrollLeft : scrollTop;
 
-                    firstInViewport = calculateFirstInViewport(scrollPos, this.itemSize);
+                    firstInViewport = !horizontal && this.cumulativeSizes ? this.getIndexAtOffset(scrollPos) : calculateFirstInViewport(scrollPos, this.itemSize);
                     lastInViewport = firstInViewport + this.numItemsInViewport;
                 }
             }
@@ -299,12 +388,19 @@ export default {
         },
         calculateOptions() {
             const both = this.isBoth();
+            const horizontal = this.isHorizontal();
             const first = this.first;
             const { numItemsInViewport, numToleratedItems } = this.calculateNumItems();
             const calculateLast = (_first, _num, _numT, _isCols = false) => this.getLast(_first + _num + (_first < _numT ? 2 : 3) * _numT, _isCols);
-            const last = both
-                ? { rows: calculateLast(first.rows, numItemsInViewport.rows, numToleratedItems[0]), cols: calculateLast(first.cols, numItemsInViewport.cols, numToleratedItems[1], true) }
-                : calculateLast(first, numItemsInViewport, numToleratedItems);
+            let last;
+
+            if (both) {
+                last = { rows: calculateLast(first.rows, numItemsInViewport.rows, numToleratedItems[0]), cols: calculateLast(first.cols, numItemsInViewport.cols, numToleratedItems[1], true) };
+            } else if (!horizontal && this.cumulativeSizes) {
+                last = this.getLastByCumulative(first, numToleratedItems);
+            } else {
+                last = calculateLast(first, numItemsInViewport, numToleratedItems);
+            }
 
             this.last = last;
             this.numItemsInViewport = numItemsInViewport;
@@ -396,12 +492,17 @@ export default {
                 const horizontal = this.isHorizontal();
                 const contentPos = this.getContentPosition();
                 const setProp = (_name, _value, _size, _cpos = 0) => (this.spacerStyle = { ...this.spacerStyle, ...{ [`${_name}`]: (_value || []).length * _size + _cpos + 'px' } });
+                const setVerticalSize = (_cpos = 0) => (this.spacerStyle = { ...this.spacerStyle, height: this.cumulativeSizes[this.cumulativeSizes.length - 1] + _cpos + 'px' });
 
                 if (both) {
                     setProp('height', items, this.itemSize[0], contentPos.y);
                     setProp('width', this.columns || items[1], this.itemSize[1], contentPos.x);
+                } else if (horizontal) {
+                    setProp('width', this.columns || items, this.itemSize, contentPos.x);
+                } else if (this.cumulativeSizes) {
+                    setVerticalSize(contentPos.y);
                 } else {
-                    horizontal ? setProp('width', this.columns || items, this.itemSize, contentPos.x) : setProp('height', items, this.itemSize, contentPos.y);
+                    setProp('height', items, this.itemSize, contentPos.y);
                 }
             }
         },
@@ -415,10 +516,10 @@ export default {
 
                 if (both) {
                     setTransform(calculateTranslateVal(first.cols, this.itemSize[1]), calculateTranslateVal(first.rows, this.itemSize[0]));
+                } else if (horizontal) {
+                    setTransform(calculateTranslateVal(first, this.itemSize), 0);
                 } else {
-                    const translateVal = calculateTranslateVal(first, this.itemSize);
-
-                    horizontal ? setTransform(translateVal, 0) : setTransform(0, translateVal);
+                    setTransform(0, this.cumulativeSizes ? this.getItemOffset(first) : calculateTranslateVal(first, this.itemSize));
                 }
             }
         },
@@ -488,11 +589,11 @@ export default {
                 const isScrollDownOrRight = this.lastScrollPos <= scrollPos;
 
                 if (!this.appendOnly || (this.appendOnly && isScrollDownOrRight)) {
-                    const currentIndex = calculateCurrentIndex(scrollPos, this.itemSize);
+                    const currentIndex = !horizontal && this.cumulativeSizes ? this.getIndexAtOffset(scrollPos) : calculateCurrentIndex(scrollPos, this.itemSize);
                     const triggerIndex = calculateTriggerIndex(currentIndex, this.first, this.last, this.numItemsInViewport, this.d_numToleratedItems, isScrollDownOrRight);
 
                     newFirst = calculateFirst(currentIndex, triggerIndex, this.first, this.last, this.numItemsInViewport, this.d_numToleratedItems, isScrollDownOrRight);
-                    newLast = calculateLast(currentIndex, newFirst, this.last, this.numItemsInViewport, this.d_numToleratedItems);
+                    newLast = !horizontal && this.cumulativeSizes ? this.getLastByCumulative(newFirst, this.d_numToleratedItems) : calculateLast(currentIndex, newFirst, this.last, this.numItemsInViewport, this.d_numToleratedItems);
                     isRangeChanged = newFirst !== this.first || newLast !== this.last || this.isRangeChanged;
                     newScrollPos = scrollPos;
                 }
