@@ -12,7 +12,7 @@ import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type SpeedDialPassThroughOptionType = SpeedDialPassThroughAttributes | ((options: SpeedDialPassThroughMethodOptions) => SpeedDialPassThroughAttributes | string) | string | null | undefined;
 
@@ -182,11 +182,11 @@ export interface SpeedDialTooltipOptions {
 /**
  * Defines valid properties in SpeedDial component.
  */
-export interface SpeedDialProps {
+export interface SpeedDialProps<T extends MenuItem = MenuItem> {
     /**
      * MenuModel instance to define the action items.
      */
-    model?: MenuItem[] | undefined;
+    model?: T[] | undefined;
     /**
      * Specifies the visibility of the overlay.
      * @defaultValue false
@@ -309,7 +309,7 @@ export interface SpeedDialProps {
 /**
  * Defines valid slots in SpeedDial component.
  */
-export interface SpeedDialSlots {
+export interface SpeedDialSlots<T extends MenuItem = MenuItem> {
     /**
      * Custom content for each item.
      * @param {Object} scope - item slot's params.
@@ -319,7 +319,7 @@ export interface SpeedDialSlots {
          * Menuitem instance
          * @type {MenuItem}
          */
-        item: MenuItem;
+        item: T;
         /**
          * Item click function
          * @param {Event} event - Browser event.
@@ -365,7 +365,7 @@ export interface SpeedDialSlots {
          * Menuitem instance
          * @type {MenuItem}
          */
-        item: MenuItem;
+        item: T;
         /**
          * Style class of the icon template
          */
@@ -416,11 +416,19 @@ export declare type SpeedDialEmits = EmitFn<SpeedDialEmitsOptions>;
  * @group Component
  *
  */
-declare const SpeedDial: DefineComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits>;
+declare const SpeedDial: {
+    new <T extends MenuItem = MenuItem>(
+        props: SpeedDialProps<T>
+    ): {
+        $props: SpeedDialProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: SpeedDialSlots<T>;
+        $emit: EmitFn<SpeedDialEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        SpeedDial: DefineComponent<SpeedDialProps, SpeedDialSlots, SpeedDialEmits>;
+        SpeedDial: typeof SpeedDial;
     }
 }
 
