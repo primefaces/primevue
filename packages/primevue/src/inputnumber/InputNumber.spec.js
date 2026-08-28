@@ -1,3 +1,5 @@
+import Form from '@primevue/forms/form';
+import FormField from '@primevue/forms/formfield';
 import { mount } from '@vue/test-utils';
 import InputNumber from './InputNumber.vue';
 
@@ -91,5 +93,46 @@ describe('InputNumber.vue', () => {
         await wrapper.setProps({ modelValue: 20, prefix: '%' });
 
         expect(wrapper.find('input.p-inputnumber-input').element._value).toBe('%20');
+    });
+
+    it('should allow clearing initialValue in FormField', async () => {
+        const formWrapper = mount(
+            {
+                template: `
+                    <Form>
+                        <FormField v-slot="$field" name="amount" :initialValue="10">
+                            <InputNumber :allowEmpty="true" />
+                            <span class="value">{{ $field.value === null ? 'null' : String($field.value) }}</span>
+                        </FormField>
+                    </Form>
+                `,
+                components: {
+                    Form,
+                    FormField,
+                    InputNumber
+                }
+            },
+            {
+                global: {
+                    components: {
+                        Form,
+                        FormField,
+                        InputNumber
+                    }
+                }
+            }
+        );
+
+        const input = formWrapper.find('input');
+        const inputNumber = formWrapper.findComponent(InputNumber);
+
+        expect(formWrapper.find('.value').text()).toBe('10');
+
+        input.element.value = '';
+        await inputNumber.vm.onInputBlur({ target: input.element });
+        await formWrapper.vm.$nextTick();
+
+        expect(formWrapper.find('.value').text()).toBe('null');
+        expect(input.element.value).toBe('');
     });
 });
