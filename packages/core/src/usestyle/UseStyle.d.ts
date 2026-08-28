@@ -7,6 +7,7 @@ export interface StyleOptions {
     media?: string;
     nonce?: string;
     props?: any;
+    styleContainer?: HTMLElement | ShadowRoot;
 }
 
 export interface Style {
