@@ -23,7 +23,7 @@
             :aria-controls="overlayVisible ? panelId : undefined"
             :aria-labelledby="ariaLabelledby"
             :aria-label="ariaLabel"
-            inputmode="none"
+            inputmode="none
             :disabled="disabled"
             :readonly="!manualInput || readonly"
             :tabindex="0"
