@@ -36,7 +36,7 @@
             </div>
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Paginator>
 </template>
@@ -46,13 +46,15 @@ import AngleDoubleLeftIcon from '@primevue/icons/angledoubleleft';
 import AngleDoubleRightIcon from '@primevue/icons/angledoubleright';
 import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
-import Paginator, { type PaginatorPassThroughOptions, type PaginatorProps } from 'primevue/paginator';
-import {ref} from 'vue'
+import Paginator, { type PaginatorPassThroughOptions, type PaginatorProps, type PaginatorSlots } from 'primevue/paginator';
+import { ref } from 'vue';
 import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ PaginatorProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ PaginatorSlots {}
+defineSlots<Slots>();
 
 const theme = ref<PaginatorPassThroughOptions>({
     root: `flex items-center justify-center flex-wrap py-2 px-4 rounded-md gap-1

@@ -10,19 +10,21 @@
             <TimesIcon />
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Toast>
 </template>
 
 <script setup lang="ts">
 import TimesIcon from '@primevue/icons/times';
-import Toast, { type ToastPassThroughOptions, type ToastProps } from 'primevue/toast';
+import Toast, { type ToastPassThroughOptions, type ToastProps, type ToastSlots } from 'primevue/toast';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ ToastProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ ToastSlots {}
+defineSlots<Slots>();
 
 const theme = ref<ToastPassThroughOptions>({
     root: `w-96 rounded-md whitespace-pre-line break-words

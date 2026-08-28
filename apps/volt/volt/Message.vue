@@ -10,19 +10,21 @@
             <TimesIcon />
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Message>
 </template>
 
 <script setup lang="ts">
 import TimesIcon from '@primevue/icons/times';
-import Message, { type MessagePassThroughOptions, type MessageProps } from 'primevue/message';
+import Message, { type MessagePassThroughOptions, type MessageProps, type MessageSlots } from 'primevue/message';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ MessageProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ MessageSlots {}
+defineSlots<Slots>();
 
 const theme = ref<MessagePassThroughOptions>({
     root: `rounded-md outline outline-1

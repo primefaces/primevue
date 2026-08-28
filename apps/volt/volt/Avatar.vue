@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Avatar>
 </template>
 
 <script setup lang="ts">
-import Avatar, { type AvatarPassThroughOptions, type AvatarProps } from 'primevue/avatar';
+import Avatar, { type AvatarPassThroughOptions, type AvatarProps, type AvatarSlots } from 'primevue/avatar';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ AvatarProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ AvatarSlots {}
+defineSlots<Slots>();
 
 const theme = ref<AvatarPassThroughOptions>({
     root: `inline-flex items-center justify-center

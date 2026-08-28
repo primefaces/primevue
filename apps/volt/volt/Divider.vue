@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Divider>
 </template>
 
 <script setup lang="ts">
-import Divider, { type DividerPassThroughOptions, type DividerProps } from 'primevue/divider';
+import Divider, { type DividerPassThroughOptions, type DividerProps, type DividerSlots } from 'primevue/divider';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ DividerProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ DividerSlots {}
+defineSlots<Slots>();
 
 const theme = ref<DividerPassThroughOptions>({
     root: `p-horizontal:flex p-horizontal:w-full p-horizontal:relative p-horizontal:items-center p-horizontal:my-4 p-horizontal:mx-0 p-horizontal:py-0 p-horizontal:px-4
