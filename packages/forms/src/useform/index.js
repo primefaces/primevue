@@ -156,10 +156,20 @@ export const useForm = (options = {}) => {
         return async (event) => {
             const results = await validateOn('validateOnSubmit', true);
 
+            const { values } = Object.entries(states).reduce(
+                (acc, [key, val]) => {
+                    acc.values[key] = val.value;
+                },
+                {
+                    values: {}
+                }
+            );
+
             return callback({
                 originalEvent: event,
                 valid: toValue(valid),
                 states: toValue(states),
+                values,
                 reset,
                 ...results
             });
