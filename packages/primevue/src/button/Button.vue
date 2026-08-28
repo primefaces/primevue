@@ -8,7 +8,9 @@
             <slot v-else name="icon" :class="[cx('icon')]" v-bind="ptm('icon')">
                 <span v-if="icon" :class="[cx('icon'), icon, iconClass]" :data-p="dataIconP" v-bind="ptm('icon')"></span>
             </slot>
-            <span v-if="label" :class="cx('label')" v-bind="ptm('label')" :data-p="dataLabelP">{{ label }}</span>
+            <slot name="label" :class="cx('label')" v-bind="ptm('label')">
+                <span v-if="label" :class="cx('label')" v-bind="ptm('label')" :data-p="dataLabelP">{{ label }}</span>
+            </slot>
             <Badge v-if="badge" :value="badge" :class="badgeClass" :severity="badgeSeverity" :unstyled="unstyled" :pt="ptm('pcBadge')"></Badge>
         </slot>
     </component>
