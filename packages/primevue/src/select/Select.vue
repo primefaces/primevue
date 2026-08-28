@@ -724,7 +724,7 @@ export default {
             this.$attrSelector && el.setAttribute(this.$attrSelector, '');
 
             setTimeout(() => {
-                this.autoFilterFocus && this.filter && focus(this.$refs.filterInput.$el);
+                this.autoFilterFocus && this.filter && this.$refs.filterInput && focus(this.$refs.filterInput.$el);
                 this.autoUpdateModel();
             }, 1);
         },
