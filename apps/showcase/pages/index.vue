@@ -1,6 +1,5 @@
 <template>
     <div :class="containerClass">
-        <!--<AppNews />-->
         <AppTopBar :showMenuButton="false" />
         <AppDesigner />
         <HeroSection />

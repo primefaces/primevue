@@ -62,9 +62,6 @@
 
             <ul class="topbar-items">
                 <li>
-                    <div id="docsearch"></div>
-                </li>
-                <li>
                     <a href="https://github.com/primefaces/primevue" target="_blank" rel="noopener noreferrer" class="topbar-item">
                         <i class="pi pi-github"></i>
                     </a>
@@ -94,7 +91,7 @@
                     </button>
                     <AppConfigurator />
                 </li>
-                <li>
+                <li v-if="false">
                     <button type="button" class="topbar-item relative group overflow-hidden !border-transparent" @click="toggleDesigner">
                         <span
                             style="animation-duration: 2s; background: conic-gradient(from 90deg, #f97316, #f59e0b, #eab308, #84cc16, #22c55e, #10b981, #14b8a6, #06b6d4, #0ea5e9, #3b82f6, #6366f1, #8b5cf6, #a855f7, #d946ef, #ec4899, #f43f5e)"
@@ -137,7 +134,6 @@
 
 <script>
 import EventBus from '@/app/AppEventBus';
-import docsearch from '@docsearch/js';
 
 export default {
     emits: ['menubutton-click'],
@@ -166,29 +162,6 @@ export default {
     container: null,
     mounted() {
         this.bindScrollListener();
-
-        docsearch({
-            container: '#docsearch',
-            appId: '01CMUF4W4R',
-            indexName: 'primevue',
-            apiKey: '9bb5939e36897b26ff7de5b7b64d6c43',
-            transformItems: (items) => {
-                const isLocalhost = process.env.NODE_ENV !== 'production';
-
-                return items.map((item) => {
-                    if (isLocalhost) {
-                        const url = new URL(item.url);
-
-                        url.protocol = window.location.protocol;
-                        url.hostname = window.location.hostname;
-                        url.port = window.location.port;
-                        item.url = url.toString();
-                    }
-
-                    return item;
-                });
-            }
-        });
     },
     beforeUnmount() {
         if (this.scrollListener) {

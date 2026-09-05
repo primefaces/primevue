@@ -63,7 +63,7 @@ export default {
             deferredTabs: true
         };
     },
-    async mounted() {
+    /*async mounted() {
         const { data, error } = await $fetch(this.designerApiUrl + '/license/restore', {
             credentials: 'include'
         });
@@ -78,7 +78,7 @@ export default {
                 this.$appState.designer.themeLimit = data.themeLimit;
             }
         }
-    },
+    },*/
     methods: {
         onShow() {
             this.deferredTabs = false;
