@@ -6,18 +6,17 @@
             mergeProps: ptViewMerge
         }"
     >
-        <!-- @vue-ignore PrimeVue 4.5.x declares this scoped slot without its active argument. -->
-        <template #toggleicon="slotProps">
-            <ChevronDownIcon v-if="(slotProps as any).active" />
-            <ChevronUpIcon v-else />
+        <template #toggleicon="{ active }">
+            <ChevronUpIcon v-if="active" />
+            <ChevronDownIcon v-else />
         </template>
         <slot></slot>
     </AccordionHeader>
 </template>
 
 <script setup lang="ts">
-import ChevronUpIcon from '@primevue/icons/chevrondown';
-import ChevronDownIcon from '@primevue/icons/chevronup';
+import ChevronDownIcon from '@primevue/icons/chevrondown';
+import ChevronUpIcon from '@primevue/icons/chevronup';
 import AccordionHeader, { type AccordionHeaderPassThroughOptions, type AccordionHeaderProps } from 'primevue/accordionheader';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
