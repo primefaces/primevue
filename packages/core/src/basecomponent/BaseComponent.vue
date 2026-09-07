@@ -376,7 +376,7 @@ export default {
             };
         },
         $_attrsPT() {
-            return Object.entries(this.$attrs || {})
+            return Object.entries((this.$parentInstance && this.$parentInstance != this) ? this.$parentInstance.$attrs || {} : this.$attrs || {})
                 .filter(([key]) => key?.startsWith('pt:'))
                 .reduce((result, [key, value]) => {
                     const [, ...rest] = key.split(':');
