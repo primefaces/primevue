@@ -1,4 +1,5 @@
 {
     "main": "./ConfirmationEventBus.js",
-    "module": "./ConfirmationEventBus.js"
+    "module": "./ConfirmationEventBus.js",
+    "types": "./ConfirmationEventBus.d.ts"
 }
