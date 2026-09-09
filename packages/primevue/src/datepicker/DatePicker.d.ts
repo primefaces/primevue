@@ -12,7 +12,7 @@ import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
 import type { InputTextPassThroughOptions } from 'primevue/inputtext';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { TransitionProps, VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, TransitionProps, VNode, VNodeProps } from 'vue';
 
 export declare type DatePickerPassThroughOptionType = DatePickerPassThroughAttributes | ((options: DatePickerPassThroughMethodOptions) => DatePickerPassThroughAttributes | string) | string | null | undefined;
 
@@ -1168,17 +1168,17 @@ export interface DatePickerSlots {
 /**
  * Defines valid emits in DatePicker component.
  */
-export interface DatePickerEmitsOptions {
+export interface DatePickerEmitsOptions<V = Date | Array<Date> | Array<Date | null> | null> {
     /**
      * Emitted when the value changes.
-     * @param {string | Date | string[] | Date[] | undefined} value - New value.
+     * @param {V} value - New value.
      */
-    'update:modelValue'(value: Date | Array<Date> | Array<Date | null> | undefined | null): void;
+    'update:modelValue'(value: V): void;
     /**
      * Emitted when the value changes in uncontrolled mode.
-     * @param {string | Date | string[] | Date[] | undefined} value - New value.
+     * @param {V} value - New value.
      */
-    'value-change'(value: Date | Array<Date> | Array<Date | null> | undefined | null): void;
+    'value-change'(value: V): void;
     /**
      * Callback to invoke when input field is being typed.
      * @param {Event} event - Browser event
@@ -1247,11 +1247,19 @@ export declare type DatePickerEmits = EmitFn<DatePickerEmitsOptions>;
  * @group Component
  *
  */
-declare const DatePicker: DefineComponent<DatePickerProps, DatePickerSlots, DatePickerEmits>;
+declare const DatePicker: {
+    new <V extends Date | Array<Date> | Array<Date | null> | null = Date | Array<Date> | Array<Date | null> | null>(
+        props: Omit<DatePickerProps, 'modelValue'> & { modelValue?: V }
+    ): {
+        $props: Omit<DatePickerProps, 'modelValue'> & { modelValue?: V } & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: DatePickerSlots;
+        $emit: EmitFn<DatePickerEmitsOptions<V>>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DatePicker: DefineComponent<DatePickerProps, DatePickerSlots, DatePickerEmits>;
+        DatePicker: typeof DatePicker;
     }
 }
 
