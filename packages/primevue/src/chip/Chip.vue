@@ -7,7 +7,7 @@
             <div v-if="label !== null" :class="cx('label')" v-bind="ptm('label')">{{ label }}</div>
         </slot>
         <slot v-if="removable" name="removeicon" :removeCallback="close" :keydownCallback="onKeydown">
-            <component :is="removeIcon ? 'span' : 'TimesCircleIcon'" :class="[cx('removeIcon'), removeIcon]" @click="close" @keydown="onKeydown" v-bind="ptm('removeIcon')"></component>
+            <component :is="removeIcon ? 'span' : 'TimesCircleIcon'" :class="[cx('removeIcon'), removeIcon]" :tabindex="0" role="button" :aria-label="removeAriaLabel" @click="close($event)" @keydown="onKeydown" v-bind="ptm('removeIcon')"></component>
         </slot>
     </div>
 </template>
@@ -29,7 +29,8 @@ export default {
     },
     methods: {
         onKeydown(event) {
-            if (event.key === 'Enter' || event.key === 'Backspace') {
+            if (event.key === 'Enter' || event.key === ' ' || event.key === 'Backspace') {
+                event.preventDefault();
                 this.close(event);
             }
         },
@@ -43,6 +44,11 @@ export default {
             return cn({
                 removable: this.removable
             });
+        },
+        removeAriaLabel() {
+            const closeLabel = this.$primevue.config.locale.aria ? this.$primevue.config.locale.aria.close : 'close';
+
+            return this.label ? `${closeLabel} ${this.label}` : closeLabel;
         }
     },
     components: {
