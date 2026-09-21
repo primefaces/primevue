@@ -1,4 +1,5 @@
 {
     "main": "./OverlayEventBus.js",
-    "module": "./OverlayEventBus.js"
+    "module": "./OverlayEventBus.js",
+    "types": "./OverlayEventBus.d.ts"
 }
