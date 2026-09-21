@@ -16,7 +16,7 @@ import type { PaginatorPassThroughOptionType } from 'primevue/paginator';
 import type { PassThroughOptions } from 'primevue/passthrough';
 import type { RowPassThroughOptionType } from 'primevue/row';
 import type { VirtualScrollerPassThroughOptionType, VirtualScrollerProps } from 'primevue/virtualscroller';
-import { InputHTMLAttributes, TableHTMLAttributes, TransitionProps, VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, InputHTMLAttributes, TableHTMLAttributes, TransitionProps, VNode, VNodeProps } from 'vue';
 
 export declare type DataTablePassThroughOptionType = DataTablePassThroughAttributes | ((options: DataTablePassThroughMethodOptions) => DataTablePassThroughAttributes | string) | string | null | undefined;
 
@@ -232,7 +232,7 @@ export interface DataTableEditButtonPropsOptions {
  * Custom sort event.
  * @see {@link DataTableEmitsOptions.sort}
  */
-export interface DataTableSortEvent {
+export interface DataTableSortEvent<PS extends number = number> {
     /**
      * Browser event.
      */
@@ -244,7 +244,7 @@ export interface DataTableSortEvent {
     /**
      * Number of rows to display in new page
      */
-    rows: number;
+    rows: PS;
     /**
      * Field to sort against
      */
@@ -273,7 +273,7 @@ export interface DataTableSortEvent {
  * @see {@link DataTableEmitsOptions.page}
  * @extends DataTableSortEvent
  */
-export interface DataTablePageEvent extends DataTableSortEvent {
+export interface DataTablePageEvent<PS extends number = number> extends DataTableSortEvent<PS> {
     /**
      * New page number
      */
@@ -289,7 +289,7 @@ export interface DataTablePageEvent extends DataTableSortEvent {
  * @see {@link DataTableEmitsOptions.filter}
  * @extends DataTableSortEvent
  */
-export interface DataTableFilterEvent extends DataTableSortEvent {
+export interface DataTableFilterEvent<PS extends number = number> extends DataTableSortEvent<PS> {
     /**
      * Filtered collection (non-lazy only)
      */
@@ -593,7 +593,7 @@ export interface DataTableRowEditCancelEvent<T = any> extends DataTableRowEditIn
  * Custom state event.
  * @see {@link DataTableEmitsOptions['state-save']}
  */
-export interface DataTableStateEvent<T = any> {
+export interface DataTableStateEvent<T = any, PS extends number = number> {
     /**
      * Index of first record
      */
@@ -601,7 +601,7 @@ export interface DataTableStateEvent<T = any> {
     /**
      * Number of rows to display in new page
      */
-    rows?: number | undefined;
+    rows?: PS | undefined;
     /**
      * Field to sort against
      */
@@ -796,7 +796,7 @@ export interface DataTablePassThroughAttributes {
 /**
  * Defines current inline state in DataTable component.
  */
-export interface DataTableState {
+export interface DataTableState<PS extends number = number> {
     /**
      * Current index of first record as a number.
      */
@@ -804,7 +804,7 @@ export interface DataTableState {
     /**
      * Current number of rows to display in new page as a number.
      */
-    d_rows: number;
+    d_rows: PS;
     /**
      * Current sort field.
      */
@@ -880,7 +880,7 @@ export interface DataTableContext {
 /**
  * Defines valid properties in DataTable component.
  */
-export interface DataTableProps<T = any> {
+export interface DataTableProps<T = any, PS extends number = number> {
     /**
      * An array of objects to display.
      */
@@ -893,7 +893,7 @@ export interface DataTableProps<T = any> {
      * Number of rows to display per page.
      * @defaultValue 0
      */
-    rows?: number | undefined;
+    rows?: PS | undefined;
     /**
      * Index of the first row to be displayed.
      * @defaultValue 0
@@ -942,7 +942,7 @@ export interface DataTableProps<T = any> {
     /**
      * Array of integer values to display inside rows per page dropdown.
      */
-    rowsPerPageOptions?: number[] | undefined;
+    rowsPerPageOptions?: readonly PS[] | undefined;
     /**
      * Template of the current page report element. It displays information about the pagination state. Available placeholders are the following;
      *
@@ -972,7 +972,7 @@ export interface DataTableProps<T = any> {
     /**
      * Property name or a getter function of a row data used for sorting by default
      */
-    sortField?: keyof T | ((item: NoInfer<T>) => string) | undefined;
+    sortField?: HintedString<keyof T & string> | ((item: NoInfer<T>) => string) | undefined;
     /**
      * Order to sort the data by default.
      */
@@ -1253,7 +1253,7 @@ export interface DataTableProps<T = any> {
 /**
  * Defines valid slots in DataTable component.
  */
-export interface DataTableSlots<T = any> {
+export interface DataTableSlots<T = any, PS extends number = number> {
     /**
      * Custom header template.
      */
@@ -1361,7 +1361,7 @@ export interface DataTableSlots<T = any> {
         /**
          * Number of rows to display in new page
          */
-        rows: number;
+        rows: PS;
         /**
          * New page number
          */
@@ -1401,7 +1401,7 @@ export interface DataTableSlots<T = any> {
         /**
          * Row change function.
          */
-        rowChangeCallback: (value: number) => void;
+        rowChangeCallback: (value: PS) => void;
         /**
          * Page change function.
          */
@@ -1479,7 +1479,7 @@ export interface DataTableSlots<T = any> {
 /**
  * Defines valid emits in Datatable component.
  */
-export interface DataTableEmitsOptions<T = any> {
+export interface DataTableEmitsOptions<T = any, F extends DataTableFilterMeta = DataTableFilterMeta, PS extends number = number> {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.
@@ -1489,7 +1489,7 @@ export interface DataTableEmitsOptions<T = any> {
      * Emitted when the rows changes.
      * @param {number} value - New value.
      */
-    'update:rows'(value: number): void;
+    'update:rows'(value: PS): void;
     /**
      * Emitted when the sortField changes.
      * @param {string} value - New value.
@@ -1527,9 +1527,9 @@ export interface DataTableEmitsOptions<T = any> {
     'update:expandedRowGroups'(value: T[] | DataTableExpandedRows): void;
     /**
      * Emitted when the filters changes.
-     * @param {DataTableFilterMeta} value - New value.
+     * @param {F} value - New value.
      */
-    'update:filters'(value: DataTableFilterMeta): void;
+    'update:filters'(value: F): void;
     /**
      * Emitted when the editingRows changes.
      * @param {DataTableEditingRows} value - New value.
@@ -1539,17 +1539,17 @@ export interface DataTableEmitsOptions<T = any> {
      * Callback to invoke on pagination. Sort and Filter information is also available for lazy loading implementation.
      * @param {DataTablePageEvent} event - Custom page event.
      */
-    page(event: DataTablePageEvent): void;
+    page(event: DataTablePageEvent<PS>): void;
     /**
      * Callback to invoke on sort. Page and Filter information is also available for lazy loading implementation.
      * @param {DataTableSortEvent} event - Custom sort event.
      */
-    sort(event: DataTableSortEvent): void;
+    sort(event: DataTableSortEvent<PS>): void;
     /**
      * Event to emit after filtering, not triggered in lazy mode.
      * @param {DataTableFilterEvent} event - Custom filter event.
      */
-    filter(event: DataTableFilterEvent): void;
+    filter(event: DataTableFilterEvent<PS>): void;
     /**
      * Callback to invoke after filtering, sorting, pagination and cell editing to pass the rendered value.
      * @param {*} value - Value displayed by the table.
@@ -1664,12 +1664,12 @@ export interface DataTableEmitsOptions<T = any> {
      * Invoked when a stateful table restores the state.
      * @param {DataTableStateEvent} event - Custom state event.
      */
-    'state-restore'(event: DataTableStateEvent<T>): void;
+    'state-restore'(event: DataTableStateEvent<T, PS>): void;
     /**
      * Invoked when a stateful table saves the state.
      * @param {DataTableStateEvent} event - Custom state event.
      */
-    'state-save'(event: DataTableStateEvent<T>): void;
+    'state-save'(event: DataTableStateEvent<T, PS>): void;
 }
 
 export declare type DataTableEmits = EmitFn<DataTableEmitsOptions>;
@@ -1695,11 +1695,19 @@ export interface DataTableMethods {
  * @group Component
  *
  */
-declare const DataTable: DefineComponent<DataTableProps, DataTableSlots, DataTableEmits, DataTableMethods>;
+declare const DataTable: {
+    new <T = any, F extends DataTableFilterMeta = DataTableFilterMeta, PS extends number = number>(
+        props: Omit<DataTableProps<T, PS>, 'filters'> & { filters?: F }
+    ): {
+        $props: Omit<DataTableProps<T, PS>, 'filters'> & { filters?: F } & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: DataTableSlots<T>;
+        $emit: EmitFn<DataTableEmitsOptions<T, F, PS>>;
+    } & DataTableMethods;
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        DataTable: DefineComponent<DataTableProps, DataTableSlots, DataTableEmits, DataTableMethods>;
+        DataTable: typeof DataTable;
     }
 }
 
