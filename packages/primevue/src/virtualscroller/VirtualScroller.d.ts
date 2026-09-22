@@ -10,7 +10,7 @@
 import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } from '@primevue/core';
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type VirtualScrollerPassThroughOptionType = VirtualScrollerPassThroughAttributes | ((options: VirtualScrollerPassThroughMethodOptions) => VirtualScrollerPassThroughAttributes | string) | string | null | undefined;
 
@@ -222,7 +222,7 @@ export interface VirtualScrollerLoaderOptions extends VirtualScrollerItemOptions
 /**
  * Defines valid properties in VirtualScroller component.
  */
-export interface VirtualScrollerProps {
+export interface VirtualScrollerProps<T = any> {
     /**
      * Unique identifier of the element.
      */
@@ -238,7 +238,7 @@ export interface VirtualScrollerProps {
     /**
      * An array of objects to display.
      */
-    items?: any[] | any[][] | undefined | null;
+    items?: T[] | T[][] | undefined | null;
     /**
      * The height/width of item according to orientation.
      */
@@ -356,7 +356,7 @@ export interface VirtualScrollerProps {
 /**
  * Defines valid slots in VirtualScroller component.
  */
-export interface VirtualScrollerSlots {
+export interface VirtualScrollerSlots<T = any> {
     /**
      * Custom content template.
      * @param {Object} scope - content slot's params.
@@ -365,7 +365,7 @@ export interface VirtualScrollerSlots {
         /**
          * An array of objects to display for virtualscroller
          */
-        items: any;
+        items: T[];
         /**
          * Style class of the content
          */
@@ -433,7 +433,7 @@ export interface VirtualScrollerSlots {
         /**
          * Item data.
          */
-        item: any;
+        item: T;
         /**
          * Item options.
          */
@@ -526,11 +526,19 @@ export interface VirtualScrollerMethods {
  * @group Component
  *
  */
-declare const VirtualScroller: DefineComponent<VirtualScrollerProps, VirtualScrollerSlots, VirtualScrollerEmits, VirtualScrollerMethods>;
+declare const VirtualScroller: {
+    new <T = any>(
+        props: VirtualScrollerProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps
+    ): {
+        $props: VirtualScrollerProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: VirtualScrollerSlots<T>;
+        $emit: VirtualScrollerEmits;
+    } & VirtualScrollerMethods;
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        VirtualScroller: DefineComponent<VirtualScrollerProps, VirtualScrollerSlots, VirtualScrollerEmits, VirtualScrollerMethods>;
+        VirtualScroller: typeof VirtualScroller;
     }
 }
 

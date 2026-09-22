@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } 
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ChipPassThroughOptions } from 'primevue/chip';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { InputHTMLAttributes, VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, InputHTMLAttributes, VNode, VNodeProps } from 'vue';
 
 export declare type InputChipsPassThroughOptionType = InputChipsPassThroughAttributes | ((options: InputChipsPassThroughMethodOptions) => InputChipsPassThroughAttributes | string) | string | null | undefined;
 
@@ -155,11 +155,11 @@ export interface InputChipsState {
 /**
  * Defines valid properties in InputChips component.
  */
-export interface InputChipsProps {
+export interface InputChipsProps<T = any> {
     /**
      * Value of the component.
      */
-    modelValue?: any[];
+    modelValue?: T[];
     /**
      * Maximum number of entries allowed.
      */
@@ -252,7 +252,7 @@ export interface InputChipsProps {
 /**
  * Defines valid slots in InputChips slots.
  */
-export interface InputChipsSlots {
+export interface InputChipsSlots<T = any> {
     /**
      * Custom chip template.
      * @param {Object} scope - chip slot's params.
@@ -261,7 +261,7 @@ export interface InputChipsSlots {
         /**
          * Value of the component
          */
-        value: any;
+        value: T;
     }): VNode[];
     /**
      * @deprecated since v4.0. Use 'chipicon' slot.
@@ -338,11 +338,19 @@ export declare type InputChipsEmits = EmitFn<InputChipsEmitsOptions>;
  * @group Component
  *
  */
-declare const InputChips: DefineComponent<InputChipsProps, InputChipsSlots, InputChipsEmits>;
+declare const InputChips: {
+    new <T = any>(
+        props: InputChipsProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps
+    ): {
+        $props: InputChipsProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: InputChipsSlots<T>;
+        $emit: InputChipsEmits;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        InputChips: DefineComponent<InputChipsProps, InputChipsSlots, InputChipsEmits>;
+        InputChips: typeof InputChips;
     }
 }
 
