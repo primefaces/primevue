@@ -12,7 +12,7 @@ import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions } from 'primevue/button';
 import type { ListboxPassThroughOptions } from 'primevue/listbox';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { TransitionProps, VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, TransitionProps, VNode, VNodeProps } from 'vue';
 
 export declare type PickListPassThroughOptionType = PickListPassThroughAttributes | ((options: PickListPassThroughMethodOptions) => PickListPassThroughAttributes | string) | string | null | undefined;
 
@@ -290,15 +290,15 @@ export interface PickListContext {
 /**
  * Defines valid properties in PickList component.
  */
-export interface PickListProps {
+export interface PickListProps<T = any> {
     /**
      * Value of the component as a multidimensional array.
      */
-    modelValue?: any[][] | undefined;
+    modelValue?: T[][] | undefined;
     /**
      * Selected items in the list as a multidimensional array.
      */
-    selection?: any[][] | undefined;
+    selection?: T[][] | undefined;
     /**
      * Name of the field that uniquely identifies the a record in the data.
      */
@@ -420,7 +420,7 @@ export interface PickListProps {
 /**
  * Defines valid slots in PickList component.
  */
-export interface PickListSlots {
+export interface PickListSlots<T = any> {
     /**
      * Custom header template.
      */
@@ -434,7 +434,7 @@ export interface PickListSlots {
         /**
          * Item of the component
          */
-        item: any;
+        item: T;
         /**
          * Selection state
          */
@@ -452,7 +452,7 @@ export interface PickListSlots {
         /**
          * Option of the component
          */
-        option: any;
+        option: T;
         /**
          * Selection state
          */
@@ -612,11 +612,19 @@ export declare type PickListEmits = EmitFn<PickListEmitsOptions>;
  * @group Component
  *
  */
-declare const PickList: DefineComponent<PickListProps, PickListSlots, PickListEmits>;
+declare const PickList: {
+    new <T = any>(
+        props: PickListProps<T>
+    ): {
+        $props: PickListProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: PickListSlots<T>;
+        $emit: EmitFn<PickListEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        PickList: DefineComponent<PickListProps, PickListSlots, PickListEmits>;
+        PickList: typeof PickList;
     }
 }
 
