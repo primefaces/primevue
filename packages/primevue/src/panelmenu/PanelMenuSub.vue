@@ -16,7 +16,7 @@
                 :data-p-focused="isItemFocused(processedItem)"
                 :data-p-disabled="isItemDisabled(processedItem)"
             >
-                <div :class="cx('itemContent')" @click="onItemClick($event, processedItem)" @mousemove="onItemMouseMove($event, processedItem)" v-bind="getPTOptions('itemContent', processedItem, index)">
+                <div :class="cx('itemContent')" @click="onItemClick($event, processedItem)" v-bind="getPTOptions('itemContent', processedItem, index)">
                     <template v-if="!templates.item">
                         <a v-ripple :href="getItemProp(processedItem, 'url')" :class="cx('itemLink')" :target="getItemProp(processedItem, 'target')" tabindex="-1" v-bind="getPTOptions('itemLink', processedItem, index)">
                             <template v-if="isItemGroup(processedItem)">
@@ -85,7 +85,7 @@ export default {
     name: 'PanelMenuSub',
     hostName: 'PanelMenu',
     extends: BaseComponent,
-    emits: ['item-toggle', 'item-mousemove'],
+    emits: ['item-toggle'],
     props: {
         panelId: {
             type: String,
@@ -161,9 +161,6 @@ export default {
         },
         onItemToggle(event) {
             this.$emit('item-toggle', event);
-        },
-        onItemMouseMove(event, processedItem) {
-            this.$emit('item-mousemove', { originalEvent: event, processedItem });
         },
         getAriaSetSize() {
             return this.items.filter((processedItem) => this.isItemVisible(processedItem) && !this.getItemProp(processedItem, 'separator')).length;
