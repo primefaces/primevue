@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } 
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type DockPassThroughOptionType = DockPassThroughAttributes | ((options: DockPassThroughMethodOptions) => DockPassThroughAttributes | string) | string | null | undefined;
 
@@ -176,11 +176,11 @@ export interface DockRouterBindProps {
 /**
  * Defines valid properties in Dock component.
  */
-export interface DockProps {
+export interface DockProps<T extends MenuItem = MenuItem> {
     /**
      * MenuModel instance to define the action items.
      */
-    model?: MenuItem[] | undefined;
+    model?: T[] | undefined;
     /**
      * Position of element.
      * @defaultValue bottom
@@ -244,7 +244,7 @@ export interface DockProps {
 /**
  * Defines valid slots in Dock component.
  */
-export interface DockSlots {
+export interface DockSlots<T extends MenuItem = MenuItem> {
     /**
      * Custom item content.
      * @param {Object} scope - item slot's params.
@@ -253,7 +253,7 @@ export interface DockSlots {
         /**
          * Custom content for item.
          */
-        item: MenuItem;
+        item: T;
         /**
          * Index of the menuitem
          */
@@ -276,7 +276,7 @@ export interface DockSlots {
         /**
          * Custom content for item icon.
          */
-        item: MenuItem;
+        item: T;
     }): VNode[];
     /**
      * Custom icon content.
@@ -286,7 +286,7 @@ export interface DockSlots {
         /**
          * Custom content for item icon.
          */
-        item: MenuItem;
+        item: T;
     }): VNode[];
 }
 
@@ -320,11 +320,19 @@ export declare type DockEmits = EmitFn<DockEmitsOptions>;
  * @group Component
  *
  */
-declare const Dock: DefineComponent<DockProps, DockSlots, DockEmits>;
+declare const Dock: {
+    new <T extends MenuItem = MenuItem>(
+        props: DockProps<T>
+    ): {
+        $props: DockProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: DockSlots<T>;
+        $emit: EmitFn<DockEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Dock: DefineComponent<DockProps, DockSlots, DockEmits>;
+        Dock: typeof Dock;
     }
 }
 
