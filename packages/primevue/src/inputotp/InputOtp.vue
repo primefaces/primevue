@@ -68,6 +68,7 @@ export default {
         },
         onInput(event, index) {
             this.tokens[index] = event.target.value;
+            event.target.value = this.tokens.join('');
             this.updateModel(event);
 
             if (event.inputType === 'deleteContentBackward') {
