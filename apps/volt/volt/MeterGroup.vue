@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </MeterGroup>
 </template>
 
 <script setup lang="ts">
-import MeterGroup, { type MeterGroupPassThroughOptions, type MeterGroupProps } from 'primevue/metergroup';
+import MeterGroup, { type MeterGroupPassThroughOptions, type MeterGroupProps, type MeterGroupSlots } from 'primevue/metergroup';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ MeterGroupProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ MeterGroupSlots {}
+defineSlots<Slots>();
 
 const theme = ref<MeterGroupPassThroughOptions>({
     root: `flex gap-4 p-horizontal:flex-col p-vertical:flex-row`,

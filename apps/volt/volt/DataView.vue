@@ -36,7 +36,7 @@
             </div>
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </DataView>
 </template>
@@ -46,13 +46,15 @@ import AngleDoubleLeftIcon from '@primevue/icons/angledoubleleft';
 import AngleDoubleRightIcon from '@primevue/icons/angledoubleright';
 import AngleLeftIcon from '@primevue/icons/angleleft';
 import AngleRightIcon from '@primevue/icons/angleright';
-import DataView, { type DataViewPassThroughOptions, type DataViewProps } from 'primevue/dataview';
+import DataView, { type DataViewPassThroughOptions, type DataViewProps, type DataViewSlots } from 'primevue/dataview';
 import { ref } from 'vue';
 import SecondaryButton from './SecondaryButton.vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ DataViewProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ DataViewSlots {}
+defineSlots<Slots>();
 
 const theme = ref<DataViewPassThroughOptions>({
     root: `border-none`,

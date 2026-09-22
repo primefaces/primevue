@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Toolbar>
 </template>
 
 <script setup lang="ts">
-import Toolbar, { type ToolbarPassThroughOptions, type ToolbarProps } from 'primevue/toolbar';
+import Toolbar, { type ToolbarPassThroughOptions, type ToolbarProps, type ToolbarSlots } from 'primevue/toolbar';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ ToolbarProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ ToolbarSlots {}
+defineSlots<Slots>();
 
 const theme = ref<ToolbarPassThroughOptions>({
     root: `flex items-center justify-between flex-wrap p-3 gap-2

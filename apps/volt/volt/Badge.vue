@@ -7,18 +7,20 @@
         }"
     >
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Badge>
 </template>
 
 <script setup lang="ts">
-import Badge, { type BadgePassThroughOptions, type BadgeProps } from 'primevue/badge';
+import Badge, { type BadgePassThroughOptions, type BadgeProps, type BadgeSlots } from 'primevue/badge';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ BadgeProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ BadgeSlots {}
+defineSlots<Slots>();
 
 const theme = ref<BadgePassThroughOptions>({
     root: `inline-flex items-center justify-center rounded-md

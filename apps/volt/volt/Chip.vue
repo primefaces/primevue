@@ -14,19 +14,21 @@
             />
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Chip>
 </template>
 
 <script setup lang="ts">
 import TimesCircleIcon from '@primevue/icons/timescircle';
-import Chip, { type ChipPassThroughOptions, type ChipProps } from 'primevue/chip';
+import Chip, { type ChipPassThroughOptions, type ChipProps, type ChipSlots } from 'primevue/chip';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ ChipProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ ChipSlots {}
+defineSlots<Slots>();
 
 const theme = ref<ChipPassThroughOptions>({
     root: `inline-flex items-center rounded-2xl gap-2 px-3 py-2

@@ -13,7 +13,7 @@
             <AngleDownIcon />
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </InputNumber>
 </template>
@@ -21,12 +21,14 @@
 <script setup lang="ts">
 import AngleDownIcon from '@primevue/icons/angledown';
 import AngleUpIcon from '@primevue/icons/angleup';
-import InputNumber, { type InputNumberPassThroughOptions, type InputNumberProps } from 'primevue/inputnumber';
+import InputNumber, { type InputNumberPassThroughOptions, type InputNumberProps, type InputNumberSlots } from 'primevue/inputnumber';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ InputNumberProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ InputNumberSlots {}
+defineSlots<Slots>();
 
 const theme = ref<InputNumberPassThroughOptions>({
     root: `inline-flex relative 
