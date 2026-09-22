@@ -73,7 +73,9 @@ export default {
         $formDefaultValue: {
             immediate: true,
             handler(newValue) {
-                this.d_value !== newValue && (this.d_value = newValue);
+                if (this.d_value === undefined && newValue !== undefined) {
+                    this.d_value = newValue;
+                }
             }
         },
         $formValue: {
@@ -122,7 +124,9 @@ export default {
             return this.findNonEmpty(this.d_value, this.$pcFormField?.initialValue, this.$pcForm?.initialValues?.[this.$formName]);
         },
         $formValue() {
-            return this.findNonEmpty(this.$pcFormField?.$field?.value, this.$pcForm?.getFieldState(this.$formName)?.value);
+            const formState = this.$pcForm?.getFieldState(this.$formName);
+
+            return formState ? formState.value : this.$pcFormField?.$field?.value;
         },
         controlled() {
             return this.$inProps.hasOwnProperty('modelValue') || (!this.$inProps.hasOwnProperty('modelValue') && !this.$inProps.hasOwnProperty('defaultValue'));
