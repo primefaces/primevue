@@ -14,6 +14,7 @@
                     :size="size"
                     :invalid="invalid"
                     :tabindex="tabindex"
+                    :autofocus="i === 1 ? autofocus : null"
                     :unstyled="unstyled"
                     @input="onInput($event, i - 1)"
                     @focus="onFocus($event)"
@@ -54,7 +55,8 @@ export default {
     methods: {
         getTemplateAttrs(index) {
             return {
-                value: this.tokens[index]
+                value: this.tokens[index],
+                autofocus: index === 0 ? this.autofocus : null
             };
         },
         getTemplateEvents(index) {

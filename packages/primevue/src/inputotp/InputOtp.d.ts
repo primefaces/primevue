@@ -116,6 +116,10 @@ export interface InputOtpTemplateAttrsOptions {
      * Input token value
      */
     value: string;
+    /**
+     * Autofocus attribute for the input element
+     */
+    autofocus?: boolean | undefined;
 }
 
 /**
@@ -209,6 +213,11 @@ export interface InputOtpProps {
      * @defaultValue false
      */
     integerOnly?: boolean | undefined;
+    /**
+     * When present, it specifies that the first input element should automatically get focus when the page loads.
+     * @defaultValue null
+     */
+    autofocus?: boolean | undefined;
     /**
      * Form control object, typically used for handling validation and form state.
      */
