@@ -257,7 +257,29 @@ const FilterService = {
             }
 
             return value.getTime() > filter.getTime();
-        }
+        },
+        dateEqualsAndAfter: function dateEqualsAndAfter(value, filter) {
+            if (filter === undefined || filter === null) {
+                return true;
+            }
+
+            if (value === undefined || value === null) {
+                return false;
+            }
+
+            return value.getTime() >= filter.getTime();
+        },
+        dateEqualsAndBefore: function dateEqualsAndBefore(value, filter) {
+            if (filter === undefined || filter === null) {
+                return true;
+            }
+
+            if (value === undefined || value === null) {
+                return false;
+            }
+
+            return value.getTime() <= filter.getTime();
+        },
     },
     register(rule, fn) {
         this.filters[rule] = fn;
