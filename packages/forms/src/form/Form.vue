@@ -34,6 +34,13 @@ export default {
         };
 
         const onSubmit = $form.handleSubmit((e) => {
+            const values = {};
+            for (const key in $form.fields) {
+                if ($form.fields[key] && $form.fields[key].states && typeof $form.fields[key].states === 'object' && 'value' in $form.fields[key].states) {
+                    values[key] = $form.fields[key].states.value;
+                }
+            }
+            e.values = values;
             emit('submit', e);
         });
 
