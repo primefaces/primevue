@@ -117,6 +117,10 @@ const ButtonSlots = [
         description: 'Custom icon template.'
     },
     {
+        name: 'label',
+        description: 'Custom label template.'
+    },
+    {
         name: 'loadingicon',
         description: 'Custom loading icon template.'
     }
