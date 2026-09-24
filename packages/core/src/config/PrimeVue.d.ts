@@ -158,7 +158,7 @@ export declare function usePrimeVue(): {
     config: PrimeVueConfiguration;
 };
 
-declare const plugin: Plugin;
+declare const plugin: Plugin<PrimeVueConfiguration>;
 export default plugin;
 
 declare module 'vue' {
