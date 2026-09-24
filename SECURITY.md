@@ -4,7 +4,7 @@
 
 **Please do not open a public issue for security problems.**
 
-Report it privately through [GitHub's private vulnerability reporting](https://github.com/primefaces/primevue/security/advisories/new), or email **contact@primetek.com.tr** if you'd rather not use GitHub.
+Report it privately through [GitHub's private vulnerability reporting](https://github.com/primefaces/primevue/security/advisories/new), or email **security@primetek.com.tr** if you'd rather not use GitHub.
 
 Include whatever you have: the affected version, a short proof of concept, and what an attacker could actually do with it. A working reproduction helps us confirm the issue quickly.
 
