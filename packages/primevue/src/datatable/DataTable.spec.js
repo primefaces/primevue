@@ -1540,4 +1540,62 @@ describe('DataTable.vue', () => {
         expect(rowCheckboxIcons[1].text()).toBe('CustomIcon');
         expect(rowCheckboxIcons[2].text()).toBe('CustomIcon');
     });
+
+    // VirtualScroller + rowGroupMode="subheader" item-size contract
+    it('should expose getItemSize as null when rowGroupMode is unset', () => {
+        expect(wrapper.vm.getItemSize).toBe(null);
+    });
+
+    it('should report itemSize plus a header contribution at group boundaries', async () => {
+        const grouped = [
+            { id: 0, rep: 'Amy' },
+            { id: 1, rep: 'Amy' },
+            { id: 2, rep: 'John' },
+            { id: 3, rep: 'John' },
+            { id: 4, rep: 'Maria' }
+        ];
+
+        await wrapper.setProps({
+            value: grouped,
+            rowGroupMode: 'subheader',
+            groupRowsBy: 'rep',
+            virtualScrollerOptions: { itemSize: 36 }
+        });
+        wrapper.vm.d_rowGroupHeaderHeight = 40;
+
+        const fn = wrapper.vm.getItemSize;
+
+        expect(typeof fn).toBe('function');
+        expect(fn(0)).toBe(76); // boundary (first row) + data row
+        expect(fn(1)).toBe(36); // continuation of Amy
+        expect(fn(2)).toBe(76); // boundary into John
+        expect(fn(3)).toBe(36); // continuation of John
+        expect(fn(4)).toBe(76); // boundary into Maria
+    });
+
+    it('should report 0 for non-anchor rows of a collapsed group', async () => {
+        const grouped = [
+            { id: 0, rep: 'Amy' },
+            { id: 1, rep: 'Amy' },
+            { id: 2, rep: 'John' },
+            { id: 3, rep: 'John' }
+        ];
+
+        await wrapper.setProps({
+            value: grouped,
+            rowGroupMode: 'subheader',
+            groupRowsBy: 'rep',
+            expandableRowGroups: true,
+            expandedRowGroups: ['John'],
+            virtualScrollerOptions: { itemSize: 36 }
+        });
+        wrapper.vm.d_rowGroupHeaderHeight = 40;
+
+        const fn = wrapper.vm.getItemSize;
+
+        expect(fn(0)).toBe(40); // Amy anchor: header only (collapsed)
+        expect(fn(1)).toBe(0); // Amy continuation: hidden
+        expect(fn(2)).toBe(76); // John anchor: header + data row (expanded)
+        expect(fn(3)).toBe(36); // John continuation: data row only
+    });
 });

@@ -279,7 +279,7 @@ export default {
     },
     computed: {
         rowGroupHeaderStyle() {
-            if (this.scrollable) {
+            if (this.scrollable && this.isVirtualScrollerDisabled) {
                 return { top: this.rowGroupHeaderStyleObject.top };
             }
 

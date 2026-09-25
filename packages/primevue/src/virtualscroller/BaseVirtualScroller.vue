@@ -20,6 +20,10 @@ export default {
             type: [Number, Array],
             default: 0
         },
+        getItemSize: {
+            type: Function,
+            default: null
+        },
         scrollHeight: null,
         scrollWidth: null,
         orientation: {

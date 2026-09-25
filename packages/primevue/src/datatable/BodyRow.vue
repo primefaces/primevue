@@ -554,7 +554,7 @@ export default {
         },
         shouldRenderRowGroupHeader() {
             const currentRowFieldData = resolveFieldData(this.rowData, this.groupRowsBy);
-            const prevRowData = this.value[this.rowIndex - 1];
+            const prevRowData = this.value[this.index - 1];
 
             if (prevRowData) {
                 const previousRowFieldData = resolveFieldData(prevRowData, this.groupRowsBy);
@@ -569,7 +569,7 @@ export default {
                 return false;
             } else {
                 let currentRowFieldData = resolveFieldData(this.rowData, this.groupRowsBy);
-                let nextRowData = this.value[this.rowIndex + 1];
+                let nextRowData = this.value[this.index + 1];
 
                 if (nextRowData) {
                     let nextRowFieldData = resolveFieldData(nextRowData, this.groupRowsBy);
