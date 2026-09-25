@@ -698,6 +698,15 @@ export interface DatePickerProps {
      */
     hideOnRangeSelection?: boolean | undefined;
     /**
+     * Whether to preserve the current visible months when selecting the start date in range mode with multiple months displayed.
+     * By default, when numberOfMonths > 1 and you select a start date from the second (or later) visible month,
+     * the calendar view jumps so that the selected month becomes the first visible month.
+     * When this property is enabled, the view remains stable during the initial selection, preventing the jump.
+     * Once the range is complete (both start and end dates are selected), normal view behavior resumes.
+     * @defaultValue false
+     */
+    preserveViewOnRangeStart?: boolean | undefined;
+    /**
      * Separator of time selector.
      * @defaultValue :
      */

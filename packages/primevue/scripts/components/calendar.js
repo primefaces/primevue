@@ -222,6 +222,12 @@ const CalendarProps = [
         description: 'Whether to hide the overlay on date selection is completed when selectionMode is range.'
     },
     {
+        name: 'preserveViewOnRangeStart',
+        type: 'boolean',
+        default: 'false',
+        description: 'Whether to preserve the current visible months when selecting the start date in range mode with multiple months displayed. By default, when numberOfMonths > 1 and you select a start date from the second (or later) visible month, the calendar view jumps so that the selected month becomes the first visible month. When enabled, the view remains stable during the initial selection. Once the range is complete (both start and end dates are selected), normal view behavior resumes.'
+    },
+    {
         name: 'timeSeparator',
         type: 'string',
         default: ':',
