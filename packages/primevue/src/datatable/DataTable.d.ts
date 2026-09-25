@@ -1027,6 +1027,11 @@ export interface DataTableProps<T = any> {
      */
     selectionMode?: HintedString<'single' | 'multiple'> | undefined;
     /**
+     * if selectionMode is not null, this function is called to determine if a row is selectable.
+     * @defaultValue null
+     */
+    selectable?: (rowData: NoInfer<T>, rowIndex: number) => boolean | undefined;
+    /**
      * Algorithm to define if a row is selected.
      * @defaultValue deepEquals
      */
