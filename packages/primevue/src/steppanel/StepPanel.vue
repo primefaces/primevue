@@ -96,7 +96,7 @@ export default {
             return {
                 id: this.id,
                 role: 'tabpanel',
-                'aria-controls': this.ariaControls,
+                'aria-labelledby': this.ariaControls,
                 'data-pc-name': 'steppanel',
                 'data-p-active': this.active
             };
