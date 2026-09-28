@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevu
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { TransitionProps, VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, TransitionProps, VNode, VNodeProps } from 'vue';
 
 export declare type PanelMenuPassThroughOptionType = PanelMenuPassThroughAttributes | ((options: PanelMenuPassThroughMethodOptions) => PanelMenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -254,11 +254,11 @@ export interface PanelMenuRouterBindProps {
 /**
  * Defines valid properties in PanelMenu component.
  */
-export interface PanelMenuProps {
+export interface PanelMenuProps<T extends MenuItem = MenuItem> {
     /**
      * An array of menuitems.
      */
-    model?: MenuItem[] | undefined;
+    model?: T[] | undefined;
     /**
      * A map of keys to represent the expansion state in controlled mode.
      * @type {PanelMenuExpandedKeys}
@@ -297,7 +297,7 @@ export interface PanelMenuProps {
 /**
  * Defines valid slots in PanelMenu component.
  */
-export interface PanelMenuSlots {
+export interface PanelMenuSlots<T extends MenuItem = MenuItem> {
     /**
      * Custom content for each item.
      * @param {Object} scope - item slot's params.
@@ -306,7 +306,7 @@ export interface PanelMenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Whether there is a root menuitem
          */
@@ -346,7 +346,7 @@ export interface PanelMenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Style class of the item icon element.
          */
@@ -360,7 +360,7 @@ export interface PanelMenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Style class of the item icon element.
          */
@@ -403,11 +403,19 @@ export declare type PanelMenuEmits = EmitFn<PanelMenuEmitsOptions>;
  * @group Component
  *
  */
-declare const PanelMenu: DefineComponent<PanelMenuProps, PanelMenuSlots, PanelMenuEmits>;
+declare const PanelMenu: {
+    new <T extends MenuItem = MenuItem>(
+        props: PanelMenuProps<T>
+    ): {
+        $props: PanelMenuProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: PanelMenuSlots<T>;
+        $emit: EmitFn<PanelMenuEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        PanelMenu: DefineComponent<PanelMenuProps, PanelMenuSlots, PanelMenuEmits>;
+        PanelMenu: typeof PanelMenu;
     }
 }
 

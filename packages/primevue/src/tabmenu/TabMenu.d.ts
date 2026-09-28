@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevu
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type TabMenuPassThroughOptionType = TabMenuPassThroughAttributes | ((options: TabMenuPassThroughMethodOptions) => TabMenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -157,11 +157,11 @@ export interface TabMenuRouterBindProps {
 /**
  * Defines valid properties in TabMenu component.
  */
-export interface TabMenuProps {
+export interface TabMenuProps<T extends MenuItem = MenuItem> {
     /**
      * An array of menuitems.
      */
-    model?: MenuItem[] | undefined;
+    model?: T[] | undefined;
     /**
      * Active index of menuitem.
      * @defaultValue 0
@@ -199,7 +199,7 @@ export interface TabMenuProps {
 /**
  * Defines valid slots in TabMenu component.
  */
-export interface TabMenuSlots {
+export interface TabMenuSlots<T extends MenuItem = MenuItem> {
     /**
      * Custom content for each item.
      * @param {Object} scope - item slot's params.
@@ -208,7 +208,7 @@ export interface TabMenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Index of the menuitem
          */
@@ -234,7 +234,7 @@ export interface TabMenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Style class of the item icon element.
          */
@@ -267,11 +267,19 @@ export declare type TabMenuEmits = EmitFn<TabMenuEmitsOptions>;
  * @group Component
  *
  */
-declare const TabMenu: DefineComponent<TabMenuProps, TabMenuSlots, TabMenuEmits>;
+declare const TabMenu: {
+    new <T extends MenuItem = MenuItem>(
+        props: TabMenuProps<T>
+    ): {
+        $props: TabMenuProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: TabMenuSlots<T>;
+        $emit: EmitFn<TabMenuEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        TabMenu: DefineComponent<TabMenuProps, TabMenuSlots, TabMenuEmits>;
+        TabMenu: typeof TabMenu;
     }
 }
 

@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, HintedString, PassThrough } 
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type MegaMenuPassThroughOptionType = MegaMenuPassThroughAttributes | ((options: MegaMenuPassThroughMethodOptions) => MegaMenuPassThroughAttributes | string) | string | null | undefined;
 
@@ -237,11 +237,11 @@ export interface MegaMenuRouterBindProps {
 /**
  * Defines valid properties in MegaMenu component.
  */
-export interface MegaMenuProps {
+export interface MegaMenuProps<T extends MenuItem = MenuItem> {
     /**
      * An array of menuitems.
      */
-    model?: MenuItem[] | undefined;
+    model?: T[] | undefined;
     /**
      * Defines the orientation.
      * @defaultValue horizontal
@@ -298,7 +298,7 @@ export interface MegaMenuProps {
 /**
  * Defines valid slots in MegaMenu component.
  */
-export interface MegaMenuSlots {
+export interface MegaMenuSlots<T extends MenuItem = MenuItem> {
     /**
      * Custom start template.
      */
@@ -315,7 +315,7 @@ export interface MegaMenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Label property of the menuitem
          */
@@ -369,7 +369,7 @@ export interface MegaMenuSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Style class of the item icon element.
          */
@@ -407,11 +407,19 @@ export declare type MegaMenuEmits = EmitFn<MegaMenuEmitsOptions>;
  * @group Component
  *
  */
-declare const MegaMenu: DefineComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits>;
+declare const MegaMenu: {
+    new <T extends MenuItem = MenuItem>(
+        props: MegaMenuProps<T>
+    ): {
+        $props: MegaMenuProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: MegaMenuSlots<T>;
+        $emit: EmitFn<MegaMenuEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        MegaMenu: DefineComponent<MegaMenuProps, MegaMenuSlots, MegaMenuEmits>;
+        MegaMenu: typeof MegaMenu;
     }
 }
 

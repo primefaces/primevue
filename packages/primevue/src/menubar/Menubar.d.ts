@@ -11,7 +11,7 @@ import type { DefineComponent, DesignToken, EmitFn, PassThrough } from '@primevu
 import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { MenuItem } from 'primevue/menuitem';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { ButtonHTMLAttributes, VNode } from 'vue';
+import { AllowedComponentProps, ButtonHTMLAttributes, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 export declare type MenubarPassThroughOptionType = MenubarPassThroughAttributes | ((options: MenubarPassThroughMethodOptions) => MenubarPassThroughAttributes | string) | string | null | undefined;
 
@@ -230,11 +230,11 @@ export interface MenubarRouterBindProps {
 /**
  * Defines valid properties in Menubar component.
  */
-export interface MenubarProps {
+export interface MenubarProps<T extends MenuItem = MenuItem> {
     /**
      * An array of menuitems.
      */
-    model?: MenuItem[] | undefined;
+    model?: T[] | undefined;
     /**
      * The breakpoint to define the maximum width boundary.
      * @defaultValue 960px
@@ -276,7 +276,7 @@ export interface MenubarProps {
 /**
  * Defines valid slots in Menubar component.
  */
-export interface MenubarSlots {
+export interface MenubarSlots<T extends MenuItem = MenuItem> {
     /**
      * Custom start template.
      */
@@ -293,7 +293,7 @@ export interface MenubarSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Label property of the menuitem
          */
@@ -383,7 +383,7 @@ export interface MenubarSlots {
         /**
          * Menuitem instance
          */
-        item: MenuItem;
+        item: T;
         /**
          * Style class of the item icon element.
          */
@@ -410,11 +410,19 @@ export declare type MenubarEmits = EmitFn<MenubarEmitsOptions>;
  * @group Component
  *
  */
-declare const Menubar: DefineComponent<MenubarProps, MenubarSlots, MenubarEmits>;
+declare const Menubar: {
+    new <T extends MenuItem = MenuItem>(
+        props: MenubarProps<T>
+    ): {
+        $props: MenubarProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: MenubarSlots<T>;
+        $emit: EmitFn<MenubarEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        Menubar: DefineComponent<MenubarProps, MenubarSlots, MenubarEmits>;
+        Menubar: typeof Menubar;
     }
 }
 
