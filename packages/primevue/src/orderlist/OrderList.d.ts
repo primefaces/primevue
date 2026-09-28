@@ -12,7 +12,7 @@ import type { ComponentHooks } from '@primevue/core/basecomponent';
 import type { ButtonPassThroughOptions, ButtonProps } from 'primevue/button';
 import type { ListboxPassThroughOptions } from 'primevue/listbox';
 import type { PassThroughOptions } from 'primevue/passthrough';
-import { TransitionProps, VNode } from 'vue';
+import { AllowedComponentProps, ComponentCustomProps, TransitionProps, VNode, VNodeProps } from 'vue';
 
 export declare type OrderListPassThroughOptionType = OrderListPassThroughAttributes | ((options: OrderListPassThroughMethodOptions) => OrderListPassThroughAttributes | string) | string | null | undefined;
 
@@ -169,11 +169,11 @@ export interface OrderListState {
 /**
  * Defines valid properties in OrderList component.
  */
-export interface OrderListProps {
+export interface OrderListProps<T = any> {
     /**
      * Value of the component.
      */
-    modelValue?: any[];
+    modelValue?: T[];
     /**
      * Name of the field that uniquely identifies the a record in the data.
      */
@@ -181,7 +181,7 @@ export interface OrderListProps {
     /**
      * Selected items in the list.
      */
-    selection?: any[];
+    selection?: T[];
     /**
      * Defines whether metaKey is required or not for the selection.
      * When true metaKey needs to be pressed to select or unselect an item and
@@ -281,7 +281,7 @@ export interface OrderListProps {
 /**
  * Defines valid slots in OrderList component.
  */
-export interface OrderListSlots {
+export interface OrderListSlots<T = any> {
     /**
      * Custom header template.
      */
@@ -295,7 +295,7 @@ export interface OrderListSlots {
         /**
          * Item of the component
          */
-        item: any;
+        item: T;
         /**
          * Selection state
          */
@@ -313,7 +313,7 @@ export interface OrderListSlots {
         /**
          * Option of the component
          */
-        option: any;
+        option: T;
         /**
          * Selection state
          */
@@ -389,11 +389,19 @@ export declare type OrderListEmits = EmitFn<OrderListEmitsOptions>;
  * @group Component
  *
  */
-declare const OrderList: DefineComponent<OrderListProps, OrderListSlots, OrderListEmits>;
+declare const OrderList: {
+    new <T = any>(
+        props: OrderListProps<T>
+    ): {
+        $props: OrderListProps<T> & VNodeProps & AllowedComponentProps & ComponentCustomProps;
+        $slots: OrderListSlots<T>;
+        $emit: EmitFn<OrderListEmitsOptions>;
+    };
+};
 
 declare module 'vue' {
     export interface GlobalComponents {
-        OrderList: DefineComponent<OrderListProps, OrderListSlots, OrderListEmits>;
+        OrderList: typeof OrderList;
     }
 }
 
