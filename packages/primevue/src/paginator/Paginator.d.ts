@@ -161,7 +161,7 @@ export interface PaginatorPassThroughAttributes {
 /**
  * Defines current inline state in Paginator component.
  */
-export interface PaginatorState {
+export interface PaginatorState<PS extends number = number> {
     /**
      * Current index of first record as a number.
      */
@@ -169,7 +169,7 @@ export interface PaginatorState {
     /**
      * Current number of rows to display in new page as a number.
      */
-    d_rows: number;
+    d_rows: PS;
 }
 
 /**
@@ -191,7 +191,7 @@ export interface PaginatorContext {
 /**
  * Paginator page state metadata.
  */
-export interface PageState {
+export interface PageState<PS extends number = number> {
     /**
      * Index of first record
      */
@@ -199,7 +199,7 @@ export interface PageState {
     /**
      * Number of rows to display in new page
      */
-    rows: number;
+    rows: PS;
     /**
      * New page number
      */
@@ -213,7 +213,7 @@ export interface PageState {
 /**
  * Defines valid properties in Paginator component.
  */
-export interface PaginatorProps {
+export interface PaginatorProps<PS extends number = number> {
     /**
      * Number of total records.
      * @defaultValue 0
@@ -223,7 +223,7 @@ export interface PaginatorProps {
      * Data count to display per page.
      * @defaultValue 0
      */
-    rows?: number | undefined;
+    rows?: PS | undefined;
     /**
      * Zero-relative number of the first row to be displayed.
      * @defaultValue 0
@@ -237,7 +237,7 @@ export interface PaginatorProps {
     /**
      * Array of integer values to display inside rows per page dropdown.
      */
-    rowsPerPageOptions?: number[] | undefined;
+    rowsPerPageOptions?: readonly PS[] | undefined;
     /**
      * Template of the paginator, can either be a string or an object with key-value pairs to define templates per breakpoint. Available templates are the following;
      *
@@ -289,7 +289,7 @@ export interface PaginatorProps {
 /**
  * Defines valid slots in Paginator component.
  */
-export interface PaginatorSlots {
+export interface PaginatorSlots<PS extends number = number> {
     /**
      * Custom start template.
      * @param {Object} scope - start slot's params.
@@ -299,7 +299,7 @@ export interface PaginatorSlots {
          * Current state
          * @see PageState
          */
-        state: PageState;
+        state: PageState<PS>;
     }): VNode[];
     /**
      * Custom end template.
@@ -310,7 +310,7 @@ export interface PaginatorSlots {
          * Current state
          * @see PageState
          */
-        state: PageState;
+        state: PageState<PS>;
     }): VNode[];
     /**
      * @deprecated since v4.0. Use 'firsticon' slot instead.
@@ -432,7 +432,7 @@ export interface PaginatorSlots {
         /**
          * Number of rows to display in new page
          */
-        rows: number;
+        rows: PS;
         /**
          * New page number
          */
@@ -472,7 +472,7 @@ export interface PaginatorSlots {
         /**
          * Row change function.
          */
-        rowChangeCallback: (value: number) => void;
+        rowChangeCallback: (value: PS) => void;
         /**
          * Page change function.
          */
@@ -483,7 +483,7 @@ export interface PaginatorSlots {
 /**
  * Defines valid emits in Paginator component.
  */
-export interface PaginatorEmitsOptions {
+export interface PaginatorEmitsOptions<PS extends number = number> {
     /**
      * Emitted when the first changes.
      * @param {number} value - New value.
@@ -493,12 +493,12 @@ export interface PaginatorEmitsOptions {
      * Emitted when the rows changes.
      * @param {number} value - New value.
      */
-    'update:rows'(value: number): void;
+    'update:rows'(value: PS): void;
     /**
      * Callback to invoke when page changes, the event object contains information about the new state.
      * @param {PageState} event - New page state.
      */
-    page(event: PageState): void;
+    page(event: PageState<PS>): void;
 }
 
 export declare type PaginatorEmits = EmitFn<PaginatorEmitsOptions>;
