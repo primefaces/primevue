@@ -1,4 +1,5 @@
 {
     "main": "./ToastEventBus.js",
-    "module": "./ToastEventBus.js"
+    "module": "./ToastEventBus.js",
+    "types": "./ToastEventBus.d.ts"
 }
