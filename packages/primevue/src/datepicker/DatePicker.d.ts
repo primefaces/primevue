@@ -1171,14 +1171,14 @@ export interface DatePickerSlots {
 export interface DatePickerEmitsOptions {
     /**
      * Emitted when the value changes.
-     * @param {string | Date | string[] | Date[] | undefined} value - New value.
+     * @param {string | Date | string[] | Date[] | null} value - New value.
      */
-    'update:modelValue'(value: Date | Array<Date> | Array<Date | null> | undefined | null): void;
+    'update:modelValue'(value: Date | Array<Date> | Array<Date | null> | null): void;
     /**
      * Emitted when the value changes in uncontrolled mode.
-     * @param {string | Date | string[] | Date[] | undefined} value - New value.
+     * @param {string | Date | string[] | Date[] | null} value - New value.
      */
-    'value-change'(value: Date | Array<Date> | Array<Date | null> | undefined | null): void;
+    'value-change'(value: Date | Array<Date> | Array<Date | null> | null): void;
     /**
      * Callback to invoke when input field is being typed.
      * @param {Event} event - Browser event
