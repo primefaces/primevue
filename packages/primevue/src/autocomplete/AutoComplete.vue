@@ -107,6 +107,7 @@
                     @keydown="onKeyDown"
                     @input="onInput"
                     @change="onChange"
+                    enterkeyhint="enter"
                     v-bind="ptm('input')"
                 />
             </li>
