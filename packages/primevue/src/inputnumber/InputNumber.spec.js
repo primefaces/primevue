@@ -1,3 +1,5 @@
+import Form from '@primevue/forms/form';
+import FormField from '@primevue/forms/formfield';
 import { mount } from '@vue/test-utils';
 import InputNumber from './InputNumber.vue';
 
@@ -91,5 +93,92 @@ describe('InputNumber.vue', () => {
         await wrapper.setProps({ modelValue: 20, prefix: '%' });
 
         expect(wrapper.find('input.p-inputnumber-input').element._value).toBe('%20');
+    });
+
+    it('should allow clearing initialValue in FormField', async () => {
+        const formWrapper = mount(
+            {
+                template: `
+                    <Form>
+                        <FormField v-slot="$field" name="amount" :initialValue="10">
+                            <InputNumber :allowEmpty="true" />
+                            <span class="value">{{ $field.value === null ? 'null' : String($field.value) }}</span>
+                        </FormField>
+                    </Form>
+                `,
+                components: {
+                    Form,
+                    FormField,
+                    InputNumber
+                }
+            },
+            {
+                global: {
+                    components: {
+                        Form,
+                        FormField,
+                        InputNumber
+                    }
+                }
+            }
+        );
+
+        const input = formWrapper.find('input');
+        const inputNumber = formWrapper.findComponent(InputNumber);
+
+        expect(formWrapper.find('.value').text()).toBe('10');
+
+        input.element.value = '';
+        await inputNumber.vm.onInputBlur({ target: input.element });
+        await formWrapper.vm.$nextTick();
+
+        expect(formWrapper.find('.value').text()).toBe('null');
+        expect(input.element.value).toBe('');
+    });
+
+    it('should not treat undo/redo as special key input', async () => {
+        wrapper.vm.isSpecialChar = false;
+
+        await wrapper.vm.onInputKeyDown({
+            key: 'z',
+            ctrlKey: true,
+            metaKey: false,
+            altKey: false,
+            target: { value: '1' },
+            preventDefault: () => {}
+        });
+
+        expect(wrapper.vm.isSpecialChar).toBe(false);
+    });
+
+    it('should allow undo/redo on keypress', async () => {
+        const preventDefault = vi.fn();
+
+        await wrapper.vm.onInputKeyPress({
+            key: 'z',
+            metaKey: true,
+            ctrlKey: false,
+            preventDefault
+        });
+
+        expect(preventDefault).not.toHaveBeenCalled();
+    });
+
+    it('should restore previous value on undo', async () => {
+        const input = wrapper.find('input');
+
+        wrapper.vm.undoStack = ['1'];
+        input.element.value = '2';
+
+        await wrapper.vm.onInputKeyDown({
+            key: 'z',
+            metaKey: true,
+            ctrlKey: false,
+            shiftKey: false,
+            altKey: false,
+            preventDefault: () => {}
+        });
+
+        expect(input.element.value).toBe('1');
     });
 });
