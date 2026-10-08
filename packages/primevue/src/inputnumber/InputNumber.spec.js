@@ -41,6 +41,13 @@ describe('InputNumber.vue', () => {
         expect(wrapper.find('input.p-inputnumber-input').attributes()['aria-valuenow']).toBe('12');
     });
 
+    it('is keydown called when enter key pressed on virtual keyboard', async () => {
+        await wrapper.vm.onInputKeyDown({ code: '', key: 'Enter', target: { value: '12' }, preventDefault: () => {} });
+
+        expect(wrapper.emitted()['update:modelValue'][0]).toEqual([12]);
+        expect(wrapper.find('input.p-inputnumber-input').attributes()['aria-valuenow']).toBe('12');
+    });
+
     it('is keypress called when pressed a number', async () => {
         wrapper.find('input.p-inputnumber-input').element.setSelectionRange(2, 2);
 
