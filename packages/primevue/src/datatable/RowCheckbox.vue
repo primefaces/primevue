@@ -1,5 +1,13 @@
 <template>
-    <Checkbox :modelValue="checked" :binary="true" :disabled="$attrs.disabled" :aria-label="checkboxAriaLabel" @change="onChange" :unstyled="unstyled" :pt="getColumnPT('pcRowCheckbox')">
+    <Checkbox 
+        :modelValue="checked" 
+        :binary="true" 
+        :disabled="$attrs.disabled" 
+        :aria-label="checkboxAriaLabel" 
+        @change="onChange" 
+        @click.capture="onClickCapture"
+        :unstyled="unstyled" 
+        :pt="getColumnPT('pcRowCheckbox')">
         <template #icon="slotProps">
             <component v-if="rowCheckboxIconTemplate" :is="rowCheckboxIconTemplate" :checked="slotProps.checked" :class="slotProps.class" />
             <CheckIcon v-else-if="!rowCheckboxIconTemplate && slotProps.checked" :class="slotProps.class" v-bind="getColumnPT('pcRowCheckbox.icon')" />
@@ -31,6 +39,11 @@ export default {
             default: null
         }
     },
+    data() {
+        return {
+            lastClickEvent: null
+        };
+    },
     methods: {
         getColumnPT(key) {
             const columnMetaData = {
@@ -52,12 +65,26 @@ export default {
         getColumnProp() {
             return this.column.props && this.column.props.pt ? this.column.props.pt : undefined; //@todo:
         },
+        onClickCapture(event) {
+            this.lastClickEvent = event;
+            
+            if (event.shiftKey) {
+                event.preventDefault();
+                this.$nextTick(() => {
+                    this.onChange(event);
+                });
+            }
+        },
         onChange(event) {
             if (!this.$attrs.disabled) {
+                const eventToUse = this.lastClickEvent || event;
+                
                 this.$emit('change', {
-                    originalEvent: event,
+                    originalEvent: eventToUse,
                     data: this.value
                 });
+                
+                this.lastClickEvent = null;
             }
         }
     },
