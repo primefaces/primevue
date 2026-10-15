@@ -290,7 +290,7 @@ export interface SelectContext {
 /**
  * Defines valid properties in Select component.
  */
-export interface SelectProps {
+export interface SelectProps<T = any> {
     /**
      * Value of the component.
      */
@@ -306,7 +306,7 @@ export interface SelectProps {
     /**
      * An array of select items to display as the available options.
      */
-    options?: any[];
+    options?: T[];
     /**
      * Property name or getter function to use as the label of an option.
      */
