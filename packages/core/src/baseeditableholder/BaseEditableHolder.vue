@@ -77,7 +77,7 @@ export default {
             }
         },
         $formValue: {
-            immediate: false,
+            immediate: true,
             handler(newValue) {
                 if (this.$pcForm?.getFieldState(this.$formName) && newValue !== this.d_value) {
                     this.d_value = newValue;
