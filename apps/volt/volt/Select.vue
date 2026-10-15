@@ -19,7 +19,7 @@
             <TimesIcon @click="clearCallback" class="text-surface-400 absolute top-1/2 -mt-2 end-10" />
         </template>
         <template v-for="(_, slotName) in $slots" #[slotName]="slotProps">
-            <slot :name="slotName" v-bind="slotProps ?? {}" />
+            <slot :name="slotName as unknown" v-bind="slotProps ?? {}" />
         </template>
     </Select>
 </template>
@@ -29,12 +29,14 @@ import ChevronDownIcon from '@primevue/icons/chevrondown';
 import SearchIcon from '@primevue/icons/search';
 import SpinnerIcon from '@primevue/icons/spinner';
 import TimesIcon from '@primevue/icons/times';
-import Select, { type SelectPassThroughOptions, type SelectProps } from 'primevue/select';
+import Select, { type SelectPassThroughOptions, type SelectProps, type SelectSlots } from 'primevue/select';
 import { ref } from 'vue';
 import { ptViewMerge } from './utils';
 
 interface Props extends /* @vue-ignore */ SelectProps {}
 defineProps<Props>();
+interface Slots extends /* @vue-ignore */ SelectSlots {}
+defineSlots<Slots>();
 
 const theme = ref<SelectPassThroughOptions>({
     root: `inline-flex cursor-pointer relative select-none rounded-md p-fluid:flex
