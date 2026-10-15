@@ -17,6 +17,7 @@ export function useStyle(css, options = {}) {
     const isLoaded = ref(false);
     const cssRef = ref(css);
     const styleRef = ref(null);
+    let injectTarget = null;
 
     const defaultDocument = isClient() ? window.document : undefined;
     const {
@@ -31,6 +32,7 @@ export function useStyle(css, options = {}) {
         onMounted: onStyleMounted = undefined,
         onUpdated: onStyleUpdated = undefined,
         onLoad: onStyleLoaded = undefined,
+        styleContainer = undefined,
         props = {}
     } = options;
 
@@ -39,11 +41,11 @@ export function useStyle(css, options = {}) {
     /* @todo: Improve _options params */
     const load = (_css, _props = {}) => {
         if (!document) return;
-
+        injectTarget = styleContainer || document.head;
         const _styleProps = { ...props, ..._props };
         const [_name, _id, _nonce] = [_styleProps.name || name, _styleProps.id || id, _styleProps.nonce || nonce];
 
-        styleRef.value = document.querySelector(`style[data-primevue-style-id="${_name}"]`) || document.getElementById(_id) || document.createElement('style');
+        styleRef.value = injectTarget.querySelector(`style[data-primevue-style-id="${_name}"]`) || (_id ? injectTarget.querySelector(`#${_id}`) : null) || document.createElement('style');
 
         if (!styleRef.value.isConnected) {
             cssRef.value = _css || css;
@@ -54,7 +56,7 @@ export function useStyle(css, options = {}) {
                 media,
                 nonce: _nonce
             });
-            first ? document.head.prepend(styleRef.value) : document.head.appendChild(styleRef.value);
+            first ? injectTarget.prepend(styleRef.value) : injectTarget.appendChild(styleRef.value);
             setAttribute(styleRef.value, 'data-primevue-style-id', _name);
             setAttributes(styleRef.value, _styleProps);
             styleRef.value.onload = (event) => onStyleLoaded?.(event, { name: _name });
@@ -78,7 +80,7 @@ export function useStyle(css, options = {}) {
     const unload = () => {
         if (!document || !isLoaded.value) return;
         stop();
-        isExist(styleRef.value) && document.head.removeChild(styleRef.value);
+        isExist(styleRef.value) && injectTarget.removeChild(styleRef.value);
         isLoaded.value = false;
         styleRef.value = null;
     };
