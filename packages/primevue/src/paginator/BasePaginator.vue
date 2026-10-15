@@ -37,6 +37,14 @@ export default {
         alwaysShow: {
             type: Boolean,
             default: true
+        },
+        rowsPerPageDropdownAppendTo: {
+            type: [String, Object],
+            default: 'body'
+        },
+        jumpToPageDropdownAppendTo: {
+            type: [String, Object],
+            default: 'body'
         }
     },
     style: PaginatorStyle,
